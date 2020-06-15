@@ -1,0 +1,120 @@
+import { SampleBase } from "../../sample-base";
+
+
+import { html } from 'lit-html';
+import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
+import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
+import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
+import { IgcShapeDataSource } from 'igniteui-webcomponents-core';
+import { IgcGeographicPolylineSeriesComponent } from 'igniteui-webcomponents-maps';
+import { DataContext } from 'igniteui-webcomponents-core';
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+ModuleManager.register(
+    IgcDataChartInteractivityModule,
+    IgcGeographicMapModule
+);
+
+let templateHTML = `
+<div class="sample-container">
+    <igc-geographic-map id="geoMap" width="100%" height="100%">
+
+    </igc-geographic-map>
+</div>
+`;
+
+export class MapBindingShapefilePolylines extends SampleBase {
+
+    public static htmlTagName: string = SampleBase.tag("MapBindingShapefilePolylines");
+    public static register(): any {
+        window.customElements.define(this.htmlTagName, MapBindingShapefilePolylines); return this;
+    }
+
+    private geoMap: IgcGeographicMapComponent;
+
+    constructor() {
+        super();
+        this.onDataLoaded = this.onDataLoaded.bind(this);
+    }
+
+    connectedCallback() {
+        this.innerHTML = templateHTML;
+
+        this.geoMap = document.getElementById("geoMap") as IgcGeographicMapComponent;
+        this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
+
+        const url = "https://static.infragistics.com/xplatform";
+        // loading a shapefile with geographic polygons
+        const sds = new IgcShapeDataSource();
+        sds.importCompleted = this.onDataLoaded;
+        sds.shapefileSource = url + "/shapes/WorldCableRoutes.shp";
+        sds.databaseSource  = url + "/shapes/WorldCableRoutes.dbf";
+        sds.dataBind();
+    }
+
+    public onDataLoaded(sds: IgcShapeDataSource, e: any) {
+        const shapeRecords = sds.getPointData();
+        console.log("loaded WorldCities.shp " + shapeRecords.length);
+
+        const geoPolylines: any[] = [];
+        // parsing shapefile data and creating geo-polygons
+        for (const record of shapeRecords) {
+            // using field/column names from .DBF file
+            const route = {
+                points: record.points,
+                name: record.fieldValues.Name,
+                capacity: record.fieldValues.CapacityG,
+                distance: record.fieldValues.DistanceKM
+            };
+            geoPolylines.push(route);
+        }
+
+        const geoSeries = new IgcGeographicPolylineSeriesComponent();
+        geoSeries.name = "series";
+        geoSeries.dataSource = geoPolylines;
+        geoSeries.shapeMemberPath = "points";
+        geoSeries.shapeFilterResolution = 0.0;
+        geoSeries.shapeStrokeThickness = 3;
+        geoSeries.shapeStroke = "rgb(82, 82, 82, 0.4)";
+        geoSeries.tooltipTemplate = this.createTooltip;
+
+        this.geoMap.series.add(geoSeries);
+    }
+
+    public createTooltip(context: any) {
+        const dataContext = context.dataContext as DataContext;
+        if (!dataContext) return null;
+
+        const series = dataContext.series as any;
+        if (!series) return null;
+
+        const dataItem = dataContext.item as any;
+        if (!dataItem) return null;
+
+        const capacity = dataItem.capacity + " GB/s";
+        const distance = dataItem.distance + " KM";
+
+        return html`<div>
+            <div className="tooltipBox">
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Name</div>
+                    <div className="tooltipVal">${dataItem.name}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Distance</div>
+                    <div className="tooltipVal">${distance}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Capacity</div>
+                    <div className="tooltipVal">${capacity}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Service</div>
+                    <div className="tooltipVal">${dataItem.service}</div>
+                </div>
+            </div>
+        </div>`;
+    }
+
+
+}
