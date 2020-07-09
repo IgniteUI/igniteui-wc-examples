@@ -1,76 +1,74 @@
-const webpack = require('webpack');
-const path = require('path');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const nodeEnv = process.env.NODE_ENV || 'development';
-const isProd = nodeEnv === 'production';
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const path = require('path');
+const webpack = require('webpack');
 
-console.log("isProd: " + isProd);
+module.exports = env => {
+  console.log("env:");
+  console.log(env);
+  const isLegacy = !!env.legacy && !(env.legacy == "false");
+  const isProd = env.NODE_ENV === 'production';
+  return {
+    entry: isLegacy ? [
+      path.resolve(__dirname, 'node_modules/@webcomponents/custom-elements'),
+      path.resolve(__dirname, 'node_modules/@webcomponents/template'),
+      path.resolve(__dirname, 'src')
+    ] : path.resolve(__dirname, 'src'),
+    devtool: isProd ? false : 'source-map',
+    output: {
+      filename: isProd ? '[chunkhash].bundle.js' : '[hash].bundle.js',
+      path: path.resolve(__dirname, 'dist'),
+    },
 
-const plugins = [
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify(nodeEnv)
-    }
-  }),
-  new HtmlWebpackPlugin({
-    title: 'Typescript Webpack Starter',
-    template: '!!ejs-loader!src/index.html'
-  }),
-  new webpack.LoaderOptionsPlugin({
-    options: {
-      tslint: {
-        emitErrors: true,
-        failOnHint: true
-      }
-    }
-  })
-];
+    resolve: {
+      mainFields: ['fesm2015', 'module', 'main'],
+      extensions: ['.ts', '.js', '.json']
+    },
 
-var config = {
-  devtool: isProd ? 'source-map' : 'source-map',
-  context: path.resolve('./src'),
-  entry: {
-    app: './index.ts'
-  },
-  output: {
-    path: path.resolve('./dist'),
-    filename: '[name].bundle.js'
-  },
-  module: {
-    rules: [
-      {
-        enforce: 'pre',
-        test: /\.(js|ts)$/,
-        include: path.resolve('./src'),
-        use: ['awesome-typescript-loader', 'source-map-loader']
-      },
-      !isProd
-        ? {
-            test: /\.(js|ts)$/,
-            loader: 'istanbul-instrumenter-loader',
-            include: path.resolve('./src'),
-            query: {
-              esModules: true
-            }
-          }
-        : null,
-      { test: /\.html$/, loader: 'html-loader' },
-      { test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
-    ].filter(Boolean),
-    
-  },
-  resolve: {
-    extensions: ['.ts', '.js'],
-    plugins: [new TsconfigPathsPlugin({ configFile: path.join(__dirname, 'tsConfig.json'), extensions: ['.js', '.jsx', '.ts', '.tsx']  })]    
-  },
-  plugins: plugins,
-  devServer: {
-    contentBase: path.join(__dirname, 'dist/'),
-    compress: true,
-    port: 3000,
-    hot: true
-  }
+    module: {
+      rules: [{ test: /\.(ts|js)$/, loader: 'babel-loader',
+        options: {
+          "compact": isProd ? true : false,
+          "presets": [
+            ["@babel/preset-env", {
+              "useBuiltIns": "usage",
+              "corejs": 3,
+              "targets": {
+                "browsers": isLegacy ? ["defaults"] : [
+                  "last 2 Chrome versions",
+                  "last 2 Safari versions", 
+                  "last 2 iOS versions", 
+                  "last 2 Firefox versions",
+                  "last 2 Edge versions"]
+              }
+            }],
+            "@babel/preset-typescript"
+          ],
+          "plugins": [
+            "@babel/plugin-proposal-class-properties",
+            "@babel/plugin-transform-runtime"
+          ]
+        },
+        exclude: 
+        function(modulePath) {
+          return /node_modules/.test(modulePath) &&
+            !/igniteui-webcomponents/.test(modulePath) &&
+            !/lit-html/.test(modulePath);
+        }
+    }],
+    },
+
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: env.NODE_ENV
+        }
+      }),
+      new HtmlWebpackPlugin({
+        title: 'for-cs',
+        template: 'index.html'
+      }),
+      new ForkTsCheckerWebpackPlugin()
+    ]
+  };
 };
-
-module.exports = config;
