@@ -1,29 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
-    "moduleResolution": "node",
-    "declaration": true,
-    "sourceMap": true,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "outDir": "dist",
-    "lib": ["es2017", "dom", "scripthost"],
-    "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
-    "removeComments": true,
-    "baseUrl": ".",
-    "paths": {
-      "igniteui-core/*": ["src/ig/igniteui-core/*", "node_modules/@infragistics/igniteui-webcomponents-core/ES5/*"],
-      "igniteui-charts/*": ["src/ig/igniteui-charts/*", "node_modules/@infragistics/igniteui-webcomponents-charts/ES5/*"],
-      "igniteui-grids/*": ["src/ig/igniteui-grids/*", "node_modules/@infragistics/igniteui-webcomponents-grids/ES5/*"],
-      "igniteui-gauges/*": ["src/ig/igniteui-gauges/*", "node_modules/@infragistics/igniteui-webcomponents-gauges/ES5/*"],
-      "igniteui-webcomponents-core/ES5/*": ["src/ig/igniteui-core/*", "node_modules/@infragistics/igniteui-webcomponents-core/ES5/*"],
-      "igniteui-webcomponents-charts/ES5/*": ["src/ig/igniteui-charts/*", "node_modules/@infragistics/igniteui-webcomponents-charts/ES5/*"],
-      "igniteui-webcomponents-gauges/ES5/*": ["src/ig/igniteui-gauges/*", "node_modules/@infragistics/igniteui-webcomponents-gauges/ES5/*"],
-      "igniteui-webcomponents-grids/ES5/*": ["src/ig/igniteui-grids/*", "node_modules/@infragistics/igniteui-webcomponents-grids/ES5/*"],
-      "igniteui-testhost/*": ["src/ig/igniteui-testhost/*"]
-    },
+      "noImplicitReturns": true,
+      "esModuleInterop": true,
+      "noImplicitAny": true,
+      "declarationDir": "dist/types",
+      "moduleResolution": "node",
+      "declaration": true,
+      "target": "es2015",
+      "module": "es2015",
+      "strict": true
   },
-  "exclude": ["node_modules", "dist"]
+  "include": [
+      "src/**/*"
+  ],
+  "exclude": [
+      "node_modules",
+      "dist"
+  ]
 }
