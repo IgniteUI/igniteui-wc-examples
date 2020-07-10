@@ -1,4 +1,4 @@
-import { HeatTileGeneratorWebWorker } from 'igniteui-react-core';
+import { HeatTileGeneratorWebWorker } from 'igniteui-webcomponents-core';
 
 let worker: Worker = self as any;
 worker.onmessage = HeatTileGeneratorWebWorker.onmessage;
@@ -6,8 +6,8 @@ worker.onmessage = HeatTileGeneratorWebWorker.onmessage;
 HeatTileGeneratorWebWorker.postmessage = postMessageFunction;
 HeatTileGeneratorWebWorker.start();
 
-function postMessageFunction(){
-    (self.postMessage as any).apply(self, Array.prototype.slice.call(arguments));
+function postMessageFunction() {
+    self.postMessage.apply(self, Array.prototype.slice.call(arguments));
 }
 
 export default {} as typeof Worker & (new () => Worker);

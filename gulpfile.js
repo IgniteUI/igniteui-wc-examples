@@ -78,6 +78,8 @@ let contains = require('gulp-contains');
    
 // }
 
+
+
 function toTitleCase(str, separator) {
     if (separator === undefined) { separator = ' '; }
     return str.toLowerCase().split(separator).map(function(word) {
@@ -92,25 +94,26 @@ function splitCamel(orgStr) {
 let templates = [];
 let templateSharedFiles = [];
 let templateFiles = "./templates/sample";
-let templatesShared = "./templates/shared/src";
+let templatesShared = "./templates/shared/src/";
+let templateFolderPath = "C:\\Users\\mdifilippo\\Documents\\GitHub\\igniteui-web-comp-examples\\templates\\shared\\src\\";
 
+function getNamesSharedFiles(cb){
+    return gulp.src(templatesShared + '/*')
+        .pipe(es.map(function(file, fileCallback) {                       
+            let t = path.relative(templatesShared, file.path);
+            let stat = fs.lstatSync(file.path);            
+            if(!stat.isDirectory()) {
+                //console.log(file.path);       
+                templateSharedFiles.push(t);
+            } 
+            fileCallback();
+    }))
+    .on("end", function(){
+        cb();
+    });
+}
+exports.getNamesSharedFiles = getNamesSharedFiles;
 
-// function getTemplates() {
-//     return gulp.src(templates + './**/*')
-//         .pipe(es.map(function(file, cb) {           
-//             let t = path.relative(templates, file.path);
-//             //console.log(t);
-//             let stat = fs.lstatSync(file.path);
-//                 if(!stat.isDirectory()) {
-//                     let f = fs.readFileSync(file.path);
-//                     templateFiles.push({name: t, content: f.toString()});
-//                 } 
-//             cb();
-//     }));
-// }
-// exports.getTemplates = getTemplates;
-
-//Get SharedTemplate Files
 function getSharedFiles() {
     return gulp.src(templatesShared + './*')
         .pipe(es.map(function(file, cb) {                       
@@ -132,7 +135,7 @@ function mkDirectory(directoryName){
     }  
 }
 
-function portingSamples() {
+function portingSamples(cb) {
     del.sync("./samples/**/*.*", {force:true});
     del.sync("./samples/**", {force:true});
 
@@ -306,7 +309,17 @@ function portingSamples() {
         
         sample.tsDirectory = directory + "\\" + folderName + "\\src";
         sample.tsCode = tsCode.join("\n");//check string for imports eg. igniteui-webcomponents-charts
-        sample.tsCode = sample.tsCode.replace('import { SampleBase } from "../../sample-base";', "");
+
+        //trim
+        sample.tsCode = sample.tsCode.replace("../../../", "./");
+        sample.tsCode = sample.tsCode.replace("../", "./");
+        sample.tsCode = sample.tsCode.replace("./../", "./");
+        sample.tsCode = sample.tsCode.replace("utilities/", "");
+        sample.tsCode = sample.tsCode.replace("../utilities", "")
+        sample.tsCode = sample.tsCode.replace("../data-chart/utilities/", "./");
+
+
+        sample.tsCode = sample.tsCode.replace('import { SampleBase } from "./sample-base";', "");
         // sample.tsCode = sample.tsCode.replace(' extends SampleBase', "");
         sample.tsCode = sample.tsCode.replace(" extends SampleBase {", " {\n");
         sample.tsCode = sample.tsCode.replace('this.innerHTML = templateHTML;', "");
@@ -315,15 +328,19 @@ function portingSamples() {
         sample.tsCode = sample.tsCode.replace('public static htmlTagName: string = SampleBase.tag', "");
         sample.tsCode = sample.tsCode.replace('public static register(): any {', "");
         
-        
-        let regex = new RegExp(/\(".*"\);/gm);
-        sample.tsCode = sample.tsCode.replace(regex, "");
+        //let regex = new RegExp(/\(".*"\);/gm);
+        //sample.tsCode = sample.tsCode.replace(regex, "");
+        sample.tsCode = sample.tsCode.replace('("' + sample.tsName + '");', "");
         let regex2 = new RegExp(/\(this.htmlTagName,\s.*\);\sreturn this\;\s*}/gm);
         sample.tsCode = sample.tsCode.replace(regex2, "");
 
-        sample.tsCode = sample.tsCode.replace("../../../", "./");
-        sample.tsCode = sample.tsCode.replace("utilities/", "");
-        sample.tsCode = sample.tsCode.replace("../utilities", "")
+        
+        let oldImport = new RegExp(/from\s\"/gm);
+        let newImport = new RegExp(/from\s\'/gm);
+        sample.tsCode = sample.tsCode.replace(oldImport, "from '");
+        sample.tsCode = sample.tsCode.replace('";', "';");
+        sample.tsCode = sample.tsCode.replace('css";', "css';");
+        sample.tsCode = sample.tsCode.replace('import "', "import '");
 
         //sample.tsCode = sample.tsCode.replace(new RegExp(/\)\s*{\s*\n\s*/gm), "{\n\t\t")
         sample.tsCode = sample.tsCode.replace(new RegExp(/\n\n\s*\n/gm), "\n")
@@ -333,7 +350,8 @@ function portingSamples() {
         sample.htmlCode = templateHtml.replace("insertHtml", sample.htmlCode);
         sample.htmlDirectory = directory + "\\" + folderName;
         sample.packageCode = packageJson;
-        
+        sample.sharedFiles = [];
+        sample.sharedCSS = [];
         sample.packageVersion = ': "^1.1.1"';
         sample.dockManagerVersion = ': "^1.0.1",';
         sample.packages = ['"igniteui-webcomponents-core": "^1.1.1"'];
@@ -375,8 +393,74 @@ function portingSamples() {
                 let combinedPackages = sample.packages.join(",\n      ") + ",";
                 sample.packageCode = sample.packageCode.replace("insertPACKAGES", combinedPackages);
         
+            let tsLines = sample.tsCode.split("\n");
+            tsLines.forEach(line => {
+                let tsFrom = line.indexOf(" from './");
+                let tsSemicolon = line.indexOf("';");
+                if(tsFrom > 0 && tsSemicolon > 0)
+                {                
+                    let sharedFile = line.substring(tsFrom + 9);
+                    sharedFile = sharedFile.replace("';", "");
+                    //console.log(sharedFile);
+
+                    if(sharedFile.toString().match("WorldHierarchicalData")){
+                        sample.tsCode = sample.tsCode.replace("WorldHierarchicalData", "SampleTreeData")
+                        sharedFile = "SampleTreeData";
+                    }
+                    if(sharedFile.toString().match("DataGridDataGridSharedData")){
+                        sample.tsCode = sample.tsCode.replace("DataGridDataGridSharedData", "DataGridSharedData")
+                        sharedFile = "DataGridSharedData";
+                    }
+                    if(sharedFile.toString().match("FinancialData")){
+                        sample.tsCode = sample.tsCode.replace("FinancialData", "LiveFinancialData")
+                        sharedFile = "LiveFinancialData";
+                    }
+                    
+                    sample.sharedFiles.push(sharedFile);  
+                    //console.log(sharedFile);
+                }
+            });
+            
+            // let regex4 = new RegExp(/\'.\/.*\'\;/gm);            
+            // let sharedFile = sample.tsCode.toString().match(regex4);
+            //sharedFile.replace(regex4, new RegExp(/.*/gm));
+            // if (sharedFile != null)
+            // {                
+            //     // sharedFile = sharedFile.toString().replace(/\W/g, '');
+
+            //     if(sharedFile.indexOf("css") == -1)
+            //     {
+
+            //         //check for descrencie
+            //         if(sharedFile == "WorldHierarchicalData"){
+            //             sample.tsCode = sample.tsCode.replace("WorldHierarchicalData", "SampleTreeData")
+            //             sharedFile = "SampleTreeData";
+            //         }
+            //         if(sharedFile == "DataGridDataGridSharedData"){
+                        
+            //             sample.tsCode = sample.tsCode.replace("DataGridDataGridSharedData", "DataGridSharedData")
+            //             sharedFile = "DataGridSharedData";
+            //         }
+            //         if(sharedFile == "FinancialData"){
+            //             sample.tsCode = sample.tsCode.replace("FinancialData", "LiveFinancialData")
+            //             sharedFile = "LiveFinancialData";
+            //         }                    
+
+            //         sample.sharedFiles.push(sharedFile);  
+            //         //console.log(sharedFile + " " + sample.tsName);
+            //     }
+            //     else 
+            //     {
+            //         sample.tsCode = sample.tsCode.replace(sharedFile, "index");
+            //         sample.sharedCSS.push(sharedFile);
+            //         //console.log(sharedFile + " " + sample.tsName);
+            //     }       
+
+            // }
+
+        //console.log(sample.sharedFiles);
         extractedSamples.push(sample);
- 
+               
     }))
     // save ts and html code separately
    .on("end", function() {
@@ -426,45 +510,46 @@ function portingSamples() {
         // Write html file
         fs.writeFileSync(item.mainDirectory + "\\index.html", item.htmlCode);
 
+        // Write template files
         fs.writeFileSync(item.mainDirectory + "\\package.json", item.packageCode);
         fs.writeFileSync(item.mainDirectory + "\\tsconfig.json", tsconfigJson);
         fs.writeFileSync(item.mainDirectory + "\\webpack.config.js", webpackConfig);
         fs.writeFileSync(item.mainDirectory + "\\ReadMe.md", readMe);
         fs.writeFileSync(item.mainDirectory + "\\sandbox.config.json", sandboxConfig);
+
+            // iterate item.sharedFiles
+            item.sharedFiles.forEach(sampleSharedFile =>{
+                //console.log(sampleSharedFile);
+                console.log(item.tsName + " " + item.sharedFiles);
+                //console.log(templateFolderPath + sampleSharedFile);
+                //let sharedName = sampleSharedFile + ".ts";
+                //fs.readFileSync(templatesShared + sharedName);
+                //console.log(readSharedFile);
+                //fs.writeFileSync(item.tsDirectory  + "\\" + sampleSharedFile + ".ts", readSharedFile);
+
+                templateSharedFiles.forEach(templatedSharedFile =>{
+                    if(templatedSharedFile.indexOf(sampleSharedFile))
+                    {
+                        
+                        sharedFileDirectory = templateFolderPath + templatedSharedFile;
+                        
+                        //read templatedSharedFile
+                        //console.log(sharedFileDirectory);
+                        //let readSharedFile = fs.readFileSync(sharedFileDirectory, "utf8");
+                        //console.log(readSharedFile);
+                        //fs.writeFileSync(item.tsDirectory  + "\\" + templatedSharedFile, readSharedFile);
+                    }
+                })
+            });
+
+            //console.log(templateFolderPath);
+            //let readCSSFile = fs.readFileSync(templateFolderPath + item.sharedCSS, "utf8");
+            //fs.writeFileSync(item.tsDirectory  + "\\" + readCSSFile + ".ts", readSharedFile);
+            
     });
 
-    getSharedFiles();
-    //console.log(templateSharedFiles);
-    templateSharedFiles.forEach(item => {
-        //console.log(item.mainDirectory + "\\" + item.fileName);
-        //fs.writeFileSync(item.mainDirectory + "\\" + item.fileName)
-    })
-     
-    
-    
-    // Write sample.html code to file in html directory
-    // TODO add code for saving ts and html files using extractedSamples array
-
-    // console.log("About to save ts and html files");
-
-    
-    })
-    // .pipe(rename(function (path) {
-    //     path.dirname += "/" + path.basename;
-    // }))
-    //.pipe(gulp.dest('./samples/'))  
-    //.pipe(gulp.dest('/src/'))
-    // .pipe(es.map(function(file, cb) {
-   
-    //     fs.writeFileSync(file.dirname + "/index.html", sample.html);
-    //     cb(null, file);
-    // }))
-
-
-    // create folder
-    // WARNING 
-    // .pipe(gulp.dest('./samples/'))    
-    // .pipe()   
+        cb();
+    }) 
 
 }
 exports.portingSamples = portingSamples;
@@ -474,8 +559,11 @@ function scripts() {
 
 exports.scripts = scripts;
 
-exports.all = gulp.series(portingSamples,
-    // getTemplates,   
-    // getSharedFiles,  
-    scripts);
+exports.all = all = gulp.series(
+    
+    getNamesSharedFiles,
+    portingSamples,
+    
+    //scripts
+    );
 
