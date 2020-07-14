@@ -192,7 +192,6 @@ function portingSamples(cb) {
    return gulp.src(['./../samples-web-component/src/samples/**/*.ts',
                       '!./../samples-web-component/src/samples/**/router*.ts',
                     '!./../samples-web-component/src/samples/**/shared*.ts',
-                    '!./../samples-web-component/src/samples/**/*data*.ts',
                     '!./../samples-web-component/src/samples/**/*Utility.ts',
                     '!./../samples-web-component/src/samples/**/*Utils.ts',
                     '!./../samples-web-component/src/samples/**/heatworker.worker.ts',
@@ -201,8 +200,9 @@ function portingSamples(cb) {
                     '!./../samples-web-component/src/samples/**/*Shared*.ts',
                     '!./../samples-web-component/src/samples/**/*Stocks*.ts',
                     '!./../samples-web-component/src/samples/utiltiies/*.ts',
+                    '!./../samples-web-component/src/samples/charts/data-chart/utilities/*.ts',
                     '!./../samples-web-component/src/samples/**/FinancialData.ts',
-                    '!./../samples-web-component/src/samples/**/*Data.ts',
+                    // '!./../samples-web-component/src/samples/**/*Data.ts',
                     
     ])
     .pipe(rename(function (file) {
@@ -463,17 +463,28 @@ function portingSamples(cb) {
                 }
 
                 //TODO add js files
-                if(jsImport > 0 && tsSemicolon > 0)
-                {
-                    let jsSharedFile = line.substring(jsFrom + 8, tsSemicolon);
-                    jsSharedFile = jsSharedFile.replace("\n", "");
-                    if(jsSharedFile.toString().match("odatajs-4.0.0")){   
-                        console.log(jsSharedFile + " " + sample.tsName);
-                        jsSharedFile = "odatajs-4.0.0";
-                    }
-                    sample.jsSharedFiles.push(jsSharedFile + '.js');
-                }
+                // if(jsImport > 0 && tsSemicolon > 0)
+                // {
+                //     let jsSharedFile = line.substring(jsFrom + 8, tsSemicolon);
+                //     jsSharedFile = jsSharedFile.replace("\n", "");
+                //     if(jsSharedFile.toString().match("odatajs-4.0.0")){   
+                //         console.log(jsSharedFile + " " + sample.tsName);
+                //         jsSharedFile = "odatajs-4.0.0";
+                //     }
+                //     sample.jsSharedFiles.push(jsSharedFile + '.js');
+                // }
+                
             });
+
+            if(sample.tsCode.indexOf("heatworker.worker") > 0)
+            {
+                sample.sharedFiles.push("heatworker.worker.ts");
+            }
+            else if(sample.tsCode.indexOf("odatajs-4.0.0") > 0)
+            {
+                sample.sharedFiles.push("odatajs-4.0.0.js");
+            }
+            
             
         //console.log(sample.sharedFiles);
         extractedSamples.push(sample);
