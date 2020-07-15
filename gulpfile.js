@@ -370,6 +370,7 @@ function portingSamples(cb) {
                 }                
                 if(sample.tsCode.toString().match("igniteui-webcomponents-spreadsheet-chart-adapter"))
                 {
+                    sample.packages.push('"igniteui-webcomponents-charts"' + sample.packageVersion);   
                     sample.packages.push('"igniteui-webcomponents-spreadsheet-chart-adapter"' + sample.packageVersion);
                 }
                 if(sample.tsCode.toString().match("igniteui-webcomponents-gauges"))
@@ -390,6 +391,12 @@ function portingSamples(cb) {
                     sample.packages.push('"igniteui-dockmanager"' + sample.dockManagerVersion);
                 }
 
+                if(sample.tsCode.match("ExcelUtility"))
+                {
+                    sample.packages.push('"file-saver": "^2.0.2"');
+                    sample.packages.push('"@types/file-saver": "^2.0.1"');
+                }
+           
                 let combinedPackages = sample.packages.join(",\n      ") + ",";
                 sample.packageCode = sample.packageCode.replace("insertPACKAGES", combinedPackages);
                 // alternative
@@ -418,7 +425,7 @@ function portingSamples(cb) {
                         sharedFile = "DataGridSharedData";
                     }
                     
-                    if(sharedFile.toString().match("FinancialData")){
+                    if(sharedFile === "FinancialData"){
                         sample.tsCode = replaceAll(sample.tsCode, "FinancialData", "LiveFinancialData");
                         sharedFile = "LiveFinancialData";
                     }
@@ -428,6 +435,8 @@ function portingSamples(cb) {
                         sample.sharedFiles.push("WorldLocations" + '.ts');
                         sample.sharedFiles.push("WorldUtils" + '.ts');
                     }
+
+                    
                     
                     sample.sharedFiles.push(sharedFile + '.ts');  
                 }
