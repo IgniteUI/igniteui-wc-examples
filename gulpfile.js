@@ -12,8 +12,6 @@ let del = require('del');
 let es = require('event-stream');
 let shell = require('gulp-shell');
 let replace = require('gulp-replace');
-//let replace = require('gulp-regex-replace');
-var footer = require('gulp-footer');
 let contains = require('gulp-contains');
 // function log(msg) {
     // console.log('gulpfile.js ' + msg);
