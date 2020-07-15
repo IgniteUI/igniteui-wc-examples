@@ -1,6 +1,6 @@
 
 
-export default class StringUtils {
+export class StringUtils {
 
     public static stringEndsWith(str: string, check: string): boolean {
         let ind = str.lastIndexOf(check);

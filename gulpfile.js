@@ -435,6 +435,11 @@ function portingSamples(cb) {
                 }
             });
 
+            for (let name of templateSharedFiles) {
+                sample.tsCode = sample.tsCode.replace("import " + name, "import {" + name);
+                sample.tsCode = sample.tsCode.replace(" " + name + " from", " " + name + " } from");
+            }
+
             if(sample.tsCode.indexOf("heatworker.worker") > 0)
             {
                 sample.sharedFiles.push("heatworker.worker.ts");

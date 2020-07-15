@@ -1,7 +1,7 @@
-import WorldLocations from "./WorldLocations";
-import WorldUtils from "./WorldUtils"
+import { WorldLocations } from "./WorldLocations";
+import { WorldUtils } from "./WorldUtils"
 
-export default class WorldConnections {
+export class WorldConnections {
 
     public static airports: any[] = [];
     public static airportsLookup = new Map<string, any>();
