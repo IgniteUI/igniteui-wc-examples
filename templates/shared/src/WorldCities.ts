@@ -1,6 +1,6 @@
 
 
-export default class WorldCities {
+export class WorldCities {
 
     public static getItems(): any[] {
         const items: any[] = [

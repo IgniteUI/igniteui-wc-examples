@@ -1,6 +1,6 @@
 
 
-export default class WorldLocations {
+export class WorldLocations {
 
     public static locations: any[] = [];
     public static capitals: any[] = [];

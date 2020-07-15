@@ -1,4 +1,4 @@
-export default class WorldUtils {
+export class WorldUtils {
 
     // calculate geo-paths between two locations using great circle formula
     public static calcPaths(origin: any, dest: any): any[] {

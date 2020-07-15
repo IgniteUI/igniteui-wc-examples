@@ -1,4 +1,4 @@
-export default class StocksHistory {
+export class StocksHistory {
   /** gets stock OHLC prices for multiple stocks */
 
   public static async getMultipleStocks(): Promise<any[]> {
