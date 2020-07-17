@@ -106,6 +106,7 @@ function getNamesSharedFiles(cb){
             if(!stat.isDirectory()) {
                 //console.log(file.path);      
                 templateSharedFiles.push(t);
+                //console.log("get shared files " + t);
             } 
             fileCallback();
     }))
@@ -115,19 +116,20 @@ function getNamesSharedFiles(cb){
 }
 exports.getNamesSharedFiles = getNamesSharedFiles;
 
-function getSharedFiles() {
-    return gulp.src(templatesShared + './*')
-        .pipe(es.map(function(file, cb) {                       
-            let t = path.relative(templatesShared, file.path);
-            let stat = fs.lstatSync(file.path);            
-            if(!stat.isDirectory()) {
-                let f = fs.readFileSync(file.path);               
-                templateSharedFiles.push({name: t, content: f.toString()});
-            } 
-            cb();
-    }));
-}
-exports.getSharedFiles = getSharedFiles;
+// function getSharedFiles() {
+//     return gulp.src(templatesShared + './*')
+//         .pipe(es.map(function(file, cb) {                       
+//             let t = path.relative(templatesShared, file.path);
+//             let stat = fs.lstatSync(file.path);            
+//             if(!stat.isDirectory()) {
+//                 let f = fs.readFileSync(file.path);               
+//                 templateSharedFiles.push({name: t, content: f.toString()});
+//                 console.log("get shared files " + t);
+//             } 
+//             cb();
+//     }));
+// }
+// exports.getSharedFiles = getSharedFiles;
 
 function mkDirectory(directoryName){
     if(!fs.existsSync(directoryName)) {
@@ -136,6 +138,7 @@ function mkDirectory(directoryName){
 }
 
 function portingSamples(cb) {
+
     del.sync("./samples/**/*.*", {force:true});
     del.sync("./samples/**", {force:true});
 
@@ -294,6 +297,7 @@ function portingSamples(cb) {
         sample.tsCode = sample.tsCode.replace("utilities/", "");
         sample.tsCode = sample.tsCode.replace("../utilities", "")
         sample.tsCode = sample.tsCode.replace("../data-chart/utilities/", "./");
+        sample.tsCode = sample.tsCode.replace("../data-chart", ".");
 
 
         sample.tsCode = sample.tsCode.replace('import { SampleBase } from "./sample-base";', "");
@@ -313,6 +317,8 @@ function portingSamples(cb) {
         
         let oldImport = new RegExp(/from\s\"/gm);
         //let newImport = new RegExp(/from\s'/gm);
+        sample.tsCode = sample.tsCode.replace('import "./SharedStyles.css";', '');
+
         sample.tsCode = replaceAll(sample.tsCode, '= "', "= '");
         sample.tsCode = replaceAll(sample.tsCode, oldImport, "from '");
         sample.tsCode = replaceAll(sample.tsCode, '";', "';");
@@ -320,20 +326,51 @@ function portingSamples(cb) {
         sample.tsCode = replaceAll(sample.tsCode, 'css";', "css';");
         sample.tsCode = replaceAll(sample.tsCode, 'import "', "import '");
 
-        sample.tsCode = sample.tsCode.replace('SharedStyles', 'index');
-
+        // sample.tsCode = sample.tsCode.replace('import "./SparklineSharedStyles.css";', '');
+        
         // TODO remove empty space
         // sample.tsCode = sample.tsCode.replace(new RegExp(/\)\s*{\s*\n\s*/gm), "{\n\t\t")
         // sample.tsCode = sample.tsCode.replace(new RegExp(/\n\n\s*\n/gm), "\n");
-        let connectedcb = new RegExp(/\}\s*\n\s*connectedCallback\(\)\s{/gm);
-        sample.tsCode = sample.tsCode.replace(connectedcb, "");
+        if(sample.tsName.indexOf("LinearGauge") >= 0 
+        || sample.tsName.indexOf("RadialGauge") >= 0
+        || sample.tsName.indexOf("BulletGraph") >= 0)
+        {
+            if(sample.tsCode.indexOf("super()") >=0)
+            {
+                console.log(sample.tsName + " remove constructor with super");
+                let replaceConstructorWithSuper = new RegExp(/constructor\(\)\s\{\n\s*super\(\)\;\n\s*\}\n/gm, "");
+                sample.tsCode = replaceAll(sample.tsCode, replaceConstructorWithSuper, "remove constructor with super");
+
+                //sample.tsCode = sample.tsCode.replace("constructor() {\r\n        super();\r\n    }", "test");
+            }
+            else 
+            {
+                console.log(sample.tsName + " remove constructor with super");
+                let replaceConstructorWithoutSuper = new RegExp(/constructor\(\)\s\{\n\s*\}\n/gm);
+                sample.tsCode = replaceAll(sample.tsCode, replaceConstructorWithoutSuper, "remove constuctor without super");
+                //sample.tsCode = sample.tsCode.replace("constructor() {\r\n        super();\r\n    }", "test");
+            }
+
+            
+            sample.tsCode = sample.tsCode.replace("connectedCallback", "constructor");
+
+            let fixdoubleconstructor = new RegExp(/constructor\(\)\s{\n\s*\}\n\s*constructor\(\)/gm);
+            sample.tsCode = sample.tsCode.replace(fixdoubleconstructor, "contructor{");
+        }
+        else 
+        {
+            let connectedcb = new RegExp(/\}\s*\n\s*connectedCallback\(\)\s{/gm);
+            sample.tsCode = sample.tsCode.replace(connectedcb, "");
+        }
+       
 
         sample.tsCode = sample.tsCode + "\n\n" + "let sample = new " + sample.tsName + "();";
 
         //Html file auto generated from the sample file
         sample.htmlCode = htmlCode.join("\n").replace("let templateHTML = `", "");
         sample.htmlCode = sample.htmlCode.replace("`;", "");
-        sample.htmlCode = templateHtml.replace("insertHtml", sample.htmlCode);
+        sample.htmlCode = templateHtml.replace("{InsertHtml}", sample.htmlCode);
+        sample.htmlCode = sample.htmlCode.replace("{SampleName}", sample.tsName);
         sample.htmlCode = sample.htmlCode.replace("sample-container", "igContainer");
         sample.htmlCode = sample.htmlCode.replace("sampleColumns", "igContainer-vertical");
         sample.htmlCode = sample.htmlCode.replace("sampleRows", "igContainer-horizontal");
@@ -348,6 +385,7 @@ function portingSamples(cb) {
         sample.htmlDirectory = directory + "\\" + folderName;
         sample.packageCode = packageJson;
         sample.webpackConfig = webpackConfig;
+        sample.sandboxConfig = sandboxConfig;
         sample.indexTS = indexTS;
         sample.sharedFiles = [];
         sample.jsSharedFiles = [];
@@ -376,6 +414,7 @@ function portingSamples(cb) {
                 if(sample.tsCode.toString().match("igniteui-webcomponents-gauges"))
                 {
                     sample.packages.push('"igniteui-webcomponents-gauges"' + sample.packageVersion);
+                    sample.htmlCode = sample.htmlCode.replace("igContainer-horizontal", "igContainer-center");
                 }
                 if(sample.tsCode.toString().match("igniteui-webcomponents-grids"))
                 {
@@ -385,6 +424,7 @@ function portingSamples(cb) {
                 if(sample.tsCode.toString().match("igniteui-webcomponents-maps"))
                 {
                     sample.packages.push('"igniteui-webcomponents-maps"' + sample.packageVersion);
+                    //sample.sandboxConfig = sample.sandboxConfig.replace('"infiniteLoopProtection": false,', '"infiniteLoopProtection": true,');
                 }
                 if(sample.tsCode.toString().match("igniteui-dockmanager"))
                 {
@@ -434,6 +474,24 @@ function portingSamples(cb) {
                     {
                         sample.sharedFiles.push("WorldLocations" + '.ts');
                         sample.sharedFiles.push("WorldUtils" + '.ts');
+                    }
+
+                    if(sharedFile === "SharedData" && sample.tsName.indexOf("CategoryChart") >= 0)
+                    {
+                        sample.tsCode = replaceAll(sample.tsCode, "SharedData", "CategoryChartSharedData");
+                        sharedFile = "CategoryChartSharedData";
+                    }
+
+                    if(sharedFile === "SharedData" && sample.tsName.indexOf("Sparkline") >= 0)
+                    {
+                        sample.tsCode = replaceAll(sample.tsCode, "SharedData", "SparklineSharedData");
+                        sharedFile = "SparklineSharedData";
+                    }
+
+                    if(sharedFile === "SharedData" && sample.tsName.indexOf("DataChart") >= 0)
+                    {
+                        sample.tsCode = replaceAll(sample.tsCode, "SharedData", "DataChartSharedData");
+                        sharedFile = "DataChartSharedData";
                     }
 
                     
@@ -512,7 +570,7 @@ function portingSamples(cb) {
         fs.writeFileSync(item.mainDirectory + "\\tsconfig.json", tsconfigJson);
         fs.writeFileSync(item.mainDirectory + "\\webpack.config.js", item.webpackConfig);
         fs.writeFileSync(item.mainDirectory + "\\ReadMe.md", readMe);
-        fs.writeFileSync(item.mainDirectory + "\\sandbox.config.json", sandboxConfig);
+        fs.writeFileSync(item.mainDirectory + "\\sandbox.config.json", item.sandboxConfig);
         fs.writeFileSync(item.tsDirectory + "\\index.css", indexCSS);
         fs.writeFileSync(item.tsDirectory + "\\index.ts", item.indexTS);
 

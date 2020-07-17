@@ -1,21 +1,22 @@
 <html>
   <head>
-    <title>Parcel Sandbox</title>
+    <title>{SampleName}</title>
     <meta charset="UTF-8" />
 
     <style>
       html,
       body,
-      #app {
+      #root {
         height: calc(100%);
         margin: 0px;
       }
     </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
   </head>
 
   <body>
-    <div id="app">
-        insertHtml
+    <div id="root">
+        {InsertHtml}
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->
