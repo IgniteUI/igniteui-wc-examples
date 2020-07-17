@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>DataChartTypeStacked100LineSeries</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <span class="igLegend-title">Legend: </span>
+        <div class="legend-inline">
+            <igc-legend id="legend"
+                orientation="Horizontal">
+            </igc-legend>
+        </div>
+    </div>
+    <div class="chart" style="height: calc(100% - 35px)">
+        <igc-data-chart id="chart" width="100%" height="100%">
+            <igc-category-x-axis name="xAxis" label="Country">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis name="yAxis" minimum-value="0">
+            </igc-numeric-y-axis>
+
+            <igc-stacked-100-line-series name="series" x-axis-name="xAxis" y-axis-name="yAxis">
+                <igc-stacked-fragment-series name="coal" value-member-path="Coal" title="Coal"></igc-stacked-fragment-series>
+                <igc-stacked-fragment-series name="hydro" value-member-path="Hydro" title="Hydro"></igc-stacked-fragment-series>
+                <igc-stacked-fragment-series name="nuclear" value-member-path="Nuclear" title="Nuclear"></igc-stacked-fragment-series>
+                <igc-stacked-fragment-series name="gas" value-member-path="Gas" title="Gas"></igc-stacked-fragment-series>
+                <igc-stacked-fragment-series name="oil" value-member-path="Oil" title="Oil"></igc-stacked-fragment-series>
+            </igc-stacked-100-line-series>
+        </igc-data-chart>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

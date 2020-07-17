@@ -1,0 +1,2 @@
+
+import './CategoryChartHighFrequency.ts';

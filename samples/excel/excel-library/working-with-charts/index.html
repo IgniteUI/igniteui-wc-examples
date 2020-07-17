@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>ExcelLibraryCharts</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <button class="igOptions-item" id="export">Export</button>
+    </div>
+    <div style="height: calc(100% - 45px)">
+        <igc-category-chart id="chart"
+            height="50%" width="100%"
+            y-axis-minimum-value="0"
+            x-axis-tnterval="1"
+            chart-type="column"
+            brushes="#4f81bd, #c0504d, #9bbb59, #8064a2"
+            outlines="#4f81bd, #c0504d, #9bbb59, #8064a2"
+            thickness="0">
+        </igc-category-chart>
+        <igc-data-grid id="grid"
+            height="50%"
+            width="100%"
+            auto-generate-columns="false">
+            <igc-text-column property-path="Expense"></igc-text-column>
+            <igc-numeric-column property-path="Jan"></igc-numeric-column>
+            <igc-numeric-column property-path="Feb"></igc-numeric-column>
+            <igc-numeric-column property-path="Mar"></igc-numeric-column>
+            <igc-numeric-column property-path="Apr"></igc-numeric-column>
+            <igc-numeric-column property-path="May"></igc-numeric-column>
+            <igc-numeric-column property-path="Jun"></igc-numeric-column>
+            <igc-numeric-column property-path="Jul"></igc-numeric-column>
+            <igc-numeric-column property-path="Aug"></igc-numeric-column>
+            <igc-numeric-column property-path="Sep"></igc-numeric-column>
+            <igc-numeric-column property-path="Oct"></igc-numeric-column>
+            <igc-numeric-column property-path="Nov"></igc-numeric-column>
+            <igc-numeric-column property-path="Dec"></igc-numeric-column>
+        </igc-data-grid>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

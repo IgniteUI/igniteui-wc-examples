@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>FinancialChartPanes</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-financial-chart id="chart" width="100%" height="100%"
+        chart-type="Candle"
+        zoom-igOptions-slider-type="Candle"
+        volume-type="Area"
+        overlay-types="PriceChannel"
+        overlay-brushes="rgba(5, 138, 0, 0.17)"
+        overlay-outlines="rgba(5, 138, 0, 0.4)"
+        overlay-thickness="1">
+    </igc-financial-chart>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

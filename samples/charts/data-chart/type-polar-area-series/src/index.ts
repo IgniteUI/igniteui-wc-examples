@@ -1,0 +1,2 @@
+
+import './DataChartTypePolarAreaSeries.ts';

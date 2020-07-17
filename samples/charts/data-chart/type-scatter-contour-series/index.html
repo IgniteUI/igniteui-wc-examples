@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title>DataChartTypeScatterContourSeries</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <label class="igOptions-label">Thickness: </label>
+        <label class="igOptions-value" id="thicknessLabel">
+        </label>
+        <input class="igOptions-slider" id="thicknessSlider"
+            type="range" min="1" max="10" step="1">
+        </input>
+
+        <label class="option-label">Contours: </label>
+        <label class="option-value" id="contoursLabel">
+        </label>
+        <input class="slider" id="contoursSlider"
+            type="range" min="1" max="15" step="1">
+        </input>
+
+    </div>
+    <div class="chart" style="height: calc(100% - 45px)">
+        <igc-data-chart id="chart" width="100%" height="100%"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true"
+            chart-title="MAGNETIC FIELD LINES"
+            grid-mode="BeforeSeries">
+            <igc-numeric-x-axis name="xAxis1" label-location="OutsideLeft"
+                minimum-value="-180" maximum-value="180" interval="30" title="Longitude">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis1" label-location="OutsideBottom"
+                minimum-value="-90" maximum-value="90" interval="30"  title="Latitude">
+            </igc-numeric-y-axis>
+
+            <igc-numeric-x-axis name="xAxis2" label-location="OutsideTop"
+                minimum-value="-180" maximum-value="180" interval="30">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis2" label-location="OutsideRight"
+                minimum-value="-90" maximum-value="90" interval="30" title="Latitude">
+            </igc-numeric-y-axis>
+
+            <igc-scatter-contour-series
+                id="series"
+                x-axis-name="xAxis1"
+                y-axis-name="yAxis1"
+                thickness="3"
+                x-member-path="X"
+                y-member-path="Y"
+                value-member-path="Z">
+            </igc-scatter-contour-series>
+        </igc-data-chart>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>CategoryChartTooltipTypes</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <span class="optionLabel">Tooltip Type: </span>
+        <select value="Default" id="toolTipSelect" >
+            <option>Default</option>
+            <option>Item</option>
+            <option>Category</option>
+            <option>None</option>
+        </select>
+    </div>
+
+    <igc-category-chart id="chart"
+        width="100%"
+        height="calc(100% - 45px)"
+        chart-title="Olympic Medals By Country"
+        chart-type="column"
+        y-axis-minimumValue="0"
+        y-axis-maximumValue="200"
+        x-axis-interval="1"
+        tool-tip-type="Default"
+    </igc-category-chart>
+
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

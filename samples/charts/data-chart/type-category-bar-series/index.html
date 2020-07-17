@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>DataChartTypeCategoryBarSeries</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <span class="igLegend-title">Legend: </span>
+        <div class="legend-inline">
+            <igc-legend id="legend" orientation="Horizontal">
+            </igc-legend>
+        </div>
+    </div>
+    <div class="chart" style="height: calc(100% - 45px)">
+    <igc-data-chart id="chart" width="100%" height="100%"
+        is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true">
+
+        <igc-numeric-x-axis name="xAxis" minimum-value="0"
+            title="Total Olympic Medals">
+        </igc-numeric-x-axis>
+        <igc-category-y-axis name="yAxis" label="Year"
+            title="Olympic Years">
+        </igc-category-y-axis>
+        <igc-bar-series
+            name="series1"
+            title="USA"
+            x-axis-name="xAxis"
+            y-axis-name="yAxis"
+            value-member-path="USA">
+        </igc-bar-series>
+        <igc-bar-series
+            name="series2"
+            title="Russia"
+            x-axis-name="xAxis"
+            y-axis-name="yAxis"
+            value-member-path="RUS">
+        </igc-bar-series>
+    </igc-data-chart>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

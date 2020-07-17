@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>DataGridRowPinning</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+
+    <igc-data-grid
+        id="grid"
+        height="100%"
+        width="100%"
+        is-column-igOptions-enabled="true"
+        auto-generate-columns="false">
+
+        <igc-image-column property-path="Photo" content-opacity="1" horizontal-alignment="center" width="*>105" ></igc-image-column>
+        <igc-text-column property-path="FirstName" header-text="First Name" width="*>130" ></igc-text-column>
+        <igc-text-column property-path="LastName" header-text="Last Name" width="*>135"></igc-text-column>
+        <igc-text-column property-path="City" width="*>125"></igc-text-column>
+        <igc-text-column property-path="Country" width="*>120"></igc-text-column>
+        <igc-numeric-column property-path="Sales" width="*>120" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+        <igc-numeric-column property-path="Age" width="*>90"></igc-numeric-column>
+        <igc-date-time-column property-path="Birthday" header-text="Date of Birth" horizontal-alignment="right" width="*>145"></igc-date-time-column>
+    </igc-data-grid>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

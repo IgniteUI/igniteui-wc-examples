@@ -1,0 +1,2 @@
+
+import './DataChartTypeScatterAreaSeries.ts';

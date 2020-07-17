@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>SparklineDisplayLines</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-sparkline id="chart1"
+        height="calc(30% - 25px)"
+        width="100%"
+        display-type="Line"
+        minimum="-1"
+        maximum="1"
+        value-member-path="Revenue"></igc-sparkline>
+    <label class="optionLabel">Revenue Sparkline</label>
+    <igc-sparkline id="chart2"
+        height="calc(30% - 25px)"
+        width="100%"
+        display-type="Line"
+        minimum="-1"
+        maximum="1"
+        value-member-path="Income"></igc-sparkline>
+    <label class="optionLabel">Income Sparkline</label>
+    <igc-sparkline id="chart3"
+        height="calc(30% - 25px)"
+        width="100%"
+        display-type="Line"
+        minimum="-1" maximum="1"
+        value-member-path="Expanse" ></igc-sparkline>
+    <label class="optionLabel">Expanse Sparkline</label>
+</div >
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

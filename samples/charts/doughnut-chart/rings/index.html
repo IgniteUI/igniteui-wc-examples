@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>DoughnutChartRings</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-doughnut-chart id="chart"
+        height="100%"
+        width="100%"
+        allow-slice-selection="true"
+        allow-slice-explosion="false">
+
+        <igc-ring-series
+            id="ringSeries1"
+            name="Months"
+            labels-position="Center"
+            label-member-path="Label"
+            value-member-path="Value"
+            radius-factor="1.0"
+            start-angle="0"
+            othersCategoryThreshold="0"
+            brushes="#3cbdc9, #9fb328, #f96232, #8a58d6">
+        </igc-ring-series>
+
+        <igc-ring-series
+            id="ringSeries2"
+            name="Seasons"
+            labels-position="Center"
+            label-member-path="Label"
+            value-member-path="Value"
+            radius-factor="1.0"
+            start-angle="0"
+            outlines="white"
+            others-category-threshold="0"
+            brushes="#3cbdc9, #3cbdc9, #3cbdc9,
+                     #9fb328, #9fb328, #9fb328,
+                     #f96232, #f96232, #f96232,
+                     #8a58d6, #8a58d6, #8a58d6">
+        </igc-ring-series>
+
+    </igc-doughnut-chart>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

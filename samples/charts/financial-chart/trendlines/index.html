@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>FinancialChartTrendlines</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+    <label class="optionLabel">Trendline Type:</label>
+    <select id="trendLineSelect">
+        <option>QuinticFit</option>
+        <option>CubicFit</option>
+        <option>LinearFit</option>
+        <option>QuarticFit</option>
+        <option>ExponentialFit</option>
+        <option>PowerLawFit</option>
+        <option>LogarithmicFit</option>
+        <option>CumulativeAverage</option>
+        <option>ExponentialAverage</option>
+        <option>SimpleAverage</option>
+        <option>ModifiedAverage</option>
+        <option>WeightedAverage</option>
+        <option>None</option>
+    </select>
+    </div>
+
+    <div class="chart" style="height: calc(100% - 40px)">
+        <igc-financial-chart id="chart" width="100%" height="100%"
+            trend-line-thickness="2"
+            trend-line-period="10"
+            trend-line-brushes="#8a58d6, #9fb328"
+            brushes="#8a58d6, #9fb328"
+            zoom-igOptions-sliderType="None"
+            chart-type="Line">
+        </igc-financial-chart>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>DataChartSeriesTrendlines</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <span class="igOptions-item">Trendline Type:</span>
+        <select id="trendLineSelect">
+            <option>None</option>
+            <option>CubicFit</option>
+            <option>CumulativeAverage</option>
+            <option>ExponentialAverage</option>
+            <option>ExponentialFit</option>
+            <option>LinearFit</option>
+            <option>LogarithmicFit</option>
+            <option>ModifiedAverage</option>
+            <option>PowerLawFit</option>
+            <option>QuadraticFit</option>
+            <option>QuarticFit</option>
+            <option>QuinticFit</option>
+            <option>SimpleAverage</option>
+            <option>WeightedAverage</option>
+        </select>
+    </div>
+    <div class="chart" style="height: calc(100% - 45px)">
+        <igc-data-chart id="chart" width="100%" height="100%"
+        is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true">
+
+            <igc-category-x-axis name="xAxis" label="Label">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis name="yAxis">
+            </igc-numeric-y-axis>
+
+            <igc-financial-price-series
+                id="series1"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
+                high-member-path="High"
+                low-member-path="Low"
+                close-member-path="Close"
+                open-member-path="Open"
+                volume-member-path="Volume">
+            </igc-financial-price-series>
+        </igc-data-chart>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

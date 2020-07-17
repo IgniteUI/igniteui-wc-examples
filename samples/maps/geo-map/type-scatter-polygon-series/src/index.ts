@@ -1,0 +1,2 @@
+
+import './MapTypeScatterPolygonSeries.ts';

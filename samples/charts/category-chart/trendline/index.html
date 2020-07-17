@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>CategoryChartTrendline</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+    <span class="optionLabel">Trend Line Type: </span>
+    <select
+        value="QuarticFit" id="trendLineSelect" >
+        <option>LinearFit</option>
+        <option>QuadraticFit</option>
+        <option>CubicFit</option>
+        <option>QuarticFit</option>
+        <option>QuinticFit</option>
+        <option>LogarithmicFit</option>
+        <option>ExponentialFit</option>
+        <option>PowerLawFit</option>
+        <option>SimpleAverage</option>
+        <option>ExponentialAverage</option>
+        <option>ModifiedAverage</option>
+        <option>CumulativeAverage</option>
+        <option>WeightedAverage</option>
+        <option>None</option>
+    </select>
+    </div>
+
+    <igc-category-chart id="chart"
+        width="100%"
+        height="calc(100% - 45px)"
+        chart-type="Point"
+        marker-types="Circle"
+        chart-title="Average Temperature over 2000 Years"
+        trend-line-type="QuarticFit"
+        trend-line-thickness="2"
+        trend-line-period="20"
+        y-axis-minimum-Value="0"
+        y-axis-title="Temperature (C)"
+        x-axis-title="Years">
+    </igc-category-chart>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+
+import './DataChartTypeScatterPolygonSeries.ts';

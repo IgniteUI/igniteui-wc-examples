@@ -1,0 +1,2 @@
+
+import './MapTypeScatterAreaSeries.ts';

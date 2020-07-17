@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>DataGridTypePeriodicTable</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div>
+    <b><label id="label" class="gridOptionsLabel" height="20">Selected Element: </label></b>
+    </div>
+    <igc-data-grid
+        id="grid"
+        height="calc(100% - 20px)"
+        width="100%"
+        row-size = "55"
+        row-separator-height="1"
+        row-separator-background="white"
+        header-height="60"
+        header-separator-background="white"
+        column-resizing-mode="None"
+        activation-mode="Cell"
+        selection-mode="SingleCell"
+        auto-generate-columns="false"
+        >
+
+        <igc-numeric-column id="row" width="*>40" header-text=" " horizontal-alignment="right" ></igc-numeric-column>
+        <igc-template-column id="group0" header-text="1" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group1" header-text="2" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group2" header-text="3" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group3" header-text="4" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group4" header-text="5" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group5" header-text="6" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group6" header-text="7" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group7" header-text="8" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group8" header-text="9" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group9" header-text="10" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group10" header-text="11" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group11" header-text="12" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group12" header-text="13" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group13" header-text="14" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group14" header-text="15" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group15" header-text="16" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group16" header-text="17" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-template-column id="group17" header-text="18" horizontal-alignment="center" vertical-alignment="bottom" width="50"></igc-template-column>
+        <igc-numeric-column id="space" width="*>40" header-text=" " horizontal-alignment="left" ></igc-numeric-column>
+
+    </igc-data-grid>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

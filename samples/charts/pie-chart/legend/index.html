@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>PieChartLegend</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="sample-columns">
+    <div class="igLegend">
+        <igc-item-legend id="legend"></igc-item-legend>
+    </div>
+    <igc-pie-chart id="chart"
+        width="100%" height="100%"
+        outlines="White"
+        value-member-path="MarketShare"
+        label-member-path="MarketShare"
+        legend-label-member-path="Company"
+        radius-factor="0.7">
+    </igc-pie-chart>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

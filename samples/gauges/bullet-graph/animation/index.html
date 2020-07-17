@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>BulletGraphAnimation</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+    <div class="igContainer-center" >
+        <div class="igOptions">
+            <button id="animationButton1" class="button">Gauge Animation #1</button>
+            <button id="animationButton2" class="button">Gauge Animation #2</button>
+            <button id="animationButton3" class="button">Gauge Animation #3</button>
+        </div>
+        <igc-bullet-graph
+            id="gauge"
+            transition-duration="1000"
+            height="80px"
+            width="100%"
+            minimum-value="0"
+            maximum-value="120"
+            value-brush="#4286f4"
+            value="70"
+            target-value-brush="#4286f4"
+            target-value="90"
+            target-value-breadth="10"
+            interval="10"
+            label-interval="10"
+            label-extent="0.02"
+            range-brushes ="#FF9800, #F96232, #C62828"
+            range-outlines="#FF9800, #F96232, #C62828"
+            scale-background-thickness="0"
+            scale-background-brush="#dbdbdb"
+            scale-background-outline="gray">
+        </igc-bullet-graph>
+    </div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

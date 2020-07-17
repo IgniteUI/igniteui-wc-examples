@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>FinancialChartAnnotations</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <label class="optionLabel">Annotations: </label>
+        <label class="optionItem">
+        <input id="crosshairs" type="checkbox"
+        checked="true"></input> Crosshair</label>
+        <label class="optionItem">
+        <input id="callouts" type="checkbox"
+        checked="true"></input> Callouts </label>
+        <label class="optionItem">
+        <input id="finalvalues" type="checkbox"
+        checked="true"></input> Final Values </label>
+        <label class="optionItem">
+        <input id="markers" type="checkbox"
+        checked="true"></input> Markers </label>
+    </div>
+    <div class="chart" style="height: calc(100% - 40px)">
+        <igc-financial-chart id="chart" width="100%" height="100%"
+            chart-type="Line"
+            thickness="2"
+            excluded-properties="index, info"
+            callouts-x-member-path="index"
+            callouts-y-member-path="value"
+            callouts-label-member-path="info"
+            callouts-content-member-path="info"
+            crosshairs-snap-to-data="false">
+        </igc-financial-chart>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

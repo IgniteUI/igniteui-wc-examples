@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>SpreadsheetConfiguring</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <span class="optionItem">Selection Mode: </span>
+        <select id="selectionModeDropDown">
+            <option>AddToSelection</option>
+            <option>ExtendSelection</option>
+            <option>Normal</option>
+        </select>
+
+        <span class="optionItem">Enter Key Navigation Direction: </span>
+        <select id="enterKeyNavDirectionDropDown">
+            <option>Down</option>
+            <option>Left</option>
+            <option>Right</option>
+            <option>Up</option>
+        </select>
+    </div>
+    <div class="options">
+        <label class="optionItem" style="width: 145px"><input id="areHeadersVisibleCheckbox" type="checkbox" checked="true" /> Enable Headers</label>
+        <label class="optionItem" style="width: 175px"><input id="isFormulaBarVisibleCheckbox" type="checkbox" checked="true"  /> Enable Formula Bar</label>
+        <label class="optionItem" style="width: 225px"><input id="isEnterKeyNavEnabledCheckbox" type="checkbox" checked="true"  />Enable Enter Key Navigation</label>
+        <label id="zoomLevelLabel" class="optionItem">Zoom Level: 100% </label>
+    </div>
+    <div class="options">
+        <label class="optionItem" style="width: 145px"><input type="checkbox" id="areGridlinesVisibleCheckbox" checked="true" /> Enable Gridlines</label>
+        <label class="optionItem" style="width: 175px"><input type="checkbox" id="isTabBarAreaVisibleCheckbox" checked="true" /> Enable Tab Bar Area</label>
+        <label class="optionItem" style="width: 225px"><input type="checkbox" id="isProtectedCheckbox" /> Enable Protected Mode</label>
+        <input id="spreadsheetZoomLevelRange" type="range" min="50" max="150" step="5" />
+    </div>
+    <igc-spreadsheet id="spreadsheet" width="100%" height="calc(100% - 120px)">
+
+    </igc-spreadsheet>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

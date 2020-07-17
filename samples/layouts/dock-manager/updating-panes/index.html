@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>DockManagerUpdatingPanes</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-dockmanager id="dockManager">
+        <div class="dockManagerContent"
+             slot="employeeListContainer" id="employeeListContainer">
+        </div>
+        <div class="dockManagerContent"
+             slot="productivityChartContainer" id="productivityChartContainer">
+            <igc-category-chart id="productivityChart" width="100%" height="100%">
+            </igc-category-chart>
+        </div>
+        <div class="dockManagerContent"
+            slot="geoLocationMapContainer" id="geoLocationMapContainer">
+            <igc-geographic-map id="geoLocationMap" width="100%" height="100%">
+            </igc-geographic-map>
+        </div>
+    </igc-dockmanager>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

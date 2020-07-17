@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>SpreadsheetCommands</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <input class="optionItem" id="zoomIn" value="Zoom In" onClick={this.onCommandClick} type="button" />
+        <input class="optionItem" id="zoomOut" value="Zoom Out" onClick={this.onCommandClick} type="button" />
+    </div>
+    <igc-spreadsheet id="spreadsheet" width="100%" height="calc(100% - 25px)">
+
+    </igc-spreadsheet>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

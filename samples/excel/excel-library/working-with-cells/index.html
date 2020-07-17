@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>ExcelLibraryCells</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="workbook-operations">
+        <button id="button1">Save Workbook</button>
+    </div>
+    <div class="cell-features">
+        <label class="label">Add a Comment to cell A1: </label>
+        <input type="checkbox" id="addComment"></input> <br/>
+        <label class="label">Add a Formula for cells F2 to F20: </label>
+        <input type="checkbox" id="addFormula"></input>  <br/>
+        <label class="label">Merge Cells: </label>
+        <input type="checkbox" id="mergeCells"></input>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

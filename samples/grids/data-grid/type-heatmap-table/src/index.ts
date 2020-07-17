@@ -1,0 +1,2 @@
+
+import './DataGridTypeHeatmapTable.ts';

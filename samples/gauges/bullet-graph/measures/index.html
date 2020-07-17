@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>BulletGraphMeasures</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer-center" >
+                <igc-bullet-graph
+                     id="gauge"
+                     height="80px"
+                     width="100%"
+                     minimum-value="0"
+                     maximum-value="100"
+                     value="50"
+                     value-brush="DodgerBlue"
+                     value-stroke-thickness="1"
+                     value-inner-extent="0.5"
+                     value-outer-extent="0.65"
+                     target-value="80"
+                     target-value-breadth="10"
+                     target-value-brush="LimeGreen"
+                     target-value-outline="LimeGreen"
+                     target-value-stroke-thickness="1"
+                     target-value-inner-extent="0.3"
+                     target-value-outer-extent="0.85"
+                     scale-background-brush = "#e5e5e5"
+                     scale-background-outline = "#e5e5e5"
+                     backing-brush = "#f7f7f7"
+                     backing-outline = "#bfbfbf"
+                     tick-stroke-thickness = "1.5" >
+                </igc-bullet-graph>
+            </div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

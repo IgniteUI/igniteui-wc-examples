@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>ExcelLibrarySparklines</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <button class="igOptions-item" id="exportBtn">Export</button>
+    </div>
+    <igc-data-grid id="grid" auto-generate-columns="false" height="calc(100% - 45px)" width="100%">
+        <igc-template-column id="templateColumn" property-path="Orders"></igc-template-column>
+        <igc-text-column property-path="CompanyName"></igc-text-column>
+        <igc-text-column property-path="ContactName"></igc-text-column>
+        <igc-text-column property-path="ContactTitle"></igc-text-column>
+        <igc-text-column property-path="Country"></igc-text-column>
+    </igc-data-grid>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

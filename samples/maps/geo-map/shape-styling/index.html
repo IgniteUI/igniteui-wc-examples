@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>MapShapeStyling</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+
+<div class="igOptions">
+    <span class="optionLabel">Shape Styling: </span>
+    <select value="ShapeComparisonStyling" id="OptionsSelect">
+        <option>ShapeComparisonStyling</option>
+        <option>ShapeScaleStyling</option>
+        <option>ShapeRangeStyling</option>
+        <option>ShapeRandomStyling</option>
+    </select>
+</div>
+
+    <igc-geographic-map id="geoMap" width="100%" height="100%">
+        <Igc-geographic-shape-series id="shapeSeries">
+        </Igc-geographic-shape-series>
+    </igc-geographic-map>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

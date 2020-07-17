@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>ExcelLibraryWorkbooks</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <button class="igOptions-item" id="createBtn">Create Workbook</button>
+        <button class="option-item" id="saveBtn">Save Workbook</button>
+        <span class="option-item">Select Table to Export: </span>
+        <select id="tableSelect">
+            <option>Employees - Table1</option>
+            <option>Expenses - Table2</option>
+            <option>Income - Table3</option>
+        </select>
+    </div>
+    <div class="preview-grid">
+        <igc-data-grid id="grid"
+            height="300px"
+            width="100%">
+        </igc-data-grid>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

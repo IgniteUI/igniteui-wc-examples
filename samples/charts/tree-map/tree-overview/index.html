@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>TreeMapOverview</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+
+    <div class="igOptions" >
+        <button style="width: 140px" id="buttonSliceVer" class="button">Slice Vertically</button>
+        <button style="width: 140px" id="buttonSliceHor" class="button">Slice Horizontally</button>
+        <button style="width: 140px" id="buttonSquared" class="button">Squarified</button>
+    </div>
+    <div class="options" style="margin-bottom: 10px;">
+        <button style="width: 140px" id="buttonStripVer" class="button">Stripped Vertically</button>
+        <button style="width: 140px" id="buttonStripHor" class="button">Stripped Horizontally</button>
+    </div>
+
+    <igc-treemap id="treeMap" width="100%" height="calc(100% - 75px)"
+        layout-type="stripped"
+        layout-orientation="horizontal"
+        parent-id-member-path="parent"
+        id-member-path="id"
+        label-member-path="name"
+        value-member-path="pop"
+        transition-duration="500"
+        root-title="Countries" >
+    </igc-treemap>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

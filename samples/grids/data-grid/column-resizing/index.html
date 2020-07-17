@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>DataGridColumnResizing</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <span class="optionItem" style="width: 160px">Resizing Mode:</span>
+        <select id="columnResizingModeDropDown" class="optionItem" style="width: 135px" >
+            <option>Deferred</option>
+            <option>Immediate</option>
+            <option>None</option>
+        </select>
+        <span class="optionItem">Separator Width: </span>
+        <input id="separatorWidthRange" type="range" min=1 max=5 step="1" />
+    </div>
+    <div class="options">
+        <span class="optionItem" style="width: 160px">Resizing Animation:</span>
+        <select id="columnResizingAnimationModeDropDown" class="optionItem" style="width: 135px" >
+            <option>Auto</option>
+            <option>Interpolate</option>
+            <option>None</option>
+        </select>
+    </div>
+
+    <igc-data-grid
+        id="grid"
+        height="calc(100% - 75px)"
+        width="100%"
+        column-resizing-mode="Deferred"
+        column-resizing-animation-mode="Auto"
+        column-resizing-separator-width="1"
+        default-column-min-width="100"
+        is-column-options-enabled="true"
+        auto-generate-columns="false" >
+
+        <igc-text-column property-path="Name" width="*>150"></igc-text-column>
+        <igc-text-column property-path="Street" header-text="Address" width="*>165" ></igc-text-column>
+        <igc-text-column property-path="City" width="*>140" ></igc-text-column>
+        <igc-numeric-column property-path="Salary" positive-prefix="$" show-grouping-separator="true" width="*>140" ></igc-numeric-column>
+        <igc-date-time-column property-path="Birthday" ></igc-date-time-column>
+
+    </igc-data-grid>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

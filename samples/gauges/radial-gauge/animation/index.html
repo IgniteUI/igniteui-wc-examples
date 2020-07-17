@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title>RadialGaugeAnimation</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class ="igContainer-center">
+    <div class="igOptions">
+        <button id="button1" class="button">Gauge Animation #1</button>
+        <button id="button2" class="button">Gauge Animation #2</button>
+        <button id="button3" class="button">Gauge Animation #3</button>
+        <button id="button4" class="button">Gauge Animation #4</button>
+    </div>
+
+    <igc-radial-gauge
+        id="gauge"
+        transition-duration="1000"
+        height="calc(100% - 50px)"
+        width="100%"
+        value="25"
+        interval="5"
+        minimum-value="0"
+        maximum-value="50"
+        label-interval="5"
+        label-extent="0.71"
+        minor-tickCount="4"
+        minor-tick-end-extent=".625"
+        minor-tick-start-extent=".6"
+        minor-tick-stroke-thickness="1"
+        minor-tick-brush = "#79797a"
+        tick-start-extent=".6"
+        tick-end-extent=".65"
+        tick-stroke-thickness="2"
+        tick-brush="#79797a"
+        needle-shape="Triangle"
+        needle-end-width-ratio="0.03"
+        needle-start-width-ratio="0.05"
+        needle-pivot-shape="CircleOverlay"
+        needle-pivot-width-ratio="0.15"
+        needle-base-feature-width-ratio="0.15"
+        needle-brush="#79797a"
+        needle-outline="#79797a"
+        needle-pivot-brush="#79797a"
+        needle-pivot-outline="#79797a"
+        is-needle-dragging-enabled="true"
+        backing-brush="#fcfcfc"
+        backing-outline="#d6d6d6"
+        backing-stroke-thickness="5"
+        scale-start-angle="120"
+        scale-end-angle="60"
+        scale-brush="#d6d6d6"
+        range-brushes="#F86232, #DC3F76, #7446B9"
+        range-outlines="#F86232, #DC3F76, #7446B9" >
+    </igc-radial-gauge>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

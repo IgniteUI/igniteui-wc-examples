@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>CategoryChartHighFrequency</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <label class="optionLabel">Refresh Interval: </label>
+        <label class="optionValue" id="refreshInfoLabel"></label>
+        <input class="igOptions-slider" id="refreshSlider" type="range" min="10" max="500"></input>
+        <label class="optionLabel">Data Points: </label>
+        <label class="optionValue" id="dataInfoLabel" >100000 </label>
+        <input class="slider" id="slider" type="range" min="10000" max="1000000" step="1000" value="100000"></input>
+        <button id="dataGenerate"> Generate Data</button>
+        <label class="optionItem"><input type="checkbox" id ="scalingRatio" /> Optimize Scaling </label>
+        <span id="fps" class="optionLabel" />
+    </div>
+
+    <igc-category-chart id="chart"
+        chart-type="Line"
+        width="100%"
+        height="calc(100% - 45px)" >
+    </igc-category-chart>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

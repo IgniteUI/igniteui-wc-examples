@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>DataChartSeriesTooltips</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <span class="igOptions-label">Tooltip Type: </span>
+        <select id="tooltipSelect">
+            <option>Default</option>
+            <option>Item</option>
+            <option>Category</option>
+            <option>Custom</option>
+        </select>
+    </div>
+    <div class="chart" style="height: calc(100% - 45px)">
+        <igc-data-chart id="chart" width="100%" height="100%"
+            chart-title="Renewable Energy Production by Source"
+            subtitle="Renewable Energy Production by Source"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+
+            <igc-category-x-axis name="xAxis" label="Country"></igc-category-x-axis>
+            <igc-numeric-y-axis name="yAxis" minimum-value="0" title="Billions (kWh)"></igc-numeric-y-axis>
+
+            <igc-column-series name="series1" id="seriesSolar" title="Solar"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
+                value-member-path="Solar"
+                show-default-tooltip="true">
+            </igc-column-series>
+            <igc-column-series name="series2" id="seriesHydro" title="Hydro"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
+                value-member-path="Hydro"
+                show-default-tooltip="true">
+            </igc-column-series>
+            <igc-column-series name="series3" id="seriesWind" title="Wind"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis" value-member-path="Wind"
+                show-default-tooltip="true">
+            </igc-column-series>
+
+            </igc-column-series>
+        </igc-data-chart>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

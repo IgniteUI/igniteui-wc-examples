@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>CategoryChartStackColumns</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-category-chart id="chart"
+        height="calc(100% - 45px)"
+        width="100%"
+        title-top-margin="5"
+        chart-title="TIME SPENT ONLINE BY ACTIVITY"
+        chart-type="Column"
+
+        x-axis-label-text-style="9pt Verdana"
+        x-axis-label-top-Margin="5"
+        x-axis-Label-text-Color="gray"
+        x-axis-Label-angle="90"
+        y-axis-Label-text-style="9pt Verdana"
+        y-axis-Label-right-margin="5"
+        y-axis-Label-text-color="gray"
+        y-axis-Label-angle="0"
+
+        x-axis-tick-length="0"
+        x-axis-tick-stroke-thickness=1
+        x-axis-tick-stroke="gray"
+        y-axis-tick-length="0"
+
+        x-axis-interval="1"
+        x-axis-stroke="gray"
+        x-axis-stroke-thickness="2"
+
+        y-axis-interval="1"
+        y-axis-minimum-value="0"
+        y-axis-maximum-value="10"
+        y-axis-major-stroke="gray"
+        y-axis-major-stroke-thickness="1"
+        y-axis-minor-interval="1"
+        y-axis-minor-stroke="gray"
+        y-axis-minor-stroke-thickness="0"
+        x-axis-gap="0.45"
+        x-axis-overlap="1">
+    </igc-category-chart>
+
+    <igc-igLegend id="legend" orientation="Horizontal" height="40px"></igc-legend>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

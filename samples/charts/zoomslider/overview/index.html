@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>ZoomSliderOverview</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div id="container" style="width: calc(100% - 10px); height: calc(100% - 10px)">
+        <igc-data-chart id="mainChart"
+            width="100%" height="calc(100% - 160px)"
+            title-top-margin="10"
+            chart-title="World GDP vs Population"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="false">
+
+                <igc-numeric-x-axis
+                    name="mainXAxis" id="mainXAxis"
+                    is-logarithmic="true"
+                    abbreviate-large-numbers="true"
+                    title="Population">
+                </igc-numeric-x-axis>
+                <igc-numeric-y-axis
+                    name="mainYAxis" id="mainYAxis"
+                    is-logarithmic="true"
+                    abbreviate-large-numbers="true"
+                    title-left-margin="10"
+                    title="Total GDP ($)"
+                    label-extent="60">
+                </igc-numeric-y-axis>
+        </igc-data-chart>
+
+        <div style="width: calc(100% - 70px);
+                    height: 160px;
+                    position: relative;
+                    margin-left: 55px;
+                    margin-right: 15px;">
+
+            <div style="width: 100%; height: 160px; position: absolute; top: 0px; left: 0px">
+                <igc-data-chart
+                    id="zoomChart"
+                    width="100%"
+                    height="160px"
+                    is-horizontal-zoom-enabled="true"
+                    is-vertical-zoom-enabled="true" >
+                        <igc-numeric-x-axis id="zoomXAxis" name="zoomXAxis"
+                            is-logarithmic="true"
+                            abbreviate-large-numbers="true"
+                            label-visibility="collapsed">
+                        </igc-numeric-x-axis>
+                        <igc-numeric-y-axis id="zoomYAxis" name="zoomYAxis"
+                            is-logarithmic="true"
+                            abbreviate-large-numbers="true"
+                            label-visibility="collapsed" >
+                        </igc-numeric-x-axis>
+                </igc-data-chart>
+            </div>
+
+            <div style="width: 100%; height: 160px; position: absolute; top: 0px; left: 0px">
+                <igc-zoom-igOptions-slider id="zoomSlider"
+                    width="100%"
+                    height="100%"
+                    are-thumb-callouts-enabled="true" >
+                </igc-zoom-slider
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>
