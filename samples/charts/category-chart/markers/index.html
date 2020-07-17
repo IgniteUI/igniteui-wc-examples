@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>CategoryChartMarkers</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+<div class="igOptions">
+        <span class="optionLabel">Chart Type: </span>
+        <select value="Line" id="chartType">
+            <option>Auto</option>
+            <option>Area</option>
+            <option>Column</option>
+            <option>Point</option>
+            <option>Line</option>
+            <option>Spline</option>
+            <option>SplineArea</option>
+            <option>StepArea</option>
+            <option>StepLine</option>
+            <option>Waterfall</option>
+        </select>
+        <span class="optionLabel"> Marker Type: </span>
+        <select value="Circle" id="markersTypes">
+            <option>Automatic</option>
+            <option>Circle</option>
+            <option>Triangle</option>
+            <option>Pyramid</option>
+            <option>Square</option>
+            <option>Diamond</option>
+            <option>Pentagon</option>
+            <option>Hexagon</option>
+            <option>Tetragram</option>
+            <option>Pentagram</option>
+            <option>Hexagram</option>
+            <option>None</option>
+        </select>
+    </div>
+    <igc-category-chart id="chart"
+        width="100%"
+        height="calc(100% - 35px)"
+        chart-Title="Olympic Medals By Country"
+        is-series-highlighting-enabled="true"
+        chart-type="Line"
+        marker-types="Circle"
+        y-axis-minimum-value="0"
+    </igc-category-chart>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

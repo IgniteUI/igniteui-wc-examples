@@ -1,0 +1,2 @@
+
+import './RadialGaugeTypeCurved.ts';

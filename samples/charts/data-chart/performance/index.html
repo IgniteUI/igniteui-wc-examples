@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>DataChartPerformance</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <label class="igOptions-label">Data Points: </label>
+        <label class="igOptions-value" id="dataInfo">
+        </label>
+        <input class="igOptions-slider" id="dataPointsSlider" type="range"
+            min="10000" max="1000000" step="1000">
+        </input>
+        <button id="genData">Generate Data</button>
+        <label class="igOptions-item">
+            <input type="checkbox" id="scaleRatio"
+            onChange={this.onScalingRatioChanged}></input> Optimize Scaling
+        </label>
+        <span id="fps" class="optionLabel"></span>
+    </div>
+    <div class="chart" style="height: calc(100% - 45px)">
+        <igc-data-chart id="chart" width="100%" height="100%"
+        is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true">
+            <igc-category-x-axis name="xAxis" label="Label">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis name="yAxis">
+            </igc-numeric-y-axis>
+
+            <igc-line-series name="series1"
+                value-member-path="Value"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
+                marker-type="None">
+            </igc-line-series>
+        </igc-data-chart>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

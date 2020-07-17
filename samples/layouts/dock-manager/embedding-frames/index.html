@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>DockManagerEmbeddingFrames</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-dockmanager id="dockManager">
+        <div class="dockManagerFull" slot="doughnutChartContainer"  >
+            <iframe class="dockManagerFrame" seamless frameBorder="0"
+            src='https://infragistics.com/webcomponents-demos/charts/doughnut-chart-overview' ></iframe>
+        </div>
+        <div class="dockManagerFull" slot="gaugeContainer" >
+            <iframe class="dockManagerFrame" seamless frameBorder="0"
+            src='https://infragistics.com/webcomponents-demos/gauges/radial-gauge-needle' ></iframe>
+        </div>
+        <div class="dockManagerFull" slot="geoMapContainer"  >
+            <iframe class="dockManagerFrame" seamless frameBorder="0"
+            src='https://infragistics.com/react-demos/maps/geo-map-binding-data-csv'  ></iframe>
+        </div>
+    </igc-dockmanager>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

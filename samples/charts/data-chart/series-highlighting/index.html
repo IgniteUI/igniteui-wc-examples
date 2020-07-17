@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>DataChartSeriesHighlighting</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <label class="igOptions-label">Enable Highlighting: </label>
+        <label class="igOptions-item"><input type="checkbox" id="seriesInput">
+        </input> Series </label>
+        <label class="option-item"><input type="checkbox" id="itemInput"}>
+        </input> Item </label>
+        <label class="option-item"><input type="checkbox" id="categoryInput">
+        </input> Category </label>
+    </div>
+
+    <div class="chart" style="height: calc(100% - 45px)">
+        <igc-data-chart id="chart" width="100%" height="100%"
+        is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true">
+            <igc-category-x-axis name="xAxis" label="Country">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis name="yAxis" minimum-value="0">
+            </igc-numeric-y-axis>
+
+            <igc-column-series id="series1" title="Coal" x-axis-name="xAxis"
+                y-axis-name="yAxis" value-member-path="Coal"
+                is-transition-in-enabled="true">
+            </igc-column-series>
+            <igc-column-series id="series2" title="Hydro" x-axis-name="xAxis"
+                y-axis-name="yAxis" value-member-path="Hydro"
+                is-transition-in-enabled="true">
+            </igc-column-series>
+            <igc-column-series id="series3" title="Nuclear" x-axis-name="xAxis"
+                y-axis-name="yAxis" value-member-path="Nuclear"
+                is-transition-in-enabled="true">
+            </igc-column-series>
+            <igc-column-series id="series4" title="Gas" x-axis-name="xAxis"
+                y-axis-name="yAxis" value-member-path="Gas"
+                is-transition-in-enabled="true">
+            </igc-column-series>
+            <igc-column-series id="series5" title="Oil" x-axis-name="xAxis"
+                y-axis-name="yAxis" value-member-path="Oil"
+                is-transition-in-enabled="true">
+            </igc-column-series>
+        </igc-data-chart>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

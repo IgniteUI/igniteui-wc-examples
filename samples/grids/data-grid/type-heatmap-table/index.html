@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>DataGridTypeHeatmapTable</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-data-grid
+        id="grid"
+        width="100%"
+        height="100%"
+        row-height="50"
+        row-separator-height="1"
+        row-separator-background="lightgray"
+        header-separator-background="lightgray"
+        header-separator-width="1"
+        header-height="110"
+        column-resizing-mode="None"
+        auto-generate-columns="false"
+        >
+        <igc-text-column id="name" property-path="Name" header-text="Productivity" horizontal-alignment="right" width="*>110"></igc-text-column>
+        <igc-template-column id="January" property-path="January" header-text="January" width="50"></igc-template-column>
+        <igc-template-column id="February" property-path="February" header-text="February" width="50"></igc-template-column>
+        <igc-template-column id="March" property-path="March" header-text="March" width="50"></igc-template-column>
+        <igc-template-column id="April" property-path="April" header-text="April" width="50"></igc-template-column>
+        <igc-template-column id="May" property-path="May" header-text="May" width="50"></igc-template-column>
+        <igc-template-column id="June" property-path="June" header-text="June" width="50"></igc-template-column>
+        <igc-template-column id="July" property-path="July" header-text="July" width="50"></igc-template-column>
+        <igc-template-column id="August" property-path="August" header-text="August" width="50"></igc-template-column>
+        <igc-template-column id="September" property-path="September" header-text="September" width="50"></igc-template-column>
+        <igc-template-column id="October" property-path="October" header-text="October" width="50"></igc-template-column>
+        <igc-template-column id="November" property-path="November" header-text="November" width="50"></igc-template-column>
+        <igc-template-column id="December" property-path="December" header-text="December" width="50"></igc-template-column>
+        <igc-text-column id="average" property-path="Average" header-text="Average" horizontal-alignment="left" width="*>110"></igc-text-column>
+    </igc-data-grid>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

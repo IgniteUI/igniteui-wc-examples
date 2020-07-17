@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>RadialGaugeNeedle</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer-center">
+    <igc-radial-gauge
+        height="100%"
+        width="100%"
+        is-needle-dragging-enabled="true"
+        is-needle-dragging-constrained="true"
+        needle-shape="NeedleWithBulb"
+        needle-brush="DodgerBlue"
+        needle-outline="DodgerBlue"
+        needle-end-extent="0.475"
+        needle-stroke-thickness="1"
+        needle-pivot-shape="CircleOverlay"
+        needle-pivot-brush="#9f9fa0"
+        needle-pivot-outline="#9f9fa0"
+        needle-pivot-width-ratio="0.2"
+        needle-pivot-stroke-thickness="1"
+        value="50"
+        minimum-value="0"
+        maximum=value="80"
+        interval="10" >
+    </igc-radial-gauge>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

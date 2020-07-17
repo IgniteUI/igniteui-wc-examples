@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>DockManagerOverview</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-dockmanager id="dockManager">
+        <div slot="content1" class="dockManagerContent">Content 1</div>
+        <div slot="content2" class="dockManagerContent">Content 2</div>
+        <div slot="content3" class="dockManagerContent">Content 3</div>
+        <div slot="content4" class="dockManagerContent">Content 4</div>
+        <div slot="content5" class="dockManagerContent">Content 5</div>
+        <div slot="content6" class="dockManagerContent">Content 6</div>
+        <div slot="content7" class="dockManagerContent">Content 7</div>
+        <div slot="content8" class="dockManagerContent">Content 8</div>
+        <div slot="content9" class="dockManagerContent">Content 9</div>
+    </igc-dockmanager>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

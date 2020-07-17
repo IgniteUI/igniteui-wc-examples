@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>DataGridCellActivation</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-data-grid
+        id="grid"
+        height="100%"
+        width="100%"
+        default-column-min-width="150"
+        is-column-igOptions-enabled="true"
+        auto-generate-columns="false"
+        selection-mode="None"
+        activation-mode="Cell">
+
+        <igc-text-column property-path="Name"></igc-text-column>
+        <igc-text-column property-path="Street" header-text="Address"></igc-text-column>
+        <igc-text-column property-path="City"></igc-text-column>
+        <igc-numeric-column property-path="Salary" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+        <igc-date-time-column property-path="Birthday" ></igc-date-time-column>
+
+    </igc-data-grid>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>DataChartTypeScatterLineSeries</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-data-chart id="chart" width="100%" height="100%"
+    is-horizontal-zoom-enabled="true"
+    is-vertical-zoom-enabled="true"
+    chartTitle="GDP vs Population">
+
+    <igc-numeric-x-axis name="xAxis"
+        is-logarithmic="true"
+        abbreviate-large-numbers="true"
+        title="Population">
+    </igc-numeric-x-axis>
+    <igc-numeric-y-axis name="yAxis"
+        is-logarithmic="true"
+        abbreviate-large-numbers="true"
+        title="Total GDP ($)">
+    </igc-numeric-y-axis>
+
+    <igc-scatter-line-series id="series1"
+        marker-type="Circle"
+        x-axis-name="xAxis"
+        y-axis-name="yAxis"
+        x-member-path="Population"
+        y-member-path="GdpTotal"
+        show-default-tooltip="true"
+        title="Rich Countries">
+    </igc-scatter-line-series>
+
+    <igc-scatter-line-series id="series2"
+        marker-type="Circle"
+        x-axis-name="xAxis"
+        y-axis-name="yAxis"
+        x-member-path="Population"
+        y-member-path="GdpTotal"
+        show-default-tooltip="true"
+        title="Poor Countries">
+    </igc-scatter-line-series>
+
+    </igc-data-chart>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

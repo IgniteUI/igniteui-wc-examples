@@ -1,0 +1,2 @@
+
+import './RadialGaugeTypeQuatre.ts';

@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>DataGridColumnFiltering</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <span class="optionItem">  Column: </span>
+        <select id="filterColumnDropDown" class="optionItem">
+            <option>Name</option>
+            <option>Street</option>
+            <option>City</option>
+            <option>Country</option>
+        </select>
+        <select id="filterModeDropDown" class="optionItem">
+            <option>Contains</option>
+            <option>StartsWith</option>
+            <option>EndsWith</option>
+        </select>
+        <label class="optionItem"> Expression: </label>
+        <input id="filterTextBox" class="optionText" type="text" name="title" />
+    </div>
+
+    <igc-data-grid
+        id="grid"
+        height="calc(100% - 30px)"
+        width="100%"
+        default-column-min-width="100"
+        is-column-options-enabled="true"
+        auto-generate-columns="false">
+
+        <igc-text-column property-path="Name" width="*>150"></igc-text-column>
+        <igc-text-column property-path="Street" width="*>160"></igc-text-column>
+        <igc-text-column property-path="City" width="*>125"></igc-text-column>
+        <igc-image-column property-path="CountryFlag" header-text="Country" content-opacity="1"
+            horizontal-alignment="center" width="*>110" padding-top="5" padding-bottom="5"></igc-image-column>
+        <igc-numeric-column property-path="Sales" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+        <igc-date-time-column property-path="Birthday" header-text="Birthday" width="*>115"></igc-date-time-column>
+
+    </igc-data-grid>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+
+import './DataChartTypeFinancialIndicatorArea.ts';

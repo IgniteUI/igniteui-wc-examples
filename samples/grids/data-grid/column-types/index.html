@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>DataGridColumnTypes</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-data-grid
+        id="grid"
+        height="100%"
+        width="100%"
+        row-height="50"
+        auto-generate-columns="false"
+        is-column-igOptions-enabled="true"
+        default-cColumn-min-width="100">
+
+        <igc-image-column property-path="Photo" header-text="Photo"
+        content-opacity="1" horizontal-alignment="center" width="110"></igc-image-column>
+
+        <igc-text-column property-path="Name" width="*>130"></igc-text-column>
+
+        <igc-template-column id="salesColumn"
+        property-path="Sales" header-text="Sales" horizontal-alignment="left"
+        width="*>160" width="*>160"></igc-template-column>
+
+        <igc-numeric-column property-path="Salary" positive-prefix="$"
+        show-grouping-separator="true" width="*>140"></igc-numeric-column>
+
+        <igc-template-column id="addressColumn"
+        property-path="Address" header-text="Address" horizontal-alignment="left"
+        width="*>160" ></igc-template-column>
+
+        <igc-image-column property-path="CountryFlag" header-text="Country"
+        content-opacity="1" horizontalAlignment="stretch" width="130"
+        padding-top="7.5" padding-bottom="7.5" ></igc-image-column>
+
+        <igc-date-time-column property-path="Birthday" header-text="Date of Birth"
+        horizontal-alignment="right" width="*>160"></igc-date-time-column>
+
+        <igc-text-column property-path="Income" width="*>120"></igc-text-column>
+
+        <igc-template-column id="productivityColumn"
+        property-path="Productivity" header-text="Productivity"
+        horizontal-alignment="stretch" width="*>150" ><igc-template-column>
+
+        <igc-text-column property-path="Age" width="*>110"></igc-text-column>
+
+    </igc-data-grid>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

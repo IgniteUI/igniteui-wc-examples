@@ -1,0 +1,2 @@
+
+import './MapMarkerTemplete.ts';

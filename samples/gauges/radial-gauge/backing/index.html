@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>RadialGaugeBacking</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer-center">
+    <igc-radial-gauge
+        backing-shape="Fitted"
+        backing-brush="#fcfcfc"
+        backing-outline="DodgerBlue"
+        backing-oversweep="5"
+        backing-corner-tadius="10"
+        backing-stroke-thickness="5"
+        backing-outer-extent="0.8"
+        backing-inner-extent="0.15"
+
+        scale-start-angle="135"
+        scale-end-angle="45"
+        scale-brush="#dddddd"
+
+        height="100%"
+        width="100%"
+        minimum-value="0" value="50"
+        maximum-value="80" interval="10" />
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

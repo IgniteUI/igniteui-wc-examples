@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>DataChartSeriesMarkers</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <span class="igOptions-label"> Marker Type: </span>
+        <select id="markerSelect">
+            <option>Automatic</option>
+            <option>Circle</option>
+            <option>Triangle</option>
+            <option>Pyramid</option>
+            <option>Square</option>
+            <option>Diamond</option>
+            <option>Pentagon</option>
+            <option>Hexagon</option>
+            <option>Tetragram</option>
+            <option>Pentagram</option>
+            <option>Hexagram</option>
+            <option>None</option>
+        </select>
+    </div>
+    <div class="chart" style="height: calc(100% - 45px)">
+    <igc-data-chart id="chart" width="100%" height="100%"
+    is-horizontal-zoom-enabled="true"
+    is-vertical-zoom-enabled="true">
+
+        <igc-category-x-axis name="xAxis" label="Year">
+        </igc-category-x-axis>
+        <igc-numeric-y-axis name="yAxis" minimum-value="0">
+        </igc-numeric-y-axis>
+
+        <igc-line-series id="series1" title="USA"
+            value-member-path="USA"
+            x-axis-name="xAxis"
+            y-axis-name="yAxis">
+        </igc-line-series>
+        <igc-line-series  id="series2" title="China"
+            value-member-path="China"
+            x-axis-name="xAxis"
+            y-axis-name="yAxis">
+        </igc-line-series>
+        <igc-line-series  id="series3" title="Russia"
+            value-member-path="Russia"
+            x-axis-name="xAxis"
+            y-axis-name="yAxis">
+        </igc-line-series>
+    </igc-data-chart>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

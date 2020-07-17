@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>LinearGaugeLabels</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer-center">
+    <igc-linear-gauge
+        id="gauge"
+        height="80px"
+        width="100%"
+        minimum-value="0" value="50"
+        maximum-value="100" interval="10"
+        label-interval="10"
+        label-extent="0.025"
+        labels-pre-terminal="0"
+        labels-post-initial="0"
+        font-brush="DodgerBlue"
+        font="11px Verdana" >
+    </igc-linear-gauge>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

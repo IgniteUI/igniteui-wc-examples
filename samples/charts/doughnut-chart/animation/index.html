@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>DoughnutChartAnimation</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+    <button id="animateButton"><label>Animate Chart</label> </button> 
+    </div>
+    
+    <igc-doughnut-chart id="chart"
+        width=“100%”
+        height="100%">
+        <igc-ring-series
+            name="ringSeries" id="ringSeries"
+            label-member-path="Company"
+            value-member-path="MarketShare"         
+            radius-factor="0.1"
+            start-angle = 0
+            labels-position="InsideEnd" >
+        </igc-ring-series>
+    </igc-doughnut-chart>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

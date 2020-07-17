@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>DataChartSeriesAnnotations</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <span class="igOptions-item">Annotations: </span>
+        <label class="option-item"><input type="checkbox" id="callouts"></input>Callouts </label>
+        <label class="option-item"><input type="checkbox" id="finalValue"></input>Final Value</label>
+        <label class="option-item"><input type="checkbox" id="crosshairs"></input>Crosshairs</label>
+        <!-- <label class="option-item"><input type="checkbox" id="valueOverlay"></input>Value Overlay </label> -->
+    </div>
+
+    <div class="chart" style="height: calc(100% - 45px)">
+        <igc-data-chart id="chart" width="100%" height="100%"
+        is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true">
+            <igc-category-x-axis id="xAxis" name="xAxis" interval="1">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis id="yAxis" name="yAxis"
+                minimum-value="70"
+                maximum-value="110"
+                label-location="OutsideRight">
+            </igc-numeric-y-axis>
+            <igc-column-series id="series1" name="series1"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
+                value-member-path="temperature">
+            </igc-column-series>
+        </igc-data-chart>
+    </div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

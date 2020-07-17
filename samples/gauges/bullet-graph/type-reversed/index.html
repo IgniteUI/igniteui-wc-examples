@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>BulletGraphTypeReversed</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer-center"  >
+<label class="title">Company Expanse ($ Billions)</label>
+<igc-bullet-graph
+    id="gauge1" is-scale-inverted="true"
+    height="120px"
+    width="100%" >
+</igc-bullet-graph>
+<label class="title">Company Revenu ($ Billions)</label>
+<igc-bullet-graph
+    id="gauge2"
+    height="120px"
+    width="100%">
+</igc-bullet-graph>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>LinearGaugeAnimation</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer-center">
+    <div class="igOptions">
+        <button id="animationButton1" class="button1">Gauge Animation #1</button>
+        <button id="animationButton2" class="button2">Gauge Animation #2</button>
+        <button id="animationButton3" class="button3">Gauge Animation #3</button>
+    </div>
+    <igc-linear-gauge
+        id="gauge"
+        transition-duration="1000"
+        height="80px"
+        width="100%"
+        minimum-value="0"
+        maximum-value="100"
+        value="50"
+        interval="10"
+        label-interval="10"
+        label-extent="0.0"
+        minorTick-endExtent="0.10"
+        minorTick-start-extent="0.20"
+        tick-start-extent="0.25"
+        tick-end-extent="0.05"
+        tick-stroke-thickness="2"
+        needle-shape="Needle"
+        needle-brush="#79797a"
+        needle-outline="#79797a"
+        scale-stroke-thickness"0"
+        scale-brush="#ffffff"
+        scale-outline="#d3d3d3"
+        backing-brush="#ffffff"
+        backing-outline="#d1d1d1"
+        backing-stroke-thickness="0" >
+    <igc-linear-gauge>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

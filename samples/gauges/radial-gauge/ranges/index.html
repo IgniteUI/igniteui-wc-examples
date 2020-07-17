@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>RadialGaugeRanges</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer-center">
+    <igc-radial-gauge
+        height="100%"
+        width="100%"
+        minimum-value="0" value="50"
+        maximum-value="80" interval="10"
+        range-brushes ="#a4bd29, #F86232"
+        range-outlines="#a4bd29, #F86232"  >
+        <igc-radial-gauge-range name="range1"
+            start-value="10" end-value="25"
+            inner-start-extent="0.50" inner-end-extent="0.50"
+            outer-start-extent="0.57" outer-end-extent="0.57" >
+        </igc-radial-gauge-range>
+        <igc-radial-gauge-range name="range2"
+            start-value="25" end-value="40"
+            inner-start-extent="0.50" inner-end-extent="0.50"
+            outer-start-extent="0.57" outer-end-extent="0.57" >
+        </igc-radial-gauge-range>
+    </igc-radial-gauge>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

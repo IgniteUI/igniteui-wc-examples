@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>DataChartAxisLocations</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <span class="igLegend-title">Legend: </span>
+        <div class="legend-inline">
+            <igc-legend id="legend" orientation="Horizontal">
+            </igc-legend>
+        </div>
+    </div>
+    <div class="chart"  style="height: calc(100% - 45px)">
+        <igc-data-chart id="chart" width="100%" height="100%"
+            chart-title="Company Financial Projections"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+
+            <!-- multiple axes at various location: -->
+            <igc-Category-x-axis name="xAxisYears"
+            interval="12" label-location="OutsideBottom" overlap="1" gap="0.4"
+            label="Year"  label-text-color="gray" tick-length="0">
+            </igc-Category-x-axis>
+            <igc-Category-x-axis name="xAxisMonths" overlap="1" gap="0.4"
+            interval="1"  label-location="OutsideBottom"
+            label="Month" label-text-color="gray">
+            </igc-Category-x-axis>
+            <igc-numeric-y-axis  name="yAxisLeft" title="Expanse | Revenue"
+            title-text-color="gray"
+            minimum-value="-900" label-location="OutsideLeft"
+            maximum-value="900" label-text-color="gray"
+            interval="300">
+            </igc-numeric-y-axis>
+            <igc-numeric-y-axis  name="yAxisRight" title="Profit (%)"
+            title-text-color="gray"
+            minimum-value="0"  label-location="OutsideRight"
+            major-stroke-thickness="0"
+            maximum-value="100" label-text-color="gray"
+            label-horizontal-alignment="left"
+            title-vertical-alignment="center">
+            </igc-numeric-y-axis>
+
+            <!-- multiple series: -->
+            <igc-column-series name="series1" title="Revenue"
+            value-member-path="Revenue" brush="#9b58e2" outline="#9b58e2"
+            x-axis-name="xAxisMonths" show-default-tooltip="true"
+            y-axis-name="yAxisLeft"
+            isTransitionInEnabled="true">
+            </igc-column-series>
+            <igc-column-series name="series3" title="Expanse"
+            value-member-path="Expanse" brush="#f23030" outline="#f23030"
+            x-axis-name="xAxisMonths" show-default-tooltip="true"
+            y-axis-name="yAxisLeft"
+            is-transition-in-enabled="true">
+            </igc-column-series>
+            <igc-column-series name="series2" title="Profit"
+            value-member-path="Profit" brush="#48ba39" outline="#48ba39"
+            x-axis-name="xAxisYears" show-default-tooltip="true"
+            y-axis-name="yAxisRight"
+            is-transition-in-enabled="true">
+            </igc-column-series>
+        </igc-data-chart>
+    <div>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

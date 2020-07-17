@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>CategoryChartOverview</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <span class="optionLabel">Chart Type: </span>
+        <select value="Column" id="chartType">
+            <option>Auto</option>
+            <option>Area</option>
+            <option>Column</option>
+            <option>Point</option>
+            <option>Line</option>
+            <option>Spline</option>
+            <option>SplineArea</option>
+            <option>StepArea</option>
+            <option>StepLine</option>
+            <option>Waterfall</option>
+        </select>
+        <igc-igLegend id="legend" orientation="Horizontal" ></igc-legend >
+    </div>
+
+    <igc-category-chart id="chart"
+        width="100%"
+        height="calc(100% - 100px)"
+        chart-title="Olympic Medals By Country"
+        is-series-highlighting-enabled="true"
+        chart-type="Column"
+        y-axis-minimum-value="0"
+    </igc-category-chart>
+
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

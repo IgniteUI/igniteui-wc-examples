@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>CategoryChartAnnotations</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <label class="optionLabel">Annotations: </label>
+        <label class="optionItem"><input type="checkbox" id="checkbox1" checked="true"></input> Crosshair </label>
+        <label class="optionItem"><input type="checkbox" id="checkbox2" checked="true"></input> Callouts </label>
+        <label class="optionItem"><input type="checkbox" id="checkbox3" checked="true"></input> Final Values </label>
+        <label class="optionItem"><input type="checkbox" id="checkbox4" checked="true"></input> Markers </label>
+    </div>
+
+    <igc-category-chart id="chart"
+        width="100%" height="calc(100% - 35px)"
+        chart-type="Line"
+        marker-types="Circle"
+        x-axis-interval="1"
+        y-axis-minimum-value="50"
+        y-axis-maximum-value="120"
+        y-axis-label-location="OutsideRight"
+        thickness="2"
+        callouts-visible="true"
+        callouts-x-member-path="index"
+        callouts-y-member-path="value"
+        callouts-label-member-path="info"
+        crosshairs-snap-to-data="false"
+        crosshairs-display-mode="Both"
+        crosshairs-annotation-enabled="true"
+        final-value-annotations-visible="true"
+    </igc-category-chart>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

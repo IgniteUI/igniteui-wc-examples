@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>DataGridTypeComparisonTable</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-data-grid
+        id="grid"
+        height="100%"
+        width="100%"
+        row-height="50"
+        row-separator-height="1"
+        row-separator-background="lightgray"
+        header-separator-background="lightgray"
+        header-separator-width="1"
+        header-height="110"
+        column-resizing-mode="None"
+        auto-generate-columns="false"
+        >
+
+        <igc-text-column id="nameColumn" property-path="Name" header-text="Skills" horizontal-alignment="right" width="*>110"></igc-text-column>
+
+        <igc-template-column id="JavaScript" property-path="JavaScript" width="50"></igc-template-column>
+        <igc-template-column id="Angular" property-path="Angular" width="50"></igc-template-column>
+        <igc-template-column id="React" property-path="React" width="50"></igc-template-column>
+        <igc-template-column id="CSharp" property-path="CSharp" header-text="C#" width="50"></igc-template-column>
+        <igc-template-column id="CPP" property-path="CPP" header-text="C++" width="50"></igc-template-column>
+        <igc-template-column id="Swift" property-path="Swift"width="50"></igc-template-column>
+        <igc-template-column id="VB" property-path="VB"  width="50"></igc-template-column>
+        <igc-template-column id="Python" property-path="Python" width="50"></igc-template-column>
+        <igc-template-column id="Ruby" property-path="Ruby" width="50"></igc-template-column>
+        <igc-template-column id="XAML" property-path="XAML" width="50"></igc-template-column>
+
+        <igc-numeric-column id="skillColumn" property-path="Skills" header-text="Total" horizontal-alignment="left" width="*>110"></igc-numeric-column>
+    </igc-data-grid>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>DataGridPerformance</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <igc-data-grid
+    id="grid"
+    width="100%"
+    height="100%"
+    auto-generate-columns="false"
+    row-height="40"
+    default-column-min-width="80"
+    column-showing-animation-mode="Auto"
+    column-hiding-animation-mode="Auto">
+
+    <igc-text-column property-path="FirstName" header-text="First Name" width="*>125"></igc-text-column>
+    <igc-text-column property-path="LastName" header-text="Last Name" width="*>125"></igc-text-column>
+    <igc-text-column property-path="Territory" width="*>115"></igc-text-column>
+    <igc-numeric-column property-path="YearToDateSales"
+        header-text="YTD Sales" width="*>120" positive-prefix="$"
+        show-grouping-separator="true">
+    </igc-numeric-column>
+
+    <igc-template-column id="avgSaleTemplateColumn" property-path="AvgSale"
+        header-text="Avg. Sale"
+        width="*>125"
+        horizontal-alignment="right"
+        cellStyleKeyRequested={this.onPriceStyleKey}
+        cellUpdating={this.onPriceCellUpdating} >
+    </igc-template-column>
+
+    <igc-template-column id="changeTemplateColumn" property-path="Change" width="*>120"
+        horizontal-alignment="right"
+        cellStyleKeyRequested={this.onPriceAmountStyleKey}
+        cellUpdating={this.onPriceAmountCellUpdating}>
+    </igc-template-column>
+
+    <igc-template-column id="percentChangeTemplateColumn" property-path="PercentChange" width="*>135"
+        horizontal-alignment="right" header-text="Change (%)"
+        cellStyleKeyRequested={this.onPricePercentStyleKey}
+        cellUpdating={this.onPricePercentCellUpdating}>
+    </igc-template-column>
+
+    <igc-date-time-column property-path="DateValue" header-text="Date" width="*>120" >
+    </igc-date-time-column>
+
+    </igc-data-grid>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<html>
+  <head>
+    <title>DataGridBindingLiveData</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="toolArea">
+        <div class="toolAreaFirstRow">
+        <span>&nbsp;&nbsp;&nbsp;</span>
+
+        <span>Grouping</span>
+        <mwc-switch checked id="groupingSwitch"></mwc-switch>
+
+        <span>Heat</span>
+        <mwc-switch id="heatSwitch"></mwc-switch>
+
+        <div class="frequencySlider">
+            <span id="frequencySpan">Frequency: </span>
+            <mwc-igOptions-slider
+                id="fSlider"
+                min="100"
+                max="1000"
+                step="100"
+                class="slider"
+                value={this.state.frequency}
+                onChange={this.onFrequencyChange}
+            />
+        </div>
+
+        <div class="volumeSlider">
+            <span id="volumeSpan">Volume: </span>
+            <mwc-slider
+                id="vSlider"
+                min="100"
+                max="10000"
+                step="100"
+                class="slider"
+                value={this.state.volume}
+                onChange={this.onVolumeChange}
+            />
+        </div>
+
+        <mwc-button id="liveButton" raised color="primary" >Live Prices</mwc-button>
+        <span>&nbsp;</span>
+        <mwc-button id="liveAllButton" raised color="secondary" >Live All Prices</mwc-button>
+        <span>&nbsp;</span>
+        <mwc-button id="stopButton" raised>Stop</mwc-button>
+        <span>&nbsp;</span>
+    </div>
+
+</div>
+<igc-data-grid
+    id="grid"
+    width="100%"
+    height="calc(100% - 80px)"
+    use-canvas="false"
+    row-height="32"
+    selection-mode="MultipleRow"
+    auto-generate-columns="false"
+    header-click-action="SortByMultipleColumnsTriState"
+    column-showing-animation-mode="slideFromRightAndFadeIn"
+    column-hiding-animation-mode="slideToRightAndFadeOut"
+    default-column-min-width="120">
+
+    <igc-text-column property-path="ID" width="120" is-hidden="true"></igc-text-column>
+    <igc-text-column property-path="Category" width="120" ></igc-text-column>
+    <igc-text-column property-path="Contract" width="110" ></igc-text-column>
+    <igc-text-column property-path="Region" width="110" ></igc-text-column>
+    <igc-text-column property-path="Country" width="100" ></igc-text-column>
+    <igc-numeric-column property-path="Open Price" width="140"></igc-numeric-column>
+    <igc-template-column id="priceTemplateColumn" property-path="Price" width="110"
+      horizontal-alignment="right">
+    </igc-template-column>
+
+    <igc-template-column id="changeTemplateColumn" property-path="Change" width="120"
+       horizontal-alignment="right">
+    </igc-template-column>
+
+    <igc-template-column id="changePercentTemplateColumn" name="ChangePer" property-path="Change(%)" width="135">
+    </igc-template-column>
+
+    <igc-numeric-column property-path="Buy" width="110"></igc-numeric-column>
+    <igc-numeric-column property-path="Sell" width="110"></igc-numeric-column>
+    <igc-numeric-column property-path="Spread" width="110"></igc-numeric-column>
+    <igc-numeric-column property-path="Volume" width="110"></igc-numeric-column>
+    <igc-numeric-column property-path="High(D)" width="110"></igc-numeric-column>
+    <igc-numeric-column property-path="Low(D)" width="110"></igc-numeric-column>
+    <igc-numeric-column property-path="High(Y)" width="110"></igc-numeric-column>
+    <igc-numeric-column property-path="Low(Y)" width="110"></igc-numeric-column>
+    <igc-numeric-column property-path="Start(Y)" width="110"></igc-numeric-column>
+
+    <igc-text-column property-path="IndGrou" width="100" ></igc-text-column>
+    <igc-text-column property-path="IndSect" width="120"></igc-text-column>
+    <igc-text-column property-path="IndSubg" width="100" ></igc-text-column>
+    <igc-text-column property-path="Sector" width="90" ></igc-text-column>
+    <igc-text-column property-path="Issuer" width="170"></igc-text-column>
+    <igc-text-column property-path="Moodys" width="60" ></igc-text-column>
+    <igc-text-column property-path="Fitch" width="60" ></igc-text-column>
+    <igc-text-column property-path="DBRS" width="60" ></igc-text-column>
+    <igc-text-column property-path="CollatT" width="90" ></igc-text-column>
+    <igc-text-column property-path="Currency" width="60" ></igc-text-column>
+    <igc-text-column property-path="Security" width="120" ></igc-text-column>
+    <igc-numeric-column property-path="CUSIP" width="100" ></igc-numeric-column>
+    <igc-numeric-column property-path="Cpn" width="80" ></igc-numeric-column>
+    <igc-text-column property-path="Maturity" width="120" ></igc-text-column>
+    <igc-numeric-column property-path="KRD_3YR" width="110" ></igc-numeric-column>
+    <igc-numeric-column property-path="ZV_SPREAD" width="135" ></igc-numeric-column>
+    <igc-numeric-column property-path="KRD_5YR" width="50" ></igc-numeric-column>
+    <igc-numeric-column property-path="KRD_1YR" width="80" ></igc-numeric-column>
+    </igc-data-grid>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

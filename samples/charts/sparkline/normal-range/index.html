@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>SparklineNormalRange</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <label class="optionItem"><input id="rangeVisibility" checked="true" type="checkbox" />Range Visibility</label>
+    <label class="optionItem" ><input id="minRange" type="range" min="-2" max="7" step="0.5"
+    value="1" />Min Range <label id="minRangelbl"></label> </label>
+    <label class="optionItem"><input id="maxRange" type="range" min="-2" max="7" step="0.5"
+    value="4"/>Max Range <label id="maxRangelbl"></label></label>
+
+    <igc-sparkline id="sparkline"
+        height="calc(100% - 55px)"
+        width="100%"
+        value-Member-Path="Value"
+        display-type="Area"
+        normal-range-visibility="Visible"
+        normal-range-minimum="1"
+        normal-range-maximum="4"
+        normal-range-fill="rgba(255, 0, 0, 0.4)"
+        display-normal-range-in-front="true" >
+    </igc-sparkline>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>

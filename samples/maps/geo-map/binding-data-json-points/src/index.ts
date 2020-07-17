@@ -1,0 +1,2 @@
+
+import './MapBindingDataJsonPoints.ts';

@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <title>DataGridColumnAnimation</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      html,
+      body,
+      #root {
+        height: calc(100%);
+        margin: 0px;
+      }
+    </style>
+     <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+  </head>
+
+  <body>
+    <div id="root">
+        
+<div class="igContainer">
+    <div class="igOptions">
+        <label class="optionItem" style="width: 130px">Adding Animation: </label>
+        <select id="addAnimationDropDown" class="optionItem" style="width: 175px">
+            <option>Auto</option>
+            <option>None</option>
+            <option>SlideFromLeft</option>
+            <option>SlideFromRight</option>
+            <option>SlideFromTop</option>
+            <option>SlideFromBottom</option>
+            <option>FadeIn</option>
+            <option>SlideFromLeftAndFadeIn</option>
+            <option>SlideFromRightAndFadeIn</option>
+            <option>SlideFromTopAndFadeIn</option>
+            <option>SlideFromBottomAndFadeIn</option>
+        </select>
+        <span class="optionItem" style="width: 130px">Exchange Animation: </span>
+        <select id="exchangeAnimationDropDown" class="optionItem" style="width: 175px">
+            <option>Auto</option>
+            <option>None</option>
+            <option>SlideToLeft</option>
+            <option>SlideToRight</option>
+            <option>SlideToTop</option>
+            <option>SlideToBottom</option>
+            <option>Crossfade</option>
+            <option>SlideToLeftAndCrossfade</option>
+            <option>SlideToRightAndCrossfade</option>
+            <option>SlideToTopAndCrossfade</option>
+            <option>SlideToBottomAndCrossfade</option>
+        </select>
+    </div>
+    <div class="options">
+        <span class="optionItem" style="width: 130px">Hiding Animation: </span>
+        <select id="hidingAnimationDropDown" class="optionItem" style="width: 175px">
+            <option>Auto</option>
+            <option>None</option>
+            <option>SlideToLeft</option>
+            <option>SlideToRight</option>
+            <option>SlideToTop</option>
+            <option>SlideToBottom</option>
+            <option>FadeOut</option>
+            <option>SlideToLeftAndFadeOut</option>
+            <option>SlideToRightAndFadeOut</option>
+            <option>SlideToTopAndFadeOut</option>
+            <option>SlideToBottomAndFadeOut</option>
+        </select>
+        <span class="optionItem" style="width: 130px">Updating Animation: </span>
+        <select id="updatingAnimationDropDown" class="optionItem" style="width: 175px" >
+            <option>Auto</option>
+            <option>None</option>
+            <option>Interpolate</option>
+            <option>InterpolateDeep</option>
+        </select>
+    </div>
+    <div class="options">
+        <span class="optionItem" style="width: 130px">Moving Animation: </span>
+        <select id="movingAnimationDropDown" class="optionItem" style="width: 175px">
+            <option>Auto</option>
+            <option>None</option>
+            <option>SlideOver</option>
+        </select>
+        <button id="hideColumnBtnClick" class="optionItem" style="width: 100px">Hide Column</button>
+        <button id="showColumnBtnClick" class="optionItem" style="width: 100px">Show Column</button>
+        <button id="reloadGridBtnClick" class="optionItem" style="width: 100px">Reload Grid</button>
+    </div>
+
+    <igc-data-grid
+        id="grid"
+        height="calc(100% - 90px)"
+        width="100%"
+        default-column-min-width="100"
+        column-adding-animation-mode="Auto"
+        column-showing-animation-mode="Auto"
+        column-exchanging-animation-mode="Auto"
+        column-hiding-animation-mode="Auto"
+        column-moving-animation-mode="Auto"
+        column-property-updating-animation-mode="Auto"
+        is-column-options-enabled="true"
+        auto-generate-columns="false" >
+
+        <igc-text-column property-path="Name" width="*>150"></igc-text-column>
+        <igc-text-column property-path="Street" header-text="Address" width="*>165" ></igc-text-column>
+        <igc-text-column property-path="City" width="*>140" ></igc-text-column>
+        <igc-numeric-column property-path="Salary" positive-prefix="$" show-grouping-separator="true" width="*>140" ></igc-numeric-column>
+        <igc-date-time-column property-path="Birthday" ></igc-date-time-column>
+
+    </igc-data-grid>
+</div>
+    </div>
+    <% if (false) { %>
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+</html>
