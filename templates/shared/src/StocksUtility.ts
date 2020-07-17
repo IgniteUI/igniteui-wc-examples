@@ -1,10 +1,4 @@
-
-
 export class StocksUtility {
-
-    public static intervalDays: number = 1;
-    public static intervalHours: number = 0;
-    public static intervalMinutes: number = 0;
 
     public static priceStart: number = 200;
     public static priceRange: number = 1;
@@ -13,26 +7,40 @@ export class StocksUtility {
 
     public static GetStocksFrom(dateEnd: Date, years: number): any {
         const dateStart = this.AddYears(dateEnd, -years);
-        return this.GetStocksBetween(dateStart, dateEnd);
+        return this.GetStocksBetween(dateStart, dateEnd, true);
     }
 
-    public static GetStocksItems(points: number): any {
-        this.intervalDays = 0;
-        this.intervalHours = 1;
-        this.intervalMinutes = 0;
+    public static GetStocksItems(points: number, intervalMinutes?: number): any {
+
+        if (intervalMinutes === undefined || intervalMinutes <= 0) {
+            intervalMinutes = 60;
+        }
 
         const today = new Date();
         const year = today.getFullYear();
         const dateEnd = new Date(year, 11, 1);
         const dateStart = this.AddHours(dateEnd, -points);
-        return this.GetStocksBetween(dateStart, dateEnd);
+        return this.GetStocksBetween(dateStart, dateEnd, false, intervalMinutes);
     }
 
-    public static GetStocksBetween(dateStart: Date, dateEnd: Date): any {
+    // Generates stocks data for specified number of months, with each item separated by specified interval in minutes
+    public static GetStocks(rangeInMonths?: number, intervalMinutes?: number, stockName?: string) {
 
-        let interval = this.intervalDays * 24 * 60;
-        interval += this.intervalHours * 60;
-        interval += this.intervalMinutes;
+        if (rangeInMonths === undefined || intervalMinutes <= 0)
+            rangeInMonths = 6;
+
+        const dateEnd = new Date();
+        const dateStart = this.AddMonths(dateEnd, -rangeInMonths);
+
+        return this.GetStocksBetween(dateStart, dateEnd, true, intervalMinutes, stockName);
+    }
+
+    public static GetStocksBetween(dateStart: Date, dateEnd: Date, useRounding?:
+        boolean, intervalMinutes?: number, stockName?: string): any {
+
+        if (intervalMinutes === undefined || intervalMinutes <= 0) {
+            intervalMinutes = 60;
+        }
 
         let time = this.AddDays(dateStart, 0);
         let v = this.volumeStart;
@@ -47,7 +55,7 @@ export class StocksUtility {
 
             o = c + ((Math.random() - 0.5) * this.priceRange);
             if (o < 0) {
-                o = Math.abs(o) + 2;
+                o = Math.abs(o) + 10;
             }
             h = o + (Math.random() * this.priceRange);
             l = o - (Math.random() * this.priceRange);
@@ -57,18 +65,25 @@ export class StocksUtility {
                 v = Math.abs(v) + 10000;
             }
 
-            o = Math.round(o * 100) / 100;
-            h = Math.round(h * 100) / 100;
-            l = Math.round(l * 100) / 100;
-            c = Math.round(c * 100) / 100;
-            v = Math.round(v * 100) / 100;
-
-            time = this.AddMinutes(time, interval);
+            if (useRounding === undefined || useRounding) {
+                o = Math.round(o * 100) / 100;
+                h = Math.round(h * 100) / 100;
+                l = Math.round(l * 100) / 100;
+                c = Math.round(c * 100) / 100;
+                v = Math.round(v * 100) / 100;
+            }
+            time = this.AddMinutes(time, intervalMinutes);
+        }
+        if (stockName === undefined) {
+            stockName = "Stock Prices";
         }
         // setting data intent for Series Title
         (stock as any).__dataIntents = {
-            close: ["SeriesTitle/Stock Prices"]
+            close: ["SeriesTitle/" + stockName]
         };
+        // console.log("start " + this.ToString(dateStart));
+        // console.log("end " + this.ToString(dateEnd));
+        console.log("stocks " + stock.length);
         return stock;
     }
 
@@ -77,11 +92,15 @@ export class StocksUtility {
     }
 
     public static AddHours(date: Date, hours: number): Date {
-        return new Date(date.getTime() + hours * 60 * 60 * 1000);
+        return this.AddMinutes(date, hours * 60);
     }
 
     public static AddDays(date: Date, days: number): Date {
-        return new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
+        return this.AddHours(date, days * 24);
+    }
+
+    public static AddMonths(date: Date, months: number): Date {
+        return this.AddDays(date, 31 * months);
     }
 
     public static AddYears(date: Date, years: number): Date {
@@ -123,10 +142,8 @@ export class StocksUtility {
     public static GetNewItem(array: any[], interval?: number): any {
         const lastItem = this.GetLastItem(array);
 
-        if (interval === undefined) {
-            interval = this.intervalDays * 24 * 60;
-            interval += this.intervalHours * 60;
-            interval += this.intervalMinutes;
+        if (interval === undefined || interval <= 0) {
+            interval = 60;
         }
 
         const time = this.AddMinutes(lastItem.date, interval);
@@ -151,5 +168,13 @@ export class StocksUtility {
         const newValue = { date: time, open: o, high: h, low: l, close: c, volume: v };
 
         return newValue;
+    }
+
+    public static ToString(dt: Date): string {
+        const months = [
+            "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ];
+        const ind = dt.getMonth();
+        return months[ind] + " " + dt.getDay() + " " +  dt.getFullYear();
     }
 }
