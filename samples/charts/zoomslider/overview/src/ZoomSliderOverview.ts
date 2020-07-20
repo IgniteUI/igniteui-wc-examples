@@ -62,6 +62,21 @@ export class ZoomSliderOverview {
     private countriesAll: any[];
 
     constructor() {
+
+        this.zoomSlider = document.getElementById('zoomSlider') as IgcZoomSliderComponent;
+        this.mainChart = document.getElementById('mainChart') as IgcDataChartComponent;
+        this.zoomChart = document.getElementById('zoomChart') as IgcDataChartComponent;
+
+        this.createSeries(this.mainChart);
+        this.charts.push(this.mainChart);
+        this.createSeries(this.zoomChart);
+
+        this.mainChart.actualWindowRectChanged = this.onActualWindowRectChanged;
+        this.mainChart.gridAreaRectChanged = this.onGridAreaRectChanged;
+        this.mainChart.seriesCursorMouseMove = this.onCursorMove;
+
+        this.zoomSlider.windowRectChanged = this.onZoomSliderWindowChanged;
+        this.zoomSlider.resolvingAxisValue = this.onResolvingAxisValue;
         
 
         this.onActualWindowRectChanged = this.onActualWindowRectChanged.bind(this);
@@ -275,23 +290,6 @@ export class ZoomSliderOverview {
 
         chart.series.add(series1);
         chart.series.add(series2);
-    
-        
-
-        this.zoomSlider = document.getElementById('zoomSlider') as IgcZoomSliderComponent;
-        this.mainChart = document.getElementById('mainChart') as IgcDataChartComponent;
-        this.zoomChart = document.getElementById('zoomChart') as IgcDataChartComponent;
-
-        this.createSeries(this.mainChart);
-        this.charts.push(this.mainChart);
-        this.createSeries(this.zoomChart);
-
-        this.mainChart.actualWindowRectChanged = this.onActualWindowRectChanged;
-        this.mainChart.gridAreaRectChanged = this.onGridAreaRectChanged;
-        this.mainChart.seriesCursorMouseMove = this.onCursorMove;
-
-        this.zoomSlider.windowRectChanged = this.onZoomSliderWindowChanged;
-        this.zoomSlider.resolvingAxisValue = this.onResolvingAxisValue;
     }
 }
 
