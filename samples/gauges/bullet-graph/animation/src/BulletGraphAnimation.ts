@@ -11,14 +11,20 @@ ModuleManager.register(IgcBulletGraphModule);
 
 export class BulletGraphAnimation {
 
-
-    
-    
-        
-
     private gauge: IgcBulletGraphComponent;
 
     constructor() {
+
+        this.gauge = document.getElementById('gauge') as IgcBulletGraphComponent;
+
+        let button = document.getElementById('animationButton1');
+        button.addEventListener('click', this.onAnimateToGauge1)
+
+        let button2 = document.getElementById('animationButton2');
+        button2.addEventListener('click', this.onAnimateToGauge2)
+
+        let button3 = document.getElementById('animationButton3');
+        button3.addEventListener('click', this.onAnimateToGauge3)
         
         this.onAnimateToGauge1 = this.onAnimateToGauge1.bind(this);
         this.onAnimateToGauge2 = this.onAnimateToGauge2.bind(this);
@@ -234,21 +240,6 @@ export class BulletGraphAnimation {
         this.gauge.backingOutline = '#d1d1d1';
         this.gauge.backingStrokeThickness = 0;
 
-    }
-
-    constructor() {
-        
-
-        this.gauge = document.getElementById('gauge') as IgcBulletGraphComponent;
-
-        let button = document.getElementById('animationButton1');
-        button.addEventListener('click', this.onAnimateToGauge1)
-
-        let button2 = document.getElementById('animationButton2');
-        button2.addEventListener('click', this.onAnimateToGauge2)
-
-        let button3 = document.getElementById('animationButton3');
-        button3.addEventListener('click', this.onAnimateToGauge3)
     }
 
 }

@@ -11,18 +11,10 @@ defineCustomElements();
 
 export class DockManagerOverview {
 
-
-    
-    
-        
-
     private dockManager: IgcDockManagerComponent;
 
     constructor() {
         
-    
-        
-
         this.dockManager = document.getElementById('dockManager') as IgcDockManagerComponent;
         this.dockManager.layout = {
             rootPane: {

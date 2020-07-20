@@ -16,15 +16,13 @@ ModuleManager.register(IgcRadialGaugeModule);
 
 export class RadialGaugeTypeCurved {
 
-
-    
-    
-        
-
     private gauge: IgcRadialGaugeComponent;
 
     constructor() {
         
+        this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
+
+        this.renderGauge(this.gauge);
     }
 
     public renderGauge(gauge: IgcRadialGaugeComponent) {
@@ -123,14 +121,6 @@ export class RadialGaugeTypeCurved {
 
             gauge.ranges.add(range);
         }
-    }
-
-    constructor() {
-        
-
-        this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
-
-        this.renderGauge(this.gauge);
     }
 
 }

@@ -10,19 +10,9 @@ ModuleManager.register(IgcLinearGaugeModule);
 
 export class LinearGaugeScale {
 
-
-    
-    
-        
-
     private gauge: IgcLinearGaugeComponent;
-
+    
     constructor() {
-        
-    }
-
-    constructor() {
-        
 
         this.gauge = document.getElementById('gauge') as IgcLinearGaugeComponent;
 

@@ -10,21 +10,10 @@ ModuleManager.register(IgcRadialGaugeModule);
 
 export class RadialGaugeNeedle {
 
-
-    
-    
-        
-
     private gauge: IgcRadialGaugeComponent;
 
     constructor() {
-        
-    }
-
-
-    constructor() {
-        
-
+    
         this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
 
     }

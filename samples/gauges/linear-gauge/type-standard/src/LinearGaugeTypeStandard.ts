@@ -10,15 +10,13 @@ ModuleManager.register(IgcLinearGaugeModule);
 
 export class LinearGaugeTypeStandard {
 
-
-    
-    
-        
-
     private gauge: IgcLinearGaugeComponent;
 
     constructor() {
         
+        this.gauge = document.getElementById('gauge') as IgcLinearGaugeComponent;
+
+        this.setupGauge(this.gauge); 
     }
 
     public setupGauge(gauge: IgcLinearGaugeComponent)  {
@@ -33,14 +31,6 @@ export class LinearGaugeTypeStandard {
 
         // setting appearance of needle
         gauge.isNeedleDraggingEnabled = true;
-    }
-
-    constructor() {
-        
-
-        this.gauge = document.getElementById('gauge') as IgcLinearGaugeComponent;
-
-        this.setupGauge(this.gauge);
     }
 
 }

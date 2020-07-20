@@ -12,16 +12,19 @@ ModuleManager.register(IgcBulletGraphModule);
 
 export class BulletGraphTypeVertical {
 
-
-    
-    
-        
-
     private gauge1: IgcBulletGraphComponent;
     private gauge2: IgcBulletGraphComponent;
     private gauge3: IgcBulletGraphComponent;
 
     constructor() {
+
+        this.gauge1 = document.getElementById('gauge1') as IgcBulletGraphComponent;
+        this.gauge2 = document.getElementById('gauge2') as IgcBulletGraphComponent;
+        this.gauge3 = document.getElementById('gauge3') as IgcBulletGraphComponent;
+
+        this.renderGauge(this.gauge1, 90, 80, ['#008000', '#10b401', '#45ec03', '#97f397']);
+        this.renderGauge(this.gauge2, 70, 80, ['#e29b03', '#fdb417', '#fdc957', '#f7d58b']);
+        this.renderGauge(this.gauge3, 40, 80, ['#cf0000', '#ff0000', '#fd3939', '#f88989']);
         
     }
 
@@ -58,20 +61,6 @@ export class BulletGraphTypeVertical {
             gauge.ranges.add(range);
         }
     }
-
-    constructor() {
-        
-
-        this.gauge1 = document.getElementById('gauge1') as IgcBulletGraphComponent;
-        this.gauge2 = document.getElementById('gauge2') as IgcBulletGraphComponent;
-        this.gauge3 = document.getElementById('gauge3') as IgcBulletGraphComponent;
-
-        this.renderGauge(this.gauge1, 90, 80, ['#008000', '#10b401', '#45ec03', '#97f397']);
-        this.renderGauge(this.gauge2, 70, 80, ['#e29b03', '#fdb417', '#fdc957', '#f7d58b']);
-        this.renderGauge(this.gauge3, 40, 80, ['#cf0000', '#ff0000', '#fd3939', '#f88989']);
-
-    }
-
 }
 
 let sample = new BulletGraphTypeVertical();

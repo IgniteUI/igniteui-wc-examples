@@ -10,17 +10,7 @@ ModuleManager.register(IgcRadialGaugeModule);
 
 export class RadialGaugeLabels {
 
-
-    
-    
-        
-
     private gauge: IgcRadialGaugeComponent;
-
-    constructor() {
-        
-    }
-
 
     constructor() {
         

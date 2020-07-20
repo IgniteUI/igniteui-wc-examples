@@ -16,11 +16,6 @@ defineCustomElements();
 
 export class DockManagerEmbeddingFrames {
 
-
-    
-    
-        
-
     private dockManager: IgcDockManagerComponent;
     private geoMapPane: IgcContentPane;
     private gaugePane: IgcContentPane;
@@ -29,9 +24,6 @@ export class DockManagerEmbeddingFrames {
 
     constructor() {
         
-    
-        
-
         this.gaugePane = {
             // size: 150,
             header: 'ANGULAR RADIAL GAUGE',
