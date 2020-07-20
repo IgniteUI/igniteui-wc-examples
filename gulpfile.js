@@ -238,9 +238,37 @@ function portingSamples(cb) {
         }
         folderName = folderName.replace("configuring", "config-options");
 
+        // rename tree samples
+        folderName = folderName.replace("tree-overview", "overview");
+        
         // rename linear-gauge samples
         if (folderName === "type-curve") {
             folderName = "type-curved";
+        }
+
+        // rename markers to marker-options
+        if (folderName === "markers") {
+            folderName = "marker-options";
+        }
+
+        // rename horizontal scrolling to column-scrolling
+        if (folderName === "horizontal-scrolling") {
+            folderName = "column-scrolling";
+        }
+
+        // rename osm to osm-imagery
+        if (folderName === "display-osm") {
+            folderName = "display-osm-imagery";
+        }
+
+        // rename scatter to shape
+        if (folderName === "type-scatter-polygon-series") {
+            folderName = "type-shape-polygon-series";
+        }
+
+        // rename osm to osm-imagery
+        if (folderName === "type-scatter-polyline-series") {
+            folderName = "type-shape-polygon-series";
         }
 
         //C:\Users\mdifilippo\Documents\GitHub\samples-web-component\src\samples\excel\excel-library

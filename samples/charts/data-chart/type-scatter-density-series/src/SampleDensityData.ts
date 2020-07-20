@@ -1,3 +1,5 @@
+
+
 export class SampleDensityData {
 
     public static create(): any[] {
