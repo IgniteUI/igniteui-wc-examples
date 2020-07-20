@@ -1,4 +1,4 @@
-// let gulp = require('gulp');
+/* eslint-disable no-undef */
 
 function log(msg) {
     console.log('gulp-config.js ' + msg);
@@ -13,9 +13,9 @@ log('loaded for ' + platformTarget + ' platform' );
 let config = {
     WebComponents: {
         PackageKeyword: "igniteui",
-        PackageVersion: "1.1.1",
+        PackageVersion: "^1.1.1",
         PlatformCode: "ts",
-        PlatformName: "WebComponents",
+        PlatformName: "Web Components",
         BrowserHostUrl: "http://localhost:4200/",
         BrowserRoute: "/samples",
         BrowserRootPath: "./tmp",
@@ -23,22 +23,25 @@ let config = {
         SamplesCopyPath: "./samples",
         SamplesCopyFiles: [".ts", ".css", ".csv", ".html", ".png", ".svg" ],
         SamplesFileExtension: ".ts",
-        SamplesFileExclusions: ["Component.ts", "State.ts", "Props.ts", "Base.ts", "Data.ts", "index.ts", "Pager.ts", "LegendOverlay.tsx"],
+        SamplesFileExclusions: ["Component.ts", "State.ts", "Props.ts", "Base.ts", "Data.ts", "index.ts", "Pager.ts", "LegendOverlay.ts"],
         // SamplesFileExclusions: ["Component.ts", "State.ts", "Props.ts", "Base.ts", "index.ts"],
 
         DocsUrl: "https://infragistics.com/{PlatformName}site/components/{ComponentFolder}.html",
-                 //  "https://infragistics.com/reactsite/components/data-chart.html",
+                 //  "https://infragistics.com/webcomponentssite/components/data-chart.html",
 
         RepositoryOrg: "IgniteUI",
+        RepositoryBranch: "master",
         RepositoryName: "igniteui-web-comp-examples",
-        RepositoryPath: "github/{RepositoryOrg}/{RepositoryName}/tree/master/samples/{ComponentGroup}/{ComponentFolder}/{SampleFolderName}",
+        RepositoryPath: "github/{RepositoryOrg}/{RepositoryName}/tree/{RepositoryBranch}/samples/{ComponentGroup}/{ComponentFolder}/{SampleFolderName}",
         RepositoryUrl: "https://github.com/{RepositoryOrg}/{RepositoryName}",
         RepositoryWarning: "NOTE: do not change this file because it's auto re-generated from:",
 
-        SandboxUrlOptions: "fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/{sampleFile}",
-        SandboxUrlView: "https://codesandbox.io/embed/{RepositoryPath}?{SandboxUrlOptions}",
-        SandboxUrlEdit: "https://codesandbox.io/s/{RepositoryPath}?{SandboxUrlOptions}",
+        SandboxUrlOptions: "fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/{SampleFile}",
+        SandboxUrlView:  "https://codesandbox.io/embed/{RepositoryPath}?{SandboxUrlOptions}",
+        SandboxUrlEdit:  "https://codesandbox.io/s/{RepositoryPath}?{SandboxUrlOptions}",
+        SandboxUrlShort: "https://codesandbox.io/embed/{RepositoryPath}",
     },
 }
+
 // exporting only config for one platform since SB do not need other variables
 module.exports = config[platformTarget];
