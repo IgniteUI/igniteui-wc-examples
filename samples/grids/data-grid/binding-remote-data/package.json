@@ -26,6 +26,7 @@
       "igniteui-webcomponents-core": "^1.1.1",
       "igniteui-webcomponents-grids": "^1.1.1",
       "igniteui-webcomponents-inputs": "^1.1.1",
+      "igniteui-webcomponents-datasources": "^1.1.1",
       "lit-html": "^1.2.1",
       "tslib": "^2.0.0"
   },
