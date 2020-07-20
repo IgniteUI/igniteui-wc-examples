@@ -61,7 +61,18 @@ export class ZoomSliderOverview {
 
     private countriesAll: any[];
 
-    constructor() {
+    constructor() {        
+
+        this.onActualWindowRectChanged = this.onActualWindowRectChanged.bind(this);
+        this.onZoomSliderWindowChanged = this.onZoomSliderWindowChanged.bind(this);
+        this.onGridAreaRectChanged = this.onGridAreaRectChanged.bind(this);
+
+        this.createSeries = this.createSeries.bind(this);
+
+        this.onCursorMove = this.onCursorMove.bind(this);
+        this.onResolvingAxisValue = this.onResolvingAxisValue.bind(this);
+
+        this.countriesAll = SampleScatterStats.getCountries();
 
         this.zoomSlider = document.getElementById('zoomSlider') as IgcZoomSliderComponent;
         this.mainChart = document.getElementById('mainChart') as IgcDataChartComponent;
@@ -77,18 +88,6 @@ export class ZoomSliderOverview {
 
         this.zoomSlider.windowRectChanged = this.onZoomSliderWindowChanged;
         this.zoomSlider.resolvingAxisValue = this.onResolvingAxisValue;
-        
-
-        this.onActualWindowRectChanged = this.onActualWindowRectChanged.bind(this);
-        this.onZoomSliderWindowChanged = this.onZoomSliderWindowChanged.bind(this);
-        this.onGridAreaRectChanged = this.onGridAreaRectChanged.bind(this);
-
-        this.createSeries = this.createSeries.bind(this);
-
-        this.onCursorMove = this.onCursorMove.bind(this);
-        this.onResolvingAxisValue = this.onResolvingAxisValue.bind(this);
-
-        this.countriesAll = SampleScatterStats.getCountries();
     }
 
     private onCursorMove(chart: IgcDataChartComponent, args: IgcChartCursorEventArgs) {
