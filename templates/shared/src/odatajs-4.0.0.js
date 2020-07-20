@@ -4316,14 +4316,8 @@ exports.defaultHttpClient = {
         let name;
         let url = request.requestUri;
         let enableJsonpCallback = defined(request.enableJsonpCallback , that.enableJsonpCallback);
-        let callbackParameterName = defined(
-            request.callbackParameterName,
-            "$callback"
-            );
-        let formatQueryString = defined(
-        request.formatQueryString,
-        "$format=json"
-        );
+        let callbackParameterName = defined(request.callbackParameterName, that.callbackParameterName);
+        let formatQueryString = defined(request.formatQueryString, that.formatQueryString);
         if (!enableJsonpCallback || isLocalUrl(url)) {
 
             xhr = createXmlHttpRequest();
