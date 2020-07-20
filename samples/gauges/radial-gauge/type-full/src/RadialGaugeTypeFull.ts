@@ -15,16 +15,15 @@ ModuleManager.register(IgcRadialGaugeModule);
 
 
 export class RadialGaugeTypeFull {
-
-
-    
-    
-        
+ 
 
     private gauge: IgcRadialGaugeComponent;
 
     constructor() {
         
+        this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
+
+        this.renderGauge(this.gauge);
     }
 
     public renderGauge(gauge: IgcRadialGaugeComponent) {
@@ -104,15 +103,6 @@ export class RadialGaugeTypeFull {
             range.outerEndExtent = 0.57;
         }
     }
-
-    constructor() {
-        
-
-        this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
-
-        this.renderGauge(this.gauge);
-    }
-
 }
 
 let sample = new RadialGaugeTypeFull();

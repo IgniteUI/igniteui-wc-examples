@@ -8,21 +8,11 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 ModuleManager.register(IgcLinearGaugeModule);
 
 
-export class LinearGaugeRanges {
-
-
-    
-    
-        
+export class LinearGaugeRanges {  
 
     private gauge: IgcLinearGaugeComponent;
 
     constructor() {
-        
-    }
-
-    constructor() {
-        
 
         this.gauge = document.getElementById('gauge') as IgcLinearGaugeComponent;
 

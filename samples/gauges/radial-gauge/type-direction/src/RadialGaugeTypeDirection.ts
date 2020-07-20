@@ -15,11 +15,6 @@ ModuleManager.register(IgcRadialGaugeModule);
 
 export class RadialGaugeTypeDirection {
 
-
-    
-    
-        
-
     public directions: any = {
         '0':   'N',
         '45':  'NE',
@@ -36,7 +31,10 @@ export class RadialGaugeTypeDirection {
     private gauge2: IgcRadialGaugeComponent;
 
     constructor() {
-        
+    
+        this.gauge1 = document.getElementById('gauge1') as IgcRadialGaugeComponent;
+        this.gauge2 = document.getElementById('gauge2') as IgcRadialGaugeComponent;
+
     }
 
     public onCreateDegreesGauge(gauge: IgcRadialGaugeComponent) {
@@ -119,15 +117,6 @@ export class RadialGaugeTypeDirection {
 
 
     }
-
-    constructor() {
-        
-
-        this.gauge1 = document.getElementById('gauge1') as IgcRadialGaugeComponent;
-        this.gauge2 = document.getElementById('gauge2') as IgcRadialGaugeComponent;
-
-    }
-
 }
 
 let sample = new RadialGaugeTypeDirection();

@@ -10,20 +10,9 @@ ModuleManager.register(IgcRadialGaugeModule);
 
 export class RadialGaugeTickmarks {
 
-
-    
-    
-        
-
     private gauge: IgcRadialGaugeComponent;
 
-    constructor() {
-        
-    }
-
-
-    constructor() {
-        
+    constructor() {        
 
         this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
 

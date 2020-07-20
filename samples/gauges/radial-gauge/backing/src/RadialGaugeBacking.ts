@@ -7,25 +7,13 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcRadialGaugeModule);
 
-
 export class RadialGaugeBacking {
-
-
-    
-    
-        
 
     private gauge: IgcRadialGaugeComponent;
 
     constructor() {
-        
-    }
-
-
-    constructor() {
-        
-
-        this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
+    
+       this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
 
     }
 

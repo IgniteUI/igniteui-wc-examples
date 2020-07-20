@@ -11,16 +11,15 @@ ModuleManager.register(IgcLinearGaugeModule);
 
 export class LinearGaugeTypeMultiScale {
 
-
-    
-    
-        
-
     private gauge1: IgcLinearGaugeComponent;
     private gauge2: IgcLinearGaugeComponent;
 
     constructor() {
         
+        this.gauge1 = document.getElementById('gauge1') as IgcLinearGaugeComponent;
+        this.gauge2 = document.getElementById('gauge2') as IgcLinearGaugeComponent;
+        this.renderFahrenheitGauge(this.gauge1);
+        this.renderCelsiusGauge(this.gauge2);
     }
 
     public covertToFahrenheit(celsius: number): number {
@@ -124,15 +123,6 @@ export class LinearGaugeTypeMultiScale {
         range2.outerEndExtent   = gauge.scaleOuterExtent;
         gauge.ranges.add(range2);
 
-    }
-
-    constructor() {
-        
-
-        this.gauge1 = document.getElementById('gauge1') as IgcLinearGaugeComponent;
-        this.gauge2 = document.getElementById('gauge2') as IgcLinearGaugeComponent;
-        this.renderFahrenheitGauge(this.gauge1);
-        this.renderCelsiusGauge(this.gauge2);
     }
 
 }

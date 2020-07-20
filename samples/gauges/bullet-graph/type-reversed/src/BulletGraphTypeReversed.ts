@@ -12,16 +12,15 @@ ModuleManager.register(IgcBulletGraphModule);
 
 export class BulletGraphTypeReversed {
 
-
-    
-    
-        
-
     private gauge1: IgcBulletGraphComponent;
     private gauge2: IgcBulletGraphComponent;
 
     constructor() {
-        
+        this.gauge1 = document.getElementById('gauge1') as IgcBulletGraphComponent;
+        this.gauge2 = document.getElementById('gauge2') as IgcBulletGraphComponent;
+
+        this.renderGauge(this.gauge1, 90, 80, ['#008000', '#10b401', '#45ec03', '#97f397']);
+        this.renderGauge(this.gauge2, 70, 80, ['#e29b03', '#fdb417', '#fdc957', '#f7d58b']);
     }
 
     public renderGauge(gauge: IgcBulletGraphComponent, value: number, target: number, colors: string[]) {
@@ -57,18 +56,6 @@ export class BulletGraphTypeReversed {
             gauge.ranges.add(range);
         }
     }
-
-
-    constructor() {
-        
-
-        this.gauge1 = document.getElementById('gauge1') as IgcBulletGraphComponent;
-        this.gauge2 = document.getElementById('gauge2') as IgcBulletGraphComponent;
-
-        this.renderGauge(this.gauge1, 90, 80, ['#008000', '#10b401', '#45ec03', '#97f397']);
-        this.renderGauge(this.gauge2, 70, 80, ['#e29b03', '#fdb417', '#fdc957', '#f7d58b']);
-    }
-
 }
 
 let sample = new BulletGraphTypeReversed();

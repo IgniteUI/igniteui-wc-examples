@@ -10,20 +10,10 @@ ModuleManager.register(IgcLinearGaugeModule);
 
 export class LinearGaugeNeedle {
 
-
-    
-    
-        
-
     private gauge: IgcLinearGaugeComponent;
 
     constructor() {
         
-    }
-
-    constructor() {
-        
-
         this.gauge = document.getElementById('gauge') as IgcLinearGaugeComponent;
     }
 

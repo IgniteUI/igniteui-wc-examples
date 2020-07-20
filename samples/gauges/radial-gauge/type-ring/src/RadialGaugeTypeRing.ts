@@ -16,15 +16,12 @@ ModuleManager.register(IgcRadialGaugeModule);
 
 export class RadialGaugeTypeRing {
 
-
-    
-    
-        
-
     private gauge: IgcRadialGaugeComponent;
 
     constructor() {
         
+        this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
+        this.renderGauge(this.gauge);
     }
 
     public renderGauge(gauge: IgcRadialGaugeComponent) {
@@ -100,14 +97,6 @@ export class RadialGaugeTypeRing {
         rangeVal.outerEndExtent   = extent;
         gauge.ranges.add(rangeVal);
     }
-
-    constructor() {
-        
-
-        this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
-        this.renderGauge(this.gauge);
-    }
-
 }
 
 let sample = new RadialGaugeTypeRing();

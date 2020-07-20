@@ -10,20 +10,10 @@ ModuleManager.register(IgcBulletGraphModule);
 
 export class BulletGraphScale {
 
-
-    
-    
-        
-
     private gauge: IgcBulletGraphComponent;
 
     constructor() {
         
-    }
-
-    constructor() {
-        
-
         this.gauge = document.getElementById('gauge') as IgcBulletGraphComponent;
 
     }

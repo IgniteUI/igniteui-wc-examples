@@ -12,15 +12,11 @@ ModuleManager.register(IgcLinearGaugeModule);
 
 export class LinearGaugeTypeCurve {
 
-
-    
-    
-        
-
     private gauge: IgcLinearGaugeComponent;
 
     constructor() {
-        
+        this.gauge = document.getElementById('gauge') as IgcLinearGaugeComponent;
+        this.renderGauge(this.gauge);
     }
 
     public renderGauge(gauge: IgcLinearGaugeComponent) {
@@ -118,13 +114,6 @@ export class LinearGaugeTypeCurve {
         gauge.scaleBrush   = '#e0dfdf';
         gauge.scaleOutline = '#e0dfdf';
 
-    }
-
-    constructor() {
-        
-
-        this.gauge = document.getElementById('gauge') as IgcLinearGaugeComponent;
-        this.renderGauge(this.gauge);
     }
 
 }

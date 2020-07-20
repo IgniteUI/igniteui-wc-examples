@@ -11,16 +11,19 @@ ModuleManager.register(IgcLinearGaugeModule);
 
 export class LinearGaugeTypeFilled {
 
-
-    
-    
-        
-
     private gauge1: IgcLinearGaugeComponent;
     private gauge2: IgcLinearGaugeComponent;
     private gauge3: IgcLinearGaugeComponent;
 
     constructor() {
+
+        this.gauge1 = document.getElementById('gauge1') as IgcLinearGaugeComponent;
+        this.gauge2 = document.getElementById('gauge2') as IgcLinearGaugeComponent;
+        this.gauge3 = document.getElementById('gauge3') as IgcLinearGaugeComponent;
+
+        this.renderGauge(this.gauge1, 80, 'green');
+        this.renderGauge(this.gauge2, 50, 'orange');
+        this.renderGauge(this.gauge3, 30, 'red');
         
     }
 
@@ -76,18 +79,6 @@ export class LinearGaugeTypeFilled {
 
         gauge.ranges.clear();
         gauge.ranges.add(range);
-    }
-
-    constructor() {
-        
-
-        this.gauge1 = document.getElementById('gauge1') as IgcLinearGaugeComponent;
-        this.gauge2 = document.getElementById('gauge2') as IgcLinearGaugeComponent;
-        this.gauge3 = document.getElementById('gauge3') as IgcLinearGaugeComponent;
-
-        this.renderGauge(this.gauge1, 80, 'green');
-        this.renderGauge(this.gauge2, 50, 'orange');
-        this.renderGauge(this.gauge3, 30, 'red');
     }
 
 }

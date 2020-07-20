@@ -13,17 +13,19 @@ ModuleManager.register(IgcLinearGaugeModule);
 
 export class LinearGaugeTypeVertical {
 
-
-    
-    
-        
-
     private gauge1: IgcLinearGaugeComponent;
     private gauge2: IgcLinearGaugeComponent;
     private gauge3: IgcLinearGaugeComponent;
 
     constructor() {
         
+        this.gauge1 = document.getElementById('gauge1') as IgcLinearGaugeComponent;
+        this.gauge2 = document.getElementById('gauge2') as IgcLinearGaugeComponent;
+        this.gauge3 = document.getElementById('gauge3') as IgcLinearGaugeComponent;
+
+        this.renderGauge(this.gauge1, 80, ['#008000', '#10b401', '#45ec03', '#2efa2e']);
+        this.renderGauge(this.gauge2, 60, ['#e29b03', '#fdb417', '#fdc957', '#fdd682']);
+        this.renderGauge(this.gauge3, 40, ['#cf0000', '#ff0000', '#fd3939', '#fa6363']);
     }
 
     public renderGauge(gauge: IgcLinearGaugeComponent, value: number, colors: string[]) {
@@ -97,18 +99,6 @@ export class LinearGaugeTypeVertical {
         gauge.scaleBrush   = '#e0dfdf';
         gauge.scaleOutline = '#e0dfdf';
 
-    }
-
-    constructor() {
-        
-
-        this.gauge1 = document.getElementById('gauge1') as IgcLinearGaugeComponent;
-        this.gauge2 = document.getElementById('gauge2') as IgcLinearGaugeComponent;
-        this.gauge3 = document.getElementById('gauge3') as IgcLinearGaugeComponent;
-
-        this.renderGauge(this.gauge1, 80, ['#008000', '#10b401', '#45ec03', '#2efa2e']);
-        this.renderGauge(this.gauge2, 60, ['#e29b03', '#fdb417', '#fdc957', '#fdd682']);
-        this.renderGauge(this.gauge3, 40, ['#cf0000', '#ff0000', '#fd3939', '#fa6363']);
     }
 }
 
