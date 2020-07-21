@@ -446,7 +446,7 @@ function logRoutes(cb) {
 
             console.log('- component ' + component.Name);
             for (const sample of component.Samples) {
-                console.log('' + sample.SampleRoute + ' === ' + sample.SampleDisplayName);
+                console.log('' + sample.SampleRoute + '/' + sample.SampleFileName + ' === ' + sample.SampleDisplayName);
             }
         }
     }
@@ -475,13 +475,43 @@ function logSourceFiles(cb) {
     gulp.src([
         './samples/**/src/*.ts',
        '!./samples/**/src/index.*',
-       '!./samples/**/src/*Utility.ts',
-       '!./samples/**/src/*Utils.ts',
-       '!./samples/**/src/*Sample.ts',
+
+       '!./samples/**/src/AssetsUtils.ts',
+       '!./samples/**/src/CategoryChartSharedData.ts',
+       '!./samples/**/src/DataChartSharedData.ts',
+       '!./samples/**/src/DataGridSharedData.ts',
+       '!./samples/**/src/DockManagerSharedData.ts',
+       '!./samples/**/src/EsriUtility.ts',
+       '!./samples/**/src/ExcelUtility.ts',
+       '!./samples/**/src/ExcelSharedData.ts',
+       '!./samples/**/src/FinancialData.ts',
+       '!./samples/**/src/heatworker.worker.ts',
+       '!./samples/**/src/LiveFinancialData.ts',
+       '!./samples/**/src/MapShapeStyleUtility.ts',
+       '!./samples/**/src/MapUtils.ts',
+       '!./samples/**/src/odatajs-4.0.0.js',
        '!./samples/**/src/Products.ts',
        '!./samples/**/src/PeriodicElements.ts',
+       '!./samples/**/src/SampleCategoryData.ts',
+       '!./samples/**/src/SampleDensityData.ts',
+       '!./samples/**/src/SampleFinancialData.ts',
+       '!./samples/**/src/SamplePolarData.ts',
+       '!./samples/**/src/SampleRadialData.ts',
+       '!./samples/**/src/SampleRangeData.ts',
+       '!./samples/**/src/SampleScatterData.ts',
+       '!./samples/**/src/SampleScatterStats.ts',
+       '!./samples/**/src/SampleShapeData.ts',
+       '!./samples/**/src/SampleSparklineData.ts',
+       '!./samples/**/src/SampleTreeData.ts',
+       '!./samples/**/src/SparklineSharedData.ts',
+       '!./samples/**/src/StocksHistory.ts',
+       '!./samples/**/src/StocksUtility.ts',
+       '!./samples/**/src/StringUtils.ts',
+       '!./samples/**/src/TaskUtils.ts',
+       '!./samples/**/src/WorldCities.ts',
        '!./samples/**/src/WorldConnections.ts',
        '!./samples/**/src/WorldLocations.ts',
+       '!./samples/**/src/WorldUtils.ts',
     ])
     .pipe(logFile())
     .on("end", function() { cb(); });

@@ -155,10 +155,10 @@ class Transformer {
                 info.SampleFileSourcePath = "./src/" + info.SampleFileName;
                 info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
 
-                info.SampleImportName = info.SampleFileName.replace('.tsx','').replace('.ts','');
+                info.SampleImportName = info.SampleFileName.replace('.ts','').replace('.ts','');
                 info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
 
-                info.SampleDisplayName = Strings.splitCamel(info.SampleFileName)
+                info.SampleDisplayName = Strings.splitCamel(info.SampleFileName);
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, igConfig.SamplesFileExtension, "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Type ", "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Binding ", "Binding ");
@@ -364,7 +364,7 @@ class Transformer {
         let content = template + "";
 
         content = Strings.replace(content, "SampleFileName", sample.SampleFileName);
-        content = Strings.replace(content, ".tsx", "");
+        content = Strings.replace(content, ".ts", "");
         return content;
     }
 
