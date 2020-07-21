@@ -475,6 +475,13 @@ function logSourceFiles(cb) {
     gulp.src([
         './samples/**/src/*.ts',
        '!./samples/**/src/index.*',
+       '!./samples/**/src/*Utility.ts',
+       '!./samples/**/src/*Utils.ts',
+       '!./samples/**/src/*Sample.ts',
+       '!./samples/**/src/Products.ts',
+       '!./samples/**/src/PeriodicElements.ts',
+       '!./samples/**/src/WorldConnections.ts',
+       '!./samples/**/src/WorldLocations.ts',
     ])
     .pipe(logFile())
     .on("end", function() { cb(); });
