@@ -19,29 +19,29 @@ let contains = require('gulp-contains');
 
 var sb = require('./tasks/gulp-samples.js')
 
-// exports.updateSamples = updateSamples = gulp.series(
-    // sb.lintSamples,
-    // sb.getSamples,
-    // sb.updateReadme,
-    // sb.updatePackages,
-    // sb.updateIndex,
-    // sb.updateSharedFiles,
-// );
+exports.updateSamples = updateSamples = gulp.series(
+    sb.lintSamples,
+    sb.getSamples,
+    sb.updateReadme,
+    sb.updatePackages,
+    sb.updateIndex,
+    sb.updateSharedFiles,
+);
 
-// exports.updateReadme = updateReadme = gulp.series(
-    // sb.getSamples,
-    // sb.updateReadme,
-// );
+exports.updateReadme = updateReadme = gulp.series(
+    sb.getSamples,
+    sb.updateReadme,
+);
 
-// exports.updatePackages = updatePackages = gulp.series(
-    // sb.getSamples,
-    // sb.updatePackages,
-// );
+exports.updatePackages = updatePackages = gulp.series(
+    sb.getSamples,
+    sb.updatePackages,
+);
 
-// exports.updateSharedFiles = updateSharedFiles = gulp.series(
-    // sb.getSamples,
-    // sb.updateSharedFiles,
-// );
+exports.updateSharedFiles = updateSharedFiles = gulp.series(
+    sb.getSamples,
+    sb.updateSharedFiles,
+);
 
 // exports.updateBrowser = updateBrowser = gulp.series(
     // sb.getSamples,
