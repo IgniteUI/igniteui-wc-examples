@@ -47,5 +47,4 @@
     //     return ind >= 0 && ind === str.length - check.length;
     // }
 
-
 // }

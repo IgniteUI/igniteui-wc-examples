@@ -1,3 +1,5 @@
+
+
 export class SharedData {
 
     public static getSharedData() {

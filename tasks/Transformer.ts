@@ -447,7 +447,7 @@ class Transformer {
         let content = template + "";
 
         content = Strings.replace(content, "SampleFileName", sample.SampleFileName);
-        content = Strings.replace(content, ".ts", "");
+        //content = Strings.replace(content, ".ts", "");
         return content;
     }
 

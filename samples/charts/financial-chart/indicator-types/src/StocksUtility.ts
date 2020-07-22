@@ -1,3 +1,5 @@
+
+
 export class StocksUtility {
 
     public static priceStart: number = 200;

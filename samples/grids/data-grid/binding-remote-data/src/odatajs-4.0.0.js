@@ -5732,7 +5732,7 @@ exports.createStore = function (name, mechanism) {
 
     throw { message: "Failed to create store", name: name, mechanism: mechanism };
 };
- 
+
 var DomStore = require("./store/dom.js");
 var IndexedDBStore = require("./store/indexeddb.js");
 var MemoryStore = require("./store/memory.js");
