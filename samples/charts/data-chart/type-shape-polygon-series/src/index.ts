@@ -1,2 +1,2 @@
 
-import './DataChartTypeScatterPolylineSeries.ts';
+import './DataChartTypeScatterPolygonSeries.ts';

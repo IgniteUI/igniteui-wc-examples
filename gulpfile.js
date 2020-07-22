@@ -17,31 +17,31 @@ let contains = require('gulp-contains');
     // console.log('gulpfile.js ' + msg);
 // }
 
-// var sb = require('./tasks/gulp-samples.js')
+var sb = require('./tasks/gulp-samples.js')
 
-// exports.updateSamples = updateSamples = gulp.series(
-    // sb.lintSamples,
-    // sb.getSamples,
-    // sb.updateReadme,
-    // sb.updatePackages,
-    // sb.updateIndex,
-    // sb.updateSharedFiles,
-// );
+exports.updateSamples = updateSamples = gulp.series(
+    sb.lintSamples,
+    sb.getSamples,
+    sb.updateReadme,
+    sb.updatePackages,
+    sb.updateIndex,
+    sb.updateSharedFiles,
+);
 
-// exports.updateReadme = updateReadme = gulp.series(
-    // sb.getSamples,
-    // sb.updateReadme,
-// );
+exports.updateReadme = updateReadme = gulp.series(
+    sb.getSamples,
+    sb.updateReadme,
+);
 
-// exports.updatePackages = updatePackages = gulp.series(
-    // sb.getSamples,
-    // sb.updatePackages,
-// );
+exports.updatePackages = updatePackages = gulp.series(
+    sb.getSamples,
+    sb.updatePackages,
+);
 
-// exports.updateSharedFiles = updateSharedFiles = gulp.series(
-    // sb.getSamples,
-    // sb.updateSharedFiles,
-// );
+exports.updateSharedFiles = updateSharedFiles = gulp.series(
+    sb.getSamples,
+    sb.updateSharedFiles,
+);
 
 // exports.updateBrowser = updateBrowser = gulp.series(
     // sb.getSamples,
@@ -56,10 +56,10 @@ let contains = require('gulp-contains');
 // exports.logRootFiles   = sb.logRootFiles;
 // exports.lintSamples    = sb.lintSamples;
 
-// exports.logRoutes = logRoutes = gulp.series(
-    // sb.getSamples,
-    // sb.logRoutes,
-// );
+exports.logRoutes = logRoutes = gulp.series(
+    sb.getSamples,
+    sb.logRoutes,
+);
 
 // Create task - copying samples
 // C:\Users\mdifilippo\source\repos\samples-web-component\src\samples
@@ -268,7 +268,7 @@ function portingSamples(cb) {
 
         // rename osm to osm-imagery
         if (folderName === "type-scatter-polyline-series") {
-            folderName = "type-shape-polygon-series";
+            folderName = "type-shape-polyline-series";
         }
 
         //C:\Users\mdifilippo\Documents\GitHub\samples-web-component\src\samples\excel\excel-library

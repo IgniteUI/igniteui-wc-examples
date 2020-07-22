@@ -1,2 +1,2 @@
 
-import './MapTypeScatterPolylineSeries.ts';
+import './MapTypeScatterPolygonSeries.ts';
