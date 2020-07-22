@@ -1,3 +1,5 @@
+
+
 export class StocksHistory {
   /** gets stock OHLC prices for multiple stocks */
 

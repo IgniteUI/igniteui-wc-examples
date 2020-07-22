@@ -446,7 +446,7 @@ function logRoutes(cb) {
 
             console.log('- component ' + component.Name);
             for (const sample of component.Samples) {
-                console.log('' + sample.SampleRoute + '/' + sample.SampleFileName + ' === ' + sample.SampleDisplayName);
+                console.log('' + sample.SampleRoute + '/ **' + sample.SampleFileName + ' === ' + sample.SampleDisplayName);
             }
         }
     }
