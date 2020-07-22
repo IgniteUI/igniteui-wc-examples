@@ -1,3 +1,3 @@
-import './LinearGaugeTypeSegmented.ts';
 
 
+import './LinearGaugeTypeSegmented';

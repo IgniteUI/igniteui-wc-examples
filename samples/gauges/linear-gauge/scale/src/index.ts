@@ -1,3 +1,3 @@
-import './LinearGaugeScale.ts';
 
 
+import './LinearGaugeScale';

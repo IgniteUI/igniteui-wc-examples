@@ -1,3 +1,3 @@
-import './MapDisplayImageryHeatTiles.ts';
 
 
+import './MapDisplayImageryHeatTiles';

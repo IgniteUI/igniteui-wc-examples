@@ -1,3 +1,3 @@
-import './RadialGaugeNeedle.ts';
 
 
+import './RadialGaugeNeedle';

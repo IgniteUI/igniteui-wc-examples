@@ -1,3 +1,3 @@
-import './DataChartSeriesHighlighting.ts';
 
 
+import './DataChartSeriesHighlighting';

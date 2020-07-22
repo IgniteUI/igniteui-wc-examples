@@ -1,3 +1,3 @@
-import './ExcelLibrarySparklines.ts';
 
 
+import './ExcelLibrarySparklines';

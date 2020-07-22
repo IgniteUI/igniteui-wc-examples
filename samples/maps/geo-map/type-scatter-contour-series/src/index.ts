@@ -1,3 +1,3 @@
-import './MapTypeScatterContourSeries.ts';
 
 
+import './MapTypeScatterContourSeries';

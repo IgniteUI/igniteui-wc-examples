@@ -1,3 +1,3 @@
-import './DataChartTypeCategoryWaterfallSeries.ts';
 
 
+import './DataChartTypeCategoryWaterfallSeries';

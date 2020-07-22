@@ -1,3 +1,3 @@
-import './FinancialChartVolumeTypes.ts';
 
 
+import './FinancialChartVolumeTypes';

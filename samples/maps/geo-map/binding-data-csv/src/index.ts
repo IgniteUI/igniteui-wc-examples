@@ -1,3 +1,3 @@
-import './MapBindingDataCSV.ts';
 
 
+import './MapBindingDataCSV';

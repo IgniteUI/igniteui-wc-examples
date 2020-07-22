@@ -1,3 +1,3 @@
-import './SpreadsheetActivation.ts';
 
 
+import './SpreadsheetActivation';

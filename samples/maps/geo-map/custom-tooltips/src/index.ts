@@ -1,3 +1,3 @@
-import './MapCustomTooltips.ts';
 
 
+import './MapCustomTooltips';

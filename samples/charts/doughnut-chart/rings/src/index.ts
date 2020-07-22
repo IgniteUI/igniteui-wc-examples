@@ -1,3 +1,3 @@
-import './DoughnutChartRings.ts';
 
 
+import './DoughnutChartRings';

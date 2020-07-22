@@ -1,3 +1,3 @@
-import './DataGridTypePeriodicTable.ts';
 
 
+import './DataGridTypePeriodicTable';

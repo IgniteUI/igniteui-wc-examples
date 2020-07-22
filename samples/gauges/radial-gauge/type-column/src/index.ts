@@ -1,3 +1,3 @@
-import './RadialGaugeTypeColumn.ts';
 
 
+import './RadialGaugeTypeColumn';

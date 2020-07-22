@@ -1,3 +1,3 @@
-import './FinancialChartAxisTypes.ts';
 
 
+import './FinancialChartAxisTypes';

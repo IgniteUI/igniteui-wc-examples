@@ -1,3 +1,3 @@
-import './SparklineDisplayArea.ts';
 
 
+import './SparklineDisplayArea';

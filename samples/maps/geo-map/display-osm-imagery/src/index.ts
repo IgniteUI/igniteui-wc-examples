@@ -1,3 +1,3 @@
-import './MapDisplayImageryOSM.ts';
 
 
+import './MapDisplayImageryOSM';

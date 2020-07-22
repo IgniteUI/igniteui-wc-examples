@@ -1,3 +1,3 @@
-import './RadialGaugeRanges.ts';
 
 
+import './RadialGaugeRanges';

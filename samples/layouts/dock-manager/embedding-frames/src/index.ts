@@ -1,3 +1,3 @@
-import './DockManagerEmbeddingFrames.ts';
 
 
+import './DockManagerEmbeddingFrames';

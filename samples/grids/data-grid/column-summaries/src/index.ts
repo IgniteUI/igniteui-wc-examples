@@ -1,3 +1,3 @@
-import './DataGridColumnSummaries.ts';
 
 
+import './DataGridColumnSummaries';

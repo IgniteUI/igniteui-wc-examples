@@ -1,3 +1,3 @@
-import './SpreadsheetFilterDialog.ts';
 
 
+import './SpreadsheetFilterDialog';

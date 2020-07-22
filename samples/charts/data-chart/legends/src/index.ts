@@ -1,3 +1,3 @@
-import './DataChartLegends.ts';
 
 
+import './DataChartLegends';

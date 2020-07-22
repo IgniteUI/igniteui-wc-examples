@@ -1,3 +1,3 @@
-import './BulletGraphTypeFilled.ts';
 
 
+import './BulletGraphTypeFilled';

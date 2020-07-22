@@ -1,3 +1,3 @@
-import './MapImagerySources.ts';
 
 
+import './MapImagerySources';

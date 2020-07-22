@@ -1,3 +1,3 @@
-import './BulletGraphTypeSegmented.ts';
 
 
+import './BulletGraphTypeSegmented';

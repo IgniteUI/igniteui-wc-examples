@@ -1,3 +1,3 @@
-import './DataChartTypeRadialAreaSeries.ts';
 
 
+import './DataChartTypeRadialAreaSeries';

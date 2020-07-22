@@ -1,3 +1,3 @@
-import './DataGridColumnResizing.ts';
 
 
+import './DataGridColumnResizing';

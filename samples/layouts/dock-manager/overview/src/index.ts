@@ -1,3 +1,3 @@
-import './DockManagerOverview.ts';
 
 
+import './DockManagerOverview';

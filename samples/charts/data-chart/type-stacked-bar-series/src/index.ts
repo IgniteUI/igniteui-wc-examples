@@ -1,3 +1,3 @@
-import './DataChartTypeStackedBarSeries.ts';
 
 
+import './DataChartTypeStackedBarSeries';

@@ -1,3 +1,3 @@
-import './LinearGaugeLabels.ts';
 
 
+import './LinearGaugeLabels';

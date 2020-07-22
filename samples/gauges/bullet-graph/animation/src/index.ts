@@ -1,3 +1,3 @@
-import './BulletGraphAnimation.ts';
 
 
+import './BulletGraphAnimation';

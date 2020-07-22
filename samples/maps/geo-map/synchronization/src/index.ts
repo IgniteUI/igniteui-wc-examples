@@ -1,3 +1,3 @@
-import './MapSynchronization.ts';
 
 
+import './MapSynchronization';

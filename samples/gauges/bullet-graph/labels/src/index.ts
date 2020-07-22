@@ -1,3 +1,3 @@
-import './BulletGraphLabels.ts';
 
 
+import './BulletGraphLabels';

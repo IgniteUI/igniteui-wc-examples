@@ -43,11 +43,11 @@ exports.updateSharedFiles = updateSharedFiles = gulp.series(
     sb.updateSharedFiles,
 );
 
-// exports.updateBrowser = updateBrowser = gulp.series(
-    // sb.getSamples,
-    // sb.copySamples,
-    // // sb.copyPackageJson,
-// );
+exports.updateBrowser = updateBrowser = gulp.series(
+    sb.getSamples,
+    sb.copySamples,
+    // sb.copyPackageJson,
+);
 
 // // exports.default = updateBrowser;
 // exports.logPublicFiles = sb.logPublicFiles;
@@ -470,7 +470,7 @@ function portingSamples(cb) {
                 // alternative
                 // let updateWebpackConfig = "path.resolve(__dirname, 'src/" + sample.tsName + "')";
                 // sample.webpackConfig = replaceAll(sample.webpackConfig, "path.resolve(__dirname, 'src')", updateWebpackConfig);
-                sample.indexTS = sample.indexTS + "import './" + sample.tsName + ".ts';";
+                sample.indexTS = sample.indexTS + "import './" + sample.tsName + "';";
 
         
             let tsLines = sample.tsCode.split("\r\n");

@@ -1,3 +1,3 @@
-import './MapOverview.ts';
 
 
+import './MapOverview';

@@ -1,3 +1,3 @@
-import './MapTypeScatterBubbleSeries.ts';
 
 
+import './MapTypeScatterBubbleSeries';

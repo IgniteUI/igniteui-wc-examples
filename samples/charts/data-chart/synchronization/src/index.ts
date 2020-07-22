@@ -1,3 +1,3 @@
-import './DataChartSynchronization.ts';
 
 
+import './DataChartSynchronization';

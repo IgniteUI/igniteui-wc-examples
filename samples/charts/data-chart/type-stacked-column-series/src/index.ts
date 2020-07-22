@@ -1,3 +1,3 @@
-import './DataChartTypeStackedColumnSeries.ts';
 
 
+import './DataChartTypeStackedColumnSeries';

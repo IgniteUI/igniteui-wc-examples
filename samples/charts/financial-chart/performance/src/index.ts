@@ -1,3 +1,3 @@
-import './FinancialChartPerformance.ts';
 
 
+import './FinancialChartPerformance';

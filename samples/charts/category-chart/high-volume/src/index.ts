@@ -1,3 +1,3 @@
-import './CategoryChartHighVolume.ts';
 
 
+import './CategoryChartHighVolume';

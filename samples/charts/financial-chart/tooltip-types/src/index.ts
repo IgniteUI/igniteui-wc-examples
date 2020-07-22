@@ -1,3 +1,3 @@
-import './FinancialChartTooltipTypes.ts';
 
 
+import './FinancialChartTooltipTypes';

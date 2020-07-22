@@ -1,3 +1,3 @@
-import './DataGridOverview.ts';
 
 
+import './DataGridOverview';

@@ -1,3 +1,3 @@
-import './FinancialChartAnnotations.ts';
 
 
+import './FinancialChartAnnotations';

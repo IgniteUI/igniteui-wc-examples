@@ -1,3 +1,3 @@
-import './DataChartTypeFinancialSeries.ts';
 
 
+import './DataChartTypeFinancialSeries';

@@ -1,3 +1,3 @@
-import './RadialGaugeTypeSemi.ts';
 
 
+import './RadialGaugeTypeSemi';

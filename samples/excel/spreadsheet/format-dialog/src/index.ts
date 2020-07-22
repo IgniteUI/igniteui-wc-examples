@@ -1,3 +1,3 @@
-import './SpreadsheetFormatDialog.ts';
 
 
+import './SpreadsheetFormatDialog';

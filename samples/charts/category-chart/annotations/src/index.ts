@@ -1,3 +1,3 @@
-import './CategoryChartAnnotations.ts';
 
 
+import './CategoryChartAnnotations';

@@ -1,3 +1,3 @@
-import './LinearGaugeTypeFilled.ts';
 
 
+import './LinearGaugeTypeFilled';

@@ -1,3 +1,3 @@
-import './LinearGaugeTypeCurve.ts';
 
 
+import './LinearGaugeTypeCurve';

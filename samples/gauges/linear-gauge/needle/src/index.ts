@@ -1,3 +1,3 @@
-import './LinearGaugeNeedle.ts';
 
 
+import './LinearGaugeNeedle';

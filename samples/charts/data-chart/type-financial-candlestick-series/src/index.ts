@@ -1,3 +1,3 @@
-import './DataChartTypeFinancialCandlestickSeries.ts';
 
 
+import './DataChartTypeFinancialCandlestickSeries';

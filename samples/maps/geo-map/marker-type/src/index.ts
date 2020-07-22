@@ -1,3 +1,3 @@
-import './MapMarkerType.ts';
 
 
+import './MapMarkerType';

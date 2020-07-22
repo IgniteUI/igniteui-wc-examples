@@ -1,3 +1,3 @@
-import './RadialGaugeTypeSegmented.ts';
 
 
+import './RadialGaugeTypeSegmented';

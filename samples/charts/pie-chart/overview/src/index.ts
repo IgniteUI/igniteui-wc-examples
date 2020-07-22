@@ -1,3 +1,3 @@
-import './PieChartOverview.ts';
 
 
+import './PieChartOverview';

@@ -1,3 +1,3 @@
-import './RadialGaugeLabels.ts';
 
 
+import './RadialGaugeLabels';

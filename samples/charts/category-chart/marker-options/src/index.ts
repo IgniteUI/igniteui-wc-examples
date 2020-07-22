@@ -1,3 +1,3 @@
-import './CategoryChartMarkers.ts';
 
 
+import './CategoryChartMarkers';

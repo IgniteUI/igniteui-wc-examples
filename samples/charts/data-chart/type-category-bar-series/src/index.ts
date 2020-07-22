@@ -1,3 +1,3 @@
-import './DataChartTypeCategoryBarSeries.ts';
 
 
+import './DataChartTypeCategoryBarSeries';

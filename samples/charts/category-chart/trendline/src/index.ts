@@ -1,3 +1,3 @@
-import './CategoryChartTrendline.ts';
 
 
+import './CategoryChartTrendline';

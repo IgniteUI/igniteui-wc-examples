@@ -1,3 +1,3 @@
-import './DataGridCellSelection.ts';
 
 
+import './DataGridCellSelection';

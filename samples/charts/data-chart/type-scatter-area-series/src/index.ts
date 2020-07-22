@@ -1,3 +1,3 @@
-import './DataChartTypeScatterAreaSeries.ts';
 
 
+import './DataChartTypeScatterAreaSeries';

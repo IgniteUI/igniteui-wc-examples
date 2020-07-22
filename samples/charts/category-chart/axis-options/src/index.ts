@@ -1,3 +1,3 @@
-import './CategoryChartAxisOptions.ts';
 
 
+import './CategoryChartAxisOptions';

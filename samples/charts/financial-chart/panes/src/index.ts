@@ -1,3 +1,3 @@
-import './FinancialChartPanes.ts';
 
 
+import './FinancialChartPanes';

@@ -1,3 +1,3 @@
-import './DoughnutChartExplosion.ts';
 
 
+import './DoughnutChartExplosion';

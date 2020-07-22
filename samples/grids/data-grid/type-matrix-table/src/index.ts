@@ -1,3 +1,3 @@
-import './DataGridTypeMatrixTable.ts';
 
 
+import './DataGridTypeMatrixTable';

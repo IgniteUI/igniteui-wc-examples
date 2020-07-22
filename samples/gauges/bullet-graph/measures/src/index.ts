@@ -1,3 +1,3 @@
-import './BulletGraphMeasures.ts';
 
 
+import './BulletGraphMeasures';

@@ -1,3 +1,3 @@
-import './MapTypeScatterSymbolSeries.ts';
 
 
+import './MapTypeScatterSymbolSeries';

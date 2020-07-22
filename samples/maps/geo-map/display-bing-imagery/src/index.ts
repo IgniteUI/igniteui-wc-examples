@@ -1,3 +1,3 @@
-import './MapDisplayImageryBingTiles.ts';
 
 
+import './MapDisplayImageryBingTiles';

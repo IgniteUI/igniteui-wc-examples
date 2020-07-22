@@ -1,3 +1,3 @@
-import './MapBindingShapefilePolygons.ts';
 
 
+import './MapBindingShapefilePolygons';

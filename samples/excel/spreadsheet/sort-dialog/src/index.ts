@@ -1,3 +1,3 @@
-import './SpreadsheetSortDialog.ts';
 
 
+import './SpreadsheetSortDialog';

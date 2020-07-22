@@ -1,3 +1,3 @@
-import './LinearGaugeAnimation.ts';
 
 
+import './LinearGaugeAnimation';

@@ -1,3 +1,3 @@
-import './DataChartTypeScatterBubbleSeries.ts';
 
 
+import './DataChartTypeScatterBubbleSeries';

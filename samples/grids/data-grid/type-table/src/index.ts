@@ -1,3 +1,3 @@
-import './DataGridTypeSparklineTable.ts';
 
 
+import './DataGridTypeSparklineTable';

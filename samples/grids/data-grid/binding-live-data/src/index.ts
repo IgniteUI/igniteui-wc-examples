@@ -1,3 +1,3 @@
-import './DataGridBindingLiveData.ts';
 
 
+import './DataGridBindingLiveData';

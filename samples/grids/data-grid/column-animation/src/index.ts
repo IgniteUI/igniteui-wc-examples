@@ -1,3 +1,3 @@
-import './DataGridColumnAnimation.ts';
 
 
+import './DataGridColumnAnimation';

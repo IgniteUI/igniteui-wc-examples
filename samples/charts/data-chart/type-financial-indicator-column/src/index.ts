@@ -1,3 +1,3 @@
-import './DataChartTypeFinancialIndicatorColumn.ts';
 
 
+import './DataChartTypeFinancialIndicatorColumn';

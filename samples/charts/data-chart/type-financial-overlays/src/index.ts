@@ -1,3 +1,3 @@
-import './DataChartTypeFinancialOverlays.ts';
 
 
+import './DataChartTypeFinancialOverlays';

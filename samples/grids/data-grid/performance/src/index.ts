@@ -1,3 +1,3 @@
-import './DataGridPerformance.ts';
 
 
+import './DataGridPerformance';

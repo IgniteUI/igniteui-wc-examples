@@ -1,3 +1,3 @@
-import './BulletGraphScale.ts';
 
 
+import './BulletGraphScale';

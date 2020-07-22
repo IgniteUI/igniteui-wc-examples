@@ -1,3 +1,3 @@
-import './ExcelLibraryWorkbooks.ts';
 
 
+import './ExcelLibraryWorkbooks';

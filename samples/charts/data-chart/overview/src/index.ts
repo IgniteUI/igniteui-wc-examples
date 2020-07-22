@@ -1,3 +1,3 @@
-import './DataChartOverview.ts';
 
 
+import './DataChartOverview';

@@ -1,3 +1,3 @@
-import './SparklineMarkers.ts';
 
 
+import './SparklineMarkers';
