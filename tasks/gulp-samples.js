@@ -50,9 +50,7 @@ var sampleSource = [
     igConfig.SamplesCopyPath + '/grids/**/package.json',
     // layouts:
     igConfig.SamplesCopyPath + '/layouts/**/package.json',
-    // tests:
-    igConfig.SamplesCopyPath + '/tests1/**/package.json',
-    igConfig.SamplesCopyPath + '/tests2/**/package.json',
+    
 ];
 
 // this variable stores detailed information about all samples in ./samples/ folder
@@ -245,13 +243,13 @@ function copySamples(cb) {
     }
 
     let routingGroups = Transformer.getRoutingGroups(samples);
-
+    let routerTemplate = fs.readFileSync("./templates/browser/src/router.ts", "utf8");
     for (const group of routingGroups) {
-        let outputPath = "./src/samples/" + group.Name + "/RoutingData.ts";
+        let outputPath = "./src/samples/" + group.Name + "/router.ts";
         makeDirectoryFor(outputPath);
 
         // log('created ' + outputPath);
-        let routingFile = Transformer.getRoutingFile(group);
+        let routingFile = Transformer.getRoutingFile(group, routerTemplate);
         fs.writeFileSync(outputPath, routingFile);
     }
 

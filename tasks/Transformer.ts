@@ -3,7 +3,7 @@ let transFS = require('fs.extra');
 // let platform = "WebComponents";
 // let igConfig = require('./gulp-config.js')[platform];
 
-let igConfig = require('./gulp-config.js')
+let igConfig = require('./gulp-config.js');
 
 // function log(msg) {
 //     console.log('Transformer.ts ' + msg);
@@ -382,6 +382,24 @@ class Transformer {
         return JSON.stringify(samplePackage, null, '  ');
     }
 
+    public static getRoutingCondition(sampleInfo: SampleInfo, isFirstSample: boolean): string {
+
+        let condition = "";
+        if(isFirstSample) {
+            condition += 'if ';
+        }
+        else {
+            condition += '        else if ';
+        }
+        let routingPath = sampleInfo.SampleRoute.replace('/' + sampleInfo.ComponentGroup.toLowerCase(), "");
+        condition += '(route.indexOf("'+ routingPath +'") >= 0) {\n';
+        condition += '            let sample = await import("./'+ sampleInfo.ComponentFolder + '/' + sampleInfo.SampleImportName + '");\n';
+        condition += '            this.samples.set(route, sample.'+ sampleInfo.SampleImportName +'.register());\n';
+        condition += '        }\n';
+        
+        return condition;
+    }
+
     public static getSampleInfo(samplePackageFile: any, sampleFilePaths?: string[]): SampleInfo {
 
         let info = new SampleInfo();
@@ -573,46 +591,32 @@ class Transformer {
         return 0;
     }
 
-    public static getRoutingFile(group: SampleGroup): string {
+    public static getRoutingFile(group: SampleGroup, routingTemplate: string): string {
 
-        let imports = '\n';
-        imports += "import * as React from 'react';"
-        imports += "import { RoutingGroup } from '../../navigation/SamplesData'; \n";
-
-        let routes = "// creating routing data for " + group.Name + " samples: \n";
-        routes += "export const " + group.Name + "RoutingData: RoutingGroup = { \n";
-        routes += "    name: '" + group.Name + "',\n";
-        routes += "    components: [\n";
+        let fileContent = routingTemplate + "";
+        let routingConditions = "";
+        let isFirstSample = true;
 
         for (const component of group.Components) {
             console.log('coping samples for ' + component.Name + ' component');
-
-            // let componentPath = '/' + group.name + '/' + component.name;
-            // routes += "    {     path: '" + componentPath +  "', name: '" + component.name + "', routes: [ \n";
-            // let componentName = component.Name; // .replace("Geo Map", "Geographic Map");
-            routes += "    {     name: '" + component.Name + "', routes: [ \n";
-
-            imports += "// importing " + component.Name + " samples: \n";
-
+            
             for (const info of component.Samples) {
                 console.log('- copied: ' + info.SampleFileName);
-
+                routingConditions += this.getRoutingCondition(info, isFirstSample);
                 // console.log('sample ' + sample.SampleFolderName);
+                if(isFirstSample) {
+                    isFirstSample = false;
+                    //routingConditions += this.getRoutingCondition(info);
+                }
                 // let sampleClass = info.SampleFileName.replace('.tsx','');
                 // let samplePath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleClassName;
-                imports += "const " + info.SampleImportName +  " = React.lazy(() => import('" + info.SampleImportPath + "')); \n";
-
-                routes += "        { path: '" + info.SampleRoute + "', name: '" + info.SampleDisplayName + "', component: " + info.SampleImportName + " }, \n";
             }
-            routes += '    ]},\n';
+            routingConditions += '\n';
         }
-
-        routes += '    ]\n';
-        routes += '};\n';
-
-        let content = imports + "\n" + routes;
-        // console.log(content);
-        return content;
+        fileContent = fileContent.replace('// {InsertRoutingPath}', routingConditions);
+        fileContent = fileContent.replace('GroupName', Strings.toTitleCase(group.Name));
+        console.log(fileContent);
+        return fileContent;
     }
 
     public static lintSample(

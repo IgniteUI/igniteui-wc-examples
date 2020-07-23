@@ -43,11 +43,11 @@ exports.updateSharedFiles = updateSharedFiles = gulp.series(
     sb.updateSharedFiles,
 );
 
-// exports.updateBrowser = updateBrowser = gulp.series(
-    // sb.getSamples,
-    // sb.copySamples,
-    // // sb.copyPackageJson,
-// );
+exports.updateBrowser = updateBrowser = gulp.series(
+    sb.getSamples,
+    sb.copySamples,
+    // sb.copyPackageJson,
+);
 
 // // exports.default = updateBrowser;
 // exports.logPublicFiles = sb.logPublicFiles;
