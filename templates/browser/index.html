@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+  <link href="<%= htmlWebpackPlugin.options.publicPath %>assets/icons/favicon.png" rel="shortcut icon" >
+  <!-- <link href="<%= htmlWebpackPlugin.options.publicPath %>assets/css/index.css"  rel="stylesheet" > -->
+
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <base href="/webcomponents-demos/">
+
+  <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
+  <style>
+    
+	<link rel="stylesheet" type="text/css" href="/src/index.css"  />
+
+	<link rel="stylesheet" type="text/css" href="/src/SamplesBrowser.css" 
+
+select {
+    font-size: 0.75rem;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    vertical-align: center;
+    font-family: aktiv-grotesk,sans-serif;
+    padding: 4px;
+}
+
+#nav-bar {
+    float:left;
+    height: 100%;
+    display: none;
+    /* background: gainsboro; */
+    background: white;
+    overflow-y: scroll;
+
+    /* color: #ffffff; */
+    color: #dbdbdb;
+    background: #2c2c2c;
+    /* height: calc(100% - 20px); */
+    /* padding: 10px; */
+
+    font-size: medium;
+    font-family: 'Kanit', sans-serif;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    -o-user-select: none;
+        user-select: none; /* Non-prefixed version, currently*/
+}
+#nav-content {
+    /* float:left; */
+    /* height: 100%; */
+    display: block;
+    background: rgb(255, 134, 134);
+    /* overflow-y: scroll; */
+    /* padding: 1rem; */
+    /* margin: 10px; */
+}
+#router-target {
+    float:right;
+    width: 100%;
+    height: 100%;
+}
+
+#legend {
+    overflow-y: hidden;
+}
+
+#nav-list-expanded {
+    /* width: 220px !important; */
+    /* height: 100%; */
+    display: block;
+    background: #b6fc87;
+}
+#nav-list-collapsed {
+    /* width: 220px !important; */
+    height: 100%;
+    display: none;
+    background: #ff9a9a;
+}
+
+#nav-bar label {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 0px;
+    /* color: #272727 !important; */
+    color: #dbdbdb;
+}
+#nav-bar label:hover {
+    /* background: #d8d6d6; */
+    background: rgba(204, 204, 204, 0.123);
+    /* color: #ffffff !important; */
+    transition: "all 0.0s";
+}
+
+#nav-bar a {
+    text-decoration: none;
+    display: block;
+    /* padding: 2px; */
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 25px;
+    padding-right: 0px;
+    /* color: #272727 !important; */
+    /* color: dodgerblue; */
+    color: #dbdbdb;
+}
+#nav-bar a:hover {
+    /* background: dodgerblue;
+    color: #ffffff !important; */
+    background: rgba(204, 204, 204, 0.123);
+    transition: "all 0.0s";
+}
+
+mwc-switch {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+  </style>
+</head>
+<!-- class="nav-bar-expanded"> -->
+<body>
+  <div id="nav-bar" >
+    <div class="nav-content"  >
+
+        <!-- <div class="nav-logo">
+          <img src="/assets/icons/favicon.png" width="20px" height="20px">
+          <div >SAMPLES BROWSER</div>
+        </div> -->
+
+        <div class="nav-group">LAYOUTS</div>
+        <label id="nav-dock-manager" class="nav-component">Dock Manager</label>
+        <div id="nav-dock-manager-list" class="nav-list" state="collapsed">
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <div class="nav-group">CHARTS</div>
+        <label id="nav-cc" class="nav-component">Category Chart</label>
+        <div id="nav-cc-list" class="nav-list" state="collapsed">
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <label id="nav-data-chart" class="nav-component">Data Chart</label>
+        <div id="nav-data-chart-list" class="nav-list"  state="collapsed">
+
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+
+          <div class="nav-group">Series Types</div>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+
+        </div>
+
+        <label id="nav-doughnut-chart" class="nav-component">Doughnut Chart</label>
+        <div id="nav-doughnut-chart-list" class="nav-list"  state="collapsed">
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <label id="nav-financial-chart" class="nav-component">Financial Chart</label>
+        <div id="nav-financial-chart-list" class="nav-list"  state="collapsed">
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <label id="nav-pie-chart" class="nav-component">Pie Chart</label>
+        <div id="nav-pie-chart-list" class="nav-list"  state="collapsed">
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <label id="nav-sparkline-chart" class="nav-component">Sparkline Chart</label>
+        <div id="nav-sparkline-chart-list" class="nav-list"  state="collapsed">
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <label id="nav-tree-map" class="nav-component">Tree Map</label>
+        <div id="nav-tree-map-list" class="nav-list"  state="collapsed">
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <label id="nav-zoomslider" class="nav-component">Zoom Slider</label>
+        <div id="nav-zoomslider-list" class="nav-list"  state="collapsed">
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <div class="nav-group">MAPS</div>
+        <label id="nav-geo-map" class="nav-component">Geographic Map</label>
+        <div id="nav-geo-map-list" class="nav-list"  state="collapsed">
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+
+            <div class="nav-group">Map Types</div>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <div class="nav-group">GAUGES</div>
+        <label id="nav-bullet-graph" class="nav-component">Bullet Graph</label>
+        <div id="nav-bullet-graph-list" class="nav-list"  state="collapsed">
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <label id="nav-linear-gauge" class="nav-component">Linear Gauge</label>
+        <div id="nav-linear-gauge-list" class="nav-list"  state="collapsed">
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <label id="nav-radial-gauge" class="nav-component">Radial Gauge</label>
+        <div id="nav-radial-gauge-list" class="nav-list"  state="collapsed">
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <div class="nav-group">GRIDS</div>
+        <label id="nav-table-grid" class="nav-component">Table / Data Grid</label>
+        <div id="nav-table-grid-list" class="nav-list"  state="collapsed">
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+          <!-- commented out due to missing custom paging UI -->
+          <!-- <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a> -->
+        </div>
+
+        <div class="nav-group">EXCEL</div>
+
+        <label id="nav-spreadsheet" class="nav-component">Spreadsheet</label>
+        <div id="nav-spreadsheet-list" class="nav-list"  state="collapsed">
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+        <label id="nav-excel-library" class="nav-component">Excel Library</label>
+        <div id="nav-excel-library-list" class="nav-list"  state="collapsed">
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+            <a href="#" data-nav="{AutoInsertNavigation}" class="nav-link">{AutoInsertNavigation}</a>
+        </div>
+
+    </div>
+  </div>
+  <div id="router-target" class="with-nav-bar">
+
+  </div>
+</body>
+
+</html>
