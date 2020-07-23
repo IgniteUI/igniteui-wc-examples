@@ -1,3 +1,3 @@
-import './RadialGaugeTickmarks.ts';
 
 
+import './RadialGaugeTickmarks';

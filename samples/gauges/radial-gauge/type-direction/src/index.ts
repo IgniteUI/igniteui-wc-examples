@@ -1,3 +1,3 @@
-import './RadialGaugeTypeDirection.ts';
 
 
+import './RadialGaugeTypeDirection';

@@ -1,3 +1,3 @@
-import './DataChartSeriesAnimations.ts';
 
 
+import './DataChartSeriesAnimations';

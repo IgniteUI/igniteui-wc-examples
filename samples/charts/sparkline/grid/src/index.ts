@@ -1,3 +1,3 @@
-import './SparklineGrid.ts';
 
 
+import './SparklineGrid';

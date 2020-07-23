@@ -1,3 +1,3 @@
-import './MapBindingShapefilePoints.ts';
 
 
+import './MapBindingShapefilePoints';

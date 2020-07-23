@@ -1,3 +1,3 @@
-import './DoughnutChartAnimation.ts';
 
 
+import './DoughnutChartAnimation';

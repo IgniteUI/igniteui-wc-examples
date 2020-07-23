@@ -1,3 +1,3 @@
-import './SparklineDisplayWinLoss.ts';
 
 
+import './SparklineDisplayWinLoss';

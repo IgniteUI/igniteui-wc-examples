@@ -1,3 +1,3 @@
-import './FinancialChartMultipleData.ts';
 
 
+import './FinancialChartMultipleData';

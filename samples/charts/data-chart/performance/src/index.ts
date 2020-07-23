@@ -1,3 +1,3 @@
-import './DataChartPerformance.ts';
 
 
+import './DataChartPerformance';

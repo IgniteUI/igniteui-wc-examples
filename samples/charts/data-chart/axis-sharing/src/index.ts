@@ -1,3 +1,3 @@
-import './DataChartAxisSharing.ts';
 
 
+import './DataChartAxisSharing';

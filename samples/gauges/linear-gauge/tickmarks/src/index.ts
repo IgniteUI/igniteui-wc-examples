@@ -1,3 +1,3 @@
-import './LinearGaugeTickmarks.ts';
 
 
+import './LinearGaugeTickmarks';

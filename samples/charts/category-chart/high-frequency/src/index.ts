@@ -1,3 +1,3 @@
-import './CategoryChartHighFrequency.ts';
 
 
+import './CategoryChartHighFrequency';

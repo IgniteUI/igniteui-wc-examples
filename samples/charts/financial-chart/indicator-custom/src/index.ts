@@ -1,3 +1,3 @@
-import './FinancialChartIndicatorCustom.ts';
 
 
+import './FinancialChartIndicatorCustom';

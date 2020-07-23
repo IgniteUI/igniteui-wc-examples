@@ -1,3 +1,3 @@
-import './BulletGraphRanges.ts';
 
 
+import './BulletGraphRanges';

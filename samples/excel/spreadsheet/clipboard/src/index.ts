@@ -1,3 +1,3 @@
-import './SpreadsheetClipboard.ts';
 
 
+import './SpreadsheetClipboard';

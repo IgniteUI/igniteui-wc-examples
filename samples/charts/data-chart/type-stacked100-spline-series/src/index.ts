@@ -1,3 +1,3 @@
-import './DataChartTypeStacked100SplineSeries.ts';
 
 
+import './DataChartTypeStacked100SplineSeries';

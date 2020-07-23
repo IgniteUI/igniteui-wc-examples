@@ -1,3 +1,3 @@
-import './MapBindingShapefilePolylines.ts';
 
 
+import './MapBindingShapefilePolylines';

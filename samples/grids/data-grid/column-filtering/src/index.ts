@@ -1,3 +1,3 @@
-import './DataGridColumnFiltering.ts';
 
 
+import './DataGridColumnFiltering';

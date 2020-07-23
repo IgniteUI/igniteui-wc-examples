@@ -1,3 +1,3 @@
-import './DataChartTypeScatterPolygonSeries.ts';
 
 
+import './DataChartTypeScatterPolygonSeries';

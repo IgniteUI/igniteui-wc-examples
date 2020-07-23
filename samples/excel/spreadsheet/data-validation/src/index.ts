@@ -1,3 +1,3 @@
-import './SpreadsheetDataValidation.ts';
 
 
+import './SpreadsheetDataValidation';

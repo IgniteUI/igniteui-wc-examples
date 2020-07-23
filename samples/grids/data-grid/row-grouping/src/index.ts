@@ -1,3 +1,3 @@
-import './DataGridRowGrouping.ts';
 
 
+import './DataGridRowGrouping';

@@ -1,3 +1,3 @@
-import './FinancialChartHighVolume.ts';
 
 
+import './FinancialChartHighVolume';

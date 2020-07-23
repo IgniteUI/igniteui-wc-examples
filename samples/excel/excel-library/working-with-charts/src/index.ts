@@ -1,3 +1,3 @@
-import './ExcelLibraryCharts.ts';
 
 
+import './ExcelLibraryCharts';

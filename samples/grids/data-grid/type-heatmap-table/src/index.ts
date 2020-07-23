@@ -1,3 +1,3 @@
-import './DataGridTypeHeatmapTable.ts';
 
 
+import './DataGridTypeHeatmapTable';

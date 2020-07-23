@@ -1,3 +1,3 @@
-import './DataChartTypeScatterPolylineSeries.ts';
 
 
+import './DataChartTypeScatterPolylineSeries';

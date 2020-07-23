@@ -1,3 +1,3 @@
-import './BulletGraphBackground.ts';
 
 
+import './BulletGraphBackground';

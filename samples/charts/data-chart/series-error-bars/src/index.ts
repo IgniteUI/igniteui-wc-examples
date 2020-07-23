@@ -1,3 +1,3 @@
-import './DataChartSeriesErrorBars.ts';
 
 
+import './DataChartSeriesErrorBars';

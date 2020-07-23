@@ -1,3 +1,3 @@
-import './DataGridRowPinning.ts';
 
 
+import './DataGridRowPinning';

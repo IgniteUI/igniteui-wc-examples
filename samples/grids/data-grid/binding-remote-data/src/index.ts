@@ -1,3 +1,3 @@
-import './DataGridBindingRemoteData.ts';
 
 
+import './DataGridBindingRemoteData';

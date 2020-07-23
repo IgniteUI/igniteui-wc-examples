@@ -1,3 +1,3 @@
-import './DataChartTypeRadialColumnSeries.ts';
 
 
+import './DataChartTypeRadialColumnSeries';

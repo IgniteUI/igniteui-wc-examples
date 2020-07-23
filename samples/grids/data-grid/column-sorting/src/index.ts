@@ -1,3 +1,3 @@
-import './DataGridColumnSorting.ts';
 
 
+import './DataGridColumnSorting';

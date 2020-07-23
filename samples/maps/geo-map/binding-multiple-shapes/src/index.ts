@@ -1,3 +1,3 @@
-import './MapBindingMultipleShapes.ts';
 
 
+import './MapBindingMultipleShapes';

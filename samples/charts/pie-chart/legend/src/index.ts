@@ -1,3 +1,3 @@
-import './PieChartLegend.ts';
 
 
+import './PieChartLegend';

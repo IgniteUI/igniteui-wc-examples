@@ -1,3 +1,3 @@
-import './MapTypeScatterAreaSeries.ts';
 
 
+import './MapTypeScatterAreaSeries';

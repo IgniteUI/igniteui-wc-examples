@@ -1,3 +1,3 @@
-import './MapDisplayImageryEsriTiles.ts';
 
 
+import './MapDisplayImageryEsriTiles';

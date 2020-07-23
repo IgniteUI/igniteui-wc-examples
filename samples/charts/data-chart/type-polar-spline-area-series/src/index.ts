@@ -1,3 +1,3 @@
-import './DataChartTypePolarSplineAreaSeries.ts';
 
 
+import './DataChartTypePolarSplineAreaSeries';

@@ -1,3 +1,3 @@
-import './RadialGaugeScale.ts';
 
 
+import './RadialGaugeScale';

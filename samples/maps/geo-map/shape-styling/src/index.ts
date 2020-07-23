@@ -1,3 +1,3 @@
-import './MapShapeStyling.ts';
 
 
+import './MapShapeStyling';

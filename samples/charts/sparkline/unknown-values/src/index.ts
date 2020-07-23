@@ -1,3 +1,3 @@
-import './SparklineUnknownValues.ts';
 
 
+import './SparklineUnknownValues';

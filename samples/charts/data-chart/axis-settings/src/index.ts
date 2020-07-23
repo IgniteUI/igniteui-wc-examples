@@ -1,3 +1,3 @@
-import './DataChartAxisSettings.ts';
 
 
+import './DataChartAxisSettings';

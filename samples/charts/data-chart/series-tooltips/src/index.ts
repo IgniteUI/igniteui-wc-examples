@@ -1,3 +1,3 @@
-import './DataChartSeriesTooltips.ts';
 
 
+import './DataChartSeriesTooltips';

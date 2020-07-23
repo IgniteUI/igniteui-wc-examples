@@ -1,3 +1,3 @@
-import './SparklineTrendlines.ts';
 
 
+import './SparklineTrendlines';

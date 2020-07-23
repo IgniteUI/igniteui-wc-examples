@@ -1,3 +1,3 @@
-import './MapMarkerTemplete.ts';
 
 
+import './MapMarkerTemplete';

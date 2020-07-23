@@ -1,3 +1,3 @@
-import './PieChartAnimation.ts';
 
 
+import './PieChartAnimation';

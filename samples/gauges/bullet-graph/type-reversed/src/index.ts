@@ -1,3 +1,3 @@
-import './BulletGraphTypeReversed.ts';
 
 
+import './BulletGraphTypeReversed';

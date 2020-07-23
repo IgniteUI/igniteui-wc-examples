@@ -1,3 +1,3 @@
-import './SparklineDisplayLines.ts';
 
 
+import './SparklineDisplayLines';

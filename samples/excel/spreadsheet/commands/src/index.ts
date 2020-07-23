@@ -1,3 +1,3 @@
-import './SpreadsheetCommands.ts';
 
 
+import './SpreadsheetCommands';

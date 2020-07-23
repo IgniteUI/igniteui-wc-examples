@@ -1,3 +1,3 @@
-import './BulletGraphTypeHorizontal.ts';
 
 
+import './BulletGraphTypeHorizontal';

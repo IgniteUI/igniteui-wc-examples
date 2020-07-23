@@ -1,3 +1,3 @@
-import './ExcelLibraryTables.ts';
 
 
+import './ExcelLibraryTables';

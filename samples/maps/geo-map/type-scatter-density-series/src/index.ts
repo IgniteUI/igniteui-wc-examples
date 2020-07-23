@@ -1,3 +1,3 @@
-import './MapTypeScatterDensitySeries.ts';
 
 
+import './MapTypeScatterDensitySeries';

@@ -1,3 +1,3 @@
-import './DataChartTypeScatterPointSeries.ts';
 
 
+import './DataChartTypeScatterPointSeries';

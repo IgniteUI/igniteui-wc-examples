@@ -1,3 +1,3 @@
-import './DataGridBindingDataService.ts';
 
 
+import './DataGridBindingDataService';

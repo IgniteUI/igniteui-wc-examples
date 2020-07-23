@@ -1,3 +1,3 @@
-import './DataGridTypeComparisonTable.ts';
 
 
+import './DataGridTypeComparisonTable';

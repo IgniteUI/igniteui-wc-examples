@@ -1,3 +1,3 @@
-import './MapBindingDataModel.ts';
 
 
+import './MapBindingDataModel';

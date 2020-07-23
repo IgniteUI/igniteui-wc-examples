@@ -1,3 +1,3 @@
-import './ExcelLibraryOverview.ts';
 
 
+import './ExcelLibraryOverview';

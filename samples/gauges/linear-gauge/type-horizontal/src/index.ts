@@ -1,3 +1,3 @@
-import './LinearGaugeTypeHorizontal.ts';
 
 
+import './LinearGaugeTypeHorizontal';

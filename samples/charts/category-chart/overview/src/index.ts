@@ -1,3 +1,3 @@
-import './CategoryChartOverview.ts';
 
 
+import './CategoryChartOverview';

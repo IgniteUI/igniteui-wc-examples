@@ -1,3 +1,3 @@
-import './MapBindingMultipleSources.ts';
 
 
+import './MapBindingMultipleSources';

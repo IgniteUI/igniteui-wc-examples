@@ -1,3 +1,3 @@
-import './RadialGaugeBacking.ts';
 
 
+import './RadialGaugeBacking';

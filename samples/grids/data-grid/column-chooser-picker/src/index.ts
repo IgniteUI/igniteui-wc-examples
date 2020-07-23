@@ -1,3 +1,3 @@
-import './DataGridColumnChooserPicker.ts';
 
 
+import './DataGridColumnChooserPicker';

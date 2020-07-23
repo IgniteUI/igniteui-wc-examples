@@ -1,3 +1,3 @@
-import './SpreadsheetOverview.ts';
 
 
+import './SpreadsheetOverview';

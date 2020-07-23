@@ -1,3 +1,3 @@
-import './DataGridColumnTypes.ts';
 
 
+import './DataGridColumnTypes';

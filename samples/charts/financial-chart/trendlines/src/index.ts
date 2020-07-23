@@ -1,3 +1,3 @@
-import './FinancialChartTrendlines.ts';
 
 
+import './FinancialChartTrendlines';

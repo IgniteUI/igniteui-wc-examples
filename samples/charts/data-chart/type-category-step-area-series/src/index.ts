@@ -1,3 +1,3 @@
-import './DataChartTypeCategoryStepAreaSeries.ts';
 
 
+import './DataChartTypeCategoryStepAreaSeries';

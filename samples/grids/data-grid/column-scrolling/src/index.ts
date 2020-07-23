@@ -1,3 +1,3 @@
-import './DataGridHorizontalScrolling.ts';
 
 
+import './DataGridHorizontalScrolling';

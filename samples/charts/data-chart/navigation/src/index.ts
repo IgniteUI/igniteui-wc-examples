@@ -1,3 +1,3 @@
-import './DataChartNavigation.ts';
 
 
+import './DataChartNavigation';

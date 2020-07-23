@@ -1,3 +1,3 @@
-import './DataGridColumnMoving.ts';
 
 
+import './DataGridColumnMoving';

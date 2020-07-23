@@ -1,3 +1,3 @@
-import './ZoomSliderOverview.ts';
 
 
+import './ZoomSliderOverview';

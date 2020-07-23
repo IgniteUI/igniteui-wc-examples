@@ -1,3 +1,3 @@
-import './RadialGaugeAnimation.ts';
 
 
+import './RadialGaugeAnimation';

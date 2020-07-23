@@ -1,3 +1,3 @@
-import './RadialGaugeTypeHalf.ts';
 
 
+import './RadialGaugeTypeHalf';

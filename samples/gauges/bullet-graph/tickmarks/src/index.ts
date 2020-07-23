@@ -1,3 +1,3 @@
-import './BulletGraphTickmarks.ts';
 
 
+import './BulletGraphTickmarks';

@@ -1,3 +1,3 @@
-import './MapTypeScatterPolylineSeries.ts';
 
 
+import './MapTypeScatterPolylineSeries';

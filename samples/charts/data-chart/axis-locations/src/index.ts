@@ -1,3 +1,3 @@
-import './DataChartAxisLocations.ts';
 
 
+import './DataChartAxisLocations';

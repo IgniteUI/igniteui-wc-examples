@@ -1,3 +1,3 @@
-import './DataChartValueOverlay.ts';
 
 
+import './DataChartValueOverlay';

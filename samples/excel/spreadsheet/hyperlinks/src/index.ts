@@ -1,3 +1,3 @@
-import './SpreadsheetHyperlinks.ts';
 
 
+import './SpreadsheetHyperlinks';

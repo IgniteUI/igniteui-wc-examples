@@ -1,3 +1,3 @@
-import './DataGridBindingLocalData.ts';
 
 
+import './DataGridBindingLocalData';

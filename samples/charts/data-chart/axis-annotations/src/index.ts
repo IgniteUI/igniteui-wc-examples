@@ -1,3 +1,3 @@
-import './DataChartAxisAnnotations.ts';
 
 
+import './DataChartAxisAnnotations';

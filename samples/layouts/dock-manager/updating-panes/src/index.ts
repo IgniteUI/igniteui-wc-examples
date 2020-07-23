@@ -1,3 +1,3 @@
-import './DockManagerUpdatingPanes.ts';
 
 
+import './DockManagerUpdatingPanes';

@@ -1,3 +1,3 @@
-import './DoughnutChartSelection.ts';
 
 
+import './DoughnutChartSelection';
