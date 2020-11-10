@@ -3,6 +3,7 @@
 # dependencies
 */node_modules
 /browser/src/samples
+/browser/src/samples/*
 
 # IDEs and editors
 /.idea
