@@ -176,7 +176,7 @@ class Transformer {
             // info.SampleFolderPath = relativePath;
             info.SampleRoute = "/" +  info.ComponentGroup + "/" + info.ComponentFolder + "-" + info.SampleFolderName;
 
-            // console.log(info.SampleFolderPath + " " + info.SampleFilePaths.length);
+            // console.log("Processing " + info.SampleFolderPath + " with " + info.SampleFilePaths.length + " files");
 
             let fileNames = [];
             let fileFound = [];
@@ -417,12 +417,10 @@ class Transformer {
     }
 
     public static getRelative(path: string): string {
-        // let path = filePath;
         if (path.indexOf(igConfig.RepositoryName) > -1) {
             path = path.split(igConfig.RepositoryName)[1];
             path = path.split("\\").join("/");
-            return "." + path;
-            // return path;
+            return ".." + path;
         }
 
         console.log("failed on getRelative " + path);
@@ -614,7 +612,7 @@ class Transformer {
         }
         fileContent = fileContent.replace('// {InsertRoutingPath}', routingConditions);
         fileContent = fileContent.replace('GroupName', Strings.toTitleCase(group.Name));
-        console.log(fileContent);
+        // console.log(fileContent);
         return fileContent;
     }
 

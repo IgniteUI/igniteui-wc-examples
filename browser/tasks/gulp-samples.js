@@ -30,26 +30,26 @@ log('loaded');
 var sampleSources = [
     // charts:
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
-    // // maps:
-    igConfig.SamplesCopyPath + '/maps/**/package.json',
-    // // excel:
-    igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
-    igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
-    // gauges:
-    igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
-    igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
-    igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
-    // // grids:
-    igConfig.SamplesCopyPath + '/grids/**/package.json',
-    // layouts:
-    igConfig.SamplesCopyPath + '/layouts/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
+    // // // maps:
+    // igConfig.SamplesCopyPath + '/maps/**/package.json',
+    // // // excel:
+    // igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
+    // igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
+    // // gauges:
+    // igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
+    // igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
+    // igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
+    // // // grids:
+    // igConfig.SamplesCopyPath + '/grids/**/package.json',
+    // // layouts:
+    // igConfig.SamplesCopyPath + '/layouts/**/package.json',
 ];
 
 // this variable stores detailed information about all samples in ./samples/ folder
@@ -120,7 +120,7 @@ function getSamples(cb) {
     .pipe(es.map(function(samplePackage, sampleCallback) {
 
         let SampleFolderName = Transformer.getRelative(samplePackage.dirname);
-        log(SampleFolderName);
+        log("getSamples " + SampleFolderName);
 
         let sampleFiles = [];
         gulp.src([SampleFolderName + "/**"])
@@ -133,6 +133,7 @@ function getSamples(cb) {
         }))
         .on("end", function() {
             // log(SampleFolderName);
+            log("getting " + SampleFolderName + " " + sampleFiles.length);
 
             let sampleInfo = Transformer.getSampleInfo(samplePackage, sampleFiles);
             samples.push(sampleInfo);
@@ -150,7 +151,7 @@ function getSamples(cb) {
         //Transformer.verify(samples);
         //Transformer.print(samples);
         //Transformer.getGroups(samples);
-        log('getSamples found ' + samples.length + " samples");
+        // log('getSamples found ' + samples.length + " samples");
         // for (const sample of samples) {
         //     log(' ' + sample.SampleFolderPath);
         // }
@@ -187,19 +188,10 @@ function copyExclude(files) {
 }
 
 function deleteSamples() {
-
     log('deleting sample files... ');
     del.sync("./src/samples/**/*.*", {force:true});
     del.sync("./src/samples/*.*", {force:true});
     del.sync("./src/samples/*", {force:true});
-
-    // del.sync("./samples-test-files/public", {force:true});
-    // del.sync("./samples-test-files/**/*.md", {force:true});
-    // del.sync("./samples-test-files/**/*.ts", {force:true});
-    // del.sync("./samples-test-files/**/*.css", {force:true});
-    // del.sync("./samples-test-files/**/*.json", {force:true});
-    // del.sync("./samples-test-files/*.json", {force:true});
-
 }
 
 function copySamples(cb) {
@@ -207,10 +199,10 @@ function copySamples(cb) {
     deleteSamples();
     log('copying sample files... ');
     for (const sample of samples) {
-        // log(sample.SampleFolderPath);
+        log('copying ' + sample.SampleFolderPath);
 
         // let outputPath = sample.SampleFolderPath;
-        let outputPath = './src' + sample.SampleFolderPath.replace('.','');
+        let outputPath = './src' + sample.SampleFolderPath.replace('..','');
         // let outputPath = './sample-test-files' + sample.SampleFolderPath.replace('.','');
         // log(outputPath);
         // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
@@ -221,13 +213,12 @@ function copySamples(cb) {
         '!' + sample.SampleFolderPath + '/src/index.css',
         '!' + sample.SampleFolderPath + '/src/index.ts',
         '!' + sample.SampleFolderPath + '/src/typedecls.d.ts',
-        '!' + sample.SampleFolderPath + '/sandbox.config.json',
-        '!' + sample.SampleFolderPath + '/sandbox.config.json',
-        '!' + sample.SampleFolderPath + '/README.md',
-        '!' + sample.SampleFolderPath + '/ReadMe.md',
-        '!' + sample.SampleFolderPath + '/readme.md',
-        '!' + sample.SampleFolderPath + '/package.json',
-        '!' + sample.SampleFolderPath + '/package-lock.json',
+        // '!' + sample.SampleFolderPath + '/sandbox.config.json',
+        // '!' + sample.SampleFolderPath + '/README.md',
+        // '!' + sample.SampleFolderPath + '/ReadMe.md',
+        // '!' + sample.SampleFolderPath + '/readme.md',
+        // '!' + sample.SampleFolderPath + '/package.json',
+        // '!' + sample.SampleFolderPath + '/package-lock.json',
         ])
         // .pipe(copyExclude(['ReadMe.md', 'index.tsx']))
         // .pipe(logFile())
