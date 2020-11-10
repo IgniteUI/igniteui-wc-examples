@@ -16,10 +16,7 @@ export class RouterGroupName {
             console.log("SB imported sample: " + route)
             return this.samples.get(route);
         } else {
-            console.log("SB import missing for sample: " + route)
+            console.log("SB import missing for sample route: \n" + route)
         }
-
-
     }
-
 }

@@ -381,24 +381,6 @@ class Transformer {
         return JSON.stringify(samplePackage, null, '  ');
     }
 
-    public static getRoutingCondition(sampleInfo: SampleInfo, isFirstSample: boolean): string {
-
-        let condition = "";
-        if (isFirstSample) {
-            condition += 'if ';
-        }
-        else {
-            condition += '        else if ';
-        }
-        let routingPath = sampleInfo.SampleRoute.replace('/' + sampleInfo.ComponentGroup.toLowerCase(), "");
-        condition += '(route.indexOf("' + routingPath + '") >= 0) {\n';
-        condition += '            let sample = await import("./' + sampleInfo.ComponentFolder + '/' + sampleInfo.SampleImportName + '");\n';
-        condition += '            this.samples.set(route, sample.' + sampleInfo.SampleImportName + '.register());\n';
-        condition += '        }\n';
-
-        return condition;
-    }
-
     public static getSampleInfo(samplePackageFile: any, sampleFilePaths?: string[]): SampleInfo {
 
         let info = new SampleInfo();
@@ -599,6 +581,7 @@ class Transformer {
 
             for (const info of component.Samples) {
                 console.log('- copied: ' + info.SampleFileName);
+                console.log('- copied: ' + info.SampleFilePath + '/' + info.SampleFileName);
                 routingConditions += this.getRoutingCondition(info, isFirstSample);
                 // console.log('sample ' + sample.SampleFolderName);
                 if (isFirstSample) {
@@ -612,8 +595,27 @@ class Transformer {
         }
         fileContent = fileContent.replace('// {InsertRoutingPath}', routingConditions);
         fileContent = fileContent.replace('GroupName', Strings.toTitleCase(group.Name));
-        // console.log(fileContent);
+        console.log(fileContent);
         return fileContent;
+    }
+
+    public static getRoutingCondition(sampleInfo: SampleInfo, isFirstSample: boolean): string {
+
+        let condition = "";
+        if (isFirstSample) {
+            condition += 'if ';
+        }
+        else {
+            condition += '        else if ';
+        }
+        let samplePath = sampleInfo.ComponentFolder + '/' + sampleInfo.SampleFolderName + '/' + sampleInfo.SampleImportName
+        let routingPath = sampleInfo.SampleRoute.replace('/' + sampleInfo.ComponentGroup.toLowerCase(), "");
+        condition += '(route.indexOf("' + routingPath + '") >= 0) {\n';
+        condition += '            let sample = await import("./' + samplePath + '");\n';
+        condition += '            this.samples.set(route, sample.' + sampleInfo.SampleImportName + '.register());\n';
+        condition += '        }\n';
+
+        return condition;
     }
 
     public static lintSample(
