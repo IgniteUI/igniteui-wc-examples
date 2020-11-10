@@ -27,7 +27,7 @@ function log(msg) {
 log('loaded');
 
 // NOTE you can comment out strings in this array to run subset of samples
-var sampleSource = [
+var sampleSources = [
     // charts:
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
@@ -50,7 +50,6 @@ var sampleSource = [
     igConfig.SamplesCopyPath + '/grids/**/package.json',
     // layouts:
     igConfig.SamplesCopyPath + '/layouts/**/package.json',
-    
 ];
 
 // this variable stores detailed information about all samples in ./samples/ folder
@@ -118,12 +117,12 @@ function getSamples(cb) {
     samples = [];
     // del.sync("./sample-test-files/**/*.*", {force:true});
 
-    gulp.src(sampleSource)
+    gulp.src(sampleSources)
     // .pipe(gSort( { asc: false } ))
     .pipe(es.map(function(samplePackage, sampleCallback) {
 
         let SampleFolderName = Transformer.getRelative(samplePackage.dirname);
-        // log(SampleFolderName);
+        log(SampleFolderName);
 
         let sampleFiles = [];
         gulp.src([SampleFolderName + "/**"])
@@ -151,7 +150,6 @@ function getSamples(cb) {
         //Transformer.verify(samples);
         //Transformer.print(samples);
         //Transformer.getGroups(samples);
-
         log('getSamples found ' + samples.length + " samples");
         // for (const sample of samples) {
         //     log(' ' + sample.SampleFolderPath);
@@ -161,14 +159,10 @@ function getSamples(cb) {
         // last.PackageDependencies = Transformer.getDependencies(last);
         // log('packages \n' + last.PackageFileContent.dependencies);
         // log('dependencies: \n' + last.PackageDependencies);
-
         cb();
     });
 
-
 } exports.getSamples = getSamples;
-
-
 
 function makeDirectoryFor(filePath) {
     var dirname = path.dirname(filePath);
