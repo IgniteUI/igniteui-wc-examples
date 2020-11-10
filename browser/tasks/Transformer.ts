@@ -580,13 +580,12 @@ class Transformer {
             console.log('coping samples for ' + component.Name + ' component');
 
             for (const info of component.Samples) {
-                console.log('- copied: ' + info.SampleFileName);
+                // console.log('- copied: ' + info.SampleFileName);
                 console.log('- copied: ' + info.SampleFilePath + '/' + info.SampleFileName);
                 routingConditions += this.getRoutingCondition(info, isFirstSample);
                 // console.log('sample ' + sample.SampleFolderName);
                 if (isFirstSample) {
                     isFirstSample = false;
-                    //routingConditions += this.getRoutingCondition(info);
                 }
                 // let sampleClass = info.SampleFileName.replace('.tsx','');
                 // let samplePath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleClassName;
@@ -595,7 +594,7 @@ class Transformer {
         }
         fileContent = fileContent.replace('// {InsertRoutingPath}', routingConditions);
         fileContent = fileContent.replace('GroupName', Strings.toTitleCase(group.Name));
-        console.log(fileContent);
+        // console.log(fileContent);
         return fileContent;
     }
 

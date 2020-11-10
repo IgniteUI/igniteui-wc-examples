@@ -50,6 +50,10 @@ var sampleSources = [
     // igConfig.SamplesCopyPath + '/grids/**/package.json',
     // // layouts:
     // igConfig.SamplesCopyPath + '/layouts/**/package.json',
+
+     '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
+     '!' + igConfig.SamplesCopyPath + '/**/node_modules/**',
+     '!' + igConfig.SamplesCopyPath + '/**/node_modules',
 ];
 
 // this variable stores detailed information about all samples in ./samples/ folder
@@ -107,6 +111,16 @@ function lintSamples(cb) {
 } exports.lintSamples = lintSamples;
 
 
+function getSamplesTest(cb) {
+    gulp.src(sampleSources)
+    .pipe(es.map(function(samplePackage, sampleCallback) {
+    }))
+    .on("end", function() {
+         cb();
+    });
+
+} exports.getSamplesTest = getSamplesTest;
+
 function getSamples(cb) {
 
     // deleteSamples();
@@ -123,17 +137,26 @@ function getSamples(cb) {
         log("getSamples " + SampleFolderName);
 
         let sampleFiles = [];
-        gulp.src([SampleFolderName + "/**"])
-        .pipe(flatten({ "includeParents": -1 }))
-        // .pipe(gSort( { asc: false } ))
+        gulp.src([
+              SampleFolderName + "/package.json",
+              SampleFolderName + "/index.html",
+              SampleFolderName + "/src/**",
+        '!' + SampleFolderName + "/src/index.ts",
+        //       SampleFolderName + "/**",
+        // '!' + SampleFolderName + "/package-lock.json",
+        // '!' + SampleFolderName + "/sandbox.config.json",
+        // '!' + SampleFolderName + "/node_modules/**",
+        ])
+        // .pipe(flatten({ "includeParents": -1 }))
         .pipe(es.map(function(file, fileCallback) {
             let fileDir = Transformer.getRelative(file.dirname);
-            sampleFiles.push(fileDir + "/" + file.basename);
+            let filePath = fileDir + "/" + file.basename;
+            sampleFiles.push(filePath);
+            log("getSamples " + filePath );
             fileCallback(null, file);
         }))
         .on("end", function() {
-            // log(SampleFolderName);
-            log("getting " + SampleFolderName + " " + sampleFiles.length);
+             log("getSamples " + SampleFolderName + " " + sampleFiles.length + " files" );
 
             let sampleInfo = Transformer.getSampleInfo(samplePackage, sampleFiles);
             samples.push(sampleInfo);
@@ -199,7 +222,7 @@ function copySamples(cb) {
     deleteSamples();
     log('copying sample files... ');
     for (const sample of samples) {
-        log('copying ' + sample.SampleFolderPath);
+        console.log('copying ' + sample.SampleFolderPath + '/' + sample.SampleFileName);
 
         // let outputPath = sample.SampleFolderPath;
         let outputPath = './src' + sample.SampleFolderPath.replace('..','');
