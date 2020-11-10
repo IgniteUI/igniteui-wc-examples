@@ -1,10 +1,9 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/samples/*/node_modules
-/browser/node_modules
-/src/samples
+*/node_modules
+/browser/src/samples
+
 # IDEs and editors
 /.idea
 .project
