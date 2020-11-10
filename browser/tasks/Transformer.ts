@@ -10,7 +10,6 @@ let igConfig = require('./gulp-config.js');
 // }
 // log('loaded');
 
-
 // this class provides information about a sample that is implemented in /samples folder
 class SampleInfo {
     public ComponentGroup: string;     // maps
@@ -207,11 +206,11 @@ class Transformer {
                 info.SampleFileSourcePath = "./src/" + info.SampleFileName;
                 info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
 
-		let sampleBlocks = this.getSampleBlocks(info.SampleFileSourceCode);
+                let sampleBlocks = this.getSampleBlocks(info.SampleFileSourceCode);
                 info.SampleImportLines = sampleBlocks.ImportLines;
                 info.SampleImportFiles = sampleBlocks.ImportFiles;
                 info.SampleImportPackages = sampleBlocks.ImportPackages;
-                info.SampleImportName = info.SampleFileName.replace('.ts','').replace('.ts','');
+                info.SampleImportName = info.SampleFileName.replace('.ts', '').replace('.ts', '');
                 info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
 
                 info.SampleDisplayName = Strings.splitCamel(info.SampleFileName);
@@ -224,7 +223,7 @@ class Transformer {
 
                 info.SandboxUrlView = this.getSandboxUrl(info, igConfig.SandboxUrlView);
                 info.SandboxUrlEdit = this.getSandboxUrl(info, igConfig.SandboxUrlEdit);
-		info.SandboxUrlShort = this.getSandboxUrl(info, igConfig.SandboxUrlShort);
+                info.SandboxUrlShort = this.getSandboxUrl(info, igConfig.SandboxUrlShort);
 
                 info.DocsUrl = this.getDocsUrl(info);
                 // console.log("SAMPLE " + info.SampleFilePath + " => " + info.SampleDisplayName);
@@ -243,7 +242,7 @@ class Transformer {
         url = Strings.replace(url, "{RepositoryPath}", igConfig.RepositoryPath);
         url = Strings.replace(url, "{RepositoryOrg}", igConfig.RepositoryOrg);
         url = Strings.replace(url, "{RepositoryName}", igConfig.RepositoryName);
-	url = Strings.replace(url, "{RepositoryBranch}", igConfig.RepositoryBranch);
+        url = Strings.replace(url, "{RepositoryBranch}", igConfig.RepositoryBranch);
         url = Strings.replace(url, "{ComponentGroup}", sampleInfo.ComponentGroup);
         url = Strings.replace(url, "{ComponentFolder}", sampleInfo.ComponentFolder);
         url = Strings.replace(url, "{SampleFolderName}", sampleInfo.SampleFolderName);
@@ -306,7 +305,7 @@ class Transformer {
 
     // gets updated package.json file for a sample using a template
     public static getPackage(sample: SampleInfo, tempPackage: PackageJson): string {
-        
+
 
         let title = tempPackage.name;
         title = Strings.replace(title, 'platform-name', igConfig.PlatformName);
@@ -320,7 +319,7 @@ class Transformer {
         descr = Strings.replace(descr, 'component-name', sample.ComponentName);
         descr = Strings.replace(descr, 'sample-name', sample.SampleDisplayName);
 
-	let samplePackage = sample.PackageFileContent;
+        let samplePackage = sample.PackageFileContent;
         samplePackage.name = title;
         samplePackage.description = descr;
         samplePackage.author = tempPackage.author;
@@ -346,7 +345,7 @@ class Transformer {
                 samplePackage.devDependencies[name] = tempPackage.devDependencies[name]
             }
         }
-	// overriding sample dependencies
+        // overriding sample dependencies
         samplePackage.dependencies = {};
 
         // updating dependencies in sa sample by checking against OPTIONAL dependencies in the template
@@ -385,18 +384,18 @@ class Transformer {
     public static getRoutingCondition(sampleInfo: SampleInfo, isFirstSample: boolean): string {
 
         let condition = "";
-        if(isFirstSample) {
+        if (isFirstSample) {
             condition += 'if ';
         }
         else {
             condition += '        else if ';
         }
         let routingPath = sampleInfo.SampleRoute.replace('/' + sampleInfo.ComponentGroup.toLowerCase(), "");
-        condition += '(route.indexOf("'+ routingPath +'") >= 0) {\n';
-        condition += '            let sample = await import("./'+ sampleInfo.ComponentFolder + '/' + sampleInfo.SampleImportName + '");\n';
-        condition += '            this.samples.set(route, sample.'+ sampleInfo.SampleImportName +'.register());\n';
+        condition += '(route.indexOf("' + routingPath + '") >= 0) {\n';
+        condition += '            let sample = await import("./' + sampleInfo.ComponentFolder + '/' + sampleInfo.SampleImportName + '");\n';
+        condition += '            this.samples.set(route, sample.' + sampleInfo.SampleImportName + '.register());\n';
         condition += '        }\n';
-        
+
         return condition;
     }
 
@@ -502,7 +501,7 @@ class Transformer {
         readMe = Strings.replace(readMe, "{RepositoryWarning}", igConfig.RepositoryWarning);
         readMe = Strings.replace(readMe, "{RepositoryUrl}", igConfig.RepositoryUrl);
         readMe = Strings.replace(readMe, "{RepositoryPath}", igConfig.RepositoryPath);
-	readMe = Strings.replace(readMe, "{RepositoryBranch}", igConfig.RepositoryBranch);
+        readMe = Strings.replace(readMe, "{RepositoryBranch}", igConfig.RepositoryBranch);
         readMe = Strings.replace(readMe, "{RepositoryOrg}", igConfig.RepositoryOrg);
         readMe = Strings.replace(readMe, "{RepositoryName}", igConfig.RepositoryName);
 
@@ -599,12 +598,12 @@ class Transformer {
 
         for (const component of group.Components) {
             console.log('coping samples for ' + component.Name + ' component');
-            
+
             for (const info of component.Samples) {
                 console.log('- copied: ' + info.SampleFileName);
                 routingConditions += this.getRoutingCondition(info, isFirstSample);
                 // console.log('sample ' + sample.SampleFolderName);
-                if(isFirstSample) {
+                if (isFirstSample) {
                     isFirstSample = false;
                     //routingConditions += this.getRoutingCondition(info);
                 }
@@ -756,7 +755,7 @@ class PackageDependency {
         this.samples = [];
     }
 
-    public toString() : string {
+    public toString(): string {
         return '"' + this.name + `": "` + this.version + '"';
     }
 }

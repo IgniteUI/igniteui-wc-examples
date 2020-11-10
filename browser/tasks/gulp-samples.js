@@ -58,8 +58,6 @@ var samples = [];
 var sampleOutputFolder = '';
 // var sampleOutputFolder = './sample-test-files/';
 
-
-
 function cleanSamples() {
     // cleaning up obsolete files in individual samples
     del.sync("./samples/**/src/sandbox.config.json", {force:true});
@@ -145,8 +143,10 @@ function getSamples(cb) {
         // sampleCallback(null, sample);
     }))
     .on("end", function() {
+        log('getSamples found ' + samples.length + " samples");
         Transformer.sort(samples);
         Transformer.process(samples);
+
         //Transformer.verify(samples);
         //Transformer.print(samples);
         //Transformer.getGroups(samples);

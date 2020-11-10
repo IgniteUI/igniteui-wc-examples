@@ -70,12 +70,7 @@ exports.logRoutes = logRoutes = gulp.series(
 //     Name = "";
 //     Html = "";
 //     Directory = "";
-
-
-
 // }
-
-
 
 function toTitleCase(str, separator) {
     if (separator === undefined) { separator = ' '; }
@@ -88,11 +83,9 @@ function splitCamel(orgStr) {
     return orgStr.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
 }
 
-
 function replaceAll(orgStr, oldStr, newStr) {
-return orgStr.split(oldStr).join(newStr);
-    }
-
+    return orgStr.split(oldStr).join(newStr);
+}
 
 let templateSharedFiles = [];
 let templatesShared = "./templates/shared/src/";
