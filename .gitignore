@@ -1,11 +1,16 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-*/node_modules
-/browser/src.
-/browser/src./*
-/browser/src/samples
-/browser/src/samples/*
+# /node_modules
+# **/node_modules
+samples/**/node_modules
+samples/**/package-lock.json
+
+browser/node_modules
+browser/src.
+browser/src./*
+browser/src/samples
+browser/src/samples/*
 
 # IDEs and editors
 /.idea
@@ -21,10 +26,11 @@
 
 # IDE - VSCode
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+**/.vscode/*
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
 
 # testing
 /coverage
