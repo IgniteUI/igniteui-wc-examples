@@ -19,6 +19,10 @@ let contains = require('gulp-contains');
 
 var sb = require('./tasks/gulp-samples.js')
 
+exports.findSamples = updateReadme = gulp.series(
+    sb.getSamples,
+);
+
 exports.updateSamples = updateSamples = gulp.series(
     sb.lintSamples,
     sb.getSamples,
