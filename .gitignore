@@ -2,6 +2,8 @@
 
 # dependencies
 */node_modules
+/browser/src.
+/browser/src./*
 /browser/src/samples
 /browser/src/samples/*
 
