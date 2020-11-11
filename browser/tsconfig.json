@@ -15,16 +15,16 @@
   "exclude": ["browser", "node_modules/**", "dist", "github", "templates"],
   "linterOptions": {
     "exclude": [
-      "browser",
       "config/**/*.js",
       "node_modules/**/*.ts",
       "node_modules/**/*.js",
       "**/odatajs-4.0.0.js",
-      "samples",
+      "templates",
+      "tasks",
       "src/samples/*.*",
       "src/images/*.*",
       "src/assets/*.*",
-      "src/utilities/WorldLocations.ts"      
+      "src/utilities/WorldLocations.ts"
     ]
   },
 }
