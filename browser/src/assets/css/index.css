@@ -1,0 +1,432 @@
+html, body, .sample-content {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+.sample-container-horizontal {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 20px);
+}
+
+.sampleOverlays {
+    background: white;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    padding: 0.5rem;
+    margin: 0px;
+    overflow: hidden;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    position: relative
+}
+
+.sampleOverlayItem {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.sample-container {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    padding: 10px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.options {
+    /* background: red; */
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width:100%;
+    font-size: 0.75rem;
+    font-weight: 300;
+    font-family: aktiv-grotesk,sans-serif;
+    color: #585858;
+}
+
+.optionItem {
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: center;
+}
+
+.optionLabel {
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 5px;
+    /* font-size: 10pt */
+}
+
+.optionValue {
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    font-size: 11pt;
+    display: inline-block;
+    /* vertical-align: top; */
+    width: 40px;
+    padding: 0px;
+}
+
+select {
+    font-size: 0.75rem;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    vertical-align: center;
+    font-family: aktiv-grotesk,sans-serif;
+    padding: 4px;
+}
+
+.slider {
+    margin-top: 10px;
+    margin-bottom: -10px;
+    margin-left: 5px;
+    margin-right: 20px;
+    vertical-align: center;
+    padding: 0px 0px 0px 0px;
+    width: 120px;
+    display: inline-block;
+}
+
+
+.nav-bar-expanded {
+    width: 270px !important;
+    display: block !important;
+    /* padding: 1rem; */
+}
+.with-nav-bar {
+    width: calc(100% - 270px) !important;
+}
+
+#nav-bar {
+    float:left;
+    height: 100%;
+    display: none;
+    /* background: gainsboro; */
+    background: white;
+    overflow-y: scroll;
+
+    /* color: #ffffff; */
+    color: #dbdbdb;
+    background: #2c2c2c;
+    /* height: calc(100% - 20px); */
+    /* padding: 10px; */
+
+    font-size: medium;
+    font-family: 'Kanit', sans-serif;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    -o-user-select: none;
+        user-select: none; /* Non-prefixed version, currently*/
+}
+#nav-content {
+    /* float:left; */
+    /* height: 100%; */
+    display: block;
+    background: rgb(255, 134, 134);
+    /* overflow-y: scroll; */
+    /* padding: 1rem; */
+    /* margin: 10px; */
+}
+#router-target {
+    float:right;
+    width: 100%;
+    height: 100%;
+}
+
+#legend {
+    overflow-y: hidden;
+}
+
+.legend-inline {
+    --legend-item-overflow: hidden;
+
+    width: auto;
+    /* font-size: 11pt; */
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    /* margin-top: 8px; */
+    /* margin-bottom: 5px; */
+    margin-left: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding: 0px;
+    display: inline-block;
+    vertical-align: middle;
+    /* vertical-align: center; */
+    /* background: red; */
+}
+
+.legend-title {
+    /* margin-top: 13px;
+    margin-left: 20px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px; */
+    padding: 0px;
+    margin: 0px;
+    margin-top: 3px;
+    margin-left: 10px;
+    /* font-size: 11pt; */
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    /* vertical-align: top; */
+    vertical-align: middle;
+    display: inline-block;
+    /* background: orange; */
+}
+
+#nav-list-expanded {
+    /* width: 220px !important; */
+    /* height: 100%; */
+    display: block;
+    background: #b6fc87;
+}
+#nav-list-collapsed {
+    /* width: 220px !important; */
+    height: 100%;
+    display: none;
+    background: #ff9a9a;
+}
+
+.nav-list {
+    margin: 0rem;
+    font-size: medium;
+    font-family: 'Kanit', sans-serif;
+    background: rgb(39, 39, 39);
+}
+
+#nav-bar label {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 0px;
+    /* color: #272727 !important; */
+    color: #dbdbdb;
+}
+#nav-bar label:hover {
+    /* background: #d8d6d6; */
+    background: rgba(204, 204, 204, 0.123);
+    /* color: #ffffff !important; */
+    transition: "all 0.0s";
+}
+
+#nav-bar a {
+    text-decoration: none;
+    display: block;
+    /* padding: 2px; */
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 25px;
+    padding-right: 0px;
+    /* color: #272727 !important; */
+    /* color: dodgerblue; */
+    color: #dbdbdb;
+}
+#nav-bar a:hover {
+    /* background: dodgerblue;
+    color: #ffffff !important; */
+    background: rgba(204, 204, 204, 0.123);
+    transition: "all 0.0s";
+}
+
+.nav-group {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 0px;
+    text-transform: uppercase;
+    cursor: default;
+}
+
+.nav-logo {
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    /* background: #444444; */
+    cursor: default;
+}
+
+.nav-logo > div {
+    padding: 0px;
+    padding-left: 5px;
+    width: "20px";
+    height: "20px";
+    display: inline-block;
+}
+.nav-logo > img {
+    padding: 0px;
+    padding-top: 5px;
+    padding-left: 5px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.sparkline {
+    height: calc(33% - 2rem);
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-top: 1rem;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.toolArea {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    height: 80px;
+}
+
+.frequencySlider {
+    display: inline-block;
+    width: 150px;
+    padding-right: 10px;
+}
+
+.volumeSlider {
+    display: inline-block;
+    width: 150px;
+    padding-right: 10px;
+}
+
+.slider {
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+.chartButton {
+    font-family: Material Icons;
+    font-size: 13px;
+    font-feature-settings: "liga";
+}
+
+.hiddenIcon {
+    font-family: Material Icons;
+    font-size: 13px;
+    font-feature-settings: "liga";
+    padding-right: 5px;
+
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.chartDialog div {
+    overflow: visible !important;
+}
+
+.searchField {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 200px;
+    vertical-align: bottom;
+}
+
+.toolAreaSecondRow {
+    line-height: 45px;
+}
+
+.hiddenDrop {
+    vertical-align: bottom;
+    margin-bottom: 6px;
+}
+
+.tooltipBox {
+    font-size: 1rem;
+    font-weight: normal;
+    color: "Black";
+}
+
+.tooltipTitle {
+    display: block;
+    color: "Black";
+    font-weight: bold;
+    font-size: 1rem;
+    margin-left: 2px;
+}
+
+.tooltipTable {
+    display: table;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    border-spacing: 2px;
+    font-size: 1rem;
+    color: "Black";
+}
+
+.tooltipHorizontal {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.tooltipVertical {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.tooltipRow {
+    display: table-row;
+}
+
+.tooltipVal {
+    display: table-cell;
+    text-align: "right";
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.tooltipLbl {
+    display: table-cell;
+    text-align: "left";
+}
+
+.tooltipFlagImage {
+    display: inline-block;
+    object-fit: fill;
+    height: 50px;
+    width: 70px;
+    margin-right: 5px;
+}
+
+.tooltipFlagBoarder {
+    display: inline-block;
+    padding: 0px;
+    border-width: 0.5;
+    border-color: rgb(177, 177, 177);
+    border-style: solid;
+    height: 50px;
+    width: 70px;
+}
+
+
+mwc-switch {
+    padding-left: 10px;
+    padding-right: 10px;
+}
