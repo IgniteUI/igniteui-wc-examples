@@ -12,6 +12,13 @@ let es = require('event-stream');
 let shell = require('gulp-shell');
 let replace = require('gulp-replace');
 let contains = require('gulp-contains');
+let through2 = require('through2');
+
+// simple callback stream used to synchronize stuff
+function synchro(done) {
+    return through2.obj(function (data, enc, cb) { cb(); },
+    function (cb) { cb(); done(); });
+}
 
 var igConfig = require('./gulp-config.js')
 // var platform = "React";
@@ -29,7 +36,8 @@ log('loaded');
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSources = [
     // charts:
-    igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/category-chart/overview/package.json',
+    // igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     // igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
     // igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
     // igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
@@ -38,7 +46,7 @@ var sampleSources = [
     // igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
     // igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
     // // // maps:
-    // igConfig.SamplesCopyPath + '/maps/**/package.json',
+    igConfig.SamplesCopyPath + '/maps/**/package.json',
     // // // excel:
     // igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
     // igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
@@ -87,20 +95,13 @@ function lintSamples(cb) {
         let fileContent = file.contents.toString();
         // log('linting ' + fileLocation);
 
-        let newContent = Transformer.lintSample(fileLocation, fileContent,
+        let newContent = Transformer.lintSample(fileContent, fileLocation,
             (err, results) => {
-              if (err) {
-                fileCallback(err, null);
-              }
-            //   file.contents = Buffer.from(results);
-            //   fileCallback(null, file);
+              if (err) { fileCallback(err, null); }
             });
         if (newContent !== fileContent) {
             log('changed: ' + fileLocation);
             file.contents = Buffer.from(newContent);
-            // fileCallback(null, file);
-        } else {
-            // fileCallback(null, null);
         }
         fileCallback(null, file);
     }))
@@ -111,7 +112,7 @@ function lintSamples(cb) {
 } exports.lintSamples = lintSamples;
 
 
-function getSamplesTest(cb) {
+function findSamplesTest(cb) {
     gulp.src(sampleSources)
     .pipe(es.map(function(samplePackage, sampleCallback) {
     }))
@@ -119,22 +120,23 @@ function getSamplesTest(cb) {
          cb();
     });
 
-} exports.getSamplesTest = getSamplesTest;
+} exports.findSamplesTest = findSamplesTest;
 
-function getSamples(cb) {
+function findSamples(cb) {
 
     // deleteSamples();
     cleanSamples();
 
     samples = [];
     // del.sync("./sample-test-files/**/*.*", {force:true});
+    let sampleTemplate = fs.readFileSync("./src/templates/group/component/name/Sample.ts", "utf8");
 
     gulp.src(sampleSources)
     // .pipe(gSort( { asc: false } ))
     .pipe(es.map(function(samplePackage, sampleCallback) {
 
         let SampleFolderName = Transformer.getRelative(samplePackage.dirname);
-        log("getSamples " + SampleFolderName);
+        // log("findSamples " + SampleFolderName);
 
         let sampleFiles = [];
         gulp.src([
@@ -152,11 +154,11 @@ function getSamples(cb) {
             let fileDir = Transformer.getRelative(file.dirname);
             let filePath = fileDir + "/" + file.basename;
             sampleFiles.push(filePath);
-            log("getSamples " + filePath );
+            // log("findSamples " + filePath );
             fileCallback(null, file);
         }))
         .on("end", function() {
-             log("getSamples " + SampleFolderName + " " + sampleFiles.length + " files" );
+            //  log("findSamples " + SampleFolderName + " " + sampleFiles.length + " files" );
 
             let sampleInfo = Transformer.getSampleInfo(samplePackage, sampleFiles);
             samples.push(sampleInfo);
@@ -167,14 +169,16 @@ function getSamples(cb) {
         // sampleCallback(null, sample);
     }))
     .on("end", function() {
-        log('getSamples found ' + samples.length + " samples");
+        log('findSamples found ' + samples.length + " samples");
         Transformer.sort(samples);
-        Transformer.process(samples);
+        Transformer.process(samples, sampleTemplate);
+
+        // Transformer.process(samples[0], sampleTemplate);
 
         //Transformer.verify(samples);
         //Transformer.print(samples);
         //Transformer.getGroups(samples);
-        // log('getSamples found ' + samples.length + " samples");
+        // log('findSamples found ' + samples.length + " samples");
         // for (const sample of samples) {
         //     log(' ' + sample.SampleFolderPath);
         // }
@@ -186,7 +190,7 @@ function getSamples(cb) {
         cb();
     });
 
-} exports.getSamples = getSamples;
+} exports.findSamples = findSamples;
 
 function makeDirectoryFor(filePath) {
     var dirname = path.dirname(filePath);
@@ -198,17 +202,17 @@ function makeDirectoryFor(filePath) {
     // fs.mkdir(sampleOutputFolder + 'src', { recursive: true }, (err) => { if (err) throw err; });
 }
 
-function copyExclude(files) {
-    return es.map(function(file, cb) {
-        if (files.indexOf(file.basename) >= 0) {
-            // log('+ share data ' + file.basename);
-            cb(null, file);
-        } else {
-            // log('- share data ' + file.basename);
-            cb(null);
-        }
-    });
-}
+// function copyExclude(files) {
+//     return es.map(function(file, cb) {
+//         if (files.indexOf(file.basename) >= 0) {
+//             // log('+ share data ' + file.basename);
+//             cb(null, file);
+//         } else {
+//             // log('- share data ' + file.basename);
+//             cb(null);
+//         }
+//     });
+// }
 
 function deleteSamples() {
     log('deleting sample files... ');
@@ -217,12 +221,49 @@ function deleteSamples() {
     del.sync("./src/samples/*", {force:true});
 }
 
+function logSamples(cb) {
+
+    for (const sample of samples) {
+        gulp.src([
+            //   sample.SampleFolderPath + '/**/*.*',
+              sample.SampleFolderPath + '/src/*.ts',
+        '!' + sample.SampleFolderPath + '/src/index.ts',])
+        .pipe(es.map(function(file, fileCallback) {
+
+            let fileLocation = Transformer.getRelative(file.dirname) + '/' + file.basename;
+            console.log("" + fileLocation);
+            fileCallback(null, file);
+        }));
+    }
+
+    cb();
+} exports.logSamples = logSamples;
+
 function copySamples(cb) {
 
     deleteSamples();
+
+    // let routerTemplate = fs.readFileSync("./src/templates/group/Router.ts", "utf8");
+    // let routingGroups = Transformer.getRoutingGroups(samples);
+    // for (const group of routingGroups) {
+    //     let outputPath = "./src/samples/" + group.Name + "/router.ts";
+    //     makeDirectoryFor(outputPath);
+    //     // log('created ' + outputPath);
+    //     let routingFile = Transformer.getRoutingFile(group, routerTemplate);
+    //     fs.writeFileSync(outputPath, routingFile);
+    // }
+    var doneCounter = 0;
+    function incDoneCounter() {
+        doneCounter += 1;
+        if (doneCounter >= samples.length) {
+            cb();
+        }
+    }
+
     log('copying sample files... ');
+    let copiedSamples = 0;
     for (const sample of samples) {
-        console.log('copying ' + sample.SampleFolderPath + '/' + sample.SampleFileName);
+        // console.log('copying ' + sample.SampleFolderPath + '/' + sample.SampleFileName);
 
         // let outputPath = sample.SampleFolderPath;
         let outputPath = './src' + sample.SampleFolderPath.replace('..','');
@@ -232,8 +273,7 @@ function copySamples(cb) {
 
         gulp.src([
             //   sample.SampleFolderPath + '/**/*.*',
-              sample.SampleFolderPath + '/src/*.*',
-        '!' + sample.SampleFolderPath + '/src/index.css',
+              sample.SampleFolderPath + '/src/*.ts',
         '!' + sample.SampleFolderPath + '/src/index.ts',
         '!' + sample.SampleFolderPath + '/src/typedecls.d.ts',
         // '!' + sample.SampleFolderPath + '/sandbox.config.json',
@@ -243,26 +283,55 @@ function copySamples(cb) {
         // '!' + sample.SampleFolderPath + '/package.json',
         // '!' + sample.SampleFolderPath + '/package-lock.json',
         ])
+        .pipe(es.map(function(file, fileCallback) {
+            var isSampleFile = file.basename.indexOf(sample.ComponentID) >= 0;
+            var isDataFile = file.basename.indexOf("Data.ts") >= 0 ||
+                             file.basename.indexOf("Utils.ts") >= 0;
+
+            // console.log("saving " + sample.ComponentID + " " + file.basename);
+            // if (file.basename.indexOf("Data.ts") >= 0  ||
+            //     file.basename.indexOf("Utility.ts") >= 0 ||
+            //     file.basename.indexOf("Utils.ts") >= 0 ||
+            //     file.basename.indexOf("Sample") >= 0 ||
+            //     file.basename.indexOf("WorldConnections.ts") >= 0 ||
+            //     file.basename.indexOf("WorldLocations.ts") >= 0 ) {
+                // console.log("saving sample data file=" + file.basename);
+            if (isSampleFile && !isDataFile) {
+                console.log("saving sample file=" + file.basename);
+                file.contents = Buffer.from(sample.SampleFileBrowserCode);
+                //
+            }
+
+            fileCallback(null, file);
+            // console.log("saving src file=" + file.basename);
+            // console.log("saving smp file=" + sample.SampleFileName);
+            // console.log("saving smp contents=" + sample.SampleFileBrowserCode.length);
+            // file.contents = Buffer.from(sample.SampleFileBrowserCode);
+        }))
         // .pipe(copyExclude(['ReadMe.md', 'index.tsx']))
         // .pipe(logFile())
         .pipe(gulp.dest(outputPath))
+        // .pipe(synchro(incDoneCounter));
+        // .on("end", function() {
+        //     copiedSamples++;
+        // });
 
         // break;
     }
 
-    let routingGroups = Transformer.getRoutingGroups(samples);
-    let routerTemplate = fs.readFileSync("./templates/browser/src/router.ts", "utf8");
-    for (const group of routingGroups) {
-        let outputPath = "./src/samples/" + group.Name + "/router.ts";
-        makeDirectoryFor(outputPath);
 
-        // log('created ' + outputPath);
-        let routingFile = Transformer.getRoutingFile(group, routerTemplate);
-        fs.writeFileSync(outputPath, routingFile);
-    }
+    // let indexTemplate = fs.readFileSync("./templates/browser/src/router.ts", "utf8");
+    // let indexLinks = Transformer.getRoutingGroups(samples);
+    // for (const group of routingGroups) {
+    // }
 
+    // if (copiedSamples == samples.length){
+    //     cb();
+    // }
     cb();
+
 } exports.copySamples = copySamples;
+
 
 function updateReadme(cb) {
 
@@ -441,7 +510,7 @@ function task2(cb) {
 // testing
 
 function logRoutes(cb) {
-    // getSamples();
+    // findSamples();
 
     let routingGroups = Transformer.getRoutingGroups(samples);
     for (const group of routingGroups) {

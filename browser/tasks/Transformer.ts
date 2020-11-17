@@ -15,18 +15,26 @@ class SampleInfo {
     public ComponentGroup: string;     // maps
     public ComponentFolder: string;    // geo-map
     public ComponentName: string;      // Geo Map
+    public ComponentID: string;        // GeoMap
+
+    public HtmlFilePath: string;       // /samples/maps/geo-map/binding-csv-points/index.html
+    public HtmlFileCode: string;       //
+    public HtmlFileRoot: string;       //
 
     // public SampleDirOnDisk: string;    // C:\repo\igniteui-web-comp-examples\samples\maps\geo-map\binding-csv-points\
     public SampleFolderPath: string;     // /samples/maps/geo-map/binding-csv-points/
-    public SampleFilePath: string;       // /samples/maps/geo-map/binding-csv-points/src/MapBindingDataCSV.tsx
+    public SampleFilePath: string;       // /samples/maps/geo-map/binding-csv-points/src/MapBindingDataCSV.ts
     public SampleRoute: string;          //         /maps/geo-map/binding-csv-points/
     public SampleFolderName: string;     //                       binding-csv-points
-    public SampleFileName: string;       // MapBindingDataCSV.tsx
+    public SampleFileName: string;       // MapBindingDataCSV.ts
     public SampleImportName: string;     // MapBindingDataCSV
     public SampleImportPath: string;     // ./geo-map/binding-csv-points/MapBindingDataCSV
-    public SampleDisplayName: string;  // Map Binding Data CSV
-    public SampleFileSourcePath: string;     // /src/MapBindingDataCSV.tsx
-    public SampleFileSourceCode: string;   // source code from /src/MapBindingDataCSV.tsx file
+    public SampleDisplayName: string;    // Map Binding Data CSV
+    public SampleFileSourcePath: string; // /src/MapBindingDataCSV.ts
+    public SampleFileSourceCode: string; // source code from /src/MapBindingDataCSV.ts file
+    public SampleFileBrowserCode: string; // source code for a sample in browser
+    public SampleFileSourceClass: string; // MapBindingDataCSV
+
     public SampleImportLines: string[];
     public SampleImportPackages: string[];
     public SampleImportFiles: string[];
@@ -63,48 +71,8 @@ class SampleSourceBlock {
     public ImportCSS: string[];
     public OtherLines: string[];
 }
+
 class Transformer {
-// splits source code of a sample into block lines with imports, packages, and other lines
-    public static getSampleBlocks(sampleSourceCode: string): SampleSourceBlock {
-        let sample = new SampleSourceBlock();
-        sample.OtherLines = [];
-        sample.ImportLines = [];
-        sample.ImportFiles = [];
-        sample.ImportCSS = [];
-        sample.ImportPackages = [];
-
-        let sampleCodeLines = sampleSourceCode.split('\n');
-        for (const line of sampleCodeLines) {
-            if (line.indexOf(" from 'react'") > 0) continue;
-            if (line.indexOf("//") >= 0) continue;
-
-            if (line.indexOf("import ") >= 0) {
-                sample.ImportLines.push(line);
-                // if (line.indexOf(" from ") === -1) continue;
-
-                if (line.indexOf(" from ") > 0 && line.indexOf("./") === -1) {
-
-                    let importPackage = line.substring(line.indexOf("'") + 1, line.lastIndexOf("'"));
-                    if (importPackage === "") {
-                        importPackage = line.substring(line.indexOf('"') + 1, line.lastIndexOf('"'));
-                    }
-                    // console.log("<" + importPackage + ">");
-                    if (sample.ImportPackages.indexOf(importPackage) === -1) {
-                        sample.ImportPackages.push(importPackage);
-                    }
-                } else if (line.indexOf(" from ") === -1) {
-                    sample.ImportCSS.push(line);
-
-                } else if (line.indexOf("./") > 0 || line.indexOf("../") > 0) {
-                    sample.ImportFiles.push(line);
-                }
-
-            } else {
-                sample.OtherLines.push(line);
-            }
-        }
-        return sample;
-    }
 
     public static getDependencies(sampleInfo: SampleInfo): PackageDependency[] {
         let dependencies: PackageDependency[] = [];
@@ -152,86 +120,6 @@ class Transformer {
         //     { path: '/tests/test-component1-test-sample0', name: 'SampleFileName', component: SampleFileName},
         //     { path: '/tests/test-component1-test-sample1', name: 'MapBindingDataJSON', component: MapBindingDataJSON},
         // ]},
-    }
-
-    public static process(samples: SampleInfo[]): void {
-
-        for (const info of samples) {
-            // let SampleDirectory = info.SampleDirOnDisk;
-
-            // info.PackageDependencies = this.getDependencies(info);
-
-            // ../samples/maps/geo-map/binding-csv-points
-            // let relativePath = this.getRelative(SampleDirectory);
-            // .., samples, maps, geo-map, binding-csv-points
-            let folders = info.SampleFolderPath.split('/');
-
-            if (folders.length > 2) info.ComponentGroup = folders[2];
-            if (folders.length > 3) info.ComponentFolder = folders[3];
-            if (folders.length > 4) info.SampleFolderName = folders[4];
-
-            info.ComponentName = Strings.toTitleCase(info.ComponentFolder, '-');
-            info.ComponentName = info.ComponentName.replace("Geo Map", "Geographic Map");
-
-            // info.SampleFolderPath = relativePath;
-            info.SampleRoute = "/" +  info.ComponentGroup + "/" + info.ComponentFolder + "-" + info.SampleFolderName;
-
-            // console.log("Processing " + info.SampleFolderPath + " with " + info.SampleFilePaths.length + " files");
-
-            let fileNames = [];
-            let fileFound = [];
-            for (const filePath of info.SampleFilePaths) {
-                // console.log(filePath);
-                fileFound.push(filePath);
-                if (Strings.includes(filePath, igConfig.SamplesFileExtension) &&
-                    Strings.excludes(filePath, igConfig.SamplesFileExclusions, true)) {
-                        fileNames.push(filePath);
-                    // console.log(filePath);
-                    // && !filePath.includes("index.tsx")
-                    // info.SampleFileName = this.getFileName(filePath);
-                }
-            }
-
-            if (fileNames.length === 0) {
-                console.log("WARNING Transformer cannot match any " + igConfig.SamplesFileExtension + " files in " + info.SampleFolderPath + " sample:");
-                for (const name of fileFound) {
-                    console.log('- ' + name);
-                }
-            } else if (fileNames.length > 1) {
-                console.log("WARNING Transformer cannot decide which " + igConfig.SamplesFileExtension + " file to use for sample name: ");
-                console.log(" - " + fileNames.join("\n - "));
-            } else { // only one .tsx file per sample
-                info.SampleFilePath = fileNames[0];
-                info.SampleFileName = this.getFileName(info.SampleFilePath);
-                info.SampleFileSourcePath = "./src/" + info.SampleFileName;
-                info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
-
-                let sampleBlocks = this.getSampleBlocks(info.SampleFileSourceCode);
-                info.SampleImportLines = sampleBlocks.ImportLines;
-                info.SampleImportFiles = sampleBlocks.ImportFiles;
-                info.SampleImportPackages = sampleBlocks.ImportPackages;
-                info.SampleImportName = info.SampleFileName.replace('.ts', '').replace('.ts', '');
-                info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
-
-                info.SampleDisplayName = Strings.splitCamel(info.SampleFileName);
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, igConfig.SamplesFileExtension, "");
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Type ", "");
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Binding ", "Binding ");
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Display ", "Display ");
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Data Chart Type ", "");
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, info.ComponentName + " ", "");
-
-                info.SandboxUrlView = this.getSandboxUrl(info, igConfig.SandboxUrlView);
-                info.SandboxUrlEdit = this.getSandboxUrl(info, igConfig.SandboxUrlEdit);
-                info.SandboxUrlShort = this.getSandboxUrl(info, igConfig.SandboxUrlShort);
-
-                info.DocsUrl = this.getDocsUrl(info);
-                // console.log("SAMPLE " + info.SampleFilePath + " => " + info.SampleDisplayName);
-            }
-
-            // console.log(info.SampleFolderPath + " => " + info.SampleRoute + " => " + info.SampleDisplayName);
-
-        }
     }
 
 
@@ -396,6 +284,225 @@ class Transformer {
         // info.PackageFileContent = JSON.parse(fs.readFileSync(samplePackageFile));
 
         return info;
+    }
+
+    public static getSampleCode(sample: SampleInfo): string {
+        let code = sample.SampleFileSourceCode;
+
+        // find "export class CategoryChartOverview {"
+        // add  "export class CategoryChartOverview extends SampleBase {"
+
+        // extract <div id="root">copyHTML</div> from index.html and insert above class line:
+        // let templateHTML = `<insertHTML>`;
+
+        // insert the following code below classLine
+        // public static htmlTagName: string = SampleBase.tag("CategoryChartOverview");
+        // public static register(): any {
+        //     window.customElements.define(this.htmlTagName, CategoryChartOverview);
+        //     return this;
+        // }
+
+        return code;
+    }
+
+    // splits source code of a sample into block lines with imports, packages, and other lines
+    public static getSampleBlocks(sampleSourceCode: string): SampleSourceBlock {
+        let sample = new SampleSourceBlock();
+        sample.OtherLines = [];
+        sample.ImportLines = [];
+        sample.ImportFiles = [];
+        sample.ImportCSS = [];
+        sample.ImportPackages = [];
+
+        let sampleCodeLines = sampleSourceCode.split('\n');
+        for (const line of sampleCodeLines) {
+            // if (line.indexOf(" from 'react'") > 0) continue;
+            if (line.indexOf("//") >= 0) continue;
+
+            if (line.indexOf("import ") >= 0) {
+                sample.ImportLines.push(line);
+                // if (line.indexOf(" from ") === -1) continue;
+
+                if (line.indexOf(" from ") > 0 && line.indexOf("./") === -1) {
+
+                    let importPackage = line.substring(line.indexOf("'") + 1, line.lastIndexOf("'"));
+                    if (importPackage === "") {
+                        importPackage = line.substring(line.indexOf('"') + 1, line.lastIndexOf('"'));
+                    }
+                    // console.log("<" + importPackage + ">");
+                    if (sample.ImportPackages.indexOf(importPackage) === -1) {
+                        sample.ImportPackages.push(importPackage);
+                    }
+                } else if (line.indexOf(" from ") === -1) {
+                    sample.ImportCSS.push(line);
+
+                } else if (line.indexOf("./") > 0 || line.indexOf("../") > 0) {
+                    sample.ImportFiles.push(line);
+                }
+
+            } else {
+                sample.OtherLines.push(line);
+            }
+        }
+        return sample;
+    }
+
+    public static getSampleCodeInBrowser(info: SampleInfo, sampleTemplate: string): string {
+        let codeSeparator = "export class " + info.SampleFileSourceClass + " {";
+        let lines = info.SampleFileSourceCode.split(codeSeparator);
+        // console.log(" ------------------------------ ");
+        // console.log("  codeSeparator '" + codeSeparator + "'");
+        // console.log("  lines.length " + lines.length);
+
+        let code = "";
+
+        if (lines.length < 2) {
+            console.log("WARNING Transformer cannot find: '" + codeSeparator + "' \n in sample: " + info.SampleFilePath);
+        } else {
+
+            // let codeRemoveLines = [
+            //     "let sample = new CategoryChartOverview();",
+            // ];
+            let codeImports = lines[0].trim();
+            // codeImports += "\n" + 'import { SampleBase } from "../../../../core/SampleBase";';
+            let codeClassName = "export class " + info.SampleFileSourceClass + " extends SampleBase {";
+            let codeClassBody = lines[1].trim();
+            let codeClassConstructor = `
+    connectedCallback() { // auto renamed from constructor"
+        console.log("Sample connectedCallback");
+        this.innerHTML = htmlTemplate; // auto insert
+            `;
+
+            codeClassBody = codeClassBody.replace("constructor() {", codeClassConstructor);
+            // codeClassBody = codeClassBody.replace("constructor() {", "connectedCallback() { // auto renamed from constructor");
+            // codeClassBody = codeClassBody.replace("constructor() {", "");
+
+            code = sampleTemplate + "";
+            code = Strings.replace(code, "} // auto remove", "");
+            // code = "// -------------------------------------------------" + code;
+            code = Strings.replace(code, "// AutoInsertImports", codeImports);
+            code = Strings.replace(code, "// AutoInsertClassBody", codeClassBody);
+            code = Strings.replace(code, "AutoInsertHtml", info.HtmlFileRoot);
+            code = Strings.replace(code, "AutoInsertClassName", info.SampleFileSourceClass);
+
+            code = this.lintSample(code)
+            code = Strings.replace(code, "// AutoInsertNewLine", "");
+            // code = code.trim();
+            // console.log(codeClassName);
+            // console.log(" ------------------------------ ");
+            // console.log(code);
+            // console.log(info.HtmlFileCode);
+            // console.log(" ------------------------------ ");
+            // console.log(info.HtmlFileRoot);
+        }
+
+        return code;
+    }
+
+    public static process(samples: SampleInfo[], sampleTemplate: string): void {
+
+        for (const info of samples) {
+            // let SampleDirectory = info.SampleDirOnDisk;
+
+            // info.PackageDependencies = this.getDependencies(info);
+
+            // ../samples/maps/geo-map/binding-csv-points
+            // let relativePath = this.getRelative(SampleDirectory);
+            // .., samples, maps, geo-map, binding-csv-points
+            let folders = info.SampleFolderPath.split('/');
+
+            if (folders.length > 2) info.ComponentGroup = folders[2];
+            if (folders.length > 3) info.ComponentFolder = folders[3];
+            if (folders.length > 4) info.SampleFolderName = folders[4];
+
+            info.ComponentName = Strings.toTitleCase(info.ComponentFolder, '-');
+            info.ComponentName = info.ComponentName.replace("Geo Map", "Geographic Map");
+            info.ComponentID   = info.ComponentName.replace(" ", "");
+            info.ComponentID   = info.ComponentID.replace("Geographic", "");
+
+            // info.SampleFolderPath = relativePath;
+            info.SampleRoute = "/" +  info.ComponentGroup + "/" + info.ComponentFolder + "-" + info.SampleFolderName;
+
+            // console.log("Processing " + info.SampleFolderPath + " with " + info.SampleFilePaths.length + " files");
+
+            let fileNames = [];
+            let fileFound = [];
+            for (const filePath of info.SampleFilePaths) {
+                // console.log(filePath);
+                fileFound.push(filePath);
+                // load .html file and extract sample's html code
+                if (filePath.indexOf('.html') > 0) {
+                    info.HtmlFilePath = filePath;
+                    info.HtmlFileCode = transFS.readFileSync(info.HtmlFilePath, "utf8");
+                    let divStart = info.HtmlFileCode.indexOf('<div');
+                    let divLast = info.HtmlFileCode.lastIndexOf('</div>') + 7;
+                    info.HtmlFileRoot = info.HtmlFileCode.substring(divStart, divLast);
+
+                    // remove root div if found in the html code
+                    let divRoot = info.HtmlFileRoot.indexOf('<div id="root">');
+                    // console.log('<div id="root"> ' + divRoot);
+                    if (divRoot >= 0) {
+                        info.HtmlFileRoot = info.HtmlFileRoot.replace('<div id="root">', '');
+                        divLast = info.HtmlFileRoot.lastIndexOf('</div>');
+                        info.HtmlFileRoot = info.HtmlFileRoot.substring(0, divLast);
+                    }
+                    info.HtmlFileRoot = info.HtmlFileRoot.trim();
+                }
+
+                if (Strings.includes(filePath, igConfig.SamplesFileExtension) &&
+                    Strings.excludes(filePath, igConfig.SamplesFileExclusions, true)) {
+                        fileNames.push(filePath);
+                    // console.log(filePath);
+                    // && !filePath.includes("index.tsx")
+                    // info.SampleFileName = this.getFileName(filePath);
+                }
+            }
+
+            if (fileNames.length === 0) {
+                console.log("WARNING Transformer cannot match any " + igConfig.SamplesFileExtension + " files in " + info.SampleFolderPath + " sample:");
+                for (const name of fileFound) {
+                    console.log('- ' + name);
+                }
+            } else if (fileNames.length > 1) {
+                console.log("WARNING Transformer cannot decide which " + igConfig.SamplesFileExtension + " file to use for sample name: ");
+                console.log(" - " + fileNames.join("\n - "));
+            } else { // only one .ts file per a sample
+                info.SampleFilePath = fileNames[0];
+                info.SampleFileName = this.getFileName(info.SampleFilePath);
+                info.SampleFileSourcePath = "./src/" + info.SampleFileName;
+                info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
+                info.SampleFileSourceCode = this.lintSample(info.SampleFileSourceCode, info.SampleFileSourcePath);
+                info.SampleFileSourceClass = info.SampleFileName.replace('.ts', '');
+
+                info.SampleFileBrowserCode = this.getSampleCodeInBrowser(info, sampleTemplate)
+
+                let sampleBlocks = this.getSampleBlocks(info.SampleFileSourceCode);
+                info.SampleImportLines = sampleBlocks.ImportLines;
+                info.SampleImportFiles = sampleBlocks.ImportFiles;
+                info.SampleImportPackages = sampleBlocks.ImportPackages;
+                info.SampleImportName = info.SampleFileName.replace('.ts', '');
+                info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
+
+
+                info.SampleDisplayName = Strings.splitCamel(info.SampleFileName);
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, igConfig.SamplesFileExtension, "");
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Type ", "");
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Binding ", "Binding ");
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Display ", "Display ");
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Data Chart Type ", "");
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, info.ComponentName + " ", "");
+
+                info.SandboxUrlView = this.getSandboxUrl(info, igConfig.SandboxUrlView);
+                info.SandboxUrlEdit = this.getSandboxUrl(info, igConfig.SandboxUrlEdit);
+                info.SandboxUrlShort = this.getSandboxUrl(info, igConfig.SandboxUrlShort);
+
+                info.DocsUrl = this.getDocsUrl(info);
+                // console.log("SAMPLE " + info.SampleFilePath + " => " + info.SampleDisplayName);
+            }
+
+            // console.log(info.SampleFolderPath + " => " + info.SampleRoute + " => " + info.SampleDisplayName);
+
+        }
     }
 
     public static getRelative(path: string): string {
@@ -592,7 +699,7 @@ class Transformer {
             }
             routingConditions += '\n';
         }
-        fileContent = fileContent.replace('// {InsertRoutingPath}', routingConditions);
+        fileContent = fileContent.replace('// {AutoInsertRoutingConditions}', routingConditions);
         fileContent = fileContent.replace('GroupName', Strings.toTitleCase(group.Name));
         // console.log(fileContent);
         return fileContent;
@@ -611,35 +718,45 @@ class Transformer {
         let routingPath = sampleInfo.SampleRoute.replace('/' + sampleInfo.ComponentGroup.toLowerCase(), "");
         condition += '(route.indexOf("' + routingPath + '") >= 0) {\n';
         condition += '            let sample = await import("./' + samplePath + '");\n';
-        condition += '            this.samples.set(route, sample.' + sampleInfo.SampleImportName + '.register());\n';
+        condition += '            this.cachedSamples.set(route, sample.' + sampleInfo.SampleImportName + '.register());\n';
         condition += '        }\n';
 
         return condition;
     }
 
     public static lintSample(
-        fileLocation: string,
         fileContent: string,
-        callback: (err: any, results: string | null) => void): string {
+        fileLocation?: string,
+        callback?: (err: any, results: string | null) => void): string {
 
         let firstLine = true;
         let validLines: string[] = [];
+        fileContent = fileContent.replace(new RegExp('(let.sample.=.new.\.*.*)'), '');
         let fileLines = fileContent.split("\n");
         for (let i = 0; i < fileLines.length; i++) {
-            const currentLine = fileLines[i].trimRight();
-            const nextLine = i === fileLines.length - 1 ? '' : fileLines[i + 1].trimRight();
+            let currLine = fileLines[i].trimRight();
+            let nextLine = "";
+            if (i < fileLines.length - 1)
+                nextLine = fileLines[i + 1].trimRight();
 
-            // if (currentLine !== '' && nextLine !== '') {
-            //     validLines.push(currentLine);
-            // }
-            if (currentLine === '' && firstLine) { continue; }
-            if (currentLine === '' && nextLine === '') { continue; }
+            if (currLine === '' && firstLine) { continue; }
+            if (currLine === '' && nextLine === '') { continue; }
+            if (currLine === '' && nextLine.indexOf(' }') > 0) { continue; }
 
             firstLine = false;
-            validLines.push(currentLine);
+            validLines.push(currLine);
 
-            // if (i === fileLines.length - 1)
-            //     validLines.push(nextLine);
+            // auto insert new line between '' and public field/function
+            if (currLine.indexOf(' }') > 0 &&
+                nextLine.indexOf(' public') > 0 ) {
+                validLines.push("");
+            }
+            // auto insert new line between '' and private field/function
+            if (currLine.indexOf(' }') > 0 &&
+                nextLine.indexOf(' private') > 0 ) {
+                validLines.push("");
+            }
+
         }
 
         let importingLines = true;
@@ -650,16 +767,18 @@ class Transformer {
             if (line.indexOf('import') !== 0 && line.indexOf('//') !== 0 && line !== '')
                 importingLines = false;
 
-            if (importingLines) {
-                if (line !== '') importLines.push(line);
+            if (importingLines && line !== '') {
+                importLines.push(line);
             }
-            else
+            else {
                 sourceLines.push(line);
-
+            }
         }
 
-        // importLines = importLines.sort();
-        let lintedContent = importLines.join('\n') + '\n\n' + sourceLines.join('\n') + '\n';
+        importLines = importLines.sort();
+        let lintedContent = '';
+        lintedContent += importLines.join('\n') + '\n';
+        lintedContent += sourceLines.join('\n') + '\n';
 
         // console.log('======================================================');
         // console.log(importLines.join('\n') + '\n\n' + sourceLines.join('\n'));

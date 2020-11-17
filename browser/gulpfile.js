@@ -19,9 +19,10 @@ let contains = require('gulp-contains');
 
 var sb = require('./tasks/gulp-samples.js')
 
-exports.findSamples = updateReadme = gulp.series(
-    sb.getSamples,
-);
+exports.findSamples = sb.findSamples;
+// exports.findSamples = updateReadme = gulp.series(
+//     sb.findSamples,
+// );
 
 exports.lintSamples = lintSamples = gulp.series(
     sb.lintSamples,
@@ -29,7 +30,7 @@ exports.lintSamples = lintSamples = gulp.series(
 
 exports.updateSamples = updateSamples = gulp.series(
     // sb.lintSamples,
-    sb.getSamples,
+    sb.findSamples,
     sb.updateReadme,
     sb.updatePackages,
     sb.updateIndex,
@@ -37,24 +38,35 @@ exports.updateSamples = updateSamples = gulp.series(
 );
 
 exports.updateReadme = updateReadme = gulp.series(
-    sb.getSamples,
+    sb.findSamples,
     sb.updateReadme,
 );
 
 exports.updatePackages = updatePackages = gulp.series(
-    sb.getSamples,
+    sb.findSamples,
     sb.updatePackages,
 );
 
 exports.updateSharedFiles = updateSharedFiles = gulp.series(
-    sb.getSamples,
+    sb.findSamples,
     sb.updateSharedFiles,
 );
 
 exports.updateBrowser = updateBrowser = gulp.series(
-    sb.getSamples,
+    sb.findSamples,
     sb.copySamples,
     // sb.copyPackageJson,
+);
+
+exports.copySamplesToBrowser = copySamplesToBrowser = gulp.series(
+    sb.findSamples,
+    sb.copySamples,
+    // sb.copyPackageJson,
+);
+
+exports.logSamples = logSamples = gulp.series(
+    sb.findSamples,
+    sb.logSamples,
 );
 
 // // exports.default = updateBrowser;
@@ -65,7 +77,7 @@ exports.updateBrowser = updateBrowser = gulp.series(
 // exports.lintSamples    = sb.lintSamples;
 
 exports.logRoutes = logRoutes = gulp.series(
-    sb.getSamples,
+    sb.findSamples,
     sb.logRoutes,
 );
 
