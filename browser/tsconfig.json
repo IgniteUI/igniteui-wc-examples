@@ -12,7 +12,12 @@
     "suppressImplicitAnyIndexErrors": true,
     "removeComments": true
   },
-  "exclude": ["browser", "node_modules/**", "dist", "github", "templates"],
+  "exclude": [
+    "node_modules/**",
+    "dist",
+    "tasks",
+    "templates"
+  ],
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
