@@ -63,7 +63,7 @@ export class WorldConnections {
                         let paths = WorldUtils.calcPaths(origin, dest);
                         flightsCount++;
                         connectionsCount++;
-                        let id = origin.name.substring(0,3).toUpperCase() + "-" + flightsCount;
+                        let id = origin.name.substring(0, 3).toUpperCase() + "-" + flightsCount;
                         let flight = { id: id, origin: origin, dest: dest, time: time, passengers: pass, distance: distance, points: paths };
                         this.flights.push(flight);
                     }
