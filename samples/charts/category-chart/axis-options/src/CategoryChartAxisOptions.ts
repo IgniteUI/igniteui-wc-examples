@@ -10,16 +10,16 @@ ModuleManager.register(IgcCategoryChartModule);
 export class CategoryChartAxisOptions {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcCategoryChartComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.getData();

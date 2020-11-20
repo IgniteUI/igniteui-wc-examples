@@ -10,29 +10,29 @@ ModuleManager.register(IgcCategoryChartModule);
 export class CategoryChartMarkers {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcCategoryChartComponent;
-    public data: any[];
+    public data: any[] = [];
 
     constructor() {
-        
+
         this.onChartTypeChanged = this.onChartTypeChanged.bind(this);
         this.onMarkerTypeChanged = this.onMarkerTypeChanged.bind(this);
         this.initData();
-    
-        
+
+
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.data;
 
         let chartType1 = document.getElementById('chartType');
-        chartType1.addEventListener('change', this.onChartTypeChanged);
+        chartType1?.addEventListener('change', this.onChartTypeChanged);
 
         let markersTypes1 = document.getElementById('markersTypes');
-        markersTypes1.addEventListener('change', this.onMarkerTypeChanged);
+        markersTypes1?.addEventListener('change', this.onMarkerTypeChanged);
     }
 
     public onChartTypeChanged = (e: any) => {

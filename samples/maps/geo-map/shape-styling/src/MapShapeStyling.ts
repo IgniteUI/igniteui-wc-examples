@@ -25,9 +25,9 @@ ModuleManager.register(
 export class MapShapeStyling {
 
 
-    
-    
-        
+
+
+
 
     public geoMap: IgcGeographicMapComponent;
     public geoSeries: IgcGeographicShapeSeriesComponent;
@@ -40,7 +40,7 @@ export class MapShapeStyling {
     public shapeRangeStyling: ShapeRangeStyling;
 
     constructor() {
-        
+
         this.onDataLoaded = this.onDataLoaded.bind(this);
         this.onOptionsSelected = this.onOptionsSelected.bind(this);
         this.onStylingShape = this.onStylingShape.bind(this);
@@ -101,8 +101,8 @@ export class MapShapeStyling {
 
         // setting default value for current shape styling
         this.currentShapeStyling = this.shapeComparisonStyling;
-    
-        
+
+
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.backgroundContent = undefined;
@@ -116,7 +116,7 @@ export class MapShapeStyling {
         sds.dataBind();
 
         let optionsSelected = document.getElementById('OptionsSelect');
-        optionsSelected.addEventListener('change', this.onOptionsSelected);
+        optionsSelected?.addEventListener('change', this.onOptionsSelected);
     }
 
     public onDataLoaded(sds: IgcShapeDataSource, e: any) {
@@ -189,7 +189,7 @@ export class MapShapeStyling {
                     <div class='tooltipLbl'>Population</div>
                     <div class='tooltipVal'>${pop}</div>
                 </div>
-            </div>
+            </div>`;
     }
 }
 

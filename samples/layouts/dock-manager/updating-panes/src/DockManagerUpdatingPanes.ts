@@ -38,9 +38,9 @@ defineCustomElements();
 export class DockManagerUpdatingPanes {
 
 
-    
-    
-        
+
+
+
 
     private dockManager: IgcDockManagerComponent;
     private employeesDatabase = DockManagerSharedData.getEmployees(60);
@@ -59,15 +59,15 @@ export class DockManagerUpdatingPanes {
     private geoLocationSeries: IgcGeographicSymbolSeriesComponent;
 
     constructor() {
-        
+
         this.createEmployeeList = this.createEmployeeList.bind(this);
         this.createLocationMapTooltip = this.createLocationMapTooltip.bind(this);
         this.createProductivityChart = this.createProductivityChart.bind(this);
 
         this.createLocationMap = this.createLocationMap.bind(this);
         this.onEmployeeClick = this.onEmployeeClick.bind(this);
-    
-        
+
+
 
         this.createEmployeeList();
         this.createLocationMap();
@@ -260,7 +260,7 @@ export class DockManagerUpdatingPanes {
                         <div class='tooltipVal' style='color: black;'>${lon}</div>
                     </div>
                 </div>
-            </div>
+            </div>`;
         return tooltip;
     }
 

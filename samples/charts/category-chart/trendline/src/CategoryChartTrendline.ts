@@ -12,24 +12,24 @@ ModuleManager.register(IgcCategoryChartModule);
 export class CategoryChartTrendline {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcCategoryChartComponent;
-    public data: any[];
+    public data: any[] = [];
 
     constructor() {
-        
+
         this.onTrendlineTypeChanged = this.onTrendlineTypeChanged.bind(this);
-    
-        
+
+
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.getData();
 
         let trendLineSelect = document.getElementById('trendLineSelect');
-        trendLineSelect.addEventListener('click', this.onTrendlineTypeChanged);
+        trendLineSelect?.addEventListener('click', this.onTrendlineTypeChanged);
     }
 
     public onTrendlineTypeChanged = (e: any) => {

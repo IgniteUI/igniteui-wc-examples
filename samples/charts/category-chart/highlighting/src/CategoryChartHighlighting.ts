@@ -9,33 +9,33 @@ ModuleManager.register(IgcCategoryChartModule);
 export class CategoryChartHighlighting {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcCategoryChartComponent;
-    public data: any[];
+    public data: any[] = [];
 
     constructor() {
-        
+
         this.onSeriesHighlightingChanged = this.onSeriesHighlightingChanged.bind(this);
         this.onItemHighlightingChanged = this.onItemHighlightingChanged.bind(this);
         this.onCategoryHighlightingChanged = this.onCategoryHighlightingChanged.bind(this);
         this.initData();
-    
-        
+
+
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.data;
 
         let SeriesHighlighting1 = document.getElementById('SeriesHighlighting');
-        SeriesHighlighting1.addEventListener('change', this.onSeriesHighlightingChanged);
+        SeriesHighlighting1?.addEventListener('change', this.onSeriesHighlightingChanged);
 
         let ItemHighlighting1 = document.getElementById('ItemHighlighting');
-        ItemHighlighting1.addEventListener('change', this.onItemHighlightingChanged);
+        ItemHighlighting1?.addEventListener('change', this.onItemHighlightingChanged);
 
         let CategoryHighlighting1 = document.getElementById('CategoryHighlighting');
-        CategoryHighlighting1.addEventListener('change', this.onCategoryHighlightingChanged);
+        CategoryHighlighting1?.addEventListener('change', this.onCategoryHighlightingChanged);
     }
 
     public onSeriesHighlightingChanged = (e: any) => {

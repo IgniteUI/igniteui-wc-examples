@@ -54,17 +54,17 @@ ModuleManager.register(
 export class DataChartTypeCategorySeries {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     private legend: IgcLegendComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleCategoryData.create();
@@ -75,7 +75,7 @@ export class DataChartTypeCategorySeries {
         this.setSeries('Column');
 
         const columnTypeSelect = document.getElementById('columnTypeSelect');
-        columnTypeSelect.addEventListener('change', this.onSeriesTypeChanged);
+        columnTypeSelect?.addEventListener('change', this.onSeriesTypeChanged);
     }
 
     public onSeriesTypeChanged = (e: any) => {

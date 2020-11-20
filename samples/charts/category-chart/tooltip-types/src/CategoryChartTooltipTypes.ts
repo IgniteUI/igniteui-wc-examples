@@ -13,26 +13,26 @@ ModuleManager.register(IgcCategoryChartModule);
 export class CategoryChartTooltipTypes {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcCategoryChartComponent;
-    public data: any[];
+    public data: any[] = [];
 
     constructor() {
-        
+
         this.onToolTipTypeChanged = this.onToolTipTypeChanged.bind(this);
         this.initData();
-    
-        
+
+
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.seriesAdded = this.onSeriesAdded;
         this.chart.dataSource = this.data;
 
         let toolTipSelect = document.getElementById('toolTipSelect');
-        toolTipSelect.addEventListener('change', this.onToolTipTypeChanged);
+        toolTipSelect?.addEventListener('change', this.onToolTipTypeChanged);
     }
 
     public onToolTipTypeChanged = (e: any) => {

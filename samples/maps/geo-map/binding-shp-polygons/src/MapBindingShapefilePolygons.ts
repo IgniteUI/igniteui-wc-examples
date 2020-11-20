@@ -20,17 +20,17 @@ ModuleManager.register(
 export class MapBindingShapefilePolygons {
 
 
-    
-    
-        
+
+
+
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
-        
+
         this.onDataLoaded = this.onDataLoaded.bind(this);
-    
-        
+
+
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.backgroundContent = undefined;
@@ -98,7 +98,7 @@ export class MapBindingShapefilePolygons {
                     <div class='tooltipLbl'>GDP</div>
                     <div class='tooltipVal'>${gdp}</div>
                 </div>
-            </div>
+            </div>`;
     }
 }
 

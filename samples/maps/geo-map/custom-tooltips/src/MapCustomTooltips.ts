@@ -21,18 +21,18 @@ ModuleManager.register(
 export class MapCustomTooltips {
 
 
-    
-    
-        
+
+
+
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
-        
+
         this.createSymbolSeries = this.createSymbolSeries.bind(this);
         this.createSymbolTooltip = this.createSymbolTooltip.bind(this);
-    
-        
+
+
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         const geoRegion = { height: 170, left: -180, top: -85.0, width: 360 };
@@ -104,7 +104,7 @@ export class MapCustomTooltips {
                     <div class='tooltipVal' style='color: ${dataContext.series.markerOutline};'>${iso}</div>
                 </div>
             </div>
-        </div>
+        </div>`;
 
     return tooltip;
     }

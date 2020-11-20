@@ -29,9 +29,9 @@ ModuleManager.register(
 export class DataChartSeriesTooltips {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     public itemTooltipLayer: IgcItemToolTipLayerComponent;
@@ -42,9 +42,9 @@ export class DataChartSeriesTooltips {
     private seriesWind: IgcColumnSeriesComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -106,7 +106,7 @@ export class DataChartSeriesTooltips {
         return html`<div>
                 <div style='color: black'> Country: ${context.item.Country}</div>
                 <div style='color: ${context.series.actualBrush}'> Hydro: ${context.item.Hydro}</div>
-                <div style='color: ${context.series.actualBrush}'> Ratio: ${ratio} %</div>
+                <div style='color: ${context.series.actualBrush}'> Ratio: ${ratio} %</div>`;
     }
 
     getCustomTooltipSolar(context: any) {
@@ -114,7 +114,7 @@ export class DataChartSeriesTooltips {
         return html`<div>
                 <div style='color: black'> Country: ${context.item.Country}</div>
                 <div style='color: ${context.series.actualBrush}'> Solar: ${context.item.Solar}</div>
-                <div style='color: ${context.series.actualBrush}'> Ratio: ${ratio} %</div>
+                <div style='color: ${context.series.actualBrush}'> Ratio: ${ratio} %</div>`;
     }
 
     getCustomTooltipWind(context: any) {
@@ -122,7 +122,7 @@ export class DataChartSeriesTooltips {
         return html`<div>
                 <div style='color: black'> Country: ${context.item.Country}</div>
                 <div style='color: ${context.series.actualBrush}'> Wind: ${context.item.Wind}</div>
-                <div style='color: ${context.series.actualBrush}'> Ratio: ${ratio} %</div>
+                <div style='color: ${context.series.actualBrush}'> Ratio: ${ratio} %</div>`;
     }
 
     getData(): any[] {

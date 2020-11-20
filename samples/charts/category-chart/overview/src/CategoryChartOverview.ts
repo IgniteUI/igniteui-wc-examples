@@ -15,20 +15,20 @@ ModuleManager.register(
 export class CategoryChartOverview {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcCategoryChartComponent;
-    public data: any[];
+    public data: any[] = [];
 
     constructor() {
-        
+
         this.onChartTypeChanged = this.onChartTypeChanged.bind(this);
         this.onLegendRef = this.onLegendRef.bind(this);
         this.initData();
-    
-        
+
+
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.data;
@@ -36,7 +36,7 @@ export class CategoryChartOverview {
         this.chart.legend = document.getElementById('legend') as IgcLegendComponent;
 
         let chartType1 = document.getElementById('chartType');
-        chartType1.addEventListener('change', this.onChartTypeChanged);
+        chartType1?.addEventListener('change', this.onChartTypeChanged);
 
     }
     public onChartTypeChanged = (e: any) => {
