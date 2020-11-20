@@ -65,7 +65,7 @@ export class MapUtils {
     public static pad(num: number, places?: number): string {
         places = places || 20;
         let s = num.toFixed(1).toString();
-        while (s.length < places) {s = " " + s;}
+        while (s.length < places) {s = " " + s};
         return s;
     }
 
@@ -96,7 +96,7 @@ export class MapUtils {
         this.addRegion(MapRegion.Australia, { left: 81.5, top: -52.0, width: 98.0, height: 56.0 });
         this.addRegion(MapRegion.Caribbean, { left: -92.9, top: 5.4, width: 35.1, height: 25.8 });
         this.addRegion(MapRegion.Egypt, { left: 19.3, top: 19.9, width: 19.3, height: 13.4 });
-        this.addRegion(MapRegion.European, { left: -36.0, top:31.0, width: 98.0, height: 38.0 });
+        this.addRegion(MapRegion.European, { left: -36.0, top: 31.0, width: 98.0, height: 38.0 });
         this.addRegion(MapRegion.Japan, { left: 122.7, top: 29.4, width: 27.5, height: 17.0 });
         this.addRegion(MapRegion.Hawaii, { left: -161.2, top: 18.5, width: 6.6, height: 4.8 });
         this.addRegion(MapRegion.Poland, { left: 13.0, top: 48.0, width: 11.0, height: 9.0 });
