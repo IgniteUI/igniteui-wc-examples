@@ -7,46 +7,42 @@ import { ModuleManager, DataTemplateMeasureInfo, DataTemplateRenderInfo } from '
 
 ModuleManager.register(
     IgcDataChartInteractivityModule,
-    IgcGeographicMapModule    
+    IgcGeographicMapModule
 );
 
 
 export class MapMarkerTemplate {
 
 
-    ('MapMarkerTemplate');
-    
-        
-
     private geoMap: IgcGeographicMapComponent;
     private symbolSeries: IgcGeographicSymbolSeriesComponent;
-    
+
     constructor() {
-                
+
         this.getMarker = this.getMarker.bind(this);
-    
-        
+
+
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.zoomable = true;
 
         this.symbolSeries = new IgcGeographicSymbolSeriesComponent();
-        this.symbolSeries.dataSource = WorldLocations.getCapitals();      
+        this.symbolSeries.dataSource = WorldLocations.getCapitals();
         this.symbolSeries.latitudeMemberPath = 'lat';
-        this.symbolSeries.longitudeMemberPath = 'lon';       
+        this.symbolSeries.longitudeMemberPath = 'lon';
         this.symbolSeries.thickness = 1;
         this.symbolSeries.markerType = MarkerType.Circle;
-        this.symbolSeries.markerOutline = 'White'; 
+        this.symbolSeries.markerOutline = 'White';
         this.symbolSeries.markerBrush = 'DodgerBlue' ;
         this.symbolSeries.markerTemplate = this.getMarker();
-        
+
         this.geoMap.series.add(this.symbolSeries);
     }
 
     public getMarker(): any
-    {   
+    {
         let style = { outline: '#7D73E6', fill: 'white', text: 'black' };
-        
+
         const size = 12;
         const radius = size / 2;
         return {
@@ -56,7 +52,7 @@ export class MapMarkerTemplate {
                 let value = '0.00';
                 let item = data.item as any;
                 if (item != null) {
-                    value = item.pop.toString().toUpperCase(); 
+                    value = item.pop.toString().toUpperCase();
                 }
                 const height = context.measureText('M').width;
                 const width = context.measureText(value).width;
@@ -64,8 +60,8 @@ export class MapMarkerTemplate {
                 measureInfo.height = height + size;
             },
             render: function (renderInfo: DataTemplateRenderInfo) {
-                const item = renderInfo.data.item as any;    
-                const value = item.pop.toString().toUpperCase(); 
+                const item = renderInfo.data.item as any;
+                const value = item.pop.toString().toUpperCase();
 
                 const ctx = renderInfo.context as CanvasRenderingContext2D;
                 let x = renderInfo.xPosition;
@@ -86,38 +82,36 @@ export class MapMarkerTemplate {
                     ctx.strokeStyle = style.outline;
                     ctx.stroke();
                     ctx.closePath();
-                } 
+                }
 
                 x = renderInfo.xPosition + 5;
                 y = renderInfo.yPosition + 7.5;
                 if (y < 0) {
                     y -= renderInfo.availableHeight + 7.5;
-                } 
+                }
 
                 let bottomEdge = renderInfo.passInfo.viewportTop + renderInfo.passInfo.viewportHeight;
                 if (y + renderInfo.availableHeight > bottomEdge) {
                     y -= renderInfo.availableHeight + 5;
-                } 
+                }
 
                 let rightEdge = renderInfo.passInfo.viewportLeft + renderInfo.passInfo.viewportWidth;
                 if (x + renderInfo.availableWidth > rightEdge) {
                     x -= renderInfo.availableWidth + 12;
-                } 
+                }
 
                 ctx.beginPath();
-                ctx.fillStyle = style.color;
+                ctx.fillStyle = style.outline;
                 ctx.fillRect(x - 2, y - 2, renderInfo.availableWidth + 8, halfHeight + 6);
-                ctx.closePath(); 
+                ctx.closePath();
 
                 ctx.font = '8pt Verdana';
                 ctx.textBaseline = 'top';
                 ctx.fillStyle = style.fill;
                 ctx.fillText(value, x + 2, y + 1);
- 
+
             }
         }
     }
 
 }
-
-let sample = new MapMarkerTemplete();
