@@ -58,7 +58,7 @@ export class LinearGaugeTypeCurve {
             upperCurve.outerStartExtent = 0.95 - start;
             upperCurve.outerEndExtent   = 0.95 - end;
 
-            // const lowerCurve = new IgrLinearGraphRange({});
+            // const lowerCurve = new IgcLinearGraphRange({});
             // lowerCurve.startValue = rangeValueInterval * i;
             // lowerCurve.endValue   = rangeValueInterval * (i + 1);
             // lowerCurve.brush = color;

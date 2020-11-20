@@ -1,4 +1,4 @@
-import { IgrGeographicMap } from 'igniteui-webcomponents-maps';
+import { IgcGeographicMap } from 'igniteui-webcomponents-maps';
 
 export enum MapRegion {
     Caribbean = "Caribbean",
@@ -16,7 +16,7 @@ export enum MapRegion {
 
 export class MapUtils {
 
-    public static navigateTo(geoMap: IgrGeographicMap, name: MapRegion): void {
+    public static navigateTo(geoMap: IgcGeographicMap, name: MapRegion): void {
 
         const geoRect = this.getRegions()[name];
         // console.log("MapUtils " + name) ;

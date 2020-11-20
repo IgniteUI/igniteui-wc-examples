@@ -86,15 +86,15 @@ export class DataChartTypeCategorySeries {
     public setSeries(seriesType: string) {
         // creating axis based on requirements of series
         // if (seriesType === 'Bar') {
-        //     const xAxis = new IgrNumericXAxis({ name:  'xAxis', minimumValue: 0 });
-        //     const yAxis = new IgrCategoryYAxis({ name: 'yAxis' });
+        //     const xAxis = new IgcNumericXAxis({ name:  'xAxis', minimumValue: 0 });
+        //     const yAxis = new IgcCategoryYAxis({ name: 'yAxis' });
         //     yAxis.label = 'Year';
         //     this.chart.axes.clear();
         //     this.chart.axes.add(xAxis);
         //     this.chart.axes.add(yAxis);
         // } else {
-        //     const yAxis = new IgrNumericYAxis({ name:  'yAxis', minimumValue: 0 });
-        //     const xAxis = new IgrCategoryXAxis({ name: 'xAxis' });
+        //     const yAxis = new IgcNumericYAxis({ name:  'yAxis', minimumValue: 0 });
+        //     const xAxis = new IgcCategoryXAxis({ name: 'xAxis' });
         //     xAxis.label = 'Year';
         //     this.chart.axes.clear();
         //     this.chart.axes.add(xAxis);
