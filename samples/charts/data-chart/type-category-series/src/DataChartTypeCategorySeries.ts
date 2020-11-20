@@ -75,7 +75,7 @@ export class DataChartTypeCategorySeries {
         this.setSeries('Column');
 
         const columnTypeSelect = document.getElementById('columnTypeSelect');
-        columnTypeSelect?.addEventListener('change', this.onSeriesTypeChanged);
+        columnTypeSelect!.addEventListener('change', this.onSeriesTypeChanged);
     }
 
     public onSeriesTypeChanged = (e: any) => {

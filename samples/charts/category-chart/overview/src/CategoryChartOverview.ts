@@ -36,7 +36,7 @@ export class CategoryChartOverview {
         this.chart.legend = document.getElementById('legend') as IgcLegendComponent;
 
         let chartType1 = document.getElementById('chartType');
-        chartType1?.addEventListener('change', this.onChartTypeChanged);
+        chartType1!.addEventListener('change', this.onChartTypeChanged);
 
     }
     public onChartTypeChanged = (e: any) => {

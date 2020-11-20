@@ -29,7 +29,7 @@ export class CategoryChartTrendline {
         this.chart.dataSource = this.getData();
 
         let trendLineSelect = document.getElementById('trendLineSelect');
-        trendLineSelect?.addEventListener('click', this.onTrendlineTypeChanged);
+        trendLineSelect!.addEventListener('click', this.onTrendlineTypeChanged);
     }
 
     public onTrendlineTypeChanged = (e: any) => {

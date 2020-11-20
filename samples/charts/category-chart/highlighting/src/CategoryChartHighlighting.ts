@@ -29,13 +29,13 @@ export class CategoryChartHighlighting {
         this.chart.dataSource = this.data;
 
         let SeriesHighlighting1 = document.getElementById('SeriesHighlighting');
-        SeriesHighlighting1?.addEventListener('change', this.onSeriesHighlightingChanged);
+        SeriesHighlighting1!.addEventListener('change', this.onSeriesHighlightingChanged);
 
         let ItemHighlighting1 = document.getElementById('ItemHighlighting');
-        ItemHighlighting1?.addEventListener('change', this.onItemHighlightingChanged);
+        ItemHighlighting1!.addEventListener('change', this.onItemHighlightingChanged);
 
         let CategoryHighlighting1 = document.getElementById('CategoryHighlighting');
-        CategoryHighlighting1?.addEventListener('change', this.onCategoryHighlightingChanged);
+        CategoryHighlighting1!.addEventListener('change', this.onCategoryHighlightingChanged);
     }
 
     public onSeriesHighlightingChanged = (e: any) => {

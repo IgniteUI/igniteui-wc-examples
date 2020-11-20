@@ -116,7 +116,7 @@ export class MapShapeStyling {
         sds.dataBind();
 
         let optionsSelected = document.getElementById('OptionsSelect');
-        optionsSelected?.addEventListener('change', this.onOptionsSelected);
+        optionsSelected!.addEventListener('change', this.onOptionsSelected);
     }
 
     public onDataLoaded(sds: IgcShapeDataSource, e: any) {

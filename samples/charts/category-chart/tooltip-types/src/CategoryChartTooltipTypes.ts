@@ -32,7 +32,7 @@ export class CategoryChartTooltipTypes {
         this.chart.dataSource = this.data;
 
         let toolTipSelect = document.getElementById('toolTipSelect');
-        toolTipSelect?.addEventListener('change', this.onToolTipTypeChanged);
+        toolTipSelect!.addEventListener('change', this.onToolTipTypeChanged);
     }
 
     public onToolTipTypeChanged = (e: any) => {

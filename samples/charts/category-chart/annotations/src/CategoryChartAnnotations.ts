@@ -39,16 +39,16 @@ export class CategoryChartAnnotations {
         this.chart.xAxisFormatLabel = this.formatDateLabel;
 
         let checkbox1 = document.getElementById('checkbox1');
-        checkbox1?.addEventListener('change', this.onCrosshairsVisible);
+        checkbox1!.addEventListener('change', this.onCrosshairsVisible);
 
         let checkbox2 = document.getElementById('checkbox2');
-        checkbox2?.addEventListener('change', this.onCalloutsVisible);
+        checkbox2!.addEventListener('change', this.onCalloutsVisible);
 
         let checkbox3 = document.getElementById('checkbox3');
-        checkbox3?.addEventListener('change', this.onFinalValuesVisible);
+        checkbox3!.addEventListener('change', this.onFinalValuesVisible);
 
         let checkbox4 = document.getElementById('checkbox4');
-        checkbox4?.addEventListener('change', this.onMarkersVisible);
+        checkbox4!.addEventListener('change', this.onMarkersVisible);
     }
 
     public onCrosshairsVisible = (e: any) => {

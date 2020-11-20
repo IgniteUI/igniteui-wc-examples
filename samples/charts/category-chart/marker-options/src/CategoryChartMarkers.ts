@@ -29,10 +29,10 @@ export class CategoryChartMarkers {
         this.chart.dataSource = this.data;
 
         let chartType1 = document.getElementById('chartType');
-        chartType1?.addEventListener('change', this.onChartTypeChanged);
+        chartType1!.addEventListener('change', this.onChartTypeChanged);
 
         let markersTypes1 = document.getElementById('markersTypes');
-        markersTypes1?.addEventListener('change', this.onMarkerTypeChanged);
+        markersTypes1!.addEventListener('change', this.onMarkerTypeChanged);
     }
 
     public onChartTypeChanged = (e: any) => {
