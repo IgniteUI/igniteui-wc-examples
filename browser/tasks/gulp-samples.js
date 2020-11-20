@@ -36,28 +36,22 @@ log('loaded');
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSources = [
     // charts:
-    // igConfig.SamplesCopyPath + '/charts/category-chart/overview/package.json',
-    // igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
-    // // // maps:
+    igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
     igConfig.SamplesCopyPath + '/maps/**/package.json',
-    // // // excel:
-    // igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
-    // igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
-    // // gauges:
-    // igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
-    // igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
-    // igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
-    // // // grids:
-    // igConfig.SamplesCopyPath + '/grids/**/package.json',
-    // // layouts:
-    // igConfig.SamplesCopyPath + '/layouts/**/package.json',
+    igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
+    igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
+    igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
+    igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
+    igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/**/package.json',
+    igConfig.SamplesCopyPath + '/layouts/**/package.json',
 
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**',
@@ -173,7 +167,7 @@ function findSamples(cb) {
         Transformer.sort(samples);
         Transformer.process(samples, sampleTemplate);
 
-        // Transformer.process(samples[0], sampleTemplate);
+        Transformer.sort(samples);
 
         //Transformer.verify(samples);
         //Transformer.print(samples);
@@ -215,7 +209,7 @@ function makeDirectoryFor(filePath) {
 // }
 
 function deleteSamples() {
-    log('deleting sample files... ');
+    console.log('>> deleting samples in browser: ./src/samples/*.* ');
     del.sync("./src/samples/**/*.*", {force:true});
     del.sync("./src/samples/*.*", {force:true});
     del.sync("./src/samples/*", {force:true});
@@ -243,25 +237,40 @@ function copySamples(cb) {
 
     deleteSamples();
 
-    // let routerTemplate = fs.readFileSync("./src/templates/group/Router.ts", "utf8");
-    // let routingGroups = Transformer.getRoutingGroups(samples);
-    // for (const group of routingGroups) {
-    //     let outputPath = "./src/samples/" + group.Name + "/router.ts";
-    //     makeDirectoryFor(outputPath);
-    //     // log('created ' + outputPath);
-    //     let routingFile = Transformer.getRoutingFile(group, routerTemplate);
-    //     fs.writeFileSync(outputPath, routingFile);
-    // }
-    var doneCounter = 0;
-    function incDoneCounter() {
-        doneCounter += 1;
-        if (doneCounter >= samples.length) {
+    let sampleGroups = Transformer.getSampleGroups(samples);
+
+    console.log('>> generating router files... ');
+    let routerTemplate = fs.readFileSync("./src/templates/group/Router.ts", "utf8");
+    for (const group of sampleGroups) {
+        let outputPath = "./src/samples/" + group.Name + "/router.ts";
+        makeDirectoryFor(outputPath);
+        // log('created ' + outputPath);
+
+        console.log('>> generating routes for group: ' + group.Name);
+        let routingFile = Transformer.getRoutingFile(group, routerTemplate);
+        fs.writeFileSync(outputPath, routingFile);
+        console.log('>> generating routes done: ' + outputPath);
+
+    }
+
+    console.log('>> generating index file... ');
+    let indexTemplate = fs.readFileSync("./src/templates/index.html", "utf8");
+    let indexFile = Transformer.getIndexFile(sampleGroups, indexTemplate);
+    let indexPath = "./public/index.html";
+    fs.writeFileSync(indexPath, indexFile);
+    console.log('>> generating index file done: ' + indexPath);
+
+    console.log('>> transforming samples ... ');
+    var transformedSamples = 0;
+    function onSampleTransformed() {
+        transformedSamples += 1;
+        if (transformedSamples >= samples.length) {
+            console.log('>> transforming samples done: ' + transformedSamples);
             cb();
         }
     }
 
-    log('copying sample files... ');
-    let copiedSamples = 0;
+    // let copiedSamples = 0;
     for (const sample of samples) {
         // console.log('copying ' + sample.SampleFolderPath + '/' + sample.SampleFileName);
 
@@ -286,7 +295,9 @@ function copySamples(cb) {
         .pipe(es.map(function(file, fileCallback) {
             var isSampleFile = file.basename.indexOf(sample.ComponentID) >= 0;
             var isDataFile = file.basename.indexOf("Data.ts") >= 0 ||
-                             file.basename.indexOf("Utils.ts") >= 0;
+                             file.basename.indexOf("Utils.ts") >= 0 ||
+                             file.basename.indexOf("Utility.ts") >= 0 ||
+                             file.basename.indexOf("Sample") >= 0;
 
             // console.log("saving " + sample.ComponentID + " " + file.basename);
             // if (file.basename.indexOf("Data.ts") >= 0  ||
@@ -297,7 +308,7 @@ function copySamples(cb) {
             //     file.basename.indexOf("WorldLocations.ts") >= 0 ) {
                 // console.log("saving sample data file=" + file.basename);
             if (isSampleFile && !isDataFile) {
-                console.log("saving sample file=" + file.basename);
+                console.log(">> transforming sample: " + outputPath + "/" + file.basename);
                 file.contents = Buffer.from(sample.SampleFileBrowserCode);
                 //
             }
@@ -308,10 +319,9 @@ function copySamples(cb) {
             // console.log("saving smp contents=" + sample.SampleFileBrowserCode.length);
             // file.contents = Buffer.from(sample.SampleFileBrowserCode);
         }))
-        // .pipe(copyExclude(['ReadMe.md', 'index.tsx']))
         // .pipe(logFile())
         .pipe(gulp.dest(outputPath))
-        // .pipe(synchro(incDoneCounter));
+        .pipe(synchro(onSampleTransformed));
         // .on("end", function() {
         //     copiedSamples++;
         // });
@@ -320,15 +330,11 @@ function copySamples(cb) {
     }
 
 
-    // let indexTemplate = fs.readFileSync("./templates/browser/src/router.ts", "utf8");
-    // let indexLinks = Transformer.getRoutingGroups(samples);
-    // for (const group of routingGroups) {
-    // }
 
     // if (copiedSamples == samples.length){
     //     cb();
     // }
-    cb();
+    // cb();
 
 } exports.copySamples = copySamples;
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+  <link href="<%= htmlWebpackPlugin.options.publicPath %>assets/icons/favicon.png" rel="shortcut icon" >
+  <link href="<%= htmlWebpackPlugin.options.publicPath %>assets/css/index.css" rel="stylesheet" />
+
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <base href="/webcomponents-demos/">
+
+  <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
+
+</head>
+<!-- class="nav-bar-expanded"> -->
+<body>
+  <div id="nav-bar" >
+    <div class="nav-content"  >
+
+        <!-- <div class="nav-logo">
+          <img src="/assets/icons/favicon.png" width="20px" height="20px">
+          <div >SAMPLES BROWSER</div>
+        </div> -->
+
+<!-- {AutoInsertSampleLinks} -->
+
+    </div>
+  </div>
+
+  <div id="router-target" class="with-nav-bar">
+  </div>
+
+</body>
+</html>

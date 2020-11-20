@@ -4,6 +4,27 @@ html, body, .sample-content {
     margin: 0px;
 }
 
+.igContainer,
+.igContainer-horizontal,
+.igContainer-vertical,
+.igContainer-full-size {
+    background: white;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap; /* nowrap | wrap | wrap-reverse; */
+    /* justify-content: flex-start; */
+    /* justify-items: center; */
+    /* align-items: center; */
+    position: relative;
+    overflow-y: hidden;
+
+    min-width: 200px;
+    width: calc(100% - 5px);
+    height: calc(100% - 5px);
+    padding: 2.5px;
+    margin: 0px;
+}
+
 .sample-container-horizontal {
     margin: 5px;
     display: flex;

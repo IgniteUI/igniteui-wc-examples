@@ -1,9 +1,9 @@
-import { RouterCharts } from "./samples/charts/router-charts";
-import { RouterGauges } from "./samples/gauges/router-gauges";
-import { RouterGrids } from "./samples/grids/router-grids";
-import { RouterMaps } from "./samples/maps/router-maps";
-import { RouterExcel } from "./samples/excel/router-excel";
-import { RouterLayouts } from "./samples/layouts/router-layouts";
+import { RouterCharts } from "./samples/charts/router";
+import { RouterGauges } from "./samples/gauges/router";
+import { RouterGrids } from "./samples/grids/router";
+import { RouterMaps } from "./samples/maps/router";
+import { RouterExcel } from "./samples/excel/router";
+import { RouterLayouts } from "./samples/layouts/router";
 
 export class Router {
 
@@ -79,31 +79,31 @@ export class Router {
 
         console.log("SB matching " + route);
 
-        if (route.indexOf("/geo-map") >= 0) {
+        if (route.indexOf("/geo-map/") >= 0) {
             this.displaySample(await RouterMaps.get(route));
         }
-        else if (route.indexOf("/data-grid") >= 0) {
+        if (route.indexOf("/data-grid/") >= 0) {
             this.displaySample(await RouterGrids.get(route));
         }
-        else if (route.indexOf("/excel/") >= 0) {
+        if (route.indexOf("/excel/") >= 0) {
             this.displaySample(await RouterExcel.get(route));
         }
-        else if (route.indexOf("/excel/") >= 0) {
+        if (route.indexOf("/excel/") >= 0) {
             this.displaySample(await RouterExcel.get(route));
         }
-        else if (route.indexOf("/gauges/") >= 0) {
+        if (route.indexOf("/gauges/") >= 0) {
             this.displaySample(await RouterGauges.get(route));
         }
-        else if (route.indexOf("/charts/") >= 0) {
+        if (route.indexOf("/charts/") >= 0) {
             this.displaySample(await RouterCharts.get(route));
         }
-        else if (route.indexOf("/layouts/") >= 0) {
+        if (route.indexOf("/layouts/") >= 0) {
             this.displaySample(await RouterLayouts.get(route));
         }
 
-        else {
+        //else {
             // this.navigateToRoute(""); // TODO add fallback
-        }
+        //}
 
         // switch (route) {
         //     //NOTE! this is spelled out explicitly on purpose. I'm not sure the bundlers would like it if you

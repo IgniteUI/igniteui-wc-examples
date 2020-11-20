@@ -395,6 +395,9 @@ class Transformer {
             // console.log(" ------------------------------ ");
             // console.log(info.HtmlFileRoot);
         }
+        if (code.trim() === "") {
+            console.log("ERROR cannot transform " + info.SampleFileSourcePath)
+        }
 
         return code;
     }
@@ -604,7 +607,7 @@ class Transformer {
         return readMe;
     }
 
-    public static getRoutingGroups(samples: SampleInfo[]): SampleGroup[] {
+    public static getSampleGroups(samples: SampleInfo[]): SampleGroup[] {
         let componentsMap = new Map<string, SampleComponent>();
 
         for (const item of samples) {
@@ -643,23 +646,6 @@ class Transformer {
                 // const element = group.Components[i];
                 group.Components[i].Samples = group.Components[i].Samples.sort(this.sortBySamplesName);
             }
-            // console.log('group ' + key);
-            // for (const component of group.Components) {
-            //     console.log('component ' + component.name);
-
-                // component.Samples = component.Samples.sort(this.sortBySamplesName);
-            //     for (const sample of component.samples) {
-            //         console.log('sample ' + sample.SampleFolderName);
-            //     }
-            // }
-            // let group = new SampleGroup();
-            // group.name = key;
-            // group.samples = map.get(key);
-
-            // for (let item of map.get(key) ) {
-            //     console.log(item.SampleRoute);
-            // }
-            // // groups.push(map.get(key));
             groups.push(group);
         }
         return groups;
@@ -677,6 +663,34 @@ class Transformer {
         return 0;
     }
 
+    public static getIndexFile(groups: SampleGroup[], indexTemplate: string): string {
+
+        let sampleLinks = "";
+        for (const group of groups) {
+            console.log('>> generating links for group: ' + group.Name);
+
+            sampleLinks += '       <div class="nav-group">' + group.Name.toUpperCase() + '</div> \n'
+            for (const component of group.Components) {
+                console.log('>> generating links for component: ' + component.Name);
+
+                let idLabel = "nav-" + Strings.replace(component.Name, " ", "-").toLowerCase();
+                let idLists = idLabel + "-list";
+                sampleLinks += '       <label id="' + idLabel + '" class="nav-component">' + component.Name + '</label> \n';
+                sampleLinks += '       <div id="' + idLists + '" class="nav-list" state="collapsed"> \n';
+
+                for (const info of component.Samples) {
+                    let route = "/samples" + info.SampleRoute;
+                    sampleLinks += '           <a class="nav-link" href="#" data-nav="' + route + '">' + info.SampleDisplayName + '</a> \n';
+                }
+                sampleLinks += '       </div>\n';
+            }
+            sampleLinks += '\n';
+        }
+
+        let indexFile = indexTemplate.replace("<!-- {AutoInsertSampleLinks} -->", sampleLinks);
+        return indexFile;
+    }
+
     public static getRoutingFile(group: SampleGroup, routingTemplate: string): string {
 
         let fileContent = routingTemplate + "";
@@ -684,11 +698,11 @@ class Transformer {
         let isFirstSample = true;
 
         for (const component of group.Components) {
-            console.log('coping samples for ' + component.Name + ' component');
+            console.log('>> generating routes for component: ' + component.Name);
 
             for (const info of component.Samples) {
-                // console.log('- copied: ' + info.SampleFileName);
-                console.log('- copied: ' + info.SampleFilePath + '/' + info.SampleFileName);
+                // console.log('- generated: ' + info.SampleFileName);
+                // console.log('- generated: ' + info.SampleFilePath);
                 routingConditions += this.getRoutingCondition(info, isFirstSample);
                 // console.log('sample ' + sample.SampleFolderName);
                 if (isFirstSample) {
