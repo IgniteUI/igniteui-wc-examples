@@ -40,7 +40,7 @@ export class DataGridTypeHeatmapTable {
         this.createData();
 
         this.VerticalHeader = new IgcTemplateHeaderComponent();
-        this.VerticalHeader.cellUpdating = (s: any, e: any) => this.onVerticalHeaderUpdating(s: any, e: any);
+        this.VerticalHeader.cellUpdating = (s: any, e: any) => this.onVerticalHeaderUpdating(s, e);
 
         this.HorizontalRightHeader = new IgcTemplateHeaderComponent();
         this.HorizontalRightHeader.cellUpdating = (s: any, e: any) => this.onHorizontalHeaderUpdating(s, e, 'right');

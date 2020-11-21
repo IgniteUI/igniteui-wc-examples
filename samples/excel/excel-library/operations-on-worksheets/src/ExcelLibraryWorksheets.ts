@@ -1,20 +1,20 @@
 
 import { ExcelUtility } from './ExcelUtility';
 
-// import { IgcExcelXlsxModule } from 'igniteui-webcomponents-excel';
-// import { IgcExcelCoreModule } from 'igniteui-webcomponents-excel';
+import { Color } from 'igniteui-webcomponents-core';
 import { IgcExcelModule } from 'igniteui-webcomponents-excel';
 import { Workbook } from 'igniteui-webcomponents-excel';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-import { Color } from 'igniteui-webcomponents-core';
-import { CustomFilterCondition, ExcelComparisonOperator,
-    FormatConditionTextOperator, OrderedSortCondition,
-    RelativeIndex, SortDirection,
-    WorkbookFormat, WorkbookColorInfo} from 'igniteui-webcomponents-excel';
+import { CustomFilterCondition } from 'igniteui-webcomponents-excel';
+import { ExcelComparisonOperator } from 'igniteui-webcomponents-excel';
+import { FormatConditionTextOperator } from 'igniteui-webcomponents-excel';
+import { OrderedSortCondition } from 'igniteui-webcomponents-excel';
+import { RelativeIndex } from 'igniteui-webcomponents-excel';
+import { SortDirection } from 'igniteui-webcomponents-excel';
+import { WorkbookFormat } from 'igniteui-webcomponents-excel';
+import { WorkbookColorInfo } from 'igniteui-webcomponents-excel';
 
 ModuleManager.register(
-    // IgcExcelXlsxModule,
-    // IgcExcelCoreModule,
     IgcExcelModule,
 );
 
@@ -22,9 +22,9 @@ ModuleManager.register(
 export class ExcelLibraryWorksheets {
 
 
-    
-    
-        
+
+
+
 
     public data: any;
     public isSorted: boolean;
@@ -36,9 +36,9 @@ export class ExcelLibraryWorksheets {
     public workbook: Workbook;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.showGridlines = true;
         this.showHeaders = true;

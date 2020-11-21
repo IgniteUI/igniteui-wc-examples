@@ -24,7 +24,7 @@ export class BulletGraphTypeSegmented {
 
         this.renderGauge(this.gauge1, 90, 80, '#10b401');
         this.renderGauge(this.gauge2, 70, 80, '#fdb417');
-        this.renderGauge(this.gauge3, 50, 80, '#ff0000');        
+        this.renderGauge(this.gauge3, 50, 80, '#ff0000');
     }
 
     public renderGauge(gauge: IgcBulletGraphComponent, value: number, target: number, color: string) {
@@ -38,7 +38,7 @@ export class BulletGraphTypeSegmented {
         gauge.interval = (gauge.maximumValue - gauge.minimumValue) / 10;
         gauge.labelInterval = gauge.interval;
         gauge.labelExtent = 0.15;
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             e.label = e.value + '%'
         };
 

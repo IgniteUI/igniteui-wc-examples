@@ -15,7 +15,7 @@ export class LinearGaugeTypeMultiScale {
     private gauge2: IgcLinearGaugeComponent;
 
     constructor() {
-        
+
         this.gauge1 = document.getElementById('gauge1') as IgcLinearGaugeComponent;
         this.gauge2 = document.getElementById('gauge2') as IgcLinearGaugeComponent;
         this.renderFahrenheitGauge(this.gauge1);
@@ -30,7 +30,7 @@ export class LinearGaugeTypeMultiScale {
 
         this.setupGauge(gauge);
 
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             e.label = e.value + ' °C'
         };
     }
@@ -47,7 +47,7 @@ export class LinearGaugeTypeMultiScale {
         gauge.minorTickStartExtent = -0.2;
         gauge.minorTickEndExtent = -0.1;
 
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             e.label = this.covertToFahrenheit(e.value) + ' °F'
         };
     }

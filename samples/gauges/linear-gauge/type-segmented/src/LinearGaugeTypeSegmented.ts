@@ -16,7 +16,7 @@ export class LinearGaugeTypeSegmented {
     private gauge3: IgcLinearGaugeComponent;
 
     constructor() {
-        
+
         this.gauge1 = document.getElementById('gauge1') as IgcLinearGaugeComponent;
         this.gauge2 = document.getElementById('gauge2') as IgcLinearGaugeComponent;
         this.gauge3 = document.getElementById('gauge3') as IgcLinearGaugeComponent;
@@ -35,7 +35,7 @@ export class LinearGaugeTypeSegmented {
         gauge.transitionDuration = 0;
         gauge.labelInterval = gauge.interval;
         gauge.labelExtent = 0.15;
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             e.label = e.value + '%'
         };
 

@@ -18,18 +18,18 @@ ModuleManager.register(
 export class MapDisplayImageryBingTiles {
 
 
-    
-    
-        
+
+
+
 
     private geoMap1: IgcGeographicMapComponent;
     private geoMap2: IgcGeographicMapComponent;
     private geoMap3: IgcGeographicMapComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.geoMap1 = document.getElementById('map1') as IgcGeographicMapComponent;
         this.geoMap2 = document.getElementById('map2') as IgcGeographicMapComponent;
@@ -40,7 +40,7 @@ export class MapDisplayImageryBingTiles {
         this.createMap3(this.geoMap3);
     }
 
-    createMap1(map : IgcGeographicMapComponent) {
+    createMap1(map: IgcGeographicMapComponent) {
         map.zoomable = true;
 
         const tileSource = new IgcBingMapsMapImagery();
@@ -61,7 +61,7 @@ export class MapDisplayImageryBingTiles {
         MapUtils.navigateTo(map, MapRegion.Caribbean);
     }
 
-    createMap2(map : IgcGeographicMapComponent) {
+    createMap2(map: IgcGeographicMapComponent) {
         map.zoomable = true;
         const tileSource = new IgcBingMapsMapImagery();
         tileSource.apiKey = MapUtils.getBingKey();
@@ -81,7 +81,7 @@ export class MapDisplayImageryBingTiles {
         MapUtils.navigateTo(map, MapRegion.Caribbean);
     }
 
-    createMap3(map : IgcGeographicMapComponent) {
+    createMap3(map: IgcGeographicMapComponent) {
         map.zoomable = true;
         const tileSource = new IgcBingMapsMapImagery();
         tileSource.apiKey = MapUtils.getBingKey();

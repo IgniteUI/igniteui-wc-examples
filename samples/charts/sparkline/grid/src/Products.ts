@@ -13,7 +13,7 @@ export class Products {
     public static countries: string[] = ["USA", "UK", "France", "Canada", "Poland",
             "Denmark", "Croatia", "Australia", "Seychelles",
             "Sweden", "Germany", "Japan", "Ireland",
-            "Barbados", "Jamaica", "Cuba", "Spain",];
+            "Barbados", "Jamaica", "Cuba", "Spain" ];
 
     public static status: string[] = [ "Packing", "Shipped", "Delivered"]
 

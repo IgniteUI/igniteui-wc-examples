@@ -15,7 +15,7 @@ export class BulletGraphTypeFilled {
     private gauge1: IgcBulletGraphComponent;
     private gauge2: IgcBulletGraphComponent;
     private gauge3: IgcBulletGraphComponent;
-    
+
     constructor() {
         this.gauge1 = document.getElementById('gauge1') as IgcBulletGraphComponent;
         this.gauge2 = document.getElementById('gauge2') as IgcBulletGraphComponent;
@@ -42,7 +42,7 @@ export class BulletGraphTypeFilled {
         gauge.interval = (gauge.maximumValue - gauge.minimumValue) / 10;
         gauge.labelInterval = gauge.interval;
         gauge.labelExtent = 0.1;
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             e.label = e.value + '%'
         };
 

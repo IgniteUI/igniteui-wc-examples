@@ -31,7 +31,7 @@ export class RadialGaugeTypeDirection {
     private gauge2: IgcRadialGaugeComponent;
 
     constructor() {
-    
+
         this.gauge1 = document.getElementById('gauge1') as IgcRadialGaugeComponent;
         this.gauge2 = document.getElementById('gauge2') as IgcRadialGaugeComponent;
 
@@ -46,7 +46,7 @@ export class RadialGaugeTypeDirection {
         gauge.value = 30;
         gauge.font = '11px Verdana,Arial';
         gauge.labelExtent  = gauge.scaleStartExtent - 0.1;
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             e.label = e.value < 360 ? e.value + '°' : '';
         };
 
@@ -66,7 +66,7 @@ export class RadialGaugeTypeDirection {
         // setting appearance of labels
         gauge.font = '15px Verdana,Arial';
         gauge.labelExtent  = gauge.scaleEndExtent + 0.05;
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             if (this.directions[e.value] !== undefined) {
                 e.label = this.directions[e.value];
             } else {
