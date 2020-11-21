@@ -129,6 +129,7 @@ function getNamesSharedFiles(cb){
 }
 exports.getNamesSharedFiles = getNamesSharedFiles;
 
+
 // function getSharedFiles() {
 //     return gulp.src(templatesShared + './*')
 //         .pipe(es.map(function(file, cb) {
@@ -149,6 +150,169 @@ function mkDirectory(directoryName){
         fs.mkdirSync(directoryName);
     }
 }
+
+function portIsDataFile(name) {
+    return name.indexOf("shared") >= 0 ||
+           name.indexOf("Shared") >= 0 ||
+           name.indexOf("Stocks") >= 0 ||
+           name.indexOf("Sample") >= 0 ||
+           name.indexOf("Utility") >= 0 ||
+           name.indexOf("Util") >= 0 ||
+           name.indexOf("FinancialData.ts") >= 0 ||
+           name.indexOf("PeriodicElements") >= 0 ||
+           name.indexOf("Products") >= 0 ||
+           name.indexOf("StocksHistory") >= 0 ||
+           name.indexOf("StocksHistory") >= 0 ||
+           name.indexOf("World") >= 0 ||
+           name.indexOf("worker") >= 0;
+}
+
+function portIsBrowserFile(name) {
+    return name.indexOf("router") >= 0 ||
+           name.indexOf("sample-base.ts") >= 0||
+           name.indexOf("index.ts") >= 0;
+}
+
+function portSample(file) {
+    let sample = {};
+    sample.tsName = file.basename;
+    sample.folderName = sample.tsName
+    .replace(".ts", "")
+    .replace("BulletGraph", "")
+    .replace("CategoryChart", "")
+    .replace("DataChart", "")
+    .replace("DockManager", "")
+    .replace("DoughnutChart", "")
+    .replace("ExcelLibrary", "")
+    .replace("Spreadsheet", "")
+    .replace("FinancialChart", "")
+    .replace("PieChart", "")
+    .replace("LinearGauge", "")
+    .replace("RadialGauge", "")
+    .replace("Map", "")
+    .replace("DataGrid", "")
+    .replace("Sparkline", "")
+    .replace("TreeMap", "")
+    .replace("ZoomSlider", "")
+
+    // rename map samples
+    sample.folderName = sample.folderName.replace("-shapefile-", "-shp-");
+    sample.folderName = sample.folderName.replace("display-imagery", "display");
+    sample.folderName = sample.folderName.replace("-tiles", "-imagery");
+    sample.folderName = sample.folderName.replace("imagery-sources", "display-all-imagery");
+
+    // rename excel samples
+    sample.folderName = sample.folderName.replace("cells", "working-with-cells");
+    sample.folderName = sample.folderName.replace("charts", "working-with-charts");
+    sample.folderName = sample.folderName.replace("workbooks", "operations-on-workbooks");
+    sample.folderName = sample.folderName.replace("worksheets", "operations-on-worksheets");
+    if (sample.folderName === "s") {
+        sample.folderName = "working-with-sparklines";
+    }
+    // rename spreadsheet samples
+    if (sample.folderName === "adapter") {
+        sample.folderName = "adapter-chart";
+    }
+    sample.folderName = sample.folderName.replace("configuring", "config-options");
+
+    // rename tree samples
+    sample.folderName = sample.folderName.replace("tree-overview", "overview");
+    // rename linear-gauge samples
+    if (sample.folderName === "type-curve") {
+        sample.folderName = "type-curved";
+    }
+    // rename markers to marker-options
+    if (sample.folderName === "markers") {
+        sample.folderName = "marker-options";
+    }
+    // rename horizontal scrolling to column-scrolling
+    if (sample.folderName === "horizontal-scrolling") {
+        sample.folderName = "column-scrolling";
+    }
+    // rename osm to osm-imagery
+    if (sample.folderName === "display-osm") {
+        sample.folderName = "display-osm-imagery";
+    }
+    // rename scatter to shape
+    if (sample.folderName === "type-scatter-polygon-series") {
+        sample.folderName = "type-shape-polygon-series";
+    }
+    // rename osm to osm-imagery
+    if (sample.folderName === "type-scatter-polyline-series") {
+        sample.folderName = "type-shape-polyline-series";
+    }
+
+    sample.folderName = splitCamel(sample.folderName).split(" ").join("-").toLowerCase();
+
+    sample.directory = file.dirname;
+    sample.directory = sample.directory.replace("axes\\", "");
+    // rename chart
+    let chartSubFolders = [
+        "axes",
+        "category",
+        "features",
+        "financial",
+        "polar",
+        "radial",
+        "range",
+        "scatter",
+        "stacked",
+        "utilities"
+    ];
+    if(chartSubFolders.indexOf(sample.directory) >= 0)
+    {
+        sample.directory = "data-chart";
+    }
+
+    console.log("route " + file.dirname + "\\" + file.basename);
+    // console.log("route " + sample.folderName + "    " + file.basename);
+
+    // let samplePath = "../../samples-web-component/src/samples/" + file.dirname + "/" + file.basename;
+    // samplePath = samplePath.replace("\\", "/");
+    // samplePath = path.resolve(__dirname, samplePath);
+
+    return sample;
+}
+
+function port(cb) {
+
+    // let portSource = "../../samples-web-component/src/**/*.ts"
+    let portSource = "../../samples-web-component/src/samples/maps/geo-map/*.ts"
+    // let portSource = "../../samples-web-component/src/samples/grids/**/*.ts"
+    // let portSource = "../../samples-web-component/src/utilities/*.ts"
+    // let portSource = "C:\\REPOS\\GitInternalDocs\\samples-web-component\\src\\**\*.ts";
+    let portOutput = "";
+
+    let portedSamples = [];
+
+    gulp.src(portSource)
+    .pipe(es.map(function(file, fileCallback) {
+        let name = file.basename;
+
+        if (name.indexOf("Data") >= 0) {
+            if (portIsBrowserFile(name)) {
+                console.log("port SKIP " + name);
+            }
+            else if (portIsDataFile(name)) {
+                console.log("port DATA " + name);
+            }
+            else {
+                // let sample = portSample(file);
+                // portedSamples.push(sample.directory + "/" + sample.folderName + "   " + sample.tsName);
+                console.log("port SAMPLE " + file.dirname + "\\" + name);
+            }
+        }
+        fileCallback(null, file);
+    }))
+    .on("end", function() {
+        portedSamples.sort();
+
+        // console.log(portedSamples.join("\n"));
+        cb();
+
+    });
+}
+exports.port = port;
 
 function portingSamples(cb) {
 

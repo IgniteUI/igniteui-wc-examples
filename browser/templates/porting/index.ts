@@ -1,0 +1,3 @@
+// AutoInsertPortedSample
+
+// new AutoInsertPortedClass();
