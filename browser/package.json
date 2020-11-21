@@ -8,6 +8,10 @@
   "directories": {
     "test": "tests"
   },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/IgniteUI/igniteui-webcomponents-examples"
+  },
   "license": "ISC",
   "main": "src/index.ts",
   "scripts": {
@@ -22,6 +26,16 @@
     "test": "karma start"
   },
   "dependencies": {
+    "@infragistics/igniteui-webcomponents-core": "20.2.0-dev.548",
+    "@infragistics/igniteui-webcomponents-charts": "20.2.0-dev.548",
+    "@infragistics/igniteui-webcomponents-excel": "20.2.0-dev.548",
+    "@infragistics/igniteui-webcomponents-gauges": "20.2.0-dev.548",
+    "@infragistics/igniteui-webcomponents-grids": "20.2.0-dev.548",
+    "@infragistics/igniteui-webcomponents-inputs": "20.2.0-dev.548",
+    "@infragistics/igniteui-webcomponents-layouts": "20.2.0-dev.548",
+    "@infragistics/igniteui-webcomponents-maps": "20.2.0-dev.548",
+    "@infragistics/igniteui-webcomponents-spreadsheet": "20.2.0-dev.548",
+    "@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter": "20.2.0-dev.548",
     "@material/mwc-button": "0.9.1",
     "@material/mwc-dialog": "0.9.1",
     "@material/mwc-slider": "0.9.1",
@@ -41,18 +55,7 @@
     "gulp-replace": "^1.0.0",
     "gulp-shell": "^0.8.0",
     "gulp-uglify": "^3.0.2",
-    "igniteui-dockmanager": "1.0.0",
-    "igniteui-webcomponents-charts": "1.1.1",
-    "igniteui-webcomponents-core": "1.1.1",
-    "igniteui-webcomponents-datasources": "1.1.1",
-    "igniteui-webcomponents-excel": "1.1.1",
-    "igniteui-webcomponents-gauges": "1.1.1",
-    "igniteui-webcomponents-grids": "1.1.1",
-    "igniteui-webcomponents-inputs": "1.1.1",
-    "igniteui-webcomponents-layouts": "1.1.1",
-    "igniteui-webcomponents-maps": "1.1.1",
-    "igniteui-webcomponents-spreadsheet": "1.1.1",
-    "igniteui-webcomponents-spreadsheet-chart-adapter": "1.1.1",
+    "igniteui-dockmanager": "^1.2.0-beta.4",
     "lit-html": "^1.1.2",
     "through2": "^4.0.2",
     "worker-loader": "^2.0.0"
