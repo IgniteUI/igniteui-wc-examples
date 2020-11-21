@@ -19,8 +19,8 @@
   },
   "author": "",
   "dependencies": {
-    "igniteui-webcomponents-core": "1.1.1",
-    "igniteui-webcomponents-spreadsheet": "1.1.1",
+    "@infragistics/igniteui-webcomponents-core": "20.2.0-dev.548",
+    "@infragistics/igniteui-webcomponents-spreadsheet": "20.2.0-dev.548",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
