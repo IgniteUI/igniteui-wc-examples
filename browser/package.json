@@ -36,6 +36,7 @@
     "@infragistics/igniteui-webcomponents-maps": "20.2.0-dev.548",
     "@infragistics/igniteui-webcomponents-spreadsheet": "20.2.0-dev.548",
     "@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter": "20.2.0-dev.548",
+    "@infragistics/igniteui-webcomponents-datasources": "20.2.0-dev.548",
     "@material/mwc-button": "0.9.1",
     "@material/mwc-dialog": "0.9.1",
     "@material/mwc-slider": "0.9.1",
