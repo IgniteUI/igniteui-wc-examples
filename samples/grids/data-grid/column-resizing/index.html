@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
     <div class="igOptions">
         <span class="optionItem" style="width: 160px">Resizing Mode:</span>
@@ -48,14 +48,15 @@
         is-column-options-enabled="true"
         auto-generate-columns="false" >
 
-        <igc-text-column property-path="Name" width="*>150"></igc-text-column>
-        <igc-text-column property-path="Street" header-text="Address" width="*>165" ></igc-text-column>
-        <igc-text-column property-path="City" width="*>140" ></igc-text-column>
-        <igc-numeric-column property-path="Salary" positive-prefix="$" show-grouping-separator="true" width="*>140" ></igc-numeric-column>
-        <igc-date-time-column property-path="Birthday" ></igc-date-time-column>
+        <igc-text-column field="Name" width="*>150"></igc-text-column>
+        <igc-text-column field="Street" header-text="Address" width="*>165" ></igc-text-column>
+        <igc-text-column field="City" width="*>140" ></igc-text-column>
+        <igc-numeric-column field="Salary" positive-prefix="$" show-grouping-separator="true" width="*>140" ></igc-numeric-column>
+        <igc-date-time-column field="Birthday" ></igc-date-time-column>
 
     </igc-data-grid>
-</div>
+</div>
+
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->

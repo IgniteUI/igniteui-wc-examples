@@ -15,18 +15,18 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 export class DataGridRowGrouping {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
 
     constructor() {
-        
+
         this.onSectionHeaderDisplayModeChanging = this.onSectionHeaderDisplayModeChanging.bind(this);
         this.onGroupHeaderCollapsible = this.onGroupHeaderCollapsible.bind(this);
-    
-        
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees(50);
@@ -42,13 +42,13 @@ export class DataGridRowGrouping {
         groupCollapsibleCheckbox.checked = true;
 
         const state = new IgcColumnGroupDescription();
-        state.propertyPath = 'Country';
+        state.field = 'Country';
         state.displayName = 'Location';
         const city = new IgcColumnGroupDescription();
-        city.propertyPath = 'City';
+        city.field = 'City';
         city.displayName = '';
         const income = new IgcColumnGroupDescription();
-        income.propertyPath = 'Income';
+        income.field = 'Income';
         income.displayName = 'Income';
 
         this.grid.groupDescriptions.add(state);

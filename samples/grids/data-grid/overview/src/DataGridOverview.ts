@@ -31,20 +31,20 @@ ModuleManager.register(
 export class DataGridOverview {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
     public toolbar: IgcDataGridToolbarComponent;
 
     constructor() {
-        
+
         this.onUpdatingAddressColumn = this.onUpdatingAddressColumn.bind(this);
         this.onUpdatingSalesColumn = this.onUpdatingSalesColumn.bind(this);
         this.onUpdatingProductivityColumn = this.onUpdatingProductivityColumn.bind(this);
-    
-        
+
+
 
         const salesColumn = document.getElementById('salesColumn') as IgcTemplateColumnComponent;
         if (salesColumn)
@@ -65,28 +65,28 @@ export class DataGridOverview {
         this.toolbar.targetGrid = this.grid;
 
         const peopleGroup = new IgcColumnGroupDescription();
-        peopleGroup.propertyPath = 'Country';
+        peopleGroup.field = 'Country';
         peopleGroup.displayName = 'Country';
         this.grid.groupDescriptions.add(peopleGroup);
 
         const incomeGroup = new IgcColumnGroupDescription();
-        incomeGroup.propertyPath = 'Income';
+        incomeGroup.field = 'Income';
         incomeGroup.displayName = 'Income';
         this.grid.groupDescriptions.add(incomeGroup);
 
         const peopleCount = new IgcColumnSummaryDescription();
-        peopleCount.propertyPath = 'Photo';
+        peopleCount.field = 'Photo';
         peopleCount.operand = SummaryOperand.Count;
         this.grid.summaryDescriptions.add(peopleCount);
 
         const sales = new IgcColumnSummaryDescription();
-        sales.propertyPath = 'Sales';
+        sales.field = 'Sales';
         sales.operand = SummaryOperand.Max;
         sales.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(sales);
 
         const salary = new IgcColumnSummaryDescription();
-        salary.propertyPath = 'Salary';
+        salary.field = 'Salary';
         salary.operand = SummaryOperand.Average;
         salary.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(salary);

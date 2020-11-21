@@ -13,9 +13,9 @@ ModuleManager.register(IgcDataGridModule);
 export class DataGridTypePeriodicTable {
 
 
-    
-    
-        
+
+
+
 
     public grid: IgcDataGridComponent;
     public ElementsData: any[] = [];
@@ -28,13 +28,13 @@ export class DataGridTypePeriodicTable {
     public CellSize: number = 50;
 
     constructor() {
-        
+
 
         this.onVerticalHeaderUpdating = this.onVerticalHeaderUpdating.bind(this);
         this.onElementCellUpdating = this.onElementCellUpdating.bind(this);
         this.activeCellChanged = this.activeCellChanged.bind(this);
-    
-        
+
+
 
         this.createData();
 
@@ -50,7 +50,7 @@ export class DataGridTypePeriodicTable {
         // TemplateColumn setup
         for (let i = 0; i <= 17; i++) {
             const column = document.getElementById('group' + i) as IgcTemplateColumnComponent;
-            column.propertyPath = 'group' + i;
+            column.field = 'group' + i;
             column.header = this.HorizontalCenterHeader;
             column.border = 'white';
             column.borderLeftWidth = 0.5;
@@ -65,12 +65,12 @@ export class DataGridTypePeriodicTable {
         }
         // TextColumn Setup
         const rowColumn = document.getElementById('row') as IgcNumericColumnComponent;
-        rowColumn.propertyPath = 'row';
+        rowColumn.field = 'row';
         rowColumn.header = this.HorizontalRightHeader;
 
         // TextColumn Setup
         const spaceColumn = document.getElementById('space') as IgcNumericColumnComponent;
-        spaceColumn.propertyPath = 'space';
+        spaceColumn.field = 'space';
         spaceColumn.header = this.HorizontalLeftHeader;
 
         this.PeriodicScale = new PeriodicScale(0, 6000);

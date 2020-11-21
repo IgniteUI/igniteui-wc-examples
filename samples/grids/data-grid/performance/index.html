@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
     <igc-data-grid
     id="grid"
@@ -28,15 +28,15 @@
     column-showing-animation-mode="Auto"
     column-hiding-animation-mode="Auto">
 
-    <igc-text-column property-path="FirstName" header-text="First Name" width="*>125"></igc-text-column>
-    <igc-text-column property-path="LastName" header-text="Last Name" width="*>125"></igc-text-column>
-    <igc-text-column property-path="Territory" width="*>115"></igc-text-column>
-    <igc-numeric-column property-path="YearToDateSales"
+    <igc-text-column field="FirstName" header-text="First Name" width="*>125"></igc-text-column>
+    <igc-text-column field="LastName" header-text="Last Name" width="*>125"></igc-text-column>
+    <igc-text-column field="Territory" width="*>115"></igc-text-column>
+    <igc-numeric-column field="YearToDateSales"
         header-text="YTD Sales" width="*>120" positive-prefix="$"
         show-grouping-separator="true">
     </igc-numeric-column>
 
-    <igc-template-column id="avgSaleTemplateColumn" property-path="AvgSale"
+    <igc-template-column id="avgSaleTemplateColumn" field="AvgSale"
         header-text="Avg. Sale"
         width="*>125"
         horizontal-alignment="right"
@@ -44,23 +44,24 @@
         cellUpdating={this.onPriceCellUpdating} >
     </igc-template-column>
 
-    <igc-template-column id="changeTemplateColumn" property-path="Change" width="*>120"
+    <igc-template-column id="changeTemplateColumn" field="Change" width="*>120"
         horizontal-alignment="right"
         cellStyleKeyRequested={this.onPriceAmountStyleKey}
         cellUpdating={this.onPriceAmountCellUpdating}>
     </igc-template-column>
 
-    <igc-template-column id="percentChangeTemplateColumn" property-path="PercentChange" width="*>135"
+    <igc-template-column id="percentChangeTemplateColumn" field="PercentChange" width="*>135"
         horizontal-alignment="right" header-text="Change (%)"
         cellStyleKeyRequested={this.onPricePercentStyleKey}
         cellUpdating={this.onPricePercentCellUpdating}>
     </igc-template-column>
 
-    <igc-date-time-column property-path="DateValue" header-text="Date" width="*>120" >
+    <igc-date-time-column field="DateValue" header-text="Date" width="*>120" >
     </igc-date-time-column>
 
     </igc-data-grid>
-</div>
+</div>
+
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->

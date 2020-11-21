@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
     <igc-data-grid
         id="grid"
@@ -31,22 +31,23 @@
         column-resizing-mode="None"
         auto-generate-columns="false"
         >
-        <igc-text-column id="name" property-path="Name" header-text="Productivity" horizontal-alignment="right" width="*>110"></igc-text-column>
-        <igc-template-column id="January" property-path="January" header-text="January" width="50"></igc-template-column>
-        <igc-template-column id="February" property-path="February" header-text="February" width="50"></igc-template-column>
-        <igc-template-column id="March" property-path="March" header-text="March" width="50"></igc-template-column>
-        <igc-template-column id="April" property-path="April" header-text="April" width="50"></igc-template-column>
-        <igc-template-column id="May" property-path="May" header-text="May" width="50"></igc-template-column>
-        <igc-template-column id="June" property-path="June" header-text="June" width="50"></igc-template-column>
-        <igc-template-column id="July" property-path="July" header-text="July" width="50"></igc-template-column>
-        <igc-template-column id="August" property-path="August" header-text="August" width="50"></igc-template-column>
-        <igc-template-column id="September" property-path="September" header-text="September" width="50"></igc-template-column>
-        <igc-template-column id="October" property-path="October" header-text="October" width="50"></igc-template-column>
-        <igc-template-column id="November" property-path="November" header-text="November" width="50"></igc-template-column>
-        <igc-template-column id="December" property-path="December" header-text="December" width="50"></igc-template-column>
-        <igc-text-column id="average" property-path="Average" header-text="Average" horizontal-alignment="left" width="*>110"></igc-text-column>
+        <igc-text-column id="name" field="Name" header-text="Productivity" horizontal-alignment="right" width="*>110"></igc-text-column>
+        <igc-template-column id="January" field="January" header-text="January" width="50"></igc-template-column>
+        <igc-template-column id="February" field="February" header-text="February" width="50"></igc-template-column>
+        <igc-template-column id="March" field="March" header-text="March" width="50"></igc-template-column>
+        <igc-template-column id="April" field="April" header-text="April" width="50"></igc-template-column>
+        <igc-template-column id="May" field="May" header-text="May" width="50"></igc-template-column>
+        <igc-template-column id="June" field="June" header-text="June" width="50"></igc-template-column>
+        <igc-template-column id="July" field="July" header-text="July" width="50"></igc-template-column>
+        <igc-template-column id="August" field="August" header-text="August" width="50"></igc-template-column>
+        <igc-template-column id="September" field="September" header-text="September" width="50"></igc-template-column>
+        <igc-template-column id="October" field="October" header-text="October" width="50"></igc-template-column>
+        <igc-template-column id="November" field="November" header-text="November" width="50"></igc-template-column>
+        <igc-template-column id="December" field="December" header-text="December" width="50"></igc-template-column>
+        <igc-text-column id="average" field="Average" header-text="Average" horizontal-alignment="left" width="*>110"></igc-text-column>
     </igc-data-grid>
-</div>
+</div>
+
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->

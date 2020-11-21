@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
 <igc-data-grid-toolbar
         id="toolbar"
@@ -33,23 +33,24 @@
     is-column-igOptions-enabled="true"
     default-column-min-width="120px">
 
-    <igc-text-column property-path="ID" header-text="ID" width="*>110"  horizontal-alignment="center"></igc-text-column>
-    <igc-text-column property-path="FirstName" header-text="First Name" width="*>140"></igc-text-column>
-    <igc-text-column property-path="LastName" header-text="Last Name" width="*>130"></igc-text-column>
+    <igc-text-column field="ID" header-text="ID" width="*>110"  horizontal-alignment="center"></igc-text-column>
+    <igc-text-column field="FirstName" header-text="First Name" width="*>140"></igc-text-column>
+    <igc-text-column field="LastName" header-text="Last Name" width="*>130"></igc-text-column>
 
-    <igc-date-time-column property-path="Birthday" header-text="Date of Birth" width="*>150" horizontal-alignment="center"></igc-date-time-column>
-    <igc-numeric-column property-path="Age" width="*>90" horizontal-alignment="center"></igc-numeric-column>
-    <igc-image-column property-path="CountryFlag" header-text="Country" width="*>115" content-opacity="1" horizontal-alignment="center"
+    <igc-date-time-column field="Birthday" header-text="Date of Birth" width="*>150" horizontal-alignment="center"></igc-date-time-column>
+    <igc-numeric-column field="Age" width="*>90" horizontal-alignment="center"></igc-numeric-column>
+    <igc-image-column field="CountryFlag" header-text="Country" width="*>115" content-opacity="1" horizontal-alignment="center"
                       padding-top="5" padding-bottom="5"></igc-image-column>
 
-    <igc-text-column property-path="Street" header-text="Address" width="*>170"></igc-text-column>
-    <igc-text-column property-path="City"  width="*>125" ></igc-text-column>
-    <igc-text-column property-path="Country"  width="*>125" ></igc-text-column>
+    <igc-text-column field="Street" header-text="Address" width="*>170"></igc-text-column>
+    <igc-text-column field="City"  width="*>125" ></igc-text-column>
+    <igc-text-column field="Country"  width="*>125" ></igc-text-column>
 
-    <igc-numeric-column property-path="Salary" header-text="Salary" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
-    <igc-numeric-column property-path="Sales" header-text="Sales" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+    <igc-numeric-column field="Salary" header-text="Salary" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+    <igc-numeric-column field="Sales" header-text="Sales" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
 </igc-data-grid>
-</div>
+</div>
+
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->

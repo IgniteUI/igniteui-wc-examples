@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
 
     <igc-data-grid
@@ -26,16 +26,17 @@
         is-column-igOptions-enabled="true"
         auto-generate-columns="false">
 
-        <igc-image-column property-path="Photo" content-opacity="1" horizontal-alignment="center" width="*>105" ></igc-image-column>
-        <igc-text-column property-path="FirstName" header-text="First Name" width="*>130" ></igc-text-column>
-        <igc-text-column property-path="LastName" header-text="Last Name" width="*>135"></igc-text-column>
-        <igc-text-column property-path="City" width="*>125"></igc-text-column>
-        <igc-text-column property-path="Country" width="*>120"></igc-text-column>
-        <igc-numeric-column property-path="Sales" width="*>120" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
-        <igc-numeric-column property-path="Age" width="*>90"></igc-numeric-column>
-        <igc-date-time-column property-path="Birthday" header-text="Date of Birth" horizontal-alignment="right" width="*>145"></igc-date-time-column>
+        <igc-image-column field="Photo" content-opacity="1" horizontal-alignment="center" width="*>105" ></igc-image-column>
+        <igc-text-column field="FirstName" header-text="First Name" width="*>130" ></igc-text-column>
+        <igc-text-column field="LastName" header-text="Last Name" width="*>135"></igc-text-column>
+        <igc-text-column field="City" width="*>125"></igc-text-column>
+        <igc-text-column field="Country" width="*>120"></igc-text-column>
+        <igc-numeric-column field="Sales" width="*>120" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+        <igc-numeric-column field="Age" width="*>90"></igc-numeric-column>
+        <igc-date-time-column field="Birthday" header-text="Date of Birth" horizontal-alignment="right" width="*>145"></igc-date-time-column>
     </igc-data-grid>
-</div>
+</div>
+
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->

@@ -26,9 +26,9 @@ ModuleManager.register(IgcDataGridModule);
 export class DataGridPerformance {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
     private _kpiColumns: string[] = [];
@@ -41,7 +41,7 @@ export class DataGridPerformance {
     private _interval: number = 100;
 
     constructor() {
-        
+
 
         this.tick = this.tick.bind(this);
 
@@ -57,8 +57,8 @@ export class DataGridPerformance {
         for (let i = 0; i < 43; i++) {
             this._kpiColumns.push('KPI_' + i);
         }
-    
-        
+
+
 
         this.data = this.generateSalesPeople(8000);
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
@@ -82,7 +82,7 @@ export class DataGridPerformance {
 
         for (let i = 0; i < this._kpiColumns.length; i++) {
             const column = new IgcNumericColumnComponent();
-            column.propertyPath = this._kpiColumns[i];
+            column.field = this._kpiColumns[i];
             let width = new IgcColumnWidth();
             width.value = 110;
             column.width = width;
@@ -94,7 +94,7 @@ export class DataGridPerformance {
 
     public doComponentDidMount() {
         let g = new IgcColumnGroupDescription();
-        g.propertyPath = 'Territory';
+        g.field = 'Territory';
         this.grid.groupDescriptions.add(g);
 
         for (let i = 0; i < 43; i++) {
@@ -354,8 +354,8 @@ export class DataGridPerformance {
         let useClear = false;
         let sortingByAvgSale = false;
         for (let i = 0; i < this.grid.sortDescriptions.count; i++) {
-            if (this.grid.sortDescriptions.item(i).propertyPath === 'AvgSale' ||
-                this.grid.sortDescriptions.item(i).propertyPath.indexOf('Change') >= 0) {
+            if (this.grid.sortDescriptions.item(i).field === 'AvgSale' ||
+                this.grid.sortDescriptions.item(i).field.indexOf('Change') >= 0) {
                 sortingByAvgSale = true;
             }
         }

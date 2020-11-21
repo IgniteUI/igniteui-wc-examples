@@ -79,9 +79,9 @@ import { MouseEventArgs } from 'igniteui-webcomponents-core';
 export class DataGridBindingLiveData {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
     private good_color = '#4EB862';
@@ -118,7 +118,7 @@ export class DataGridBindingLiveData {
     };
 
     constructor() {
-        
+
 
         this.financialData = new LiveFinancialData();
 
@@ -156,7 +156,7 @@ export class DataGridBindingLiveData {
 
     private value = 1000;
     connectedCallback() {
-        
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = this.state.data;
@@ -234,17 +234,17 @@ export class DataGridBindingLiveData {
 
     addGroups() {
         let g = new IgcColumnGroupDescription();
-        g.propertyPath = 'Category';
+        g.field = 'Category';
         g.sortDirection = ListSortDirection.Descending;
         this.grid.groupDescriptions.add(g);
 
         g = new IgcColumnGroupDescription();
-        g.propertyPath = 'Contract';
+        g.field = 'Contract';
         g.sortDirection = ListSortDirection.Descending;
         this.grid.groupDescriptions.add(g);
 
         g = new IgcColumnGroupDescription();
-        g.propertyPath = 'Region';
+        g.field = 'Region';
         g.sortDirection = ListSortDirection.Descending;
         this.grid.groupDescriptions.add(g);
     }
@@ -295,8 +295,8 @@ export class DataGridBindingLiveData {
 
         let sortingByPrice = false;
         for (let i = 0; i < this.grid.sortDescriptions.count; i++) {
-            if (this.grid.sortDescriptions.item(i).propertyPath === 'Price' ||
-                this.grid.sortDescriptions.item(i).propertyPath.indexOf('Change') >= 0) {
+            if (this.grid.sortDescriptions.item(i).field === 'Price' ||
+                this.grid.sortDescriptions.item(i).field.indexOf('Change') >= 0) {
                 sortingByPrice = true;
             }
         }
@@ -1018,7 +1018,7 @@ export class DataGridBindingLiveData {
         }
         for (let i = 0; i < this.grid.actualColumns.count; i++) {
             let col = this.grid.actualColumns.item(i);
-            if (hiddenSet.has(col.name || col.propertyPath)) {
+            if (hiddenSet.has(col.name || col.field)) {
                 if (!col.isHidden) {
                     col.isHidden = true;
                 }

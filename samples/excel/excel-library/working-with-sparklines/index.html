@@ -16,19 +16,20 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
     <div class="igOptions">
         <button class="igOptions-item" id="exportBtn">Export</button>
     </div>
     <igc-data-grid id="grid" auto-generate-columns="false" height="calc(100% - 45px)" width="100%">
-        <igc-template-column id="templateColumn" property-path="Orders"></igc-template-column>
-        <igc-text-column property-path="CompanyName"></igc-text-column>
-        <igc-text-column property-path="ContactName"></igc-text-column>
-        <igc-text-column property-path="ContactTitle"></igc-text-column>
-        <igc-text-column property-path="Country"></igc-text-column>
+        <igc-template-column id="templateColumn" field="Orders"></igc-template-column>
+        <igc-text-column field="CompanyName"></igc-text-column>
+        <igc-text-column field="ContactName"></igc-text-column>
+        <igc-text-column field="ContactTitle"></igc-text-column>
+        <igc-text-column field="Country"></igc-text-column>
     </igc-data-grid>
-</div>
+</div>
+
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->

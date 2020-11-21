@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
     <div class="igOptions">
         <span class="optionItem">Summary Scope:</span>
@@ -47,16 +47,17 @@
         is-column-options-enabled="true"
         default-column-min-width="100"
         >
-            <igc-numeric-column property-path="ProductID" header-text="ID" horizontal-alignment="center" ></igc-numeric-column>
-            <igc-text-column property-path="ProductName" header-text="Product" width="*>160"></igc-text-column>
-            <igc-numeric-column positive-prefix="$" property-path="BundlePrice" show-grouping-separator="true" header-text="Price" ></igc-numeric-column>
-            <igc-numeric-column property-path="OrderItems" header-text="Order Items" width="*>135"></igc-numeric-column>
-            <igc-numeric-column property-path="OrderValue" show-grouping-separator="true" header-text="Order Totals" positive-prefix="$" width="*>195"></igc-numeric-column>
-            <igc-date-time-column property-path="OrderDate" header-text="Order Date" horizontal-alignment="right" width="*>180"></igc-date-time-column>
-            <igc-numeric-column property-path="Profit" show-grouping-separator="true" header-text="Profit" positive-prefix="$" width="*>165"></igc-numeric-column>
-            <igc-text-column property-path="Countries" header-text="Country" width="*>115"></igc-text-column>
+            <igc-numeric-column field="ProductID" header-text="ID" horizontal-alignment="center" ></igc-numeric-column>
+            <igc-text-column field="ProductName" header-text="Product" width="*>160"></igc-text-column>
+            <igc-numeric-column positive-prefix="$" field="BundlePrice" show-grouping-separator="true" header-text="Price" ></igc-numeric-column>
+            <igc-numeric-column field="OrderItems" header-text="Order Items" width="*>135"></igc-numeric-column>
+            <igc-numeric-column field="OrderValue" show-grouping-separator="true" header-text="Order Totals" positive-prefix="$" width="*>195"></igc-numeric-column>
+            <igc-date-time-column field="OrderDate" header-text="Order Date" horizontal-alignment="right" width="*>180"></igc-date-time-column>
+            <igc-numeric-column field="Profit" show-grouping-separator="true" header-text="Profit" positive-prefix="$" width="*>165"></igc-numeric-column>
+            <igc-text-column field="Countries" header-text="Country" width="*>115"></igc-text-column>
     </igc-data-grid>
-</div>
+</div>
+
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->

@@ -10,9 +10,9 @@ ModuleManager.register(IgcDataGridModule);
 export class DataGridTypeMatrixTable {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
     public dataPeople: any[];
@@ -26,13 +26,13 @@ export class DataGridTypeMatrixTable {
     public names: string[] = ['Kyle', 'Oscar', 'Gina', 'Irene', 'Kate', 'Brenda', 'Mark', 'John', 'Andrew', 'Casey', 'Holly', 'Larry', 'Pete', 'Steve'];
 
     constructor() {
-        
+
 
         this.onVerticalHeaderUpdating = this.onVerticalHeaderUpdating.bind(this);
         this.onHorizontalHeaderUpdating = this.onHorizontalHeaderUpdating.bind(this);
         this.onCellUpdating = this.onCellUpdating.bind(this);
-    
-        
+
+
 
         this.createData();
 
@@ -47,7 +47,7 @@ export class DataGridTypeMatrixTable {
 
         for (const name of this.names) {
             const column = document.getElementById(name) as IgcTemplateColumnComponent;
-            column.propertyPath = name;
+            column.field = name;
             column.header = this.VerticalHeader;
             column.horizontalAlignment = CellContentHorizontalAlignment.Center;
             column.verticalAlignment = CellContentVerticalAlignment.Bottom;

@@ -14,9 +14,9 @@ ModuleManager.register(IgcDataGridModule);
 export class DataGridTypeComparisonTable {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
     private data: any[];
@@ -33,13 +33,13 @@ export class DataGridTypeComparisonTable {
     public skillNames = ['JavaScript', 'Angular', 'React', 'CSharp', 'CPP', 'Swift', 'VB', 'Python', 'Ruby', 'XAML'];
 
     constructor() {
-        
+
 
         this.onCellUpdating = this.onCellUpdating.bind(this);
         this.onVerticalHeaderUpdating = this.onVerticalHeaderUpdating.bind(this);
         this.onHorizontalHeaderUpdating = this.onHorizontalHeaderUpdating.bind(this);
-    
-        
+
+
 
         this.createData();
 
@@ -54,7 +54,7 @@ export class DataGridTypeComparisonTable {
 
         for (const name of this.skillNames) {
             const column = document.getElementById(name) as IgcTemplateColumnComponent;
-            column.propertyPath = name;
+            column.field = name;
             column.header = this.VerticalHeader;
             column.horizontalAlignment = CellContentHorizontalAlignment.Center;
             column.verticalAlignment = CellContentVerticalAlignment.Bottom;

@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
     <div class="igOptions">
         <span class="optionItem">Selection Mode: </span>
@@ -39,17 +39,18 @@
         is-column-options-enabled="true"
         auto-generate-columns="false">
 
-        <igc-text-column property-path="Name" width="*>150"></igc-text-column>
-        <igc-text-column property-path="Street" header-text="Street" width="*>155"></igc-text-column>
-        <igc-text-column property-path="City" header-text="City" width="*>125"></igc-text-column>
-        <igc-numeric-column property-path="Salary" header-text="Salary" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+        <igc-text-column field="Name" width="*>150"></igc-text-column>
+        <igc-text-column field="Street" header-text="Street" width="*>155"></igc-text-column>
+        <igc-text-column field="City" header-text="City" width="*>125"></igc-text-column>
+        <igc-numeric-column field="Salary" header-text="Salary" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
 
-        <igc-image-column property-path="Photo" header-text="Photo" content-opacity="1"
+        <igc-image-column field="Photo" header-text="Photo" content-opacity="1"
         horizontal-alignment="center"  width="*>90"></igc-image-column>
-        <igc-date-time-column property-path="Birthday" header-text="Date of Birth" width="*>140"></igc-date-time-column>
+        <igc-date-time-column field="Birthday" header-text="Date of Birth" width="*>140"></igc-date-time-column>
 
     </igc-data-grid>
-</div>
+</div>
+
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->

@@ -16,17 +16,17 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 export class DataGridColumnSummaries {
 
 
-    
-    
-        
+
+
+
     private grid: IgcDataGridComponent;
 
     constructor() {
-        
+
         this.onSummaryScopeChanging = this.onSummaryScopeChanging.bind(this);
         this.onGroupSummaryDisplayModeChanging = this.onGroupSummaryDisplayModeChanging.bind(this);
-    
-        
+
+
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getSales();
 
@@ -46,72 +46,72 @@ export class DataGridColumnSummaries {
 
     onLoad() {
         const productGroup = new IgcColumnGroupDescription();
-        productGroup.propertyPath = 'ProductName';
+        productGroup.field = 'ProductName';
         productGroup.displayName = 'ProductName';
         this.grid.groupDescriptions.add(productGroup);
 
         const productCount = new IgcColumnSummaryDescription();
-        productCount.propertyPath = 'ProductName';
+        productCount.field = 'ProductName';
         productCount.operand = SummaryOperand.Count;
         this.grid.summaryDescriptions.add(productCount);
 
         const priceMin = new IgcColumnSummaryDescription();
-        priceMin.propertyPath = 'BundlePrice';
+        priceMin.field = 'BundlePrice';
         priceMin.operand = SummaryOperand.Min;
         priceMin.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMin);
 
         const priceMax = new IgcColumnSummaryDescription();
-        priceMax.propertyPath = 'BundlePrice';
+        priceMax.field = 'BundlePrice';
         priceMax.operand = SummaryOperand.Max;
         priceMax.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMax);
 
         const orderSum = new IgcColumnSummaryDescription();
-        orderSum.propertyPath = 'OrderItems';
+        orderSum.field = 'OrderItems';
         orderSum.operand = SummaryOperand.Sum;
         this.grid.summaryDescriptions.add(orderSum);
 
         const orderValueSum = new IgcColumnSummaryDescription();
-        orderValueSum.propertyPath = 'OrderValue';
+        orderValueSum.field = 'OrderValue';
         orderValueSum.operand = SummaryOperand.Sum;
         orderValueSum.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0});
         this.grid.summaryDescriptions.add(orderValueSum);
 
         const orderValueAvg = new IgcColumnSummaryDescription();
-        orderValueAvg.propertyPath = 'OrderValue';
+        orderValueAvg.field = 'OrderValue';
         orderValueAvg.operand = SummaryOperand.Average;
         orderValueAvg.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(orderValueAvg);
 
         const orderDateMin = new IgcColumnSummaryDescription();
-        orderDateMin.propertyPath = 'OrderDate';
+        orderDateMin.field = 'OrderDate';
         orderDateMin.operand = SummaryOperand.Min;
         orderDateMin.calculatorDisplayName = 'First'
         orderDateMin.formatOverride = new Intl.DateTimeFormat('en-EN');
         this.grid.summaryDescriptions.add(orderDateMin);
 
         const orderDateMax = new IgcColumnSummaryDescription();
-        orderDateMax.propertyPath = 'OrderDate';
+        orderDateMax.field = 'OrderDate';
         orderDateMax.operand = SummaryOperand.Max;
         orderDateMax.calculatorDisplayName = 'Last'
         orderDateMax.formatOverride = new Intl.DateTimeFormat('en-EN');
         this.grid.summaryDescriptions.add(orderDateMax);
 
         const sum1 = new IgcColumnSummaryDescription();
-        sum1.propertyPath = 'Profit';
+        sum1.field = 'Profit';
         sum1.operand = SummaryOperand.Sum;
         sum1.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(sum1);
 
         const avg2 = new IgcColumnSummaryDescription();
-        avg2.propertyPath = 'Profit';
+        avg2.field = 'Profit';
         avg2.operand = SummaryOperand.Average;
         avg2.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(avg2);
 
         const countries = new IgcColumnSummaryDescription();
-        countries.propertyPath = 'Countries';
+        countries.field = 'Countries';
         countries.operand = SummaryOperand.Custom;
         countries.provideCalculator = this.onProvideCalculator;
         this.grid.summaryDescriptions.add(countries);

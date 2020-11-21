@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
     <div class="igOptions">
         <span class="optionItem">  Column: </span>
@@ -43,16 +43,17 @@
         is-column-options-enabled="true"
         auto-generate-columns="false">
 
-        <igc-text-column property-path="Name" width="*>150"></igc-text-column>
-        <igc-text-column property-path="Street" width="*>160"></igc-text-column>
-        <igc-text-column property-path="City" width="*>125"></igc-text-column>
-        <igc-image-column property-path="CountryFlag" header-text="Country" content-opacity="1"
+        <igc-text-column field="Name" width="*>150"></igc-text-column>
+        <igc-text-column field="Street" width="*>160"></igc-text-column>
+        <igc-text-column field="City" width="*>125"></igc-text-column>
+        <igc-image-column field="CountryFlag" header-text="Country" content-opacity="1"
             horizontal-alignment="center" width="*>110" padding-top="5" padding-bottom="5"></igc-image-column>
-        <igc-numeric-column property-path="Sales" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
-        <igc-date-time-column property-path="Birthday" header-text="Birthday" width="*>115"></igc-date-time-column>
+        <igc-numeric-column field="Sales" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+        <igc-date-time-column field="Birthday" header-text="Birthday" width="*>115"></igc-date-time-column>
 
     </igc-data-grid>
-</div>
+</div>
+
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->

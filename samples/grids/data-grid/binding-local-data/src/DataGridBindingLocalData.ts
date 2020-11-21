@@ -20,17 +20,17 @@ ModuleManager.register(
 export class DataGridBindingLocalData {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
     private data: any[];
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.initData();
 
@@ -38,7 +38,7 @@ export class DataGridBindingLocalData {
         this.grid.dataSource = this.data;
 
         const grouping = new IgcColumnGroupDescription();
-        grouping.propertyPath = 'Status';
+        grouping.field = 'Status';
         grouping.displayName = 'Status';
         this.grid.groupDescriptions.add(grouping);
     }

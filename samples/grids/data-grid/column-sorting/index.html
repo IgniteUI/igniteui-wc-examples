@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
     <div class="igOptions">
         <span class="optionItem">Header Click Action: </span>
@@ -34,15 +34,16 @@
         auto-generate-columns="false"
         is-column-options-enabled="true"
         default-column-min-width="100" >
-            <igc-text-column property-path="ID" width="*>80" horizontal-alignment="center"></igc-text-column>
-            <igc-text-column property-path="Property" header-text="Property Type" width="*>150"></igc-text-column>
-            <igc-image-column property-path="CountryFlag" header-text="Country" width="*>100" content-opacity="1" horizontal-alignment="center"
+            <igc-text-column field="ID" width="*>80" horizontal-alignment="center"></igc-text-column>
+            <igc-text-column field="Property" header-text="Property Type" width="*>150"></igc-text-column>
+            <igc-image-column field="CountryFlag" header-text="Country" width="*>100" content-opacity="1" horizontal-alignment="center"
                               padding-top="5" padding-bottom="5"></igc-image-column>
-            <igc-text-column property-path="City" width="*>130"></igc-text-column>
-            <igc-numeric-column property-path="Price" width="*>110" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
-            <igc-numeric-column property-path="Rooms" width="*>80" ></igc-numeric-column>
+            <igc-text-column field="City" width="*>130"></igc-text-column>
+            <igc-numeric-column field="Price" width="*>110" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+            <igc-numeric-column field="Rooms" width="*>80" ></igc-numeric-column>
     </igc-data-grid>
-</div>
+</div>
+
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->

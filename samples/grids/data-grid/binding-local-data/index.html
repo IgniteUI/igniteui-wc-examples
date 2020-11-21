@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
     <igc-data-grid
     id="grid"
@@ -24,19 +24,20 @@
     width="100%"
     auto-generate-columns="false"
     is-column-igOptions-enabled="true">
-        <igc-text-column property-path="ProductID" header-text="ID" width="*>95"></igc-text-column>
-        <igc-text-column property-path="ProductName" header-text="Product" width="*>160"></igc-text-column>
-        <igc-image-column property-path="CountryFlag" header-text="Country" width="*>120" contentOpacity="1"
+        <igc-text-column field="ProductID" header-text="ID" width="*>95"></igc-text-column>
+        <igc-text-column field="ProductName" header-text="Product" width="*>160"></igc-text-column>
+        <igc-image-column field="CountryFlag" header-text="Country" width="*>120" contentOpacity="1"
                           padding-top="5" padding-bottom="5"></igc-image-column>
-        <igc-numeric-column property-path="ProductPrice" header-text="Price" width="*>95" positive-prefix="$" show-grouping-separator="true" min-fraction-digits="2"></igc-numeric-column>
-        <igc-numeric-column property-path="OrderItems" header-text="Orders" width="*>105"></igc-numeric-column>
-        <igc-numeric-column property-path="OrderValue" header-text="Order Value" width="*>140" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
-        <igc-date-time-column property-path="OrderDate" header-text="Order Date" width="*>135" dateTimeFormat="DateShort" ></igc-date-time-column>
-        <igc-numeric-column property-path="Margin" header-text="Margin" width="*>115" positive-suffix="%"></igc-numeric-column>
-        <igc-numeric-column property-path="Profit" header-text="Profit" width="*>105" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
-        <igc-text-column property-path="Status" header-text="Status" width="*>100"></igc-text-column>
+        <igc-numeric-column field="ProductPrice" header-text="Price" width="*>95" positive-prefix="$" show-grouping-separator="true" min-fraction-digits="2"></igc-numeric-column>
+        <igc-numeric-column field="OrderItems" header-text="Orders" width="*>105"></igc-numeric-column>
+        <igc-numeric-column field="OrderValue" header-text="Order Value" width="*>140" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+        <igc-date-time-column field="OrderDate" header-text="Order Date" width="*>135" dateTimeFormat="DateShort" ></igc-date-time-column>
+        <igc-numeric-column field="Margin" header-text="Margin" width="*>115" positive-suffix="%"></igc-numeric-column>
+        <igc-numeric-column field="Profit" header-text="Profit" width="*>105" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+        <igc-text-column field="Status" header-text="Status" width="*>100"></igc-text-column>
     </igc-data-grid>
-</div>
+</div>
+
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->

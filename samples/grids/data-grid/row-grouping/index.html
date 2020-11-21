@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
     <div class="igOptions">
         <span class="optionItem" style="width:175px" >Section Header Display Mode:</span>
@@ -35,19 +35,20 @@
         width="100%"
         is-column-options-enabled="true"
         auto-generate-columns="false">
-            <igc-text-column property-path="Name" header-text="Name" width="*>230" ></igc-text-column>
-            <igc-numeric-column property-path="Age" header-text="Age" width="*>95"></igc-numeric-column>
-            <igc-date-time-column property-path="Birthday" header-text="Date of Birth"
+            <igc-text-column field="Name" header-text="Name" width="*>230" ></igc-text-column>
+            <igc-numeric-column field="Age" header-text="Age" width="*>95"></igc-numeric-column>
+            <igc-date-time-column field="Birthday" header-text="Date of Birth"
             horizontal-alignment="right" width="*>140"></igc-date-time-column>
-            <igc-text-column property-path="Street" header-text="Address" width="*>155"></igc-text-column>
-            <igc-numeric-column property-path="Salary" header-text="Salary" width="*>105"
+            <igc-text-column field="Street" header-text="Address" width="*>155"></igc-text-column>
+            <igc-numeric-column field="Salary" header-text="Salary" width="*>105"
             positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
-            <igc-text-column property-path="City" header-text="City" width="*>120" horizontal-alignment="center"></igc-text-column>
+            <igc-text-column field="City" header-text="City" width="*>120" horizontal-alignment="center"></igc-text-column>
 
-            <igc-image-column property-path="CountryFlag" header-text="Country" width="*>120" content-opacity="1" horizontal-alignment="center"
+            <igc-image-column field="CountryFlag" header-text="Country" width="*>120" content-opacity="1" horizontal-alignment="center"
                               padding-top="5" padding-bottom="5"></igc-image-column>
     </igc-data-grid>
-</div>
+</div>
+
     </div>
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->
