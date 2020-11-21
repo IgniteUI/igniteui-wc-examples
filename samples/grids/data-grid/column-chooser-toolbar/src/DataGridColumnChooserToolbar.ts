@@ -13,21 +13,17 @@ ModuleManager.register(IgcDataGridToolbarModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
 
-export class DataGridColumnChooserToolbarUI {
+export class DataGridColumnChooserToolbar {
 
-
-    ('DataGridColumnChooserToolbarUI');
-    
-        
 
     private grid: IgcDataGridComponent;
     private toolbar: IgcDataGridToolbarComponent;
     private data: any[];
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.toolbar = document.getElementById('toolbar') as IgcDataGridToolbarComponent;
