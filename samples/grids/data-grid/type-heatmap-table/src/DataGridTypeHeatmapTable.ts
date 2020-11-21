@@ -10,9 +10,9 @@ ModuleManager.register(IgcDataGridModule);
 export class DataGridTypeHeatmapTable {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
     private data: any[];
@@ -29,24 +29,24 @@ export class DataGridTypeHeatmapTable {
     public monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     constructor() {
-        
+
 
         this.onVerticalHeaderUpdating = this.onVerticalHeaderUpdating.bind(this);
         this.onHorizontalHeaderUpdating = this.onHorizontalHeaderUpdating.bind(this);
         this.onHeatCellUpdating = this.onHeatCellUpdating.bind(this);
-    
-        
+
+
 
         this.createData();
 
         this.VerticalHeader = new IgcTemplateHeaderComponent();
-        this.VerticalHeader.cellUpdating = (s, e) => this.onVerticalHeaderUpdating(s, e);
+        this.VerticalHeader.cellUpdating = (s: any, e: any) => this.onVerticalHeaderUpdating(s: any, e: any);
 
         this.HorizontalRightHeader = new IgcTemplateHeaderComponent();
-        this.HorizontalRightHeader.cellUpdating = (s, e) => this.onHorizontalHeaderUpdating(s, e, 'right');
+        this.HorizontalRightHeader.cellUpdating = (s: any, e: any) => this.onHorizontalHeaderUpdating(s, e, 'right');
 
         this.HorizontalLeftHeader = new IgcTemplateHeaderComponent();
-        this.HorizontalLeftHeader.cellUpdating = (s, e) => this.onHorizontalHeaderUpdating(s, e, 'left');
+        this.HorizontalLeftHeader.cellUpdating = (s: any, e: any) => this.onHorizontalHeaderUpdating(s, e, 'left');
 
         for (const name of this.monthNames) {
             const column = document.getElementById(name) as IgcTemplateColumnComponent;

@@ -16,26 +16,26 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 export class DataGridColumnMoving {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
 
     constructor() {
-        
+
         this.onColumnMovingAnimationModeValueChanged = this.onColumnMovingAnimationModeValueChanged.bind(this);
         this.onColumnMovingModeValueChanged = this.onColumnMovingModeValueChanged.bind(this);
         this.onSeparatorWidthRangeValueChanged = this.onSeparatorWidthRangeValueChanged.bind(this);
-    
-        
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();
 
-        document.getElementById('columnMovingAnimationModeDropDown').addEventListener('change', this.onColumnMovingAnimationModeValueChanged);
-        document.getElementById('separatorWidthRange').addEventListener('change', this.onSeparatorWidthRangeValueChanged);
-        document.getElementById('columnMovingModeDropDown').addEventListener('change', this.onColumnMovingModeValueChanged);
+        document.getElementById('columnMovingAnimationModeDropDown')!.addEventListener('change', this.onColumnMovingAnimationModeValueChanged);
+        document.getElementById('separatorWidthRange')!.addEventListener('change', this.onSeparatorWidthRangeValueChanged);
+        document.getElementById('columnMovingModeDropDown')!.addEventListener('change', this.onColumnMovingModeValueChanged);
     }
 
     onColumnMovingAnimationModeValueChanged(e: any) {

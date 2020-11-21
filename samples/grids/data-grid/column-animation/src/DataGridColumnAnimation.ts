@@ -19,14 +19,14 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 export class DataGridColumnAnimation {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
 
     constructor() {
-        
+
 
         this.onHideColumnBtnClick = this.onHideColumnBtnClick.bind(this);
         this.onShowColumnBtnClick = this.onShowColumnBtnClick.bind(this);
@@ -37,21 +37,21 @@ export class DataGridColumnAnimation {
         this.onHidingAnimationDropDownValueChanged = this.onHidingAnimationDropDownValueChanged.bind(this);
         this.onExchangeAnimationDropDownValueChanged = this.onExchangeAnimationDropDownValueChanged.bind(this);
         this.onAddAnimationDropDownValueChanged = this.onAddAnimationDropDownValueChanged.bind(this);
-    
-        
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();
 
-        document.getElementById('hideColumnBtnClick').addEventListener('click', this.onHideColumnBtnClick);
-        document.getElementById('showColumnBtnClick').addEventListener('click', this.onShowColumnBtnClick);
-        document.getElementById('reloadGridBtnClick').addEventListener('click', this.onReloadGridBtnClick);
+        document.getElementById('hideColumnBtnClick')!.addEventListener('click', this.onHideColumnBtnClick);
+        document.getElementById('showColumnBtnClick')!.addEventListener('click', this.onShowColumnBtnClick);
+        document.getElementById('reloadGridBtnClick')!.addEventListener('click', this.onReloadGridBtnClick);
 
-        document.getElementById('movingAnimationDropDown').addEventListener('change', this.onMovingAnimationDropDownValueChanged);
-        document.getElementById('updatingAnimationDropDown').addEventListener('change', this.onUpdatingAnimationDropDownValueChanged);
-        document.getElementById('hidingAnimationDropDown').addEventListener('change', this.onHidingAnimationDropDownValueChanged);
-        document.getElementById('exchangeAnimationDropDown').addEventListener('change', this.onExchangeAnimationDropDownValueChanged);
-        document.getElementById('addAnimationDropDown').addEventListener('change', this.onAddAnimationDropDownValueChanged);
+        document.getElementById('movingAnimationDropDown')!.addEventListener('change', this.onMovingAnimationDropDownValueChanged);
+        document.getElementById('updatingAnimationDropDown')!.addEventListener('change', this.onUpdatingAnimationDropDownValueChanged);
+        document.getElementById('hidingAnimationDropDown')!.addEventListener('change', this.onHidingAnimationDropDownValueChanged);
+        document.getElementById('exchangeAnimationDropDown')!.addEventListener('change', this.onExchangeAnimationDropDownValueChanged);
+        document.getElementById('addAnimationDropDown')!.addEventListener('change', this.onAddAnimationDropDownValueChanged);
     }
 
     onHideColumnBtnClick() {

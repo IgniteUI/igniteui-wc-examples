@@ -17,9 +17,9 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 export class DataGridColumnFiltering {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
     private filterText: string = '';
@@ -29,19 +29,19 @@ export class DataGridColumnFiltering {
 
 
     constructor() {
-        
+
         this.onFilterColumnDropDownValueChanged = this.onFilterColumnDropDownValueChanged.bind(this);
         this.onFilterModeDropDownValueChanged = this.onFilterModeDropDownValueChanged.bind(this);
         this.onFilterTextBoxTextChanged = this.onFilterTextBoxTextChanged.bind(this);
         this.applyFilter = this.applyFilter.bind(this);
-    
-        
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
 
-        document.getElementById('filterColumnDropDown').addEventListener('change', this.onFilterColumnDropDownValueChanged);
-        document.getElementById('filterModeDropDown').addEventListener('change', this.onFilterModeDropDownValueChanged);
-        document.getElementById('filterTextBox').addEventListener('change', this.onFilterTextBoxTextChanged);
+        document.getElementById('filterColumnDropDown')!.addEventListener('change', this.onFilterColumnDropDownValueChanged);
+        document.getElementById('filterModeDropDown')!.addEventListener('change', this.onFilterModeDropDownValueChanged);
+        document.getElementById('filterTextBox')!.addEventListener('change', this.onFilterTextBoxTextChanged);
 
         this.grid.dataSource = DataGridSharedData.getEmployees(4000);
     }

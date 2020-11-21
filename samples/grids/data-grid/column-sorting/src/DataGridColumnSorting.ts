@@ -15,23 +15,23 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 export class DataGridColumnSorting {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
 
     constructor() {
-        
+
         this.onHeaderClickActionValueChanged = this.onHeaderClickActionValueChanged.bind(this);
-    
-        
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getHouses();
         this.grid.headerClickAction = HeaderClickAction.SortByMultipleColumns;
 
-        document.getElementById('headerClickActionDropDown').addEventListener('change', this.onHeaderClickActionValueChanged);
+        document.getElementById('headerClickActionDropDown')!.addEventListener('change', this.onHeaderClickActionValueChanged);
     }
 
     onHeaderClickActionValueChanged(e: any) {

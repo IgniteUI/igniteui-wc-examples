@@ -14,14 +14,14 @@ ModuleManager.register(IgcTreemapModule);
 export class TreeMapOverview {
 
 
-    
-    
-        
+
+
+
 
     private treeMap: IgcTreemapComponent;
 
     constructor() {
-        
+
         this.onClickSliceVer = this.onClickSliceVer.bind(this);
         this.onClickSliceHor = this.onClickSliceHor.bind(this);
 
@@ -29,8 +29,8 @@ export class TreeMapOverview {
         this.onClickStripHor = this.onClickStripHor.bind(this);
 
         this.onClickSquared = this.onClickSquared.bind(this);
-    
-        
+
+
 
         this.treeMap = document.getElementById('treeMap') as IgcTreemapComponent;
         this.treeMap.dataSource = SampleTreeData.getPopulation();
@@ -41,11 +41,11 @@ export class TreeMapOverview {
         this.treeMap.fillBrushes = '#4e62cf #8a58d6' as any;
         this.treeMap.isFillScaleLogarithmic = false;
 
-        document.getElementById('buttonSliceVer').addEventListener('click', this.onClickSliceVer);
-        document.getElementById('buttonSliceHor').addEventListener('click', this.onClickSliceHor);
-        document.getElementById('buttonStripVer').addEventListener('click', this.onClickStripVer);
-        document.getElementById('buttonStripHor').addEventListener('click', this.onClickStripHor);
-        document.getElementById('buttonSquared').addEventListener('click', this.onClickSquared);
+        document.getElementById('buttonSliceVer')!.addEventListener('click', this.onClickSliceVer);
+        document.getElementById('buttonSliceHor')!.addEventListener('click', this.onClickSliceHor);
+        document.getElementById('buttonStripVer')!.addEventListener('click', this.onClickStripVer);
+        document.getElementById('buttonStripHor')!.addEventListener('click', this.onClickStripHor);
+        document.getElementById('buttonSquared')!.addEventListener('click', this.onClickSquared);
     }
 
     public onClickSquared = (e: any) => {

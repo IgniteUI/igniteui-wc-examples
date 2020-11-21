@@ -14,14 +14,14 @@ ModuleManager.register(IgcSpreadsheetModule);
 export class SpreadsheetConfiguring {
 
 
-    
-    
-        
+
+
+
 
     private spreadsheet: IgcSpreadsheetComponent;
 
     constructor() {
-        
+
         this.onGridlinesVisibleChanged = this.onGridlinesVisibleChanged.bind(this);
         this.onTabBarAreaVisibleChanged = this.onTabBarAreaVisibleChanged.bind(this);
         this.onIsProtectedChanged = this.onIsProtectedChanged.bind(this);
@@ -33,8 +33,8 @@ export class SpreadsheetConfiguring {
 
         this.onEnterKeyNavDirectionChanged = this.onEnterKeyNavDirectionChanged.bind(this);
         this.onSelectionModeChanged = this.onSelectionModeChanged.bind(this);
-    
-        
+
+
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
 
@@ -45,17 +45,17 @@ export class SpreadsheetConfiguring {
 
         (document.getElementById('selectionModeDropDown') as any).value = 'Normal';
 
-        document.getElementById('areGridlinesVisibleCheckbox').addEventListener('change', this.onGridlinesVisibleChanged);
-        document.getElementById('isTabBarAreaVisibleCheckbox').addEventListener('change', this.onTabBarAreaVisibleChanged);
-        document.getElementById('isProtectedCheckbox').addEventListener('change', this.onIsProtectedChanged);
-        document.getElementById('spreadsheetZoomLevelRange').addEventListener('input', this.onSpreadsheetZoomLevelChange);
+        document.getElementById('areGridlinesVisibleCheckbox')!.addEventListener('change', this.onGridlinesVisibleChanged);
+        document.getElementById('isTabBarAreaVisibleCheckbox')!.addEventListener('change', this.onTabBarAreaVisibleChanged);
+        document.getElementById('isProtectedCheckbox')!.addEventListener('change', this.onIsProtectedChanged);
+        document.getElementById('spreadsheetZoomLevelRange')!.addEventListener('input', this.onSpreadsheetZoomLevelChange);
 
-        document.getElementById('areHeadersVisibleCheckbox').addEventListener('change', this.onHeadersVisibleChanged);
-        document.getElementById('isFormulaBarVisibleCheckbox').addEventListener('change', this.onFormulaBarVisibleChanged);
-        document.getElementById('isEnterKeyNavEnabledCheckbox').addEventListener('change', this.onEnterKeyNavEnabledChanged);
+        document.getElementById('areHeadersVisibleCheckbox')!.addEventListener('change', this.onHeadersVisibleChanged);
+        document.getElementById('isFormulaBarVisibleCheckbox')!.addEventListener('change', this.onFormulaBarVisibleChanged);
+        document.getElementById('isEnterKeyNavEnabledCheckbox')!.addEventListener('change', this.onEnterKeyNavEnabledChanged);
 
-        document.getElementById('enterKeyNavDirectionDropDown').addEventListener('change', this.onEnterKeyNavDirectionChanged);
-        document.getElementById('selectionModeDropDown').addEventListener('change', this.onSelectionModeChanged);
+        document.getElementById('enterKeyNavDirectionDropDown')!.addEventListener('change', this.onEnterKeyNavDirectionChanged);
+        document.getElementById('selectionModeDropDown')!.addEventListener('change', this.onSelectionModeChanged);
     }
 
     onGridlinesVisibleChanged(e: any) {
@@ -84,7 +84,7 @@ export class SpreadsheetConfiguring {
 
     onSpreadsheetZoomLevelChange(e: any) {
         this.spreadsheet.zoomLevel = e.target.value;
-        document.getElementById('zoomLevelLabel').textContent = 'Zoom Level: ' + e.target.value.toString() + '%';
+        document.getElementById('zoomLevelLabel')!.textContent = 'Zoom Level: ' + e.target.value.toString() + '%';
     }
 
     onHeadersVisibleChanged(e: any) {

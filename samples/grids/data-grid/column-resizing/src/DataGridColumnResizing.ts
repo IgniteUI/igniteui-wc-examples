@@ -16,26 +16,26 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 export class DataGridColumnResizing {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
 
     constructor() {
-        
+
         this.onColumnResizingAnimationModeValueChanged = this.onColumnResizingAnimationModeValueChanged.bind(this);
         this.onColumnResizingModeValueChanged = this.onColumnResizingModeValueChanged.bind(this);
         this.onSeparatorWidthRangeValueChanged = this.onSeparatorWidthRangeValueChanged.bind(this);
-    
-        
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();
 
-        document.getElementById('columnResizingAnimationModeDropDown').addEventListener('change', this.onColumnResizingAnimationModeValueChanged);
-        document.getElementById('separatorWidthRange').addEventListener('change', this.onSeparatorWidthRangeValueChanged);
-        document.getElementById('columnResizingModeDropDown').addEventListener('change', this.onColumnResizingModeValueChanged);
+        document.getElementById('columnResizingAnimationModeDropDown')!.addEventListener('change', this.onColumnResizingAnimationModeValueChanged);
+        document.getElementById('separatorWidthRange')!.addEventListener('change', this.onSeparatorWidthRangeValueChanged);
+        document.getElementById('columnResizingModeDropDown')!.addEventListener('change', this.onColumnResizingModeValueChanged);
     }
 
     onColumnResizingAnimationModeValueChanged(e: any) {

@@ -14,23 +14,23 @@ export class DataGridColumnPinningPicker {
 
 
     public data: any[];
-    
-    
-        
+
+
+
     public grid: IgcDataGridComponent;
     public buttonLeft: Button;
     public buttonRight: Button;
 
     constructor() {
-        
+
         this.onGridRef = this.onGridRef.bind(this);
         this.onPinLeft = this.onPinLeft.bind(this);
         this.onPinRight = this.onPinRight.bind(this);
         this.onUnPin = this.onUnPin.bind(this);
 
         this.data = DataGridSharedData.getEmployees();
-    
-        
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();
@@ -39,9 +39,9 @@ export class DataGridColumnPinningPicker {
         this.buttonLeft.disabled = true;
         this.buttonRight.disabled = true;
 
-        document.getElementById('pinLeft').addEventListener('click', this.onPinLeft);
-        document.getElementById('pinRight').addEventListener('click', this.onPinRight);
-        document.getElementById('unpinColumns').addEventListener('click', this.onUnPin);
+        document.getElementById('pinLeft')!.addEventListener('click', this.onPinLeft);
+        document.getElementById('pinRight')!.addEventListener('click', this.onPinRight);
+        document.getElementById('unpinColumns')!.addEventListener('click', this.onUnPin);
 
     }
 

@@ -12,19 +12,19 @@ ModuleManager.register(IgcSpreadsheetModule);
 export class SpreadsheetClipboard {
 
 
-    
-    
-        
+
+
+
 
     private spreadsheet: IgcSpreadsheetComponent;
 
     constructor() {
-        
+
         this.onCutBtnClick = this.onCutBtnClick.bind(this)
         this.onCopyBtnClick = this.onCopyBtnClick.bind(this)
         this.onPasteBtnClick = this.onPasteBtnClick.bind(this)
-    
-        
+
+
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
 
@@ -33,9 +33,9 @@ export class SpreadsheetClipboard {
             this.spreadsheet.workbook = w;
         });
 
-        document.getElementById('cutBtn').addEventListener('click', this.onCutBtnClick);
-        document.getElementById('copyBtn').addEventListener('click', this.onCopyBtnClick);
-        document.getElementById('pasteBtn').addEventListener('click', this.onPasteBtnClick);
+        document.getElementById('cutBtn')!.addEventListener('click', this.onCutBtnClick);
+        document.getElementById('copyBtn')!.addEventListener('click', this.onCopyBtnClick);
+        document.getElementById('pasteBtn')!.addEventListener('click', this.onPasteBtnClick);
     }
 
     onCutBtnClick() {

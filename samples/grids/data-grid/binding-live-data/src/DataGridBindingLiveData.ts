@@ -95,9 +95,9 @@ export class DataGridBindingLiveData {
     private liveButton: any;
     private liveAllButton: any;
     private stopButton: any;
-    private chartButton;
-    private frequencySpan;
-    private volumeSpan;
+    private chartButton: any;
+    private frequencySpan: any;
+    private volumeSpan: any;
     private chart: IgcDataChartComponent;
     private financialData: LiveFinancialData;
 
@@ -199,24 +199,24 @@ export class DataGridBindingLiveData {
         };
 
         let self = this;
-        (document.getElementById('fSlider') as any).addEventListener('MDCSlider:change', function (ev, val) {
+        (document.getElementById('fSlider') as any)!.addEventListener('MDCSlider:change', function (ev: any, val: any) {
             self.onFrequencyChange(ev, val);
         });
-        (document.getElementById('fSlider') as any).addEventListener('MDCSlider:input', function (ev, val) {
+        (document.getElementById('fSlider') as any)!.addEventListener('MDCSlider:input', function (ev: any, val: any) {
             self.onFrequencyChange(ev, val);
         });
 
-        (document.getElementById('vSlider') as any).addEventListener('MDCSlider:change', function (ev, val) {
+        (document.getElementById('vSlider') as any)!.addEventListener('MDCSlider:change', function (ev: any, val: any) {
             self.onVolumeChange(ev, val);
         });
-        (document.getElementById('vSlider') as any).addEventListener('MDCSlider:input', function (ev, val) {
+        (document.getElementById('vSlider') as any)!.addEventListener('MDCSlider:input', function (ev: any, val: any) {
             self.onVolumeChange(ev, val)
         });
 
-        (document.getElementById('groupingSwitch') as any).addEventListener('change', function (ev, val) {
+        (document.getElementById('groupingSwitch') as any)!.addEventListener('change', function (ev: any, val: any) {
             self.onGroupingChanged(ev);
         });
-        (document.getElementById('heatSwitch') as any).addEventListener('change', function (ev, val) {
+        (document.getElementById('heatSwitch') as any)!.addEventListener('change', function (ev: any, val: any) {
             self.onHeatChanged(ev);
         });
 
@@ -397,6 +397,9 @@ export class DataGridBindingLiveData {
                 }
             }
             let currVal = priceByCountry.get(currCountry);
+            if (currVal === undefined)
+                currVal = 0;
+
             currVal += currItem.Price;
             currVal = Math.round(currVal * 100.0) / 100.0;
             priceByCountry.set(currCountry, currVal);
@@ -469,7 +472,7 @@ export class DataGridBindingLiveData {
                 context.font = '13px Verdana';
                 let width = context.measureText(txt).width;
 
-                context.font = '13px 'Material Icons'';
+                context.font = '13px "Material Icons"';
                 let iconWidth = context.measureText(iconText).width;
 
                 let totalWidth = width + iconWidth;
@@ -479,7 +482,7 @@ export class DataGridBindingLiveData {
                 context.textBaseline = 'top';
                 context.fillText(txt, templ.width - (totalWidth + 5), (templ.height / 2.0) - 7);
 
-                context.font = '13px 'Material Icons'';
+                context.font = '13px "Material Icons"';
                 context.fillStyle = iconColor;
                 context.textBaseline = 'top';
                 context.fillText(iconText, templ.width - (iconWidth + 5), (templ.height / 2.0) - 7);
@@ -492,7 +495,7 @@ export class DataGridBindingLiveData {
         }
 
         let content = args.content as HTMLDivElement;
-        let sp: HTMLSpanElement = null;
+        let sp: HTMLSpanElement;
         // let icon: HTMLSpanElement = null;
 
         if (content.childElementCount > 0) {
@@ -580,7 +583,7 @@ export class DataGridBindingLiveData {
                 context.textBaseline = 'top';
                 context.fillText(txt, templ.width - (totalWidth + 10), (templ.height / 2.0) - 7);
 
-                context.font = '13px 'Material Icons'';
+                context.font = '13px "Material Icons"';
                 context.fillStyle = iconColor;
                 context.fillRect(templ.width - (5 + 4), (templ.height / 2.0) - 8, 4, 16);
 
@@ -593,7 +596,7 @@ export class DataGridBindingLiveData {
         }
 
         let content = args.content as HTMLDivElement;
-        let sp: HTMLSpanElement = null;
+        let sp: HTMLSpanElement;
 
         if (content.childElementCount > 0) {
             sp = content.children[0] as HTMLSpanElement;
@@ -670,7 +673,7 @@ export class DataGridBindingLiveData {
                 context.textBaseline = 'top';
                 context.fillText(txt, templ.width - (totalWidth + 10), (templ.height / 2.0) - 7);
 
-                context.font = '13px 'Material Icons'';
+                context.font = '13px "Material Icons"';
                 context.fillStyle = iconColor;
                 context.fillRect(templ.width - (5 + 4), (templ.height / 2.0) - 8, 4, 16);
 
@@ -683,7 +686,7 @@ export class DataGridBindingLiveData {
         }
 
         let content = args.content as HTMLDivElement;
-        let sp: HTMLSpanElement = null;
+        let sp: HTMLSpanElement;
 
         if (content.childElementCount > 0) {
             sp = content.children[0] as HTMLSpanElement;
@@ -724,7 +727,7 @@ export class DataGridBindingLiveData {
         let templ = args.cellInfo as IgcTemplateCellInfo;
 
         let content = args.content as HTMLDivElement;
-        let icon: HTMLSpanElement = null;
+        let icon: HTMLSpanElement;
 
         if (content.childElementCount > 0) {
             icon = content.children[0] as HTMLSpanElement;
@@ -757,7 +760,7 @@ export class DataGridBindingLiveData {
         let templ = args.cellInfo as IgcTemplateCellInfo;
 
         let content = args.content as HTMLDivElement;
-        let icon: HTMLSpanElement = null;
+        let icon: HTMLSpanElement;
 
         if (content.childElementCount > 0) {
             icon = content.children[0] as HTMLSpanElement;
@@ -844,28 +847,28 @@ export class DataGridBindingLiveData {
         this.updateDialogState();
     }
 
-    onFrequencyChange(event, value) {
+    onFrequencyChange(event: any, value: any) {
         this.state.frequency = +event.target.value;
         this.updateSpanStates();
     }
 
-    onVolumeChange(event, value) {
+    onVolumeChange(event: any, value: any) {
         this.state.volume = +event.target.value;
         this.state.data = LiveFinancialData.generateData(+event.target.value);
         this.grid.dataSource = this.state.data;
         this.updateSpanStates();
     }
 
-    onCanvasModeChanged(event) {
+    onCanvasModeChanged(event: any) {
         this.state.canvasChecked = event.target.checked;
         // this.createGrid(this.state.canvasChecked);
     }
 
-    onHeatChanged(event) {
+    onHeatChanged(event: any) {
         this.state.heatChecked = event.target.checked;
     }
 
-    onGroupingChanged(event) {
+    onGroupingChanged(event: any) {
         this.state.groupingChecked = event.target.checked;
 
         if (event.target.checked) {
@@ -979,7 +982,7 @@ export class DataGridBindingLiveData {
     //   return <Slide direction='up' {...props} />;
     // }
 
-    onSearchChange(event) {
+    onSearchChange(event: any) {
         let term = event.target.value;
 
         if (!this.grid) {
@@ -1002,7 +1005,7 @@ export class DataGridBindingLiveData {
         }
     }
 
-    handleHiddenChange(event) {
+    handleHiddenChange(event: any) {
         let options = event.target.value;
         console.log(event.target);
         let hidden = [];

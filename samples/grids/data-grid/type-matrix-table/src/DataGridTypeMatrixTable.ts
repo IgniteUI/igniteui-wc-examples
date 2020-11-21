@@ -37,13 +37,13 @@ export class DataGridTypeMatrixTable {
         this.createData();
 
         this.VerticalHeader = new IgcTemplateHeaderComponent();
-        this.VerticalHeader.cellUpdating = (s, e) => this.onVerticalHeaderUpdating(s, e);
+        this.VerticalHeader.cellUpdating = (s: any, e: any) => this.onVerticalHeaderUpdating(s: any, e: any);
 
         this.HorizontalRightHeader = new IgcTemplateHeaderComponent();
-        this.HorizontalRightHeader.cellUpdating = (s, e) => this.onHorizontalHeaderUpdating(s, e, 'right');
+        this.HorizontalRightHeader.cellUpdating = (s: any, e: any) => this.onHorizontalHeaderUpdating(s, e, 'right');
 
         this.HorizontalLeftHeader = new IgcTemplateHeaderComponent();
-        this.HorizontalLeftHeader.cellUpdating = (s, e) => this.onHorizontalHeaderUpdating(s, e, 'left');
+        this.HorizontalLeftHeader.cellUpdating = (s: any, e: any) => this.onHorizontalHeaderUpdating(s, e, 'left');
 
         for (const name of this.names) {
             const column = document.getElementById(name) as IgcTemplateColumnComponent;

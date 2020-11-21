@@ -30,8 +30,8 @@ export class DataGridColumnSummaries {
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getSales();
 
-        document.getElementById('onSummaryScopeChanging').addEventListener('change', this.onSummaryScopeChanging);
-        document.getElementById('onGroupSummaryDisplayModeChanging').addEventListener('change', this.onGroupSummaryDisplayModeChanging);
+        document.getElementById('onSummaryScopeChanging')!.addEventListener('change', this.onSummaryScopeChanging);
+        document.getElementById('onGroupSummaryDisplayModeChanging')!.addEventListener('change', this.onGroupSummaryDisplayModeChanging);
 
         this.onLoad();
     }

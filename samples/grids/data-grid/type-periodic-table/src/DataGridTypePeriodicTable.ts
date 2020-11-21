@@ -39,13 +39,13 @@ export class DataGridTypePeriodicTable {
         this.createData();
 
         this.HorizontalCenterHeader = new IgcTemplateHeaderComponent();
-        this.HorizontalCenterHeader.cellUpdating = (s, e) => this.onHorizontalHeaderUpdating(s, e, 'center');
+        this.HorizontalCenterHeader.cellUpdating = (s: any, e: any) => this.onHorizontalHeaderUpdating(s, e, 'center');
 
         this.HorizontalRightHeader = new IgcTemplateHeaderComponent();
-        this.HorizontalRightHeader.cellUpdating = (s, e) => this.onHorizontalHeaderUpdating(s, e, 'right');
+        this.HorizontalRightHeader.cellUpdating = (s: any, e: any) => this.onHorizontalHeaderUpdating(s, e, 'right');
 
         this.HorizontalLeftHeader = new IgcTemplateHeaderComponent();
-        this.HorizontalLeftHeader.cellUpdating = (s, e) => this.onHorizontalHeaderUpdating(s, e, 'left');
+        this.HorizontalLeftHeader.cellUpdating = (s: any, e: any) => this.onHorizontalHeaderUpdating(s, e, 'left');
 
         // TemplateColumn setup
         for (let i = 0; i <= 17; i++) {
@@ -98,9 +98,9 @@ export class DataGridTypePeriodicTable {
         if (item === undefined ||
             item[column] === undefined ||
             item[column].name === undefined) {
-            label.textContent = 'Selected Element:';
+            label!.textContent = 'Selected Element:';
         } else {
-            label.textContent = 'Selected Element:' + ' ' + item[column].name + ' (' + item[column].symbol + ')';
+            label!.textContent = 'Selected Element:' + ' ' + item[column].name + ' (' + item[column].symbol + ')';
         }
     }
 

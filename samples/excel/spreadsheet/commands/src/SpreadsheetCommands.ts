@@ -12,18 +12,18 @@ ModuleManager.register(IgcSpreadsheetModule);
 export class SpreadsheetCommands {
 
 
-    
-    
-        
+
+
+
 
     private spreadsheet: IgcSpreadsheetComponent;
 
     constructor() {
-        
+
         this.onZoomInClick = this.onZoomInClick.bind(this);
         this.onZoomOutClick = this.onZoomOutClick.bind(this);
-    
-        
+
+
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
 
@@ -32,8 +32,8 @@ export class SpreadsheetCommands {
             this.spreadsheet.workbook = w;
         });
 
-        document.getElementById('zoomIn').addEventListener('click', this.onZoomInClick);
-        document.getElementById('zoomOut').addEventListener('click', this.onZoomOutClick);
+        document.getElementById('zoomIn')!.addEventListener('click', this.onZoomInClick);
+        document.getElementById('zoomOut')!.addEventListener('click', this.onZoomOutClick);
     }
 
     onZoomInClick() {
