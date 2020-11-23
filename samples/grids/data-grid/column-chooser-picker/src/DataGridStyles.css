@@ -1,0 +1,35 @@
+
+
+.gridContainer {
+    height: calc(100% - 20px);
+    width: calc(100%);
+
+    padding: 10px;
+    margin: 0px;
+}
+
+.gridOptionsLabel {
+    font-size: 13px;
+    font-family: "Verdana";
+    padding-left: 1rem;
+    color: rgb(24, 29, 31);
+}
+
+.columnChooserContainer {
+    margin: 20px;
+    min-width: 225px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    padding-right: 5px;
+    border: 1px gray;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px 2px rgba(50, 50, 50, 0.25);
+    background-color: rgb(248, 248, 248);
+}
+
+.columnsOrderOptionsContainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
