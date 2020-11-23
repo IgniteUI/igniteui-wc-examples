@@ -421,6 +421,7 @@ class Transformer {
             info.ComponentName = Strings.toTitleCase(info.ComponentFolder, '-');
             info.ComponentName = info.ComponentName.replace("Geo Map", "Geographic Map");
             info.ComponentID   = info.ComponentName.replace(" ", "");
+            info.ComponentID   = info.ComponentID.replace("-", "");
             info.ComponentID   = info.ComponentID.replace("Geographic", "");
 
             // info.SampleFolderPath = relativePath;
@@ -477,7 +478,7 @@ class Transformer {
                 info.SampleFileSourceCode = this.lintSample(info.SampleFileSourceCode, info.SampleFileSourcePath);
                 info.SampleFileSourceClass = info.SampleFileName.replace('.ts', '');
 
-                info.SampleFileBrowserCode = this.getSampleCodeInBrowser(info, sampleTemplate)
+                // info.SampleFileBrowserCode = this.getSampleCodeInBrowser(info, sampleTemplate)
 
                 let sampleBlocks = this.getSampleBlocks(info.SampleFileSourceCode);
                 info.SampleImportLines = sampleBlocks.ImportLines;

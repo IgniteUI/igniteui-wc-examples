@@ -51,8 +51,12 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/grids/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/**/package.json',
+    // igConfig.SamplesCopyPath + '/layouts/**/package.json',
+    igConfig.SamplesCopyPath + '/layouts/dock-manager/overview/package.json',
 
+    // excluding samples that are not finished:
+     '!' + igConfig.SamplesCopyPath + '/layouts/dock-manager/updating-panes/package.json',
+     '!' + igConfig.SamplesCopyPath + '/layouts/dock-manager/embedding-frames/package.json',
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**',
      '!' + igConfig.SamplesCopyPath + '/**/node_modules',
@@ -105,16 +109,15 @@ function lintSamples(cb) {
     });
 } exports.lintSamples = lintSamples;
 
+// function findSamplesTest(cb) {
+//     gulp.src(sampleSources)
+//     .pipe(es.map(function(samplePackage, sampleCallback) {
+//     }))
+//     .on("end", function() {
+//          cb();
+//     });
 
-function findSamplesTest(cb) {
-    gulp.src(sampleSources)
-    .pipe(es.map(function(samplePackage, sampleCallback) {
-    }))
-    .on("end", function() {
-         cb();
-    });
-
-} exports.findSamplesTest = findSamplesTest;
+// } exports.findSamplesTest = findSamplesTest;
 
 function findSamples(cb) {
 
@@ -270,6 +273,8 @@ function copySamples(cb) {
         }
     }
 
+    let sampleTemplate = fs.readFileSync("./src/templates/group/component/name/Sample.ts", "utf8");
+
     // let copiedSamples = 0;
     for (const sample of samples) {
         // console.log('copying ' + sample.SampleFolderPath + '/' + sample.SampleFileName);
@@ -282,8 +287,9 @@ function copySamples(cb) {
 
         gulp.src([
             //   sample.SampleFolderPath + '/**/*.*',
-              sample.SampleFolderPath + '/src/*.ts',
+              sample.SampleFolderPath + '/src/*.*',
         '!' + sample.SampleFolderPath + '/src/index.ts',
+        '!' + sample.SampleFolderPath + '/src/index.css',
         '!' + sample.SampleFolderPath + '/src/typedecls.d.ts',
         // '!' + sample.SampleFolderPath + '/sandbox.config.json',
         // '!' + sample.SampleFolderPath + '/README.md',
@@ -293,24 +299,28 @@ function copySamples(cb) {
         // '!' + sample.SampleFolderPath + '/package-lock.json',
         ])
         .pipe(es.map(function(file, fileCallback) {
-            var isSampleFile = file.basename.indexOf(sample.ComponentID) >= 0;
-            var isDataFile = file.basename.indexOf("Data.ts") >= 0 ||
-                             file.basename.indexOf("Utils.ts") >= 0 ||
-                             file.basename.indexOf("Utility.ts") >= 0 ||
-                             file.basename.indexOf("Sample") >= 0;
 
-            // console.log("saving " + sample.ComponentID + " " + file.basename);
-            // if (file.basename.indexOf("Data.ts") >= 0  ||
-            //     file.basename.indexOf("Utility.ts") >= 0 ||
-            //     file.basename.indexOf("Utils.ts") >= 0 ||
-            //     file.basename.indexOf("Sample") >= 0 ||
-            //     file.basename.indexOf("WorldConnections.ts") >= 0 ||
-            //     file.basename.indexOf("WorldLocations.ts") >= 0 ) {
-                // console.log("saving sample data file=" + file.basename);
+            var fileName = file.basename.toLowerCase();
+            var compName = sample.ComponentID.toLowerCase();
+            var isSampleFile = fileName.indexOf(compName) >= 0 &&
+                               fileName.indexOf(".ts") >= 0;
+
+            // console.log ('FinancialChartMultipleData ' + file.basename.indexOf("FinancialChartMultipleData") + ' ' +  file.basename )
+            var isDataFile = file.basename.indexOf("Utils.ts") >= 0 ||
+                             file.basename.indexOf("Utility.ts") >= 0 ||
+                             file.basename.indexOf("Sample") >= 0 ||
+                             (file.basename.indexOf("Data.ts") >= 0 &&
+                              file.basename.indexOf("FinancialChartMultipleData") == -1 &&
+                              file.basename.indexOf("DataGridBindingLiveData") == -1 &&
+                              file.basename.indexOf("DataGridBindingLocalData") == -1 &&
+                              file.basename.indexOf("DataGridBindingRemoteData") == -1);
+
             if (isSampleFile && !isDataFile) {
                 console.log(">> transforming sample: " + outputPath + "/" + file.basename);
-                file.contents = Buffer.from(sample.SampleFileBrowserCode);
-                //
+                let sampleCode = Transformer.getSampleCodeInBrowser(sample, sampleTemplate)
+                file.contents = Buffer.from(sampleCode);
+            } else {
+                // console.log(">> copying file: " + outputPath + "/" + file.basename);
             }
 
             fileCallback(null, file);

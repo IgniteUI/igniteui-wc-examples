@@ -9,8 +9,8 @@
     "test": "tests"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/IgniteUI/igniteui-webcomponents-examples"
+    "type": "git",
+    "url": "https://github.com/IgniteUI/igniteui-webcomponents-examples"
   },
   "license": "ISC",
   "main": "src/index.ts",
