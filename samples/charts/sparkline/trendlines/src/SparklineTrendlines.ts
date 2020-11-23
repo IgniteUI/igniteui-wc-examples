@@ -11,20 +11,20 @@ ModuleManager.register(IgcSparklineModule);
 export class SparklineTrendlines {
 
 
-    
-    
-        
+
+
+
 
     private sparkline: IgcSparklineComponent;
     public data: any [];
 
     constructor() {
-        
+
         this.onTrendlineChanged = this.onTrendlineChanged.bind(this);
 
-        this.data = SparklineSharedData.getSparklineSharedData();
-    
-        
+        this.data = SparklineSharedData.getSharedData();
+
+
 
         this.sparkline = document.getElementById('sparkline') as IgcSparklineComponent;
         this.sparkline.dataSource = this.data;

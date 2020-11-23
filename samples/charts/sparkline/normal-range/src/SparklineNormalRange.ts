@@ -17,9 +17,9 @@ ModuleManager.register(
 export class SparklineNormalRange {
 
 
-    
-    
-        
+
+
+
 
     private sparkline: IgcSparklineComponent;
     public data: any[];
@@ -27,13 +27,13 @@ export class SparklineNormalRange {
     private maxRangelbl: any;
 
     constructor() {
-        
+
         this.onMinSliderChanged = this.onMinSliderChanged.bind(this);
         this.onMaxSliderChanged = this.onMaxSliderChanged.bind(this);
         this.onRangeVisibilityChanged = this.onRangeVisibilityChanged.bind(this);
-        this.data = SparklineSharedData.getSparklineSharedData();
-    
-        
+        this.data = SparklineSharedData.getSharedData();
+
+
 
         this.sparkline = document.getElementById('sparkline') as IgcSparklineComponent;
         this.sparkline.dataSource = this.data;

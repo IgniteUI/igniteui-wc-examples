@@ -27,8 +27,8 @@ import { IgcCategoryYAxisComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 import { SampleCategoryData } from './SampleCategoryData';
-import { SampleFinancialData } from '/SampleFinancialData';
-import { SampleScatterData } from '../utilities/SampleScatterData';
+import { SampleFinancialData } from './SampleFinancialData';
+import { SampleScatterData } from './SampleScatterData';
 
 ModuleManager.register(
     IgcDataChartCoreModule,
@@ -47,9 +47,9 @@ ModuleManager.register(
 export class DataChartAxisTypes {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
 
@@ -77,9 +77,9 @@ export class DataChartAxisTypes {
     public financialSeries: IgcFinancialPriceSeriesComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
 

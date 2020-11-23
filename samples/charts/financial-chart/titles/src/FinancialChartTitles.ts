@@ -12,16 +12,16 @@ ModuleManager.register(IgcFinancialChartModule);
 export class FinancialChartTitles {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcFinancialChartComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.dataSource = this.getData();
@@ -29,8 +29,8 @@ export class FinancialChartTitles {
 
     getData(): any[] {
         const data = [
-            StocksHistory.getAmazon(),
-            StocksHistory.getTesla()
+            StocksHistory.getAmazonStock(),
+            StocksHistory.getTeslaStock()
         ];
         return data;
     }
