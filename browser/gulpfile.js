@@ -37,20 +37,20 @@ exports.updateSamples = updateSamples = gulp.series(
     sb.updateSharedFiles,
 );
 
-exports.updateReadme = updateReadme = gulp.series(
-    sb.findSamples,
-    sb.updateReadme,
-);
+// exports.updateReadme = updateReadme = gulp.series(
+//     sb.findSamples,
+//     sb.updateReadme,
+// );
 
-exports.updatePackages = updatePackages = gulp.series(
-    sb.findSamples,
-    sb.updatePackages,
-);
+// exports.updatePackages = updatePackages = gulp.series(
+//     sb.findSamples,
+//     sb.updatePackages,
+// );
 
-exports.updateSharedFiles = updateSharedFiles = gulp.series(
-    sb.findSamples,
-    sb.updateSharedFiles,
-);
+// exports.updateSharedFiles = updateSharedFiles = gulp.series(
+//     sb.findSamples,
+//     sb.updateSharedFiles,
+// );
 
 exports.updateBrowser = updateBrowser = gulp.series(
     sb.findSamples,
