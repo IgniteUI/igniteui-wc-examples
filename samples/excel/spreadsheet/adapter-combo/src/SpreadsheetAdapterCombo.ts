@@ -1,15 +1,22 @@
-
-
-import { IgcExcelModule } from 'igniteui-webcomponents-excel';
 import { IgcSpreadsheetModule } from 'igniteui-webcomponents-spreadsheet';
 import { IgcSpreadsheetChartAdapterModule } from 'igniteui-webcomponents-spreadsheet-chart-adapter';
 import { IgcSpreadsheetComponent } from 'igniteui-webcomponents-spreadsheet';
 import { SpreadsheetChartAdapter } from 'igniteui-webcomponents-spreadsheet-chart-adapter';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-import { AxisGroup, AxisPosition, AxisType, CellReferenceMode,
-    ChartType, ChartTitle, FormattedString, Legend,
-    LegendPosition, Workbook, WorksheetTableColumnArea,
-    WorkbookFormat, XValues } from 'igniteui-webcomponents-excel';
+import { AxisGroup } from 'igniteui-webcomponents-excel';
+import { AxisPosition } from 'igniteui-webcomponents-excel';
+import { AxisType } from 'igniteui-webcomponents-excel';
+import { CellReferenceMode } from 'igniteui-webcomponents-excel';
+import { ChartType } from 'igniteui-webcomponents-excel';
+import { ChartTitle } from 'igniteui-webcomponents-excel';
+import { FormattedString } from 'igniteui-webcomponents-excel';
+import { IgcExcelModule } from 'igniteui-webcomponents-excel';
+import { Legend } from 'igniteui-webcomponents-excel';
+import { LegendPosition } from 'igniteui-webcomponents-excel';
+import { Workbook } from 'igniteui-webcomponents-excel';
+import { WorksheetTableColumnArea } from 'igniteui-webcomponents-excel';
+import { WorkbookFormat } from 'igniteui-webcomponents-excel';
+import { XValues } from 'igniteui-webcomponents-excel';
 
 ModuleManager.register(
     IgcExcelModule,
@@ -20,16 +27,16 @@ ModuleManager.register(
 export class SpreadsheetAdapterCombo {
 
 
-    
-    
-        
+
+
+
 
     private spreadsheet: IgcSpreadsheetComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
         this.spreadsheet.chartAdapter = new SpreadsheetChartAdapter();

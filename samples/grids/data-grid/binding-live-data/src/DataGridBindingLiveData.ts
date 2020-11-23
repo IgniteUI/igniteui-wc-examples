@@ -1,7 +1,7 @@
 
 import '@webcomponents/custom-elements/custom-elements.min';
 import '@webcomponents/custom-elements/src/native-shim.js';
-// TODO use LiveLiveFinancialData.ts from React browser
+// TODO use LiveFinancialData.ts from React browser
 import { LiveFinancialData } from './LiveFinancialData';
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 
@@ -28,25 +28,6 @@ import '@material/mwc-switch';
 import '@material/mwc-slider';
 import '@material/mwc-dialog';
 
-// import Button from '@material-ui/core/Button';
-// import Switch from '@material-ui/core/Switch';
-// import Slider from '@material-ui/lab/Slider';
-// import Typography from '@material-ui/core/Typography';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-
-// import Dialog from '@material-ui/core/Dialog';
-// import DialogActions from '@material-ui/core/DialogActions';
-// import DialogContent from '@material-ui/core/DialogContent';
-// import DialogContentText from '@material-ui/core/DialogContentText';
-// import DialogTitle from '@material-ui/core/DialogTitle';
-// import Slide from '@material-ui/core/Slide';
-// import Select from '@material-ui/core/Select';
-// import Checkbox from '@material-ui/core/Checkbox';
-// import Input from '@material-ui/core/Input';
-// import MenuItem from '@material-ui/core/MenuItem';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import TextField from '@material-ui/core/TextField';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
@@ -66,9 +47,6 @@ ModuleManager.register(
     IgcDataChartInteractivityModule,
     IgcDataChartAnnotationModule
 );
-
-import { MDCSelect } from '@material/select';
-import { MouseEventArgs } from 'igniteui-webcomponents-core';
 
 // TODO open chart on clicking a cell in the Chart column
 // <igc-template-column id='chartTemplateColumn' property-path='Chart' width='60'>
@@ -119,7 +97,6 @@ export class DataGridBindingLiveData {
 
     constructor() {
 
-
         this.financialData = new LiveFinancialData();
 
         this.onPriceStyleKey = this.onPriceStyleKey.bind(this);
@@ -152,11 +129,6 @@ export class DataGridBindingLiveData {
         this.updateDialogState = this.updateDialogState.bind(this);
         this.updatePriceByCountry = this.updatePriceByCountry.bind(this);
         this.updateSpanStates = this.updateSpanStates.bind(this);
-    }
-
-    private value = 1000;
-    connectedCallback() {
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = this.state.data;
@@ -304,7 +276,6 @@ export class DataGridBindingLiveData {
         let changing = false;
         if (intervalElapsed) {
 
-
             this.lastDataUpdate = new Date();
             for (let i = 0; i < toChange; i++) {
                 let index = Math.round(Math.random() * this.state.data.length - 1);
@@ -315,7 +286,6 @@ export class DataGridBindingLiveData {
                 changing = true;
             }
         }
-
 
         for (let i = 0; i < this.state.data.length; i++) {
             let item = this.state.data[i];
@@ -539,8 +509,6 @@ export class DataGridBindingLiveData {
             args.styleKey = 'pricePercentDown';
         }
     }
-
-
 
     onPricePercentCellUpdating(grid: IgcTemplateColumnComponent, args: IgcTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgcTemplateCellInfo;
@@ -977,10 +945,6 @@ export class DataGridBindingLiveData {
             // this._chart.series.add(itemTooltip);
         }
     }
-
-    // transition(props) {
-    //   return <Slide direction='up' {...props} />;
-    // }
 
     onSearchChange(event: any) {
         let term = event.target.value;

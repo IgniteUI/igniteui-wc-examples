@@ -9,23 +9,21 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 
 import { ODataVirtualDataSource } from 'igniteui-webcomponents-datasources';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
-
+ModuleManager.register(IgcDataGridModule, IgcGridColumnOptionsModule);
 
 export class DataGridBindingRemoteData {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
 

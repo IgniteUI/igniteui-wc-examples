@@ -4,10 +4,14 @@ import { ExcelUtility } from './ExcelUtility';
 // import { IgcExcelXlsxModule } from 'igniteui-webcomponents-excel';
 // import { IgcExcelCoreModule } from 'igniteui-webcomponents-excel';
 import { IgcExcelModule } from 'igniteui-webcomponents-excel';
-import { Workbook } from 'igniteui-webcomponents-excel';
 import { Worksheet } from 'igniteui-webcomponents-excel';
-import { CellReferenceMode, FormattedString, Formula, WorkbookFormat,
-    WorksheetCellComment, WorksheetMergedCellsRegion } from 'igniteui-webcomponents-excel';
+import { Workbook } from 'igniteui-webcomponents-excel';
+import { WorkbookFormat } from 'igniteui-webcomponents-excel';
+import { WorksheetCellComment } from 'igniteui-webcomponents-excel';
+import { WorksheetMergedCellsRegion } from 'igniteui-webcomponents-excel';
+import { CellReferenceMode } from 'igniteui-webcomponents-excel';
+import { FormattedString } from 'igniteui-webcomponents-excel';
+import { Formula } from 'igniteui-webcomponents-excel';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -20,9 +24,9 @@ ModuleManager.register(
 export class ExcelLibraryCells {
 
 
-    
-    
-        
+
+
+
 
     public canSave = false;
     public wb: Workbook;
@@ -32,9 +36,9 @@ export class ExcelLibraryCells {
     public cellFeatures: string[];
 
     constructor() {
-        
-    
-        
+
+
+
 
         const button = document.getElementById('button1');
         button.addEventListener('click', this.onClick);
