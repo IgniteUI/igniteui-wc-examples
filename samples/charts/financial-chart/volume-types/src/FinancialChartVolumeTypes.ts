@@ -13,24 +13,24 @@ ModuleManager.register(IgcFinancialChartModule);
 export class FinancialChartVolumeTypes {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcFinancialChartComponent;
     public volumeType: FinancialChartVolumeType = FinancialChartVolumeType.Area;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.dataSource = StocksUtility.GetStocks();
         this.chart.volumeType = this.volumeType;
 
         let volumeTypeSelect = document.getElementById('volumeTypeSelect');
-        volumeTypeSelect.addEventListener('change', this.onVolumeTypeChanged);
+        volumeTypeSelect!.addEventListener('change', this.onVolumeTypeChanged);
     }
 
     public onVolumeTypeChanged = (e: any) =>{

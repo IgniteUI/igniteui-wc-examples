@@ -91,7 +91,7 @@ export class DataChartAxisTypes {
         this.initFinancialSeries();
 
         const axisSelect = document.getElementById('axisSelect') as HTMLSelectElement;
-        axisSelect.addEventListener('change', this.onAxisTypeChange);
+        axisSelect!.addEventListener('change', this.onAxisTypeChange);
 
         this.chart.axes.add(this.categoryXAxis);
         this.chart.axes.add(this.numericYAxis);

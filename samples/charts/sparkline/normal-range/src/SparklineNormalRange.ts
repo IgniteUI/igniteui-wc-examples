@@ -39,13 +39,13 @@ export class SparklineNormalRange {
         this.sparkline.dataSource = this.data;
 
         let rangeVisibility = document.getElementById('rangeVisibility');
-        rangeVisibility.addEventListener('change', this.onRangeVisibilityChanged);
+        rangeVisibility!.addEventListener('change', this.onRangeVisibilityChanged);
 
         let minRange = document.getElementById('minRange');
-        minRange.addEventListener('change', this.onMinSliderChanged);
+        minRange!.addEventListener('change', this.onMinSliderChanged);
 
         let maxRange = document.getElementById('maxRange');
-        maxRange.addEventListener('change', this.onMaxSliderChanged);
+        maxRange!.addEventListener('change', this.onMaxSliderChanged);
 
         this.minRangelbl = document.getElementById('minRangelbl');
         this.maxRangelbl = document.getElementById('maxRangelbl');

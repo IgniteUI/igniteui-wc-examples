@@ -26,17 +26,17 @@ ModuleManager.register(
 export class ExcelLibraryCharts {
 
 
-    
-    
-        
+
+
+
 
     public excelData: any[];
     public chartData: any[];
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.initData();
 
@@ -47,7 +47,7 @@ export class ExcelLibraryCharts {
         grid.dataSource = this.excelData;
 
         const button = document.getElementById('export') as HTMLButtonElement;
-        button.addEventListener('click', this.exportData);
+        button!.addEventListener('click', this.exportData);
     }
 
     public initData() {

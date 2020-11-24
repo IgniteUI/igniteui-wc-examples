@@ -29,9 +29,9 @@ ModuleManager.register(
 export class DataChartTypeScatterContourSeries {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     private series: IgcScatterContourSeriesComponent;
@@ -39,9 +39,9 @@ export class DataChartTypeScatterContourSeries {
     public contoursLabel: HTMLLabelElement;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -62,14 +62,14 @@ export class DataChartTypeScatterContourSeries {
 
         const thicknessSlider = document.getElementById('thicknessSlider') as HTMLInputElement;
         thicknessSlider.value = '5';
-        thicknessSlider.addEventListener('change', this.onSeriesThicknessChanged);
+        thicknessSlider!.addEventListener('change', this.onSeriesThicknessChanged);
 
         this.contoursLabel = document.getElementById('contoursLabel') as HTMLLabelElement;
         this.contoursLabel.textContent = '10';
 
         const contoursSlider = document.getElementById('contoursSlider') as HTMLInputElement;
         contoursSlider.value = '10';
-        contoursSlider.addEventListener('change', this.onSeriesContoursChanged);
+        contoursSlider!.addEventListener('change', this.onSeriesContoursChanged);
     }
 
     public onSeriesThicknessChanged = (e: any) => {

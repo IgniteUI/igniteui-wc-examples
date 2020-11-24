@@ -13,24 +13,24 @@ ModuleManager.register(IgcFinancialChartModule);
 export class FinancialChartTrendlines {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcFinancialChartComponent;
     public trendLineType: TrendLineType = TrendLineType.QuinticFit;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.dataSource = this.getData();
         this.chart.trendLineType = this.trendLineType;
 
         let trendLineSelect = document.getElementById('trendLineSelect');
-        trendLineSelect.addEventListener('change', this.onTrendlineChanged);
+        trendLineSelect!.addEventListener('change', this.onTrendlineChanged);
     }
 
     public onTrendlineChanged = (e: any) => {

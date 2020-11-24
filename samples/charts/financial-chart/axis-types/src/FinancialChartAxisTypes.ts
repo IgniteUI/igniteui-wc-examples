@@ -14,18 +14,18 @@ ModuleManager.register(IgcFinancialChartModule);
 export class FinancialChartAxisTypes {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcFinancialChartComponent;
     private xAxisMode = FinancialChartXAxisMode.Time;
     private yAxisMode = FinancialChartYAxisMode.PercentChange;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.dataSource = this.getData();
@@ -34,10 +34,10 @@ export class FinancialChartAxisTypes {
         this.chart.isWindowSyncedToVisibleRange = true;
 
         let xAxisSelect = document.getElementById('xAxisSelect');
-        xAxisSelect.addEventListener('change', this.onXAxisModeChanged);
+        xAxisSelect!.addEventListener('change', this.onXAxisModeChanged);
 
         let yAxisSelect = document.getElementById('yAxisSelect');
-        yAxisSelect.addEventListener('change', this.onYAxisModeChanged);
+        yAxisSelect!.addEventListener('change', this.onYAxisModeChanged);
     }
 
     public onXAxisModeChanged = (e: any) => {

@@ -28,9 +28,9 @@ ModuleManager.register(
 export class DataChartTypeFinancialOverlays {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
 
@@ -38,9 +38,9 @@ export class DataChartTypeFinancialOverlays {
     private priceChannel: IgcPriceChannelOverlayComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.bollingerBands = new IgcBollingerBandsOverlayComponent();
         this.bollingerBands.name = 'bollinger';
@@ -72,7 +72,7 @@ export class DataChartTypeFinancialOverlays {
 
         const overlaySelect = document.getElementById('overlaySelect') as HTMLSelectElement;
         overlaySelect.value = 'BollingerBands';
-        overlaySelect.addEventListener('change', this.onOverlayChanged);
+        overlaySelect!.addEventListener('change', this.onOverlayChanged);
     }
 
     public onOverlayChanged = (e: any) => {

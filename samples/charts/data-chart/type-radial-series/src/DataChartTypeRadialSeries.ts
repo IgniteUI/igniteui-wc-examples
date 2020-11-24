@@ -36,17 +36,17 @@ ModuleManager.register(
 export class DataChartTypeRadialSeries {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     private legend: IgcLegendComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleRadialData.create();
@@ -57,7 +57,7 @@ export class DataChartTypeRadialSeries {
 
         const seriesTypeSelect = document.getElementById('seriesTypeSelect') as HTMLSelectElement;
         seriesTypeSelect.value = 'Pie';
-        seriesTypeSelect.addEventListener('change', this.onSeriesTypeChanged);
+        seriesTypeSelect!.addEventListener('change', this.onSeriesTypeChanged);
     }
 
     public onSeriesTypeChanged = (e: any) => {

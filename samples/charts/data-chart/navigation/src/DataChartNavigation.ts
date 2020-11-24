@@ -31,16 +31,16 @@ ModuleManager.register(
 export class DataChartNavigation {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -58,36 +58,36 @@ export class DataChartNavigation {
         this.chart.defaultInteraction = InteractionState.DragZoom;
 
         const panUp = document.getElementById('panUp') as HTMLButtonElement;
-        panUp.addEventListener('click', this.onPanUpClick);
+        panUp!.addEventListener('click', this.onPanUpClick);
 
         const panLeft = document.getElementById('panLeft') as HTMLButtonElement;
-        panLeft.addEventListener('click', this.onPanLeftClick);
+        panLeft!.addEventListener('click', this.onPanLeftClick);
 
         const zoomIn = document.getElementById('zoomIn') as HTMLButtonElement;
-        zoomIn.addEventListener('click', this.onZoomInClick);
+        zoomIn!.addEventListener('click', this.onZoomInClick);
 
         const panDown = document.getElementById('panDown') as HTMLButtonElement;
-        panDown.addEventListener('click', this.onPanDownClick);
+        panDown!.addEventListener('click', this.onPanDownClick);
 
         const panRight = document.getElementById('panRight') as HTMLButtonElement;
-        panRight.addEventListener('click', this.onPanRightClick);
+        panRight!.addEventListener('click', this.onPanRightClick);
 
         const zoomOut = document.getElementById('zoomOut') as HTMLButtonElement;
-        zoomOut.addEventListener('click', this.onZoomOutClick);
+        zoomOut!.addEventListener('click', this.onZoomOutClick);
 
         const panModSelect = document.getElementById('panModSelect') as HTMLSelectElement;
         panModSelect.value = 'Alt';
-        panModSelect.addEventListener('change', this.onPanModifierChange);
+        panModSelect!.addEventListener('change', this.onPanModifierChange);
 
         const interactionSelect = document.getElementById('interactionSelect') as HTMLSelectElement;
-        interactionSelect.addEventListener('change', this.onDefaultInteractionChange);
+        interactionSelect!.addEventListener('change', this.onDefaultInteractionChange);
 
         const dragModSelect = document.getElementById('dragModSelect') as HTMLSelectElement;
-        dragModSelect.addEventListener('change', this.onDragModifierChange);
+        dragModSelect!.addEventListener('change', this.onDragModifierChange);
 
         const zoomEnabled = document.getElementById('zoomEnabled') as HTMLInputElement;
         zoomEnabled.checked = true;
-        zoomEnabled.addEventListener('change', this.onZoomEnabledChange);
+        zoomEnabled!.addEventListener('change', this.onZoomEnabledChange);
 
     }
 

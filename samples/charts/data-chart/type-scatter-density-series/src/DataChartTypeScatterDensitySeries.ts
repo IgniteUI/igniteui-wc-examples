@@ -28,9 +28,9 @@ ModuleManager.register(
 export class DataChartTypeScatterDensitySeries {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     private series: IgcHighDensityScatterSeriesComponent;
@@ -46,9 +46,9 @@ export class DataChartTypeScatterDensitySeries {
     public pointExtentLabel: HTMLSpanElement;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleDensityData.create();
@@ -65,32 +65,32 @@ export class DataChartTypeScatterDensitySeries {
 
         const heatMinSlider = document.getElementById('heatMinSlider') as HTMLInputElement;
         heatMinSlider.value = this.seriesHeatMin.toString();
-        heatMinSlider.addEventListener('change', this.seriesMinChanged);
+        heatMinSlider!.addEventListener('change', this.seriesMinChanged);
 
         this.heatMaxLabel = document.getElementById('heatMaxLabel') as HTMLSpanElement;
         this.heatMaxLabel.innerText = 'Maximum Value: ' + this.seriesHeatMax.toString();
 
         const heatMaxSlider = document.getElementById('heatMaxSlider') as HTMLInputElement;
         heatMaxSlider.value = this.seriesHeatMax.toString();
-        heatMaxSlider.addEventListener('change', this.seriesMaxChanged);
+        heatMaxSlider!.addEventListener('change', this.seriesMaxChanged);
 
         this.seriesResLabel = document.getElementById('seriesResLabel') as HTMLSpanElement;
         this.seriesResLabel.innerText = 'Series Resolution: ' + this.seriesResolution.toString();
 
         const seriesResSlider = document.getElementById('seriesResSlider') as HTMLInputElement;
         seriesResSlider.value = this.seriesResolution.toString();
-        seriesResSlider.addEventListener('change', this.seriesResolutionChanged);
+        seriesResSlider!.addEventListener('change', this.seriesResolutionChanged);
 
         this.pointExtentLabel = document.getElementById('pointExtentLabel') as HTMLSpanElement;
         this.pointExtentLabel.innerText = 'Point Extent: ' + this.seriesPointExtent.toString();
 
         const pointExtentSlider = document.getElementById('pointExtentSlider') as HTMLInputElement;
         pointExtentSlider.value = this.seriesPointExtent.toString();
-        pointExtentSlider.addEventListener('change', this.seriesExtentChanged);
+        pointExtentSlider!.addEventListener('change', this.seriesExtentChanged);
 
         const bruteForceInput = document.getElementById('bruteForceInput') as HTMLInputElement;
         bruteForceInput.checked = this.hdUseBruteForce;
-        bruteForceInput.addEventListener('change', this.useBruteForceChanged);
+        bruteForceInput!.addEventListener('change', this.useBruteForceChanged);
     }
 
     disconnectedCallback() {

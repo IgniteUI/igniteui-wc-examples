@@ -10,28 +10,28 @@ ModuleManager.register(IgcPieChartModule);
 export class PieChartAnimation {
 
 
-    
-    
-        
 
-    private chart: IgcPieChartComponent;  
+
+
+
+    private chart: IgcPieChartComponent;
     private interval: number = -1;
     public isAnimating: boolean = false;
 
-    
+
     constructor() {
-    
+
     this.onAnimationToggle = this.onAnimationToggle.bind(this);
-    this.onAnimationClear = this.onAnimationClear.bind(this);     
-    
-    
+    this.onAnimationClear = this.onAnimationClear.bind(this);
+
+
 
     this.chart = document.getElementById('chart') as IgcPieChartComponent;
     this.chart.dataSource = this.initData();
     this.onChartInit();
 
-    let Animatebutton = document.getElementById('animateButton') as HTMLInputElement;       
-    Animatebutton.addEventListener('click', this.onAnimationToggle);
+    let Animatebutton = document.getElementById('animateButton') as HTMLInputElement;
+    Animatebutton!.addEventListener('click', this.onAnimationToggle);
     }
 
     public initData(): any[] {
@@ -46,7 +46,7 @@ export class PieChartAnimation {
         return data;
     }
 
-    public componentWillUnmount() {        
+    public componentWillUnmount() {
         this.onAnimationClear();
     }
     public onAnimationToggle = () => {
@@ -64,7 +64,7 @@ export class PieChartAnimation {
     }
 
     public onAnimationClear(): void {
-        if (this.interval >= 0) {           
+        if (this.interval >= 0) {
             window.clearInterval(this.interval);
             this.interval = -1;
         }
@@ -73,10 +73,10 @@ export class PieChartAnimation {
     public onChartInit(): void {
         this.onAnimationClear();
         this.onAnimationToggle();
-    }    
-    
+    }
+
     public tick(): void {
-        
+
         if (this.isAnimating) {
             if (this.chart.radiusFactor < 1.0)
                 this.chart.radiusFactor += 0.0025;

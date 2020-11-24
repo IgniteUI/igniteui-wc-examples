@@ -17,41 +17,41 @@ ModuleManager.register(
 export class SparklineMarkers {
 
 
-    
-    
-        
+
+
+
 
     private sparkline: IgcSparklineComponent;
     public data: any[];
 
     constructor() {
-        
+
         this.onMarkerCheckboxChanged = this.onMarkerCheckboxChanged.bind(this);
 
         this.data = SparklineSharedData.getPaddedDataForMarkers();
-    
-        
+
+
 
         this.sparkline = document.getElementById('sparkline') as IgcSparklineComponent;
         this.sparkline.dataSource = this.data;
 
         let High = document.getElementById('High');
-        High.addEventListener('change', this.onMarkerCheckboxChanged);
+        High!.addEventListener('change', this.onMarkerCheckboxChanged);
 
         let Low = document.getElementById('Low');
-        Low.addEventListener('change', this.onMarkerCheckboxChanged);
+        Low!.addEventListener('change', this.onMarkerCheckboxChanged);
 
         let First = document.getElementById('First');
-        First.addEventListener('change', this.onMarkerCheckboxChanged);
+        First!.addEventListener('change', this.onMarkerCheckboxChanged);
 
         let Last = document.getElementById('Last');
-        Last.addEventListener('change', this.onMarkerCheckboxChanged);
+        Last!.addEventListener('change', this.onMarkerCheckboxChanged);
 
         let Negative = document.getElementById('Negative');
-        Negative.addEventListener('change', this.onMarkerCheckboxChanged);
+        Negative!.addEventListener('change', this.onMarkerCheckboxChanged);
 
         let All = document.getElementById('All');
-        All.addEventListener('change', this.onMarkerCheckboxChanged);
+        All!.addEventListener('change', this.onMarkerCheckboxChanged);
     }
 
     public onMarkerCheckboxChanged(e: any) {

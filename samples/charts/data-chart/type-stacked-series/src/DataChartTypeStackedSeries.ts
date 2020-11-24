@@ -72,9 +72,9 @@ ModuleManager.register(
 export class DataChartTypeStackedSeries {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     private legend: IgcLegendComponent;
@@ -86,9 +86,9 @@ export class DataChartTypeStackedSeries {
     public numYAxis: IgcNumericYAxisComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.catXAxis = new IgcCategoryXAxisComponent();
         this.catXAxis.name = 'catXAxis';
@@ -112,7 +112,7 @@ export class DataChartTypeStackedSeries {
 
         const seriesTypeSelect = document.getElementById('seriesTypeSelect') as HTMLSelectElement;
         seriesTypeSelect.value = 'Stacked Column Series';
-        seriesTypeSelect.addEventListener('change', this.onSeriesTypeChanged);
+        seriesTypeSelect!.addEventListener('change', this.onSeriesTypeChanged);
     }
 
     public getFragments(): IgcStackedFragmentSeriesComponent[] {

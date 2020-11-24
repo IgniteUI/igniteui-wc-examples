@@ -24,9 +24,9 @@ ModuleManager.register(
 export class DataChartSeriesMarkers {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     private series1: IgcLineSeriesComponent;
@@ -35,9 +35,9 @@ export class DataChartSeriesMarkers {
     public markerType: MarkerType = MarkerType.Circle;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -51,7 +51,7 @@ export class DataChartSeriesMarkers {
 
         const markerSelect = document.getElementById('markerSelect') as HTMLSelectElement;
         markerSelect.value = 'Circle';
-        markerSelect.addEventListener('change', this.onMarkerTypeChanged);
+        markerSelect!.addEventListener('change', this.onMarkerTypeChanged);
     }
 
     public onMarkerTypeChanged = (e: any) => {

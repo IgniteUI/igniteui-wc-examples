@@ -57,7 +57,7 @@ export class DataChartSeriesTooltips {
         this.categoryTooltipLayer = new IgcCategoryToolTipLayerComponent();
 
         const tooltipSelect = document.getElementById('tooltipSelect') as HTMLSelectElement;
-        tooltipSelect.addEventListener('change', this.onToolTipTypeChanged);
+        tooltipSelect!.addEventListener('change', this.onToolTipTypeChanged);
     }
 
     public onToolTipTypeChanged = (e: any) => {

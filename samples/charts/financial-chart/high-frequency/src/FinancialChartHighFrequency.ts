@@ -12,9 +12,9 @@ ModuleManager.register(IgcFinancialChartModule);
 export class FinancialChartHighFrequency {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcFinancialChartComponent;
     private dataInfoLabel: HTMLLabelElement;
@@ -33,9 +33,9 @@ export class FinancialChartHighFrequency {
     public scalingRatio: number = NaN;
 
     constructor() {
-        
-    
-        
+
+
+
         this.data = StocksUtility.GetStocksItems(this.dataPoints);
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
@@ -50,17 +50,17 @@ export class FinancialChartHighFrequency {
 
         const dataPointsSlider = document.getElementById('dataPointsSlider') as HTMLInputElement;
         dataPointsSlider.value = this.dataPoints.toString();
-        dataPointsSlider.addEventListener('change', this.onDataPointsChanged);
+        dataPointsSlider!.addEventListener('change', this.onDataPointsChanged);
 
         const refreshSlider = document.getElementById('refreshSlider') as HTMLInputElement;
         refreshSlider.value = this.refreshMilliseconds.toString();
-        refreshSlider.addEventListener('change', this.onRefreshFrequencyChanged);
+        refreshSlider!.addEventListener('change', this.onRefreshFrequencyChanged);
 
         const genDataBtn = document.getElementById('genDataBtn') as HTMLButtonElement;
-        genDataBtn.addEventListener('click', this.onDataGenerateClick);
+        genDataBtn!.addEventListener('click', this.onDataGenerateClick);
 
         const scalingRatio = document.getElementById('scalingRatio') as HTMLButtonElement;
-        scalingRatio.addEventListener('change', this.onScalingRatioChanged);
+        scalingRatio!.addEventListener('change', this.onScalingRatioChanged);
 
         this.fps = document.getElementById('fpsSpan') as HTMLSpanElement;
     }

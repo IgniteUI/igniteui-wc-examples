@@ -40,17 +40,17 @@ ModuleManager.register(
 export class DataChartTypePolarSeries {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     private legend: IgcLegendComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SamplePolarData.create();
@@ -61,7 +61,7 @@ export class DataChartTypePolarSeries {
 
         const seriesTypeSelect = document.getElementById('seriesTypeSelect') as HTMLSelectElement;
         seriesTypeSelect.value = 'Spline';
-        seriesTypeSelect.addEventListener('change', this.onSeriesTypeChanged);
+        seriesTypeSelect!.addEventListener('change', this.onSeriesTypeChanged);
     }
 
     public onSeriesTypeChanged = (e: any) => {

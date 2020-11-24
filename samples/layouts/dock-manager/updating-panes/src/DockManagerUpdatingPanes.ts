@@ -189,7 +189,7 @@ export class DockManagerUpdatingPanes {
             employeeListItem.style.cursor = 'pointer';
             employeeListItem.appendChild(employeePhoto);
             employeeListItem.appendChild(employeeName);
-            employeeListItem.addEventListener('click', (e) => this.onEmployeeClick(employee));
+            employeeListItem!.addEventListener('click', (e) => this.onEmployeeClick(employee));
             // employeeListItem.appendChild(employeeSurname);
 
             employeeListContainer.appendChild(employeeListItem);

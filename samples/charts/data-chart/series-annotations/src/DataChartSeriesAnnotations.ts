@@ -41,9 +41,9 @@ ModuleManager.register(
 export class DataChartSeriesAnnotations {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
 
@@ -55,9 +55,9 @@ export class DataChartSeriesAnnotations {
     public valueOverlay: IgcValueOverlayComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -67,19 +67,19 @@ export class DataChartSeriesAnnotations {
 
         const callouts = document.getElementById('callouts') as HTMLInputElement;
         callouts.checked = true;
-        callouts.addEventListener('change', this.onCalloutChange);
+        callouts!.addEventListener('change', this.onCalloutChange);
 
         const finalValue = document.getElementById('finalValue') as HTMLInputElement;
         finalValue.checked = true;
-        finalValue.addEventListener('change', this.onFinalValueChange);
+        finalValue!.addEventListener('change', this.onFinalValueChange);
 
         const crosshairs = document.getElementById('crosshairs') as HTMLInputElement;
         crosshairs.checked = true;
-        crosshairs.addEventListener('change', this.onCrosshairChange);
+        crosshairs!.addEventListener('change', this.onCrosshairChange);
 
         /*const valueOverlay = document.getElementById('valueOverlay') as HTMLInputElement;
         valueOverlay.checked = true;
-        valueOverlay.addEventListener('change', this.onValueOverlayChange);*/
+        valueOverlay!.addEventListener('change', this.onValueOverlayChange);*/
 
         this.calloutLayer = new IgcCalloutLayerComponent();
         this.calloutLayer.xMemberPath = 'index';

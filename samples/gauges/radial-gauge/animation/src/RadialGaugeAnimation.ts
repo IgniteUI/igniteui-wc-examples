@@ -19,20 +19,20 @@ export class RadialGaugeAnimation {
     private gauge: IgcRadialGaugeComponent;
 
     constructor() {
-        
+
         this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
 
         let button1 = document.getElementById('button1');
-        button1.addEventListener('click', this.onAnimateToGauge1)
+        button1!.addEventListener('click', this.onAnimateToGauge1)
 
         let button2 = document.getElementById('button2');
-        button2.addEventListener('click', this.onAnimateToGauge2)
+        button2!.addEventListener('click', this.onAnimateToGauge2)
 
         let button3 = document.getElementById('button3');
-        button3.addEventListener('click', this.onAnimateToGauge3)
+        button3!.addEventListener('click', this.onAnimateToGauge3)
 
         let button4 = document.getElementById('button4');
-        button4.addEventListener('click', this.onAnimateToGauge4)
+        button4!.addEventListener('click', this.onAnimateToGauge4)
 
         this.onAnimateToGauge4(this.gauge);
     }

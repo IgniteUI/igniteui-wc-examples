@@ -36,9 +36,9 @@ ModuleManager.register(
 export class DataChartAxisAnnotations {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     public targetSeries: IgcColumnSeriesComponent;
@@ -47,9 +47,9 @@ export class DataChartAxisAnnotations {
     public valueOverlay: IgcValueOverlayComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -78,15 +78,15 @@ export class DataChartAxisAnnotations {
 
         const finalValueInput = document.getElementById('finalValueInput') as HTMLInputElement;
         finalValueInput.checked = true;
-        finalValueInput.addEventListener('change', this.onFinalValueChange);
+        finalValueInput!.addEventListener('change', this.onFinalValueChange);
 
         const crosshairsInput = document.getElementById('crosshairsInput') as HTMLInputElement;
         crosshairsInput.checked = true;
-        crosshairsInput.addEventListener('change', this.onCrosshairChange);
+        crosshairsInput!.addEventListener('change', this.onCrosshairChange);
 
         /*const valueOverlayInput = document.getElementById('valueOverlayInput') as HTMLInputElement;
         valueOverlayInput.checked = true;
-        valueOverlayInput.addEventListener('change', this.onValueOverlayChange);*/
+        valueOverlayInput!.addEventListener('change', this.onValueOverlayChange);*/
     }
 
     public onFinalValueChange = (e: any) => {

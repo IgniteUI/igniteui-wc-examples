@@ -24,9 +24,9 @@ ModuleManager.register(
 export class DataChartPerformance {
 
 
-    
-    
-        
+
+
+
     public dataIndex: number = 0;
     public dataPoints: number = 100000;
     public data: any[];
@@ -42,12 +42,12 @@ export class DataChartPerformance {
     public frameCount: number = 0;
 
     constructor() {
-        
+
 
         this.data = DataChartSharedData.getItems(100, this.dataPoints, false);
         this.dataIndex = this.data.length;
-    
-        
+
+
 
         this.fps = document.getElementById('fps') as HTMLSpanElement;
 
@@ -56,13 +56,13 @@ export class DataChartPerformance {
 
         const dataPointsSlider = document.getElementById('dataPointsSlider') as HTMLInputElement;
         dataPointsSlider.value = this.dataPoints.toString();
-        dataPointsSlider.addEventListener('change', this.onDataPointsChanged);
+        dataPointsSlider!.addEventListener('change', this.onDataPointsChanged);
 
         const genData = document.getElementById('genData') as HTMLButtonElement;
-        genData.addEventListener('click', this.onDataGenerateClick);
+        genData!.addEventListener('click', this.onDataGenerateClick);
 
         const scaleRatio = document.getElementById('scaleRatio') as HTMLInputElement;
-        scaleRatio.addEventListener('change', this.onScalingRatioChanged);
+        scaleRatio!.addEventListener('change', this.onScalingRatioChanged);
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.data;

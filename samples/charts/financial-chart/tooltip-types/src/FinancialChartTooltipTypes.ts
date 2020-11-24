@@ -13,24 +13,24 @@ ModuleManager.register(IgcFinancialChartModule);
 export class FinancialChartTooltipTypes {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcFinancialChartComponent;
     public toolTipType: ToolTipType = ToolTipType.Default;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.dataSource = this.getData();
         this.chart.toolTipType = this.toolTipType;
 
         let toolTipSelect = document.getElementById('toolTipSelect');
-        toolTipSelect.addEventListener('change', this.onToolTipTypeChanged);
+        toolTipSelect!.addEventListener('change', this.onToolTipTypeChanged);
     }
 
     public onToolTipTypeChanged = (e: any) => {

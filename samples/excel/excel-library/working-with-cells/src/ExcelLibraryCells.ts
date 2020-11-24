@@ -41,16 +41,16 @@ export class ExcelLibraryCells {
 
 
         const button = document.getElementById('button1');
-        button.addEventListener('click', this.onClick);
+        button!.addEventListener('click', this.onClick);
 
         const addComment = document.getElementById('addComment');
-        addComment.addEventListener('change', this.onCommentChanged);
+        addComment!.addEventListener('change', this.onCommentChanged);
 
         const addFormula = document.getElementById('addFormula');
-        addFormula.addEventListener('change', this.onFormulaChanged);
+        addFormula!.addEventListener('change', this.onFormulaChanged);
 
         const mergeCells = document.getElementById('mergeCells');
-        mergeCells.addEventListener('change', this.onMergeChanged);
+        mergeCells!.addEventListener('change', this.onMergeChanged);
 
         this.workbookCreate();
     }

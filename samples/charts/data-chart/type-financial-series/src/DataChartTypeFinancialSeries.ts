@@ -30,9 +30,9 @@ ModuleManager.register(
 export class DataChartTypeFinancialSeries {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     private priceSeries: IgcFinancialPriceSeriesComponent;
@@ -41,9 +41,9 @@ export class DataChartTypeFinancialSeries {
     public displayTypeIndicator: IndicatorDisplayType = IndicatorDisplayType.Line;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleFinancialData.create();
@@ -55,10 +55,10 @@ export class DataChartTypeFinancialSeries {
         this.medianPriceIndicator.displayType = this.displayTypeIndicator;
 
         const seriesSelect = document.getElementById('seriesSelect') as HTMLSelectElement;
-        seriesSelect.addEventListener('change', this.onDisplayTypeSeriesChanged);
+        seriesSelect!.addEventListener('change', this.onDisplayTypeSeriesChanged);
 
         const indicatorSelect = document.getElementById('indicatorSelect') as HTMLSelectElement;
-        indicatorSelect.addEventListener('change', this.onDisplayTypeIndicatorChanged);
+        indicatorSelect!.addEventListener('change', this.onDisplayTypeIndicatorChanged);
     }
 
     public onDisplayTypeSeriesChanged = (e: any) =>{

@@ -16,35 +16,35 @@ ModuleManager.register(
 export class DoughnutChartAnimation {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDoughnutChartComponent;
-    private chartSeries: IgcRingSeriesComponent;    
-    private interval: number = -1;    
+    private chartSeries: IgcRingSeriesComponent;
+    private interval: number = -1;
     public isAnimating: boolean = false;
 
     constructor() {
-        
-        
+
+
         this.onAnimationToggle = this.onAnimationToggle.bind(this);
         this.onAnimationClear = this.onAnimationClear.bind(this);
 
-    
-        
+
+
 
         this.chart = document.getElementById('chart') as IgcDoughnutChartComponent;
-        let ringSeries = document.getElementById('ringSeries') as IgcRingSeriesComponent;        
+        let ringSeries = document.getElementById('ringSeries') as IgcRingSeriesComponent;
         ringSeries.dataSource = this.getData();
-        
+
         this.chartSeries = ringSeries;
-        
+
         let Animatebutton = document.getElementById('animateButton') as HTMLInputElement;
-        Animatebutton.addEventListener('click', this.onAnimationToggle);
+        Animatebutton!.addEventListener('click', this.onAnimationToggle);
         this.onChartInit();
     }
-        
+
     public getData(): any[] {
         return[
             { MarketShare: 30, Company: 'Google',    },
@@ -58,11 +58,11 @@ export class DoughnutChartAnimation {
         this.onAnimationClear();
     }
 
-    public onChartInit(): void {               
+    public onChartInit(): void {
        this.onAnimationClear();
        this.onAnimationToggle();
-    }     
-    
+    }
+
     public onAnimationToggle = () => {
         if (!this.isAnimating) {
             console.log('animation start');

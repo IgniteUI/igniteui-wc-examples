@@ -26,17 +26,17 @@ ModuleManager.register(
 export class DataChartSeriesTrendlines {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     private series1: IgcFinancialPriceSeriesComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -46,7 +46,7 @@ export class DataChartSeriesTrendlines {
 
         const trendLineSelect = document.getElementById('trendLineSelect') as HTMLSelectElement;
         trendLineSelect.value = 'CubicFit';
-        trendLineSelect.addEventListener('change', this.onTrendlineChange);
+        trendLineSelect!.addEventListener('change', this.onTrendlineChange);
     }
 
     public onTrendlineChange = (e: any) => {

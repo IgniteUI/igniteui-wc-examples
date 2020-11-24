@@ -11,9 +11,9 @@ ModuleManager.register(IgcCategoryChartModule);
 export class CategoryChartHighFrequency {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcCategoryChartComponent;
     public dataIndex: number = 0;
@@ -30,7 +30,7 @@ export class CategoryChartHighFrequency {
     private refreshInfoLabel: HTMLLabelElement;
 
     constructor() {
-        
+
 
         this.onFpsRef = this.onFpsRef.bind(this);
         this.onScalingRatioChanged = this.onScalingRatioChanged.bind(this);
@@ -38,8 +38,8 @@ export class CategoryChartHighFrequency {
         this.onDataGenerateClick = this.onDataGenerateClick.bind(this);
         this.onDataPointsChanged = this.onDataPointsChanged.bind(this);
         this.tick = this.tick.bind(this);
-    
-        
+
+
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
@@ -50,23 +50,23 @@ export class CategoryChartHighFrequency {
 
         let slider1 = document.getElementById('slider') as HTMLInputElement;
         slider1.value = this.dataPoints.toString();
-        slider1.addEventListener('change', this.onDataPointsChanged);
+        slider1!.addEventListener('change', this.onDataPointsChanged);
 
         this.refreshInfoLabel = document.getElementById('refreshInfoLabel') as HTMLLabelElement;
         this.refreshInfoLabel.textContent = (this.refreshMilliseconds / 1000).toFixed(3) + 's';
 
         let refreshSlider = document.getElementById('refreshSlider') as HTMLInputElement;
         refreshSlider.value = this.refreshMilliseconds.toString();
-        refreshSlider.addEventListener('change', this.onRefreshFrequencyChanged);
+        refreshSlider!.addEventListener('change', this.onRefreshFrequencyChanged);
 
         this.dataInfoLabel = document.getElementById('dataInfoLabel') as HTMLLabelElement;
         this.dataInfoLabel.textContent = CategoryChartSharedData.toShortString(this.dataPoints);
 
         let dataGenerate1 = document.getElementById('dataGenerate') as HTMLInputElement;
-        dataGenerate1.addEventListener('click', this.onDataGenerateClick);
+        dataGenerate1!.addEventListener('click', this.onDataGenerateClick);
 
         let scalingRatio1 = document.getElementById('scalingRatio') as HTMLInputElement;
-        scalingRatio1.addEventListener('change', this.onScalingRatioChanged);
+        scalingRatio1!.addEventListener('change', this.onScalingRatioChanged);
 
         this.fps = document.getElementById('fps') as HTMLSpanElement;
     }

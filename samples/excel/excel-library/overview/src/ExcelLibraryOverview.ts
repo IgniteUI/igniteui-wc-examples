@@ -19,9 +19,9 @@ ModuleManager.register(
 export class ExcelLibraryOverview {
 
 
-    
-    
-        
+
+
+
 
     public canSave = false;
     public wb: Workbook;
@@ -30,14 +30,14 @@ export class ExcelLibraryOverview {
     public selectedRegion: string | null;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.init();
 
         const saveWorkbook = document.getElementById('saveWorkbook');
-        saveWorkbook.addEventListener('click', this.onClick);
+        saveWorkbook!.addEventListener('click', this.onClick);
     }
 
     public workbookSave(): void {

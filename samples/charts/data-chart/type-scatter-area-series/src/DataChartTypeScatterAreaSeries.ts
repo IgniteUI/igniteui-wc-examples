@@ -26,9 +26,9 @@ ModuleManager.register(
 export class DataChartTypeScatterAreaSeries {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     public colorScale: IgcCustomPaletteColorScaleComponent;
@@ -36,9 +36,9 @@ export class DataChartTypeScatterAreaSeries {
     public scaleMaxLabel: HTMLLabelElement;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -57,21 +57,21 @@ export class DataChartTypeScatterAreaSeries {
 
         const scaleModeSelect = document.getElementById('scaleModeSelect') as HTMLSelectElement;
         scaleModeSelect.value = 'InterpolateHSV';
-        scaleModeSelect.addEventListener('change', this.seriesScaleModeChanged);
+        scaleModeSelect!.addEventListener('change', this.seriesScaleModeChanged);
 
         this.scaleMinLabel = document.getElementById('scaleMinLabel') as HTMLLabelElement;
         this.scaleMinLabel.textContent = '-2';
 
         const scaleMinSlider = document.getElementById('scaleMinSlider') as HTMLInputElement;
         scaleMinSlider.value = '-2';
-        scaleMinSlider.addEventListener('change', this.seriesScaleMinChanged);
+        scaleMinSlider!.addEventListener('change', this.seriesScaleMinChanged);
 
         this.scaleMaxLabel = document.getElementById('scaleMaxLabel') as HTMLLabelElement;
         this.scaleMaxLabel.textContent = '2';
 
         const scaleMaxSlider = document.getElementById('scaleMaxSlider') as HTMLInputElement;
         scaleMaxSlider.value = '2';
-        scaleMaxSlider.addEventListener('change', this.seriesScaleMaxChanged);
+        scaleMaxSlider!.addEventListener('change', this.seriesScaleMaxChanged);
 
     }
 

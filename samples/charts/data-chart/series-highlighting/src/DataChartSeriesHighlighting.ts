@@ -30,9 +30,9 @@ ModuleManager.register(
 export class DataChartSeriesHighlighting {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
     private series1: IgcColumnSeriesComponent;
@@ -45,9 +45,9 @@ export class DataChartSeriesHighlighting {
     public itemHighlightLayer: IgcCategoryItemHighlightLayerComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -67,15 +67,15 @@ export class DataChartSeriesHighlighting {
 
         const seriesInput = document.getElementById('seriesInput') as HTMLInputElement;
         seriesInput.checked = true;
-        seriesInput.addEventListener('change', this.onSeriesHighlightingChanged);
+        seriesInput!.addEventListener('change', this.onSeriesHighlightingChanged);
 
         const itemInput = document.getElementById('itemInput') as HTMLInputElement;
         itemInput.checked = true;
-        itemInput.addEventListener('change', this.onItemHighlightingChanged);
+        itemInput!.addEventListener('change', this.onItemHighlightingChanged);
 
         const categoryInput = document.getElementById('categoryInput') as HTMLInputElement;
         categoryInput.checked = false;
-        categoryInput.addEventListener('change', this.onCategoryHighlightingChanged);
+        categoryInput!.addEventListener('change', this.onCategoryHighlightingChanged);
     }
 
     public onSeriesHighlightingChanged = (e: any) => {

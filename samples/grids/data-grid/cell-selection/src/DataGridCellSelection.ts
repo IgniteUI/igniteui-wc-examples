@@ -19,20 +19,20 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 export class DataGridCellSelection {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
 
     constructor() {
-        
+
         this.onSelectedItemsChanged = this.onSelectedItemsChanged.bind(this);
         this.onSelectedCellsChanged = this.onSelectedCellsChanged.bind(this);
         this.onSelectedKeysChanged = this.onSelectedKeysChanged.bind(this);
         this.onSelectedCellRangesChanged = this.onSelectedCellRangesChanged.bind(this);
-    
-        
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();
@@ -45,7 +45,7 @@ export class DataGridCellSelection {
         this.grid.selectedCellRangesChanged = this.onSelectedCellRangesChanged;
 
         let dropDown = document.getElementById('selectionDropBox');
-        dropDown.addEventListener('change', this.dropDownValueChanged);
+        dropDown!.addEventListener('change', this.dropDownValueChanged);
     }
 
     public onSelectedItemsChanged(s: IgcDataGridComponent, e: IgcGridSelectedItemsChangedEventArgs) {

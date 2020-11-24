@@ -119,18 +119,18 @@ ModuleManager.register(
 export class DataChartTypeFinancialIndicatorLine {
 
 
-    
-    
-        
+
+
+
 
     private chart1: IgcDataChartComponent;
     private chart2: IgcDataChartComponent;
     private displayType: IndicatorDisplayType = IndicatorDisplayType.Line;
 
     constructor() {
-        
-    
-        
+
+
+
 
         const dataItems = SampleFinancialData.create();
 
@@ -143,7 +143,7 @@ export class DataChartTypeFinancialIndicatorLine {
 
         const indicatorSelect = document.getElementById('indicatorSelect') as HTMLSelectElement;
         indicatorSelect.value = 'AbsoluteVolumeOscillator';
-        indicatorSelect.addEventListener('change', this.onIndicatorChanged);
+        indicatorSelect!.addEventListener('change', this.onIndicatorChanged);
     }
 
     public onIndicatorChanged = (e: any) => {

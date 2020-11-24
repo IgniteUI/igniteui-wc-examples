@@ -30,23 +30,23 @@ ModuleManager.register(
 export class DataChartTypeRangeSeries {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleRangeData.create();
 
         const seriesTypeSelect = document.getElementById('seriesTypeSelect') as HTMLSelectElement;
         seriesTypeSelect.value = 'Column';
-        seriesTypeSelect.addEventListener('change', this.onSeriesTypeChanged);
+        seriesTypeSelect!.addEventListener('change', this.onSeriesTypeChanged);
         this.setSeries('Column');
     }
 

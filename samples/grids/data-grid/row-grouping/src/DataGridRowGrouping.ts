@@ -35,10 +35,10 @@ export class DataGridRowGrouping {
         this.grid.isGroupCollapsable = true;
 
         let displayModeSelector = document.getElementById('displayModeSelector') as any ;
-        displayModeSelector.addEventListener('change', this.onSectionHeaderDisplayModeChanging);
+        displayModeSelector!.addEventListener('change', this.onSectionHeaderDisplayModeChanging);
 
         let groupCollapsibleCheckbox = document.getElementById('groupCollapsibleCheckbox') as any ;
-        groupCollapsibleCheckbox.addEventListener('change', this.onGroupHeaderCollapsible);
+        groupCollapsibleCheckbox!.addEventListener('change', this.onGroupHeaderCollapsible);
         groupCollapsibleCheckbox.checked = true;
 
         const state = new IgcColumnGroupDescription();

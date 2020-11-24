@@ -44,31 +44,31 @@ export class ExcelLibraryWorksheets {
         this.showHeaders = true;
 
         const saveBtn = document.getElementById('saveBtn') as HTMLButtonElement;
-        saveBtn.addEventListener('click', this.exportData)
+        saveBtn!.addEventListener('click', this.exportData)
 
         const isSorted = document.getElementById('isSorted') as HTMLInputElement;
         isSorted.checked = this.isSorted;
-        isSorted.addEventListener('change', this.onChange)
+        isSorted!.addEventListener('change', this.onChange)
 
         const isFiltered = document.getElementById('isFiltered') as HTMLInputElement;
         isFiltered.checked = this.isFiltered;
-        isFiltered.addEventListener('change', this.onChange)
+        isFiltered!.addEventListener('change', this.onChange)
 
         const isProtected = document.getElementById('isProtected') as HTMLInputElement;
         isProtected.checked = this.isProtected;
-        isProtected.addEventListener('change', this.onChange)
+        isProtected!.addEventListener('change', this.onChange)
 
         const showGridlines = document.getElementById('showGridlines') as HTMLInputElement;
         showGridlines.checked = this.showGridlines;
-        showGridlines.addEventListener('change', this.onChange)
+        showGridlines!.addEventListener('change', this.onChange)
 
         const showHeaders = document.getElementById('showHeaders') as HTMLInputElement;
         showHeaders.checked = this.showHeaders;
-        showHeaders.addEventListener('change', this.onChange)
+        showHeaders!.addEventListener('change', this.onChange)
 
         const applyFormat = document.getElementById('applyFormat') as HTMLInputElement;
         applyFormat.checked = this.applyConditionalFormatting;
-        applyFormat.addEventListener('change', this.onChange)
+        applyFormat!.addEventListener('change', this.onChange)
     }
 
     public exportData = (): void => {

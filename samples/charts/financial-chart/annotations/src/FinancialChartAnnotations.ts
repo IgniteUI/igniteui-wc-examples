@@ -14,9 +14,9 @@ ModuleManager.register(IgcFinancialChartModule);
 export class FinancialChartAnnotations {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcFinancialChartComponent;
     private calloutsVisible = true;
@@ -26,9 +26,9 @@ export class FinancialChartAnnotations {
     private markersTypes = MarkerType.Circle;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.dataSource = this.getData();
@@ -39,16 +39,16 @@ export class FinancialChartAnnotations {
         this.chart.markerTypes.add(this.markersTypes);
 
         let crosshairs = document.getElementById('crosshairs');
-        crosshairs.addEventListener('change', this.onCrosshairsVisible);
+        crosshairs!.addEventListener('change', this.onCrosshairsVisible);
 
         let callouts = document.getElementById('callouts');
-        callouts.addEventListener('change', this.onCalloutsVisible);
+        callouts!.addEventListener('change', this.onCalloutsVisible);
 
         let finalvalues = document.getElementById('finalvalues');
-        finalvalues.addEventListener('change', this.onFinalValuesVisible);
+        finalvalues!.addEventListener('change', this.onFinalValuesVisible);
 
         let markers = document.getElementById('markers');
-        markers.addEventListener('change', this.onMarkersVisible);
+        markers!.addEventListener('change', this.onMarkersVisible);
     }
 
     public onCrosshairsVisible = (e: any) => {

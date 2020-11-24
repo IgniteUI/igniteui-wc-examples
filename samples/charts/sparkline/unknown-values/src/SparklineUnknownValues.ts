@@ -26,7 +26,7 @@ export class SparklineUnknownValues {
         this.sparkline.dataSource = this.data;
 
         let plotUnknownValue = document.getElementById('plotUnknownValue');
-        plotUnknownValue.addEventListener('change', this.onRangeVisibilityChanged);
+        plotUnknownValue!.addEventListener('change', this.onRangeVisibilityChanged);
     }
 
     public onRangeVisibilityChanged(e: any) {

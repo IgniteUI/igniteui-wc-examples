@@ -9,17 +9,17 @@
 export class ExcelLibraryTables {
 
 
-    
-    
-        
+
+
+
 
     constructor() {
-        
-    
-        
+
+
+
 
         const button = document.getElementById('button1');
-        button.addEventListener('click', this.onButtonClick)
+        button!.addEventListener('click', this.onButtonClick)
     }
 
     public onButtonClick = (e: any) => {

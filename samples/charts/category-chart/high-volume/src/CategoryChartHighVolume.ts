@@ -11,9 +11,9 @@ ModuleManager.register(IgcCategoryChartModule);
 export class CategoryChartHighVolume {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcCategoryChartComponent;
     public dataPoints: number = 500000;
@@ -23,21 +23,21 @@ export class CategoryChartHighVolume {
     private dataInfoLabel: HTMLLabelElement;
 
     constructor() {
-        
+
 
         this.onDataPointsChanged = this.onDataPointsChanged.bind(this);
         this.onDataGenerateClick = this.onDataGenerateClick.bind(this);
-    
-        
+
+
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = CategoryChartSharedData.generateItems(0, this.dataPoints, true);
 
         let slider1 = document.getElementById('dataPointsSlider') as HTMLInputElement;
-        slider1.addEventListener('change', this.onDataPointsChanged);
+        slider1!.addEventListener('change', this.onDataPointsChanged);
 
         let DataGenerate1 = document.getElementById('DataGenerate') as HTMLButtonElement;
-        DataGenerate1.addEventListener('click', this.onDataGenerateClick);
+        DataGenerate1!.addEventListener('click', this.onDataGenerateClick);
     }
 
     public onDataPointsChanged = (e: any) => {

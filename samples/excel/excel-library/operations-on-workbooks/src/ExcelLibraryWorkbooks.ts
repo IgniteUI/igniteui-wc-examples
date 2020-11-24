@@ -21,9 +21,9 @@ ModuleManager.register(
 export class ExcelLibraryWorkbooks {
 
 
-    
-    
-        
+
+
+
 
     public grid: IgcDataGridComponent;
 
@@ -40,9 +40,9 @@ export class ExcelLibraryWorkbooks {
     public selected: string;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.companies = ['Amazon', 'Ford', 'Jaguar', 'Tesla', 'IBM', 'Microsoft'];
         this.firstNames = ['Andrew', 'Mike', 'Martin', 'Ann', 'Victoria', 'John', 'Brian', 'Jason', 'David'];
@@ -57,15 +57,15 @@ export class ExcelLibraryWorkbooks {
         this.grid.dataSource = this.employeeData;
 
         const createBtn = document.getElementById('createBtn') as HTMLButtonElement;
-        createBtn.addEventListener('click', this.createWorkbook);
+        createBtn!.addEventListener('click', this.createWorkbook);
 
         const saveBtn = document.getElementById('saveBtn') as HTMLButtonElement;
-        saveBtn.addEventListener('click', this.saveWorkbook);
+        saveBtn!.addEventListener('click', this.saveWorkbook);
 
         const tableSelect = document.getElementById('tableSelect') as HTMLSelectElement;
         this.selected = 'Employees - Table1';
         tableSelect.value = this.selected;
-        tableSelect.addEventListener('change', this.onTableChange);
+        tableSelect!.addEventListener('change', this.onTableChange);
 
     }
 

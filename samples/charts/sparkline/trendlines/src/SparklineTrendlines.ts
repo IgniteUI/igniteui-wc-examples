@@ -30,7 +30,7 @@ export class SparklineTrendlines {
         this.sparkline.dataSource = this.data;
 
         let trendlineType = document.getElementById('trendlineType');
-        trendlineType.addEventListener('change', this.onTrendlineChanged);
+        trendlineType!.addEventListener('change', this.onTrendlineChanged);
     }
 
     public onTrendlineChanged(e: any) {

@@ -26,16 +26,16 @@ ModuleManager.register(
 export class DataChartTypeShapeSeries {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDataChartComponent;
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -43,7 +43,7 @@ export class DataChartTypeShapeSeries {
 
         const seriesTypeSelect = document.getElementById('seriesTypeSelect') as HTMLSelectElement;
         seriesTypeSelect.value = 'Polygon';
-        seriesTypeSelect.addEventListener('change', this.onSeriesTypeChanged);
+        seriesTypeSelect!.addEventListener('change', this.onSeriesTypeChanged);
     }
 
     public onSeriesTypeChanged = (e: any) => {

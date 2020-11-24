@@ -38,16 +38,16 @@ ModuleManager.register(
 export class ExcelLibrarySparklines {
 
 
-    
-    
-        
+
+
+
 
     public data: any[];
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.initData();
 
@@ -55,7 +55,7 @@ export class ExcelLibrarySparklines {
         grid.dataSource = this.data;
 
         const exportBtn = document.getElementById('exportBtn');
-        exportBtn.addEventListener('click', this.exportGrid);
+        exportBtn!.addEventListener('click', this.exportGrid);
 
         const templateColumn = document.getElementById('templateColumn') as IgcTemplateColumnComponent;
         templateColumn.cellUpdating = this.onOrdersCellUpdating;
