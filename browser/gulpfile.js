@@ -81,6 +81,11 @@ exports.logRoutes = logRoutes = gulp.series(
     sb.logRoutes,
 );
 
+exports.logSandboxLinks = logSandboxLinks = gulp.series(
+    sb.findSamples,
+    sb.logSandboxLinks,
+);
+
 // Create task - copying samples
 // C:\Users\source\repos\samples-web-component\src\samples
 // Paste below
