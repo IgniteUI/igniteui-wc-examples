@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
     <button class="igOptions-item" id="saveBtn" onClick={this.exportData}>Save Workbook</button>
     <label class="option-item"><input id="isSorted" type="checkbox"></input>Apply Sort</label>
@@ -25,12 +25,13 @@
     <label class="option-item"><input id="showGridlines" type="checkbox"></input>Show Gridlines</label>
     <label class="option-item"><input id="showHeaders" type="checkbox"></input>Show Row and Column Headers</label>
     <label class="option-item"><input id="applyFormat" type="checkbox"></input>Apply Conditional Formatting</label>
-</div>
-    </div>
+</div>
+
+
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->
     <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
     <script src="src/index.ts"></script>
-    <% } %>
+
   </body>
 </html>

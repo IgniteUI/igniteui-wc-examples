@@ -16,7 +16,7 @@
 
   <body>
     <div id="root">
-        
+
 <div class="igContainer">
     <div class="igOptions">
         <span class="optionLabel">Marker Type: </span>
@@ -24,49 +24,50 @@
             <option>Circle</option>
             <option>Diamond</option>
             <option>Hexagon</option>
-            <option>Hexagram</option> 
-            <option>Hidden</option> 
+            <option>Hexagram</option>
+            <option>Hidden</option>
             <option>Pentagon</option>
             <option>Pentagram</option>
             <option>Pyramid</option>
             <option>Square</option>
             <option>Tetragram</option>
-            <option>Triangle</option>             
-        </select>      
+            <option>Triangle</option>
+        </select>
 
         <span class="optionLabel">Marker Brush: </span>
         <select value="White" id="MarkerBrushSelect">
             <option>White</option>
             <option>Green</option>
-            <option>Blue</option> 
-            <option>Black</option>  
-            <option>Red</option> 
-            <option>Gray</option>                     
+            <option>Blue</option>
+            <option>Black</option>
+            <option>Red</option>
+            <option>Gray</option>
         </select>
-    
+
         <span class="optionLabel">Marker Outline: </span>
         <select value="DodgerBlue" id="MarkerOutlineSelect">
-            <option>DodgerBlue</option> 
-            <option>Gray</option> 
+            <option>DodgerBlue</option>
+            <option>Gray</option>
             <option>Red</option>
-            <option>Green</option>           
-            <option>Black</option>  
-            <option>White</option>                                      
+            <option>Green</option>
+            <option>Black</option>
+            <option>White</option>
         </select>
 
     </div>
 
-    <igc-geographic-map 
-        id="geoMap" 
-        width="100%" 
+    <igc-geographic-map
+        id="geoMap"
+        width="100%"
         height="100%">
     </igc-geographic-map>
-</div>
-    </div>
+</div>
+
+
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->
     <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
     <script src="src/index.ts"></script>
-    <% } %>
+
   </body>
 </html>
