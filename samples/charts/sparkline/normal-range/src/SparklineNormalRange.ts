@@ -23,8 +23,8 @@ export class SparklineNormalRange {
 
     private sparkline: IgcSparklineComponent;
     public data: any[];
-    private minRangelbl: any;
-    private maxRangelbl: any;
+    private minRangeLabel: any;
+    private maxRangeLabel: any;
 
     constructor() {
 
@@ -47,8 +47,8 @@ export class SparklineNormalRange {
         let maxRange = document.getElementById('maxRange');
         maxRange!.addEventListener('change', this.onMaxSliderChanged);
 
-        this.minRangelbl = document.getElementById('minRangelbl');
-        this.maxRangelbl = document.getElementById('maxRangelbl');
+        this.minRangeLabel = document.getElementById('minRangeLabel');
+        this.maxRangeLabel = document.getElementById('maxRangeLabel');
     }
 
     public onRangeVisibilityChanged(e: any) {
@@ -65,13 +65,13 @@ export class SparklineNormalRange {
     public onMinSliderChanged(e: any) {
         const value: number = parseFloat(e.target.value);
         this.sparkline.normalRangeMinimum = value;
-      this.minRangelbl.textContent = value;
+      this.minRangeLabel.textContent = value;
     }
 
     public onMaxSliderChanged(e: any) {
         const value: number = parseFloat(e.target.value);
         this.sparkline.normalRangeMaximum = value;
-        this.maxRangelbl.textContent = value;
+        this.maxRangeLabel.textContent = value;
     }
 }
 

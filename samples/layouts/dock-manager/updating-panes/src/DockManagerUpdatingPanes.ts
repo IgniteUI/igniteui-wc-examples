@@ -235,7 +235,7 @@ export class DockManagerUpdatingPanes {
         const dataItem = dataContext.item as any;
         if (!dataItem) return null;
 
-        const lbl = dataItem.City;
+        const Label = dataItem.City;
         const scr = dataItem.CountryFlag;
         const lat = WorldUtils.toStringLat(dataItem.Latitude);
         const lon = WorldUtils.toStringLon(dataItem.Longitude);
@@ -249,7 +249,7 @@ export class DockManagerUpdatingPanes {
                 <div class='tooltipBox'>
                     <div class='tooltipRow'>
                         <div class='tooltipLbl'>City:</div>
-                        <div class='tooltipVal' style='color: black;'>${lbl}</div>
+                        <div class='tooltipVal' style='color: black;'>${Label}</div>
                     </div>
                     <div class='tooltipRow'>
                         <div class='tooltipLbl'>Latitude:</div>

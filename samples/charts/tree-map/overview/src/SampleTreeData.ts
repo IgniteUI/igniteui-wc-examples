@@ -58,7 +58,7 @@ export class SampleTreeData {
             { name:  "Congo, Dem. Rep.", pop:  67757577, id: "Congo__Dem__Rep_", parent: "Africa" },
             { name:  "Congo, Rep.", pop:  4139748, id: "Congo__Rep_", parent: "Africa" },
             { name:  "Costa Rica", pop:  4726575, id: "Costa_Rica", parent: "Central_America" },
-            { name:  "Cote d'Ivoire", pop:  20152894, id: "Cote_d_Ivoire", parent: "Africa" },
+            { name:  "Ivory Coast", pop:  20152894, id: "Cote_d_Ivoire", parent: "Africa" },
             { name:  "Croatia", pop:  4403000, id: "Croatia", parent: "Europe" },
             { name:  "Cuba", pop:  11253665, id: "Cuba", parent: "Central_America" },
             { name:  "Curacao", pop:  145619, id: "Curacao", parent: "Central_America" },

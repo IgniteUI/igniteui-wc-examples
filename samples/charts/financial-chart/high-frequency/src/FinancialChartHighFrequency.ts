@@ -18,7 +18,7 @@ export class FinancialChartHighFrequency {
 
     private chart: IgcFinancialChartComponent;
     private dataInfoLabel: HTMLLabelElement;
-    private refeshInfoLabel: HTMLLabelElement;
+    private refreshIntervalValue: HTMLLabelElement;
     public dataIndex: number = 0;
     public dataPoints: number = 10000;
     public dataInfo: string = StocksUtility.toShortString(this.dataPoints);
@@ -45,8 +45,8 @@ export class FinancialChartHighFrequency {
         this.dataInfoLabel = document.getElementById('dataInfoLabel') as HTMLLabelElement;
         this.dataInfoLabel.textContent = this.dataInfo;
 
-        this.refeshInfoLabel = document.getElementById('refeshInfoLabel') as HTMLLabelElement;
-        this.refeshInfoLabel.textContent = (this.refreshMilliseconds / 1000).toString() + 's';
+        this.refreshIntervalValue = document.getElementById('refreshIntervalValue') as HTMLLabelElement;
+        this.refreshIntervalValue.textContent = (this.refreshMilliseconds / 1000).toString() + 's';
 
         const dataPointsSlider = document.getElementById('dataPointsSlider') as HTMLInputElement;
         dataPointsSlider.value = this.dataPoints.toString();
@@ -133,7 +133,7 @@ export class FinancialChartHighFrequency {
         this.refreshMilliseconds = num;
         this.setupInterval();
 
-        this.refeshInfoLabel.textContent = (this.refreshMilliseconds / 1000).toString() + 's';
+        this.refreshIntervalValue.textContent = (this.refreshMilliseconds / 1000).toString() + 's';
     }
 
     public setupInterval(): void {
