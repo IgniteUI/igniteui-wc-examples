@@ -44,8 +44,8 @@ export class FinancialChartAnnotations {
         let callouts = document.getElementById('callouts');
         callouts!.addEventListener('change', this.onCalloutsVisible);
 
-        let finalvalues = document.getElementById('finalvalues');
-        finalvalues!.addEventListener('change', this.onFinalValuesVisible);
+        let useFinalValues = document.getElementById('useFinalValues');
+        useFinalValues!.addEventListener('change', this.onFinalValuesVisible);
 
         let markers = document.getElementById('markers');
         markers!.addEventListener('change', this.onMarkersVisible);
