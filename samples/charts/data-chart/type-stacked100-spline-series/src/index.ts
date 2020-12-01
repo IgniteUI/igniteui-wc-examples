@@ -1,3 +1,1 @@
-
-
 import './DataChartTypeStacked100SplineSeries';
