@@ -16,7 +16,7 @@ export class SparklineUnknownValues {
 
 
     private sparkline: IgcSparklineComponent;
-    public data: any[];
+    public data: any[] = [];
     constructor() {
 
         this.data = this.getData();

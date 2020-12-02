@@ -18,18 +18,18 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 export class DataGridColumnChooserPicker {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
     private columnChooser: IgcColumnChooserComponent;
-    private data: any[];
+    private data: any[] = [];
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.columnChooser = document.getElementById('columnUI') as IgcColumnChooserComponent;

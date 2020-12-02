@@ -18,7 +18,7 @@ export class DataGridColumnChooserToolbar {
 
     private grid: IgcDataGridComponent;
     private toolbar: IgcDataGridToolbarComponent;
-    private data: any[];
+    private data: any[] = [];
 
     constructor() {
 

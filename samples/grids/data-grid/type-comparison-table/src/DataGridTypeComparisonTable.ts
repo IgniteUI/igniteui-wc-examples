@@ -19,7 +19,7 @@ export class DataGridTypeComparisonTable {
 
 
     private grid: IgcDataGridComponent;
-    private data: any[];
+    private data: any[] = [];
 
     private VerticalHeader: IgcTemplateHeaderComponent;
     private HorizontalRightHeader: IgcTemplateHeaderComponent;

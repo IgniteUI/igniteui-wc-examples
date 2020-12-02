@@ -15,20 +15,20 @@ ModuleManager.register(
 export class CategoryChartStackColumns {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcCategoryChartComponent;
     private legend: IgcLegendComponent;
 
-    public data: any[];
+    public data: any[] = [];
 
     constructor() {
-        
+
         this.initData();
-    
-        
+
+
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.data;

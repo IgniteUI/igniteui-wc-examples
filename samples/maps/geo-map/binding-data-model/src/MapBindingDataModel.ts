@@ -18,15 +18,15 @@ ModuleManager.register(
 export class MapBindingDataModel {
 
 
-    
-    
-        
+
+
+
 
     private geoMap: IgcGeographicMapComponent;
-    public flights: any[];
+    public flights: any[] = [];
 
     constructor() {
-        
+
 
         const cityDAL = { lat:  32.763, lon: -96.663, country: 'US', name: 'Dallas' };
         const citySYD = { lat: -33.889, lon: 151.028, country: 'Australia', name: 'Sydney' };
@@ -52,8 +52,8 @@ export class MapBindingDataModel {
             { origin: cityNYC, dest: cityQTR, color: 'Purple' },
             { origin: cityLAX, dest: citySYD, color: 'Gray' },
         ];
-    
-        
+
+
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };

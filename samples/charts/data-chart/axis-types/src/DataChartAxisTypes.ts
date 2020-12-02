@@ -53,9 +53,9 @@ export class DataChartAxisTypes {
 
     private chart: IgcDataChartComponent;
 
-    public categoryData: any[];
-    public financialData: any[];
-    public scatterData: any[];
+    public categoryData: any[] = [];
+    public financialData: any[] = [];
+    public scatterData: any[] = [];
 
     public numericXAxis: IgcNumericXAxisComponent;
     public numericYAxis: IgcNumericYAxisComponent;

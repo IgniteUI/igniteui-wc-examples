@@ -10,22 +10,22 @@ ModuleManager.register(IgcSparklineModule);
 export class SparklineDisplayWinLoss {
 
 
-    
-    
-        
+
+
+
 
     private chart1: IgcSparklineComponent;
     private chart2: IgcSparklineComponent;
     private chart3: IgcSparklineComponent;
-    public data1: any[];
-    public data2: any[];
+    public data1: any[] = [];
+    public data2: any[] = [];
 
     constructor() {
-        
+
         this.data1 = this.createData2(720 * 1);
         this.data2 = this.createData2(720 * 2);
-    
-        
+
+
 
         this.chart1 = document.getElementById('chart1') as IgcSparklineComponent;
         this.chart2 = document.getElementById('chart2') as IgcSparklineComponent;

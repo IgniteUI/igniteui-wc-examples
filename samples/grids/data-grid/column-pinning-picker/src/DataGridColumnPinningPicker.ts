@@ -13,7 +13,7 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 export class DataGridColumnPinningPicker {
 
 
-    public data: any[];
+    public data: any[] = [];
 
 
 

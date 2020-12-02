@@ -30,8 +30,8 @@ export class ExcelLibraryCharts {
 
 
 
-    public excelData: any[];
-    public chartData: any[];
+    public excelData: any[] = [];
+    public chartData: any[] = [];
 
     constructor() {
 

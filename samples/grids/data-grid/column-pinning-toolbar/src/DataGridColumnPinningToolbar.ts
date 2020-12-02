@@ -14,19 +14,19 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 export class DataGridColumnPinningToolbar {
 
 
-    public data: any[];
-    
-    
-        
+    public data: any[] = [];
+
+
+
     public grid: IgcDataGridComponent;
     public toolbar: IgcDataGridToolbarComponent;
 
     constructor() {
-        
+
         this.onGridRef = this.onGridRef.bind(this);
         this.data = DataGridSharedData.getEmployees();
-    
-        
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();

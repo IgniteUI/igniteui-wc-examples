@@ -22,7 +22,7 @@ export class SparklineMarkers {
 
 
     private sparkline: IgcSparklineComponent;
-    public data: any[];
+    public data: any[] = [];
 
     constructor() {
 

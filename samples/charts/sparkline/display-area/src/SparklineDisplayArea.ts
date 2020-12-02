@@ -10,20 +10,20 @@ ModuleManager.register(IgcSparklineModule);
 export class SparklineDisplayArea {
 
 
-    
-    
-        
+
+
+
 
     private chart1: IgcSparklineComponent;
     private chart2: IgcSparklineComponent;
     private chart3: IgcSparklineComponent;
-    public data: any[];
+    public data: any[] = [];
 
     constructor() {
-        
+
         this.data = this.createData(360 * 1.5);
-    
-        
+
+
 
         this.chart1 = document.getElementById('chart1') as IgcSparklineComponent;
         this.chart2 = document.getElementById('chart2') as IgcSparklineComponent;

@@ -19,7 +19,7 @@ export class CategoryChartHighVolume {
     public dataPoints: number = 500000;
 
     public dataInfo: string = CategoryChartSharedData.toShortString(this.dataPoints);
-    public data: any[];
+    public data: any[] = [];
     private dataInfoLabel: HTMLLabelElement;
 
     constructor() {

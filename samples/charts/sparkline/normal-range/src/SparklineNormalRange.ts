@@ -22,7 +22,7 @@ export class SparklineNormalRange {
 
 
     private sparkline: IgcSparklineComponent;
-    public data: any[];
+    public data: any[] = [];
     private minRangeLabel: any;
     private maxRangeLabel: any;
 

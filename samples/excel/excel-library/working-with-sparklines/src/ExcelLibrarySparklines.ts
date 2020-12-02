@@ -42,7 +42,7 @@ export class ExcelLibrarySparklines {
 
 
 
-    public data: any[];
+    public data: any[] = [];
 
     constructor() {
 

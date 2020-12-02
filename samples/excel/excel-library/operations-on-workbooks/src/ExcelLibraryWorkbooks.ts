@@ -27,9 +27,9 @@ export class ExcelLibraryWorkbooks {
 
     public grid: IgcDataGridComponent;
 
-    public employeeData: any[];
-    public expenseData: any[];
-    public incomeData: any[];
+    public employeeData: any[] = [];
+    public expenseData: any[] = [];
+    public incomeData: any[] = [];
 
     public companies: string[];
     public firstNames: string[];

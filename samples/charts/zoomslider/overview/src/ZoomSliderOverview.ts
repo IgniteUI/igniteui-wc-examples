@@ -47,9 +47,9 @@ ModuleManager.register(
 export class ZoomSliderOverview {
 
 
-    
-    
-        
+
+
+
 
     private mainChart: IgcDataChartComponent;
     private zoomChart: IgcDataChartComponent;
@@ -59,9 +59,9 @@ export class ZoomSliderOverview {
     private isSynchronizingZoom: boolean = false;
     private lastRect: IgRect = { left: -1, top: -1, width: -1, height: -1};
 
-    private countriesAll: any[];
+    private countriesAll: any[] = [];
 
-    constructor() {        
+    constructor() {
 
         this.onActualWindowRectChanged = this.onActualWindowRectChanged.bind(this);
         this.onZoomSliderWindowChanged = this.onZoomSliderWindowChanged.bind(this);

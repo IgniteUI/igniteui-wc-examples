@@ -12,17 +12,17 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 export class DataGridColumnOptions {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
-    private data: any[];
+    private data: any[] = [];
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.initData();

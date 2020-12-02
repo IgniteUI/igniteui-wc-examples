@@ -17,18 +17,18 @@ ModuleManager.register(
 export class DoughnutChartRings {
 
 
-    
-    
-        
+
+
+
 
     private chart: IgcDoughnutChartComponent;
-    public Months: any[];
-    public Seasons: any[];
+    public Months: any[] = [];
+    public Seasons: any[] = [];
 
     constructor() {
-        
-    
-        
+
+
+
 
         this.initData();
 

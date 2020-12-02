@@ -15,8 +15,8 @@ export class DataGridTypeMatrixTable {
 
 
     private grid: IgcDataGridComponent;
-    public dataPeople: any[];
-    public dataRelations: any[];
+    public dataPeople: any[] = [];
+    public dataRelations: any[] = [];
 
     private VerticalHeader: IgcTemplateHeaderComponent;
     private HorizontalRightHeader: IgcTemplateHeaderComponent;

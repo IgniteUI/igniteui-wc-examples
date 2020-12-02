@@ -22,7 +22,7 @@ export class FinancialChartHighFrequency {
     public dataIndex: number = 0;
     public dataPoints: number = 10000;
     public dataInfo: string = StocksUtility.toShortString(this.dataPoints);
-    public data: any[];
+    public data: any[] = [];
 
     public refreshMilliseconds: number = 10;
     public interval: number = -1;

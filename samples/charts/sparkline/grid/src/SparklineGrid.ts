@@ -22,22 +22,22 @@ ModuleManager.register(
 export class SparklineGrid {
 
 
-    
-    
-        
+
+
+
 
     private grid: IgcDataGridComponent;
 
-    public data: any[];
+    public data: any[] = [];
 
     constructor() {
-        
+
         this.data = Products.getData();
 
         this.onUpdatingHistoryColumn = this.onUpdatingHistoryColumn.bind(this);
         this.onUpdatingReturnsColumn = this.onUpdatingReturnsColumn.bind(this);
-    
-        
+
+
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = this.data;

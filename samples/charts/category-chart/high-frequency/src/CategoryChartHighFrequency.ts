@@ -18,7 +18,7 @@ export class CategoryChartHighFrequency {
     private chart: IgcCategoryChartComponent;
     public dataIndex: number = 0;
     public dataPoints: number = 100000;
-    public data: any[];
+    public data: any[] = [];
 
     public refreshMilliseconds: number = 10;
     public interval: number = -1;

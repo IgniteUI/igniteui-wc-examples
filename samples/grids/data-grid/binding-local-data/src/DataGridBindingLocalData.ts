@@ -25,7 +25,7 @@ export class DataGridBindingLocalData {
 
 
     private grid: IgcDataGridComponent;
-    private data: any[];
+    private data: any[] = [];
 
     constructor() {
 
