@@ -1,10 +1,7 @@
-
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { DataGridSharedData } from './DataGridSharedData';
 import { ColumnResizingMode } from 'igniteui-webcomponents-grids';
 import { ColumnResizingAnimationMode } from 'igniteui-webcomponents-grids';
@@ -12,13 +9,7 @@ import { ColumnResizingAnimationMode } from 'igniteui-webcomponents-grids';
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-
 export class DataGridColumnResizing {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
 
@@ -27,8 +18,6 @@ export class DataGridColumnResizing {
         this.onColumnResizingAnimationModeValueChanged = this.onColumnResizingAnimationModeValueChanged.bind(this);
         this.onColumnResizingModeValueChanged = this.onColumnResizingModeValueChanged.bind(this);
         this.onSeparatorWidthRangeValueChanged = this.onSeparatorWidthRangeValueChanged.bind(this);
-
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();
@@ -80,6 +69,5 @@ export class DataGridColumnResizing {
         }
     }
 }
-
 
 let sample = new DataGridColumnResizing();

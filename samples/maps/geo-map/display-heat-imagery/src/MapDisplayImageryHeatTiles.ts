@@ -1,7 +1,4 @@
-
-
 import Worker from './heatworker.worker'
-
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicTileSeriesComponent } from 'igniteui-webcomponents-maps';
@@ -15,27 +12,18 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapDisplayImageryHeatTiles {
-
-
-    
-    
-        
 
     private geoMap: IgcGeographicMapComponent;
     public tileImagery: IgcTileGeneratorMapImagery;
 
     constructor() {
-        
+
         this.tileImagery = new IgcTileGeneratorMapImagery();
         this.onDataLoaded = this.onDataLoaded.bind(this);
-    
-        
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.zoomToGeographic({ left: -134.5, top: 16.0, width: 70.0, height: 37.0 });
-
 
         const url = 'https://static.infragistics.com/xplatform/data/UsaCitiesPopulation.csv';
         console.log('SB loading ' + url);
@@ -43,7 +31,6 @@ export class MapDisplayImageryHeatTiles {
         fetch(url)
             .then((response) => response.text())
             .then(data => this.onDataLoaded(data));
-
     }
 
     public onDataLoaded(csvData: string) {

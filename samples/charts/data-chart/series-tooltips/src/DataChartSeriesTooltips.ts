@@ -1,5 +1,3 @@
-
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
@@ -12,7 +10,6 @@ import { IgcCategoryToolTipLayerModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { IgcItemToolTipLayerModule } from 'igniteui-webcomponents-charts';
 import { IgcItemToolTipLayerComponent } from 'igniteui-webcomponents-charts';
-
 import { html } from 'lit-html';
 
 ModuleManager.register(
@@ -25,13 +22,7 @@ ModuleManager.register(
     IgcCategoryToolTipLayerModule
 );
 
-
 export class DataChartSeriesTooltips {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     public itemTooltipLayer: IgcItemToolTipLayerComponent;
@@ -42,9 +33,6 @@ export class DataChartSeriesTooltips {
     private seriesWind: IgcColumnSeriesComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();

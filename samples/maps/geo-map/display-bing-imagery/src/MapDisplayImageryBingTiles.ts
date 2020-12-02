@@ -1,7 +1,4 @@
-
 import { MapUtils, MapRegion } from './MapUtils';
-
-
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
@@ -14,22 +11,13 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapDisplayImageryBingTiles {
-
-
-
-
-
 
     private geoMap1: IgcGeographicMapComponent;
     private geoMap2: IgcGeographicMapComponent;
     private geoMap3: IgcGeographicMapComponent;
 
     constructor() {
-
-
-
 
         this.geoMap1 = document.getElementById('map1') as IgcGeographicMapComponent;
         this.geoMap2 = document.getElementById('map2') as IgcGeographicMapComponent;

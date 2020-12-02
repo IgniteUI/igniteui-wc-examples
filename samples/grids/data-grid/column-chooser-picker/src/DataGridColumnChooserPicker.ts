@@ -1,35 +1,22 @@
-
 import './DataGridStyles.css';
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { IgcColumnChooserModule } from 'igniteui-webcomponents-grids';
 import { IgcColumnChooserComponent } from 'igniteui-webcomponents-grids';
-
 
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcColumnChooserModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-
 export class DataGridColumnChooserPicker {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
     private columnChooser: IgcColumnChooserComponent;
     private data: any[] = [];
 
     constructor() {
-
-
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.columnChooser = document.getElementById('columnUI') as IgcColumnChooserComponent;
@@ -114,6 +101,5 @@ export class DataGridColumnChooserPicker {
     }
 
 }
-
 
 let sample = new DataGridColumnChooserPicker();

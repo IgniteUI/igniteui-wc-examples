@@ -1,25 +1,14 @@
-
-
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcCategoryChartModule);
 
-
 export class CategoryChartAxisOptions {
-
-
-
-
-
 
     private chart: IgcCategoryChartComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.getData();

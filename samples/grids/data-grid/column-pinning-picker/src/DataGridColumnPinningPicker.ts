@@ -1,4 +1,3 @@
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
@@ -12,10 +11,7 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 
 export class DataGridColumnPinningPicker {
 
-
     public data: any[] = [];
-
-
 
     public grid: IgcDataGridComponent;
     public buttonLeft: Button;
@@ -30,8 +26,6 @@ export class DataGridColumnPinningPicker {
 
         this.data = DataGridSharedData.getEmployees();
 
-
-
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();
         this.buttonLeft = document.getElementById('pinLeft') as Button;
@@ -42,7 +36,6 @@ export class DataGridColumnPinningPicker {
         document.getElementById('pinLeft')!.addEventListener('click', this.onPinLeft);
         document.getElementById('pinRight')!.addEventListener('click', this.onPinRight);
         document.getElementById('unpinColumns')!.addEventListener('click', this.onUnPin);
-
     }
 
     public onGridRef(grid: IgcDataGridComponent) {

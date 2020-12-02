@@ -1,11 +1,8 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryTrendLineModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcFinancialPriceSeriesModule } from 'igniteui-webcomponents-charts';
-
 import { IgcAbsoluteVolumeOscillatorIndicatorModule } from 'igniteui-webcomponents-charts';
 import { IgcAccumulationDistributionIndicatorModule } from 'igniteui-webcomponents-charts';
 import { IgcAverageDirectionalIndexIndicatorModule } from 'igniteui-webcomponents-charts';
@@ -37,10 +34,8 @@ import { IgcStandardDeviationIndicatorModule } from 'igniteui-webcomponents-char
 import { IgcStochRSIIndicatorModule } from 'igniteui-webcomponents-charts';
 import { IgcTRIXIndicatorModule } from 'igniteui-webcomponents-charts';
 // import { IgcStrategyBasedIndicatorModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IndicatorDisplayType } from 'igniteui-webcomponents-charts';
-
 import { IgcAbsoluteVolumeOscillatorIndicatorComponent } from 'igniteui-webcomponents-charts';
 import { IgcAccumulationDistributionIndicatorComponent } from 'igniteui-webcomponents-charts';
 import { IgcAverageDirectionalIndexIndicatorComponent } from 'igniteui-webcomponents-charts';
@@ -72,9 +67,7 @@ import { IgcStandardDeviationIndicatorComponent } from 'igniteui-webcomponents-c
 import { IgcStochRSIIndicatorComponent } from 'igniteui-webcomponents-charts';
 import { IgcTRIXIndicatorComponent } from 'igniteui-webcomponents-charts';
 import { IgcStrategyBasedIndicatorComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { SampleFinancialData } from './SampleFinancialData';
 
 ModuleManager.register(
@@ -115,22 +108,13 @@ ModuleManager.register(
     IgcTRIXIndicatorModule
 );
 
-
 export class DataChartTypeFinancialIndicatorArea {
-
-
-
-
-
 
     private chart1: IgcDataChartComponent;
     private chart2: IgcDataChartComponent;
     private displayType: IndicatorDisplayType = IndicatorDisplayType.Area;
 
     constructor() {
-
-
-
 
         const dataItems = SampleFinancialData.create();
 

@@ -1,25 +1,14 @@
-
-
 import { IgcPieChartModule } from 'igniteui-webcomponents-charts';
 import { IgcPieChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcPieChartModule);
 
-
 export class PieChartOverview {
-
-
-    
-    
-        
 
     private chart: IgcPieChartComponent;
 
     constructor() {
-        
-    
-        
 
         this.chart = document.getElementById('chart') as IgcPieChartComponent;
         this.chart.dataSource = this.initData();

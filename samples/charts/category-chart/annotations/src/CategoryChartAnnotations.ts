@@ -1,5 +1,3 @@
-
-
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -9,13 +7,7 @@ import { CrosshairsDisplayMode } from 'igniteui-webcomponents-charts';
 
 ModuleManager.register(IgcCategoryChartModule);
 
-
 export class CategoryChartAnnotations {
-
-
-
-
-
 
     private chart: IgcCategoryChartComponent;
     public categoryProperties: string[] = ['month', 'temperature'];
@@ -27,8 +19,6 @@ export class CategoryChartAnnotations {
         this.onCalloutsVisible = this.onCalloutsVisible.bind(this);
         this.onFinalValuesVisible = this.onFinalValuesVisible.bind(this);
         this.onMarkersVisible = this.onMarkersVisible.bind(this);
-
-
 
         this.initData();
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
@@ -68,12 +58,13 @@ export class CategoryChartAnnotations {
         let value = e.target.checked;
         this.chart.calloutsVisible = value;
     }
+
     public onFinalValuesVisible = (e: any) => {
 
         let value = e.target.checked;
         this.chart.finalValueAnnotationsVisible = value;
-
     }
+
     public onMarkersVisible = (e: any) => {
         const visible = e.target.checked;
         const markers = e.target.checked ? 'Circle' : 'None';
@@ -92,8 +83,8 @@ export class CategoryChartAnnotations {
                 break;
             }
         }
-
     }
+
     public formatDateLabel(item: any): string {
         const months = [
             'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',

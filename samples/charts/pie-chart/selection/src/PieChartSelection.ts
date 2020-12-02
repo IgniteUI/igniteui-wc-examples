@@ -1,5 +1,3 @@
-
-
 import { IgcPieChartModule } from 'igniteui-webcomponents-charts';
 import { IgcPieChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -7,22 +5,14 @@ import { IgcSliceClickEventArgs } from 'igniteui-webcomponents-charts';
 
 ModuleManager.register(IgcPieChartModule);
 
-
 export class PieChartSelection {
-
-
-    
-    
-        
 
     private chart: IgcPieChartComponent;
     private label: HTMLElement;
 
     constructor() {
-        
+
         this.onSliceClick= this.onSliceClick.bind(this);
-    
-        
 
         this.chart = document.getElementById('chart') as IgcPieChartComponent;
         this.chart.dataSource = this.getData();

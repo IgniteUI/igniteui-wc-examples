@@ -1,10 +1,8 @@
-
 import '@webcomponents/custom-elements/custom-elements.min';
 import '@webcomponents/custom-elements/src/native-shim.js';
 // TODO use LiveFinancialData.ts from React browser
 import { LiveFinancialData } from './LiveFinancialData';
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { IgcNumericColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcTextColumnComponent } from 'igniteui-webcomponents-grids';
@@ -17,17 +15,13 @@ import { IgcCellStyleRequestedEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
 import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-grids';
-
 import { DataGridCellLayoutPanel } from 'igniteui-webcomponents-grids';
 import { DataGridPresenterManager } from 'igniteui-webcomponents-grids';
-
 import { IgcColumnComponent } from 'igniteui-webcomponents-grids';
-
 import '@material/mwc-button';
 import '@material/mwc-switch';
 import '@material/mwc-slider';
 import '@material/mwc-dialog';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
@@ -36,7 +30,6 @@ import { IgcNumericYAxisComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcItemToolTipLayerComponent } from 'igniteui-webcomponents-charts';
-
 import { IgcTextHeaderComponent } from 'igniteui-webcomponents-grids';
 import { FilterFactory } from 'igniteui-webcomponents-core';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -55,11 +48,6 @@ ModuleManager.register(
 // </igc-template-column>
 
 export class DataGridBindingLiveData {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
     private good_color = '#4EB862';
@@ -240,8 +228,6 @@ export class DataGridBindingLiveData {
         // 	}
         // }
 
-
-
         let toChange = Math.round(this.state.volume / 10);
         let toChangeIndexes = {};
         let stillAnimating = false;
@@ -373,8 +359,6 @@ export class DataGridBindingLiveData {
             currVal += currItem.Price;
             currVal = Math.round(currVal * 100.0) / 100.0;
             priceByCountry.set(currCountry, currVal);
-
-
         }
 
         if (shouldPopulate) {
@@ -434,7 +418,6 @@ export class DataGridBindingLiveData {
                     iconText = 'trending_down';
                     iconColor = this.bad_color;
                 }
-
 
                 // context.fillStyle = 'blue';
                 // context.fillRect(0,0,args.cellInfo.width,args.cellInfo.height);
@@ -535,7 +518,6 @@ export class DataGridBindingLiveData {
                     iconColor = this.bad_color;
                 }
 
-
                 // context.fillStyle = 'blue';
                 // context.fillRect(0,0,args.cellInfo.width,args.cellInfo.height);
                 let txt = (+templ.value).toFixed(2) + '%';
@@ -543,8 +525,6 @@ export class DataGridBindingLiveData {
                 let width = context.measureText(txt).width;
 
                 let totalWidth = width + 4;
-
-
 
                 context.font = '13px Verdana';
                 context.fillStyle = templ.textColor;
@@ -625,7 +605,6 @@ export class DataGridBindingLiveData {
                     iconColor = this.bad_color;
                 }
 
-
                 // context.fillStyle = 'blue';
                 // context.fillRect(0,0,args.cellInfo.width,args.cellInfo.height);
                 let txt = (+templ.value).toFixed(2);
@@ -633,8 +612,6 @@ export class DataGridBindingLiveData {
                 let width = context.measureText(txt).width;
 
                 let totalWidth = width + 4;
-
-
 
                 context.font = '13px Verdana';
                 context.fillStyle = templ.textColor;
@@ -687,7 +664,6 @@ export class DataGridBindingLiveData {
         args.styleKey = 'chart';
     }
 
-
     onChartCellUpdating(grid: IgcTemplateColumnComponent, args: IgcTemplateCellUpdatingEventArgs) {
         if (args.isCanvasBased) {
             return;
@@ -712,14 +688,11 @@ export class DataGridBindingLiveData {
             icon.style.verticalAlign = 'center';
             icon.textContent = 'insert_chart_outlined';
         }
-
-
     }
 
     onGridStyleKey(grid: IgcColumnComponent, args: IgcCellStyleRequestedEventArgs) {
         args.styleKey = 'grid';
     }
-
 
     onGridCellUpdating(grid: IgcTemplateColumnComponent, args: IgcTemplateCellUpdatingEventArgs) {
         if (args.isCanvasBased) {
@@ -747,7 +720,6 @@ export class DataGridBindingLiveData {
         }
     }
 
-
     startTicking() {
         if (!this.ticking) {
             this.ticking = true;
@@ -773,7 +745,6 @@ export class DataGridBindingLiveData {
     }
 
     updateDialogState() {
-
     }
 
     onLiveClicked() {
@@ -867,7 +838,6 @@ export class DataGridBindingLiveData {
 
                 let colorString = 'rgba(' + Math.round(r * 255.0) + ',' + Math.round(g * 255.0) + ',' + Math.round(b * 255.0) + ',' + a + ')';
 
-
                 args.cellInfo.background = colorString;
             }
             else if (item.PriceHeat < 0 && this.state.heatChecked) {
@@ -887,7 +857,6 @@ export class DataGridBindingLiveData {
                 let b = fromB + (toB - fromB) * p;
 
                 let colorString = 'rgba(' + Math.round(r * 255.0) + ',' + Math.round(g * 255.0) + ',' + Math.round(b * 255.0) + ',' + a + ')';
-
 
                 args.cellInfo.background = colorString;
             }
@@ -937,7 +906,6 @@ export class DataGridBindingLiveData {
 
             let itemTooltip = document.createElement('igc-item-tool-tip-layer') as IgcItemToolTipLayerComponent;
             itemTooltip.name = 'tooltips'
-
 
             this.chart.series.add(columnSeries);
             this.chart.axes.add(xAxis);

@@ -1,5 +1,3 @@
-
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
@@ -8,7 +6,6 @@ import { IgcTextColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcNumericColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcDateTimeColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -16,21 +13,12 @@ ModuleManager.register(
     IgcGridColumnOptionsModule
 );
 
-
 export class DataGridBindingLocalData {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
     private data: any[] = [];
 
     constructor() {
-
-
-
 
         this.initData();
 
@@ -122,6 +110,5 @@ export class DataGridBindingLocalData {
     //     return require('./flags/' + country + '.png');
     // }
 }
-
 
 let sample = new DataGridBindingLocalData();

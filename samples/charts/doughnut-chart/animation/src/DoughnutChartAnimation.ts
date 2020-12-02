@@ -1,5 +1,3 @@
-
-
 import { IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
 import { IgcDoughnutChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
@@ -12,13 +10,7 @@ ModuleManager.register(
     IgcRingSeriesModule
 );
 
-
 export class DoughnutChartAnimation {
-
-
-
-
-
 
     private chart: IgcDoughnutChartComponent;
     private chartSeries: IgcRingSeriesComponent;
@@ -27,12 +19,8 @@ export class DoughnutChartAnimation {
 
     constructor() {
 
-
         this.onAnimationToggle = this.onAnimationToggle.bind(this);
         this.onAnimationClear = this.onAnimationClear.bind(this);
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDoughnutChartComponent;
         let ringSeries = document.getElementById('ringSeries') as IgcRingSeriesComponent;
@@ -54,6 +42,7 @@ export class DoughnutChartAnimation {
             { MarketShare: 10, Company: 'Other',     },
         ];
     }
+
     public componentWillUnmount() {
         this.onAnimationClear();
     }

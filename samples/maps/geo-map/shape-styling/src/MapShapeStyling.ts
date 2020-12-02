@@ -1,11 +1,9 @@
-
 import { WorldUtils } from './WorldUtils';
 import { ShapeStyling } from './MapShapeStyleUtility';
 import { ShapeScaleStyling } from './MapShapeStyleUtility';
 import { ShapeRangeStyling } from './MapShapeStyleUtility';
 import { ShapeRandomStyling } from './MapShapeStyleUtility';
 import { ShapeComparisonStyling } from './MapShapeStyleUtility';
-
 import { html } from 'lit-html';
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
@@ -14,20 +12,13 @@ import { IgcGeographicShapeSeriesComponent } from 'igniteui-webcomponents-maps';
 import { IgcShapeDataSource } from 'igniteui-webcomponents-core';
 import { IgcShapefileRecord } from 'igniteui-webcomponents-core';
 import { IgcStyleShapeEventArgs } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 ModuleManager.register(
     IgcDataChartInteractivityModule,
     IgcGeographicMapModule
 );
 
-
 export class MapShapeStyling {
-
-
-
-
-
 
     public geoMap: IgcGeographicMapComponent;
     public geoSeries: IgcGeographicShapeSeriesComponent;
@@ -101,8 +92,6 @@ export class MapShapeStyling {
 
         // setting default value for current shape styling
         this.currentShapeStyling = this.shapeComparisonStyling;
-
-
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.backgroundContent = undefined;

@@ -1,6 +1,3 @@
-
-
-
 import { IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
 import { IgcDoughnutChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
@@ -13,21 +10,12 @@ ModuleManager.register(
     IgcItemLegendModule
 );
 
-
 export class DoughnutChartLegend {
-
-
-    
-    
-        
 
     private chart: IgcDoughnutChartComponent;
     private series: IgcRingSeriesComponent;
 
     constructor() {
-        
-    
-        
 
         this.series = document.getElementById('ringSeries') as IgcRingSeriesComponent;
         this.series.dataSource = this.getData();

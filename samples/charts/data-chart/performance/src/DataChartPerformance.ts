@@ -1,15 +1,10 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLineSeriesModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { DataChartSharedData } from './DataChartSharedData';
 
 ModuleManager.register(
@@ -20,12 +15,7 @@ ModuleManager.register(
     IgcLineSeriesModule
 );
 
-
 export class DataChartPerformance {
-
-
-
-
 
     public dataIndex: number = 0;
     public dataPoints: number = 100000;
@@ -43,11 +33,8 @@ export class DataChartPerformance {
 
     constructor() {
 
-
         this.data = DataChartSharedData.getItems(100, this.dataPoints, false);
         this.dataIndex = this.data.length;
-
-
 
         this.fps = document.getElementById('fps') as HTMLSpanElement;
 

@@ -1,18 +1,10 @@
-
-
 import { IgcDataGridModule, IgcTemplateHeaderComponent, IgcTemplateCellUpdatingEventArgs, IgcTemplateColumnComponent, IgcTemplateCellInfo, IgcTemplateHeaderCellUpdatingEventArgs, CellContentHorizontalAlignment, CellContentVerticalAlignment, IgcTextColumnComponent, IgcNumericColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcDataGridModule);
 
-
 export class DataGridTypeHeatmapTable {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
     private data: any[] = [];
@@ -30,12 +22,9 @@ export class DataGridTypeHeatmapTable {
 
     constructor() {
 
-
         this.onVerticalHeaderUpdating = this.onVerticalHeaderUpdating.bind(this);
         this.onHorizontalHeaderUpdating = this.onHorizontalHeaderUpdating.bind(this);
         this.onHeatCellUpdating = this.onHeatCellUpdating.bind(this);
-
-
 
         this.createData();
 
@@ -84,7 +73,6 @@ export class DataGridTypeHeatmapTable {
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = this.data;
-
     }
 
     public onVerticalHeaderUpdating(s: IgcTemplateHeaderComponent, e: IgcTemplateHeaderCellUpdatingEventArgs) {
@@ -198,6 +186,7 @@ export class DataGridTypeHeatmapTable {
     public getRandomGender(): string {
         return this.getRandomItem(this.genders);
     }
+
     public getRandomNameLast(): string {
         return this.getRandomItem(this.lastNames);
     }

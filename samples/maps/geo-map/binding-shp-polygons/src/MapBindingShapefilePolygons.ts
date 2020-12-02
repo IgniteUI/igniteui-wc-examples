@@ -1,7 +1,4 @@
-
-
 import { WorldUtils } from './WorldUtils';
-
 import { html } from 'lit-html';
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
@@ -16,21 +13,13 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapBindingShapefilePolygons {
-
-
-
-
-
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
 
         this.onDataLoaded = this.onDataLoaded.bind(this);
-
-
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.backgroundContent = undefined;

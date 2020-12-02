@@ -1,5 +1,3 @@
-
-
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
@@ -10,27 +8,14 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapImagerySources {
-
-
-    
-    
-        
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
-        
-    
-        
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
-
-
-
     }
-
 
 }
 

@@ -1,30 +1,19 @@
-
-
 import { IgcFinancialChartModule } from 'igniteui-webcomponents-charts';
 import { IgcFinancialChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcFinancialEventArgs } from 'igniteui-webcomponents-charts';
 import { IgcFinancialChartCustomIndicatorArgs } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { StocksUtility } from './StocksUtility';
 
 ModuleManager.register(IgcFinancialChartModule);
 
-
 export class FinancialChartIndicatorCustom {
-
-
-    
-    
-        
 
     private chart: IgcFinancialChartComponent;
 
     constructor() {
-        
+
         this.applyCustomIndicators = this.applyCustomIndicators.bind(this);
-    
-        
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.dataSource = StocksUtility.GetStocks();

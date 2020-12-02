@@ -1,10 +1,7 @@
-
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { DataGridSharedData } from './DataGridSharedData';
 import { ColumnShowingAnimationMode } from 'igniteui-webcomponents-grids';
 import { ColumnExchangingAnimationMode } from 'igniteui-webcomponents-grids';
@@ -15,18 +12,11 @@ import { ColumnMovingAnimationMode } from 'igniteui-webcomponents-grids';
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-
 export class DataGridColumnAnimation {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
 
     constructor() {
-
 
         this.onHideColumnBtnClick = this.onHideColumnBtnClick.bind(this);
         this.onShowColumnBtnClick = this.onShowColumnBtnClick.bind(this);
@@ -37,8 +27,6 @@ export class DataGridColumnAnimation {
         this.onHidingAnimationDropDownValueChanged = this.onHidingAnimationDropDownValueChanged.bind(this);
         this.onExchangeAnimationDropDownValueChanged = this.onExchangeAnimationDropDownValueChanged.bind(this);
         this.onAddAnimationDropDownValueChanged = this.onAddAnimationDropDownValueChanged.bind(this);
-
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();
@@ -291,6 +279,5 @@ export class DataGridColumnAnimation {
         }
     }
 }
-
 
 let sample = new DataGridColumnAnimation();

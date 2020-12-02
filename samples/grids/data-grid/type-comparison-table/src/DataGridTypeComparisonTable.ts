@@ -1,22 +1,13 @@
-
-
 import { IgcDataGridModule, IgcTemplateHeaderComponent, IgcTemplateColumnComponent, IgcTextColumnComponent, IgcNumericColumnComponent, CellContentVerticalAlignment, CellContentHorizontalAlignment } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcTemplateHeaderCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
-
 import { ModuleManager, HorizontalAlignment, VerticalAlignment } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcDataGridModule);
 
-
 export class DataGridTypeComparisonTable {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
     private data: any[] = [];
@@ -34,12 +25,9 @@ export class DataGridTypeComparisonTable {
 
     constructor() {
 
-
         this.onCellUpdating = this.onCellUpdating.bind(this);
         this.onVerticalHeaderUpdating = this.onVerticalHeaderUpdating.bind(this);
         this.onHorizontalHeaderUpdating = this.onHorizontalHeaderUpdating.bind(this);
-
-
 
         this.createData();
 
@@ -194,6 +182,7 @@ export class DataGridTypeComparisonTable {
     public getRandomGender(): string {
         return this.getRandomItem(this.genders);
     }
+
     public getRandomNameLast(): string {
         return this.getRandomItem(this.lastNames);
     }

@@ -1,5 +1,3 @@
-
-
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcLegendModule } from 'igniteui-webcomponents-charts';
@@ -11,13 +9,7 @@ ModuleManager.register(
     IgcLegendModule
 );
 
-
 export class CategoryChartStackColumns {
-
-
-
-
-
 
     private chart: IgcCategoryChartComponent;
     private legend: IgcLegendComponent;
@@ -27,8 +19,6 @@ export class CategoryChartStackColumns {
     constructor() {
 
         this.initData();
-
-
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.data;

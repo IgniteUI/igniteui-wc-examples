@@ -1,15 +1,11 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLineSeriesModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcLineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { MarkerType } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -20,13 +16,7 @@ ModuleManager.register(
     IgcLineSeriesModule
 );
 
-
 export class DataChartSeriesMarkers {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     private series1: IgcLineSeriesComponent;
@@ -35,9 +25,6 @@ export class DataChartSeriesMarkers {
     public markerType: MarkerType = MarkerType.Circle;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();

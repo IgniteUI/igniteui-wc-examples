@@ -1,6 +1,4 @@
-
 import { ExcelUtility } from './ExcelUtility';
-
 // import { IgcExcelXlsxModule } from 'igniteui-webcomponents-excel';
 // import { IgcExcelCoreModule } from 'igniteui-webcomponents-excel';
 import { IgcExcelModule } from 'igniteui-webcomponents-excel';
@@ -22,21 +20,12 @@ ModuleManager.register(
     IgcCategoryChartModule
 );
 
-
 export class ExcelLibraryCharts {
-
-
-
-
-
 
     public excelData: any[] = [];
     public chartData: any[] = [];
 
     constructor() {
-
-
-
 
         this.initData();
 
@@ -142,6 +131,5 @@ export class ExcelLibraryCharts {
         ExcelUtility.save(wb, 'chartSample');
     }
 }
-
 
 let sample = new ExcelLibraryCharts();

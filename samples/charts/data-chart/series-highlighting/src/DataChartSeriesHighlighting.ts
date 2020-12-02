@@ -1,5 +1,3 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
@@ -7,13 +5,11 @@ import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcColumnSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryHighlightLayerModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryItemHighlightLayerModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcCategoryHighlightLayerComponent } from 'igniteui-webcomponents-charts';
 import { IgcCategoryItemHighlightLayerComponent } from 'igniteui-webcomponents-charts';
 import { IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -26,13 +22,7 @@ ModuleManager.register(
     IgcCategoryItemHighlightLayerModule
 );
 
-
 export class DataChartSeriesHighlighting {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     private series1: IgcColumnSeriesComponent;
@@ -45,9 +35,6 @@ export class DataChartSeriesHighlighting {
     public itemHighlightLayer: IgcCategoryItemHighlightLayerComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -96,9 +83,11 @@ export class DataChartSeriesHighlighting {
     public toggleCategoryHighlighting(isChecked: boolean) {
         this.toggleSeries(this.categoryHighlightLayer, isChecked);
     }
+
     public toggleItemHighlighting(isChecked: boolean) {
         this.toggleSeries(this.itemHighlightLayer, isChecked);
     }
+
     public toggleSeriesHighlighting(isChecked: boolean) {
         this.series1.isHighlightingEnabled = isChecked;
         this.series2.isHighlightingEnabled = isChecked;

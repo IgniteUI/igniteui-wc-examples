@@ -1,6 +1,4 @@
-
 import { WorldUtils } from './WorldUtils';
-
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicSymbolSeriesComponent } from 'igniteui-webcomponents-maps';
@@ -14,20 +12,12 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapBindingDataModel {
-
-
-
-
-
 
     private geoMap: IgcGeographicMapComponent;
     public flights: any[] = [];
 
     constructor() {
-
-
         const cityDAL = { lat:  32.763, lon: -96.663, country: 'US', name: 'Dallas' };
         const citySYD = { lat: -33.889, lon: 151.028, country: 'Australia', name: 'Sydney' };
         const cityNZL = { lat: -36.848, lon: 174.763, country: 'New Zealand', name: 'Auckland' };
@@ -53,8 +43,6 @@ export class MapBindingDataModel {
             { origin: cityLAX, dest: citySYD, color: 'Gray' },
         ];
 
-
-
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
 
@@ -69,7 +57,6 @@ export class MapBindingDataModel {
         // fetch(url)
         //     .then((response) => response.text())
         //     .then(data => this.onDataLoaded(data));
-
     }
 
     public createSymbolSeries(flight: any)

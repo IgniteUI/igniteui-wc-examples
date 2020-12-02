@@ -1,6 +1,4 @@
-
 import { SampleFinancialData } from './SampleFinancialData';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryCoreModule } from 'igniteui-webcomponents-charts';
@@ -17,21 +15,12 @@ ModuleManager.register(
     IgcFinancialPriceSeriesModule
 );
 
-
 export class DataChartSynchronization {
-
-
-    
-    
-        
 
     private chart1: IgcDataChartComponent;
     private chart2: IgcDataChartComponent;
 
     constructor() {
-        
-    
-        
 
         this.chart1 = document.getElementById('chart1') as IgcDataChartComponent;
         this.chart1.dataSource = SampleFinancialData.create();

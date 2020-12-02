@@ -1,5 +1,3 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
@@ -10,7 +8,6 @@ import { IgcCalloutLayerModule } from 'igniteui-webcomponents-charts';
 import { IgcCrosshairLayerModule } from 'igniteui-webcomponents-charts';
 import { IgcFinalValueLayerModule } from 'igniteui-webcomponents-charts';
 import { IgcValueOverlayModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcCalloutLayerComponent } from 'igniteui-webcomponents-charts';
 import { IgcCrosshairLayerComponent } from 'igniteui-webcomponents-charts';
@@ -21,7 +18,6 @@ import { IgcSeriesComponent } from 'igniteui-webcomponents-charts';
 import { FinalValueSelectionMode } from 'igniteui-webcomponents-charts';
 import { IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts';
 import { IgcNumericYAxisComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -37,13 +33,7 @@ ModuleManager.register(
     IgcValueOverlayModule
 );
 
-
 export class DataChartSeriesAnnotations {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
 
@@ -55,9 +45,6 @@ export class DataChartSeriesAnnotations {
     public valueOverlay: IgcValueOverlayComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -113,7 +100,6 @@ export class DataChartSeriesAnnotations {
         this.toggleCallouts(true);
         this.toggleFinalValues(true);
         this.toggleValueOverlay(true);
-
     }
 
     public onFinalValueChange = (e: any) => {

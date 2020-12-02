@@ -1,6 +1,3 @@
-
-
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
@@ -14,20 +11,11 @@ ModuleManager.register(
     IgcGeographicHighDensityScatterSeriesModule
 );
 
-
 export class MapBindingDataCSV {
-
-
-    
-    
-        
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
-        
-    
-        
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
 

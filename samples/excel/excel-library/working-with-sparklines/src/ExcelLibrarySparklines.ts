@@ -1,6 +1,4 @@
-
 import { ExcelUtility } from './ExcelUtility';
-
 import { IgcExcelModule } from 'igniteui-webcomponents-excel';
 // import { IgcExcelXlsxModule } from 'igniteui-webcomponents-excel';
 // import { IgcExcelCoreModule } from 'igniteui-webcomponents-excel';
@@ -9,21 +7,17 @@ import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { SparklineType, WorkbookFormat } from 'igniteui-webcomponents-excel';
 import { Workbook } from 'igniteui-webcomponents-excel';
-
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts';
 import { IgcNumericYAxisComponent } from 'igniteui-webcomponents-charts';
 import { IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
 import { Visibility } from 'igniteui-webcomponents-core';
 // import { IgcAxisComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 
 ModuleManager.register(
     // IgcExcelXlsxModule,
@@ -34,20 +28,11 @@ ModuleManager.register(
     IgcDataChartCategoryModule
 );
 
-
 export class ExcelLibrarySparklines {
-
-
-
-
-
 
     public data: any[] = [];
 
     constructor() {
-
-
-
 
         this.initData();
 
@@ -222,11 +207,11 @@ export class ExcelLibrarySparklines {
     public getRandom(min: number, max: number): number {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
+
     public getItem(array: string[]): string {
         const i = this.getRandom(0, array.length - 1);
         return array[i];
     }
 }
-
 
 let sample = new ExcelLibrarySparklines();

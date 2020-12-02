@@ -1,6 +1,3 @@
-
-
-
 import { IgcLinearGaugeModule } from 'igniteui-webcomponents-gauges';
 import { IgcLinearGaugeComponent } from 'igniteui-webcomponents-gauges';
 import { IgcLinearGraphRangeComponent } from 'igniteui-webcomponents-gauges';
@@ -9,7 +6,6 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcLinearGaugeModule);
 
-
 export class LinearGaugeTypeMultiRange {
 
     private gauge1: IgcLinearGaugeComponent;
@@ -17,7 +13,7 @@ export class LinearGaugeTypeMultiRange {
     private gauge3: IgcLinearGaugeComponent;
 
     constructor() {
-        
+
         this.gauge1 = document.getElementById('gauge1') as IgcLinearGaugeComponent;
         this.gauge2 = document.getElementById('gauge2') as IgcLinearGaugeComponent;
         this.gauge3 = document.getElementById('gauge3') as IgcLinearGaugeComponent;

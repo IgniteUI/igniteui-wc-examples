@@ -1,25 +1,14 @@
-
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcDataGridModule);
 
-
 export class DataGridTypeSparklineTable {
-
-
-    
-    
-        
 
     private grid: IgcDataGridComponent;
 
     constructor() {
-        
-    
-        
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
 

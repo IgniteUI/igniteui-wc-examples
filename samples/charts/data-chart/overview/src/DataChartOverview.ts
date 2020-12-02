@@ -1,5 +1,3 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartScatterCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartScatterModule } from 'igniteui-webcomponents-charts';
@@ -7,15 +5,12 @@ import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcNumberAbbreviatorModule } from 'igniteui-webcomponents-charts';
 import { IgcBubbleSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcSizeScaleComponent } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent } from 'igniteui-webcomponents-charts';
 import { MarkerType } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { SampleScatterStats } from './SampleScatterStats';
 
 ModuleManager.register(
@@ -28,21 +23,12 @@ ModuleManager.register(
     IgcLegendModule
 );
 
-
 export class DataChartOverview {
-
-
-    
-    
-        
 
     private chart: IgcDataChartComponent;
     private legend: IgcLegendComponent;
 
     constructor() {
-        
-    
-        
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
 

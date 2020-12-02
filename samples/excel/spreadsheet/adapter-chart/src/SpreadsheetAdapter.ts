@@ -1,6 +1,4 @@
-
 import { ExcelUtility } from './ExcelUtility';
-
 import { IgcSpreadsheetChartAdapterModule } from 'igniteui-webcomponents-spreadsheet-chart-adapter';
 import { IgcSpreadsheetModule } from 'igniteui-webcomponents-spreadsheet';
 import { IgcSpreadsheetComponent } from 'igniteui-webcomponents-spreadsheet';
@@ -15,20 +13,11 @@ ModuleManager.register(
     IgcSpreadsheetChartAdapterModule
 );
 
-
 export class SpreadsheetAdapter {
-
-
-    
-    
-        
 
     private spreadsheet: IgcSpreadsheetComponent;
 
     constructor() {
-        
-    
-        
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
         this.spreadsheet.chartAdapter = new SpreadsheetChartAdapter();
@@ -75,6 +64,5 @@ export class SpreadsheetAdapter {
         });
     }
 }
-
 
 let sample = new SpreadsheetAdapter();

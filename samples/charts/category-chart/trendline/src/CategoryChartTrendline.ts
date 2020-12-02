@@ -1,5 +1,3 @@
-
-
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -8,13 +6,7 @@ import { CategoryChartSharedData } from './CategoryChartSharedData';
 
 ModuleManager.register(IgcCategoryChartModule);
 
-
 export class CategoryChartTrendline {
-
-
-
-
-
 
     private chart: IgcCategoryChartComponent;
     public data: any[] = [];
@@ -22,8 +14,6 @@ export class CategoryChartTrendline {
     constructor() {
 
         this.onTrendlineTypeChanged = this.onTrendlineTypeChanged.bind(this);
-
-
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.getData();

@@ -1,6 +1,4 @@
-
 import { SamplePolarData } from './SamplePolarData';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartPolarCoreModule } from 'igniteui-webcomponents-charts';
@@ -8,7 +6,6 @@ import { IgcDataChartPolarModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent } from 'igniteui-webcomponents-charts';
-
 import { IgcPolarAreaSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcPolarAreaSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcPolarLineSeriesModule } from 'igniteui-webcomponents-charts';
@@ -19,7 +16,6 @@ import { IgcPolarSplineAreaSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcPolarSplineAreaSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcPolarScatterSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcPolarScatterSeriesComponent } from 'igniteui-webcomponents-charts';
-
 import { MarkerType } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -36,21 +32,12 @@ ModuleManager.register(
     IgcPolarScatterSeriesModule
 );
 
-
 export class DataChartTypePolarSeries {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     private legend: IgcLegendComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SamplePolarData.create();
@@ -92,7 +79,6 @@ export class DataChartTypePolarSeries {
             this.chart.series.clear();
             this.chart.series.add(series2);
             this.chart.series.add(series1);
-
         }
         else if (seriesType === 'Spline Area') {
             // creating a series with mapping to data columns of wind pattern
@@ -117,7 +103,6 @@ export class DataChartTypePolarSeries {
             this.chart.series.clear();
             this.chart.series.add(series2);
             this.chart.series.add(series1);
-
         }
         else if (seriesType === 'Spline') {
             // creating a series with mapping to data columns of wind pattern
@@ -139,7 +124,6 @@ export class DataChartTypePolarSeries {
             this.chart.series.clear();
             this.chart.series.add(series2);
             this.chart.series.add(series1);
-
         }
         else if (seriesType === 'Line') {
             // creating a series with mapping to data columns of wind pattern
@@ -161,7 +145,6 @@ export class DataChartTypePolarSeries {
             this.chart.series.clear();
             this.chart.series.add(series2);
             this.chart.series.add(series1);
-
         }
         else if (seriesType === 'Scatter') {
             // creating a series with mapping to data columns of wind pattern

@@ -1,5 +1,3 @@
-
-
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { IgcSparklineCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
@@ -16,11 +14,6 @@ ModuleManager.register(
 
 export class SparklineNormalRange {
 
-
-
-
-
-
     private sparkline: IgcSparklineComponent;
     public data: any[] = [];
     private minRangeLabel: any;
@@ -32,8 +25,6 @@ export class SparklineNormalRange {
         this.onMaxSliderChanged = this.onMaxSliderChanged.bind(this);
         this.onRangeVisibilityChanged = this.onRangeVisibilityChanged.bind(this);
         this.data = SparklineSharedData.getSharedData();
-
-
 
         this.sparkline = document.getElementById('sparkline') as IgcSparklineComponent;
         this.sparkline.dataSource = this.data;

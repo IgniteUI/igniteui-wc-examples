@@ -1,14 +1,10 @@
-
 import { Products } from './Products';
-
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
-
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { SparklineDisplayType } from 'igniteui-webcomponents-charts';
@@ -18,13 +14,7 @@ ModuleManager.register(
     IgcDataGridModule
 );
 
-
 export class SparklineGrid {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
 
@@ -36,8 +26,6 @@ export class SparklineGrid {
 
         this.onUpdatingHistoryColumn = this.onUpdatingHistoryColumn.bind(this);
         this.onUpdatingReturnsColumn = this.onUpdatingReturnsColumn.bind(this);
-
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = this.data;
@@ -114,7 +102,5 @@ export class SparklineGrid {
     }
 
 }
-
-
 
 let sample = new SparklineGrid();

@@ -1,21 +1,12 @@
-
-
 import { PeriodicElements } from './PeriodicElements';
 import './DataGridStyles.css';
-
 import { IgcDataGridModule, IgcTemplateHeaderComponent, IgcTemplateCellInfo, IgcTemplateColumnComponent, IgcTemplateCellUpdatingEventArgs, IgcTemplateHeaderCellUpdatingEventArgs, IgcGridSelectedCellsChangedEventArgs, IgcGridSelectedKeysChangedEventArgs, IgcGridSelectedItemsChangedEventArgs, IgcGridSelectedCellRangesChangedEventArgs, IgcGridActiveCellChangedEventArgs, IgcTextColumnComponent, IgcNumericColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcDataGridModule);
 
-
 export class DataGridTypePeriodicTable {
-
-
-
-
-
 
     public grid: IgcDataGridComponent;
     public ElementsData: any[] = [];
@@ -29,12 +20,9 @@ export class DataGridTypePeriodicTable {
 
     constructor() {
 
-
         this.onVerticalHeaderUpdating = this.onVerticalHeaderUpdating.bind(this);
         this.onElementCellUpdating = this.onElementCellUpdating.bind(this);
         this.activeCellChanged = this.activeCellChanged.bind(this);
-
-
 
         this.createData();
 
@@ -86,8 +74,8 @@ export class DataGridTypePeriodicTable {
         this.grid.selectedKeysChanged = this.selectedKeysChanged;
         this.grid.selectedCellsChanged = this.selectedCellsChanged;
         this.grid.selectedCellRangesChanged = this.selectedCellRangesChanged;
-
     }
+
     public activeCellChanged (s: IgcDataGridComponent, e: IgcGridActiveCellChangedEventArgs) {
         console.log('activeCellChanged');
         let label = document.getElementById('label');
@@ -237,7 +225,6 @@ export class DataGridTypePeriodicTable {
             atomic.textContent = '';
             symbol.textContent = '';
             mass.textContent = '';
-
         } else if (element.symbol === '..') {
             cell.style.background = '#ffbb00';
             cell.style.color = 'black';
@@ -246,7 +233,6 @@ export class DataGridTypePeriodicTable {
             atomic.textContent = '';
             symbol.textContent = '...';
             symbol.style.textAlign = 'center';
-
         } else {
 
             mass.textContent = element.standardState;
@@ -257,15 +243,12 @@ export class DataGridTypePeriodicTable {
             if (element.standardState === 'gas') {
                 cell.style.background = '#10b401';
                 cell.style.color = 'black';
-
             } else if (element.standardState === 'solid') {
                 cell.style.background = '#ffbb00';
                 cell.style.color = 'black';
-
             } else if (element.standardState === 'liquid') {
                 cell.style.background = '#00aeff';
                 cell.style.color = 'black';
-
             } else {
                 cell.style.background = 'gray';
                 cell.style.color = 'white';
@@ -325,7 +308,6 @@ export class DataGridTypePeriodicTable {
             }
             this.ElementsData.push(dataItem);
         }
-
     }
 }
 

@@ -1,5 +1,3 @@
-
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartScatterCoreModule } from 'igniteui-webcomponents-charts';
@@ -7,12 +5,9 @@ import { IgcDataChartScatterModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcNumberAbbreviatorModule } from 'igniteui-webcomponents-charts';
 import { IgcScatterSplineSeriesModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcScatterSplineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { MarkerType } from 'igniteui-webcomponents-charts';
-
-
 import { SampleScatterStats } from './SampleScatterStats';
 
 ModuleManager.register(
@@ -24,20 +19,11 @@ ModuleManager.register(
     IgcScatterSplineSeriesModule
 );
 
-
 export class DataChartTypeScatterSplineSeries {
-
-
-    
-    
-        
 
     private chart: IgcDataChartComponent;
 
     constructor() {
-        
-    
-        
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
 

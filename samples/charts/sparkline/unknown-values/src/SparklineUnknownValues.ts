@@ -1,5 +1,3 @@
-
-
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -7,13 +5,7 @@ import { UnknownValuePlotting } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcSparklineModule);
 
-
 export class SparklineUnknownValues {
-
-
-
-
-
 
     private sparkline: IgcSparklineComponent;
     public data: any[] = [];
@@ -56,6 +48,5 @@ export class SparklineUnknownValues {
         return data;
     }
 }
-
 
 let sample = new SparklineUnknownValues();

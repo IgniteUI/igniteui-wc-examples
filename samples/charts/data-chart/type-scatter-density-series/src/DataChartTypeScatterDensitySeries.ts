@@ -1,6 +1,4 @@
-
 import { SampleDensityData } from './SampleDensityData';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartScatterCoreModule } from 'igniteui-webcomponents-charts';
@@ -24,13 +22,7 @@ ModuleManager.register(
     IgcNumericXAxisModule
 );
 
-
 export class DataChartTypeScatterDensitySeries {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     private series: IgcHighDensityScatterSeriesComponent;
@@ -46,9 +38,6 @@ export class DataChartTypeScatterDensitySeries {
     public pointExtentLabel: HTMLSpanElement;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleDensityData.create();

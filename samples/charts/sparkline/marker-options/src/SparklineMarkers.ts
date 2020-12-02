@@ -1,8 +1,5 @@
-
-
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { IgcSparklineCoreModule } from 'igniteui-webcomponents-charts';
-
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { SparklineSharedData } from './SparklineSharedData';
@@ -13,13 +10,7 @@ ModuleManager.register(
     IgcSparklineModule
 );
 
-
 export class SparklineMarkers {
-
-
-
-
-
 
     private sparkline: IgcSparklineComponent;
     public data: any[] = [];
@@ -29,8 +20,6 @@ export class SparklineMarkers {
         this.onMarkerCheckboxChanged = this.onMarkerCheckboxChanged.bind(this);
 
         this.data = SparklineSharedData.getPaddedDataForMarkers();
-
-
 
         this.sparkline = document.getElementById('sparkline') as IgcSparklineComponent;
         this.sparkline.dataSource = this.data;

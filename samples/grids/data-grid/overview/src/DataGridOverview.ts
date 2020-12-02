@@ -1,6 +1,4 @@
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
@@ -11,11 +9,9 @@ import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcImageColumnComponent } from 'igniteui-webcomponents-grids';
-
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
 import { IgcColumnSummaryDescription } from 'igniteui-webcomponents-grids'
 import { SummaryOperand } from 'igniteui-webcomponents-core';
-
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { SparklineDisplayType } from 'igniteui-webcomponents-charts';
@@ -27,13 +23,7 @@ ModuleManager.register(
     IgcSparklineModule
 );
 
-
 export class DataGridOverview {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
     public toolbar: IgcDataGridToolbarComponent;
@@ -43,8 +33,6 @@ export class DataGridOverview {
         this.onUpdatingAddressColumn = this.onUpdatingAddressColumn.bind(this);
         this.onUpdatingSalesColumn = this.onUpdatingSalesColumn.bind(this);
         this.onUpdatingProductivityColumn = this.onUpdatingProductivityColumn.bind(this);
-
-
 
         const salesColumn = document.getElementById('salesColumn') as IgcTemplateColumnComponent;
         if (salesColumn)
@@ -232,6 +220,5 @@ export class DataGridOverview {
         }
     }
 }
-
 
 let sample = new DataGridOverview();

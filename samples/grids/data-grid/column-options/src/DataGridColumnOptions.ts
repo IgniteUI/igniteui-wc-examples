@@ -1,4 +1,3 @@
-
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsComponent } from 'igniteui-webcomponents-grids';
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
@@ -8,21 +7,12 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-
 export class DataGridColumnOptions {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
     private data: any[] = [];
 
     constructor() {
-
-
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.initData();
@@ -104,6 +94,5 @@ export class DataGridColumnOptions {
         return array[index];
     }
 }
-
 
 let sample = new DataGridColumnOptions();

@@ -1,5 +1,3 @@
-
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
@@ -12,9 +10,7 @@ ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcDataGridToolbarModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-
 export class DataGridColumnChooserToolbar {
-
 
     private grid: IgcDataGridComponent;
     private toolbar: IgcDataGridToolbarComponent;
@@ -22,16 +18,12 @@ export class DataGridColumnChooserToolbar {
 
     constructor() {
 
-
-
-
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.toolbar = document.getElementById('toolbar') as IgcDataGridToolbarComponent;
         this.initData();
         this.grid.dataSource = this.data;
         this.toolbar.targetGrid = this.grid;
     }
-
 
     public initData() {
 
@@ -109,6 +101,5 @@ export class DataGridColumnChooserToolbar {
     }
 
 }
-
 
 let sample = new DataGridColumnChooserToolbar();

@@ -1,6 +1,4 @@
-
 import { WorldConnections } from './WorldConnections';
-
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicSymbolSeriesComponent } from 'igniteui-webcomponents-maps';
@@ -14,23 +12,15 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapBindingMultipleSources {
-
-
-    
-    
-        
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
-        
+
         this.addPolylineSeriesWith = this.addPolylineSeriesWith.bind(this);
         this.addGridlineSeriesWith = this.addGridlineSeriesWith.bind(this);
         this.addSymbolSeriesWith = this.addSymbolSeriesWith.bind(this);
-    
-        
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
 
@@ -48,7 +38,6 @@ export class MapBindingMultipleSources {
         // fetch(url)
         //     .then((response) => response.text())
         //     .then(data => this.onDataLoaded(data));
-
     }
 
     public addGridlineSeriesWith(data: any[]) {

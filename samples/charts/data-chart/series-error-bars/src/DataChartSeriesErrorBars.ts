@@ -1,26 +1,14 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcDataChartCoreModule);
 
-
 export class DataChartSeriesErrorBars {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         // this.chart.dataSource = this.getData();

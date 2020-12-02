@@ -1,22 +1,13 @@
-
-
 import { IgcSpreadsheetModule } from 'igniteui-webcomponents-spreadsheet';
 import { IgcSpreadsheetComponent } from 'igniteui-webcomponents-spreadsheet';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { SpreadsheetEnterKeyNavigationDirection } from 'igniteui-webcomponents-spreadsheet';
 import { SpreadsheetCellSelectionMode } from 'igniteui-webcomponents-spreadsheet';
-
 import { ExcelUtility } from './ExcelUtility';
 
 ModuleManager.register(IgcSpreadsheetModule);
 
-
 export class SpreadsheetConfiguring {
-
-
-
-
-
 
     private spreadsheet: IgcSpreadsheetComponent;
 
@@ -33,8 +24,6 @@ export class SpreadsheetConfiguring {
 
         this.onEnterKeyNavDirectionChanged = this.onEnterKeyNavDirectionChanged.bind(this);
         this.onSelectionModeChanged = this.onSelectionModeChanged.bind(this);
-
-
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
 
@@ -141,6 +130,5 @@ export class SpreadsheetConfiguring {
         }
     }
 }
-
 
 let sample = new SpreadsheetConfiguring();

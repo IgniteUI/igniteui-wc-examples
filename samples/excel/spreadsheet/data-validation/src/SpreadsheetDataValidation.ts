@@ -1,9 +1,6 @@
-
-
 import { IgcSpreadsheetModule } from 'igniteui-webcomponents-spreadsheet';
 import { IgcSpreadsheetComponent } from 'igniteui-webcomponents-spreadsheet';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { AnyValueDataValidationRule } from 'igniteui-webcomponents-excel';
 import { CustomDataValidationRule } from 'igniteui-webcomponents-excel';
 import { DataValidationErrorStyle } from 'igniteui-webcomponents-excel';
@@ -16,20 +13,11 @@ import { WorksheetColumnWidthUnit } from 'igniteui-webcomponents-excel';
 
 ModuleManager.register(IgcSpreadsheetModule);
 
-
 export class SpreadsheetDataValidation {
-
-
-    
-    
-        
 
     private spreadsheet: IgcSpreadsheetComponent;
 
     constructor() {
-        
-    
-        
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
 
@@ -106,6 +94,5 @@ export class SpreadsheetDataValidation {
             this.spreadsheet.workbook.worksheets(0).rows(7).cells(0).value = 'Check Out Date';
     }
 }
-
 
 let sample = new SpreadsheetDataValidation();

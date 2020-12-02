@@ -1,4 +1,3 @@
-
 import { WorldLocations } from './WorldLocations';
 import { IgcGeographicMapModule, IgcGeographicSymbolSeriesComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
@@ -10,9 +9,7 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapMarkerTemplate {
-
 
     private geoMap: IgcGeographicMapComponent;
     private symbolSeries: IgcGeographicSymbolSeriesComponent;
@@ -20,8 +17,6 @@ export class MapMarkerTemplate {
     constructor() {
 
         this.getMarker = this.getMarker.bind(this);
-
-
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.zoomable = true;
@@ -109,7 +104,6 @@ export class MapMarkerTemplate {
                 ctx.textBaseline = 'top';
                 ctx.fillStyle = style.fill;
                 ctx.fillText(value, x + 2, y + 1);
-
             }
         }
     }

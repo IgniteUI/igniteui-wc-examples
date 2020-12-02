@@ -1,6 +1,4 @@
-
 import { SampleScatterData } from './SampleScatterData';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
@@ -22,13 +20,7 @@ ModuleManager.register(
     IgcCustomPaletteColorScaleModule
 );
 
-
 export class DataChartTypeScatterAreaSeries {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     public colorScale: IgcCustomPaletteColorScaleComponent;
@@ -36,9 +28,6 @@ export class DataChartTypeScatterAreaSeries {
     public scaleMaxLabel: HTMLLabelElement;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -72,7 +61,6 @@ export class DataChartTypeScatterAreaSeries {
         const scaleMaxSlider = document.getElementById('scaleMaxSlider') as HTMLInputElement;
         scaleMaxSlider.value = '2';
         scaleMaxSlider!.addEventListener('change', this.seriesScaleMaxChanged);
-
     }
 
     public seriesScaleMinChanged = (e: any) => {

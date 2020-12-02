@@ -1,13 +1,9 @@
-
-
-
 import { IgcLinearGaugeModule } from 'igniteui-webcomponents-gauges';
 import { IgcLinearGaugeComponent } from 'igniteui-webcomponents-gauges';
 import { IgcLinearGraphRangeComponent } from 'igniteui-webcomponents-gauges';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcLinearGaugeModule);
-
 
 export class LinearGaugeTypeFilled {
 
@@ -24,7 +20,6 @@ export class LinearGaugeTypeFilled {
         this.renderGauge(this.gauge1, 80, 'green');
         this.renderGauge(this.gauge2, 50, 'orange');
         this.renderGauge(this.gauge3, 30, 'red');
-        
     }
 
     public renderGauge(gauge: IgcLinearGaugeComponent, value: number, color: string) {

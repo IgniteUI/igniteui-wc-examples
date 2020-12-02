@@ -1,5 +1,3 @@
-
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
@@ -7,7 +5,6 @@ import { IgcDataChartStackedModule } from 'igniteui-webcomponents-charts';
 // import { IgcColumnFragmentModule } from 'igniteui-webcomponents-charts';
 import { IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
-
 // stacked-value series modules:
 import { IgcStackedAreaSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcStackedAreaSeriesComponent } from 'igniteui-webcomponents-charts';
@@ -30,7 +27,6 @@ import { IgcStacked100LineSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcStacked100LineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcStacked100SplineSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcStacked100SplineSeriesComponent } from 'igniteui-webcomponents-charts';
-
 import { IgcCategoryXAxisModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts';
 import { IgcCategoryYAxisModule } from 'igniteui-webcomponents-charts';
@@ -68,13 +64,7 @@ ModuleManager.register(
     IgcStacked100SplineSeriesModule,
 );
 
-
 export class DataChartTypeStackedSeries {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     private legend: IgcLegendComponent;
@@ -86,9 +76,6 @@ export class DataChartTypeStackedSeries {
     public numYAxis: IgcNumericYAxisComponent;
 
     constructor() {
-
-
-
 
         this.catXAxis = new IgcCategoryXAxisComponent();
         this.catXAxis.name = 'catXAxis';
@@ -179,7 +166,6 @@ export class DataChartTypeStackedSeries {
             }
 
             this.chart.series.add(stack);
-
         }
         else if (seriesType === 'Stacked 100 Column Series') {
 
@@ -198,7 +184,6 @@ export class DataChartTypeStackedSeries {
             }
 
             this.chart.series.add(stack);
-
         }
         else if (seriesType === 'Stacked Area Series') {
             const stack = new IgcStackedAreaSeriesComponent();
@@ -216,7 +201,6 @@ export class DataChartTypeStackedSeries {
             }
 
             this.chart.series.add(stack);
-
         }
         else if (seriesType === 'Stacked 100 Area Series') {
             const stack = new IgcStacked100AreaSeriesComponent();

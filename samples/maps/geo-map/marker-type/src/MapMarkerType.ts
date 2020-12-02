@@ -1,4 +1,3 @@
-
 import { WorldLocations } from './WorldLocations';
 import { IgcGeographicMapModule, IgcGeographicSymbolSeriesComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
@@ -10,13 +9,7 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapMarkerType {
-
-
-
-
-
 
     private geoMap: IgcGeographicMapComponent;
     private symbolSeries: IgcGeographicSymbolSeriesComponent;
@@ -26,8 +19,6 @@ export class MapMarkerType {
         this.onMarkerTypeSelected = this.onMarkerTypeSelected.bind(this);
         this.onMarkerBrushSelected = this.onMarkerBrushSelected.bind(this);
         this.onMarkerOutlineSelected = this.onMarkerOutlineSelected.bind(this);
-
-
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.zoomable = true;
@@ -49,7 +40,6 @@ export class MapMarkerType {
 
         let MarkerOutlineSelect = document.getElementById('MarkerOutlineSelect');
         MarkerOutlineSelect!.addEventListener('change', this.onMarkerOutlineSelected);
-
     }
 
     public onMarkerTypeSelected = (e: any) => {
@@ -61,13 +51,12 @@ export class MapMarkerType {
         const markerBrushMode = e.target.value.toString();
         this.symbolSeries.markerBrush = markerBrushMode;
     }
+
     public onMarkerOutlineSelected = (e: any) => {
         const markerOutlineMode = e.target.value.toString();
         this.symbolSeries.markerOutline = markerOutlineMode;
     }
 
 }
-
-
 
 let sample = new MapMarkerType();

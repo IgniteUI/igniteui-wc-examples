@@ -1,6 +1,3 @@
-
-
-
 import { IgcPieChartModule } from 'igniteui-webcomponents-charts';
 import { IgcPieChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcItemLegendModule } from 'igniteui-webcomponents-charts';
@@ -12,20 +9,11 @@ ModuleManager.register(
     IgcItemLegendModule
 );
 
-
 export class PieChartLegend {
-
-
-    
-    
-        
 
     private chart: IgcPieChartComponent;
 
     constructor() {
-        
-    
-        
 
         this.chart = document.getElementById('chart') as IgcPieChartComponent;
         this.chart.dataSource = this.getData();

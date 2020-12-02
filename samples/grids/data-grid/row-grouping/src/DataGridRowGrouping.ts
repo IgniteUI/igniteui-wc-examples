@@ -1,6 +1,4 @@
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
@@ -11,13 +9,7 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-
 export class DataGridRowGrouping {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
 
@@ -25,8 +17,6 @@ export class DataGridRowGrouping {
 
         this.onSectionHeaderDisplayModeChanging = this.onSectionHeaderDisplayModeChanging.bind(this);
         this.onGroupHeaderCollapsible = this.onGroupHeaderCollapsible.bind(this);
-
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees(50);
@@ -71,6 +61,5 @@ export class DataGridRowGrouping {
         }
     }
 }
-
 
 let sample = new DataGridRowGrouping();

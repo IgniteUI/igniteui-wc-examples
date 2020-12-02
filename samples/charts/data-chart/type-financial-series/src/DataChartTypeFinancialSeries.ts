@@ -1,20 +1,15 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcFinancialPriceSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcMedianPriceIndicatorModule } from 'igniteui-webcomponents-charts';
 import { IgcBollingerBandsOverlayModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcFinancialPriceSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcMedianPriceIndicatorComponent } from 'igniteui-webcomponents-charts';
 import { IndicatorDisplayType } from 'igniteui-webcomponents-charts';
 import { PriceDisplayType } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { SampleFinancialData } from './SampleFinancialData';
 
 ModuleManager.register(
@@ -26,13 +21,7 @@ ModuleManager.register(
     IgcBollingerBandsOverlayModule
 );
 
-
 export class DataChartTypeFinancialSeries {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     private priceSeries: IgcFinancialPriceSeriesComponent;
@@ -41,9 +30,6 @@ export class DataChartTypeFinancialSeries {
     public displayTypeIndicator: IndicatorDisplayType = IndicatorDisplayType.Line;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleFinancialData.create();

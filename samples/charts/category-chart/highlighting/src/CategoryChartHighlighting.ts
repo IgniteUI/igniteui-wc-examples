@@ -1,17 +1,10 @@
-
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcCategoryChartModule);
 
-
 export class CategoryChartHighlighting {
-
-
-
-
-
 
     private chart: IgcCategoryChartComponent;
     public data: any[] = [];
@@ -22,8 +15,6 @@ export class CategoryChartHighlighting {
         this.onItemHighlightingChanged = this.onItemHighlightingChanged.bind(this);
         this.onCategoryHighlightingChanged = this.onCategoryHighlightingChanged.bind(this);
         this.initData();
-
-
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.data;
@@ -42,10 +33,12 @@ export class CategoryChartHighlighting {
         let value = e.target.checked;
         this.chart.isSeriesHighlightingEnabled = value;
     }
+
     public onItemHighlightingChanged = (e: any) => {
         let value = e.target.checked;
         this.chart.isItemHighlightingEnabled = value;
     }
+
     public onCategoryHighlightingChanged = (e: any) => {
         let value = e.target.checked;
         this.chart.isCategoryHighlightingEnabled = value;

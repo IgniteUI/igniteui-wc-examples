@@ -1,6 +1,4 @@
-
 import { SampleFinancialData } from './SampleFinancialData';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
@@ -15,20 +13,11 @@ ModuleManager.register(
     IgcFinancialPriceSeriesModule
 );
 
-
 export class DataChartTypeFinancialCandlestickSeries {
-
-
-    
-    
-        
 
     private chart: IgcDataChartComponent;
 
     constructor() {
-        
-    
-        
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleFinancialData.create();

@@ -1,21 +1,16 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartScatterCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartScatterModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcNumberAbbreviatorModule } from 'igniteui-webcomponents-charts';
 import { IgcBubbleSeriesModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcSizeScaleComponent } from 'igniteui-webcomponents-charts';
 import { IgcValueBrushScaleComponent } from 'igniteui-webcomponents-charts';
 import { ModifierKeys } from 'igniteui-webcomponents-core';
 import { InteractionState } from 'igniteui-webcomponents-core';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { SampleScatterStats } from './SampleScatterStats';
 
 ModuleManager.register(
@@ -27,20 +22,11 @@ ModuleManager.register(
     IgcNumberAbbreviatorModule
 );
 
-
 export class DataChartNavigation {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();
@@ -88,7 +74,6 @@ export class DataChartNavigation {
         const zoomEnabled = document.getElementById('zoomEnabled') as HTMLInputElement;
         zoomEnabled.checked = true;
         zoomEnabled!.addEventListener('change', this.onZoomEnabledChange);
-
     }
 
     public onDefaultInteractionChange = (e: any) => {
@@ -209,7 +194,6 @@ export class DataChartNavigation {
         if (this.chart.actualWindowScaleVertical > 0.05) {
             this.chart.actualWindowScaleVertical -= 0.05;
         }
-
     }
 
     public createSeries() {

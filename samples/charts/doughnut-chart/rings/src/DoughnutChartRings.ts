@@ -1,5 +1,3 @@
-
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
 import { IgcDoughnutChartComponent } from 'igniteui-webcomponents-charts';
@@ -13,22 +11,13 @@ ModuleManager.register(
     IgcRingSeriesModule
 );
 
-
 export class DoughnutChartRings {
-
-
-
-
-
 
     private chart: IgcDoughnutChartComponent;
     public Months: any[] = [];
     public Seasons: any[] = [];
 
     constructor() {
-
-
-
 
         this.initData();
 

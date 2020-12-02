@@ -1,6 +1,3 @@
-
-
-
 import { IgcRadialGaugeModule } from 'igniteui-webcomponents-gauges';
 import { IgcRadialGaugeComponent } from 'igniteui-webcomponents-gauges';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -11,7 +8,6 @@ import { RadialGaugeNeedleShape } from 'igniteui-webcomponents-gauges';
 import { RadialGaugeBackingShape } from 'igniteui-webcomponents-gauges';
 
 ModuleManager.register(IgcRadialGaugeModule);
-
 
 export class RadialGaugeTypeDirection {
 
@@ -34,7 +30,6 @@ export class RadialGaugeTypeDirection {
 
         this.gauge1 = document.getElementById('gauge1') as IgcRadialGaugeComponent;
         this.gauge2 = document.getElementById('gauge2') as IgcRadialGaugeComponent;
-
     }
 
     public onCreateDegreesGauge(gauge: IgcRadialGaugeComponent) {
@@ -114,8 +109,6 @@ export class RadialGaugeTypeDirection {
         gauge.backingBrush = 'transparent';
         gauge.backingOutline = 'transparent';
         gauge.backingShape = RadialGaugeBackingShape.Circular;
-
-
     }
 }
 

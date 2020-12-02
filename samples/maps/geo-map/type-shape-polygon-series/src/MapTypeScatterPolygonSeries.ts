@@ -1,6 +1,3 @@
-
-
-
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicShapeSeriesComponent } from 'igniteui-webcomponents-maps';
@@ -13,21 +10,13 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapTypeScatterPolygonSeries {
-
-
-    
-    
-        
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
-        
+
         this.onDataLoaded = this.onDataLoaded.bind(this);
-    
-        
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.backgroundContent = undefined;

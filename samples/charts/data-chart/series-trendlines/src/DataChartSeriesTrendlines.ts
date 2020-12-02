@@ -1,17 +1,12 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcFinancialPriceSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryTrendLineModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcFinancialPriceSeriesComponent } from 'igniteui-webcomponents-charts';
 import { TrendLineType } from 'igniteui-webcomponents-core';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { SampleFinancialData } from './SampleFinancialData';
 
 ModuleManager.register(
@@ -22,21 +17,12 @@ ModuleManager.register(
     IgcDataChartCategoryTrendLineModule
 );
 
-
 export class DataChartSeriesTrendlines {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     private series1: IgcFinancialPriceSeriesComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();

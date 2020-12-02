@@ -1,22 +1,13 @@
-
-
 import { IgcFinancialChartModule } from 'igniteui-webcomponents-charts';
 import { IgcFinancialChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { CrosshairsDisplayMode } from 'igniteui-webcomponents-charts';
 import { MarkerType } from 'igniteui-webcomponents-charts';
-
 import { StocksUtility } from './StocksUtility';
 
 ModuleManager.register(IgcFinancialChartModule);
 
-
 export class FinancialChartAnnotations {
-
-
-
-
-
 
     private chart: IgcFinancialChartComponent;
     private calloutsVisible = true;
@@ -26,9 +17,6 @@ export class FinancialChartAnnotations {
     private markersTypes = MarkerType.Circle;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.dataSource = this.getData();
@@ -62,14 +50,17 @@ export class FinancialChartAnnotations {
         this.chart.crosshairsDisplayMode = this.crosshairsMode;
         this.chart.crosshairsAnnotationEnabled = this.crosshairsVisible;
     }
+
     public onCalloutsVisible = (e: any) => {
         this.calloutsVisible = e.target.checked;
         this.chart.calloutsVisible = this.calloutsVisible;
     }
+
     public onFinalValuesVisible = (e: any) => {
         this.finalValuesVisible = e.target.checked;
         this.chart.finalValueAnnotationsVisible = this.finalValuesVisible;
     }
+
     public onMarkersVisible = (e: any) => {
         this.chart.markerTypes.clear();
         this.markersTypes = e.target.checked ? MarkerType.Circle : MarkerType.None;

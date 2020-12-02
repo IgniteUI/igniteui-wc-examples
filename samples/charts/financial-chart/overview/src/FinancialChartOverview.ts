@@ -1,11 +1,8 @@
-
-
 import { IgcFinancialChartModule } from 'igniteui-webcomponents-charts';
 import { IgcFinancialChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcLegendModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { StocksUtility } from './StocksUtility';
 
 ModuleManager.register(
@@ -13,21 +10,12 @@ ModuleManager.register(
     IgcLegendModule
 );
 
-
 export class FinancialChartOverview {
-
-
-    
-    
-        
 
     private chart: IgcFinancialChartComponent;
     private legend: IgcLegendComponent;
 
     constructor() {
-        
-    
-        
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.dataSource = this.getData();

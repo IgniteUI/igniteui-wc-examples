@@ -1,8 +1,4 @@
-
-
-
 // import { IgcSizeScaleComponent } from 'igniteui-webcomponents-charts';
-
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicContourLineSeriesComponent } from 'igniteui-webcomponents-maps';
@@ -17,21 +13,13 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapTypeScatterContourSeries {
-
-
-    
-    
-        
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
-        
+
         this.onDataLoaded = this.onDataLoaded.bind(this);
-    
-        
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };

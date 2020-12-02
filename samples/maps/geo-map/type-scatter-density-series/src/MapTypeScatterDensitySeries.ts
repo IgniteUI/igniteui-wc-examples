@@ -1,7 +1,4 @@
-
-
 import { WorldUtils } from './WorldUtils';
-
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
@@ -15,20 +12,11 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapTypeScatterDensitySeries {
-
-
-    
-    
-        
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
-        
-    
-        
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
 
@@ -79,7 +67,6 @@ export class MapTypeScatterDensitySeries {
         geoBounds.top = 0;
         geoBounds.height = -50;
         this.geoMap.zoomToGeographic(geoBounds);
-
     }
 
 }

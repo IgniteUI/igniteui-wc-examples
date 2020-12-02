@@ -1,8 +1,5 @@
-
-
 import { MapUtils, MapRegion } from './MapUtils';
 import { EsriStyle, EsriUtility } from './EsriUtility';
-
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
@@ -14,13 +11,7 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapDisplayImageryEsriTiles {
-
-
-    
-    
-        
 
     private geoMap1: IgcGeographicMapComponent;
     private geoMap2: IgcGeographicMapComponent;
@@ -28,9 +19,6 @@ export class MapDisplayImageryEsriTiles {
     private geoMap4: IgcGeographicMapComponent;
 
     constructor() {
-        
-    
-        
 
         this.geoMap1 = document.getElementById('map1') as IgcGeographicMapComponent;
         this.geoMap2 = document.getElementById('map2') as IgcGeographicMapComponent;
@@ -42,7 +30,6 @@ export class MapDisplayImageryEsriTiles {
         this.createMap3(this.geoMap3);
         // this.createMap4(this.geoMap4);
     }
-
 
     createMap1(map: IgcGeographicMapComponent) {
         map.zoomable = true;

@@ -1,6 +1,4 @@
-
 import { WorldUtils } from './WorldUtils';
-
 import { html } from 'lit-html';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
@@ -8,22 +6,14 @@ import { IgcGeographicSymbolSeriesComponent } from 'igniteui-webcomponents-maps'
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { MarkerType } from 'igniteui-webcomponents-charts';
 import { DataContext } from 'igniteui-webcomponents-core';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 
 ModuleManager.register(
     IgcDataChartInteractivityModule,
     IgcGeographicMapModule
 );
 
-
 export class MapCustomTooltips {
-
-
-
-
-
 
     private geoMap: IgcGeographicMapComponent;
 
@@ -32,12 +22,9 @@ export class MapCustomTooltips {
         this.createSymbolSeries = this.createSymbolSeries.bind(this);
         this.createSymbolTooltip = this.createSymbolTooltip.bind(this);
 
-
-
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         const geoRegion = { height: 170, left: -180, top: -85.0, width: 360 };
         this.geoMap.zoomToGeographic(geoRegion);
-
         const cityQTR = { lat: 25.285, lon: 51.531, isoCode: 'qat', name: 'Doha' };
         const cityPAN = { lat: 8.949, lon: -79.400, isoCode: 'pan', name: 'Panama' };
         const cityCHL = { lat: -33.475, lon: -70.647, isoCode: 'chl', name: 'Santiago' };
@@ -108,7 +95,6 @@ export class MapCustomTooltips {
 
     return tooltip;
     }
-
 
     public onDataLoaded(csvData: string) {
         const csvLines = csvData.split('\n');

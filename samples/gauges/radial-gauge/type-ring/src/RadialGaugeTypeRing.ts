@@ -1,6 +1,3 @@
-
-
-
 import { IgcRadialGaugeModule } from 'igniteui-webcomponents-gauges';
 import { IgcRadialGaugeComponent } from 'igniteui-webcomponents-gauges';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -13,13 +10,12 @@ import { IgcRadialGaugeRangeComponent } from 'igniteui-webcomponents-gauges';
 
 ModuleManager.register(IgcRadialGaugeModule);
 
-
 export class RadialGaugeTypeRing {
 
     private gauge: IgcRadialGaugeComponent;
 
     constructor() {
-        
+
         this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
         this.renderGauge(this.gauge);
     }
@@ -69,8 +65,6 @@ export class RadialGaugeTypeRing {
         this.addRing(gauge, 90, gauge.scaleEndExtent - 0.0, '#10b401');
         this.addRing(gauge, 80, gauge.scaleEndExtent - 0.1, '#fdb417');
         this.addRing(gauge, 60, gauge.scaleEndExtent - 0.2, '#ff0000');
-
-
     }
 
     public addRing(gauge: IgcRadialGaugeComponent, value: number, extent: number, color: string) {

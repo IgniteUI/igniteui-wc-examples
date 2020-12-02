@@ -23,20 +23,11 @@ ModuleManager.register(
     IgcSpreadsheetModule,
     IgcSpreadsheetChartAdapterModule);
 
-
 export class SpreadsheetAdapterCombo {
-
-
-
-
-
 
     private spreadsheet: IgcSpreadsheetComponent;
 
     constructor() {
-
-
-
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
         this.spreadsheet.chartAdapter = new SpreadsheetChartAdapter();
@@ -91,6 +82,5 @@ export class SpreadsheetAdapterCombo {
         // TODO set property settings (if any) in code-behind:
     }
 }
-
 
 let sample = new SpreadsheetAdapterCombo();

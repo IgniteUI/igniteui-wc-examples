@@ -1,30 +1,19 @@
-
-
 import { IgcPieChartModule } from 'igniteui-webcomponents-charts';
 import { IgcPieChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcPieChartModule);
 
-
 export class PieChartAnimation {
-
-
-
-
-
 
     private chart: IgcPieChartComponent;
     private interval: number = -1;
     public isAnimating: boolean = false;
 
-
     constructor() {
 
     this.onAnimationToggle = this.onAnimationToggle.bind(this);
     this.onAnimationClear = this.onAnimationClear.bind(this);
-
-
 
     this.chart = document.getElementById('chart') as IgcPieChartComponent;
     this.chart.dataSource = this.initData();
@@ -49,6 +38,7 @@ export class PieChartAnimation {
     public componentWillUnmount() {
         this.onAnimationClear();
     }
+
     public onAnimationToggle = () => {
         if (!this.isAnimating) {
             console.log('animation start');

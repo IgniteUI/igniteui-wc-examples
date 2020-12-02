@@ -1,4 +1,3 @@
-
 import { IgcBubbleSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcAnnotationLayerComponent } from 'igniteui-webcomponents-charts';
@@ -43,13 +42,7 @@ ModuleManager.register(
     IgcBubbleSeriesModule
 );
 
-
 export class ZoomSliderOverview {
-
-
-
-
-
 
     private mainChart: IgcDataChartComponent;
     private zoomChart: IgcDataChartComponent;

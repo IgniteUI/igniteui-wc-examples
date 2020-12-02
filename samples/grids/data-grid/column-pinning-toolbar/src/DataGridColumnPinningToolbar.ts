@@ -1,4 +1,3 @@
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
@@ -13,10 +12,7 @@ ModuleManager.register(IgcGridColumnOptionsModule);
 
 export class DataGridColumnPinningToolbar {
 
-
     public data: any[] = [];
-
-
 
     public grid: IgcDataGridComponent;
     public toolbar: IgcDataGridToolbarComponent;
@@ -25,8 +21,6 @@ export class DataGridColumnPinningToolbar {
 
         this.onGridRef = this.onGridRef.bind(this);
         this.data = DataGridSharedData.getEmployees();
-
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();

@@ -1,16 +1,11 @@
-
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartShapeCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartShapeModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcScatterPolylineSeriesModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcScatterPolylineSeriesComponent } from 'igniteui-webcomponents-charts';
-
-
 import { SampleShapeData } from './SampleShapeData';
 
 ModuleManager.register(
@@ -21,20 +16,11 @@ ModuleManager.register(
     IgcScatterPolylineSeriesModule
 );
 
-
 export class DataChartTypeScatterPolylineSeries {
-
-
-    
-    
-        
 
     private chart: IgcDataChartComponent;
 
     constructor() {
-        
-    
-        
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleShapeData.create();

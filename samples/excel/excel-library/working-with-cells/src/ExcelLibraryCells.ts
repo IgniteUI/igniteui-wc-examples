@@ -1,6 +1,4 @@
-
 import { ExcelUtility } from './ExcelUtility';
-
 // import { IgcExcelXlsxModule } from 'igniteui-webcomponents-excel';
 // import { IgcExcelCoreModule } from 'igniteui-webcomponents-excel';
 import { IgcExcelModule } from 'igniteui-webcomponents-excel';
@@ -20,13 +18,7 @@ ModuleManager.register(
     IgcExcelModule
 );
 
-
 export class ExcelLibraryCells {
-
-
-
-
-
 
     public canSave = false;
     public wb: Workbook;
@@ -36,9 +28,6 @@ export class ExcelLibraryCells {
     public cellFeatures: string[];
 
     constructor() {
-
-
-
 
         const button = document.getElementById('button1');
         button!.addEventListener('click', this.onClick);
@@ -64,6 +53,7 @@ export class ExcelLibraryCells {
             });
         }
     }
+
     public workbookParse(wb: Workbook): void {
         if (wb === undefined) {
             this.worksheetRegion = null;
@@ -181,6 +171,7 @@ export class ExcelLibraryCells {
             wr.cells(0).comment = new WorksheetCellComment();
         }
     }
+
     public onFormulaChanged = (event: any): void => {
         // Cell Formula
         const ws = this.wb.worksheets(0);
@@ -200,6 +191,7 @@ export class ExcelLibraryCells {
             }
         }
     }
+
     public onMergeChanged = (event: any): void => {
         let mergedRegion: WorksheetMergedCellsRegion | null = null;
         if (event.target.checked === true) {
@@ -225,10 +217,12 @@ export class ExcelLibraryCells {
     public getRandom(min: number, max: number): number {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
+
     public getItem(array: string[]): string {
         const i = this.getRandom(0, array.length - 1);
         return array[i];
     }
+
     public getAmount(min: number, max: number) {
         const n = this.getRandom(min, max);
         const s = n.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
@@ -239,6 +233,5 @@ export class ExcelLibraryCells {
         this.workbookSave();
     }
 }
-
 
 let sample = new ExcelLibraryCells();

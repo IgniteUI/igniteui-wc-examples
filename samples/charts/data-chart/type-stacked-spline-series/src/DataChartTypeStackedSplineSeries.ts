@@ -1,5 +1,3 @@
-
-
 import { IgcLegendModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
@@ -17,21 +15,12 @@ ModuleManager.register(
     IgcLegendModule,
 );
 
-
 export class DataChartTypeStackedSplineSeries {
-
-
-    
-    
-        
 
     private chart: IgcDataChartComponent;
     private legend: IgcLegendComponent;
 
     constructor() {
-        
-    
-        
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();

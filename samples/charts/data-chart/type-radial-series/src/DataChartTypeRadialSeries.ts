@@ -1,6 +1,4 @@
-
 import { SampleRadialData } from './SampleRadialData';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartRadialCoreModule } from 'igniteui-webcomponents-charts';
@@ -8,7 +6,6 @@ import { IgcDataChartRadialModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent } from 'igniteui-webcomponents-charts';
-
 import { IgcRadialAreaSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcRadialAreaSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcRadialLineSeriesModule } from 'igniteui-webcomponents-charts';
@@ -17,7 +14,6 @@ import { IgcRadialPieSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcRadialPieSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcRadialColumnSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcRadialColumnSeriesComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -32,21 +28,12 @@ ModuleManager.register(
     IgcRadialColumnSeriesModule
 );
 
-
 export class DataChartTypeRadialSeries {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     private legend: IgcLegendComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleRadialData.create();
@@ -82,7 +69,6 @@ export class DataChartTypeRadialSeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Pie') {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgcRadialPieSeriesComponent();
@@ -99,7 +85,6 @@ export class DataChartTypeRadialSeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Line') {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgcRadialLineSeriesComponent();
@@ -116,7 +101,6 @@ export class DataChartTypeRadialSeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Column') {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgcRadialColumnSeriesComponent();

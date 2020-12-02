@@ -1,13 +1,9 @@
-
-
-
 import { IgcBulletGraphModule } from 'igniteui-webcomponents-gauges';
 import { IgcBulletGraphComponent } from 'igniteui-webcomponents-gauges';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcLinearGraphRangeComponent } from 'igniteui-webcomponents-gauges';
 
 ModuleManager.register(IgcBulletGraphModule);
-
 
 export class BulletGraphAnimation {
 
@@ -239,7 +235,6 @@ export class BulletGraphAnimation {
         this.gauge.backingBrush = '#f7f7f7';
         this.gauge.backingOutline = '#d1d1d1';
         this.gauge.backingStrokeThickness = 0;
-
     }
 
 }

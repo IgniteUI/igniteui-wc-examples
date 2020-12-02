@@ -1,6 +1,4 @@
-
 import { ExcelUtility } from './ExcelUtility';
-
 import { Color } from 'igniteui-webcomponents-core';
 import { IgcExcelModule } from 'igniteui-webcomponents-excel';
 import { Workbook } from 'igniteui-webcomponents-excel';
@@ -18,13 +16,7 @@ ModuleManager.register(
     IgcExcelModule,
 );
 
-
 export class ExcelLibraryWorksheets {
-
-
-
-
-
 
     public data: any;
     public isSorted: boolean;
@@ -36,9 +28,6 @@ export class ExcelLibraryWorksheets {
     public workbook: Workbook;
 
     constructor() {
-
-
-
 
         this.showGridlines = true;
         this.showHeaders = true;
@@ -216,6 +205,5 @@ export class ExcelLibraryWorksheets {
         return '$' + s.replace('.00', '');
     }
 }
-
 
 let sample = new ExcelLibraryWorksheets();

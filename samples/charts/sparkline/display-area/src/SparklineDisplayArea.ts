@@ -1,18 +1,10 @@
-
-
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcSparklineModule);
 
-
 export class SparklineDisplayArea {
-
-
-
-
-
 
     private chart1: IgcSparklineComponent;
     private chart2: IgcSparklineComponent;
@@ -22,8 +14,6 @@ export class SparklineDisplayArea {
     constructor() {
 
         this.data = this.createData(360 * 1.5);
-
-
 
         this.chart1 = document.getElementById('chart1') as IgcSparklineComponent;
         this.chart2 = document.getElementById('chart2') as IgcSparklineComponent;

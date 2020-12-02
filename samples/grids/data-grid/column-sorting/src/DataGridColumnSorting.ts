@@ -1,31 +1,20 @@
-
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { DataGridSharedData } from './DataGridSharedData';
 import { HeaderClickAction } from 'igniteui-webcomponents-grids';
 
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-
 export class DataGridColumnSorting {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
 
     constructor() {
 
         this.onHeaderClickActionValueChanged = this.onHeaderClickActionValueChanged.bind(this);
-
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getHouses();
@@ -57,6 +46,5 @@ export class DataGridColumnSorting {
         }
     }
 }
-
 
 let sample = new DataGridColumnSorting();

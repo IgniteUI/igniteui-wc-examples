@@ -1,18 +1,10 @@
-
-
 import { IgcDataGridModule, IgcTemplateHeaderComponent, IgcTemplateColumnComponent, CellContentHorizontalAlignment, CellContentVerticalAlignment, IgcTextColumnComponent, IgcNumericColumnComponent, IgcTemplateCellUpdatingEventArgs, IgcTemplateCellInfo, IgcTemplateHeaderCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcDataGridModule);
 
-
 export class DataGridTypeMatrixTable {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
     public dataPeople: any[] = [];
@@ -27,12 +19,9 @@ export class DataGridTypeMatrixTable {
 
     constructor() {
 
-
         this.onVerticalHeaderUpdating = this.onVerticalHeaderUpdating.bind(this);
         this.onHorizontalHeaderUpdating = this.onHorizontalHeaderUpdating.bind(this);
         this.onCellUpdating = this.onCellUpdating.bind(this);
-
-
 
         this.createData();
 
@@ -227,10 +216,7 @@ export class DataGridTypeMatrixTable {
             }
             this.dataRelations.push(relation);
         }
-
-
     }
-
 
     public getRandomNumber(min: number, max: number): number {
         return Math.round(min + Math.random() * (max - min));

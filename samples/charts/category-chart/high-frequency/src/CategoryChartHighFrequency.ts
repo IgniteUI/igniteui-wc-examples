@@ -1,5 +1,3 @@
-
-
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -7,13 +5,7 @@ import { CategoryChartSharedData } from './CategoryChartSharedData';
 
 ModuleManager.register(IgcCategoryChartModule);
 
-
 export class CategoryChartHighFrequency {
-
-
-
-
-
 
     private chart: IgcCategoryChartComponent;
     public dataIndex: number = 0;
@@ -31,15 +23,12 @@ export class CategoryChartHighFrequency {
 
     constructor() {
 
-
         this.onFpsRef = this.onFpsRef.bind(this);
         this.onScalingRatioChanged = this.onScalingRatioChanged.bind(this);
         this.onRefreshFrequencyChanged = this.onRefreshFrequencyChanged.bind(this);
         this.onDataGenerateClick = this.onDataGenerateClick.bind(this);
         this.onDataPointsChanged = this.onDataPointsChanged.bind(this);
         this.tick = this.tick.bind(this);
-
-
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
@@ -86,6 +75,7 @@ export class CategoryChartHighFrequency {
         this.frameTime = new Date();
         this.setupInterval();
     }
+
     public onScalingRatioChanged = (e: any) => {
         if (e.target.checked) {
             this.scalingRatio = 1.0;

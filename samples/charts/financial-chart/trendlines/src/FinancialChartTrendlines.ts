@@ -1,29 +1,17 @@
-
-
 import { IgcFinancialChartModule } from 'igniteui-webcomponents-charts';
 import { IgcFinancialChartComponent } from 'igniteui-webcomponents-charts';
 import { TrendLineType } from 'igniteui-webcomponents-core';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { StocksUtility } from './StocksUtility';
 
 ModuleManager.register(IgcFinancialChartModule);
 
-
 export class FinancialChartTrendlines {
-
-
-
-
-
 
     private chart: IgcFinancialChartComponent;
     public trendLineType: TrendLineType = TrendLineType.QuinticFit;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.dataSource = this.getData();

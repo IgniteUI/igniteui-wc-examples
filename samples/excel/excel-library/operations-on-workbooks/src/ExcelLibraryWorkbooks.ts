@@ -1,6 +1,4 @@
-
 import { ExcelUtility } from './ExcelUtility';
-
 // import { IgcExcelXlsxModule } from 'igniteui-webcomponents-excel';
 // import { IgcExcelCoreModule } from 'igniteui-webcomponents-excel';
 import { IgcExcelModule } from 'igniteui-webcomponents-excel';
@@ -17,13 +15,7 @@ ModuleManager.register(
     IgcDataGridModule,
 );
 
-
 export class ExcelLibraryWorkbooks {
-
-
-
-
-
 
     public grid: IgcDataGridComponent;
 
@@ -40,9 +32,6 @@ export class ExcelLibraryWorkbooks {
     public selected: string;
 
     constructor() {
-
-
-
 
         this.companies = ['Amazon', 'Ford', 'Jaguar', 'Tesla', 'IBM', 'Microsoft'];
         this.firstNames = ['Andrew', 'Mike', 'Martin', 'Ann', 'Victoria', 'John', 'Brian', 'Jason', 'David'];
@@ -66,7 +55,6 @@ export class ExcelLibraryWorkbooks {
         this.selected = 'Employees - Table1';
         tableSelect.value = this.selected;
         tableSelect!.addEventListener('change', this.onTableChange);
-
     }
 
     public initData() {
@@ -194,6 +182,5 @@ export class ExcelLibraryWorkbooks {
         }
     }
 }
-
 
 let sample = new ExcelLibraryWorkbooks();

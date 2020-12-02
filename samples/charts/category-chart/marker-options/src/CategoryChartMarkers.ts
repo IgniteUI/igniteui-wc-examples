@@ -1,18 +1,10 @@
-
-
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcCategoryChartModule);
 
-
 export class CategoryChartMarkers {
-
-
-
-
-
 
     private chart: IgcCategoryChartComponent;
     public data: any[] = [];
@@ -22,8 +14,6 @@ export class CategoryChartMarkers {
         this.onChartTypeChanged = this.onChartTypeChanged.bind(this);
         this.onMarkerTypeChanged = this.onMarkerTypeChanged.bind(this);
         this.initData();
-
-
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.data;

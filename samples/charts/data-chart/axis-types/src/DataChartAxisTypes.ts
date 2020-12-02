@@ -1,9 +1,6 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartScatterCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartScatterModule } from 'igniteui-webcomponents-charts';
 import { IgcBarSeriesModule } from 'igniteui-webcomponents-charts';
@@ -11,21 +8,17 @@ import { IgcFinancialPriceSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcColumnSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryYAxisModule } from 'igniteui-webcomponents-charts';
 import { IgcTimeXAxisModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcBarSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcFinancialPriceSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcScatterSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
-
 import { IgcNumericYAxisComponent } from 'igniteui-webcomponents-charts';
 import { IgcNumericXAxisComponent } from 'igniteui-webcomponents-charts';
 import { IgcTimeXAxisComponent } from 'igniteui-webcomponents-charts';
 import { IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts';
 import { IgcCategoryYAxisComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { SampleCategoryData } from './SampleCategoryData';
 import { SampleFinancialData } from './SampleFinancialData';
 import { SampleScatterData } from './SampleScatterData';
@@ -43,13 +36,7 @@ ModuleManager.register(
     IgcTimeXAxisModule
 );
 
-
 export class DataChartAxisTypes {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
 
@@ -77,9 +64,6 @@ export class DataChartAxisTypes {
     public financialSeries: IgcFinancialPriceSeriesComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
 

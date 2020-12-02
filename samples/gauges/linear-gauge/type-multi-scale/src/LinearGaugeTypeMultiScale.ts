@@ -1,13 +1,9 @@
-
-
-
 import { IgcLinearGaugeModule } from 'igniteui-webcomponents-gauges';
 import { IgcLinearGaugeComponent } from 'igniteui-webcomponents-gauges';
 import { IgcLinearGraphRangeComponent } from 'igniteui-webcomponents-gauges';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcLinearGaugeModule);
-
 
 export class LinearGaugeTypeMultiScale {
 
@@ -95,7 +91,6 @@ export class LinearGaugeTypeMultiScale {
         gauge.tickStrokeThickness = 1;
         gauge.tickBrush = 'gray';
 
-
         const rangeExtentSpan = gauge.scaleOuterExtent - gauge.scaleInnerExtent;
         const rangeExtentInterval = rangeExtentSpan / 2;
 
@@ -122,7 +117,6 @@ export class LinearGaugeTypeMultiScale {
         range2.outerStartExtent = gauge.scaleOuterExtent;
         range2.outerEndExtent   = gauge.scaleOuterExtent;
         gauge.ranges.add(range2);
-
     }
 
 }

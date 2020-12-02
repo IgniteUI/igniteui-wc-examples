@@ -1,5 +1,3 @@
-
-
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -11,13 +9,7 @@ ModuleManager.register(
     IgcLegendModule
 );
 
-
 export class CategoryChartOverview {
-
-
-
-
-
 
     private chart: IgcCategoryChartComponent;
     public data: any[] = [];
@@ -28,8 +20,6 @@ export class CategoryChartOverview {
         this.onLegendRef = this.onLegendRef.bind(this);
         this.initData();
 
-
-
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.data;
 
@@ -37,8 +27,8 @@ export class CategoryChartOverview {
 
         let chartType1 = document.getElementById('chartType');
         chartType1!.addEventListener('change', this.onChartTypeChanged);
-
     }
+
     public onChartTypeChanged = (e: any) => {
         const chartMode = e.target.value.toString();
         this.chart.chartType = chartMode;

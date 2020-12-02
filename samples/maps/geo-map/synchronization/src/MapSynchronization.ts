@@ -1,7 +1,4 @@
-
 import { MapUtils, MapRegion } from './MapUtils';
-
-
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
@@ -13,24 +10,16 @@ ModuleManager.register(
     IgcDataChartInteractivityModule
 );
 
-
 export class MapSynchronization {
-
-
-    
-    
-        
 
     private map1: IgcGeographicMapComponent;
     private map2: IgcGeographicMapComponent;
     private isMapSynchronizing = false;
 
     constructor() {
-        
+
         this.onWindowRectChangedMap1 = this.onWindowRectChangedMap1.bind(this);
         this.onWindowRectChangedMap2 = this.onWindowRectChangedMap2.bind(this);
-    
-        
 
         this.map1 = document.getElementById('geoMap1') as IgcGeographicMapComponent;
         this.map2 = document.getElementById('geoMap2') as IgcGeographicMapComponent;

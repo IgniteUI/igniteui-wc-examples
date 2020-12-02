@@ -1,5 +1,3 @@
-
-
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
@@ -12,21 +10,13 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapTypeScatterPolylineSeries {
-
-
-    
-    
-        
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
-        
+
         this.onDataLoaded = this.onDataLoaded.bind(this);
-    
-        
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.windowRect = { left: 0.195, top: 0.325, width: 0.2, height: 0.1 };
@@ -74,7 +64,6 @@ export class MapTypeScatterPolylineSeries {
         this.addSeriesWith(roadsCAN, 'rgba(252, 32, 32, 0.9)');
         this.addSeriesWith(roadsUSA, 'rgba(3, 121, 231, 0.9)');
         this.addSeriesWith(roadsMEX, 'rgba(14, 194, 14, 0.9)');
-
     }
 
     public addSeriesWith(shapeData: any[], shapeBrush: string) {

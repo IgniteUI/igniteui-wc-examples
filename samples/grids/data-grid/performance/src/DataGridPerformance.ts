@@ -1,34 +1,21 @@
-
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { IgcNumericColumnComponent } from 'igniteui-webcomponents-grids';
-
 import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcCellStyleRequestedEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
-
 import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-grids';
-
 import { IgcColumnComponent } from 'igniteui-webcomponents-grids';
-
 import { IgcColumnWidth } from 'igniteui-webcomponents-grids';
 import { GridSelectionMode } from 'igniteui-webcomponents-grids';
 import { HeaderClickAction } from 'igniteui-webcomponents-grids';
 
 ModuleManager.register(IgcDataGridModule);
 
-
 export class DataGridPerformance {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
     private _kpiColumns: string[] = [];
@@ -41,7 +28,6 @@ export class DataGridPerformance {
     private _interval: number = 100;
 
     constructor() {
-
 
         this.tick = this.tick.bind(this);
 
@@ -57,8 +43,6 @@ export class DataGridPerformance {
         for (let i = 0; i < 43; i++) {
             this._kpiColumns.push('KPI_' + i);
         }
-
-
 
         this.data = this.generateSalesPeople(8000);
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
@@ -150,7 +134,6 @@ export class DataGridPerformance {
 
                         let colorString = 'rgba(' + Math.round(r * 255.0) + ',' + Math.round(g * 255.0) + ',' + Math.round(b * 255.0) + ',' + a + ')';
 
-
                         args.cellInfo.background = colorString;
                     }
                     else if (item.AvgSaleHeat < 0) {
@@ -170,7 +153,6 @@ export class DataGridPerformance {
                         let b = fromB + (toB - fromB) * p;
 
                         let colorString = 'rgba(' + Math.round(r * 255.0) + ',' + Math.round(g * 255.0) + ',' + Math.round(b * 255.0) + ',' + a + ')';
-
 
                         args.cellInfo.background = colorString;
                     }
@@ -433,7 +415,6 @@ export class DataGridPerformance {
         item.PercentChange = ((item.AvgSale / prevSale) * 100.0);
     }
 
-
     private generateSalesPeople(num: number) {
         let firstNames = [
             'Kyle',
@@ -612,6 +593,5 @@ export class SalesPerson {
     YearToDateSales: number;
     DateValue: Date;
 }
-
 
 let sample = new DataGridPerformance();

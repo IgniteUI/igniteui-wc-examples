@@ -1,6 +1,4 @@
-
 import { SampleTreeData } from './SampleTreeData';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
@@ -10,13 +8,7 @@ import { TreemapOrientation } from 'igniteui-webcomponents-charts';
 
 ModuleManager.register(IgcTreemapModule);
 
-
 export class TreeMapOverview {
-
-
-
-
-
 
     private treeMap: IgcTreemapComponent;
 
@@ -29,8 +21,6 @@ export class TreeMapOverview {
         this.onClickStripHor = this.onClickStripHor.bind(this);
 
         this.onClickSquared = this.onClickSquared.bind(this);
-
-
 
         this.treeMap = document.getElementById('treeMap') as IgcTreemapComponent;
         this.treeMap.dataSource = SampleTreeData.getPopulation();
@@ -56,6 +46,7 @@ export class TreeMapOverview {
         this.treeMap.layoutType = TreemapLayoutType.SliceAndDice;
         this.treeMap.layoutOrientation = TreemapOrientation.Vertical;
     }
+
     public onClickSliceHor = (e: any) => {
         this.treeMap.layoutType = TreemapLayoutType.SliceAndDice;
         this.treeMap.layoutOrientation = TreemapOrientation.Horizontal;
@@ -65,11 +56,11 @@ export class TreeMapOverview {
         this.treeMap.layoutType = TreemapLayoutType.Stripped;
         this.treeMap.layoutOrientation = TreemapOrientation.Vertical;
     }
+
     public onClickStripHor = (e: any) => {
         this.treeMap.layoutType = TreemapLayoutType.Stripped;
         this.treeMap.layoutOrientation = TreemapOrientation.Horizontal;
     }
-
 
 }
 

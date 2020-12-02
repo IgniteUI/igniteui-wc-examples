@@ -1,25 +1,15 @@
-
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { FilterExpression } from 'igniteui-webcomponents-core';
 import { FilterFactory } from 'igniteui-webcomponents-core';
-
 import { DataGridSharedData } from './DataGridSharedData';
 
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-
 export class DataGridColumnFiltering {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
     private filterText: string = '';
@@ -27,15 +17,12 @@ export class DataGridColumnFiltering {
     private filterColumn: string = 'Name';
     private filterFactory: FilterFactory;
 
-
     constructor() {
 
         this.onFilterColumnDropDownValueChanged = this.onFilterColumnDropDownValueChanged.bind(this);
         this.onFilterModeDropDownValueChanged = this.onFilterModeDropDownValueChanged.bind(this);
         this.onFilterTextBoxTextChanged = this.onFilterTextBoxTextChanged.bind(this);
         this.applyFilter = this.applyFilter.bind(this);
-
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
 
@@ -88,6 +75,5 @@ export class DataGridColumnFiltering {
         this.grid.filterExpressions.add(filter);
     }
 }
-
 
 let sample = new DataGridColumnFiltering();

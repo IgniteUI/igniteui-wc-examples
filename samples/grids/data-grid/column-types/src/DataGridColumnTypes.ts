@@ -1,6 +1,4 @@
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
@@ -9,7 +7,6 @@ import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcImageColumnComponent } from 'igniteui-webcomponents-grids';
-
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { SparklineDisplayType } from 'igniteui-webcomponents-charts';
@@ -20,23 +17,15 @@ ModuleManager.register(
     IgcSparklineModule
 );
 
-
 export class DataGridColumnTypes {
-
-
-    
-    
-        
 
     private grid: IgcDataGridComponent;
 
     constructor() {
-        
+
         this.onUpdatingAddressColumn = this.onUpdatingAddressColumn.bind(this);
         this.onUpdatingSalesColumn = this.onUpdatingSalesColumn.bind(this);
         this.onUpdatingProductivityColumn = this.onUpdatingProductivityColumn.bind(this);
-    
-        
 
         const salesColumn = document.getElementById('salesColumn') as IgcTemplateColumnComponent;
         if (salesColumn)
@@ -52,7 +41,6 @@ export class DataGridColumnTypes {
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();
-
     }
 
     public onUpdatingAddressColumn(s: IgcTemplateColumnComponent, e: IgcTemplateCellUpdatingEventArgs) {
@@ -194,6 +182,5 @@ export class DataGridColumnTypes {
         }
     }
 }
-
 
 let sample = new DataGridColumnTypes();

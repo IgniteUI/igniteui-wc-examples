@@ -1,5 +1,3 @@
-
-
 import { IgcSpreadsheetModule } from 'igniteui-webcomponents-spreadsheet';
 import { IgcSpreadsheetComponent } from 'igniteui-webcomponents-spreadsheet';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -8,13 +6,7 @@ import { ExcelUtility } from './ExcelUtility';
 
 ModuleManager.register(IgcSpreadsheetModule);
 
-
 export class SpreadsheetCommands {
-
-
-
-
-
 
     private spreadsheet: IgcSpreadsheetComponent;
 
@@ -22,8 +14,6 @@ export class SpreadsheetCommands {
 
         this.onZoomInClick = this.onZoomInClick.bind(this);
         this.onZoomOutClick = this.onZoomOutClick.bind(this);
-
-
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
 
@@ -44,6 +34,5 @@ export class SpreadsheetCommands {
         this.spreadsheet.executeAction(SpreadsheetAction.ZoomOut);
     }
 }
-
 
 let sample = new SpreadsheetCommands();

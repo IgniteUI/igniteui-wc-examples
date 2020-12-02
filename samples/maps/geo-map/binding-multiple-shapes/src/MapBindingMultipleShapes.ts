@@ -1,6 +1,3 @@
-
-
-
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
@@ -15,23 +12,15 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapBindingMultipleShapes {
-
-
-    
-    
-        
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
-        
+
         this.onPointsLoaded = this.onPointsLoaded.bind(this);
         this.onPolylinesLoaded = this.onPolylinesLoaded.bind(this);
         this.onPolygonsLoaded = this.onPolygonsLoaded.bind(this);
-    
-        
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.backgroundContent = null;

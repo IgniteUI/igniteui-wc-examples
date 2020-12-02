@@ -1,5 +1,3 @@
-
-
 import { IgcSpreadsheetModule } from 'igniteui-webcomponents-spreadsheet';
 import { IgcSpreadsheetComponent } from 'igniteui-webcomponents-spreadsheet';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -8,13 +6,7 @@ import { ExcelUtility } from './ExcelUtility';
 
 ModuleManager.register(IgcSpreadsheetModule);
 
-
 export class SpreadsheetClipboard {
-
-
-
-
-
 
     private spreadsheet: IgcSpreadsheetComponent;
 
@@ -23,8 +15,6 @@ export class SpreadsheetClipboard {
         this.onCutBtnClick = this.onCutBtnClick.bind(this)
         this.onCopyBtnClick = this.onCopyBtnClick.bind(this)
         this.onPasteBtnClick = this.onPasteBtnClick.bind(this)
-
-
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
 
@@ -50,6 +40,5 @@ export class SpreadsheetClipboard {
         this.spreadsheet.executeAction(SpreadsheetAction.Paste);
     }
 }
-
 
 let sample = new SpreadsheetClipboard();

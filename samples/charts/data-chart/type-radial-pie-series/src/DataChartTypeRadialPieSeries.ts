@@ -1,6 +1,4 @@
-
 import { SampleRadialData } from './SampleRadialData';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartRadialCoreModule } from 'igniteui-webcomponents-charts';
@@ -18,21 +16,12 @@ ModuleManager.register(
     IgcLegendModule
 );
 
-
 export class DataChartTypeRadialPieSeries {
-
-
-    
-    
-        
 
     private chart: IgcDataChartComponent;
     private legend: IgcLegendComponent;
 
     constructor() {
-        
-    
-        
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleRadialData.create();

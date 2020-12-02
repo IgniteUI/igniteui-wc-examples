@@ -1,5 +1,3 @@
-
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
@@ -15,13 +13,7 @@ import { IgcGridSelectedCellRangesChangedEventArgs } from 'igniteui-webcomponent
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-
 export class DataGridCellSelection {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
 
@@ -31,8 +23,6 @@ export class DataGridCellSelection {
         this.onSelectedCellsChanged = this.onSelectedCellsChanged.bind(this);
         this.onSelectedKeysChanged = this.onSelectedKeysChanged.bind(this);
         this.onSelectedCellRangesChanged = this.onSelectedCellRangesChanged.bind(this);
-
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();
@@ -53,12 +43,15 @@ export class DataGridCellSelection {
         console.log('onSelectedItemsChanged ' + this.grid.selectedItems.count);
         console.log('onSelectedItemsChanged ' + item);
     }
+
     public onSelectedKeysChanged(s: IgcDataGridComponent, e: IgcGridSelectedKeysChangedEventArgs) {
         console.log('onSelectedKeysChanged ' + this.grid.selectedKeys.count);
     }
+
     public onSelectedCellsChanged(s: IgcDataGridComponent, e: IgcGridSelectedCellsChangedEventArgs) {
         console.log('onSelectedCellsChanged ' + this.grid.selectedCells.count);
     }
+
     public onSelectedCellRangesChanged(s: IgcDataGridComponent, e: IgcGridSelectedCellRangesChangedEventArgs) {
         console.log('onSelectedCellRangesChanged ' + this.grid.selectedCells.count);
     }
@@ -96,6 +89,5 @@ export class DataGridCellSelection {
         }
     }
 }
-
 
 let sample = new DataGridCellSelection();

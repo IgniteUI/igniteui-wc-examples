@@ -1,13 +1,10 @@
-
 import { SampleScatterData } from './SampleScatterData';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartScatterCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartScatterModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-
 import { IgcScatterContourSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcScatterContourSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcValueBrushScaleModule } from 'igniteui-webcomponents-charts';
@@ -25,13 +22,7 @@ ModuleManager.register(
     IgcLinearContourValueResolverModule
 );
 
-
 export class DataChartTypeScatterContourSeries {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     private series: IgcScatterContourSeriesComponent;
@@ -39,9 +30,6 @@ export class DataChartTypeScatterContourSeries {
     public contoursLabel: HTMLLabelElement;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();

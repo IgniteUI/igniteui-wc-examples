@@ -1,5 +1,3 @@
-
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
@@ -12,12 +10,7 @@ import { SummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, I
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-
 export class DataGridColumnSummaries {
-
-
-
-
 
     private grid: IgcDataGridComponent;
 
@@ -25,7 +18,6 @@ export class DataGridColumnSummaries {
 
         this.onSummaryScopeChanging = this.onSummaryScopeChanging.bind(this);
         this.onGroupSummaryDisplayModeChanging = this.onGroupSummaryDisplayModeChanging.bind(this);
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getSales();
@@ -127,21 +119,23 @@ class CustomDomestic extends SummaryCalculator {
     get displayName(): string {
         return 'USA';
     }
+
     public usCountries: number;
 
     public beginCalculation(a: IDataSource, b: string): void {
         super.beginCalculation(a, b);
         this.usCountries = 0;
     }
+
     public endCalculation(): ISummaryResult {
        return new DefaultSummaryResult(this.propertyName, SummaryOperand.Custom, this.usCountries)
     }
+
     public aggregate(a: any): void {
        if (a.Countries === 'USA') {
             this.usCountries++;
        }
     }
 }
-
 
 let sample = new DataGridColumnSummaries();

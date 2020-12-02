@@ -1,6 +1,3 @@
-
-
-
 import { IgcRadialGaugeModule } from 'igniteui-webcomponents-gauges';
 import { IgcRadialGaugeComponent } from 'igniteui-webcomponents-gauges';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -12,7 +9,6 @@ import { RadialGaugeBackingShape } from 'igniteui-webcomponents-gauges';
 import { IgcRadialGaugeRangeComponent } from 'igniteui-webcomponents-gauges';
 
 ModuleManager.register(IgcRadialGaugeModule);
-
 
 export class RadialGaugeAnimation {
 

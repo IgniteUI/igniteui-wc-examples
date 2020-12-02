@@ -1,5 +1,3 @@
-
-
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -9,13 +7,7 @@ import { ToolTipType } from 'igniteui-webcomponents-charts';
 
 ModuleManager.register(IgcCategoryChartModule);
 
-
 export class CategoryChartTooltipTypes {
-
-
-
-
-
 
     private chart: IgcCategoryChartComponent;
     public data: any[] = [];
@@ -24,8 +16,6 @@ export class CategoryChartTooltipTypes {
 
         this.onToolTipTypeChanged = this.onToolTipTypeChanged.bind(this);
         this.initData();
-
-
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.seriesAdded = this.onSeriesAdded;
@@ -56,8 +46,8 @@ export class CategoryChartTooltipTypes {
                 break;
             }
         }
-
     }
+
     public onSeriesAdded = (s: IgcDomainChartComponent, e: IgcChartSeriesEventArgs) => {
         if (e.series.isAnnotationLayer) {
             e.series.transitionDuration = 100;

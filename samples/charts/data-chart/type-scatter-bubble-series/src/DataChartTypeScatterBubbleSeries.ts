@@ -1,5 +1,3 @@
-
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartScatterCoreModule } from 'igniteui-webcomponents-charts';
@@ -7,10 +5,8 @@ import { IgcDataChartScatterModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcNumberAbbreviatorModule } from 'igniteui-webcomponents-charts';
 import { IgcBubbleSeriesModule } from 'igniteui-webcomponents-charts';
-
 import { IgcNumericYAxisModule } from 'igniteui-webcomponents-charts';
 import { IgcNumericXAxisModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcSizeScaleComponent } from 'igniteui-webcomponents-charts';
 import { IgcValueBrushScaleComponent } from 'igniteui-webcomponents-charts';
@@ -18,8 +14,6 @@ import { IgcCustomPaletteBrushScaleComponent } from 'igniteui-webcomponents-char
 import { IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
 import { BrushSelectionMode } from 'igniteui-webcomponents-charts';
 import { MarkerType } from 'igniteui-webcomponents-charts';
-
-
 import { SampleScatterStats } from './SampleScatterStats';
 
 ModuleManager.register(
@@ -33,20 +27,11 @@ ModuleManager.register(
     IgcNumericXAxisModule
 );
 
-
 export class DataChartTypeScatterBubbleSeries {
-
-
-    
-    
-        
 
     private chart: IgcDataChartComponent;
 
     constructor() {
-        
-    
-        
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.setSeries();
@@ -97,7 +82,6 @@ export class DataChartTypeScatterBubbleSeries {
         this.chart.series.clear();
         this.chart.series.add(series1);
         this.chart.series.add(series2);
-
     }
 }
 

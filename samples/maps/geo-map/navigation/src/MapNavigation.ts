@@ -1,5 +1,3 @@
-
-
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
@@ -10,23 +8,13 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapNavigation {
-
-
-    
-    
-        
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
-        
-    
-        
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
-
 
         // const url = 'https://static.infragistics.com/xplatform/data/UsaCitiesPopulation.csv';
         // console.log('SB loading ' + url);
@@ -34,13 +22,11 @@ export class MapNavigation {
         // fetch(url)
         //     .then((response) => response.text())
         //     .then(data => this.onDataLoaded(data));
-
     }
 
     public onDataLoaded(csvData: string) {
         const csvLines = csvData.split('\n');
         console.log('SB loaded records ' + csvLines.length);
-
     }
 
 }

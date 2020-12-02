@@ -1,18 +1,13 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcFinancialPriceSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcBollingerBandsOverlayModule } from 'igniteui-webcomponents-charts';
 import { IgcPriceChannelOverlayModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcBollingerBandsOverlayComponent } from 'igniteui-webcomponents-charts';
 import { IgcPriceChannelOverlayComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { SampleFinancialData } from './SampleFinancialData';
 
 ModuleManager.register(
@@ -24,13 +19,7 @@ ModuleManager.register(
     IgcPriceChannelOverlayModule
 );
 
-
 export class DataChartTypeFinancialOverlays {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
 
@@ -38,9 +27,6 @@ export class DataChartTypeFinancialOverlays {
     private priceChannel: IgcPriceChannelOverlayComponent;
 
     constructor() {
-
-
-
 
         this.bollingerBands = new IgcBollingerBandsOverlayComponent();
         this.bollingerBands.name = 'bollinger';

@@ -1,5 +1,3 @@
-
-
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -7,13 +5,7 @@ import { CategoryChartSharedData } from './CategoryChartSharedData';
 
 ModuleManager.register(IgcCategoryChartModule);
 
-
 export class CategoryChartHighVolume {
-
-
-
-
-
 
     private chart: IgcCategoryChartComponent;
     public dataPoints: number = 500000;
@@ -24,11 +16,8 @@ export class CategoryChartHighVolume {
 
     constructor() {
 
-
         this.onDataPointsChanged = this.onDataPointsChanged.bind(this);
         this.onDataGenerateClick = this.onDataGenerateClick.bind(this);
-
-
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = CategoryChartSharedData.generateItems(0, this.dataPoints, true);
@@ -59,7 +48,6 @@ export class CategoryChartHighVolume {
 
     public generateData() {
         this.chart.dataSource = CategoryChartSharedData.generateItems(0, this.dataPoints, true);
-
     }
 }
 

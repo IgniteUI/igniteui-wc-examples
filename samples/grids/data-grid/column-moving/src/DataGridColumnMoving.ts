@@ -1,10 +1,7 @@
-
-
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { DataGridSharedData } from './DataGridSharedData';
 import { ColumnMovingAnimationMode } from 'igniteui-webcomponents-grids';
 import { ColumnMovingMode } from 'igniteui-webcomponents-grids';
@@ -12,13 +9,7 @@ import { ColumnMovingMode } from 'igniteui-webcomponents-grids';
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-
 export class DataGridColumnMoving {
-
-
-
-
-
 
     private grid: IgcDataGridComponent;
 
@@ -27,8 +18,6 @@ export class DataGridColumnMoving {
         this.onColumnMovingAnimationModeValueChanged = this.onColumnMovingAnimationModeValueChanged.bind(this);
         this.onColumnMovingModeValueChanged = this.onColumnMovingModeValueChanged.bind(this);
         this.onSeparatorWidthRangeValueChanged = this.onSeparatorWidthRangeValueChanged.bind(this);
-
-
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees();
@@ -76,6 +65,5 @@ export class DataGridColumnMoving {
         }
     }
 }
-
 
 let sample = new DataGridColumnMoving();

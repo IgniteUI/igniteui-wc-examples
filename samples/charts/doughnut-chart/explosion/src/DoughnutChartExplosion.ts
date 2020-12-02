@@ -1,5 +1,3 @@
-
-
 import { IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
 import { IgcDoughnutChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcRingSeriesModule } from 'igniteui-webcomponents-charts';
@@ -13,21 +11,12 @@ ModuleManager.register(
     IgcRingSeriesModule
 );
 
-
 export class DoughnutChartExplosion {
-
-
-    
-    
-        
 
     private chart: IgcDoughnutChartComponent;
     private label: HTMLElement;
 
     constructor() {
-        
-    
-        
 
         let ringSeries = document.getElementById('ringSeries') as IgcRingSeriesComponent;
         ringSeries.explodedSlices.add(3);
@@ -40,6 +29,7 @@ export class DoughnutChartExplosion {
         this.label = document.getElementById('label');
         this.updateLabel();
     }
+
     public explodedSlices: number[] = [3, 4];
     public onSliceClick = (s: IgcDoughnutChartComponent, e: IgcSliceClickEventArgs) => {
 

@@ -1,20 +1,11 @@
-
-
 import { IgcFinancialChartModule } from 'igniteui-webcomponents-charts';
 import { IgcFinancialChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { StocksUtility } from './StocksUtility';
 
 ModuleManager.register(IgcFinancialChartModule);
 
-
 export class FinancialChartHighFrequency {
-
-
-
-
-
 
     private chart: IgcFinancialChartComponent;
     private dataInfoLabel: HTMLLabelElement;
@@ -33,8 +24,6 @@ export class FinancialChartHighFrequency {
     public scalingRatio: number = NaN;
 
     constructor() {
-
-
 
         this.data = StocksUtility.GetStocksItems(this.dataPoints);
 

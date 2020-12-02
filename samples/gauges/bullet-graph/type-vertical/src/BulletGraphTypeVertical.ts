@@ -1,6 +1,3 @@
-
-
-
 import { IgcBulletGraphModule } from 'igniteui-webcomponents-gauges';
 import { IgcBulletGraphComponent } from 'igniteui-webcomponents-gauges';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -8,7 +5,6 @@ import { IgcLinearGraphRangeComponent } from 'igniteui-webcomponents-gauges';
 import { LinearScaleOrientation } from 'igniteui-webcomponents-gauges';
 
 ModuleManager.register(IgcBulletGraphModule);
-
 
 export class BulletGraphTypeVertical {
 
@@ -25,7 +21,6 @@ export class BulletGraphTypeVertical {
         this.renderGauge(this.gauge1, 90, 80, ['#008000', '#10b401', '#45ec03', '#97f397']);
         this.renderGauge(this.gauge2, 70, 80, ['#e29b03', '#fdb417', '#fdc957', '#f7d58b']);
         this.renderGauge(this.gauge3, 40, 80, ['#cf0000', '#ff0000', '#fd3939', '#f88989']);
-        
     }
 
     public renderGauge(gauge: IgcBulletGraphComponent, value: number, target: number, colors: string[]) {

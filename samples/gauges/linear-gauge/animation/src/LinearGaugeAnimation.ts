@@ -1,6 +1,3 @@
-
-
-
 import { IgcLinearGaugeModule } from 'igniteui-webcomponents-gauges';
 import { IgcLinearGaugeComponent } from 'igniteui-webcomponents-gauges';
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -8,7 +5,6 @@ import { IgcLinearGraphRangeComponent } from 'igniteui-webcomponents-gauges';
 import { LinearGraphNeedleShape } from 'igniteui-webcomponents-gauges';
 
 ModuleManager.register(IgcLinearGaugeModule);
-
 
 export class LinearGaugeAnimation {
 

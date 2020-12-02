@@ -1,5 +1,3 @@
-
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
@@ -12,20 +10,11 @@ ModuleManager.register(
     IgcGeographicMapModule
 );
 
-
 export class MapBindingDataJsonPoints {
-
-
-    
-    
-        
 
     private geoMap: IgcGeographicMapComponent;
 
     constructor() {
-        
-    
-        
 
         const url = 'https://static.infragistics.com/xplatform/data/WorldCities.json';
         // console.log('SB loading ' + url);
@@ -33,7 +22,6 @@ export class MapBindingDataJsonPoints {
         fetch(url)
             .then((response) => response.json())
             .then(data => this.onDataLoaded(data));
-
     }
 
     public onDataLoaded(jsonData: any[]) {

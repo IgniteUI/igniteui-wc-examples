@@ -1,6 +1,4 @@
-
 import { SampleScatterStats } from './SampleScatterStats';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartScatterCoreModule } from 'igniteui-webcomponents-charts';
@@ -9,7 +7,6 @@ import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcNumberAbbreviatorModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent } from 'igniteui-webcomponents-charts';
-
 import { IgcBubbleSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcScatterSeriesModule } from 'igniteui-webcomponents-charts';
@@ -18,12 +15,10 @@ import { IgcScatterLineSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcScatterLineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcScatterSplineSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcScatterSplineSeriesComponent } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcSizeScaleComponent } from 'igniteui-webcomponents-charts';
 import { IgcValueBrushScaleComponent } from 'igniteui-webcomponents-charts';
 import { IgcCustomPaletteBrushScaleComponent } from 'igniteui-webcomponents-charts';
-
 import { BrushSelectionMode } from 'igniteui-webcomponents-charts';
 import { MarkerType } from 'igniteui-webcomponents-charts';
 
@@ -40,21 +35,12 @@ ModuleManager.register(
     IgcLegendModule
 );
 
-
 export class DataChartTypeScatterSeries {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     private legend: IgcLegendComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
 
@@ -97,7 +83,6 @@ export class DataChartTypeScatterSeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Line') {
             const series1 = new IgcScatterLineSeriesComponent();
             series1.title = 'Rich Countries';
@@ -122,7 +107,6 @@ export class DataChartTypeScatterSeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Spline') {
             const series1 = new IgcScatterSplineSeriesComponent();
             series1.title = 'Rich Countries';
@@ -147,7 +131,6 @@ export class DataChartTypeScatterSeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Bubble') {
             const sizeScale = new IgcSizeScaleComponent();
             sizeScale.minimumValue = 10;
@@ -193,10 +176,8 @@ export class DataChartTypeScatterSeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         }
     }
 }
-
 
 let sample = new DataChartTypeScatterSeries();

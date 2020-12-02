@@ -1,5 +1,3 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
@@ -9,7 +7,6 @@ import { IgcColumnSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcValueOverlayModule } from 'igniteui-webcomponents-charts';
 import { IgcFinalValueLayerModule } from 'igniteui-webcomponents-charts';
 import { IgcCrosshairLayerModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
@@ -17,7 +14,6 @@ import { IgcCrosshairLayerComponent } from 'igniteui-webcomponents-charts';
 import { IgcFinalValueLayerComponent } from 'igniteui-webcomponents-charts';
 import { IgcValueOverlayComponent } from 'igniteui-webcomponents-charts';
 import { IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -32,13 +28,7 @@ ModuleManager.register(
     IgcCrosshairLayerModule
 );
 
-
 export class DataChartAxisAnnotations {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     public targetSeries: IgcColumnSeriesComponent;
@@ -47,9 +37,6 @@ export class DataChartAxisAnnotations {
     public valueOverlay: IgcValueOverlayComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = this.getData();

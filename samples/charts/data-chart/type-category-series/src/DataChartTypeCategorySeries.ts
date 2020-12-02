@@ -1,5 +1,3 @@
-
-
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
@@ -14,7 +12,6 @@ import { IgcStepAreaSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcStepLineSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcWaterfallSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendModule } from 'igniteui-webcomponents-charts';
-
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent } from 'igniteui-webcomponents-charts';
 import { IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
@@ -28,9 +25,7 @@ import { IgcStepAreaSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcStepLineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcWaterfallSeriesComponent } from 'igniteui-webcomponents-charts';
 import { MarkerType } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import { SampleCategoryData } from './SampleCategoryData';
 
 ModuleManager.register(
@@ -50,21 +45,12 @@ ModuleManager.register(
     IgcLegendModule
 );
 
-
 export class DataChartTypeCategorySeries {
-
-
-
-
-
 
     private chart: IgcDataChartComponent;
     private legend: IgcLegendComponent;
 
     constructor() {
-
-
-
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleCategoryData.create();
@@ -118,7 +104,6 @@ export class DataChartTypeCategorySeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Line') {
 
             const series1 = new IgcLineSeriesComponent();
@@ -140,7 +125,6 @@ export class DataChartTypeCategorySeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Point') {
 
             const series1 = new IgcPointSeriesComponent();
@@ -162,7 +146,6 @@ export class DataChartTypeCategorySeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Area') {
 
             const series1 = new IgcAreaSeriesComponent();
@@ -180,7 +163,6 @@ export class DataChartTypeCategorySeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Spline') {
 
             const series1 = new IgcSplineSeriesComponent();
@@ -202,7 +184,6 @@ export class DataChartTypeCategorySeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'SplineArea') {
 
             const series1 = new IgcSplineAreaSeriesComponent();
@@ -220,7 +201,6 @@ export class DataChartTypeCategorySeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'StepArea') {
 
             const series1 = new IgcStepAreaSeriesComponent();
@@ -238,7 +218,6 @@ export class DataChartTypeCategorySeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'StepLine') {
 
             const series1 = new IgcStepLineSeriesComponent();
@@ -256,7 +235,6 @@ export class DataChartTypeCategorySeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Waterfall') {
 
             const series1 = new IgcWaterfallSeriesComponent();
@@ -274,7 +252,6 @@ export class DataChartTypeCategorySeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Bar') {
 
             const series1 = new IgcBarSeriesComponent();
@@ -294,7 +271,6 @@ export class DataChartTypeCategorySeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         }
     }
 
