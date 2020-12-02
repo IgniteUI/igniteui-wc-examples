@@ -36,21 +36,21 @@ log('loaded');
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSources = [
     // charts:
-    // igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
     igConfig.SamplesCopyPath + '/maps/**/package.json',
-    // igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
-    // igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
-    // igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
-    // igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
-    // igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
-    // igConfig.SamplesCopyPath + '/grids/**/package.json',
+    igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
+    igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
+    igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
+    igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
+    igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/**/package.json',
     // igConfig.SamplesCopyPath + '/layouts/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/dock-manager/overview/package.json',
 
@@ -109,16 +109,6 @@ function lintSamples(cb) {
     });
 } exports.lintSamples = lintSamples;
 
-// function findSamplesTest(cb) {
-//     gulp.src(sampleSources)
-//     .pipe(es.map(function(samplePackage, sampleCallback) {
-//     }))
-//     .on("end", function() {
-//          cb();
-//     });
-
-// } exports.findSamplesTest = findSamplesTest;
-
 function findSamples(cb) {
 
     // cleanBrowser();
@@ -172,6 +162,7 @@ function findSamples(cb) {
 
         Transformer.sort(samples);
 
+        // log("HtmlFileCode \n" + samples[0].HtmlFileCode)
         //Transformer.verify(samples);
         //Transformer.print(samples);
         //Transformer.getGroups(samples);
@@ -424,61 +415,85 @@ function copyPackageJson(cb) {
     cb();
 } exports.copyPackageJson = copyPackageJson;
 
-function updateIndex(cb) {
+// update samples' index.ts and index.html files based on template files
+function updateSampleIndex(cb) {
 
-    var template = fs.readFileSync("./templates/sample/src/index.ts", "utf8");
+    var indexTS = fs.readFileSync("./templates/sample/src/index.ts", "utf8");
+    var indexHTML = fs.readFileSync("./templates/sample/public/index.html", "utf8");
     for (const sample of samples) {
 
-        let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/src/index.ts";
-        let oldIndexFile = fs.readFileSync(outputPath).toString();
+        let indexTS_path = sampleOutputFolder + sample.SampleFolderPath + "/src/index.ts";
+        // makeDirectoryFor(indexTS_path);
+        let indexTS_old = fs.readFileSync(indexTS_path).toString();
 
-        makeDirectoryFor(outputPath);
-        let newIndexFile = Transformer.updateIndex(sample, template);
-        if (newIndexFile !== oldIndexFile) {
-            // log('updated: ' + outputPath);
-            fs.writeFileSync(outputPath, newIndexFile);
+        let indexTS_new = Transformer.updateIndexTS(sample, indexTS);
+        if (indexTS_new !== indexTS_old) {
+            console.log('file updated: ' + indexTS_path);
+            fs.writeFileSync(indexTS_path, indexTS_new);
         }
-        // fs.mkdir(sampleOutputFolder + 'src', { recursive: true }, (err) => { if (err) throw err; });
-        // fs.writeFileSync(outputPath, indexFile);
-        // break;
+
+        let indexHTML_path = sampleOutputFolder + sample.SampleFolderPath + "/index.html";
+        let indexHTML_old = fs.readFileSync(indexHTML_path).toString();
+        let indexHTML_new = Transformer.updateIndexHTML(sample, indexHTML);
+        if (indexHTML_new !== indexHTML_old) {
+            console.log('file updated: ' + indexHTML_path);
+            fs.writeFileSync(indexHTML_path, indexHTML_new);
+        }
+
     }
     cb();
-} exports.updateIndex = updateIndex;
+} exports.updateSampleIndex = updateSampleIndex;
 
-function updateSharedFiles(cb) {
+// update samples' index.css and *config.json files based on template files
+function updateSampleStyles(cb) {
 
     // always override these shared files
     gulp.src([
         './templates/sample/src/index.css',
         './templates/sample/sandbox.config.json',
+        './templates/sample/tsconfig.json',
+        './templates/sample/webpack.config.js',
     ])
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, fileCallback) {
         let sourceContent = file.contents.toString();
         let sourcePath = Transformer.getRelative(file.dirname);
-        sourcePath = sourcePath.replace('./templates/sample', '');
-        sourcePath = sourcePath.replace('./templates/shared', '');
+        sourcePath = sourcePath.replace('../browser/templates/sample', '');
+        sourcePath = sourcePath.replace('../browser//templates/shared', '');
 
         for (const sample of samples) {
             // if (sample.isUsingFileName(file.basename)) {
                 let samplePath = sampleOutputFolder + sample.SampleFolderPath;
                 let targetPath = samplePath + sourcePath + '/' + file.basename;
 
+                // log('updateSampleStyles ' + samplePath);
+                // log('updateSampleStyles ' + sourcePath);
+                // log('updateSampleStyles ' + targetPath);
+
                 if (fs.existsSync(targetPath)) {
                     let targetContent = fs.readFileSync(targetPath, "utf8");
                     if (sourceContent !== targetContent) {
                         fs.writeFileSync(targetPath , sourceContent);
-                        log('updated ' + targetPath);
+                        console.log('file updated ' + targetPath);
+                    } else {
+                        // console.log('file skipped ' + targetPath);
                     }
                 } else {
                     fs.writeFileSync(targetPath, sourceContent);
-                    log('added ' + targetPath);
+                    console.log('file added ' + targetPath);
                 }
         }
         fileCallback(null, file);
         // SampleFiles.push(fileDir + "/" + file.basename);
     }))
+    .on("end", function() {
+        cb();
+    });
 
+} exports.updateSampleStyles = updateSampleStyles;
+
+// update samples' resources/data files (.ts) files based on template files
+function updateSampleResources(cb) {
     // update these shared files if a sample is using them
     gulp.src(['./templates/shared/src/*.*'])
     .pipe(flatten({ "includeParents": -1 }))
@@ -504,14 +519,6 @@ function updateSharedFiles(cb) {
                     fs.writeFileSync(targetPath, sourceContent);
                     log('added ' + targetPath);
                 }
-
-                // let targetPath = sampleOutputFolder + sample.SampleFolderPath + '/src/' + file.basename;
-                // let targetContent = fs.readFileSync(targetPath, "utf8");
-                // if (sourceContent !== targetContent) {
-                //     fs.writeFileSync(targetPath, sourceContent);
-                //     // log('updated ' + file.basename + ' in ' + sample.SampleFilePath)
-                //     log('updated ' + targetPath);
-                // }
             }
         }
         fileCallback(null, file);
@@ -521,18 +528,7 @@ function updateSharedFiles(cb) {
     });
 
 
-} exports.updateSharedFiles = updateSharedFiles;
-
-function task1(cb) {
-    log('task1  ');
-    cb();
-} exports.task1 = task1;
-
-function task2(cb) {
-    log('task2  ');
-    cb();
-} exports.task2 = task2;
-
+} exports.updateSampleResources = updateSampleResources;
 
 // testing
 

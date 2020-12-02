@@ -17,9 +17,9 @@ class SampleInfo {
     public ComponentName: string;      // Geo Map
     public ComponentID: string;        // GeoMap
 
-    public HtmlFilePath: string;       // /samples/maps/geo-map/binding-csv-points/index.html
-    public HtmlFileCode: string;       //
-    public HtmlFileRoot: string;       //
+    public HtmlFilePath: string;        // /samples/maps/geo-map/binding-csv-points/index.html
+    public HtmlFileCode: string;        // html code of above file
+    public HtmlFileRoot: string;        // root code of above file
 
     // public SampleDirOnDisk: string;    // C:\repo\igniteui-web-comp-examples\samples\maps\geo-map\binding-csv-points\
     public SampleFolderPath: string;     // /samples/maps/geo-map/binding-csv-points/
@@ -549,13 +549,22 @@ class Transformer {
         return "";
     }
 
-
-    public static updateIndex(sample: SampleInfo, template: string): string {
-
+    public static updateIndexTS(sample: SampleInfo, template: string): string {
         let content = template + "";
 
         content = Strings.replace(content, "SampleFileName", sample.SampleFileName);
         content = Strings.replace(content, ".ts", "");
+        return content;
+    }
+
+    public static updateIndexHTML(sample: SampleInfo, template: string): string {
+
+        let content = template + "";
+
+        content = Strings.replace(content, "{SampleHtmlCode}", sample.HtmlFileRoot);
+
+        content = Strings.replace(content, "{SampleFileName}", sample.SampleFileSourceClass);
+        // content = Strings.replace(content, sample.SampleFileName + ".ts", sample.SampleFileName);
         return content;
     }
 

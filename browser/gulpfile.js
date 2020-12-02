@@ -31,26 +31,32 @@ exports.lintSamples = lintSamples = gulp.series(
 exports.updateSamples = updateSamples = gulp.series(
     // sb.lintSamples,
     sb.findSamples,
-    sb.updateReadme,
-    sb.updatePackages,
-    sb.updateIndex,
-    sb.updateSharedFiles,
+    // sb.updateReadme,
+    // sb.updatePackages,
+    sb.updateSampleIndex,
+    sb.updateSampleStyles,
+ // sb.updateSampleResources,
 );
 
-// exports.updateReadme = updateReadme = gulp.series(
-//     sb.findSamples,
-//     sb.updateReadme,
-// );
+exports.updateSampleReadme = updateReadme = gulp.series(
+    sb.findSamples,
+    sb.updateReadme,
+);
 
-// exports.updatePackages = updatePackages = gulp.series(
-//     sb.findSamples,
-//     sb.updatePackages,
-// );
+exports.updateSamplePackages = updatePackages = gulp.series(
+    sb.findSamples,
+    sb.updatePackages,
+);
 
-// exports.updateSharedFiles = updateSharedFiles = gulp.series(
-//     sb.findSamples,
-//     sb.updateSharedFiles,
-// );
+exports.updateSampleResources = updateSampleResources = gulp.series(
+    sb.findSamples,
+    sb.updateSampleResources,
+);
+
+exports.updateSampleStyles = updateReadme = gulp.series(
+    sb.findSamples,
+    sb.updateSampleStyles,
+);
 
 exports.updateBrowser = updateBrowser = gulp.series(
     sb.findSamples,
