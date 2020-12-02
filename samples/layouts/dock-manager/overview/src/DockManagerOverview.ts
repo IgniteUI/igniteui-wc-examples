@@ -1,6 +1,4 @@
 import './DockManagerStyles.css'
-
-
 import { defineCustomElements } from 'igniteui-dockmanager/loader';
 import { IgcDockManagerPaneType } from 'igniteui-dockmanager';
 import { IgcSplitPaneOrientation } from 'igniteui-dockmanager';
@@ -8,13 +6,12 @@ import { IgcDockManagerComponent } from 'igniteui-dockmanager';
 
 defineCustomElements();
 
-
 export class DockManagerOverview {
 
     private dockManager: IgcDockManagerComponent;
 
     constructor() {
-        
+
         this.dockManager = document.getElementById('dockManager') as IgcDockManagerComponent;
         this.dockManager.layout = {
             rootPane: {
