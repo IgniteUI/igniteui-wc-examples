@@ -12,21 +12,6 @@
     margin: 0px;
 }
 
-.igGridColumnChooserContainer {
-    display: flex;
-    flex-direction: column;
-    margin-left: 5px;
-    margin-top: 2px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 5px;
-    padding-top: 10px;
-    border: 1px gray;
-    border-radius: 10px;
-    box-shadow: 1px 1px 2px 2px rgba(50, 50, 50, 0.25);
-}
-
 .igContainer,
 .igContainer-horizontal,
 .igContainer-vertical,
@@ -45,13 +30,6 @@
     width: calc(100% - 5px);
     height: calc(100% - 5px);
     padding: 2.5px;
-    margin: 0px;
-}
-
-.igContainer-full-size {
-    width: 100%;
-    height: 100%;
-    padding: 0px;
     margin: 0px;
 }
 
@@ -102,6 +80,7 @@
     display: block;
 }
 
+/* this style is used to hold IG component, DataChart, GeoMap */
 .igComponent {
     height: 100%;
     width: 100%;
@@ -121,8 +100,9 @@
     width: 100%;
     font-size: 1rem;
     font-weight: 300;
-    font-family: 'Titillium Web';
-    display: inline-block;
+    font-family: 'Titillium Web', Arial, Verdana, Helvetica, "Times New Roman", Times, serif;
+    display: flex;
+    flex-direction: row;
     color: #585858;
 }
 
@@ -136,15 +116,14 @@
     flex-direction: column;
 }
 
-
 .igOptions label,
+.igOptions input,
 .igOptions div {
-    font-family: 'Titillium Web';
+    font-family: 'Titillium Web', Arial, Verdana, Helvetica, "Times New Roman", Times, serif;
 }
 
 .igOptions-item {
     margin-left: 5px;
-    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
     display: inline-block;
     vertical-align: center;
 }
@@ -155,7 +134,6 @@
     margin-right: 5px;
     margin-bottom: 5px;
     /* font-size: 11pt; */
-    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
     /* vertical-align: top; */
     vertical-align: center;
     padding: 0px;
@@ -188,7 +166,8 @@
     display: inline-block;
 }
 
-.igOptions-button {
+
+.igOptions button {
     vertical-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -202,10 +181,9 @@
     vertical-align: center;
 }
 
-.igOptions > select,
+.igOptions select,
 .igOptions-input-select {
     font-size: 11pt;
-    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
     margin-top: 0px;
     margin-bottom: 5px;
     margin-left: 5px;
@@ -237,26 +215,10 @@
     padding-bottom: 0px;
     padding: 0px;
     /* font-size: 11pt; */
-    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
     /* vertical-align: top; */
     vertical-align: center;
     display: inline-block;
     /* background: orange; */
-}
-
-.igFlex {
-    display: flex;
-    flex-direction: column; /* row | row-reverse | column | column-reverse*/
-    flex-wrap: nowrap; /* nowrap | wrap | wrap-reverse; */
-    /* justify-content: flex-start; */
-    /* justify-items: center; */
-    /* align-items: center; */
-    height: calc(100% - 0px);
-    width: calc(100% - 0px);
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    overflow-y: hidden;
 }
 
 /* ==================================================================================== */
@@ -337,7 +299,6 @@
     right: 0.25rem;
 }
 
-
 .igOverlay-row {
     /* background: red; */
     font-family: 'Titillium Web';
@@ -358,7 +319,6 @@
 
 .igOverlay-field {
     /* display: inline-block; */
-    /* font-family: Lato, Helvetica, sans-serif; */
     text-align: left;
     width: 5rem;
 }
@@ -367,7 +327,6 @@
     /* background: yellowgreen; */
     text-align: end;
     /* display: inline-block; */
-    /* font-family: Lato, Helvetica, sans-serif; */
     /* width: 75px; */
     /* white-space: pre; */
 }
