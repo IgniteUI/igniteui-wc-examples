@@ -475,7 +475,7 @@ class Transformer {
                 info.SampleFileName = this.getFileName(info.SampleFilePath);
                 info.SampleFileSourcePath = "./src/" + info.SampleFileName;
                 info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
-                info.SampleFileSourceCode = this.lintSample(info.SampleFileSourceCode, info.SampleFileSourcePath);
+                info.SampleFileSourceCode = this.lintSample(info.SampleFileSourceCode, info.SampleFileSourcePath, true);
                 info.SampleFileSourceClass = info.SampleFileName.replace('.ts', '');
 
                 // info.SampleFileBrowserCode = this.getSampleCodeInBrowser(info, sampleTemplate)
@@ -751,11 +751,14 @@ class Transformer {
     public static lintSample(
         fileContent: string,
         fileLocation?: string,
+        isBrowserFile?: boolean,
         callback?: (err: any, results: string | null) => void): string {
 
         let firstLine = true;
         let validLines: string[] = [];
-        fileContent = fileContent.replace(new RegExp('(let.sample.=.new.\.*.*)'), '');
+        if (isBrowserFile)
+            fileContent = fileContent.replace(new RegExp('(let.sample.=.new.\.*.*)'), '');
+
         let fileLines = fileContent.split("\n");
         for (let i = 0; i < fileLines.length; i++) {
             let currLine = fileLines[i].trimRight();
@@ -799,7 +802,7 @@ class Transformer {
             }
         }
 
-        importLines = importLines.sort();
+        // importLines = importLines.sort();
         let lintedContent = '';
         lintedContent += importLines.join('\n') + '\n';
         lintedContent += sourceLines.join('\n') + '\n';

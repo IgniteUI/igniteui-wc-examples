@@ -36,6 +36,7 @@ exports.updateSamples = updateSamples = gulp.series(
     sb.updateSampleIndex,
     sb.updateSampleStyles,
  // sb.updateSampleResources,
+    sb.updateSampleCodeFiles
 );
 
 exports.updateSampleReadme = updateReadme = gulp.series(

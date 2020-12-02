@@ -51,9 +51,9 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/grids/**/package.json',
-    // igConfig.SamplesCopyPath + '/layouts/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/dock-manager/overview/package.json',
 
+    // igConfig.SamplesCopyPath + '/layouts/**/package.json',
     // excluding samples that are not finished:
      '!' + igConfig.SamplesCopyPath + '/layouts/dock-manager/updating-panes/package.json',
      '!' + igConfig.SamplesCopyPath + '/layouts/dock-manager/embedding-frames/package.json',
@@ -529,6 +529,22 @@ function updateSampleResources(cb) {
 
 
 } exports.updateSampleResources = updateSampleResources;
+
+function updateSampleCodeFiles(cb) {
+
+    for (const sample of samples) {
+
+        let tsPath = sampleOutputFolder + sample.SampleFilePath; // + "/src/index.ts";
+        // console.log("tsPath " + tsPath);
+        let tsOld = fs.readFileSync(tsPath).toString();
+        let tsNew = Transformer.lintSample(tsOld, sample.SampleFileSourcePath);
+        if (tsNew !== tsOld) {
+            console.log('file updated: ' + tsPath);
+            fs.writeFileSync(tsPath, tsNew);
+        }
+    }
+    cb();
+} exports.updateSampleCodeFiles = updateSampleCodeFiles;
 
 // testing
 
