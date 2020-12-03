@@ -32,6 +32,15 @@ export class MapMarkerTemplate {
         this.symbolSeries.markerTemplate = this.getMarker();
 
         this.geoMap.series.add(this.symbolSeries);
+
+        this.markerCollisionTypeSelected = this.markerCollisionTypeSelected.bind(this);
+        let markerCollisionTypeSelect = document.getElementById("markerCollisionTypeSelect");
+        markerCollisionTypeSelect!.addEventListener('change', this.markerCollisionTypeSelected);
+    }
+
+    public markerCollisionTypeSelected = (e: any) => {
+        const markerCollisionMode = e.target.value.toString();
+        this.symbolSeries.markerCollisionAvoidance = markerCollisionMode;
     }
 
     public getMarker(): any

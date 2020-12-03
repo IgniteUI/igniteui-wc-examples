@@ -14,6 +14,17 @@
     <div id="root">
 
 <div class="igContainer">
+    <div class="options">
+        <span class="optionLabel">Marker Collision Avoidance: </span>
+        <select value="Omit" id="markerCollisionTypeSelect">
+            <option>Omit</option>
+            <option>OmitAndShift</option>
+            <option>Fade</option>
+            <option>FadeAndShift</option>
+            <option>None</option>
+        </select>
+    </div>
+
     <igc-geographic-map
         id="geoMap"
         width="100%"
