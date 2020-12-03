@@ -21,27 +21,30 @@
         row-height="50"
         auto-generate-columns="false"
         is-column-igOptions-enabled="true"
-        default-cColumn-min-width="100">
+        default-column-min-width="100">
 
         <igc-image-column field="Photo" header-text="Photo"
         content-opacity="1" horizontal-alignment="center" width="110"></igc-image-column>
 
         <igc-text-column field="Name" width="*>130"></igc-text-column>
 
-        <igc-template-column id="salesColumn"
-        field="Sales" header-text="Sales" horizontal-alignment="left"
-        width="*>160" width="*>160"></igc-template-column>
+        <igc-text-column field="Age" width="*>110"></igc-text-column>
 
         <igc-numeric-column field="Salary" positive-prefix="$"
         show-grouping-separator="true" width="*>140"></igc-numeric-column>
+
+        <igc-combo-box-column id="cityColumn" field="City" header-text="City" width="*>130"></igc-combo-box-column>
+        <igc-image-column field="CountryFlag" header-text="Country Flag"
+        content-opacity="1" horizontalAlignment="stretch" width="130"
+        padding-top="7.5" padding-bottom="7.5" ></igc-image-column>
 
         <igc-template-column id="addressColumn"
         field="Address" header-text="Address" horizontal-alignment="left"
         width="*>160" ></igc-template-column>
 
-        <igc-image-column field="CountryFlag" header-text="Country"
+        <!-- <igc-image-column field="CountryFlag" header-text="Country"
         content-opacity="1" horizontalAlignment="stretch" width="130"
-        padding-top="7.5" padding-bottom="7.5" ></igc-image-column>
+        padding-top="7.5" padding-bottom="7.5" ></igc-image-column> -->
 
         <igc-date-time-column field="Birthday" header-text="Date of Birth"
         horizontal-alignment="right" width="*>160"></igc-date-time-column>
@@ -50,9 +53,8 @@
 
         <igc-template-column id="productivityColumn"
         field="Productivity" header-text="Productivity"
-        horizontal-alignment="stretch" width="*>150" ><igc-template-column>
+        horizontal-alignment="stretch" width="*>150" is-editable="false"><igc-template-column>
 
-        <igc-text-column field="Age" width="*>110"></igc-text-column>
 
     </igc-data-grid>
 </div>

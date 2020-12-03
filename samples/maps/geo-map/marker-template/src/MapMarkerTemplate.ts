@@ -44,19 +44,19 @@ export class MapMarkerTemplate {
             measure: function (measureInfo: DataTemplateMeasureInfo) {
                  const data = measureInfo.data;
                 const context = measureInfo.context;
-                let value = '0.00';
+                let name = 'Philadelphia';
                 let item = data.item as any;
                 if (item != null) {
-                    value = item.pop.toString().toUpperCase();
+                    name = item.name.toUpperCase();
                 }
                 const height = context.measureText('M').width;
-                const width = context.measureText(value).width;
+                const width = context.measureText(name).width;
                 measureInfo.width = width;
                 measureInfo.height = height + size;
             },
             render: function (renderInfo: DataTemplateRenderInfo) {
                 const item = renderInfo.data.item as any;
-                const value = item.pop.toString().toUpperCase();
+                const name = item.name.toUpperCase();
 
                 const ctx = renderInfo.context as CanvasRenderingContext2D;
                 let x = renderInfo.xPosition;
@@ -103,7 +103,7 @@ export class MapMarkerTemplate {
                 ctx.font = '8pt Verdana';
                 ctx.textBaseline = 'top';
                 ctx.fillStyle = style.fill;
-                ctx.fillText(value, x + 2, y + 1);
+                ctx.fillText(name, x + 2, y + 1);
             }
         }
     }

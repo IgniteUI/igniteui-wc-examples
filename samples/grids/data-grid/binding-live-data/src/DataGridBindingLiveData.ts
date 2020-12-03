@@ -42,9 +42,9 @@ ModuleManager.register(
 );
 
 // TODO open chart on clicking a cell in the Chart column
-// <igc-template-column id='chartTemplateColumn' property-path='Chart' width='60'>
+// <igc-template-column id='chartTemplateColumn' field='Chart' width='60'>
 // </igc-template-column>
-// <igc-template-column id='gridTemplateColumn' property-path='Grid' width='80'>
+// <igc-template-column id='gridTemplateColumn' field='Grid' width='80'>
 // </igc-template-column>
 
 export class DataGridBindingLiveData {

@@ -20,12 +20,16 @@ ModuleManager.register(
 export class DataGridColumnTypes {
 
     private grid: IgcDataGridComponent;
+    public data: any[];
+    public cityList: any[];
+    public cityLookup = new Map<string, any>();
 
     constructor() {
 
         this.onUpdatingAddressColumn = this.onUpdatingAddressColumn.bind(this);
         this.onUpdatingSalesColumn = this.onUpdatingSalesColumn.bind(this);
         this.onUpdatingProductivityColumn = this.onUpdatingProductivityColumn.bind(this);
+		this.onCellValueChanging = this.onCellValueChanging.bind(this);
 
         const salesColumn = document.getElementById('salesColumn') as IgcTemplateColumnComponent;
         if (salesColumn)
@@ -39,8 +43,26 @@ export class DataGridColumnTypes {
         if (productivityColumn)
             productivityColumn.cellUpdating = this.onUpdatingProductivityColumn;
 
+        this.data = DataGridSharedData.getEmployees();
+        this.cityList = [];
+
+         // iterate all employees and generate a list of cities
+        this.data.forEach(employee => {
+            if (!this.cityLookup.has(employee.City)) {
+                this.cityLookup.set(employee.City, employee);
+                this.cityList.push(employee);
+            }
+        });
+        //bind list of cities to city column
+        const cityComboColumn = document.getElementById('cityColumn') as IgcComboBoxColumnComponent;
+        if (cityComboColumn)
+            cityComboColumn.dataSource = this.cityList;
+            cityComboColumn.textField = "City";
+            cityComboColumn.valueField = ["City"];
+
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
-        this.grid.dataSource = DataGridSharedData.getEmployees();
+        this.grid.dataSource = this.data;
+        this.grid.cellValueChanging = this.onCellValueChanging;
     }
 
     public onUpdatingAddressColumn(s: IgcTemplateColumnComponent, e: IgcTemplateCellUpdatingEventArgs) {
@@ -179,6 +201,25 @@ export class DataGridColumnTypes {
 
         if (chart) {
             chart.dataSource = info.rowItem.Productivity;
+        }
+    }
+
+    public onCellValueChanging(s: IgcDataGridComponent, e: IgcGridCellValueChangingEventArgs) {
+
+        let row = e.cellInfo.rowItem;
+        if (e.column.field === "City") {
+            let employee = this.cityLookup.get(e.newValue);
+
+            if (employee !== undefined) {
+                row.City = employee.City;
+                row.Country = employee.Country;
+                row.Street = employee.Street;
+                row.CountryFlag = employee.CountryFlag;
+                row.Address = employee.Address;
+                //required for pushing changes to the grid
+                s.notifySetItem(e.cellInfo.dataRow, row, row);
+            }
+
         }
     }
 }
