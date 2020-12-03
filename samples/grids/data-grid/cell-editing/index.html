@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>DataGridCellEditing</title>
+    <meta charset="UTF-8" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium Web" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/src/index.css"  />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="igContainer">
+  <div class="options">
+    <button id="commitClick" disabled="true">Commit</button>
+    <button id="undoClick" disabled="true">Undo</button>
+    <button id="redoClick" disabled="true">Redo</button>
+      <span class="optionItem">Edit Mode: </span>
+      <select id="editModeDropBox" class="optionItem">
+        <option>Cell</option>
+        <option>CellBatch</option>
+        <option>Row</option>
+        <option>None</option>
+      </select>
+  </div>
+
+  <igc-data-grid
+      id="grid"
+      height="calc(100% - 50px)"
+      width="100%"
+      activation-mode="Cell"
+      selection-mode="SingleCell"
+      default-column-min-width="125"
+      is-column-options-enabled="true"
+      auto-generate-columns="false"
+      edit-mode="Cell">
+
+      <igc-text-column field="Name" width="*>150"></igc-text-column>
+      <igc-text-column field="Street" header-text="Street" width="*>155"></igc-text-column>
+      <igc-text-column field="City" header-text="City" width="*>125"></igc-text-column>
+      <igc-numeric-column field="Salary" header-text="Salary" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+
+      <igc-image-column field="Photo" header-text="Photo" content-opacity="1"
+      horizontal-alignment="center"  width="*>90"></igc-image-column>
+      <igc-date-time-column field="Birthday" header-text="Date of Birth" width="*>140"></igc-date-time-column>
+      <igc-template-column id="deleteRowColumn" field="Delete Row" header-text="Delete Row" width="*>140" is-column-options-enabled="false" ></igc-date-time-column>
+  </igc-data-grid>
+</div>
+    </div>
+
+    <!-- This area isn't needed for webpack, only parcel -->
+    <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
+    <script src="src/index.ts"></script>
+
+  </body>
+</html>
