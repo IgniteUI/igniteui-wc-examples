@@ -111,4 +111,4 @@ export class DataGridAccessibility {
     // }
 }
 
-let sample = new DataGridBindingLocalData();
+let sample = new DataGridAccessibility();

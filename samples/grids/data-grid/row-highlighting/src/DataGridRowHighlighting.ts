@@ -7,7 +7,7 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-export class DataGridRowGrouping {
+export class DataGridRowHighlighting {
 
     private grid: IgcDataGridComponent;
 
@@ -45,4 +45,4 @@ export class DataGridRowGrouping {
     }
 }
 
-let sample = new DataGridRowGrouping();
+let sample = new DataGridRowHighlighting();
