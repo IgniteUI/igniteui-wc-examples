@@ -52,6 +52,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/grids/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/dock-manager/overview/package.json',
+    igConfig.SamplesCopyPath + '/editors/**/package.json',
 
     // igConfig.SamplesCopyPath + '/layouts/**/package.json',
     // excluding samples that are not finished:
