@@ -55,6 +55,7 @@ let config = {
         "SampleShapeData.ts",
         "SampleSparklineData.ts",
         "SampleTreeData.ts",
+        "SampleComboData.ts",
         "SparklineSharedData.ts",
         "StocksHistory.ts",
         "StocksUtility.ts",
