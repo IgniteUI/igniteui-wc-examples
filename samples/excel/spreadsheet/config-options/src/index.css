@@ -14,8 +14,7 @@
 
 .igContainer,
 .igContainer-horizontal,
-.igContainer-vertical,
-.igContainer-full-size {
+.igContainer-vertical {
     background: white;
     display: flex;
     flex-flow: column;
@@ -25,11 +24,10 @@
     /* align-items: center; */
     position: relative;
     overflow-y: hidden;
-
     min-width: 200px;
-    width: calc(100% - 5px);
-    height: calc(100% - 5px);
-    padding: 2.5px;
+    width: calc(100% - 0.2rem);
+    height: calc(100% - 0.2rem);
+    padding: 0.1rem;
     margin: 0px;
 }
 
@@ -57,9 +55,9 @@
 /* used to overlay multiple components, e.g. RadialGaugeTypeDirection */
 .igContainer-relative {
     background: white;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
-    padding: 5px;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    padding: 0.5rem;
     margin: 0px;
     overflow: hidden;
     align-items: center;
@@ -91,7 +89,6 @@
 .igOptions,
 .igOptions-horizontal,
 .igOptions-vertical {
-    /* background: rgb(112, 112, 111); */
     margin: 0px;
     padding-top: 0px;
     padding-bottom: 5px;
