@@ -21,7 +21,6 @@ export class DataGridCellEditing {
 
     constructor() {
 
-
         this.data = DataGridSharedData.getEmployees();
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
@@ -118,13 +117,13 @@ export class DataGridCellEditing {
             this.commitButton.disabled = !this.grid.canCommit;
             this.redoButton.disabled = !this.grid.canRedo;
             this.undoButton.disabled = !this.grid.canUndo;
-
         }
         else if(this.grid.editMode === EditModeType.Cell) {
             //delete grid row immediately
             this.grid.removeItem(rowItem);
         }
     }
+
     public onCellValueChanging = (s: IgcDataGridComponent, e: IgcGridCellValueChangingEventArgs) => {
         if(s.editMode === EditModeType.CellBatch || this.grid.editMode === EditModeType.Row)
         {

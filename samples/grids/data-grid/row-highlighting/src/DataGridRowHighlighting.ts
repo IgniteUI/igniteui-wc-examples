@@ -28,7 +28,6 @@ export class DataGridRowHighlighting {
         let dropDown = document.getElementById("highlightDropBox") as any;
         if (dropDown.value === "default") {
             this.grid.rowHoverBackground = "";
-
         } else {
             this.grid.rowHoverBackground = dropDown.value;
         }

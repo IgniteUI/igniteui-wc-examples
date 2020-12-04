@@ -1,6 +1,5 @@
 import { IgcMultiColumnComboBoxModule } from 'igniteui-webcomponents-grids';
 import { IgcMultiColumnComboBoxComponent, SortMode } from 'igniteui-webcomponents-grids';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { SampleComboData } from './SampleComboData';
 

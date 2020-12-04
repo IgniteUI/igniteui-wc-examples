@@ -1,6 +1,5 @@
 import '@webcomponents/custom-elements/custom-elements.min';
 import '@webcomponents/custom-elements/src/native-shim.js';
-
 import { LiveFinancialData } from "./LiveFinancialData";
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
@@ -12,7 +11,6 @@ import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
 import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcColumnComponent } from 'igniteui-webcomponents-grids';
 import { ListSortDirection } from 'igniteui-webcomponents-core';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcDataGridModule);

@@ -219,7 +219,6 @@ export class DataGridColumnTypes {
                 //required for pushing changes to the grid
                 s.notifySetItem(e.cellInfo.dataRow, row, row);
             }
-
         }
     }
 }
