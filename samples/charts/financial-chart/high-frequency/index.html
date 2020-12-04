@@ -15,23 +15,23 @@
 
 <div class="igContainer">
     <div class="igOptions">
-        <label class="optionLabel">Refresh Interval: </label>
-        <label class="optionValue" id="refreshInfoLabel">
+        <label class="igOptions-label">Refresh Interval: </label>
+        <label class="igOptions-value" id="refreshInfoLabel">
         </label>
         <input class="igOptions-slider" id="refreshSlider" type="range"
             min="5" max="1000">
         </input>
-        <label class="optionLabel">Data Points: </label>
-        <label class="optionValue" id="dataInfoLabel" >
+        <label class="igOptions-label">Data Points: </label>
+        <label class="igOptions-value" id="dataInfoLabel" >
         </label>
-        <input class="slider" id="dataPointsSlider" type="range"
+        <input class="igOptions-slider" id="dataPointsSlider" type="range"
             min="10000" max="100000" step="1000">
         </input>
         <button id="genDataBtn">Generate Data</button>
-        <label class="optionItem">
+        <label class="igOptions-item">
             <input id="scalingRatio" type="checkbox"></input> Optimize Scaling
         </label>
-        <span id="fpsSpan" class="optionLabel"></span>
+        <span id="fpsSpan" class="igOptions-label"></span>
     </div>
     <div style="height: calc(100% - 40px)">
         <igc-financial-chart id="chart" width="100%" height="100%"
