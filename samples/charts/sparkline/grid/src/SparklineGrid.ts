@@ -53,9 +53,9 @@ export class SparklineGrid {
             chart.width = '100%';
             chart.height = '100%';
 
-            content.style.width = 'calc(100% - 10px)';
-            content.style.height = 'calc(100% - 10px)';
-            content.style.padding = '5px';
+            content.style.width = 'calc(100% - 0.5rem)';
+            content.style.height = 'calc(100% - 0.5rem)';
+            content.style.padding = '0.25rem';
             content.style.margin = '0px';
             content.style.display = 'inline-grid';
             content.appendChild(chart);
@@ -85,9 +85,9 @@ export class SparklineGrid {
             chart.width = '100%';
             chart.height = '100%';
 
-            content.style.width = 'calc(100% - 10px)';
-            content.style.height = 'calc(100% - 10px)';
-            content.style.padding = '5px';
+            content.style.width = 'calc(100% - 0.5rem)';
+            content.style.height = 'calc(100% - 0.5rem)';
+            content.style.padding = '0.25rem';
             content.style.margin = '0px';
             content.style.display = 'inline-grid';
             content.appendChild(chart);

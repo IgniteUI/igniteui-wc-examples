@@ -206,9 +206,9 @@ export class DataGridOverview {
             chart.height = '100%';
 
             content.style.width = '100%';
-            content.style.height = 'calc(100% - 10px)';
+            content.style.height = 'calc(100% - 0.5rem)';
             content.style.margin = '0px';
-            content.style.marginTop = '5px';
+            content.style.marginTop = '0.25rem';
             content.appendChild(chart);
         }
         else {
