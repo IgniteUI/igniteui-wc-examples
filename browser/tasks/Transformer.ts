@@ -194,7 +194,6 @@ class Transformer {
     // gets updated package.json file for a sample using a template
     public static getPackage(sample: SampleInfo, tempPackage: PackageJson): string {
 
-
         let title = tempPackage.name;
         title = Strings.replace(title, 'platform-name', igConfig.PlatformName);
         title = Strings.replace(title, 'component-name', sample.ComponentName);
@@ -211,6 +210,8 @@ class Transformer {
         samplePackage.name = title;
         samplePackage.description = descr;
         samplePackage.author = tempPackage.author;
+        samplePackage.main = tempPackage.main;
+        samplePackage.license = tempPackage.license;
         samplePackage.homepage = tempPackage.homepage;
         samplePackage.version = tempPackage.version;
         samplePackage.private = tempPackage.private;
@@ -228,46 +229,77 @@ class Transformer {
 
         // updating devDependencies in a sample using devDependencies from the template
         for (let name in tempPackage.devDependencies) {
-            if (tempPackage.devDependencies.hasOwnProperty(name) &&
-                samplePackage.devDependencies.hasOwnProperty(name)) {
-                samplePackage.devDependencies[name] = tempPackage.devDependencies[name]
+            // if (tempPackage.devDependencies.hasOwnProperty(name) &&
+            //     samplePackage.devDependencies.hasOwnProperty(name)) {
+            //     samplePackage.devDependencies[name] = tempPackage.devDependencies[name];
+            // }
+            if (!samplePackage.devDependencies.hasOwnProperty(name)) {
+                 samplePackage.devDependencies[name] = tempPackage.devDependencies[name];
             }
         }
         // overriding sample dependencies
-        samplePackage.dependencies = {};
+        // samplePackage.dependencies = {};
 
         // updating dependencies in sa sample by checking against OPTIONAL dependencies in the template
-        for (let name in tempPackage.dependenciesOptional) {
+        // for (let name in tempPackage.dependenciesOptional) {
+        //     let dependency = tempPackage.dependenciesOptional[name];
+        //     if (dependency.usage === "always") {
+        //         samplePackage.dependencies[name] = dependency.version;
+        //     } else if (dependency.usage === "detect") {
+        //         let isDependencyImported = sample.SampleFileSourceCode.indexOf(name) >= 0;
+        //         if (isDependencyImported) {
+        //             samplePackage.dependencies[name] = dependency.version;
+        //         // using keywords to check if the dependency is used by some other file, e.g. ExcelUtility.ts
+        //         } else if (dependency.keywords !== undefined && dependency.keywords.length > 0) {
+        //             for (let keyword of dependency.keywords) {
+        //                 let isDependencyUsed = sample.SampleFileSourceCode.indexOf(keyword) >= 0;
+        //                 if (isDependencyUsed) {
+        //                     samplePackage.dependencies[name] = dependency.version;
+        //                     break;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
-            let dependency = tempPackage.dependenciesOptional[name];
-            if (dependency.usage === "always") {
-                samplePackage.dependencies[name] = dependency.version;
-            } else if (dependency.usage === "detect") {
-                let isDependencyImported = sample.SampleFileSourceCode.indexOf(name) >= 0;
-                if (isDependencyImported) {
-                    samplePackage.dependencies[name] = dependency.version;
-                // using keywords to check if the dependency is used by some other file, e.g. ExcelUtility.ts
-                } else if (dependency.keywords !== undefined && dependency.keywords.length > 0) {
-                    for (let keyword of dependency.keywords) {
-                        let isDependencyUsed = sample.SampleFileSourceCode.indexOf(keyword) >= 0;
-                        if (isDependencyUsed) {
-                            samplePackage.dependencies[name] = dependency.version;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-
-        // updating dependencies in sa sample by checking against REQUIRED dependencies in the template
-        for (let name in tempPackage.dependencies) {
-            samplePackage.dependencies[name] = tempPackage.dependencies[name];
-        }
+        // updating dependencies in a sample by checking against REQUIRED dependencies in the template
+        // for (let name in tempPackage.dependencies) {
+        //     samplePackage.dependencies[name] = tempPackage.dependencies[name];
+        // }
         // console.log("sample: " + sample.SampleFolderPath);
         // console.log("dependencies \n" + JSON.stringify(samplePackage.dependencies, null, '  '));
 
+        // let str = "{\n";
+        // str += this.stringifyValue(samplePackage, "name");
+        // str += this.stringifyValue(samplePackage, "version");
+        // str += this.stringifyValue(samplePackage, "description");
+        // str += this.stringifyValue(samplePackage, "license");
+        // str += this.stringifyValue(samplePackage, "main");
+        // str += this.stringifyItem(samplePackage, "scripts");
+        // str += this.stringifyItem(samplePackage, "dependencies");
+        // str += this.stringifyItem(samplePackage, "devDependencies");
+        // str += this.stringifyValue(samplePackage, "author");
+        // str += this.stringifyValue(samplePackage, "homepage", true);
+        // str += "}\n";
+        // console.log(str);
+        // return str;
         return JSON.stringify(samplePackage, null, '  ');
     }
+
+    public static stringifyItem(obj: any, key: string, skipComma?: boolean): string {
+        let str = '  "' + key + '": "' + JSON.stringify(obj[key], null, '  ') + '"';
+        if (!skipComma)
+            str += ',';
+        return str + '\n';
+    }
+
+    public static stringifyValue(obj: any, key: string, skipComma?: boolean): string {
+        let str = '  "' + key + '": "' + obj[key] + '"';
+        if (!skipComma)
+            str += ',';
+        return str + '\n';
+    }
+
 
     public static getSampleInfo(samplePackageFile: any, sampleFilePaths?: string[]): SampleInfo {
 
@@ -881,6 +913,8 @@ class PackageJson {
     public description?: string;
     public author?: string;
     public homepage?: string;
+    public main?: string;
+    public license?: string;
     public version?: string;
     public private?: boolean;
     public scripts: any;

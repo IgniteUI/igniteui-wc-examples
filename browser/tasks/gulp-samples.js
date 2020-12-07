@@ -35,7 +35,6 @@ log('loaded');
 
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSources = [
-    // charts:
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
@@ -51,8 +50,8 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/grids/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/dock-manager/overview/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
+    igConfig.SamplesCopyPath + '/layouts/dock-manager/overview/package.json',
 
     // igConfig.SamplesCopyPath + '/layouts/**/package.json',
     // excluding samples that are not finished:
@@ -370,7 +369,7 @@ function updateReadme(cb) {
 } exports.updateReadme = updateReadme;
 
 // updating package.json files for all sample using a template
-function updatePackages(cb) {
+function updateSamplePackages(cb) {
 
     // getting content of package.json file from templates
     let templatePackageFile = fs.readFileSync("./templates/sample/package.json");
@@ -382,19 +381,19 @@ function updatePackages(cb) {
 
     for (const sample of samples) {
         let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/package.json";
-        let oldPackageFile = fs.readFileSync(outputPath).toString();
+        let packageFileOld = fs.readFileSync(outputPath).toString();
 
-        makeDirectoryFor(outputPath);
+        // makeDirectoryFor(outputPath);
 
-        let newPackageFile = Transformer.getPackage(sample, templatePackageJson);
-        if (newPackageFile !== oldPackageFile) {
-            log('updated: ' + outputPath);
-            fs.writeFileSync(outputPath, newPackageFile);
+        let packageFileNew = Transformer.getPackage(sample, templatePackageJson);
+        if (packageFileNew !== packageFileOld) {
+            console.log('file updated: ' + outputPath);
+            fs.writeFileSync(outputPath, packageFileNew);
         }
     }
 
     cb();
-} exports.updatePackages = updatePackages;
+} exports.updateSamplePackages = updateSamplePackages;
 
 // updating browser's package.json file using template's package.json
 function copyPackageJson(cb) {

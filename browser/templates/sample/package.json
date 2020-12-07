@@ -1,8 +1,11 @@
 {
-  "name": "for-cs",
+  "name": "platform-name.component-name.sample-name",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "author": "Infragistics",
+  "description": "This project provides example of component-name sample-name using IgniteUI for Web Components",
+  "license": "",
+  "homepage": ".",
+  "main": "src/index.ts",
   "scripts": {
       "build": "npm run build:prod",
       "build:dev": "webpack --mode development --config ./webpack.config.js --progress --color --display-error-details",
@@ -17,7 +20,6 @@
       "serve:prod:legacy": "webpack-dev-server --env.NODE_ENV=production --env.legacy=true --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --inline --progress  --watch --open --content-base dist/",
       "start:legacy": "npm run serve:dev:legacy"
   },
-  "author": "",
   "dependencies": {
       "@webcomponents/custom-elements": "^1.4.1",
       "@webcomponents/template": "^1.4.2",
@@ -26,6 +28,7 @@
       "lit-html": "^1.2.1",
       "tslib": "^2.0.0"
   },
+  "dependenciesNote": "above dependencies are required dependencies by all samples and below dependencies are injected based on 'usage' and/or 'keywords' conditions",
   "dependenciesOptional": {
     "@material-ui/core":  { "version": "^4.6.1", "usage": "detect", "note": "will detect if needs to inject it by checking import statements in source of a sample" },
     "@material-ui/icons": { "version": "^4.5.1", "usage": "detect", "keywords": ["@material-ui/core"] },
@@ -54,13 +57,18 @@
       "@types/source-map": "^0.5.7",
       "babel-loader": "^8.1.0",
       "babel-plugin-transform-custom-element-classes": "^0.1.0",
+      "css-loader": "^1.0.0",
+      "csv-loader": "^3.0.2",
+      "file-loader": "^4.2.0",
       "fork-ts-checker-webpack-plugin": "^4.1.5",
       "html-webpack-plugin": "^4.3.0",
       "source-map": "^0.7.3",
+      "style-loader": "^0.22.1",
       "typescript": "^3.7.5",
       "webpack": "^4.43.0",
       "webpack-cli": "^3.3.11",
       "webpack-dev-server": "^3.11.0",
-      "parcel-bundler": "^1.6.1"
+      "parcel-bundler": "^1.6.1",
+      "xml-loader": "^1.2.1"
   }
 }
