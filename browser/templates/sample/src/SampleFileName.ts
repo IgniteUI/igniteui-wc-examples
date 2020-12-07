@@ -1,20 +1,16 @@
-import * as React from "react";
-import "./SampleFileName.css"; // styles specific only to this sample
 
-export default class SampleFileName extends React.Component<any, any> {
+// import "./SampleFileName.css"; // optional styles only for this sample
 
-    public render() {
-        return (
-            <div className="igContainer">
-                <div className="igComponent" >
-                    TODO add IG component here
-                </div>
-            </div>
-        );
-    }
+// import { IgcLinearGaugeModule } from "igniteui-webcomponents-gauges";
+// import { IgcLinearGaugeComponent } from "igniteui-webcomponents-gauges";
+// import { IgcLinearGraphRangeComponent } from "igniteui-webcomponents-gauges";
+// import { ModuleManager } from "igniteui-webcomponents-core";
 
-    public componentDidMount() {
-        //
+// ModuleManager.register(IgcLinearGaugeModule);
+
+export default class SampleFileName {
+
+    constructor() {
     }
 
 }
