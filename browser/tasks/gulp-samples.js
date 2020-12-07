@@ -459,7 +459,7 @@ function updateSampleStyles(cb) {
         let sourceContent = file.contents.toString();
         let sourcePath = Transformer.getRelative(file.dirname);
         sourcePath = sourcePath.replace('../browser/templates/sample', '');
-        sourcePath = sourcePath.replace('../browser//templates/shared', '');
+        sourcePath = sourcePath.replace('../browser/templates/shared', '');
 
         for (const sample of samples) {
             // if (sample.isUsingFileName(file.basename)) {
