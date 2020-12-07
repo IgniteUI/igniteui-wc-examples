@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.series-tooltips",
+  "name": "wc-data-chart-series-tooltips",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Series Tooltips using IgniteUI for Web Components",
   "main": "src/index.ts",

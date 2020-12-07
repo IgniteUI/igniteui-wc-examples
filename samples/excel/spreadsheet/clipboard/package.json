@@ -1,5 +1,5 @@
 {
-  "name": "web-components.spreadsheet.clipboard",
+  "name": "wc-spreadsheet-clipboard",
   "version": "1.0.0",
   "description": "This project provides example of Spreadsheet Clipboard using IgniteUI for Web Components",
   "main": "src/index.ts",

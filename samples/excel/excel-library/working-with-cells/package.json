@@ -1,5 +1,5 @@
 {
-  "name": "web-components.excel-library.cells",
+  "name": "wc-excel-library-cells",
   "version": "1.0.0",
   "description": "This project provides example of Excel Library Cells using IgniteUI for Web Components",
   "main": "src/index.ts",

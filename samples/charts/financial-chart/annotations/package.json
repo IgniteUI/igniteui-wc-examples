@@ -1,5 +1,5 @@
 {
-  "name": "web-components.financial-chart.annotations",
+  "name": "wc-financial-chart-annotations",
   "version": "1.0.0",
   "description": "This project provides example of Financial Chart Annotations using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.radial-gauge.needle",
+  "name": "wc-radial-gauge-needle",
   "version": "1.0.0",
   "description": "This project provides example of Radial Gauge Needle using IgniteUI for Web Components",
   "main": "src/index.ts",

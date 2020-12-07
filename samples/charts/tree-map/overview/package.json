@@ -1,5 +1,5 @@
 {
-  "name": "web-components.tree-map.overview",
+  "name": "wc-tree-map-overview",
   "version": "1.0.0",
   "description": "This project provides example of Tree Map Overview using IgniteUI for Web Components",
   "main": "src/index.ts",

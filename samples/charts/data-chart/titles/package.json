@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.titles",
+  "name": "wc-data-chart-titles",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Titles using IgniteUI for Web Components",
   "main": "src/index.ts",

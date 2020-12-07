@@ -1,5 +1,5 @@
 {
-  "name": "web-components.radial-gauge.type-column",
+  "name": "wc-radial-gauge-type-column",
   "version": "1.0.0",
   "description": "This project provides example of Radial Gauge Type Column using IgniteUI for Web Components",
   "main": "src/index.ts",

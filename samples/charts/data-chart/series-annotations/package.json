@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.series-annotations",
+  "name": "wc-data-chart-series-annotations",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Series Annotations using IgniteUI for Web Components",
   "main": "src/index.ts",

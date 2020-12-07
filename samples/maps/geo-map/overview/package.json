@@ -1,5 +1,5 @@
 {
-  "name": "web-components.geographic-map.map-overview",
+  "name": "wc-geographic-map-map-overview",
   "version": "1.0.0",
   "description": "This project provides example of Geographic Map Map Overview using IgniteUI for Web Components",
   "main": "src/index.ts",

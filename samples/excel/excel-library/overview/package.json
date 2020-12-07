@@ -1,5 +1,5 @@
 {
-  "name": "web-components.excel-library.overview",
+  "name": "wc-excel-library-overview",
   "version": "1.0.0",
   "description": "This project provides example of Excel Library Overview using IgniteUI for Web Components",
   "main": "src/index.ts",

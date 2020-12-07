@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.axis-settings",
+  "name": "wc-data-chart-axis-settings",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Axis Settings using IgniteUI for Web Components",
   "main": "src/index.ts",

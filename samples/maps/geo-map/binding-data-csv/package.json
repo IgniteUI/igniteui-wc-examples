@@ -1,5 +1,5 @@
 {
-  "name": "web-components.geographic-map.binding-data-csv",
+  "name": "wc-geographic-map-binding-data-csv",
   "version": "1.0.0",
   "description": "This project provides example of Geographic Map Binding Data CSV using IgniteUI for Web Components",
   "main": "src/index.ts",

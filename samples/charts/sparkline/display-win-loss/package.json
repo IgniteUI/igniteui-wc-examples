@@ -1,5 +1,5 @@
 {
-  "name": "web-components.sparkline.display-win-loss",
+  "name": "wc-sparkline-display-win-loss",
   "version": "1.0.0",
   "description": "This project provides example of Sparkline Display Win Loss using IgniteUI for Web Components",
   "main": "src/index.ts",

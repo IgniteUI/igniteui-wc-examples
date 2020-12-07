@@ -1,5 +1,5 @@
 {
-  "name": "web-components.excel-library.tables",
+  "name": "wc-excel-library-tables",
   "version": "1.0.0",
   "description": "This project provides example of Excel Library Tables using IgniteUI for Web Components",
   "main": "src/index.ts",

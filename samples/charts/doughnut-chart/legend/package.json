@@ -1,5 +1,5 @@
 {
-  "name": "web-components.doughnut-chart.legend",
+  "name": "wc-doughnut-chart-legend",
   "version": "1.0.0",
   "description": "This project provides example of Doughnut Chart Legend using IgniteUI for Web Components",
   "main": "src/index.ts",

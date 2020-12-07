@@ -1,5 +1,5 @@
 {
-  "name": "web-components.geographic-map.scatter-polyline-series",
+  "name": "wc-geographic-map-scatter-polyline-series",
   "version": "1.0.0",
   "description": "This project provides example of Geographic Map Scatter Polyline Series using IgniteUI for Web Components",
   "main": "src/index.ts",

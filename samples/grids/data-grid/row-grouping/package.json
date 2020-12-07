@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.row-grouping",
+  "name": "wc-data-grid-row-grouping",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Row Grouping using IgniteUI for Web Components",
   "main": "src/index.ts",

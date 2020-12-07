@@ -1,5 +1,5 @@
 {
-  "name": "web-components.dock-manager.overview",
+  "name": "wc-dock-manager-overview",
   "version": "1.0.0",
   "description": "This project provides example of Dock Manager Overview using IgniteUI for Web Components",
   "main": "src/index.ts",

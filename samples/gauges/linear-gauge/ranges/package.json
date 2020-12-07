@@ -1,5 +1,5 @@
 {
-  "name": "web-components.linear-gauge.ranges",
+  "name": "wc-linear-gauge-ranges",
   "version": "1.0.0",
   "description": "This project provides example of Linear Gauge Ranges using IgniteUI for Web Components",
   "main": "src/index.ts",

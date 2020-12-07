@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.category-area-series",
+  "name": "wc-data-chart-category-area-series",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Category Area Series using IgniteUI for Web Components",
   "main": "src/index.ts",

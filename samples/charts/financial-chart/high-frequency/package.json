@@ -1,5 +1,5 @@
 {
-  "name": "web-components.financial-chart.high-frequency",
+  "name": "wc-financial-chart-high-frequency",
   "version": "1.0.0",
   "description": "This project provides example of Financial Chart High Frequency using IgniteUI for Web Components",
   "main": "src/index.ts",

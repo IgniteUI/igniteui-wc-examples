@@ -1,5 +1,5 @@
 {
-  "name": "web-components.pie-chart.overview",
+  "name": "wc-pie-chart-overview",
   "version": "1.0.0",
   "description": "This project provides example of Pie Chart Overview using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.legends",
+  "name": "wc-data-chart-legends",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Legends using IgniteUI for Web Components",
   "main": "src/index.ts",

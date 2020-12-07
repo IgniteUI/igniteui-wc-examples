@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.column-pinning-picker",
+  "name": "wc-data-grid-column-pinning-picker",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Column Pinning Picker using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.value-overlay",
+  "name": "wc-data-chart-value-overlay",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Value Overlay using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.spreadsheet.format-dialog",
+  "name": "wc-spreadsheet-format-dialog",
   "version": "1.0.0",
   "description": "This project provides example of Spreadsheet Format Dialog using IgniteUI for Web Components",
   "main": "src/index.ts",

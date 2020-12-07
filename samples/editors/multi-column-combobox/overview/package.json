@@ -1,5 +1,5 @@
 {
-  "name": "web-components.multi-column-combobox.multi-column-combo-box-overview",
+  "name": "wc-multi-column-combobox-multi-column-combo-box-overview",
   "version": "1.0.0",
   "description": "This project provides example of Multi Column Combobox Multi Column Combo Box Overview using IgniteUI for Web Components",
   "main": "src/index.ts",

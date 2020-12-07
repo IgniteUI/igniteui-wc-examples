@@ -1,5 +1,5 @@
 {
-  "name": "web-components.bullet-graph.labels",
+  "name": "wc-bullet-graph-labels",
   "version": "1.0.0",
   "description": "This project provides example of Bullet Graph Labels using IgniteUI for Web Components",
   "main": "src/index.ts",

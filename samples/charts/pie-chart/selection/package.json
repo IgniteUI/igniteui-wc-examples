@@ -1,5 +1,5 @@
 {
-  "name": "web-components.pie-chart.selection",
+  "name": "wc-pie-chart-selection",
   "version": "1.0.0",
   "description": "This project provides example of Pie Chart Selection using IgniteUI for Web Components",
   "main": "src/index.ts",

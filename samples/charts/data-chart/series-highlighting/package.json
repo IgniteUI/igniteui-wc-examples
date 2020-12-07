@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.series-highlighting",
+  "name": "wc-data-chart-series-highlighting",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Series Highlighting using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.financial-chart.axis-types",
+  "name": "wc-financial-chart-axis-types",
   "version": "1.0.0",
   "description": "This project provides example of Financial Chart Axis Types using IgniteUI for Web Components",
   "main": "src/index.ts",

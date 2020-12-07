@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.binding-data-service",
+  "name": "wc-data-grid-binding-data-service",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Binding Data Service using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.stacked-series",
+  "name": "wc-data-chart-stacked-series",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Stacked Series using IgniteUI for Web Components",
   "main": "src/index.ts",

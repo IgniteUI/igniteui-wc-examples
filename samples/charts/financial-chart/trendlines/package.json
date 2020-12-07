@@ -1,5 +1,5 @@
 {
-  "name": "web-components.financial-chart.trendlines",
+  "name": "wc-financial-chart-trendlines",
   "version": "1.0.0",
   "description": "This project provides example of Financial Chart Trendlines using IgniteUI for Web Components",
   "main": "src/index.ts",

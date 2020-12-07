@@ -1,5 +1,5 @@
 {
-  "name": "web-components.bullet-graph.type-reversed",
+  "name": "wc-bullet-graph-type-reversed",
   "version": "1.0.0",
   "description": "This project provides example of Bullet Graph Type Reversed using IgniteUI for Web Components",
   "main": "src/index.ts",

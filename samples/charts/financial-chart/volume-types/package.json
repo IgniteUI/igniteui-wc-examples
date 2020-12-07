@@ -1,5 +1,5 @@
 {
-  "name": "web-components.financial-chart.volume-types",
+  "name": "wc-financial-chart-volume-types",
   "version": "1.0.0",
   "description": "This project provides example of Financial Chart Volume Types using IgniteUI for Web Components",
   "main": "src/index.ts",

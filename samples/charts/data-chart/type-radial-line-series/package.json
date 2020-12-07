@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.radial-line-series",
+  "name": "wc-data-chart-radial-line-series",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Radial Line Series using IgniteUI for Web Components",
   "main": "src/index.ts",

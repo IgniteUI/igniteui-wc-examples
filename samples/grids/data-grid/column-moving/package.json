@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.column-moving",
+  "name": "wc-data-grid-column-moving",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Column Moving using IgniteUI for Web Components",
   "main": "src/index.ts",

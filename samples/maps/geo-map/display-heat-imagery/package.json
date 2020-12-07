@@ -1,5 +1,5 @@
 {
-  "name": "web-components.geographic-map.display-imagery-heat-tiles",
+  "name": "wc-geographic-map-display-imagery-heat-tiles",
   "version": "1.0.0",
   "description": "This project provides example of Geographic Map Display Imagery Heat Tiles using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.series-animations",
+  "name": "wc-data-chart-series-animations",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Series Animations using IgniteUI for Web Components",
   "main": "src/index.ts",

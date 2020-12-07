@@ -1,5 +1,5 @@
 {
-  "name": "web-components.doughnut-chart.explosion",
+  "name": "wc-doughnut-chart-explosion",
   "version": "1.0.0",
   "description": "This project provides example of Doughnut Chart Explosion using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.sparkline.unknown-values",
+  "name": "wc-sparkline-unknown-values",
   "version": "1.0.0",
   "description": "This project provides example of Sparkline Unknown Values using IgniteUI for Web Components",
   "main": "src/index.ts",

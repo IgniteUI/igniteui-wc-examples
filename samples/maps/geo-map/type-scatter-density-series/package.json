@@ -1,5 +1,5 @@
 {
-  "name": "web-components.geographic-map.scatter-density-series",
+  "name": "wc-geographic-map-scatter-density-series",
   "version": "1.0.0",
   "description": "This project provides example of Geographic Map Scatter Density Series using IgniteUI for Web Components",
   "main": "src/index.ts",

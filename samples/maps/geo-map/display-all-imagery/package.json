@@ -1,5 +1,5 @@
 {
-  "name": "web-components.geographic-map.map-imagery-sources",
+  "name": "wc-geographic-map-map-imagery-sources",
   "version": "1.0.0",
   "description": "This project provides example of Geographic Map Map Imagery Sources using IgniteUI for Web Components",
   "main": "src/index.ts",

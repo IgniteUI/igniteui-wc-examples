@@ -1,5 +1,5 @@
 {
-  "name": "web-components.bullet-graph.animation",
+  "name": "wc-bullet-graph-animation",
   "version": "1.0.0",
   "description": "This project provides example of Bullet Graph Animation using IgniteUI for Web Components",
   "main": "src/index.ts",

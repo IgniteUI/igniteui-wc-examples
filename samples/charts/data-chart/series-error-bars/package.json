@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.series-error-bars",
+  "name": "wc-data-chart-series-error-bars",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Series Error Bars using IgniteUI for Web Components",
   "main": "src/index.ts",

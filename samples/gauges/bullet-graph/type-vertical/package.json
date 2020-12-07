@@ -1,5 +1,5 @@
 {
-  "name": "web-components.bullet-graph.type-vertical",
+  "name": "wc-bullet-graph-type-vertical",
   "version": "1.0.0",
   "description": "This project provides example of Bullet Graph Type Vertical using IgniteUI for Web Components",
   "main": "src/index.ts",

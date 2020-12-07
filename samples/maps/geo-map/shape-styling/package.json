@@ -1,5 +1,5 @@
 {
-  "name": "web-components.geographic-map.map-shape-styling",
+  "name": "wc-geographic-map-map-shape-styling",
   "version": "1.0.0",
   "description": "This project provides example of Geographic Map Map Shape Styling using IgniteUI for Web Components",
   "main": "src/index.ts",

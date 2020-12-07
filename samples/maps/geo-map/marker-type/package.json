@@ -1,5 +1,5 @@
 {
-  "name": "web-components.geographic-map.map-marker-type",
+  "name": "wc-geographic-map-map-marker-type",
   "version": "1.0.0",
   "description": "This project provides example of Geographic Map Map Marker Type using IgniteUI for Web Components",
   "main": "src/index.ts",

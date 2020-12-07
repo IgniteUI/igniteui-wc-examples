@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.column-options",
+  "name": "wc-data-grid-column-options",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Column Options using IgniteUI for Web Components",
   "main": "src/index.ts",

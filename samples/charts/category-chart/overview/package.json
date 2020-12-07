@@ -1,5 +1,5 @@
 {
-  "name": "web-components.category-chart.overview",
+  "name": "wc-category-chart-overview",
   "version": "1.0.0",
   "description": "This project provides example of Category Chart Overview using IgniteUI for Web Components",
   "main": "src/index.ts",

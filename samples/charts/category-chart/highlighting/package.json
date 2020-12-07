@@ -1,5 +1,5 @@
 {
-  "name": "web-components.category-chart.highlighting",
+  "name": "wc-category-chart-highlighting",
   "version": "1.0.0",
   "description": "This project provides example of Category Chart Highlighting using IgniteUI for Web Components",
   "main": "src/index.ts",

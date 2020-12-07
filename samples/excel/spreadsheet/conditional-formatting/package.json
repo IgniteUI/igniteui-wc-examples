@@ -1,5 +1,5 @@
 {
-  "name": "web-components.spreadsheet.conditional-formatting",
+  "name": "wc-spreadsheet-conditional-formatting",
   "version": "1.0.0",
   "description": "This project provides example of Spreadsheet Conditional Formatting using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.linear-gauge.animation",
+  "name": "wc-linear-gauge-animation",
   "version": "1.0.0",
   "description": "This project provides example of Linear Gauge Animation using IgniteUI for Web Components",
   "main": "src/index.ts",

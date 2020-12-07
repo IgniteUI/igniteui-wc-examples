@@ -1,5 +1,5 @@
 {
-  "name": "web-components.category-chart.trendline",
+  "name": "wc-category-chart-trendline",
   "version": "1.0.0",
   "description": "This project provides example of Category Chart Trendline using IgniteUI for Web Components",
   "main": "src/index.ts",

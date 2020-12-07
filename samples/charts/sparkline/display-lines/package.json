@@ -1,5 +1,5 @@
 {
-  "name": "web-components.sparkline.display-lines",
+  "name": "wc-sparkline-display-lines",
   "version": "1.0.0",
   "description": "This project provides example of Sparkline Display Lines using IgniteUI for Web Components",
   "main": "src/index.ts",

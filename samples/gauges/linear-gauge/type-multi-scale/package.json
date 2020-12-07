@@ -1,5 +1,5 @@
 {
-  "name": "web-components.linear-gauge.type-multi-scale",
+  "name": "wc-linear-gauge-type-multi-scale",
   "version": "1.0.0",
   "description": "This project provides example of Linear Gauge Type Multi Scale using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.radial-gauge.scale",
+  "name": "wc-radial-gauge-scale",
   "version": "1.0.0",
   "description": "This project provides example of Radial Gauge Scale using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.bullet-graph.type-segmented",
+  "name": "wc-bullet-graph-type-segmented",
   "version": "1.0.0",
   "description": "This project provides example of Bullet Graph Type Segmented using IgniteUI for Web Components",
   "main": "src/index.ts",

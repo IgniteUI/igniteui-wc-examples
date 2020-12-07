@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.row-paging",
+  "name": "wc-data-grid-row-paging",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Row Paging using IgniteUI for Web Components",
   "main": "src/index.ts",

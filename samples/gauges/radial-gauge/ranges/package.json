@@ -1,5 +1,5 @@
 {
-  "name": "web-components.radial-gauge.ranges",
+  "name": "wc-radial-gauge-ranges",
   "version": "1.0.0",
   "description": "This project provides example of Radial Gauge Ranges using IgniteUI for Web Components",
   "main": "src/index.ts",

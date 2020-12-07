@@ -1,5 +1,5 @@
 {
-  "name": "web-components.spreadsheet.configuring",
+  "name": "wc-spreadsheet-configuring",
   "version": "1.0.0",
   "description": "This project provides example of Spreadsheet Configuring using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.stacked100-spline-area-series",
+  "name": "wc-data-chart-stacked100-spline-area-series",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Stacked100 Spline Area Series using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.radial-gauge.type-curved",
+  "name": "wc-radial-gauge-type-curved",
   "version": "1.0.0",
   "description": "This project provides example of Radial Gauge Type Curved using IgniteUI for Web Components",
   "main": "src/index.ts",

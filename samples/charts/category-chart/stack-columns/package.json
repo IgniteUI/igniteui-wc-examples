@@ -1,5 +1,5 @@
 {
-  "name": "web-components.category-chart.stack-columns",
+  "name": "wc-category-chart-stack-columns",
   "version": "1.0.0",
   "description": "This project provides example of Category Chart Stack Columns using IgniteUI for Web Components",
   "main": "src/index.ts",

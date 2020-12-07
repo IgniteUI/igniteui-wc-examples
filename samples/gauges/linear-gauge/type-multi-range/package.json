@@ -1,5 +1,5 @@
 {
-  "name": "web-components.linear-gauge.type-multi-range",
+  "name": "wc-linear-gauge-type-multi-range",
   "version": "1.0.0",
   "description": "This project provides example of Linear Gauge Type Multi Range using IgniteUI for Web Components",
   "main": "src/index.ts",

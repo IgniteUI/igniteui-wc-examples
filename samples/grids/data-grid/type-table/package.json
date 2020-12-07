@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.type-sparkline-table",
+  "name": "wc-data-grid-type-sparkline-table",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Type Sparkline Table using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.spreadsheet.overview",
+  "name": "wc-spreadsheet-overview",
   "version": "1.0.0",
   "description": "This project provides example of Spreadsheet Overview using IgniteUI for Web Components",
   "main": "src/index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "web-components.excel-library.charts",
+  "name": "wc-excel-library-charts",
   "version": "1.0.0",
   "description": "This project provides example of Excel Library Charts using IgniteUI for Web Components",
   "main": "src/index.ts",

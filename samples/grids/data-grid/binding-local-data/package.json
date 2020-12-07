@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.binding-local-data",
+  "name": "wc-data-grid-binding-local-data",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Binding Local Data using IgniteUI for Web Components",
   "main": "src/index.ts",

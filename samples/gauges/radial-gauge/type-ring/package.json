@@ -1,5 +1,5 @@
 {
-  "name": "web-components.radial-gauge.type-ring",
+  "name": "wc-radial-gauge-type-ring",
   "version": "1.0.0",
   "description": "This project provides example of Radial Gauge Type Ring using IgniteUI for Web Components",
   "main": "src/index.ts",

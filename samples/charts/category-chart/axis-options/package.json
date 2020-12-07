@@ -1,5 +1,5 @@
 {
-  "name": "web-components.category-chart.axis-options",
+  "name": "wc-category-chart-axis-options",
   "version": "1.0.0",
   "description": "This project provides example of Category Chart Axis Options using IgniteUI for Web Components",
   "main": "src/index.ts",

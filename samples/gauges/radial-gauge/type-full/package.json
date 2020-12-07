@@ -1,5 +1,5 @@
 {
-  "name": "web-components.radial-gauge.type-full",
+  "name": "wc-radial-gauge-type-full",
   "version": "1.0.0",
   "description": "This project provides example of Radial Gauge Type Full using IgniteUI for Web Components",
   "main": "src/index.ts",

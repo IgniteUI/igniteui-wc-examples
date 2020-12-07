@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.financial-indicator-column",
+  "name": "wc-data-chart-financial-indicator-column",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Financial Indicator Column using IgniteUI for Web Components",
   "main": "src/index.ts",

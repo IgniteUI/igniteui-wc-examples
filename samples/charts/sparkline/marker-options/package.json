@@ -1,5 +1,5 @@
 {
-  "name": "web-components.sparkline.markers",
+  "name": "wc-sparkline-markers",
   "version": "1.0.0",
   "description": "This project provides example of Sparkline Markers using IgniteUI for Web Components",
   "main": "src/index.ts",

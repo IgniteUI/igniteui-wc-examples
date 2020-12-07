@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.performance",
+  "name": "wc-data-grid-performance",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Performance using IgniteUI for Web Components",
   "main": "src/index.ts",

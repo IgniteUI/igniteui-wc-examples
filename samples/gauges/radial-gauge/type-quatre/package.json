@@ -1,5 +1,5 @@
 {
-  "name": "web-components.radial-gauge.type-quatre",
+  "name": "wc-radial-gauge-type-quatre",
   "version": "1.0.0",
   "description": "This project provides example of Radial Gauge Type Quatre using IgniteUI for Web Components",
   "main": "src/index.ts",

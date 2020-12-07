@@ -1,5 +1,5 @@
 {
-  "name": "web-components.zoomslider.zoom-slider-overview",
+  "name": "wc-zoomslider-zoom-slider-overview",
   "version": "1.0.0",
   "description": "This project provides example of Zoomslider Zoom Slider Overview using IgniteUI for Web Components",
   "main": "src/index.ts",

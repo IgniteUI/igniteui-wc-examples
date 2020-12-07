@@ -1,5 +1,5 @@
 {
-  "name": "web-components.category-chart.high-frequency",
+  "name": "wc-category-chart-high-frequency",
   "version": "1.0.0",
   "description": "This project provides example of Category Chart High Frequency using IgniteUI for Web Components",
   "main": "src/index.ts",

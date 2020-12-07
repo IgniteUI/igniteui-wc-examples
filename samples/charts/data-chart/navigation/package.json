@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.navigation",
+  "name": "wc-data-chart-navigation",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Navigation using IgniteUI for Web Components",
   "main": "src/index.ts",

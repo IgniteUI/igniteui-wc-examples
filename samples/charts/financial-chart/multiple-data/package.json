@@ -1,5 +1,5 @@
 {
-  "name": "web-components.financial-chart.multiple-data",
+  "name": "wc-financial-chart-multiple-data",
   "version": "1.0.0",
   "description": "This project provides example of Financial Chart Multiple Data using IgniteUI for Web Components",
   "main": "src/index.ts",

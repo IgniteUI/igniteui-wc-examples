@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.row-pinning",
+  "name": "wc-data-grid-row-pinning",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Row Pinning using IgniteUI for Web Components",
   "main": "src/index.ts",

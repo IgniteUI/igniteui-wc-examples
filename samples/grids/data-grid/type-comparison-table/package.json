@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.type-comparison-table",
+  "name": "wc-data-grid-type-comparison-table",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Type Comparison Table using IgniteUI for Web Components",
   "main": "src/index.ts",

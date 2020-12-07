@@ -1,5 +1,5 @@
 {
-  "name": "web-components.geographic-map.binding-shapefile-polylines",
+  "name": "wc-geographic-map-binding-shapefile-polylines",
   "version": "1.0.0",
   "description": "This project provides example of Geographic Map Binding Shapefile Polylines using IgniteUI for Web Components",
   "main": "src/index.ts",

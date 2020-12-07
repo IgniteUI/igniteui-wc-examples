@@ -1,5 +1,5 @@
 {
-  "name": "web-components.spreadsheet.filter-dialog",
+  "name": "wc-spreadsheet-filter-dialog",
   "version": "1.0.0",
   "description": "This project provides example of Spreadsheet Filter Dialog using IgniteUI for Web Components",
   "main": "src/index.ts",

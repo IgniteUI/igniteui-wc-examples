@@ -1,5 +1,5 @@
 {
-  "name": "web-components.geographic-map.map-navigation",
+  "name": "wc-geographic-map-map-navigation",
   "version": "1.0.0",
   "description": "This project provides example of Geographic Map Map Navigation using IgniteUI for Web Components",
   "main": "src/index.ts",

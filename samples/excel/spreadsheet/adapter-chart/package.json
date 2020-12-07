@@ -1,5 +1,5 @@
 {
-  "name": "web-components.spreadsheet.adapter",
+  "name": "wc-spreadsheet-adapter",
   "version": "1.0.0",
   "description": "This project provides example of Spreadsheet Adapter using IgniteUI for Web Components",
   "main": "src/index.ts",

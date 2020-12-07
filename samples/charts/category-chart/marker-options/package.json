@@ -1,5 +1,5 @@
 {
-  "name": "web-components.category-chart.markers",
+  "name": "wc-category-chart-markers",
   "version": "1.0.0",
   "description": "This project provides example of Category Chart Markers using IgniteUI for Web Components",
   "main": "src/index.ts",

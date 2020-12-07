@@ -1,5 +1,5 @@
 {
-  "name": "web-components.excel-library.sparklines",
+  "name": "wc-excel-library-sparklines",
   "version": "1.0.0",
   "description": "This project provides example of Excel Library Sparklines using IgniteUI for Web Components",
   "main": "src/index.ts",

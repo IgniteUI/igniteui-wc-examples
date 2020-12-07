@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.overview",
+  "name": "wc-data-grid-overview",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Overview using IgniteUI for Web Components",
   "main": "src/index.ts",

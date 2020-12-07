@@ -1,5 +1,5 @@
 {
-  "name": "web-components.spreadsheet.commands",
+  "name": "wc-spreadsheet-commands",
   "version": "1.0.0",
   "description": "This project provides example of Spreadsheet Commands using IgniteUI for Web Components",
   "main": "src/index.ts",

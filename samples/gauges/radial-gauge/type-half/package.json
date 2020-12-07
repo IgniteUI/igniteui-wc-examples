@@ -1,5 +1,5 @@
 {
-  "name": "web-components.radial-gauge.type-half",
+  "name": "wc-radial-gauge-type-half",
   "version": "1.0.0",
   "description": "This project provides example of Radial Gauge Type Half using IgniteUI for Web Components",
   "main": "src/index.ts",

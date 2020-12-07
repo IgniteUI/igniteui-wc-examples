@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-chart.axis-annotations",
+  "name": "wc-data-chart-axis-annotations",
   "version": "1.0.0",
   "description": "This project provides example of Data Chart Axis Annotations using IgniteUI for Web Components",
   "main": "src/index.ts",

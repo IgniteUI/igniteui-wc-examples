@@ -1,5 +1,5 @@
 {
-  "name": "web-components.financial-chart.indicator-custom",
+  "name": "wc-financial-chart-indicator-custom",
   "version": "1.0.0",
   "description": "This project provides example of Financial Chart Indicator Custom using IgniteUI for Web Components",
   "main": "src/index.ts",

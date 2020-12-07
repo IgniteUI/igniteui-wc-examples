@@ -1,5 +1,5 @@
 {
-  "name": "web-components.data-grid.cell-selection",
+  "name": "wc-data-grid-cell-selection",
   "version": "1.0.0",
   "description": "This project provides example of Data Grid Cell Selection using IgniteUI for Web Components",
   "main": "src/index.ts",
