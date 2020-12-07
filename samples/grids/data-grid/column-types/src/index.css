@@ -50,6 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-flow: column;
 }
 
 /* used to overlay multiple components, e.g. RadialGaugeTypeDirection */
