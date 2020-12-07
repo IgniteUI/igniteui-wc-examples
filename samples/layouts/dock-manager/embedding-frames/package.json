@@ -20,7 +20,7 @@
   "author": "",
   "dependencies": {
     "igniteui-dockmanager": "^1.2.0-beta.5",
-    "@infragistics/igniteui-webcomponents-core": "20.2.23",
+    "igniteui-webcomponents-core": "1.2.0-beta.0",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
