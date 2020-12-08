@@ -195,7 +195,8 @@ class Transformer {
     public static getPackage(sample: SampleInfo, tempPackage: PackageJson): string {
 
         let title = tempPackage.name;
-        title = Strings.replace(title, 'platform-name', igConfig.PlatformName);
+        // title = Strings.replace(title, 'platform-name', igConfig.PlatformName);
+        title = Strings.replace(title, 'platform-name', 'wc');
         title = Strings.replace(title, 'component-name', sample.ComponentName);
         title = Strings.replace(title, 'sample-name', sample.SampleDisplayName);
         title = Strings.replace(title, ' ', '-');
