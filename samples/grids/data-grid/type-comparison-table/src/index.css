@@ -375,10 +375,8 @@
 .igLegend, #legend {
     --legend-item-overflow: hidden;
     width: calc(100% - 1rem);
-    font-size: 0.75rem;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-    margin-left: 1rem;
+    font-size: 14px;
+    margin: 0rem;
     padding: 0rem;
     display: inline-block;
     vertical-align: middle;
