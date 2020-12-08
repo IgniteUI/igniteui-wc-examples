@@ -453,6 +453,7 @@ function updateSampleStyles(cb) {
         './templates/sample/sandbox.config.json',
         './templates/sample/tsconfig.json',
         './templates/sample/webpack.config.js',
+        './templates/sample/.prettierrc',
     ])
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, fileCallback) {
