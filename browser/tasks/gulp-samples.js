@@ -228,7 +228,7 @@ function logSamples(cb) {
 } exports.logSamples = logSamples;
 
 function logSandboxLinks(cb) {
-    let base = "https://codesandbox.io/s/github/IgniteUI/igniteui-webcomponents-examples/tree/master";
+    let base = "https://codesandbox.io/s/github/IgniteUI/igniteui-wc-examples/tree/master";
     for (const sample of samples) {
 
         let url = base + "" + sample.SampleFolderPath;

@@ -73,7 +73,7 @@ let config = {
 
     RepositoryOrg: "IgniteUI",
     RepositoryBranch: "master",
-    RepositoryName: "igniteui-webcomponents-examples",
+    RepositoryName: "igniteui-wc-examples",
     RepositoryPath: "github/{RepositoryOrg}/{RepositoryName}/tree/{RepositoryBranch}/samples/{ComponentGroup}/{ComponentFolder}/{SampleFolderName}",
     RepositoryUrl: "https://github.com/{RepositoryOrg}/{RepositoryName}",
     RepositoryWarning: "NOTE: do not change this file because it's auto re-generated from:",
