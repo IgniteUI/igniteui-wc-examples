@@ -453,8 +453,8 @@ class Transformer {
 
             info.ComponentName = Strings.toTitleCase(info.ComponentFolder, '-');
             info.ComponentName = info.ComponentName.replace("Geo Map", "Geographic Map");
-            info.ComponentID   = info.ComponentName.replace(" ", "");
-            info.ComponentID   = info.ComponentID.replace("-", "");
+            info.ComponentID   = Strings.replace(info.ComponentName, " ", "");
+            info.ComponentID   = Strings.replace(info.ComponentID, "-", "");
             info.ComponentID   = info.ComponentID.replace("Geographic", "");
 
             // info.SampleFolderPath = relativePath;

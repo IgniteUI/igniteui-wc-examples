@@ -317,8 +317,10 @@ function copySamples(cb) {
                               file.basename.indexOf("DataGridBindingLocalData") == -1 &&
                               file.basename.indexOf("DataGridBindingRemoteData") == -1);
 
+            // console.log(">> '" + compName + "' " + fileName);
+
             if (isSampleFile && !isDataFile) {
-                console.log(">> transforming sample: " + outputPath + "/" + file.basename);
+                console.log(">> transforming " + outputPath + "/" + file.basename);
                 let sampleCode = Transformer.getSampleCodeInBrowser(sample, sampleTemplate)
                 file.contents = Buffer.from(sampleCode);
             } else {

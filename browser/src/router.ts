@@ -4,6 +4,7 @@ import { RouterGrids } from "./samples/grids/router";
 import { RouterMaps } from "./samples/maps/router";
 import { RouterExcel } from "./samples/excel/router";
 import { RouterLayouts } from "./samples/layouts/router";
+import { RouterEditors } from "./samples/editors/router";
 
 export class Router {
 
@@ -99,6 +100,9 @@ export class Router {
         }
         if (route.indexOf("/layouts/") >= 0) {
             this.displaySample(await RouterLayouts.get(route));
+        }
+        if (route.indexOf("/editors/") >= 0) {
+            this.displaySample(await RouterEditors.get(route));
         }
 
         //else {
