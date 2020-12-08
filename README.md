@@ -1,9 +1,11 @@
 
 <div style="display: flex; flex-flow: row;">
 <img height="70px" style="border-radius: 0.25rem" alt="ignite-ui" src="./browser/public/logo-ignite-ui.svg"/>
-<div style="font-size: 2.5rem; align-self: start; justify-content: start; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem">FOR</div>
-<img height="52px" style="border-radius: 0.25rem" alt="ignite-wc" src="./browser/public/wc.png"/>
+<!-- <div style="font-size: 2.5rem; align-self: start; justify-content: start; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem">FOR</div> -->
+<!-- <img height="52px" style="border-radius: 0.25rem" alt="ignite-wc" src="./browser/public/wc.png"/> -->
 </div>
+
+# Web Component Examples
 
 This repository contains over 250 examples on how to use [Ignite UI for Web Components](https://infragistics.com/webcomponentssite/components/general-getting-started.html)
 
