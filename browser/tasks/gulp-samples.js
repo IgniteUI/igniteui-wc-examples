@@ -351,7 +351,7 @@ function copySamples(cb) {
 } exports.copySamples = copySamples;
 
 
-function updateReadme(cb) {
+function updateSampleReadme(cb) {
 
     // log('updating readme files... ');
     var template = fs.readFileSync("./templates/sample/ReadMe.md", "utf8");
@@ -366,7 +366,7 @@ function updateReadme(cb) {
         // break;
     }
     cb();
-} exports.updateReadme = updateReadme;
+} exports.updateSampleReadme = updateSampleReadme;
 
 // updating package.json files for all sample using a template
 function updateSamplePackages(cb) {
