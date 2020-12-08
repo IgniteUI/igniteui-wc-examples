@@ -189,35 +189,6 @@
     vertical-align: center;
     padding: 0.25rem;
     display: inline-block;
-    /* background: green; */
-}
-
-.igLegend {
-    --legend-item-overflow: hidden;
-    width: calc(100% - 1rem);
-    font-size: 0.75rem;
-    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-    margin-left: 1rem;
-    padding: 0rem;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.igLegend-title {
-    margin-top: 0.75rem;
-    margin-left: 1rem;
-    margin-right: 0.25rem;
-    margin-bottom: 0.25rem;
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-    padding: 0rem;
-    /* font-size: 11pt; */
-    /* vertical-align: top; */
-    vertical-align: center;
-    display: inline-block;
-    /* background: orange; */
 }
 
 /* ==================================================================================== */
