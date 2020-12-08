@@ -417,6 +417,8 @@ class Transformer {
             code = Strings.replace(code, "// AutoInsertClassBody", codeClassBody);
             code = Strings.replace(code, "AutoInsertHtml", info.HtmlFileRoot);
             code = Strings.replace(code, "AutoInsertClassName", info.SampleFileSourceClass);
+            // removing CodeSandbox's workaround for creating WC element:
+            code = Strings.replace(code, "new " + info.SampleFileSourceClass + "();", "");
 
             code = this.lintSample(code)
             code = Strings.replace(code, "// AutoInsertNewLine", "");
