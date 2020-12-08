@@ -45,8 +45,8 @@ This project was created with [IgniteUI/create-webcomponents-app](https://github
 ## Scripts
 
 | Command         | Description  |
-|-----------------|------------|
-| `npm run start` | Runs the app in development mode in webpack-dev-server. Use this mode for modern browsers. |
-| `npm run start:legacy` | Runs the app in development mode in webpack-dev-server. Use this mode if you need to support IE11 and other non-modern browsers. |
-| `npm run build` | Builds the app for production. Use this mode for modern browsers. |
-| `npm run build:legacy` | Builds the app for production. Use this mode if you need to support IE11 and other non-modern browsers. |
+|-----------------|--------------|
+| `npm run start` | Runs the app locally for modern browsers. |
+| `npm run start:legacy` | Runs the app locally for legacy browsers (IE11) |
+| `npm run build` | Builds the app for production (modern browsers) |
+| `npm run build:legacy` | Builds the app for production (legacy browsers) |
