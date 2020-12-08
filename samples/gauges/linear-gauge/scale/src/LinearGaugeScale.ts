@@ -6,7 +6,6 @@ ModuleManager.register(IgcLinearGaugeModule);
 export class LinearGaugeScale {
 
     constructor() {
-
     }
 
 }
