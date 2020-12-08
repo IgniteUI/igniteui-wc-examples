@@ -907,7 +907,7 @@ export const DataItems: any[] = [
 ];
 
 interface UpdateResponse {
-  data: any[] = [];
+  data: any[];
   recordsUpdated: number;
 }
 
