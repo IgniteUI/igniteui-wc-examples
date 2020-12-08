@@ -10,6 +10,8 @@ import { IgcImageColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { SparklineDisplayType } from 'igniteui-webcomponents-charts';
+import { IgcComboBoxColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcGridCellValueChangingEventArgs } from 'igniteui-webcomponents-grids';
 
 ModuleManager.register(
     IgcDataGridModule,
@@ -29,7 +31,7 @@ export class DataGridColumnTypes {
         this.onUpdatingAddressColumn = this.onUpdatingAddressColumn.bind(this);
         this.onUpdatingSalesColumn = this.onUpdatingSalesColumn.bind(this);
         this.onUpdatingProductivityColumn = this.onUpdatingProductivityColumn.bind(this);
-		this.onCellValueChanging = this.onCellValueChanging.bind(this);
+        this.onCellValueChanging = this.onCellValueChanging.bind(this);
 
         const salesColumn = document.getElementById('salesColumn') as IgcTemplateColumnComponent;
         if (salesColumn)
