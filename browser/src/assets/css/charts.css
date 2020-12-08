@@ -1,0 +1,41 @@
+
+#legend {
+    overflow-y: hidden;
+}
+
+.legend-inline {
+    --legend-item-overflow: hidden;
+
+    width: auto;
+    /* font-size: 11pt; */
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    /* margin-top: 8px; */
+    /* margin-bottom: 5px; */
+    margin-left: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding: 0px;
+    display: inline-block;
+    vertical-align: middle;
+    /* vertical-align: center; */
+    /* background: red; */
+}
+
+.legend-title {
+    /* margin-top: 13px;
+    margin-left: 20px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px; */
+    padding: 0px;
+    margin: 0px;
+    margin-top: 3px;
+    margin-left: 10px;
+    /* font-size: 11pt; */
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    /* vertical-align: top; */
+    vertical-align: middle;
+    display: inline-block;
+    /* background: orange; */
+}
