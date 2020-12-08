@@ -142,4 +142,4 @@ export class DataChartAxisAnnotations {
     }
 }
 
-let sample = new DataChartAxisAnnotations();
+new DataChartAxisAnnotations();

@@ -58,4 +58,4 @@ export class MapTypeScatterBubbleSeries {
     }
 }
 
-let sample = new MapTypeScatterBubbleSeries();
+new MapTypeScatterBubbleSeries();

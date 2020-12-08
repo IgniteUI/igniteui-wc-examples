@@ -83,4 +83,4 @@ export class DataGridColumnPinningPicker {
     }
 }
 
-let sample = new DataGridColumnPinningPicker();
+new DataGridColumnPinningPicker();

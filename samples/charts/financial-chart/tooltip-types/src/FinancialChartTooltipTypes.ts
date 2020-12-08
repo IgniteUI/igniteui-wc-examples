@@ -49,4 +49,4 @@ export class FinancialChartTooltipTypes {
     }
 }
 
-let sample = new FinancialChartTooltipTypes();
+new FinancialChartTooltipTypes();

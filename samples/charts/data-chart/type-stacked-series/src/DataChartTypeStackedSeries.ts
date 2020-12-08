@@ -337,4 +337,4 @@ export class DataChartTypeStackedSeries {
     }
 }
 
-let sample = new DataChartTypeStackedSeries();
+new DataChartTypeStackedSeries();

@@ -35,4 +35,4 @@ export class SpreadsheetCommands {
     }
 }
 
-let sample = new SpreadsheetCommands();
+new SpreadsheetCommands();

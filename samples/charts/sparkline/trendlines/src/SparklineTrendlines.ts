@@ -29,4 +29,4 @@ export class SparklineTrendlines {
     }
 }
 
-let sample = new SparklineTrendlines();
+new SparklineTrendlines();

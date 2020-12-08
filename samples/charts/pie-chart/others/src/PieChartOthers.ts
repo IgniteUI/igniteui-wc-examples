@@ -27,4 +27,4 @@ export class PieChartOthers {
     }
 }
 
-let sample = new PieChartOthers();
+new PieChartOthers();

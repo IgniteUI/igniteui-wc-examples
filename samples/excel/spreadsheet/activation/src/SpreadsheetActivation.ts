@@ -43,4 +43,4 @@ export class SpreadsheetActivation {
     }
 }
 
-let sample = new SpreadsheetActivation();
+new SpreadsheetActivation();

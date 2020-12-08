@@ -76,4 +76,4 @@ export class FinancialChartTrendlines {
     }
 }
 
-let sample = new FinancialChartTrendlines();
+new FinancialChartTrendlines();

@@ -22,4 +22,4 @@ export class SpreadsheetOverview {
     }
 }
 
-let sample = new SpreadsheetOverview();
+new SpreadsheetOverview();

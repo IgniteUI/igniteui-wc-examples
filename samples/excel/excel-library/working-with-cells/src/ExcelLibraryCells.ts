@@ -234,4 +234,4 @@ export class ExcelLibraryCells {
     }
 }
 
-let sample = new ExcelLibraryCells();
+new ExcelLibraryCells();

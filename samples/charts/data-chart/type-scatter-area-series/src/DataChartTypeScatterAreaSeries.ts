@@ -86,4 +86,4 @@ export class DataChartTypeScatterAreaSeries {
     }
 }
 
-let sample = new DataChartTypeScatterAreaSeries();
+new DataChartTypeScatterAreaSeries();

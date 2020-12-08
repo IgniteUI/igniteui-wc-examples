@@ -132,4 +132,4 @@ export class ExcelLibraryCharts {
     }
 }
 
-let sample = new ExcelLibraryCharts();
+new ExcelLibraryCharts();

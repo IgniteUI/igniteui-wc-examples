@@ -31,4 +31,4 @@ export class DataChartTypePolarAreaSeries {
     }
 }
 
-let sample = new DataChartTypePolarAreaSeries();
+new DataChartTypePolarAreaSeries();

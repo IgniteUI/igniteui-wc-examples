@@ -83,4 +83,4 @@ export class RadialGaugeTypeQuatre {
     }
 }
 
-let sample = new RadialGaugeTypeQuatre();
+new RadialGaugeTypeQuatre();

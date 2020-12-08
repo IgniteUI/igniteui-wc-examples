@@ -74,4 +74,4 @@ export class DataChartTypeShapeSeries {
     }
 }
 
-let sample = new DataChartTypeShapeSeries();
+new DataChartTypeShapeSeries();

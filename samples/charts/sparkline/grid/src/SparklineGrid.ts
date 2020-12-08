@@ -103,4 +103,4 @@ export class SparklineGrid {
 
 }
 
-let sample = new SparklineGrid();
+new SparklineGrid();

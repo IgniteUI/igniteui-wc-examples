@@ -161,4 +161,4 @@ export class CategoryChartHighFrequency {
     }
 }
 
-let sample = new CategoryChartHighFrequency();
+new CategoryChartHighFrequency();

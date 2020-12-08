@@ -44,4 +44,4 @@ export class DoughnutChartOverview {
 
 }
 
-let sample = new DoughnutChartOverview();
+new DoughnutChartOverview();

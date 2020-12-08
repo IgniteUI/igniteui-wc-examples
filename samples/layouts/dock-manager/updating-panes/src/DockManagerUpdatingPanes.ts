@@ -346,4 +346,4 @@ export class DockManagerUpdatingPanes {
 
 }
 
-let sample = new DockManagerUpdatingPanes();
+new DockManagerUpdatingPanes();

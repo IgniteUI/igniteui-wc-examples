@@ -10,4 +10,4 @@ export class RadialGaugeNeedle {
 
 }
 
-let sample = new RadialGaugeNeedle();
+new RadialGaugeNeedle();

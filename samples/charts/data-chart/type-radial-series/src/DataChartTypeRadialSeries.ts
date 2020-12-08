@@ -121,4 +121,4 @@ export class DataChartTypeRadialSeries {
     }
 }
 
-let sample = new DataChartTypeRadialSeries();
+new DataChartTypeRadialSeries();

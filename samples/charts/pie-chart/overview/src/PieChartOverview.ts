@@ -27,4 +27,4 @@ export class PieChartOverview {
     }
 }
 
-let sample = new PieChartOverview();
+new PieChartOverview();

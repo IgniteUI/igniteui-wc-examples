@@ -69,4 +69,4 @@ export class DataChartAxisLocations {
     }
 }
 
-let sample = new DataChartAxisLocations();
+new DataChartAxisLocations();

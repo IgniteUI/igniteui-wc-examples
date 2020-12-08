@@ -47,4 +47,4 @@ export class DataGridColumnSorting {
     }
 }
 
-let sample = new DataGridColumnSorting();
+new DataGridColumnSorting();

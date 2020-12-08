@@ -354,4 +354,4 @@ class PeriodicScale {
     }
 }
 
-let sample = new DataGridTypePeriodicTable();
+new DataGridTypePeriodicTable();

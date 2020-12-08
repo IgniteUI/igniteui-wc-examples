@@ -82,4 +82,4 @@ export class DataChartTypeFinancialOverlays {
     }
 }
 
-let sample = new DataChartTypeFinancialOverlays();
+new DataChartTypeFinancialOverlays();

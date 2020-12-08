@@ -43,4 +43,4 @@ export class DataChartTypeStacked100AreaSeries {
     }
 }
 
-let sample = new DataChartTypeStacked100AreaSeries();
+new DataChartTypeStacked100AreaSeries();

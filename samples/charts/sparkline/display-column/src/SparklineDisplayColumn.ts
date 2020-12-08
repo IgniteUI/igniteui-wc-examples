@@ -81,4 +81,4 @@ export class SparklineDisplayColumn {
     }
 }
 
-let sample = new SparklineDisplayColumn();
+new SparklineDisplayColumn();

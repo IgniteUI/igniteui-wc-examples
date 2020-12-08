@@ -66,4 +66,4 @@ export class SparklineNormalRange {
     }
 }
 
-let sample = new SparklineNormalRange();
+new SparklineNormalRange();

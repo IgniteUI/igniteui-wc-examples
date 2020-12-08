@@ -122,4 +122,4 @@ export class DockManagerOverview {
     }
 }
 
-let sample = new DockManagerOverview();
+new DockManagerOverview();

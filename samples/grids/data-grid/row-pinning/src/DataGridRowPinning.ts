@@ -22,4 +22,4 @@ export class DataGridRowPinning {
     }
 }
 
-let sample = new DataGridRowPinning();
+new DataGridRowPinning();

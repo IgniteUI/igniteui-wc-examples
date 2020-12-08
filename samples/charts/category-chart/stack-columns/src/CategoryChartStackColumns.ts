@@ -82,4 +82,4 @@ export class CategoryChartStackColumns {
     }
 }
 
-let sample = new CategoryChartStackColumns();
+new CategoryChartStackColumns();

@@ -65,4 +65,4 @@ export class DataChartTypeRangeSeries {
     }
 }
 
-let sample = new DataChartTypeRangeSeries();
+new DataChartTypeRangeSeries();

@@ -83,4 +83,4 @@ export class MapTypeScatterContourSeries {
     }
 }
 
-let sample = new MapTypeScatterContourSeries();
+new MapTypeScatterContourSeries();

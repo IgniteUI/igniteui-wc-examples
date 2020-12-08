@@ -81,4 +81,4 @@ export class MapDisplayImageryHeatTiles {
     }
 }
 
-let sample = new MapDisplayImageryHeatTiles();
+new MapDisplayImageryHeatTiles();

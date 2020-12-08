@@ -44,4 +44,4 @@ export class DataChartAxisScales {
     }
 }
 
-let sample = new DataChartAxisScales();
+new DataChartAxisScales();

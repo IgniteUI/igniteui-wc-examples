@@ -10,4 +10,4 @@ export class BulletGraphScale {
 
 }
 
-let sample = new BulletGraphScale();
+new BulletGraphScale();

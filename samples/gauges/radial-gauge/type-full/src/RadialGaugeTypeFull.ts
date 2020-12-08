@@ -100,4 +100,4 @@ export class RadialGaugeTypeFull {
     }
 }
 
-let sample = new RadialGaugeTypeFull();
+new RadialGaugeTypeFull();

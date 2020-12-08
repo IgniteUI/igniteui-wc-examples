@@ -34,4 +34,4 @@ export class FinancialChartOverview {
     }
 }
 
-let sample = new FinancialChartOverview();
+new FinancialChartOverview();

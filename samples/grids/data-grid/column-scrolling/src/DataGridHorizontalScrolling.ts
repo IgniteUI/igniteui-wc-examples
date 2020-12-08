@@ -18,4 +18,4 @@ export class DataGridHorizontalScrolling {
     }
 }
 
-let sample = new DataGridHorizontalScrolling();
+new DataGridHorizontalScrolling();

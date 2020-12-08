@@ -10,4 +10,4 @@ export class BulletGraphRanges {
 
 }
 
-let sample = new BulletGraphRanges();
+new BulletGraphRanges();

@@ -9,4 +9,4 @@ export class LinearGaugeRanges {
     }
 }
 
-let sample = new LinearGaugeRanges();
+new LinearGaugeRanges();

@@ -77,4 +77,4 @@ export class RadialGaugeTypeColumn {
     }
 }
 
-let sample = new RadialGaugeTypeColumn();
+new RadialGaugeTypeColumn();

@@ -24,4 +24,4 @@ export class FinancialChartTitles {
     }
 }
 
-let sample = new FinancialChartTitles();
+new FinancialChartTitles();

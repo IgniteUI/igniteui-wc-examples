@@ -239,4 +239,4 @@ export class BulletGraphAnimation {
 
 }
 
-let sample = new BulletGraphAnimation();
+new BulletGraphAnimation();

@@ -61,4 +61,4 @@ export class DataChartSeriesAnimations {
     }
 }
 
-let sample = new DataChartSeriesAnimations();
+new DataChartSeriesAnimations();

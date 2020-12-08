@@ -77,4 +77,4 @@ export class DataChartTypeFinancialSeries {
     }
 }
 
-let sample = new DataChartTypeFinancialSeries();
+new DataChartTypeFinancialSeries();

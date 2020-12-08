@@ -170,4 +170,4 @@ export class DataChartTypePolarSeries {
     }
 }
 
-let sample = new DataChartTypePolarSeries();
+new DataChartTypePolarSeries();

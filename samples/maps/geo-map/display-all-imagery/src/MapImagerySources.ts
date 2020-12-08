@@ -19,4 +19,4 @@ export class MapImagerySources {
 
 }
 
-let sample = new MapImagerySources();
+new MapImagerySources();

@@ -42,4 +42,4 @@ export class FinancialChartVolumeTypes {
 
 }
 
-let sample = new FinancialChartVolumeTypes();
+new FinancialChartVolumeTypes();

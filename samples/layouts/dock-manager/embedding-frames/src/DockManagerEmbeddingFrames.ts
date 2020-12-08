@@ -23,7 +23,7 @@ export class DockManagerEmbeddingFrames {
     private financialChartPane: IgcContentPane;
 
     constructor() {
-        
+
         this.gaugePane = {
             // size: 150,
             header: 'ANGULAR RADIAL GAUGE',
@@ -80,4 +80,4 @@ export class DockManagerEmbeddingFrames {
     }
 }
 
-let sample = new DockManagerEmbeddingFrames();
+new DockManagerEmbeddingFrames();

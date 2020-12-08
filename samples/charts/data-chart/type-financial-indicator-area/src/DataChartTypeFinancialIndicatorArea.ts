@@ -276,4 +276,4 @@ export class DataChartTypeFinancialIndicatorArea {
     }
 }
 
-let sample = new DataChartTypeFinancialIndicatorArea();
+new DataChartTypeFinancialIndicatorArea();

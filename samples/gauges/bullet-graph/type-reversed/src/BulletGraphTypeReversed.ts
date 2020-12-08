@@ -54,4 +54,4 @@ export class BulletGraphTypeReversed {
     }
 }
 
-let sample = new BulletGraphTypeReversed();
+new BulletGraphTypeReversed();

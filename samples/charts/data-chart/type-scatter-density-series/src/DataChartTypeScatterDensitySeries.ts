@@ -117,4 +117,4 @@ export class DataChartTypeScatterDensitySeries {
     }
 }
 
-let sample = new DataChartTypeScatterDensitySeries();
+new DataChartTypeScatterDensitySeries();

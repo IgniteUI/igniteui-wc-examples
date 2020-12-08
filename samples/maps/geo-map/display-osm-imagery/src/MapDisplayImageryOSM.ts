@@ -25,4 +25,4 @@ export class MapDisplayImageryOSM {
 
 }
 
-let sample = new MapDisplayImageryOSM();
+new MapDisplayImageryOSM();

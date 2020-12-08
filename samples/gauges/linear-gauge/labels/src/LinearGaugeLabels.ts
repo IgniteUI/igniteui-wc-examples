@@ -10,4 +10,4 @@ export class LinearGaugeLabels {
 
 }
 
-let sample = new LinearGaugeLabels();
+new LinearGaugeLabels();

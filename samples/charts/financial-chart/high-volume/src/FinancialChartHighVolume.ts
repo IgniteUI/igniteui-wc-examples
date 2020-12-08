@@ -25,4 +25,4 @@ export class FinancialChartHighVolume {
 
 }
 
-let sample = new FinancialChartHighVolume();
+new FinancialChartHighVolume();

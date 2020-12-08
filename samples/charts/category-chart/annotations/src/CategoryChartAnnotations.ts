@@ -153,4 +153,4 @@ export class CategoryChartAnnotations {
     }
 }
 
-let sample = new CategoryChartAnnotations();
+new CategoryChartAnnotations();

@@ -24,4 +24,4 @@ export class DataChartTypeFinancialOhlcSeries {
     }
 }
 
-let sample = new DataChartTypeFinancialOhlcSeries();
+new DataChartTypeFinancialOhlcSeries();

@@ -51,4 +51,4 @@ export class MapBindingDataJsonPoints {
     }
 }
 
-let sample = new MapBindingDataJsonPoints();
+new MapBindingDataJsonPoints();

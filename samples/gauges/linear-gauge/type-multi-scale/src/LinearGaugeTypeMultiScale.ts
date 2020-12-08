@@ -121,4 +121,4 @@ export class LinearGaugeTypeMultiScale {
 
 }
 
-let sample = new LinearGaugeTypeMultiScale();
+new LinearGaugeTypeMultiScale();

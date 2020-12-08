@@ -214,4 +214,4 @@ export class ExcelLibrarySparklines {
     }
 }
 
-let sample = new ExcelLibrarySparklines();
+new ExcelLibrarySparklines();

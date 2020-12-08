@@ -43,4 +43,4 @@ export class CategoryChartAxisOptions {
     }
 }
 
-let sample = new CategoryChartAxisOptions();
+new CategoryChartAxisOptions();

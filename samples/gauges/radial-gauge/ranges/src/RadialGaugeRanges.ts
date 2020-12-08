@@ -10,4 +10,4 @@ export class RadialGaugeRanges {
 
 }
 
-let sample = new RadialGaugeRanges();
+new RadialGaugeRanges();

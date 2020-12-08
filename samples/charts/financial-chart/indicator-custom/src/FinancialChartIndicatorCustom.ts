@@ -64,4 +64,4 @@ export class FinancialChartIndicatorCustom {
 
 }
 
-let sample = new FinancialChartIndicatorCustom();
+new FinancialChartIndicatorCustom();

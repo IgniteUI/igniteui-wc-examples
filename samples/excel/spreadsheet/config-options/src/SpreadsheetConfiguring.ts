@@ -131,4 +131,4 @@ export class SpreadsheetConfiguring {
     }
 }
 
-let sample = new SpreadsheetConfiguring();
+new SpreadsheetConfiguring();

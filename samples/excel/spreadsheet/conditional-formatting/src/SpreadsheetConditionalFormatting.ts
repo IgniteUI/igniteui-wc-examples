@@ -22,4 +22,4 @@ export class SpreadsheetConditionalFormatting {
     }
 }
 
-let sample = new SpreadsheetConditionalFormatting();
+new SpreadsheetConditionalFormatting();

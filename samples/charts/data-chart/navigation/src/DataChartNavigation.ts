@@ -229,4 +229,4 @@ export class DataChartNavigation {
     }
 }
 
-let sample = new DataChartNavigation();
+new DataChartNavigation();

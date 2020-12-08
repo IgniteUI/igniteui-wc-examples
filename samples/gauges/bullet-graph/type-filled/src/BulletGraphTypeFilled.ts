@@ -69,4 +69,4 @@ export class BulletGraphTypeFilled {
     }
 }
 
-let sample = new BulletGraphTypeFilled();
+new BulletGraphTypeFilled();

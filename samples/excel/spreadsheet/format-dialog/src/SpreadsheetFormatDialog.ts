@@ -16,4 +16,4 @@ export class SpreadsheetFormatDialog {
     }
 }
 
-let sample = new SpreadsheetFormatDialog();
+new SpreadsheetFormatDialog();

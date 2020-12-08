@@ -113,4 +113,4 @@ export class LinearGaugeTypeCurve {
 
 }
 
-let sample = new LinearGaugeTypeCurve();
+new LinearGaugeTypeCurve();

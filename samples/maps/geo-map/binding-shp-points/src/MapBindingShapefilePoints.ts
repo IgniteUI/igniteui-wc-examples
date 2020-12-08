@@ -98,4 +98,4 @@ export class MapBindingShapefilePoints {
     }
 }
 
-let sample = new MapBindingShapefilePoints();
+new MapBindingShapefilePoints();

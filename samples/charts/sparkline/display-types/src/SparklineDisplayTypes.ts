@@ -50,4 +50,4 @@ export class SparklineDisplayTypes {
     }
 }
 
-let sample = new SparklineDisplayTypes();
+new SparklineDisplayTypes();

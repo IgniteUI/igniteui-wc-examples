@@ -25,4 +25,4 @@ export class DataGridBindingRemoteData {
 
 }
 
-let sample = new DataGridBindingRemoteData();
+new DataGridBindingRemoteData();

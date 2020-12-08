@@ -31,4 +31,4 @@ export class MapNavigation {
 
 }
 
-let sample = new MapNavigation();
+new MapNavigation();

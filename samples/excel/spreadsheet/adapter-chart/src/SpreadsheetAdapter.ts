@@ -65,4 +65,4 @@ export class SpreadsheetAdapter {
     }
 }
 
-let sample = new SpreadsheetAdapter();
+new SpreadsheetAdapter();

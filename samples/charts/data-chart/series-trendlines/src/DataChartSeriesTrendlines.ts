@@ -90,4 +90,4 @@ export class DataChartSeriesTrendlines {
     }
 }
 
-let sample = new DataChartSeriesTrendlines();
+new DataChartSeriesTrendlines();

@@ -10,4 +10,4 @@ export class RadialGaugeScale {
 
 }
 
-let sample = new RadialGaugeScale();
+new RadialGaugeScale();

@@ -72,4 +72,4 @@ export class DataChartOverview {
     }
 }
 
-let sample = new DataChartOverview();
+new DataChartOverview();

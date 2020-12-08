@@ -10,4 +10,4 @@ export class RadialGaugeTickmarks {
 
 }
 
-let sample = new RadialGaugeTickmarks();
+new RadialGaugeTickmarks();

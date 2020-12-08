@@ -16,4 +16,4 @@ export class SpreadsheetFilterDialog {
     }
 }
 
-let sample = new SpreadsheetFilterDialog();
+new SpreadsheetFilterDialog();

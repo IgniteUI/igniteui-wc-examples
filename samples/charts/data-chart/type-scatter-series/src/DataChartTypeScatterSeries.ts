@@ -180,4 +180,4 @@ export class DataChartTypeScatterSeries {
     }
 }
 
-let sample = new DataChartTypeScatterSeries();
+new DataChartTypeScatterSeries();

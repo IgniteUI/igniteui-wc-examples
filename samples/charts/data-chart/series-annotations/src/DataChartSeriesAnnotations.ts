@@ -184,4 +184,4 @@ export class DataChartSeriesAnnotations {
     }
 }
 
-let sample = new DataChartSeriesAnnotations();
+new DataChartSeriesAnnotations();

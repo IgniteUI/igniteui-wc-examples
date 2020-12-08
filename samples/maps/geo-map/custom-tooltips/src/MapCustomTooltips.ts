@@ -102,4 +102,4 @@ export class MapCustomTooltips {
     }
 }
 
-let sample = new MapCustomTooltips();
+new MapCustomTooltips();

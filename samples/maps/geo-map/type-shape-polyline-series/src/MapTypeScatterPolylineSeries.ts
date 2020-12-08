@@ -80,4 +80,4 @@ export class MapTypeScatterPolylineSeries {
     }
 }
 
-let sample = new MapTypeScatterPolylineSeries();
+new MapTypeScatterPolylineSeries();

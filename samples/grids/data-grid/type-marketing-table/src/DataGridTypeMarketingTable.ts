@@ -501,4 +501,4 @@ export class DataGridTypeMarketingTable {
     }
 }
 
-let sample = new DataGridTypeMarketingTable();
+new DataGridTypeMarketingTable();

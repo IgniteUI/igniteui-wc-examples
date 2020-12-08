@@ -31,4 +31,4 @@ export class DataChartTypeRadialAreaSeries {
     }
 }
 
-let sample = new DataChartTypeRadialAreaSeries();
+new DataChartTypeRadialAreaSeries();

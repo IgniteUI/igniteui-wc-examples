@@ -91,4 +91,4 @@ export class BulletGraphTypeSegmented {
     }
 }
 
-let sample = new BulletGraphTypeSegmented();
+new BulletGraphTypeSegmented();

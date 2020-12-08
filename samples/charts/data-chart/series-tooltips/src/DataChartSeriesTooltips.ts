@@ -130,4 +130,4 @@ export class DataChartSeriesTooltips {
     }
 }
 
-let sample = new DataChartSeriesTooltips();
+new DataChartSeriesTooltips();

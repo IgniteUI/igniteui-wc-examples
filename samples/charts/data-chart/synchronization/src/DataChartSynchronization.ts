@@ -31,4 +31,4 @@ export class DataChartSynchronization {
 
 }
 
-let sample = new DataChartSynchronization();
+new DataChartSynchronization();

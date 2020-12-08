@@ -223,4 +223,4 @@ export class DataGridColumnTypes {
     }
 }
 
-let sample = new DataGridColumnTypes();
+new DataGridColumnTypes();

@@ -94,4 +94,4 @@ export class LinearGaugeTypeMultiRange {
 
 }
 
-let sample = new LinearGaugeTypeMultiRange();
+new LinearGaugeTypeMultiRange();

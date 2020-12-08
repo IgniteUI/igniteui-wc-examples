@@ -76,4 +76,4 @@ export class MapBindingDataCSV {
     }
 }
 
-let sample = new MapBindingDataCSV();
+new MapBindingDataCSV();

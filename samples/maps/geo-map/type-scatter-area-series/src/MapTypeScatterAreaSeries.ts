@@ -82,4 +82,4 @@ export class MapTypeScatterAreaSeries {
 
 }
 
-let sample = new MapTypeScatterAreaSeries();
+new MapTypeScatterAreaSeries();

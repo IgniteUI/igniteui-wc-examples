@@ -117,4 +117,4 @@ export class MapBindingMultipleShapes {
     }
 }
 
-let sample = new MapBindingMultipleShapes();
+new MapBindingMultipleShapes();

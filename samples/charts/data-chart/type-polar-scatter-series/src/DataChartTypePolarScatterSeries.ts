@@ -31,4 +31,4 @@ export class DataChartTypePolarScatterSeries {
     }
 }
 
-let sample = new DataChartTypePolarScatterSeries();
+new DataChartTypePolarScatterSeries();

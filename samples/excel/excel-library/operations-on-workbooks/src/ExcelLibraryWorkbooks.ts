@@ -183,4 +183,4 @@ export class ExcelLibraryWorkbooks {
     }
 }
 
-let sample = new ExcelLibraryWorkbooks();
+new ExcelLibraryWorkbooks();

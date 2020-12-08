@@ -102,4 +102,4 @@ export class DataGridColumnChooserToolbar {
 
 }
 
-let sample = new DataGridColumnChooserToolbar();
+new DataGridColumnChooserToolbar();

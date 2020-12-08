@@ -83,4 +83,4 @@ export class CategoryChartTooltipTypes {
     }
 }
 
-let sample = new CategoryChartTooltipTypes();
+new CategoryChartTooltipTypes();

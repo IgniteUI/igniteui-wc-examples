@@ -17,4 +17,4 @@ export class DataGridRowPaging {
 
 }
 
-let sample = new DataGridRowPaging();
+new DataGridRowPaging();

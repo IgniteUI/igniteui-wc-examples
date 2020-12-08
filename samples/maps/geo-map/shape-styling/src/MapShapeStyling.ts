@@ -182,4 +182,4 @@ export class MapShapeStyling {
     }
 }
 
-let sample = new MapShapeStyling();
+new MapShapeStyling();

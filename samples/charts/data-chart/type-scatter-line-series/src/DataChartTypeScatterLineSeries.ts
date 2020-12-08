@@ -62,4 +62,4 @@ export class DataChartTypeScatterLineSeries {
     }
 }
 
-let sample = new DataChartTypeScatterLineSeries();
+new DataChartTypeScatterLineSeries();

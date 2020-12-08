@@ -82,4 +82,4 @@ export class LinearGaugeTypeSegmented {
 
 }
 
-let sample = new LinearGaugeTypeSegmented();
+new LinearGaugeTypeSegmented();

@@ -11,4 +11,4 @@ export class LinearGaugeScale {
 
 }
 
-let sample = new LinearGaugeScale();
+new LinearGaugeScale();

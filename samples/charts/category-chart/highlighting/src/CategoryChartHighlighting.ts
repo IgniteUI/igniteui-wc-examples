@@ -73,4 +73,4 @@ export class CategoryChartHighlighting {
     }
 }
 
-let sample = new CategoryChartHighlighting();
+new CategoryChartHighlighting();

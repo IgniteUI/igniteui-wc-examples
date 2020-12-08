@@ -154,4 +154,4 @@ export class DataGridCellEditing {
     }
 }
 
-let sample = new DataGridCellEditing();
+new DataGridCellEditing();

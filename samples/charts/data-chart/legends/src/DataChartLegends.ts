@@ -38,4 +38,4 @@ export class DataChartLegends {
     }
 }
 
-let sample = new DataChartLegends();
+new DataChartLegends();

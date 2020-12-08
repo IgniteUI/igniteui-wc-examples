@@ -10,4 +10,4 @@ export class LinearGaugeTickmarks {
 
 }
 
-let sample = new LinearGaugeTickmarks();
+new LinearGaugeTickmarks();

@@ -24,4 +24,4 @@ export class DataChartTypeFinancialCandlestickSeries {
     }
 }
 
-let sample = new DataChartTypeFinancialCandlestickSeries();
+new DataChartTypeFinancialCandlestickSeries();

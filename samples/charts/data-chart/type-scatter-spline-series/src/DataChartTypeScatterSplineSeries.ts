@@ -63,4 +63,4 @@ export class DataChartTypeScatterSplineSeries {
     }
 }
 
-let sample = new DataChartTypeScatterSplineSeries();
+new DataChartTypeScatterSplineSeries();

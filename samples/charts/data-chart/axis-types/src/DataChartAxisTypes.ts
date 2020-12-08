@@ -230,4 +230,4 @@ export class DataChartAxisTypes {
     }
 }
 
-let sample = new DataChartAxisTypes();
+new DataChartAxisTypes();

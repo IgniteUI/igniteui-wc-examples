@@ -158,4 +158,4 @@ export class FinancialChartHighFrequency {
     }
 }
 
-let sample = new FinancialChartHighFrequency();
+new FinancialChartHighFrequency();

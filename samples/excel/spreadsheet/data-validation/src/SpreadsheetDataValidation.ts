@@ -95,4 +95,4 @@ export class SpreadsheetDataValidation {
     }
 }
 
-let sample = new SpreadsheetDataValidation();
+new SpreadsheetDataValidation();

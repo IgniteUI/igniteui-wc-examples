@@ -79,4 +79,4 @@ export class RadialGaugeTypeSemi {
     }
 }
 
-let sample = new RadialGaugeTypeSemi();
+new RadialGaugeTypeSemi();

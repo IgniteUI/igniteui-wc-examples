@@ -71,4 +71,4 @@ export class SparklineDisplayWinLoss {
     }
 }
 
-let sample = new SparklineDisplayWinLoss();
+new SparklineDisplayWinLoss();

@@ -45,4 +45,4 @@ export class DataChartTitles {
     }
 }
 
-let sample = new DataChartTitles();
+new DataChartTitles();

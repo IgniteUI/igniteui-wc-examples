@@ -62,4 +62,4 @@ export class DataGridRowGrouping {
     }
 }
 
-let sample = new DataGridRowGrouping();
+new DataGridRowGrouping();

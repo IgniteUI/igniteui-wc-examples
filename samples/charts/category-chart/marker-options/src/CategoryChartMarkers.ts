@@ -64,4 +64,4 @@ export class CategoryChartMarkers {
     }
 }
 
-let sample = new CategoryChartMarkers();
+new CategoryChartMarkers();

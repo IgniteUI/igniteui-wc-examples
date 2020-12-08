@@ -32,4 +32,4 @@ export class DataChartTypeCategoryAreaSeries {
 
 }
 
-let sample = new DataChartTypeCategoryAreaSeries();
+new DataChartTypeCategoryAreaSeries();

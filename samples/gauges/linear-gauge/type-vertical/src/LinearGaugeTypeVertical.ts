@@ -97,4 +97,4 @@ export class LinearGaugeTypeVertical {
     }
 }
 
-let sample = new LinearGaugeTypeVertical();
+new LinearGaugeTypeVertical();

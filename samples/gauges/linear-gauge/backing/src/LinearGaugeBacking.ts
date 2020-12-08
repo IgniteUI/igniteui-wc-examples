@@ -9,4 +9,4 @@ export class LinearGaugeBacking {
     }
 }
 
-let sample = new LinearGaugeBacking();
+new LinearGaugeBacking();

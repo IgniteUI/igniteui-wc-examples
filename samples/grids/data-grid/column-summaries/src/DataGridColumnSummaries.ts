@@ -138,4 +138,4 @@ class CustomDomestic extends SummaryCalculator {
     }
 }
 
-let sample = new DataGridColumnSummaries();
+new DataGridColumnSummaries();

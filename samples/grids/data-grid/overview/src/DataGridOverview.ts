@@ -221,4 +221,4 @@ export class DataGridOverview {
     }
 }
 
-let sample = new DataGridOverview();
+new DataGridOverview();

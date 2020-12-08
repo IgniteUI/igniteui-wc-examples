@@ -84,4 +84,4 @@ export class PieChartAnimation {
 
 }
 
-let sample = new PieChartAnimation();
+new PieChartAnimation();

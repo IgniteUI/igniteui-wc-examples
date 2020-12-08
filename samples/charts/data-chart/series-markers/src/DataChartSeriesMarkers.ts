@@ -101,4 +101,4 @@ export class DataChartSeriesMarkers {
     }
 }
 
-let sample = new DataChartSeriesMarkers();
+new DataChartSeriesMarkers();

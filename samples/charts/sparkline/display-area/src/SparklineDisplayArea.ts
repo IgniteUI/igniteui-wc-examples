@@ -80,4 +80,4 @@ export class SparklineDisplayArea {
     }
 }
 
-let sample = new SparklineDisplayArea();
+new SparklineDisplayArea();

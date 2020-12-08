@@ -80,4 +80,4 @@ export class DoughnutChartRings {
     }
 }
 
-let sample = new DoughnutChartRings();
+new DoughnutChartRings();

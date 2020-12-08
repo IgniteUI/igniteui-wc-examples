@@ -90,4 +90,4 @@ export class MapDisplayImageryBingTiles {
     }
 }
 
-let sample = new MapDisplayImageryBingTiles();
+new MapDisplayImageryBingTiles();

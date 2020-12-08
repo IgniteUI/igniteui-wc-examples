@@ -32,4 +32,4 @@ export class DataChartTypeCategoryWaterfallSeries {
 
 }
 
-let sample = new DataChartTypeCategoryWaterfallSeries();
+new DataChartTypeCategoryWaterfallSeries();

@@ -31,4 +31,4 @@ export class LinearGaugeTypeStandard {
 
 }
 
-let sample = new LinearGaugeTypeStandard();
+new LinearGaugeTypeStandard();

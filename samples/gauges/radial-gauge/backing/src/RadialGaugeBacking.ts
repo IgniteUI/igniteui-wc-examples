@@ -10,4 +10,4 @@ export class RadialGaugeBacking {
 
 }
 
-let sample = new RadialGaugeBacking();
+new RadialGaugeBacking();

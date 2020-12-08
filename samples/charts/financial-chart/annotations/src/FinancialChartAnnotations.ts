@@ -123,4 +123,4 @@ export class FinancialChartAnnotations {
     }
 }
 
-let sample = new FinancialChartAnnotations();
+new FinancialChartAnnotations();

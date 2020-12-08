@@ -156,4 +156,4 @@ export class DataChartPerformance {
     }
 }
 
-let sample = new DataChartPerformance();
+new DataChartPerformance();

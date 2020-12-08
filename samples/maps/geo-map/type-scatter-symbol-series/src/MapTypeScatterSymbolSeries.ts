@@ -47,4 +47,4 @@ export class MapTypeScatterSymbolSeries {
 
 }
 
-let sample = new MapTypeScatterSymbolSeries();
+new MapTypeScatterSymbolSeries();

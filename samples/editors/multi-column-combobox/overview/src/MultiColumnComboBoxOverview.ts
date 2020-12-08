@@ -20,4 +20,4 @@ export class MultiColumnComboBoxOverview {
 
 }
 
-let sample = new MultiColumnComboBoxOverview();
+new MultiColumnComboBoxOverview();

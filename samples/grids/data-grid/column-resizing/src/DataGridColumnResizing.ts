@@ -70,4 +70,4 @@ export class DataGridColumnResizing {
     }
 }
 
-let sample = new DataGridColumnResizing();
+new DataGridColumnResizing();

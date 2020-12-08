@@ -966,4 +966,4 @@ export class DataGridBindingLiveData {
     }
 }
 
-let sample = new DataGridBindingLiveData();
+new DataGridBindingLiveData();

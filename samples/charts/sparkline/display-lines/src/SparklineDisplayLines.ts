@@ -81,4 +81,4 @@ export class SparklineDisplayLines {
     }
 }
 
-let sample = new SparklineDisplayLines();
+new SparklineDisplayLines();

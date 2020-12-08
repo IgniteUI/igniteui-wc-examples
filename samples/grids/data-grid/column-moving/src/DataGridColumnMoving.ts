@@ -66,4 +66,4 @@ export class DataGridColumnMoving {
     }
 }
 
-let sample = new DataGridColumnMoving();
+new DataGridColumnMoving();

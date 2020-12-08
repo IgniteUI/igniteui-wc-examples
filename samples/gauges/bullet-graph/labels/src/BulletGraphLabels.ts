@@ -10,4 +10,4 @@ export class BulletGraphLabels {
 
 }
 
-let sample = new BulletGraphLabels();
+new BulletGraphLabels();

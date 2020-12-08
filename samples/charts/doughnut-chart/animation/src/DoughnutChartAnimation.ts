@@ -92,4 +92,4 @@ export class DoughnutChartAnimation {
 
 }
 
-let sample = new DoughnutChartAnimation();
+new DoughnutChartAnimation();

@@ -78,4 +78,4 @@ export class LinearGaugeTypeFilled {
 
 }
 
-let sample = new LinearGaugeTypeFilled();
+new LinearGaugeTypeFilled();

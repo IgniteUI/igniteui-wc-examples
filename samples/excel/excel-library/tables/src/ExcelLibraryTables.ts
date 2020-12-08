@@ -15,4 +15,4 @@ export class ExcelLibraryTables {
     }
 }
 
-let sample = new ExcelLibraryTables();
+new ExcelLibraryTables();

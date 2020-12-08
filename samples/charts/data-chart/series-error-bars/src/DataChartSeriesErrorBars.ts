@@ -44,4 +44,4 @@ export class DataChartSeriesErrorBars {
     }
 }
 
-let sample = new DataChartSeriesErrorBars();
+new DataChartSeriesErrorBars();

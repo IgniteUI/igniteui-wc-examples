@@ -594,4 +594,4 @@ export class SalesPerson {
     DateValue: Date;
 }
 
-let sample = new DataGridPerformance();
+new DataGridPerformance();

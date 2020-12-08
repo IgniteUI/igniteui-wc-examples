@@ -32,4 +32,4 @@ export class MapOverview {
 
 }
 
-let sample = new MapOverview();
+new MapOverview();

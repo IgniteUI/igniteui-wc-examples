@@ -16,4 +16,4 @@ export class SpreadsheetSortDialog {
     }
 }
 
-let sample = new SpreadsheetSortDialog();
+new SpreadsheetSortDialog();

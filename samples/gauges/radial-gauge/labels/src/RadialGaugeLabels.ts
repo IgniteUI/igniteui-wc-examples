@@ -16,4 +16,4 @@ export class RadialGaugeLabels {
 
 }
 
-let sample = new RadialGaugeLabels();
+new RadialGaugeLabels();

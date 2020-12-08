@@ -34,4 +34,4 @@ export class DataGridColumnPinningToolbar {
     }
 }
 
-let sample = new DataGridColumnPinningToolbar();
+new DataGridColumnPinningToolbar();

@@ -83,4 +83,4 @@ export class RadialGaugeTypeHalf {
     }
 }
 
-let sample = new RadialGaugeTypeHalf();
+new RadialGaugeTypeHalf();

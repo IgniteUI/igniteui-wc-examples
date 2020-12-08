@@ -10,4 +10,4 @@ export class BulletGraphBackground {
 
 }
 
-let sample = new BulletGraphBackground();
+new BulletGraphBackground();

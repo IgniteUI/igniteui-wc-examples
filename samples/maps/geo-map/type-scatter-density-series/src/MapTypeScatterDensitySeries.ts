@@ -71,4 +71,4 @@ export class MapTypeScatterDensitySeries {
 
 }
 
-let sample = new MapTypeScatterDensitySeries();
+new MapTypeScatterDensitySeries();

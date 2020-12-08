@@ -93,4 +93,4 @@ export class RadialGaugeTypeRing {
     }
 }
 
-let sample = new RadialGaugeTypeRing();
+new RadialGaugeTypeRing();

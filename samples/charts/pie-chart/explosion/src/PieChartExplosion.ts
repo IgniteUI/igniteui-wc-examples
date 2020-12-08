@@ -37,4 +37,4 @@ export class PieChartExplosion {
     }
 }
 
-let sample = new PieChartExplosion();
+new PieChartExplosion();

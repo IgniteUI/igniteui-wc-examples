@@ -285,4 +285,4 @@ export class ZoomSliderOverview {
     }
 }
 
-let sample = new ZoomSliderOverview();
+new ZoomSliderOverview();

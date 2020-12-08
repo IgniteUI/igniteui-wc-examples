@@ -285,4 +285,4 @@ export class RadialGaugeAnimation {
     }
 }
 
-let sample = new RadialGaugeAnimation();
+new RadialGaugeAnimation();

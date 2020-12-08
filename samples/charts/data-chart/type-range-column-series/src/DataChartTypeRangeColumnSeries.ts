@@ -26,4 +26,4 @@ export class DataChartTypeRangeColumnSeries {
     }
 }
 
-let sample = new DataChartTypeRangeColumnSeries();
+new DataChartTypeRangeColumnSeries();

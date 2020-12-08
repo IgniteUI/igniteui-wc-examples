@@ -18,4 +18,4 @@ export class DataGridBindingDataService {
     }
 }
 
-let sample = new DataGridBindingDataService();
+new DataGridBindingDataService();

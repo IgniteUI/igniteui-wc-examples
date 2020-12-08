@@ -228,4 +228,4 @@ export class DataGridTypeMatrixTable {
     }
 }
 
-let sample = new DataGridTypeMatrixTable();
+new DataGridTypeMatrixTable();

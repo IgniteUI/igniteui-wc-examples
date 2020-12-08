@@ -43,4 +43,4 @@ export class DataChartValueOverlay {
     }
 }
 
-let sample = new DataChartValueOverlay();
+new DataChartValueOverlay();

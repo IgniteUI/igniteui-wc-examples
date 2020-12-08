@@ -52,4 +52,4 @@ export class MapSynchronization {
 
 }
 
-let sample = new MapSynchronization();
+new MapSynchronization();

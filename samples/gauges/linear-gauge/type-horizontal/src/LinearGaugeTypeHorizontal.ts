@@ -98,4 +98,4 @@ export class LinearGaugeTypeHorizontal {
 
 }
 
-let sample = new LinearGaugeTypeHorizontal();
+new LinearGaugeTypeHorizontal();

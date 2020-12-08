@@ -85,4 +85,4 @@ export class MapTypeScatterPolygonSeries {
 
 }
 
-let sample = new MapTypeScatterPolygonSeries();
+new MapTypeScatterPolygonSeries();

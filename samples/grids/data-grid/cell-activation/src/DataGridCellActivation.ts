@@ -18,4 +18,4 @@ export class DataGridCellActivation {
     }
 }
 
-let sample = new DataGridCellActivation();
+new DataGridCellActivation();

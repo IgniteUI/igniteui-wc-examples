@@ -99,4 +99,4 @@ export class MapBindingDataModel {
     }
 }
 
-let sample = new MapBindingDataModel();
+new MapBindingDataModel();

@@ -74,4 +74,4 @@ export class MapBindingMultipleSources {
     }
 }
 
-let sample = new MapBindingMultipleSources();
+new MapBindingMultipleSources();

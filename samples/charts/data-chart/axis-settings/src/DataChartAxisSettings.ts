@@ -39,4 +39,4 @@ export class DataChartAxisSettings {
     }
 }
 
-let sample = new DataChartAxisSettings();
+new DataChartAxisSettings();

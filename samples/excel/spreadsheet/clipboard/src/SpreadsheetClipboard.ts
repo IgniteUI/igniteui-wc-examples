@@ -41,4 +41,4 @@ export class SpreadsheetClipboard {
     }
 }
 
-let sample = new SpreadsheetClipboard();
+new SpreadsheetClipboard();

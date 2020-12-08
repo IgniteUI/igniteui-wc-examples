@@ -95,4 +95,4 @@ export class DataGridColumnOptions {
     }
 }
 
-let sample = new DataGridColumnOptions();
+new DataGridColumnOptions();

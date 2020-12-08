@@ -59,4 +59,4 @@ export class FinancialChartAxisTypes {
     }
 }
 
-let sample = new FinancialChartAxisTypes();
+new FinancialChartAxisTypes();

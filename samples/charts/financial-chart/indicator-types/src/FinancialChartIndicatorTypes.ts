@@ -17,4 +17,4 @@ export class FinancialChartIndicatorTypes {
 
 }
 
-let sample = new FinancialChartIndicatorTypes();
+new FinancialChartIndicatorTypes();

@@ -43,4 +43,4 @@ export class DataChartTypeStackedSplineAreaSeries {
     }
 }
 
-let sample = new DataChartTypeStackedSplineAreaSeries();
+new DataChartTypeStackedSplineAreaSeries();

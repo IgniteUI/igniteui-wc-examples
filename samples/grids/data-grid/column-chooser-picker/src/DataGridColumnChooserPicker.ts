@@ -102,4 +102,4 @@ export class DataGridColumnChooserPicker {
 
 }
 
-let sample = new DataGridColumnChooserPicker();
+new DataGridColumnChooserPicker();

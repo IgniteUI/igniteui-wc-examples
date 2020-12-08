@@ -76,4 +76,4 @@ export class DataGridColumnFiltering {
     }
 }
 
-let sample = new DataGridColumnFiltering();
+new DataGridColumnFiltering();

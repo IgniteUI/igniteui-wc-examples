@@ -49,4 +49,4 @@ export class SparklineUnknownValues {
     }
 }
 
-let sample = new SparklineUnknownValues();
+new SparklineUnknownValues();

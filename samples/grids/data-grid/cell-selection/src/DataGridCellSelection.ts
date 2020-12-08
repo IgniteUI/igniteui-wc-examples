@@ -90,4 +90,4 @@ export class DataGridCellSelection {
     }
 }
 
-let sample = new DataGridCellSelection();
+new DataGridCellSelection();

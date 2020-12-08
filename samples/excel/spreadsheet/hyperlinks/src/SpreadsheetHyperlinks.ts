@@ -22,4 +22,4 @@ export class SpreadsheetHyperlinks {
     }
 }
 
-let sample = new SpreadsheetHyperlinks();
+new SpreadsheetHyperlinks();

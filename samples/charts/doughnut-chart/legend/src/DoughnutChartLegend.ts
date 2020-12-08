@@ -33,4 +33,4 @@ export class DoughnutChartLegend {
     }
 }
 
-let sample = new DoughnutChartLegend();
+new DoughnutChartLegend();

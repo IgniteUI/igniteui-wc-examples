@@ -207,4 +207,4 @@ export class DataGridTypeComparisonTable {
 
 }
 
-let sample = new DataGridTypeComparisonTable();
+new DataGridTypeComparisonTable();

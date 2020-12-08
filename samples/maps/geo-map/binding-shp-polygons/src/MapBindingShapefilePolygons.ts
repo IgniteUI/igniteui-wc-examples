@@ -91,4 +91,4 @@ export class MapBindingShapefilePolygons {
     }
 }
 
-let sample = new MapBindingShapefilePolygons();
+new MapBindingShapefilePolygons();

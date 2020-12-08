@@ -17,4 +17,4 @@ export class DataGridTypeSparklineTable {
 
 }
 
-let sample = new DataGridTypeSparklineTable();
+new DataGridTypeSparklineTable();

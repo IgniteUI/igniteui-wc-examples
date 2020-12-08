@@ -254,4 +254,4 @@ class HeatScale {
     }
 }
 
-let sample = new DataGridTypeHeatmapTable();
+new DataGridTypeHeatmapTable();

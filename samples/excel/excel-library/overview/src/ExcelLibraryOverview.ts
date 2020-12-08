@@ -167,4 +167,4 @@ export class ExcelLibraryOverview {
     }
 }
 
-let sample = new ExcelLibraryOverview();
+new ExcelLibraryOverview();

@@ -85,4 +85,4 @@ export class SparklineMarkers {
 
 }
 
-let sample = new SparklineMarkers();
+new SparklineMarkers();

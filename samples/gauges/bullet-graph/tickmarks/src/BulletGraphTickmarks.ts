@@ -10,4 +10,4 @@ export class BulletGraphTickmarks {
 
 }
 
-let sample = new BulletGraphTickmarks();
+new BulletGraphTickmarks();

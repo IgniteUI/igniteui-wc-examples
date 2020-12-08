@@ -10,4 +10,4 @@ export class BulletGraphMeasures {
 
 }
 
-let sample = new BulletGraphMeasures();
+new BulletGraphMeasures();

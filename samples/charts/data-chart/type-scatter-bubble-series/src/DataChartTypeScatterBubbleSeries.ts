@@ -85,4 +85,4 @@ export class DataChartTypeScatterBubbleSeries {
     }
 }
 
-let sample = new DataChartTypeScatterBubbleSeries();
+new DataChartTypeScatterBubbleSeries();

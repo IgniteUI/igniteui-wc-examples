@@ -36,4 +36,4 @@ export class DataChartTypeCategoryBarSeries {
 
 }
 
-let sample = new DataChartTypeCategoryBarSeries();
+new DataChartTypeCategoryBarSeries();

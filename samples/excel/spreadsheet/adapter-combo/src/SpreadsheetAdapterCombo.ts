@@ -83,4 +83,4 @@ export class SpreadsheetAdapterCombo {
     }
 }
 
-let sample = new SpreadsheetAdapterCombo();
+new SpreadsheetAdapterCombo();

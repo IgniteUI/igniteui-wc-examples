@@ -58,4 +58,4 @@ export class DoughnutChartSelection {
     }
 }
 
-let sample = new DoughnutChartSelection();
+new DoughnutChartSelection();

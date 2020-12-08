@@ -112,4 +112,4 @@ export class RadialGaugeTypeDirection {
     }
 }
 
-let sample = new RadialGaugeTypeDirection();
+new RadialGaugeTypeDirection();

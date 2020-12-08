@@ -51,4 +51,4 @@ export class CategoryChartHighVolume {
     }
 }
 
-let sample = new CategoryChartHighVolume();
+new CategoryChartHighVolume();

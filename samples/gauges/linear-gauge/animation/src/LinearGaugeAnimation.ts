@@ -244,4 +244,4 @@ export class LinearGaugeAnimation {
     }
 }
 
-let sample = new LinearGaugeAnimation();
+new LinearGaugeAnimation();

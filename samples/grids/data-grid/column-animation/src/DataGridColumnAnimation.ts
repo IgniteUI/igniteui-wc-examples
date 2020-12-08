@@ -280,4 +280,4 @@ export class DataGridColumnAnimation {
     }
 }
 
-let sample = new DataGridColumnAnimation();
+new DataGridColumnAnimation();

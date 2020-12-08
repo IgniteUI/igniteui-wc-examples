@@ -48,4 +48,4 @@ export class CategoryChartTrendline {
     }
 }
 
-let sample = new CategoryChartTrendline();
+new CategoryChartTrendline();

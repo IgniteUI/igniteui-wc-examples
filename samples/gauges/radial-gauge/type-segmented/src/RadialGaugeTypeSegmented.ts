@@ -84,4 +84,4 @@ export class RadialGaugeTypeSegmented {
     }
 }
 
-let sample = new RadialGaugeTypeSegmented();
+new RadialGaugeTypeSegmented();

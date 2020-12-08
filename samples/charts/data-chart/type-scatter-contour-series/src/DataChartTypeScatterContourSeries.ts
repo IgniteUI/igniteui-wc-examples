@@ -83,4 +83,4 @@ export class DataChartTypeScatterContourSeries {
     }
 }
 
-let sample = new DataChartTypeScatterContourSeries();
+new DataChartTypeScatterContourSeries();

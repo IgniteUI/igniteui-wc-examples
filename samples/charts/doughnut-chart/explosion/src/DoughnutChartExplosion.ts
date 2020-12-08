@@ -77,4 +77,4 @@ export class DoughnutChartExplosion {
 
 }
 
-let sample = new DoughnutChartExplosion();
+new DoughnutChartExplosion();

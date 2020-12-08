@@ -33,4 +33,4 @@ export class DataChartAxisSharing {
     }
 }
 
-let sample = new DataChartAxisSharing();
+new DataChartAxisSharing();

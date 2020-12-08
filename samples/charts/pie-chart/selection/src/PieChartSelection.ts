@@ -49,4 +49,4 @@ export class PieChartSelection {
     }
 }
 
-let sample = new PieChartSelection();
+new PieChartSelection();

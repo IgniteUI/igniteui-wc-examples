@@ -25,4 +25,4 @@ export class FinancialChartMultipleData {
     }
 }
 
-let sample = new FinancialChartMultipleData();
+new FinancialChartMultipleData();

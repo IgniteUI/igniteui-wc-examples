@@ -77,4 +77,4 @@ export class CategoryChartOverview {
     }
 }
 
-let sample = new CategoryChartOverview();
+new CategoryChartOverview();

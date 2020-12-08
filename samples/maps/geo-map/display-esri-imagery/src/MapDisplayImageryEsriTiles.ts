@@ -70,4 +70,4 @@ export class MapDisplayImageryEsriTiles {
     }
 }
 
-let sample = new MapDisplayImageryEsriTiles();
+new MapDisplayImageryEsriTiles();

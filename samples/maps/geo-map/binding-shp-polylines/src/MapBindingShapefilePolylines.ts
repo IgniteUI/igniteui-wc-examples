@@ -97,4 +97,4 @@ export class MapBindingShapefilePolylines {
 
 }
 
-let sample = new MapBindingShapefilePolylines();
+new MapBindingShapefilePolylines();

@@ -111,4 +111,4 @@ export class DataGridBindingLocalData {
     // }
 }
 
-let sample = new DataGridBindingLocalData();
+new DataGridBindingLocalData();

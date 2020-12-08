@@ -17,4 +17,4 @@ export class FinancialChartPanes {
 
 }
 
-let sample = new FinancialChartPanes();
+new FinancialChartPanes();

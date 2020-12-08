@@ -44,4 +44,4 @@ export class DataGridRowHighlighting {
     }
 }
 
-let sample = new DataGridRowHighlighting();
+new DataGridRowHighlighting();

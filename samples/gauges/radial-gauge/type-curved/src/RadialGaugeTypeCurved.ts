@@ -121,4 +121,4 @@ export class RadialGaugeTypeCurved {
 
 }
 
-let sample = new RadialGaugeTypeCurved();
+new RadialGaugeTypeCurved();

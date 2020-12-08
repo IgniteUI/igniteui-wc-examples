@@ -31,4 +31,4 @@ export class DataChartTypePolarSplineAreaSeries {
     }
 }
 
-let sample = new DataChartTypePolarSplineAreaSeries();
+new DataChartTypePolarSplineAreaSeries();

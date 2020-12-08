@@ -119,4 +119,4 @@ export class DataChartSeriesHighlighting {
     }
 }
 
-let sample = new DataChartSeriesHighlighting();
+new DataChartSeriesHighlighting();

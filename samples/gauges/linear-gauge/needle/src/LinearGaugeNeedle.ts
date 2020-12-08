@@ -10,4 +10,4 @@ export class LinearGaugeNeedle {
 
 }
 
-let sample = new LinearGaugeNeedle();
+new LinearGaugeNeedle();

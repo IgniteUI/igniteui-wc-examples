@@ -33,4 +33,4 @@ export class PieChartLegend {
     }
 }
 
-let sample = new PieChartLegend();
+new PieChartLegend();

@@ -58,4 +58,4 @@ export class BulletGraphTypeVertical {
     }
 }
 
-let sample = new BulletGraphTypeVertical();
+new BulletGraphTypeVertical();

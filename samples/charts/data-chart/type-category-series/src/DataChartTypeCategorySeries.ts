@@ -276,4 +276,4 @@ export class DataChartTypeCategorySeries {
 
 }
 
-let sample = new DataChartTypeCategorySeries();
+new DataChartTypeCategorySeries();

@@ -64,4 +64,4 @@ export class TreeMapOverview {
 
 }
 
-let sample = new TreeMapOverview();
+new TreeMapOverview();

@@ -40,4 +40,4 @@ export class DataChartTypeScatterPolygonSeries {
     }
 }
 
-let sample = new DataChartTypeScatterPolygonSeries();
+new DataChartTypeScatterPolygonSeries();

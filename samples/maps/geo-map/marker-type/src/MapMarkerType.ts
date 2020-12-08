@@ -59,4 +59,4 @@ export class MapMarkerType {
 
 }
 
-let sample = new MapMarkerType();
+new MapMarkerType();
