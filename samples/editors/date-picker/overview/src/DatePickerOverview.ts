@@ -9,7 +9,7 @@ export class DatePickerOverview {
     private datePicker: IgcDatePickerComponent;
 
     constructor() {
-        this.datePicker = document.getElementById("datePicker") as IgcDatePickerComponent;        
+        this.datePicker = document.getElementById("datePicker") as IgcDatePickerComponent;
         this.datePicker.value = new Date(Date.now());
     }
 }
