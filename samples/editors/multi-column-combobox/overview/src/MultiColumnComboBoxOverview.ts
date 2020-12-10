@@ -14,8 +14,9 @@ export class MultiColumnComboBoxOverview {
 
         this.multiColumnComboBox = document.getElementById("comboBox") as IgcMultiColumnComboBoxComponent;
         this.multiColumnComboBox.dataSource = SampleComboData.getPopulation();
-        this.multiColumnComboBox.textField = "country";
-        // this.multiColumnComboBox.sortMode = SortMode.SortByOneColumnOnly;
+        this.multiColumnComboBox.fields = [ "Country", "Pop", "Continent" ];
+        this.multiColumnComboBox.textField = "Country";
+        this.multiColumnComboBox.sortMode = SortMode.SortByOneColumnOnly;
         this.multiColumnComboBox.placeholder = "Choose a country";
     }
 
