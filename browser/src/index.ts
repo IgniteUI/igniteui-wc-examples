@@ -5,6 +5,8 @@ import "./Scrollbars.css";
 
 import { Router } from './router';
 
+console.log("SB github");
+
 Router.instance.connect(document.getElementById("router-target"));
 
 document.querySelectorAll(".nav-link").forEach(nav => {
