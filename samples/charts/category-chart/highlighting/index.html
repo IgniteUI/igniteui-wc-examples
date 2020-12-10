@@ -16,12 +16,12 @@
 
 <div class="igContainer">
 
-<div class="igOptions">
-    <label class="igOptions-label">Enable Highlighting: </label>
-    <label class="igOptions-item"><input id="SeriesHighlighting" type="checkbox" checked="true" /> Series </label>
-    <label class="igOptions-item"><input id="ItemHighlighting" type="checkbox" checked="true" />Item </label>
-    <label class="igOptions-item"><input id="CategoryHighlighting" type="checkbox" checked="false"/>Category </label>
-</div>
+    <div class="igOptions">
+        <label class="igOptions-label">Enable Highlighting: </label>
+        <label class="igOptions-item"><input id="SeriesHighlighting" type="checkbox" checked="true" /> Series </label>
+        <label class="igOptions-item"><input id="ItemHighlighting" type="checkbox" checked="true" />Item </label>
+        <label class="igOptions-item"><input id="CategoryHighlighting" type="checkbox" checked="false"/>Category </label>
+    </div>
 
     <igc-category-chart id="chart"
         width="100%"
@@ -30,8 +30,9 @@
         is-category-highlighting-enabled="true"
         is-item-highlighting-enabled="true">
     </igc-category-chart>
-    </div>
+</div>
 
+    </div>
     <script src="src/index.ts"></script>
 
   </body>
