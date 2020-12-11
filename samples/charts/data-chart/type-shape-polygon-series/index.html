@@ -18,20 +18,32 @@
     <igc-data-chart id="chart" width="100%" height="100%"
         is-horizontal-zoom-enabled="true"
         is-vertical-zoom-enabled="true"
-        chart-title="House Floor Plan">
-        <igc-numeric-x-axis name="xAxis" minimum-value="-1" maximum-value="11" interval="1">
+        chart-title="Airplane Seating Chart">
+
+        <igc-numeric-x-axis name="xAxis" minimumValue="-700" maximumValue="700" interval="100">
         </igc-numeric-x-axis>
-        <igc-numeric-y-axis name="yAxis" minimum-value="-1" maximum-value="11" interval="1">
+        <igc-numeric-y-axis name="yAxis" minimumValue="-600" maximumValue="500" interval="100">
         </igc-numeric-y-axis>
 
         <igc-scatter-polygon-series
-            name="series1"
+            id="airplaneShapeSeries"
+            name="airplaneShapeSeries"
             x-axis-name="xAxis"
             y-axis-name="yAxis"
-            shape-member-path="Points"
-            title="House Outline"
-            brush="Gray"
+            shape-member-path="points"
+            title="Airplane Shape"
+            thickness="0.5"
+            brush="LightGray"
             outline="Black">
+        </igc-scatter-polygon-series>
+
+        <igc-scatter-polygon-series
+            id="airplaneSeatSeries"
+            name="airplaneSeatSeries"
+            x-axis-name="xAxis"
+            y-axis-name="yAxis"
+            shape-member-path="points"
+            title="Airplane Seats">
         </igc-scatter-polygon-series>
 
     </igc-data-chart>
