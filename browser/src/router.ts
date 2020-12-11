@@ -80,10 +80,10 @@ export class Router {
 
         console.log("SB matching " + route);
 
-        if (route.indexOf("/geo-map/") >= 0) {
+        if (route.indexOf("/maps/") >= 0) {
             this.displaySample(await RouterMaps.get(route));
         }
-        if (route.indexOf("/data-grid/") >= 0) {
+        if (route.indexOf("/grids/") >= 0) {
             this.displaySample(await RouterGrids.get(route));
         }
         if (route.indexOf("/excel/") >= 0) {
@@ -105,9 +105,10 @@ export class Router {
             this.displaySample(await RouterEditors.get(route));
         }
 
-        //else {
+        else {
+            console.log("SB missing router for " + route)
             // this.navigateToRoute(""); // TODO add fallback
-        //}
+        }
 
         // switch (route) {
         //     //NOTE! this is spelled out explicitly on purpose. I'm not sure the bundlers would like it if you
