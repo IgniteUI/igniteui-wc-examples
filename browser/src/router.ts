@@ -89,9 +89,6 @@ export class Router {
         if (route.indexOf("/excel/") >= 0) {
             this.displaySample(await RouterExcel.get(route));
         }
-        if (route.indexOf("/excel/") >= 0) {
-            this.displaySample(await RouterExcel.get(route));
-        }
         if (route.indexOf("/gauges/") >= 0) {
             this.displaySample(await RouterGauges.get(route));
         }
