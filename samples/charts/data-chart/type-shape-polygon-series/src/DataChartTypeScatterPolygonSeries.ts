@@ -6,10 +6,9 @@ import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcScatterPolygonSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcScatterPolygonSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcStyleShapeEventArgs } from 'igniteui-webcomponents-charts';
-import { IgcShapeDataSource } from 'igniteui-webcomponents-core';
-import { IgcShapefileRecord } from 'igniteui-webcomponents-core';
 import { DataContext } from 'igniteui-webcomponents-core';
 import { html } from 'lit-html';
+import "./DataChartStyles.css";
 
 ModuleManager.register(
     IgcDataChartCoreModule,
@@ -27,60 +26,54 @@ export class DataChartTypeScatterPolygonSeries {
         this.onAirplaneSeatsLoaded = this.onAirplaneSeatsLoaded.bind(this);
         this.createTooltip = this.createTooltip.bind(this);
 
-        const url = 'https://static.infragistics.com/xplatform/shapes/airplanes/';
+        fetch('https://static.infragistics.com/xplatform/json/airplane-shape.json')
+            .then((response) => response.json())
+            .then((data) => this.onAirplaneShapesLoaded(data));
 
-        const airplaneShapeSource = new IgcShapeDataSource();
-        airplaneShapeSource.importCompleted = this.onAirplaneShapesLoaded;
-        airplaneShapeSource.shapefileSource = url + 'airplane-shape.shp';
-        airplaneShapeSource.databaseSource  = url + 'airplane-shape.dbf';
-        airplaneShapeSource.dataBind();
-
-        const airplaneSeatSource = new IgcShapeDataSource();
-        airplaneSeatSource.importCompleted = this.onAirplaneSeatsLoaded;
-        airplaneSeatSource.shapefileSource = url + 'airplane-seats.shp';
-        airplaneSeatSource.databaseSource  = url + 'airplane-seats.dbf';
-        airplaneSeatSource.dataBind();
+        fetch('https://static.infragistics.com/xplatform/json/airplane-seats.json')
+            .then((response) => response.json())
+            .then((data) => this.onAirplaneSeatsLoaded(data));
     }
 
-    public onAirplaneShapesLoaded(sds: IgcShapeDataSource, e: any) {
+    public onAirplaneShapesLoaded(jsonData: any[]) {
         console.log('onAirplaneShapesLoaded');
-        let airplaneShapes = sds.getPointData();
         let airplaneShapeSeries = (document.getElementById('airplaneShapeSeries') as IgcScatterPolygonSeriesComponent);
-        airplaneShapeSeries.dataSource = airplaneShapes;
+        airplaneShapeSeries.dataSource = jsonData;
         airplaneShapeSeries.renderSeries(false);
     }
 
-    public onAirplaneSeatsLoaded(sds: IgcShapeDataSource, e: any) {
+    public onAirplaneSeatsLoaded(jsonData: any[]) {
         console.log('onAirplaneSeatsLoaded');
-        let airplaneShapes = sds.getPointData();
         let airplaneSeatSeries = (document.getElementById('airplaneSeatSeries') as IgcScatterPolygonSeriesComponent);
         airplaneSeatSeries.styleShape = this.onStylingShape;
-        airplaneSeatSeries.dataSource = airplaneShapes;
+        airplaneSeatSeries.dataSource = jsonData;
         airplaneSeatSeries.tooltipTemplate = this.createTooltip;
         airplaneSeatSeries.renderSeries(false);
     }
 
     public onStylingShape(sender: any, args: IgcStyleShapeEventArgs) {
 
+        console.log('onStylingShape');
         args.shapeOpacity = 1.0;
         args.shapeStrokeThickness = 0.5;
         args.shapeStroke = "Black";
+        args.shapeFill = "White";
 
-        let itemRecord = args.item as IgcShapefileRecord;
-        if (itemRecord.fieldValues['Class'] === 'First Class') {
+        const itemRecord = args.item as any;
+        if (itemRecord.class === 'First') {
             args.shapeFill = "DodgerBlue";
         }
-        if (itemRecord.fieldValues['Class'] === 'Business Class') {
+        if (itemRecord.class === 'Business') {
             args.shapeFill = "LimeGreen";
         }
-        if (itemRecord.fieldValues['Class'] === 'Premium Class') {
+        if (itemRecord.class === 'Premium') {
             args.shapeFill = "Orange";
         }
-        if (itemRecord.fieldValues['Class'] === 'Economy Class') {
+        if (itemRecord.class === 'Economy') {
             args.shapeFill = "Red";
         }
 
-        if (itemRecord.fieldValues['Status'] === 'Sold') {
+        if (itemRecord.status === 'Sold') {
             args.shapeFill = 'Gray';
         }
     }
@@ -98,19 +91,19 @@ export class DataChartTypeScatterPolygonSeries {
             <div class='tooltipBox'>
                 <div class='tooltipRow'>
                     <div class='tooltipLbl'>Class</div>
-                    <div class='tooltipVal'>${dataItem.fieldValues['Class']}</div>
+                    <div class='tooltipVal'>${dataItem.class}</div>
                 </div>
                 <div class='tooltipRow'>
                     <div class='tooltipLbl'>Seat</div>
-                    <div class='tooltipVal'>${dataItem.fieldValues['Seat']} </div>
+                    <div class='tooltipVal'>${dataItem.seat} </div>
                 </div>
                 <div class='tooltipRow'>
                     <div class='tooltipLbl'>Price</div>
-                    <div class='tooltipVal'>${dataItem.fieldValues['Price']}</div>
+                    <div class='tooltipVal'>${dataItem.price}</div>
                 </div>
                 <div class='tooltipRow'>
                     <div class='tooltipLbl'>Status</div>
-                    <div class='tooltipVal'>${dataItem.fieldValues['Status']}</div>
+                    <div class='tooltipVal'>${dataItem.status}</div>
                 </div>
             </div>
         </div>`;

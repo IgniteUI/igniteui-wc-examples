@@ -18,11 +18,12 @@
     <igc-data-chart id="chart" width="100%" height="100%"
         is-horizontal-zoom-enabled="true"
         is-vertical-zoom-enabled="true"
-        chart-title="Airplane Seating Chart">
+        subtitle-top-margin="10"
+        subtitle="Airplane Seating Chart (Polylines)">
 
-        <igc-numeric-x-axis name="xAxis" minimumValue="-700" maximumValue="700" interval="100">
+        <igc-numeric-x-axis name="xAxis" minimum-value=-800 maximum-value=800 interval=200>
         </igc-numeric-x-axis>
-        <igc-numeric-y-axis name="yAxis" minimumValue="-600" maximumValue="500" interval="100">
+        <igc-numeric-y-axis name="yAxis" minimum-value=-600 maximum-value=600 interval=200>
         </igc-numeric-y-axis>
 
         <igc-scatter-polyline-series
@@ -32,7 +33,7 @@
             y-axis-name="yAxis"
             shape-member-path="points"
             title="Airplane Shape"
-            thickness="0.5"
+            thickness="1"
             brush="Black"
             outline="Black">
         </igc-scatter-polyline-series>
@@ -47,6 +48,14 @@
         </igc-scatter-polyline-series>
 
     </igc-data-chart>
+
+    <div class="legend">
+        <div><span style="border-color: dodgerblue; "></span><label>First Class</label></div>
+        <div><span style="border-color: LimeGreen; "></span><label>Business Class</label></div>
+        <div><span style="border-color: Orange; "></span><label>Premium Class</label></div>
+        <div><span style="border-color: red; "></span><label>Economy Class</label></div>
+        <div><span style="border-color: gray; "></span><label>Sold Seat</label> </div>
+    </div>
 </div>
 
     </div>
