@@ -51,12 +51,10 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/grids/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/dock-manager/overview/package.json',
+    igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
 
     // igConfig.SamplesCopyPath + '/layouts/**/package.json',
     // excluding samples that are not finished:
-     '!' + igConfig.SamplesCopyPath + '/layouts/dock-manager/updating-panes/package.json',
-     '!' + igConfig.SamplesCopyPath + '/layouts/dock-manager/embedding-frames/package.json',
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**',
      '!' + igConfig.SamplesCopyPath + '/**/node_modules',
