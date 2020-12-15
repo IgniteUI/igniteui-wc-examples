@@ -18,7 +18,7 @@ ModuleManager.register(
     IgcScatterPolygonSeriesModule
 );
 
-export class DataChartTypeShapePolygonSeries {
+export class DataChartTypeScatterPolygonSeries {
 
     constructor() {
 
@@ -53,7 +53,6 @@ export class DataChartTypeShapePolygonSeries {
 
     public onStylingShape(sender: any, args: IgcStyleShapeEventArgs) {
 
-        console.log('onStylingShape');
         args.shapeOpacity = 1.0;
         args.shapeStrokeThickness = 0.5;
         args.shapeStroke = "Black";
@@ -111,4 +110,4 @@ export class DataChartTypeShapePolygonSeries {
     }
 }
 
-new DataChartTypeShapePolygonSeries();
+new DataChartTypeScatterPolygonSeries();

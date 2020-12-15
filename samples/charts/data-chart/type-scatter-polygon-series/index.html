@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>DataChartTypeScatterPolygonSeries</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="igContainer">
+    <igc-data-chart id="chart" width="100%" height="100%"
+        is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true"
+        subtitle-top-margin="10"
+        subtitle="Airplane Seating Chart (Polygons)">
+
+        <igc-numeric-x-axis name="xAxis" minimum-value=-800 maximum-value=800 interval=200>
+        </igc-numeric-x-axis>
+        <igc-numeric-y-axis name="yAxis" minimum-value=-600 maximum-value=600 interval=200>
+        </igc-numeric-y-axis>
+
+        <igc-scatter-polygon-series
+            id="airplaneShapeSeries"
+            name="airplaneShapeSeries"
+            x-axis-name="xAxis"
+            y-axis-name="yAxis"
+            shape-member-path="points"
+            title="Airplane Shape"
+            thickness="0.5"
+            brush="LightGray"
+            outline="Black">
+        </igc-scatter-polygon-series>
+
+        <igc-scatter-polygon-series
+            id="airplaneSeatSeries"
+            name="airplaneSeatSeries"
+            x-axis-name="xAxis"
+            y-axis-name="yAxis"
+            shape-member-path="points"
+            title="Airplane Seats">
+        </igc-scatter-polygon-series>
+
+    </igc-data-chart>
+
+    <div class="legend">
+        <div><span style="background: dodgerblue; "></span><label>First Class</label></div>
+        <div><span style="background: LimeGreen; "></span><label>Business Class</label></div>
+        <div><span style="background: Orange; "></span><label>Premium Class</label></div>
+        <div><span style="background: red; "></span><label>Economy Class</label></div>
+        <div><span style="background: gray; "></span><label>Sold Seat</label> </div>
+    </div>
+</div>
+
+    </div>
+    <script src="src/index.ts"></script>
+
+  </body>
+</html>
