@@ -1,1 +1,1 @@
-import './DataChartTypeScatterPolylineSeries';
+import './DataChartTypeShapePolylineSeries';

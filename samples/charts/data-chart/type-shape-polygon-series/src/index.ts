@@ -1,1 +1,1 @@
-import './DataChartTypeScatterPolygonSeries';
+import './DataChartTypeShapePolygonSeries';

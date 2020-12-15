@@ -3,8 +3,8 @@ import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartShapeCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartShapeModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { IgcScatterPolygonSeriesModule } from 'igniteui-webcomponents-charts';
-import { IgcScatterPolygonSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcScatterPolylineSeriesModule } from 'igniteui-webcomponents-charts';
+import { IgcScatterPolylineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcStyleShapeEventArgs } from 'igniteui-webcomponents-charts';
 import { DataContext } from 'igniteui-webcomponents-core';
 import { html } from 'lit-html';
@@ -15,10 +15,10 @@ ModuleManager.register(
     IgcDataChartShapeCoreModule,
     IgcDataChartShapeModule,
     IgcDataChartInteractivityModule,
-    IgcScatterPolygonSeriesModule
+    IgcScatterPolylineSeriesModule
 );
 
-export class DataChartTypeScatterPolygonSeries {
+export class DataChartTypeShapePolylineSeries {
 
     constructor() {
 
@@ -37,14 +37,14 @@ export class DataChartTypeScatterPolygonSeries {
 
     public onAirplaneShapesLoaded(jsonData: any[]) {
         console.log('onAirplaneShapesLoaded');
-        let airplaneShapeSeries = (document.getElementById('airplaneShapeSeries') as IgcScatterPolygonSeriesComponent);
+        let airplaneShapeSeries = (document.getElementById('airplaneShapeSeries') as IgcScatterPolylineSeriesComponent);
         airplaneShapeSeries.dataSource = jsonData;
         airplaneShapeSeries.renderSeries(false);
     }
 
     public onAirplaneSeatsLoaded(jsonData: any[]) {
         console.log('onAirplaneSeatsLoaded');
-        let airplaneSeatSeries = (document.getElementById('airplaneSeatSeries') as IgcScatterPolygonSeriesComponent);
+        let airplaneSeatSeries = (document.getElementById('airplaneSeatSeries') as IgcScatterPolylineSeriesComponent);
         airplaneSeatSeries.styleShape = this.onStylingShape;
         airplaneSeatSeries.dataSource = jsonData;
         airplaneSeatSeries.tooltipTemplate = this.createTooltip;
@@ -55,26 +55,25 @@ export class DataChartTypeScatterPolygonSeries {
 
         console.log('onStylingShape');
         args.shapeOpacity = 1.0;
-        args.shapeStrokeThickness = 0.5;
+        args.shapeStrokeThickness = 1.0;
         args.shapeStroke = "Black";
-        args.shapeFill = "White";
 
         const itemRecord = args.item as any;
         if (itemRecord.class === 'First') {
-            args.shapeFill = "DodgerBlue";
+            args.shapeStroke = "DodgerBlue";
         }
         if (itemRecord.class === 'Business') {
-            args.shapeFill = "LimeGreen";
+            args.shapeStroke = "LimeGreen";
         }
         if (itemRecord.class === 'Premium') {
-            args.shapeFill = "Orange";
+            args.shapeStroke = "Orange";
         }
         if (itemRecord.class === 'Economy') {
-            args.shapeFill = "Red";
+            args.shapeStroke = "Red";
         }
 
         if (itemRecord.status === 'Sold') {
-            args.shapeFill = 'Gray';
+            args.shapeStroke = 'Gray';
         }
     }
 
@@ -109,6 +108,7 @@ export class DataChartTypeScatterPolygonSeries {
         </div>`;
         return tooltip;
     }
+
 }
 
-new DataChartTypeScatterPolygonSeries();
+new DataChartTypeShapePolylineSeries();
