@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <title>DataChartSeriesMarkerTemplate</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+</head>
+
+<body>
+  <div id="root">
+    <div class="igContainer">
+      <div class="igComponent" style="height: calc(100% - 35px)">
+        <igc-data-chart id="chart" width="100%" height="100%">
+          <igc-category-x-axis name="xAxis" label="Label" interval="1">
+          </igc-category-x-axis>
+          <igc-numeric-y-axis name="yAxis" minimum-value="20" maximum-value="120">
+          </igc-numeric-y-axis>
+
+          <igc-column-series id="series" value-member-path="Value" x-axis-name="xAxis" y-axis-name="yAxis">
+          </igc-column-series>
+        </igc-data-chart>
+      </div>
+    </div>
+  </div>
+  <script src="src/index.ts"></script>
+
+</body>
+
+</html>
