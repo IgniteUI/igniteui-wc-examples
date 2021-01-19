@@ -1,4 +1,3 @@
-import { html } from 'lit-html';
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicScatterAreaSeriesComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
@@ -27,12 +26,12 @@ export class MapTriangulatingData {
             "red"
         ];
 
-        let colorScale : IgcCustomPaletteColorScaleComponent = new IgcCustomPaletteColorScaleComponent();
+        let colorScale: IgcCustomPaletteColorScaleComponent = new IgcCustomPaletteColorScaleComponent();
         colorScale.palette = brushes;
         colorScale.minimumValue = 0.15;
         colorScale.interpolationMode = ColorScaleInterpolationMode.InterpolateRGB;
-        
-        let geoSeries : IgcGeographicScatterAreaSeriesComponent = new IgcGeographicScatterAreaSeriesComponent();
+
+        let geoSeries: IgcGeographicScatterAreaSeriesComponent = new IgcGeographicScatterAreaSeriesComponent();
         geoSeries.colorScale = colorScale;
         geoSeries.opacity = 0.75;
         geoSeries.triangulationDataSource = "https://static.infragistics.com/xplatform/shapes/weather/nws_precip_2011091820.itf";
