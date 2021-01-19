@@ -310,6 +310,7 @@ function copySamples(cb) {
                              file.basename.indexOf("Utility.ts") >= 0 ||
                              file.basename.indexOf("Sample") >= 0 ||
                              (file.basename.indexOf("Data.ts") >= 0 &&
+                              file.basename.indexOf("MapTriangulatingData") == -1 &&
                               file.basename.indexOf("FinancialChartMultipleData") == -1 &&
                               file.basename.indexOf("DataGridBindingLiveData") == -1 &&
                               file.basename.indexOf("DataGridBindingLocalData") == -1 &&
