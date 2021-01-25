@@ -19,7 +19,7 @@
   },
   "author": "",
   "dependencies": {
-    "igniteui-dockmanager": "^1.3.0-beta.0",
+    "igniteui-dockmanager": "^1.3.0",
     "igniteui-webcomponents-core": "1.2.1",
     "igniteui-webcomponents-maps": "1.2.1",
     "igniteui-webcomponents-charts": "1.2.1",
