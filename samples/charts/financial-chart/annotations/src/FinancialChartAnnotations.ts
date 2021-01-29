@@ -3,6 +3,7 @@ import { IgcFinancialChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { CrosshairsDisplayMode } from 'igniteui-webcomponents-charts';
 import { MarkerType } from 'igniteui-webcomponents-charts';
+import { ToolTipType } from 'igniteui-webcomponents-charts';
 import { StocksUtility } from './StocksUtility';
 
 ModuleManager.register(IgcFinancialChartModule);
@@ -15,6 +16,7 @@ export class FinancialChartAnnotations {
     private crosshairsVisible = true;
     private finalValuesVisible = true;
     private markersTypes = MarkerType.Circle;
+    private toolTipTypes = ToolTipType.Item;
 
     constructor() {
 
@@ -25,6 +27,7 @@ export class FinancialChartAnnotations {
         this.chart.crosshairsAnnotationEnabled = this.crosshairsVisible;
         this.chart.finalValueAnnotationsVisible = this.finalValuesVisible;
         this.chart.markerTypes.add(this.markersTypes);
+        this.chart.toolTipTypes.add(this.toolTipTypes);
 
         let crosshairs = document.getElementById('crosshairs');
         crosshairs!.addEventListener('change', this.onCrosshairsVisible);
@@ -37,6 +40,9 @@ export class FinancialChartAnnotations {
 
         let markers = document.getElementById('markers');
         markers!.addEventListener('change', this.onMarkersVisible);
+
+        let tooltips = document.getElementById('toolTipTypes');
+        tooltips!.addEventListener('change', this.onToolTipsChanged);
     }
 
     public onCrosshairsVisible = (e: any) => {
@@ -65,6 +71,12 @@ export class FinancialChartAnnotations {
         this.chart.markerTypes.clear();
         this.markersTypes = e.target.checked ? MarkerType.Circle : MarkerType.None;
         this.chart.markerTypes.add(this.markersTypes);
+    }
+
+    public onToolTipsChanged = (e: any) => {
+        this.chart.toolTipTypes.clear();
+        this.toolTipTypes = e.target.checked ? ToolTipType.Item : MarkerType.None;
+        this.chart.toolTipTypes.add(this.toolTipTypes);
     }
 
     getData(): any[] {

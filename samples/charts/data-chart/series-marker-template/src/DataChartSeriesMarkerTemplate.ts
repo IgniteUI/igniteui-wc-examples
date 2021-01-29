@@ -21,15 +21,15 @@ ModuleManager.register(
 export class DataChartSeriesMarkerTemplate {
 
     private chart: IgcDataChartComponent;
-    private series: IgcColumnSeriesComponent;    
+    private series: IgcColumnSeriesComponent;
 
     constructor() {
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
-        this.chart.dataSource = this.getData();        
+        this.chart.dataSource = this.getData();
 
         this.series = document.getElementById('series') as IgcColumnSeriesComponent;
-        this.series.markerTemplate = this.getMarker();           
+        this.series.markerTemplate = this.getMarker();
     }
 
     getData(): any[] {
@@ -45,10 +45,10 @@ export class DataChartSeriesMarkerTemplate {
     }
 
     public getMarker(): any
-    {           
-        let style = { outline: "#9FB328", fill: "white", text: "black" };        
+    {
+        let style = { outline: "#9FB328", fill: "white", text: "black" };
         const size = 12;
-        
+
         return {
             measure: function (measureInfo: DataTemplateMeasureInfo) {
                 const data = measureInfo.data;
@@ -56,7 +56,7 @@ export class DataChartSeriesMarkerTemplate {
                 let value = "0.00";
                 let item = data.item as any;
                 if (item != null) {
-                    value = item.Value.toString(); 
+                    value = item.Value.toString();
                 }
                 const height = context.measureText("M").width;
                 const width = context.measureText(value).width;
@@ -64,18 +64,18 @@ export class DataChartSeriesMarkerTemplate {
                 measureInfo.height = height + size;
             },
             render: function (renderInfo: DataTemplateRenderInfo) {
-                const item = renderInfo.data.item as any;    
-                const value = item.Value.toString(); 
+                const item = renderInfo.data.item as any;
+                const value = item.Value.toString();
 
                 const ctx = renderInfo.context as CanvasRenderingContext2D;
                 let x = renderInfo.xPosition;
                 let y = renderInfo.yPosition;
-               
+
                 let halfHeight = renderInfo.availableHeight / 2.0;
 
                 if (renderInfo.isHitTestRender) {
                     ctx.fillStyle = renderInfo.data.actualItemBrush.fill;
-                    
+
                     let width = renderInfo.availableWidth;
                     let height = renderInfo.availableHeight;
 
@@ -97,12 +97,12 @@ export class DataChartSeriesMarkerTemplate {
                 let height = halfHeight + yOffset;
 
                 ctx.fillRect(x - (width / 2), y - (height / 2), width, height);
-                ctx.closePath(); 
+                ctx.closePath();
 
                 ctx.font = '8pt Verdana';
                 ctx.textBaseline = 'top';
                 ctx.fillStyle = style.fill;
-                ctx.fillText(value, x - (xOffset / 2), y - (yOffset / 2)); 
+                ctx.fillText(value, x - (xOffset / 2), y - (yOffset / 2));
             }
         }
     }

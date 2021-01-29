@@ -29,10 +29,16 @@
         <label class="igOptions-item">
         <input id="markers" type="checkbox"
         checked="true"></input> Markers </label>
+        <label className="igOptions-label">Item ToolTip: </label>
+                    <select value="Item" id="toolTipTypes">
+                        <option>None</option>
+                        <option>Category</option>
+                        <option>Item</option>
+                    </select>
     </div>
     <div class="igComponent" style="height: calc(100% - 3rem)">
         <igc-financial-chart id="chart" width="100%" height="100%"
-            chart-type="Line"
+            chart-type="Candle"
             thickness="2"
             excluded-properties="index, info"
             callouts-x-member-path="index"
