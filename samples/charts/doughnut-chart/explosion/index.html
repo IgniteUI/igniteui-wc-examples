@@ -15,8 +15,10 @@
     <div id="root">
 
 <div class="igContainer">
-    <label id="label" class="igOptions-label"> Exploded Slices: None</label>
-
+  <span>Global Electricity Demand by Energy Use</span>
+    <div class="igLegend">
+      <igc-item-legend id="legend"></igc-item-legend>
+  </div>
     <igc-doughnut-chart id="chart"
         width="100%"
         height="calc(100% - 2.5rem)"
@@ -24,9 +26,11 @@
 
         <igc-ring-series
             name="ringSeries" id="ringSeries"
-            label-member-path="label"
-            value-member-path="marketShare"
-            radius-factor="0.9">
+            label-member-path="Summary"
+            value-member-path="MarketShare"
+            radius-factor="0.6"
+            labels-position="OutsideEnd" 
+            label-extent="30">
         </igc-ring-series>
 
     </igc-doughnut-chart>
