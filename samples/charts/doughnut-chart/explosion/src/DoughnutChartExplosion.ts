@@ -22,6 +22,8 @@ export class DoughnutChartExplosion {
 
         let ringSeries = document.getElementById('ringSeries') as IgcRingSeriesComponent;        
         ringSeries.dataSource = this.getData();
+        ringSeries.explodedSlices.add(3);
+        ringSeries.explodedSlices.add(4);
         ringSeries.legend = document.getElementById('legend') as IgcItemLegendComponent;   
 
         this.chart = document.getElementById('chart') as IgcDoughnutChartComponent;
