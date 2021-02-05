@@ -15,15 +15,20 @@
     <div id="root">
 
 <div class="igContainer">
-    <label id="label"></label>
-
+    <span>Global Electricity Demand by Energy Use</span>
+    <div class="igLegend">
+      <igc-item-legend id="legend"></igc-item-legend>
+  </div> 
     <igc-pie-chart id="chart"
         width="100%"
         height="calc(100% - 2.5rem)"
-        label-member-path="Company"
+        label-member-path="Summary"
         value-member-path="MarketShare"
         selection-mode="Multiple"
-        radius-factor="0.7">
+        radius-factor="0.6"
+        labels-position="OutsideEnd" 
+        label-extent="30"
+        legend-label-member-path="Summary">
     </igc-pie-chart>
 </div>
 
