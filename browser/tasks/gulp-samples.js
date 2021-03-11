@@ -548,6 +548,55 @@ function updateSampleCodeFiles(cb) {
     cb();
 } exports.updateSampleCodeFiles = updateSampleCodeFiles;
 
+function updateCodeViewer(cb) {
+
+    const outputFolder = "./src/assets/code-viewer";
+
+    del.sync(outputFolder + "/**");
+
+    for (const sample of samples) {
+        var codeViewPath = outputFolder + sample.SampleRoute + ".json";
+
+        console.log("generating: " + codeViewPath);
+
+        var content = "{\r\n \"sampleFiles\":\r\n";
+        var contentItems = [];
+
+        var tsItem = new CodeViewer(sample.SampleFilePath, sample.SampleFileSourceCode, "ts", "ts", true);
+
+        contentItems.push(tsItem);
+
+        for (const file of sample.SampleFilePaths) {
+            if (file.indexOf(".css") > 0) {
+                var cssContent = fs.readFileSync(file, "utf8");
+                var cssItem = new CodeViewer(file, cssContent, "css", "css", true);
+                contentItems.push(cssItem);
+            }
+            else if (file.indexOf(".ts") > 0 && file.indexOf(sample.SampleFileName) == -1) {
+
+                var isMain = file.indexOf("index") == -1;
+                var tsContent = fs.readFileSync(file, "utf8");
+                var tsItem = new CodeViewer(file, tsContent, "ts", "ts", isMain);
+                contentItems.push(tsItem);
+            }
+            else if (file.indexOf(".html") > 0) {
+                var tsContent = fs.readFileSync(file, "utf8");
+                var tsItem = new CodeViewer(file, tsContent, "html", "html", true);
+                contentItems.push(tsItem);
+            }
+        }
+
+        content += JSON.stringify(contentItems, null, ' ');
+        content += "\r\n}";
+
+        makeDirectoryFor(codeViewPath);
+        fs.writeFileSync(codeViewPath, content);
+    }
+
+    cb();
+
+} exports.updateCodeViewer = updateCodeViewer;
+
 // testing
 
 function logRoutes(cb) {
