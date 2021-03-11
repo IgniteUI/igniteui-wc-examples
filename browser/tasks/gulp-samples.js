@@ -550,13 +550,14 @@ function updateSampleCodeFiles(cb) {
 
 function updateCodeViewer(cb) {
 
-    del.sync("public/code-viewer/**");
+    const outputFolder = "./src/assets/code-viewer";
+
+    del.sync(outputFolder + "/**");
 
     for (const sample of samples) {
-        var codeViewFilePath = sample.SampleRoute;
-        var codeViewPath = "public/code-viewer" + codeViewFilePath + ".json";
+        var codeViewPath = outputFolder + sample.SampleRoute + ".json";
 
-        log("generating:" + codeViewPath);
+        console.log("generating: " + codeViewPath);
 
         var content = "{\r\n \"sampleFiles\":\r\n";
         var contentItems = [];
@@ -573,12 +574,7 @@ function updateCodeViewer(cb) {
             }
             else if (file.indexOf(".ts") > 0 && file.indexOf(sample.SampleFileName) == -1) {
 
-                var isMain = true;
-
-                if (file.indexOf("index") == -1) {
-                    isMain = false;
-                }
-
+                var isMain = file.indexOf("index") == -1;
                 var tsContent = fs.readFileSync(file, "utf8");
                 var tsItem = new CodeViewer(file, tsContent, "ts", "ts", isMain);
                 contentItems.push(tsItem);
