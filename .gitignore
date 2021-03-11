@@ -13,6 +13,7 @@ browser/src/samples
 browser/src/samples/*
 browser/package-lock.json
 browser/**/*.org
+browser/public/code-viewer/**
 
 # IDEs and editors
 /.idea

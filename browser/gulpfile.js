@@ -93,6 +93,11 @@ exports.logSandboxLinks = logSandboxLinks = gulp.series(
     sb.logSandboxLinks,
 );
 
+exports.updateCodeViewer = updateCodeViewer = gulp.series(
+    sb.findSamples,
+    sb.updateCodeViewer  
+);
+
 // Create task - copying samples
 // C:\Users\source\repos\samples-web-component\src\samples
 // Paste below
