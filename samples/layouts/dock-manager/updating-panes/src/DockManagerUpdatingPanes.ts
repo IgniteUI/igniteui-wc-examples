@@ -1,23 +1,18 @@
 import './DockManagerStyles.css'
-
 import { DockManagerSharedData } from './DockManagerSharedData';
 import { WorldUtils } from './WorldUtils';
-
 import { html } from 'lit-html';
 import { defineCustomElements } from 'igniteui-dockmanager/loader';
 import { IgcDockManagerComponent } from 'igniteui-dockmanager';
 import { IgcDockManagerPaneType, IgcContentPane } from 'igniteui-dockmanager';
 import { IgcSplitPaneOrientation } from 'igniteui-dockmanager';
-
 // import { IgcLinearGaugeModule } from 'igniteui-webcomponents-gauges';
 // import { IgcLinearGaugeComponent } from 'igniteui-webcomponents-gauges';
 // import { IgcLinearGraphRangeComponent } from 'igniteui-webcomponents-gauges';
-
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent, CategoryChartType, AxisLabelsLocation } from 'igniteui-webcomponents-charts';
 import { CategoryTransitionInMode, MarkerType, ToolTipType } from 'igniteui-webcomponents-charts';
 import { DataContext } from 'igniteui-webcomponents-core';
-
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicSymbolSeriesComponent } from 'igniteui-webcomponents-maps';
@@ -34,13 +29,7 @@ ModuleManager.register(
 defineCustomElements();
 //
 
-
 export class DockManagerUpdatingPanes {
-
-
-
-
-
 
     private dockManager: IgcDockManagerComponent;
     private employeesDatabase = DockManagerSharedData.getEmployees(60);
@@ -66,8 +55,6 @@ export class DockManagerUpdatingPanes {
 
         this.createLocationMap = this.createLocationMap.bind(this);
         this.onEmployeeClick = this.onEmployeeClick.bind(this);
-
-
 
         this.createEmployeeList();
         this.createLocationMap();
@@ -195,7 +182,6 @@ export class DockManagerUpdatingPanes {
             employeeListContainer.appendChild(employeeListItem);
             this.employeesList.push(employeeListItem);
         }
-
     }
 
     public createLocationMap() {

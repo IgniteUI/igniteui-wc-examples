@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>SplineAreaStyling</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="igContainer">
+  <div class="igOptions">
+    <span id="igLegend-title" >Renewable Electricity Generated: </span>
+    <igc-igLegend id="legend" orientation="Horizontal" ></igc-legend >
+  </div>
+
+    <igc-category-chart id="chart"
+        width="100%"
+        height="calc(100% - 7rem)"
+        chart-type="SplineArea"
+        y-axis-minimum-value="0"
+        y-axis-title="TWh"
+        is-category-highlighting-enabled="true"
+        is-series-highlighting-enabled="true"
+        tool-tip-type="Category"
+        is-transition-in-enabled="true">
+    </igc-category-chart>
+</div>
+
+    </div>
+    <script src="src/index.ts"></script>
+
+  </body>
+</html>

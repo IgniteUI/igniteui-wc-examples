@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/master/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Geographic Map Binding Shapefile Points.
+This folder contains implementation of Web Components application with example of Geographic Map Map Triangulating Data.
 
 ## Preview
 
@@ -9,7 +9,7 @@ You can preview example of this Web Components application on CodeSandbox by cli
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-wc-examples/tree/master/samples/maps/geo-map/binding-shp-points?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/{SampleFile}" rel="noopener noreferrer">
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-wc-examples/tree/master/samples/maps/geo-map/triangulating-data?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/{SampleFile}" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0.25rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/code.png"/>
         </a>
     </body>
@@ -22,7 +22,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/maps/geo-map/binding-shp-points
+cd ../samples/maps/geo-map/triangulating-data
 ```
 
 open above folder in VS Code or type:
