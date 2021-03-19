@@ -25,7 +25,7 @@ let config = {
         "Props.ts",
         "Base.ts",
         // "Data.ts",
-        "index.ts",
+        // "index.ts",
         "Pager.ts",
         "LegendOverlay.ts",
         "AssetsUtils.ts",

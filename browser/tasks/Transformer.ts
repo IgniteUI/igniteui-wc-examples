@@ -511,19 +511,24 @@ class Transformer {
                 info.SampleFileSourcePath = "./src/" + info.SampleFileName;
                 info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
                 info.SampleFileSourceCode = this.lintSample(info.SampleFileSourceCode, info.SampleFileSourcePath, true);
-                info.SampleFileSourceClass = info.SampleFileName.replace('.ts', '');
 
+                let classExp = new RegExp(/(export.class.)(.*)(.\{)/g);
+                let className = info.SampleFileSourceCode.match(classExp)[0];
+                className = className.replace('export class ', '');
+                className = className.replace(' {', '');
+                info.SampleFileSourceClass = className; //.replace('export class ', '');
+
+                // console.log("TRANS '" + className + "'");
                 // info.SampleFileBrowserCode = this.getSampleCodeInBrowser(info, sampleTemplate)
 
                 let sampleBlocks = this.getSampleBlocks(info.SampleFileSourceCode);
                 info.SampleImportLines = sampleBlocks.ImportLines;
                 info.SampleImportFiles = sampleBlocks.ImportFiles;
                 info.SampleImportPackages = sampleBlocks.ImportPackages;
-                info.SampleImportName = info.SampleFileName.replace('.ts', '');
+                info.SampleImportName = info.SampleFileSourceClass.replace('.ts', '');
                 info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
 
-
-                info.SampleDisplayName = Strings.splitCamel(info.SampleFileName);
+                info.SampleDisplayName = Strings.splitCamel(info.SampleFileSourceClass);
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, igConfig.SamplesFileExtension, "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Type ", "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Binding ", "Binding ");
@@ -773,7 +778,8 @@ class Transformer {
         else {
             condition += '        else if ';
         }
-        let samplePath = sampleInfo.ComponentFolder + '/' + sampleInfo.SampleFolderName + '/' + sampleInfo.SampleImportName
+        // let samplePath = sampleInfo.ComponentFolder + '/' + sampleInfo.SampleFolderName + '/' + sampleInfo.SampleImportName;
+        let samplePath = sampleInfo.ComponentFolder + '/' + sampleInfo.SampleFolderName + '/index';
         let routingPath = sampleInfo.SampleRoute.replace('/' + sampleInfo.ComponentGroup.toLowerCase(), "");
         condition += '(route.indexOf("' + routingPath + '") >= 0) {\n';
         condition += '            let sample = await import("./' + samplePath + '");\n';

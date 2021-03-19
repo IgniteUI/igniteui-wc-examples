@@ -82,7 +82,7 @@ function lintSamples(cb) {
         './templates/**/**/*.ts',
         // './templates/**/**/*.ts',
         // './samples/**/**/**/*.tsx',
-       '!./samples/**/**/**/index.ts',
+    //    '!./samples/**/**/**/index.ts',
     ], {base: './'})
     // .pipe(gSort( { asc: false } ))
     .pipe(es.map(function(file, fileCallback) {
@@ -128,7 +128,7 @@ function findSamples(cb) {
               SampleFolderName + "/package.json",
               SampleFolderName + "/index.html",
               SampleFolderName + "/src/**",
-        '!' + SampleFolderName + "/src/index.ts",
+        // '!' + SampleFolderName + "/src/index.ts",
         //       SampleFolderName + "/**",
         // '!' + SampleFolderName + "/package-lock.json",
         // '!' + SampleFolderName + "/sandbox.config.json",
@@ -213,7 +213,8 @@ function logSamples(cb) {
         gulp.src([
             //   sample.SampleFolderPath + '/**/*.*',
               sample.SampleFolderPath + '/src/*.ts',
-        '!' + sample.SampleFolderPath + '/src/index.ts',])
+        // '!' + sample.SampleFolderPath + '/src/index.ts',
+        ])
         .pipe(es.map(function(file, fileCallback) {
 
             let fileLocation = Transformer.getRelative(file.dirname) + '/' + file.basename;
@@ -288,7 +289,7 @@ function copySamples(cb) {
         gulp.src([
             //   sample.SampleFolderPath + '/**/*.*',
               sample.SampleFolderPath + '/src/*.*',
-        '!' + sample.SampleFolderPath + '/src/index.ts',
+        // '!' + sample.SampleFolderPath + '/src/index.ts',
         '!' + sample.SampleFolderPath + '/src/index.css',
         '!' + sample.SampleFolderPath + '/src/typedecls.d.ts',
         // '!' + sample.SampleFolderPath + '/sandbox.config.json',
@@ -302,8 +303,9 @@ function copySamples(cb) {
 
             var fileName = file.basename.toLowerCase();
             var compName = sample.ComponentID.toLowerCase();
-            var isSampleFile = fileName.indexOf(compName) >= 0 &&
-                               fileName.indexOf(".ts") >= 0;
+            var isSampleFile = fileName === "index.ts";
+            // var isSampleFile = fileName.indexOf(compName) >= 0 &&
+            //                    fileName.indexOf(".ts") >= 0;
 
             // console.log ('FinancialChartMultipleData ' + file.basename.indexOf("FinancialChartMultipleData") + ' ' +  file.basename )
             var isDataFile = file.basename.indexOf("Utils.ts") >= 0 ||
@@ -547,6 +549,21 @@ function updateSampleCodeFiles(cb) {
     }
     cb();
 } exports.updateSampleCodeFiles = updateSampleCodeFiles;
+
+function simplifySamples(cb) {
+
+    for (const sample of samples) {
+
+        var sourcePath = sample.SampleFolderPath + "/src/" + sample.SampleFileName;
+        var outputPath = sample.SampleFolderPath + "/src/index.ts";
+        console.log("simplifying: " + sourcePath); // + " >> " + outputPath);
+
+        fs.writeFileSync(outputPath, sample.SampleFileSourceCode);
+        del.sync(sourcePath, {force:true});
+    }
+    cb();
+
+} exports.simplifySamples = simplifySamples;
 
 function updateCodeViewer(cb) {
 

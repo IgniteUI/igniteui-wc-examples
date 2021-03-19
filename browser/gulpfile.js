@@ -99,6 +99,11 @@ exports.updateCodeViewer = updateCodeViewer = gulp.series(
     sb.updateCodeViewer
 );
 
+exports.simplifySamples = simplifySamples = gulp.series(
+    sb.findSamples,
+    sb.simplifySamples,
+);
+
 // Create task - copying samples
 // C:\Users\source\repos\samples-web-component\src\samples
 // Paste below
