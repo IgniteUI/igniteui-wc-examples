@@ -27,7 +27,7 @@ export class FinancialChartAnnotations {
         this.chart.crosshairsAnnotationEnabled = this.crosshairsVisible;
         this.chart.finalValueAnnotationsVisible = this.finalValuesVisible;
         this.chart.markerTypes.add(this.markersTypes);
-        this.chart.toolTipTypes.add(this.toolTipTypes);
+        this.chart.toolTipType = this.toolTipTypes;
 
         let crosshairs = document.getElementById('crosshairs');
         crosshairs!.addEventListener('change', this.onCrosshairsVisible);
@@ -74,9 +74,8 @@ export class FinancialChartAnnotations {
     }
 
     public onToolTipsChanged = (e: any) => {
-        this.chart.toolTipTypes.clear();
         this.toolTipTypes = e.target.checked ? ToolTipType.Item : MarkerType.None;
-        this.chart.toolTipTypes.add(this.toolTipTypes);
+        this.chart.toolTipType = this.toolTipTypes;
     }
 
     getData(): any[] {
