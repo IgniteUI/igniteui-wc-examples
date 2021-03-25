@@ -74,7 +74,7 @@ export class FinancialChartAnnotations {
     }
 
     public onToolTipsChanged = (e: any) => {
-        this.toolTipTypes = e.target.checked ? ToolTipType.Item : MarkerType.None;
+        this.toolTipTypes = e.target.checked ? ToolTipType.Item : ToolTipType.None;
         this.chart.toolTipType = this.toolTipTypes;
     }
 
