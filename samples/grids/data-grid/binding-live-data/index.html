@@ -14,113 +14,103 @@
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <div class="toolAreaFirstRow">
-        <span>&nbsp;&nbsp;&nbsp;</span>
+<div class="igContainer-vertical" style="max-height: 7.5rem; overflow: hidden;">
+    <div class="igOptions-horizontal" style="min-height: 3rem; padding-left: 1rem; padding-bottom: 0.5rem; align-items: center;">
 
-        <span>Grouping</span>
+        <span style="padding-right: 1rem;" >Grouping</span>
         <mwc-switch checked id="groupingSwitch"></mwc-switch>
 
-        <span>Heat</span>
-        <mwc-switch id="heatSwitch"></mwc-switch>
+        <span style="padding-right: 1rem; padding-left: 2rem; ">Heat</span>
+        <mwc-switch checked id="heatSwitch"></mwc-switch>
 
-        <div class="frequencySlider">
-            <span id="frequencySpan">Frequency: </span>
-            <mwc-igOptions-slider
-                id="fSlider"
-                min="100"
-                max="1000"
-                step="100"
+        <div class="igOptions-horizontal" style="align-items: center; padding-bottom: 0rem; ">
+            <span id="frequencySpan" style="padding-right: 1rem; padding-left: 2rem; ">Frequency: </span>
+            <mwc-slider style="min-width: 4rem; margin: 0rem;"
+                id="fSlider" min="100" max="1000" step="100"
                 class="igOptions-slider"
                 value={this.state.frequency}
-                onChange={this.onFrequencyChange}
-            />
+                onChange={this.onFrequencyChange} />
         </div>
 
-        <div class="volumeSlider">
-            <span id="volumeSpan">Volume: </span>
-            <mwc-slider
-                id="vSlider"
-                min="100"
-                max="10000"
-                step="100"
-                class="igOptions-slider"
+        <div class="igOptions-horizontal" style="align-items: center; padding-bottom: 0rem; " >
+            <span id="volumeSpan" style="padding-right: 1rem; ">Volume: </span>
+            <mwc-slider style="min-width: 4rem; margin: 0rem;"
+                id="vSlider" min="100" max="10000" step="100"
                 value={this.state.volume}
-                onChange={this.onVolumeChange}
-            />
-        </div>
+                onChange={this.onVolumeChange}  />
+        </div >
+    </div>
 
+    <div class="igOptions-horizontal" style="min-height: 3rem; padding-left: 1rem; padding-bottom: 0.5rem;">
         <mwc-button id="liveButton" raised color="primary" >Live Prices</mwc-button>
-        <span>&nbsp;</span>
+        <span>&nbsp;</span><span>&nbsp;</span>
         <mwc-button id="liveAllButton" raised color="secondary" >Live All Prices</mwc-button>
-        <span>&nbsp;</span>
+        <span>&nbsp;</span><span>&nbsp;</span>
         <mwc-button id="stopButton" raised>Stop</mwc-button>
-        <span>&nbsp;</span>
+        <span>&nbsp;</span><span>&nbsp;</span>
     </div>
 
 </div>
-<igc-data-grid
+
+<div class="igComponent" style="height: calc(100% - 8rem)">
+    <igc-data-grid
     id="grid"
     width="100%"
-    height="calc(100% - 6rem)"
+    height="100%"
     use-canvas="false"
     row-height="32"
     selection-mode="MultipleRow"
     auto-generate-columns="false"
+    is-group-collapsable="true"
     header-click-action="SortByMultipleColumnsTriState"
     column-showing-animation-mode="slideFromRightAndFadeIn"
     column-hiding-animation-mode="slideToRightAndFadeOut"
     default-column-min-width="120"
     is-row-hover-enabled="false">
 
-    <igc-text-column field="ID" width="120" is-hidden="true"></igc-text-column>
+    <igc-text-column field="ID" width="90" is-hidden="true"></igc-text-column>
     <igc-text-column field="Category" width="120" ></igc-text-column>
-    <igc-text-column field="Contract" width="110" ></igc-text-column>
-    <igc-text-column field="Region" width="110" ></igc-text-column>
-    <igc-text-column field="Country" width="100" ></igc-text-column>
-    <igc-numeric-column field="Open Price" width="140"></igc-numeric-column>
-    <igc-template-column id="priceTemplateColumn" field="Price" width="110"
-      horizontal-alignment="right">
-    </igc-template-column>
+    <igc-text-column field="Type" width="90" ></igc-text-column>
+    <igc-text-column field="Risk" width="80" ></igc-text-column>
+    <igc-numeric-column field="Open" width="90"></igc-numeric-column>
 
-    <igc-template-column id="changeTemplateColumn" field="Change" width="120"
-       horizontal-alignment="right">
-    </igc-template-column>
+    <!-- columns with live data updating -->
+    <igc-template-column field="Price" width="110" id="priceTemplateColumn" horizontal-alignment="right"></igc-template-column>
+    <igc-template-column field="Change" width="110" id="changeTemplateColumn" horizontal-alignment="right"></igc-template-column>
+    <igc-template-column field="Change (%)" name="ChangePer" id="percentTemplateColumn" width="135"></igc-template-column>
 
-    <igc-template-column id="changePercentTemplateColumn" name="ChangePer" field="Change(%)" width="135">
-    </igc-template-column>
+    <igc-text-column field="Contract" width="120" ></igc-text-column>
+    <igc-text-column field="Settlement" width="130" ></igc-text-column>
+    <igc-text-column field="Region" width="130" ></igc-text-column>
+    <igc-text-column field="Country" width="120" ></igc-text-column>
+
+    <igc-text-column field="IndGroup" width="100" header-text="Group"></igc-text-column>
+    <igc-text-column field="IndSector" width="120" header-text="Industry" ></igc-text-column>
+    <igc-text-column field="IndCategory" width="100" header-text="Category" ></igc-text-column>
+    <igc-text-column field="Sector" width="90" ></igc-text-column>
+    <igc-text-column field="Issuer" width="170"></igc-text-column>
+    <igc-text-column field="Rating" width="90" ></igc-text-column>
+    <igc-text-column field="Currency" width="90" ></igc-text-column>
+    <igc-text-column field="Security" width="100" ></igc-text-column>
+    <igc-numeric-column field="Transactions" width="130" ></igc-numeric-column>
+    <igc-numeric-column field="CPN" width="80" ></igc-numeric-column>
+    <igc-text-column field="Maturity" width="120" ></igc-text-column>
+    <igc-text-column field="Collateral" width="120" ></igc-text-column>
 
     <igc-numeric-column field="Buy" width="110"></igc-numeric-column>
     <igc-numeric-column field="Sell" width="110"></igc-numeric-column>
     <igc-numeric-column field="Spread" width="110"></igc-numeric-column>
     <igc-numeric-column field="Volume" width="110"></igc-numeric-column>
-    <igc-numeric-column field="High(D)" width="110"></igc-numeric-column>
-    <igc-numeric-column field="Low(D)" width="110"></igc-numeric-column>
-    <igc-numeric-column field="High(Y)" width="110"></igc-numeric-column>
-    <igc-numeric-column field="Low(Y)" width="110"></igc-numeric-column>
-    <igc-numeric-column field="Start(Y)" width="110"></igc-numeric-column>
+    <igc-numeric-column field="High (D)" width="110"></igc-numeric-column>
+    <igc-numeric-column field="Low (D)" width="110"></igc-numeric-column>
+    <igc-numeric-column field="High (Y)" width="110"></igc-numeric-column>
+    <igc-numeric-column field="Low (Y)" width="110"></igc-numeric-column>
+    <igc-numeric-column field="Start (Y)" width="110"></igc-numeric-column>
 
-    <igc-text-column field="IndGrou" width="100" ></igc-text-column>
-    <igc-text-column field="IndSect" width="120"></igc-text-column>
-    <igc-text-column field="IndSubg" width="100" ></igc-text-column>
-    <igc-text-column field="Sector" width="90" ></igc-text-column>
-    <igc-text-column field="Issuer" width="170"></igc-text-column>
-    <igc-text-column field="Moodys" width="60" ></igc-text-column>
-    <igc-text-column field="Fitch" width="60" ></igc-text-column>
-    <igc-text-column field="DBRS" width="60" ></igc-text-column>
-    <igc-text-column field="CollatT" width="90" ></igc-text-column>
-    <igc-text-column field="Currency" width="60" ></igc-text-column>
-    <igc-text-column field="Security" width="120" ></igc-text-column>
-    <igc-numeric-column field="CUSIP" width="100" ></igc-numeric-column>
-    <igc-numeric-column field="Cpn" width="80" ></igc-numeric-column>
-    <igc-text-column field="Maturity" width="120" ></igc-text-column>
-    <igc-numeric-column field="KRD_3YR" width="110" ></igc-numeric-column>
-    <igc-numeric-column field="ZV_SPREAD" width="135" ></igc-numeric-column>
-    <igc-numeric-column field="KRD_5YR" width="50" ></igc-numeric-column>
-    <igc-numeric-column field="KRD_1YR" width="80" ></igc-numeric-column>
+    <igc-numeric-column field="KRD_3YR" width="120" ></igc-numeric-column>
+    <igc-numeric-column field="KRD_5YR" width="120" ></igc-numeric-column>
+    <igc-numeric-column field="KRD_1YR" width="120" ></igc-numeric-column>
     </igc-data-grid>
-
 </div>
 
     </div>

@@ -1,38 +1,37 @@
 import '@webcomponents/custom-elements/custom-elements.min';
 import '@webcomponents/custom-elements/src/native-shim.js';
-// TODO use LiveFinancialData.ts from React browser
+
 import { LiveFinancialData } from './LiveFinancialData';
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
-import { IgcNumericColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcTextColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcDateTimeColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
 import { ListSortDirection } from 'igniteui-webcomponents-core';
-import { HeaderClickAction } from 'igniteui-webcomponents-grids';
-import { IgcCellStyleRequestedEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
-import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-grids';
 import { DataGridCellLayoutPanel } from 'igniteui-webcomponents-grids';
 import { DataGridPresenterManager } from 'igniteui-webcomponents-grids';
+import { FilterFactory } from 'igniteui-webcomponents-core';
+import { ModuleManager } from 'igniteui-webcomponents-core';
+import { IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts';
+import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
+import { IgcCellStyleRequestedEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
+import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
+import { IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
+import { IgcDefinitionBaseComponent } from 'igniteui-webcomponents-grids';
+import { IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcItemToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcNumericYAxisComponent } from 'igniteui-webcomponents-charts';
+import { IgcNumericColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcTextColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
+import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
+import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcTextHeaderComponent } from 'igniteui-webcomponents-grids';
 import '@material/mwc-button';
 import '@material/mwc-switch';
 import '@material/mwc-slider';
 import '@material/mwc-dialog';
-import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
-import { IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
-import { IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts';
-import { IgcNumericYAxisComponent } from 'igniteui-webcomponents-charts';
-import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
-import { IgcItemToolTipLayerComponent } from 'igniteui-webcomponents-charts';
-import { IgcTextHeaderComponent } from 'igniteui-webcomponents-grids';
-import { FilterFactory } from 'igniteui-webcomponents-core';
-import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
     IgcDataChartCategoryModule,
@@ -50,8 +49,8 @@ ModuleManager.register(
 export class DataGridBindingLiveData {
 
     private grid: IgcDataGridComponent;
-    private good_color = '#4EB862';
-    private bad_color = '#FF134A';
+    private goodColor = '#4EB862';
+    private badColor = '#FF134A';
     private lastDataUpdate: Date = new Date();
     private badBorder = '4px solid #FF134A';
     private goodBorder = '4px solid #4EB862';
@@ -76,11 +75,10 @@ export class DataGridBindingLiveData {
         volume: 1000,
         canvasChecked: false,
         groupingChecked: true,
-        heatChecked: false,
+        heatChecked: true,
         chartOpen: false,
-        priceByCountry: [],
-        hiddenColumns: ['ID'],
-        allColumns: [],
+        priceByCountry: [] as FinancialItem[],
+        hiddenColumns: ['ID']
     };
 
     constructor() {
@@ -130,18 +128,18 @@ export class DataGridBindingLiveData {
         changeTemplate.cellStyleKeyRequested = this.onPriceAmountStyleKey;
         changeTemplate.cellUpdating = this.onPriceAmountCellUpdating;
 
-        let changePercentTemplate = document.getElementById('changePercentTemplateColumn') as IgcTemplateColumnComponent;
-        changePercentTemplate.cellStyleKeyRequested = this.onPricePercentStyleKey;
-        changePercentTemplate.cellUpdating = this.onPricePercentCellUpdating;
+        let percentTemplate = document.getElementById('percentTemplateColumn') as IgcTemplateColumnComponent;
+        percentTemplate.cellStyleKeyRequested = this.onPricePercentStyleKey;
+        percentTemplate.cellUpdating = this.onPricePercentCellUpdating;
+
         // TODO set property settings (if any) in code-behind:
+        // let chartTemplate = document.getElementById('chartTemplateColumn') as IgcTemplateColumnComponent;
+        // chartTemplate.cellStyleKeyRequested = this.onChartStyleKey;
+        // chartTemplate.cellUpdating = this.onChartCellUpdating;
 
-        let chartTemplate = document.getElementById('chartTemplateColumn') as IgcTemplateColumnComponent;
-        chartTemplate.cellStyleKeyRequested = this.onChartStyleKey;
-        chartTemplate.cellUpdating = this.onChartCellUpdating;
-
-        let gridTemplate = document.getElementById('chartTemplateColumn') as IgcTemplateColumnComponent;
-        gridTemplate.cellStyleKeyRequested = this.onGridStyleKey;
-        gridTemplate.cellUpdating = this.onGridCellUpdating;
+        // let gridTemplate = document.getElementById('chartTemplateColumn') as IgcTemplateColumnComponent;
+        // gridTemplate.cellStyleKeyRequested = this.onGridStyleKey;
+        // gridTemplate.cellUpdating = this.onGridCellUpdating;
 
         this.liveButton = document.getElementById('liveButton');
         this.liveButton.onclick = () => {
@@ -364,19 +362,26 @@ export class DataGridBindingLiveData {
         if (shouldPopulate) {
             countryNames = countryNames.sort();
             for (let i = 0; i < countryNames.length; i++) {
-                this.state.priceByCountry.push({
-                    Country: countryNames[i],
-                    Price: priceByCountry.get(countryNames[i])
-                })
+                const price = priceByCountry.get(countryNames[i])
+                if (price !== undefined) {
+                    this.state.priceByCountry.push({
+                        Country: countryNames[i],
+                        Price: price
+                    })
+                }
             }
         } else {
             for (let i = 0; i < this.state.priceByCountry.length; i++) {
-                this.state.priceByCountry[i].Price = priceByCountry.get(this.state.priceByCountry[i].Country);
+                const country = this.state.priceByCountry[i].Country;
+                const price = priceByCountry.get(country)
+                if (price !== undefined) {
+                    this.state.priceByCountry[i].Price = price;
+                }
             }
         }
     }
 
-    onPriceStyleKey(col: IgcColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    onPriceStyleKey(col: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         let row: any | null = null;
         if (this.grid && this.grid.actualDataSource) {
             row = this.grid.actualDataSource.getItemAtIndex(args.rowNumber);
@@ -403,7 +408,7 @@ export class DataGridBindingLiveData {
                 let context: CanvasRenderingContext2D = args.context;
 
                 let iconText = 'trending_up';
-                let iconColor = this.good_color;
+                let iconColor = this.goodColor;
 
                 let scale = window.devicePixelRatio;
                 if (scale !== 1.0) {
@@ -413,10 +418,10 @@ export class DataGridBindingLiveData {
 
                 if (priceShiftUp) {
                     iconText = 'trending_up';
-                    iconColor = this.good_color;
+                    iconColor = this.goodColor;
                 } else {
                     iconText = 'trending_down';
-                    iconColor = this.bad_color;
+                    iconColor = this.badColor;
                 }
 
                 // context.fillStyle = 'blue';
@@ -427,7 +432,6 @@ export class DataGridBindingLiveData {
 
                 context.font = '13px "Material Icons"';
                 let iconWidth = context.measureText(iconText).width;
-
                 let totalWidth = width + iconWidth;
 
                 context.font = '13px Verdana';
@@ -473,19 +477,21 @@ export class DataGridBindingLiveData {
         if ((sp as any).__isUp === undefined ||
             (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
-            if (priceShiftUp) {
+            if (this.state.heatChecked) {
+                sp.style.color = "black";
+            } else if (priceShiftUp) {
                 // icon.textContent = 'trending_up';
-                // icon.style.color = this.good_color;
-                sp.style.color = this.good_color;
+                // icon.style.color = this.goodColor;
+                sp.style.color = this.goodColor;
             } else {
                 // icon.textContent = 'trending_down';
-                // icon.style.color = this.bad_color;
-                sp.style.color = this.bad_color;
+                // icon.style.color = this.badColor;
+                sp.style.color = this.badColor;
             }
         }
     }
 
-    onPricePercentStyleKey(grid: IgcColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    onPricePercentStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = 'pricePercentUp';
         } else {
@@ -504,7 +510,7 @@ export class DataGridBindingLiveData {
 
                 let context: CanvasRenderingContext2D = args.context;
 
-                let iconColor = this.good_color;
+                let iconColor = this.goodColor;
 
                 let scale = window.devicePixelRatio;
                 if (scale !== 1.0) {
@@ -513,9 +519,9 @@ export class DataGridBindingLiveData {
                 }
 
                 if (priceShiftUp) {
-                    iconColor = this.good_color;
+                    iconColor = this.goodColor;
                 } else {
-                    iconColor = this.bad_color;
+                    iconColor = this.badColor;
                 }
 
                 // context.fillStyle = 'blue';
@@ -563,16 +569,16 @@ export class DataGridBindingLiveData {
             if (priceShiftUp) {
                 sp.style.paddingRight = '5px';
                 sp.style.borderRight = this.goodBorder;
-                // sp.style.color = this.good_color;
+                // sp.style.color = this.goodColor;
             } else {
                 sp.style.paddingRight = '5px';
                 sp.style.borderRight = this.badBorder;
-                // sp.style.color = this.bad_color;
+                // sp.style.color = this.badColor;
             }
         }
     }
 
-    onPriceAmountStyleKey(grid: IgcColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    onPriceAmountStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = 'priceAmountUp';
         } else {
@@ -591,7 +597,7 @@ export class DataGridBindingLiveData {
 
                 let context: CanvasRenderingContext2D = args.context;
 
-                let iconColor = this.good_color;
+                let iconColor = this.goodColor;
 
                 let scale = window.devicePixelRatio;
                 if (scale !== 1.0) {
@@ -600,9 +606,9 @@ export class DataGridBindingLiveData {
                 }
 
                 if (priceShiftUp) {
-                    iconColor = this.good_color;
+                    iconColor = this.goodColor;
                 } else {
-                    iconColor = this.bad_color;
+                    iconColor = this.badColor;
                 }
 
                 // context.fillStyle = 'blue';
@@ -651,11 +657,11 @@ export class DataGridBindingLiveData {
             if (priceShiftUp) {
                 sp.style.paddingRight = '5px';
                 sp.style.borderRight = this.goodBorder;
-                // sp.style.color = this.good_color;
+                // sp.style.color = this.goodColor;
             } else {
                 sp.style.paddingRight = '5px';
                 sp.style.borderRight = this.badBorder;
-                // sp.style.color = this.bad_color;
+                // sp.style.color = this.badColor;
             }
         }
     }
@@ -839,6 +845,7 @@ export class DataGridBindingLiveData {
                 let colorString = 'rgba(' + Math.round(r * 255.0) + ',' + Math.round(g * 255.0) + ',' + Math.round(b * 255.0) + ',' + a + ')';
 
                 args.cellInfo.background = colorString;
+                // args.cellInfo.textColor = "white";
             }
             else if (item.PriceHeat < 0 && this.state.heatChecked) {
                 let p = +item.PriceHeat * -1.0;
@@ -859,10 +866,11 @@ export class DataGridBindingLiveData {
                 let colorString = 'rgba(' + Math.round(r * 255.0) + ',' + Math.round(g * 255.0) + ',' + Math.round(b * 255.0) + ',' + a + ')';
 
                 args.cellInfo.background = colorString;
+                // args.cellInfo.textColor = "black";
             }
             else {
-                let colorString = 'white';
-                args.cellInfo.background = colorString;
+                args.cellInfo.background = 'white';
+                // args.cellInfo.textColor = "black";
             }
         }
     }
@@ -964,6 +972,11 @@ export class DataGridBindingLiveData {
             }
         }
     }
+}
+
+ class FinancialItem {
+    Country: string = "";
+    Price: number | number = 0;
 }
 
 new DataGridBindingLiveData();
