@@ -16,14 +16,17 @@
 
 <div class="igContainer">
     <div class="igOptions-horizontal">
-      <label htmlFor="hideOnClose" class="igOptions-label">Hide on close</label>
-      <input id="hideOnClose" type="checkbox" />
+      <button id="saveLayout" type="button">Save Layout</button>
+      <button id="loadLayout" type="button">Load Layout</button>
+
+      <label htmlFor="hideOnCloseCheckbox" class="igOptions-label">Hide on close</label>
+      <input id="hideOnCloseCheckbox" type="checkbox" />
 
       <label htmlFor="panes" class="igOptions-label">Hidden Panes:</label>
       <select name="panes" id="panes" style="width: 200px;"></select>
 
       <button id="showPane" type="button">Show Pane</button>
-      <button type="button">Show All Panes</button>
+      <button id="showAllPanes" type="button">Show All Panes</button>
     </div>
 
     <igc-dockmanager id="dockManager">

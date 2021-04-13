@@ -9,8 +9,13 @@ defineCustomElements();
 export class DockManagerHidePanes {
     private dockManager: IgcDockManagerComponent;
 
-    private panes: HTMLSelectElement;
+    private panesSelect: HTMLSelectElement;
+    private hideOnCloseCheckbox: HTMLInputElement;
+
     private hiddenPanes: IgcContentPane[] = [];
+    private savedHiddenPanes: IgcContentPane[] = [];
+
+    private savedLayout: string;
 
     layout: IgcDockManagerLayout = {
         rootPane: {
@@ -55,51 +60,100 @@ export class DockManagerHidePanes {
     };
 
     constructor() {
-        this.panes = document.getElementById("panes") as HTMLSelectElement;
+        this.panesSelect = document.getElementById("panes") as HTMLSelectElement;
+        this.hideOnCloseCheckbox = document.getElementById("hideOnCloseCheckbox") as HTMLInputElement;
         this.dockManager = document.getElementById("dockManager") as IgcDockManagerComponent;
-
         this.dockManager.layout = { ...this.layout };
+        this.savedLayout = "";
 
         this.handlePaneClose();
         this.showPane();
+        this.showAllPanes();
+        this.saveLayout();
+        this.loadLayout();
     }
 
     public handlePaneClose() {
         this.dockManager.addEventListener("paneClose", (ev) => {
-            for (const pane of ev.detail.panes) {
-                pane.hidden = true;
-                this.setHiddenPane(pane);
+            if (this.hideOnCloseCheckbox.checked) {
+                for (const pane of ev.detail.panes) {
+                    pane.hidden = true;
+                    this.setHiddenPane(pane);
+                }
+                ev.preventDefault();
             }
-            ev.preventDefault();
         });
     }
 
     private setHiddenPane(pane: IgcContentPane) {
-        var option = document.createElement("option");
+        let option = document.createElement("option");
         option.textContent = pane.header;
         option.value = pane.id!;
-        this.panes.appendChild(option);
+        this.panesSelect.appendChild(option);
 
         this.hiddenPanes.push(pane);
     }
 
     private showPane() {
         document.getElementById("showPane")?.addEventListener("click", () => {
-            const paneId = this.panes.value;
+            const paneId = this.panesSelect.value;
             const pane = this.hiddenPanes.find((hiddenPane) => hiddenPane.id === paneId);
 
             if (pane) {
                 pane.hidden = false;
             }
-
             const index = this.hiddenPanes.indexOf(pane as IgcContentPane);
             this.hiddenPanes.splice(index, 1);
-            this.panes.removeChild(this.panes.options[index]);
+
+            this.panesSelect.removeChild(this.panesSelect.options[index]);
 
             this.dockManager.layout = { ...this.dockManager.layout };
         });
     }
 
+    private showAllPanes() {
+        document.getElementById("showAllPanes")?.addEventListener("click", () => {
+            if (this.hiddenPanes.length > 0) {
+                for (const pane of this.hiddenPanes) {
+                    pane.hidden = false;
+                }
+                this.hiddenPanes = [];
+
+                this.dockManager.layout = { ...this.dockManager.layout };
+                this.removeAllOptions();
+            }
+        });
+    }
+
+    private saveLayout() {
+        document.getElementById("saveLayout")?.addEventListener("click", () => {
+            this.savedHiddenPanes = [...this.hiddenPanes];
+            this.savedLayout = JSON.stringify(this.dockManager.layout);
+        });
+    }
+
+    private loadLayout() {
+        document.getElementById("loadLayout")?.addEventListener("click", () => {
+            this.hiddenPanes = [...this.savedHiddenPanes];
+            this.clearNotSavedPanes();
+            this.dockManager.layout = JSON.parse(this.savedLayout);
+        });
+    }
+
+    private clearNotSavedPanes() {
+        this.removeAllOptions();
+
+        this.hiddenPanes.map((hiddenPane) => {
+            let option = document.createElement("option");
+            option.textContent = hiddenPane.header;
+            option.value = hiddenPane.id!;
+            this.panesSelect.appendChild(option);
+        });
+    }
+
+    private removeAllOptions() {
+        this.panesSelect.options.length = 0;
+    }
 }
 
 new DockManagerHidePanes();
