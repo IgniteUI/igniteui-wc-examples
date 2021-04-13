@@ -9,11 +9,10 @@ defineCustomElements();
 export class DockManagerHidePanes {
     private dockManager: IgcDockManagerComponent;
 
-    private panesSelect: HTMLSelectElement;
+    private paneSelect: HTMLSelectElement;
     private hideOnCloseCheckbox: HTMLInputElement;
 
     private hiddenPanes: IgcContentPane[] = [];
-    private savedHiddenPanes: IgcContentPane[] = [];
 
     private savedLayout: string;
 
@@ -38,6 +37,73 @@ export class DockManagerHidePanes {
                             isPinned: false
                         }
                     ]
+                },
+                {
+                    type: IgcDockManagerPaneType.documentHost,
+                    size: 300,
+                    rootPane: {
+                        type: IgcDockManagerPaneType.splitPane,
+                        orientation: IgcSplitPaneOrientation.horizontal,
+                        panes: [
+                            {
+                                type: IgcDockManagerPaneType.tabGroupPane,
+                                panes: [
+                                    {
+                                        type: IgcDockManagerPaneType.contentPane,
+                                        header: "MainWindow.xaml",
+                                        contentId: "content3"
+                                    },
+                                    {
+                                        type: IgcDockManagerPaneType.contentPane,
+                                        header: "MainWindow.xaml.cs",
+                                        contentId: "content4"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    type: IgcDockManagerPaneType.splitPane,
+                    orientation: IgcSplitPaneOrientation.vertical,
+                    panes: [
+                        {
+                            type: IgcDockManagerPaneType.tabGroupPane,
+                            size: 200,
+                            panes: [
+                                {
+                                    type: IgcDockManagerPaneType.contentPane,
+                                    contentId: "content5",
+                                    header: "Tab 1"
+                                },
+                                {
+                                    type: IgcDockManagerPaneType.contentPane,
+                                    contentId: "content6",
+                                    header: "Tab 2"
+                                },
+                                {
+                                    type: IgcDockManagerPaneType.contentPane,
+                                    contentId: "content7",
+                                    header: "Tab 3"
+                                },
+                                {
+                                    type: IgcDockManagerPaneType.contentPane,
+                                    contentId: "content8",
+                                    header: "Tab 4"
+                                },
+                                {
+                                    type: IgcDockManagerPaneType.contentPane,
+                                    contentId: "content9",
+                                    header: "Tab 5"
+                                }
+                            ]
+                        },
+                        {
+                            type: IgcDockManagerPaneType.contentPane,
+                            contentId: "content20",
+                            header: "Content Pane 2"
+                        }
+                    ]
                 }
             ]
         },
@@ -51,7 +117,7 @@ export class DockManagerHidePanes {
                 panes: [
                     {
                         type: IgcDockManagerPaneType.contentPane,
-                        contentId: "content12",
+                        contentId: "content11",
                         header: "Floating Pane"
                     }
                 ]
@@ -60,7 +126,7 @@ export class DockManagerHidePanes {
     };
 
     constructor() {
-        this.panesSelect = document.getElementById("panes") as HTMLSelectElement;
+        this.paneSelect = document.getElementById("panes") as HTMLSelectElement;
         this.hideOnCloseCheckbox = document.getElementById("hideOnCloseCheckbox") as HTMLInputElement;
         this.dockManager = document.getElementById("dockManager") as IgcDockManagerComponent;
         this.dockManager.layout = { ...this.layout };
@@ -89,25 +155,21 @@ export class DockManagerHidePanes {
         let option = document.createElement("option");
         option.textContent = pane.header;
         option.value = pane.id!;
-        this.panesSelect.appendChild(option);
+        this.paneSelect.appendChild(option);
 
         this.hiddenPanes.push(pane);
     }
 
     private showPane() {
         document.getElementById("showPane")?.addEventListener("click", () => {
-            const paneId = this.panesSelect.value;
-            const pane = this.hiddenPanes.find((hiddenPane) => hiddenPane.id === paneId);
+            const index = this.paneSelect.selectedIndex;
 
-            if (pane) {
-                pane.hidden = false;
+            if (index >= 0) {
+                this.hiddenPanes[index].hidden = false;
+                this.hiddenPanes.splice(index, 1);
+                this.paneSelect.removeChild(this.paneSelect.options[index]);
+                this.dockManager.layout = { ...this.dockManager.layout };
             }
-            const index = this.hiddenPanes.indexOf(pane as IgcContentPane);
-            this.hiddenPanes.splice(index, 1);
-
-            this.panesSelect.removeChild(this.panesSelect.options[index]);
-
-            this.dockManager.layout = { ...this.dockManager.layout };
         });
     }
 
@@ -118,41 +180,26 @@ export class DockManagerHidePanes {
                     pane.hidden = false;
                 }
                 this.hiddenPanes = [];
-
                 this.dockManager.layout = { ...this.dockManager.layout };
-                this.removeAllOptions();
+                this.clearOptions();
             }
         });
     }
 
     private saveLayout() {
         document.getElementById("saveLayout")?.addEventListener("click", () => {
-            this.savedHiddenPanes = [...this.hiddenPanes];
             this.savedLayout = JSON.stringify(this.dockManager.layout);
         });
     }
 
     private loadLayout() {
         document.getElementById("loadLayout")?.addEventListener("click", () => {
-            this.hiddenPanes = [...this.savedHiddenPanes];
-            this.clearNotSavedPanes();
             this.dockManager.layout = JSON.parse(this.savedLayout);
         });
     }
 
-    private clearNotSavedPanes() {
-        this.removeAllOptions();
-
-        this.hiddenPanes.map((hiddenPane) => {
-            let option = document.createElement("option");
-            option.textContent = hiddenPane.header;
-            option.value = hiddenPane.id!;
-            this.panesSelect.appendChild(option);
-        });
-    }
-
-    private removeAllOptions() {
-        this.panesSelect.options.length = 0;
+    private clearOptions() {
+        this.paneSelect.options.length = 0;
     }
 }
 
