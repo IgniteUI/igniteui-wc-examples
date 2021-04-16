@@ -15,6 +15,25 @@
     <div id="root">
 
 <div class="igContainer">
+  <div class="igOptions">
+        <span class="igOptions-item">Enter Key Mode: </span>
+        <select id="enterModeDropBox" class="igOptions-item">
+          <option>Edit</option>
+          <option>MoveUp</option>
+          <option>MoveDown</option>
+          <option>MoveLeft</option>
+          <option>MoveRight</option>
+          <option>None</option>
+        </select>
+
+        <span class="igOptions-item">Enter Key After Edit Mode: </span>
+        <select id="enterAfterEditMode" class="igOptions-item">
+          <option>MoveDown</option>
+          <option>MoveUp</option>        
+          <option>MoveLeft</option>
+          <option>MoveRight</option>
+        </select>
+    </div>
     <igc-data-grid
         id="grid"
         height="100%"
