@@ -7,6 +7,8 @@ ModuleManager.register(IgcDatePickerModule);
 export class DatePickerDateLimits {
 
     private datePicker: IgcDatePickerComponent;
+    private minDateLabel: HTMLLabelElement;
+    private maxDateLabel: HTMLLabelElement;
 
     constructor() {
         this.datePicker = document.getElementById("datePicker") as IgcDatePickerComponent;
@@ -17,6 +19,11 @@ export class DatePickerDateLimits {
         this.datePicker.minDate = new Date(year, month, 1);
         this.datePicker.maxDate = lastDayOfMonth;
         this.datePicker.allowTextInput = false;
+
+        this.minDateLabel = document.getElementById('minLabel') as HTMLLabelElement;
+        this.minDateLabel.textContent = new Date(year, month, 1).toLocaleDateString();
+        this.maxDateLabel = document.getElementById('maxLabel') as HTMLLabelElement;
+        this.maxDateLabel.textContent = lastDayOfMonth.toLocaleDateString();
     }
 }
 

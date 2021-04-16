@@ -15,7 +15,15 @@
     <div id="root">
 
 <div class="igContainer" style="align-items: center;">
-  <igc-date-picker id="datePicker" date-format="DateLong" show-today-button="true" show-week-numbers="true" height="50px" width="220px">
+
+  <div class="igOptions">
+    <span class="igOptions-label">Date Format: </span>
+    <select value="LongDate" id="dateFormat">
+        <option>DateLong</option>
+        <option>DateShort</option>
+    </select>
+  </div>
+  <igc-date-picker id="datePicker" date-format="DateLong" height="60px" width="220px">
   </igc-date-picker>
 </div>
 

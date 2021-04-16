@@ -15,7 +15,13 @@
     <div id="root">
 
 <div class="igContainer" style="align-items: center;">
-  <igc-date-picker id="datePicker" show-today-button="true" show-week-numbers="true" height="50px" width="220px">
+  <div class="igOptions">
+    <label>Minimum Date:</label>
+    <label class="igOptions-item" id="minLabel" style="width: 130px"> </label>
+    <label>Maximum Date:</label>
+    <label class="igOptions-item" id="maxLabel" style="width: 130px"> </label>
+  </div>
+  <igc-date-picker id="datePicker" height="60px" width="220px">
   </igc-date-picker>
 </div>
 
