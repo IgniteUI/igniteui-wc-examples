@@ -1,6 +1,6 @@
 import "./DockManagerStyles.css";
 import { defineCustomElements } from "igniteui-dockmanager/loader";
-import { IgcContentPane, IgcDockManagerLayout, IgcDockManagerPaneType } from "igniteui-dockmanager";
+import { IgcContentPane, IgcDockManagerLayout, IgcDockManagerPaneType, IgcPaneCloseEventArgs } from "igniteui-dockmanager";
 import { IgcSplitPaneOrientation } from "igniteui-dockmanager";
 import { IgcDockManagerComponent } from "igniteui-dockmanager";
 
@@ -10,11 +10,8 @@ export class DockManagerHidePanes {
     private dockManager: IgcDockManagerComponent;
 
     private paneSelect: HTMLSelectElement;
-    private hideOnCloseCheckbox: HTMLInputElement;
 
     private hiddenPanes: IgcContentPane[] = [];
-
-    private savedLayout: string;
 
     layout: IgcDockManagerLayout = {
         rootPane: {
@@ -127,50 +124,43 @@ export class DockManagerHidePanes {
 
     constructor() {
         this.paneSelect = document.getElementById("panes") as HTMLSelectElement;
-        this.hideOnCloseCheckbox = document.getElementById("hideOnCloseCheckbox") as HTMLInputElement;
         this.dockManager = document.getElementById("dockManager") as IgcDockManagerComponent;
         this.dockManager.layout = { ...this.layout };
-        this.savedLayout = "";
 
         this.handlePaneClose();
-        this.showPane();
         this.showAllPanes();
-        this.saveLayout();
-        this.loadLayout();
+        document.getElementById("showPane")?.addEventListener("click", () => {
+            this.showPane();
+        });
     }
 
     public handlePaneClose() {
-        this.dockManager.addEventListener("paneClose", (ev) => {
-            if (this.hideOnCloseCheckbox.checked) {
-                for (const pane of ev.detail.panes) {
-                    pane.hidden = true;
-                    this.setHiddenPane(pane);
-                }
-                ev.preventDefault();
+        this.dockManager.addEventListener("paneClose", (ev: CustomEvent<IgcPaneCloseEventArgs>) => {
+            for (const pane of ev.detail.panes) {
+                pane.hidden = true;
+                this.setHiddenPane(pane);
             }
+            ev.preventDefault();
         });
     }
 
     private setHiddenPane(pane: IgcContentPane) {
         let option = document.createElement("option");
         option.textContent = pane.header;
-        option.value = pane.id!;
         this.paneSelect.appendChild(option);
 
         this.hiddenPanes.push(pane);
     }
 
     private showPane() {
-        document.getElementById("showPane")?.addEventListener("click", () => {
-            const index = this.paneSelect.selectedIndex;
+        const index = this.paneSelect.selectedIndex;
 
-            if (index >= 0) {
-                this.hiddenPanes[index].hidden = false;
-                this.hiddenPanes.splice(index, 1);
-                this.paneSelect.removeChild(this.paneSelect.options[index]);
-                this.dockManager.layout = { ...this.dockManager.layout };
-            }
-        });
+        if (index >= 0) {
+            this.hiddenPanes[index].hidden = false;
+            this.hiddenPanes.splice(index, 1);
+            this.paneSelect.removeChild(this.paneSelect.options[index]);
+            this.dockManager.layout = { ...this.dockManager.layout };
+        }
     }
 
     private showAllPanes() {
@@ -183,18 +173,6 @@ export class DockManagerHidePanes {
                 this.dockManager.layout = { ...this.dockManager.layout };
                 this.clearOptions();
             }
-        });
-    }
-
-    private saveLayout() {
-        document.getElementById("saveLayout")?.addEventListener("click", () => {
-            this.savedLayout = JSON.stringify(this.dockManager.layout);
-        });
-    }
-
-    private loadLayout() {
-        document.getElementById("loadLayout")?.addEventListener("click", () => {
-            this.dockManager.layout = JSON.parse(this.savedLayout);
         });
     }
 
