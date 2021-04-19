@@ -131,21 +131,25 @@ export class DockManagerHidePanes {
         this.dockManager = document.getElementById("dockManager") as IgcDockManagerComponent;
         this.dockManager.layout = { ...this.layout };
 
-        this.handlePaneClose();
-        this.showAllPanes();
+        this.dockManager.addEventListener("paneClose", (ev: CustomEvent<IgcPaneCloseEventArgs>) => {
+            this.handlePaneClose(ev);
+        });
+
         document.getElementById("showPane")?.addEventListener("click", () => {
             this.showPane();
         });
+
+        document.getElementById("showAllPanes")?.addEventListener("click", () => {
+            this.showAllPanes();
+        });
     }
 
-    private handlePaneClose() {
-        this.dockManager.addEventListener("paneClose", (ev: CustomEvent<IgcPaneCloseEventArgs>) => {
-            for (const pane of ev.detail.panes) {
-                pane.hidden = true;
-                this.setHiddenPane(pane);
-            }
-            ev.preventDefault();
-        });
+    private handlePaneClose(ev: CustomEvent<IgcPaneCloseEventArgs>) {
+        for (const pane of ev.detail.panes) {
+            pane.hidden = true;
+            this.setHiddenPane(pane);
+        }
+        ev.preventDefault();
     }
 
     private setHiddenPane(pane: IgcContentPane) {
@@ -168,16 +172,14 @@ export class DockManagerHidePanes {
     }
 
     private showAllPanes() {
-        document.getElementById("showAllPanes")?.addEventListener("click", () => {
-            if (this.hiddenPanes.length > 0) {
-                for (const pane of this.hiddenPanes) {
-                    pane.hidden = false;
-                }
-                this.hiddenPanes = [];
-                this.dockManager.layout = { ...this.dockManager.layout };
-                this.clearOptions();
+        if (this.hiddenPanes.length > 0) {
+            for (const pane of this.hiddenPanes) {
+                pane.hidden = false;
             }
-        });
+            this.hiddenPanes = [];
+            this.dockManager.layout = { ...this.dockManager.layout };
+            this.clearOptions();
+        }
     }
 
     private clearOptions() {
