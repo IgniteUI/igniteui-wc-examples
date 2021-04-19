@@ -1,8 +1,12 @@
 import "./DockManagerStyles.css";
 import { defineCustomElements } from "igniteui-dockmanager/loader";
-import { IgcContentPane, IgcDockManagerLayout, IgcDockManagerPaneType, IgcPaneCloseEventArgs } from "igniteui-dockmanager";
-import { IgcSplitPaneOrientation } from "igniteui-dockmanager";
-import { IgcDockManagerComponent } from "igniteui-dockmanager";
+import {
+    IgcContentPane,
+    IgcDockManagerComponent,
+    IgcDockManagerLayout,
+    IgcDockManagerPaneType,
+    IgcPaneCloseEventArgs,
+    IgcSplitPaneOrientation } from "igniteui-dockmanager";
 
 defineCustomElements();
 
@@ -134,7 +138,7 @@ export class DockManagerHidePanes {
         });
     }
 
-    public handlePaneClose() {
+    private handlePaneClose() {
         this.dockManager.addEventListener("paneClose", (ev: CustomEvent<IgcPaneCloseEventArgs>) => {
             for (const pane of ev.detail.panes) {
                 pane.hidden = true;
