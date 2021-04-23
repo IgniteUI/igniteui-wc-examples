@@ -62,6 +62,7 @@ exports.updateSamples = updateSamples = gulp.series(
 exports.updateBrowser = updateBrowser = gulp.series(
     sb.findSamples,
     sb.copySamples,
+    sb.updateCodeViewer,
     // sb.copyPackageJson,
 );
 
@@ -91,6 +92,16 @@ exports.logRoutes = logRoutes = gulp.series(
 exports.logSandboxLinks = logSandboxLinks = gulp.series(
     sb.findSamples,
     sb.logSandboxLinks,
+);
+
+exports.updateCodeViewer = updateCodeViewer = gulp.series(
+    sb.findSamples,
+    sb.updateCodeViewer
+);
+
+exports.simplifySamples = simplifySamples = gulp.series(
+    sb.findSamples,
+    sb.simplifySamples,
 );
 
 // Create task - copying samples

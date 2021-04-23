@@ -17,7 +17,7 @@
 .igContainer-vertical {
     background: white;
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     flex-wrap: nowrap; /* nowrap | wrap | wrap-reverse; */
     /* justify-content: flex-start; */
     /* justify-items: center; */
@@ -32,11 +32,11 @@
 }
 
 .igContainer-vertical {
-    flex-flow: column;
+    flex-direction: column;
 }
 
 .igContainer-horizontal {
-    flex-flow: row;
+    flex-direction: row;
 }
 
 /* Used by gauges */

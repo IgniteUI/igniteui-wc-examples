@@ -13,8 +13,9 @@
 
   <body>
     <div id="root">
-
+    <span>Global Electricity Demand by Energy Use</span>
 <div class="igContainer-horizontal">
+    
     <div class="igLegend">
         <igc-item-legend id="legend"></igc-item-legend>
     </div>
@@ -25,9 +26,11 @@
 
         <igc-ring-series
             name="ringSeries" id="ringSeries"
-            label-member-path="Company"
+            label-member-path="Summary"
             value-member-path="MarketShare"
-            radius-factor="0.9">
+            radius-factor="0.6"
+            labels-position="OutsideEnd" 
+            label-extent="30">
         </igc-ring-series>
 
     </igc-doughnut-chart>
