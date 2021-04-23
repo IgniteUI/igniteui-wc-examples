@@ -17,7 +17,6 @@ export class DockManagerEmbeddingFrames {
     private geoMapPane: IgcContentPane;
     private gaugePane: IgcContentPane;
     private doughnutChartPane: IgcContentPane;
-    private financialChartPane: IgcContentPane;
 
     constructor() {
 
