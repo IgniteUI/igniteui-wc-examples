@@ -1,32 +1,21 @@
 
 let gulp = require('gulp');
-let gulpIgnore = require('gulp-ignore');
-let uglify = require('gulp-uglify');
+let sb = require('./tasks/gulp-samples.js')
 
-// let gSort = require('gulp-sort');
-let rename = require('gulp-rename');
-let fs = require('fs.extra');
-let path = require('path');
-let flatten = require('gulp-flatten');
-let del = require('del');
-let es = require('event-stream');
-let shell = require('gulp-shell');
-let replace = require('gulp-replace');
-let contains = require('gulp-contains');
-// function log(msg) {
-    // console.log('gulpfile.js ' + msg);
-// }
+// NOTE run "gulp updateBrowser" before running "npm run start"
+exports.updateBrowser = updateBrowser = gulp.series(
+    sb.findSamples,
+    sb.copySamples,
+    sb.updateCodeViewer,
+);
 
-var sb = require('./tasks/gulp-samples.js')
+exports.findSamples = findSamples = gulp.series(
+    sb.findSamples,
+);
 
-exports.findSamples = sb.findSamples;
-// exports.findSamples = updateReadme = gulp.series(
-//     sb.findSamples,
-// );
-
-// exports.lintSamples = lintSamples = gulp.series(
-//     sb.lintSamples,
-// );
+exports.lintSamples = lintSamples = gulp.series(
+    sb.lintSamples,
+);
 
 exports.updateSamples = updateSamples = gulp.series(
     // sb.lintSamples,
@@ -39,10 +28,10 @@ exports.updateSamples = updateSamples = gulp.series(
     sb.updateSampleCodeFiles
 );
 
-// exports.updateSampleReadme = updateReadme = gulp.series(
-//     sb.findSamples,
-//     sb.updateSampleReadme,
-// );
+exports.updateReadme = updateReadme = gulp.series(
+    sb.findSamples,
+    sb.updateSampleReadme,
+);
 
 // exports.updateSamplePackages = updatePackages = gulp.series(
 //     sb.findSamples,
@@ -58,13 +47,6 @@ exports.updateSamples = updateSamples = gulp.series(
 //     sb.findSamples,
 //     sb.updateSampleStyles,
 // );
-
-exports.updateBrowser = updateBrowser = gulp.series(
-    sb.findSamples,
-    sb.copySamples,
-    sb.updateCodeViewer,
-    // sb.copyPackageJson,
-);
 
 // exports.copySamplesToBrowser = copySamplesToBrowser = gulp.series(
 //     sb.findSamples,

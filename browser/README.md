@@ -21,6 +21,8 @@ This browser application will allows you to browse all samples of the [IgniteUI 
 
 # Instructions
 
+Follow these instructions to run all samples locally in a browser application.
+
 - open VS Code as Administrator
 
 - open the [./browser](./browser) folder
@@ -33,8 +35,8 @@ This will install required packages and [Ignite UI for Web Components](https://i
 
 Next, follow these steps:
 
-- type `gulp updateBrowser` command in terminal window. This will copy all source files of individually sample projects from [./samples](./samples) to the [./browser](./browser) folder.
+- type `gulp updateBrowser` command in terminal window. This will copy and transform all source files of individually sample projects from [./samples](./samples) to the [./browser](./browser) folder.
 
 - type `npm run start` command in terminal window to start the browser application locally
 
-Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser. You should see a website with navigation menu for browning all samples in this repository.
+- Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser. You should see a website with navigation menu for browning all samples in this repository.

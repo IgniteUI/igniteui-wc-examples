@@ -134,12 +134,15 @@ export class DataGridBindingLiveData {
 
         // TODO set property settings (if any) in code-behind:
         // let chartTemplate = document.getElementById('chartTemplateColumn') as IgcTemplateColumnComponent;
-        // chartTemplate.cellStyleKeyRequested = this.onChartStyleKey;
-        // chartTemplate.cellUpdating = this.onChartCellUpdating;
-
-        // let gridTemplate = document.getElementById('chartTemplateColumn') as IgcTemplateColumnComponent;
-        // gridTemplate.cellStyleKeyRequested = this.onGridStyleKey;
-        // gridTemplate.cellUpdating = this.onGridCellUpdating;
+        // if (chartTemplate) {
+        //     chartTemplate.cellStyleKeyRequested = this.onChartStyleKey;
+        //     chartTemplate.cellUpdating = this.onChartCellUpdating;
+        // }
+        // let gridTemplate = document.getElementById('gridTemplateColumn') as IgcTemplateColumnComponent;
+        // if (gridTemplate) {
+        //     gridTemplate.cellStyleKeyRequested = this.onGridStyleKey;
+        //     gridTemplate.cellUpdating = this.onGridCellUpdating;
+        // }
 
         this.liveButton = document.getElementById('liveButton');
         this.liveButton.onclick = () => {

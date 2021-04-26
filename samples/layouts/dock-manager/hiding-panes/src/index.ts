@@ -135,13 +135,15 @@ export class DockManagerHidePanes {
             this.handlePaneClose(ev);
         });
 
-        document.getElementById("showPane")?.addEventListener("click", () => {
-            this.showPane();
-        });
+        let showOnePane = document.getElementById("showOnePane");
+        if (showOnePane) {
+            showOnePane.addEventListener("click", () => {this.onClickShowOnePane(); });
+        }
 
-        document.getElementById("showAllPanes")?.addEventListener("click", () => {
-            this.showAllPanes();
-        });
+        let showAllPanes = document.getElementById("showAllPanes");
+        if (showAllPanes) {
+            showAllPanes.addEventListener("click", () => {this.onClickShowAllPanes(); });
+        }
     }
 
     private handlePaneClose(ev: CustomEvent<IgcPaneCloseEventArgs>) {
@@ -160,7 +162,7 @@ export class DockManagerHidePanes {
         this.hiddenPanes.push(pane);
     }
 
-    private showPane() {
+    private onClickShowOnePane() {
         const index = this.paneSelect.selectedIndex;
 
         if (index >= 0) {
@@ -171,7 +173,7 @@ export class DockManagerHidePanes {
         }
     }
 
-    private showAllPanes() {
+    private onClickShowAllPanes() {
         if (this.hiddenPanes.length > 0) {
             for (const pane of this.hiddenPanes) {
                 pane.hidden = false;
