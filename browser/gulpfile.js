@@ -2,6 +2,13 @@
 let gulp = require('gulp');
 let sb = require('./tasks/gulp-samples.js')
 
+// NOTE run "gulp updateBrowser" before running "npm run start"
+exports.updateBrowser = updateBrowser = gulp.series(
+    sb.findSamples,
+    sb.copySamples,
+    sb.updateCodeViewer,
+);
+
 exports.findSamples = findSamples = gulp.series(
     sb.findSamples,
 );
@@ -40,13 +47,6 @@ exports.updateReadme = updateReadme = gulp.series(
 //     sb.findSamples,
 //     sb.updateSampleStyles,
 // );
-
-exports.updateBrowser = updateBrowser = gulp.series(
-    sb.findSamples,
-    sb.copySamples,
-    sb.updateCodeViewer,
-    // sb.copyPackageJson,
-);
 
 // exports.copySamplesToBrowser = copySamplesToBrowser = gulp.series(
 //     sb.findSamples,
