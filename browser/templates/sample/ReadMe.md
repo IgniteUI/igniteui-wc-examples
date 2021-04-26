@@ -1,7 +1,7 @@
 <!-- {RepositoryWarning} -->
 <!-- {RepositoryUrl}/tree/master/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of {PlatformName} application with example of {ComponentName} {SampleDisplayName}.
+This folder contains implementation of {PlatformName} application with example of {ComponentName} - {SampleDisplayName}.
 
 ## Preview
 
@@ -44,9 +44,9 @@ This project was created with [IgniteUI/create-webcomponents-app](https://github
 
 ## Scripts
 
-| Command         | Description  |
-|-----------------|--------------|
-| `npm run start` | Runs the app locally for modern browsers. |
+| Command                | Description  |
+|------------------------|--------------|
+| `npm run start`        | Runs the app locally for modern browsers. |
 | `npm run start:legacy` | Runs the app locally for legacy browsers (IE11) |
-| `npm run build` | Builds the app for production (modern browsers) |
+| `npm run build`        | Builds the app for production (modern browsers) |
 | `npm run build:legacy` | Builds the app for production (legacy browsers) |

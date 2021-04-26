@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/master/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Category Chart Overview.
+This folder contains implementation of Web Components application with example of Category Chart - Line Chart With Legend.
 
 ## Preview
 
@@ -9,7 +9,7 @@ You can preview example of this Web Components application on CodeSandbox by cli
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-wc-examples/tree/master/samples/charts/category-chart/overview?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/{SampleFile}" rel="noopener noreferrer">
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-wc-examples/tree/master/samples/charts/category-chart/line-chart-with-legend?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/{SampleFile}" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0.25rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/code.png"/>
         </a>
     </body>
@@ -22,7 +22,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/charts/category-chart/overview
+cd ../samples/charts/category-chart/line-chart-with-legend
 ```
 
 open above folder in VS Code or type:
@@ -44,9 +44,9 @@ This project was created with [IgniteUI/create-webcomponents-app](https://github
 
 ## Scripts
 
-| Command         | Description  |
-|-----------------|--------------|
-| `npm run start` | Runs the app locally for modern browsers. |
+| Command                | Description  |
+|------------------------|--------------|
+| `npm run start`        | Runs the app locally for modern browsers. |
 | `npm run start:legacy` | Runs the app locally for legacy browsers (IE11) |
-| `npm run build` | Builds the app for production (modern browsers) |
+| `npm run build`        | Builds the app for production (modern browsers) |
 | `npm run build:legacy` | Builds the app for production (legacy browsers) |
