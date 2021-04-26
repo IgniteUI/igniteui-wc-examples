@@ -30,11 +30,12 @@ git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 
 ## Running Individual Sample
 
-- in VS Code, open a folder with existing sample, e.g.
+Follow these instructions to run a single sample on your computer:
 
-```
-./samples/charts/category-chart/axis-options/
-```
+- in VS Code, open a folder with existing sample, e.g.
+<br>
+
+[./samples/charts/category-chart/axis-options/](./samples/charts/category-chart/axis-options/)
 
 - type `npm install` command in terminal window
 
@@ -47,6 +48,8 @@ At this point, you should see a website hosted example of [Ignite UI for Web Com
 
 ## Running All Samples
 
+Follow these instructions to run all samples locally in a browser application.
+
 - open VS Code as Administrator
 
 - open the [./browser](./browser) folder
@@ -57,14 +60,14 @@ At this point, you should see a website hosted example of [Ignite UI for Web Com
 
 This will install required packages and [Ignite UI for Web Components](https://infragistics.com/webcomponentssite/components/general-getting-started.html) packages from npm website:
 
-1. [igniteui-webcomponents-core](https://www.npmjs.com/package/igniteui-webcomponents-core)
-2. [igniteui-webcomponents-charts](https://www.npmjs.com/package/igniteui-webcomponents-charts)
-3. [igniteui-webcomponents-excel](https://www.npmjs.com/package/igniteui-webcomponents-excel)
-4. [igniteui-webcomponents-gauges](https://www.npmjs.com/package/igniteui-webcomponents-gauges)
-5. [igniteui-webcomponents-grids](https://www.npmjs.com/package/igniteui-webcomponents-grids)
-6. [igniteui-webcomponents-maps](https://www.npmjs.com/package/igniteui-webcomponents-maps)
-7. [igniteui-webcomponents-spreadsheet](https://www.npmjs.com/package/igniteui-webcomponents-spreadsheet)
-8. [igniteui-webcomponents-datasources](https://www.npmjs.com/package/igniteui-webcomponents-datasources)
+- [igniteui-webcomponents-core](https://www.npmjs.com/package/igniteui-webcomponents-core)
+- [igniteui-webcomponents-charts](https://www.npmjs.com/package/igniteui-webcomponents-charts)
+- [igniteui-webcomponents-excel](https://www.npmjs.com/package/igniteui-webcomponents-excel)
+- [igniteui-webcomponents-gauges](https://www.npmjs.com/package/igniteui-webcomponents-gauges)
+- [igniteui-webcomponents-grids](https://www.npmjs.com/package/igniteui-webcomponents-grids)
+- [igniteui-webcomponents-maps](https://www.npmjs.com/package/igniteui-webcomponents-maps)
+- [igniteui-webcomponents-spreadsheet](https://www.npmjs.com/package/igniteui-webcomponents-spreadsheet)
+- [igniteui-webcomponents-datasources](https://www.npmjs.com/package/igniteui-webcomponents-datasources)
 
 Next, follow these steps:
 
@@ -72,7 +75,7 @@ Next, follow these steps:
 
 - type `npm run start` command in terminal window to start the browser application locally
 
-Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser. You should see a website with navigation menu for browning all samples in this repository.
+- Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser. You should see a website with navigation menu for browning all samples in this repository.
 
 ## Adding New Sample
 
