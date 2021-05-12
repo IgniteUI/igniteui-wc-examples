@@ -512,11 +512,19 @@ class Transformer {
                 info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
                 info.SampleFileSourceCode = this.lintSample(info.SampleFileSourceCode, info.SampleFileSourcePath, true);
 
-                let classExp = new RegExp(/(export.class.)(.*)(.\{)/g);
-                let className = info.SampleFileSourceCode.match(classExp)[0];
-                className = className.replace('export class ', '');
-                className = className.replace(' {', '');
-                info.SampleFileSourceClass = className; //.replace('export class ', '');
+                // let classExp = new RegExp(/(export.class.)(.*)(.\{)/g);
+                // let className = info.SampleFileSourceCode.match(classExp)[0];
+                // className = className.replace('export class ', '');
+                // className = className.replace(' {', '');
+                // info.SampleFileSourceClass = className; //.replace('export class ', '');
+
+                // using folder names to make sure each sample has unique class name
+                let className = info.ComponentFolder + "-" + info.SampleFolderName;
+                className = Strings.replace(className, "/", " ");
+                className = Strings.replace(className, "-", " ");
+                className = Strings.toTitleCase(className);
+                className = Strings.replace(className, " ", "");
+                info.SampleFileSourceClass = className;
 
                 // console.log("TRANS '" + className + "'");
                 // info.SampleFileBrowserCode = this.getSampleCodeInBrowser(info, sampleTemplate)
