@@ -381,16 +381,23 @@ class Transformer {
     }
 
     public static getSampleCodeInBrowser(info: SampleInfo, sampleTemplate: string): string {
-        let codeSeparator = "export class " + info.SampleFileSourceClass + " {";
-        let lines = info.SampleFileSourceCode.split(codeSeparator);
+
+        // let codeSeparator = "export class " + info.SampleFileSourceClass + " {";
+        let classExp = new RegExp(/(export.class.)(.*)(.\{)/g);
+        let className = info.SampleFileSourceCode.match(classExp)[0];
+        let classSeparator = "" + className + "";
+
+        let fileLines = info.SampleFileSourceCode.split("\n");
+        let lines = info.SampleFileSourceCode.split(classSeparator);
         // console.log(" ------------------------------ ");
-        // console.log("  codeSeparator '" + codeSeparator + "'");
+        // console.log("  classSeparator '" + classSeparator + "'");
+        // console.log("  file.length " + fileLines.length);
         // console.log("  lines.length " + lines.length);
 
         let code = "";
 
         if (lines.length < 2) {
-            console.log("WARNING Transformer cannot find: '" + codeSeparator + "' \n in sample: " + info.SampleFilePath);
+            console.log("WARNING Transformer cannot find: '" + classSeparator + "' \n in sample: " + info.SampleFilePath);
         } else {
 
             // let codeRemoveLines = [
@@ -433,6 +440,8 @@ class Transformer {
         if (code.trim() === "") {
             console.log("ERROR cannot transform " + info.SampleFileSourcePath)
         }
+
+        // console.log("  code.length " + code.length);
 
         return code;
     }
