@@ -15,6 +15,26 @@
     <div id="root">
 
 <div class="container sample">
+  <div class="options">
+        <label class="options-item">Enter Key Mode: </label>
+        <select class="options-select" id="enterModeDropBox">
+          <option>Edit</option>
+          <option>MoveUp</option>
+          <option>MoveDown</option>
+          <option>MoveLeft</option>
+          <option>MoveRight</option>
+          <option>None</option>
+        </select class="options-select">
+
+        <label class="options-label">Enter Key After Edit Mode: </label>
+        <select class="options-select" id="enterAfterEditMode">
+          <option>MoveDown</option>
+          <option>MoveUp</option>
+          <option>MoveLeft</option>
+          <option>MoveRight</option>
+        </select class="options-select">
+    </div>
+
     <igc-data-grid
         id="grid"
         height="100%"
