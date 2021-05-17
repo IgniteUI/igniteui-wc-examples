@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <span class="igOptions-item">Trendline Type:</span>
+<div class="container sample">
+    <div class="options horizontal">
+        <span class="options-label">Trendline Type:</span>
         <select id="trendLineSelect">
             <option>None</option>
             <option>CubicFit</option>
@@ -34,7 +34,7 @@
             <option>WeightedAverage</option>
         </select>
     </div>
-    <div class="igComponent" style="height: calc(100% - 3rem)">
+    <div class="container" style="height: calc(100% - 3rem)">
         <igc-data-chart id="chart" width="100%" height="100%"
         is-horizontal-zoom-enabled="true"
         is-vertical-zoom-enabled="true">

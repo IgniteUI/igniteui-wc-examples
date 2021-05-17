@@ -7,23 +7,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <span class="igOptions-item">Selection Mode: </span>
+<div class="container sample">
+    <div class="options horizontal">
+        <span class="options-label">Selection Mode: </span>
         <select id="selectionModeDropDown">
             <option>AddToSelection</option>
             <option>ExtendSelection</option>
             <option>Normal</option>
         </select>
 
-        <span class="igOptions-item">Enter Key Navigation Direction: </span>
+        <span class="options-label">Enter Key Navigation Direction: </span>
         <select id="enterKeyNavDirectionDropDown">
             <option>Down</option>
             <option>Left</option>
@@ -31,16 +31,16 @@
             <option>Up</option>
         </select>
     </div>
-    <div class="igOptions">
-        <label class="igOptions-item" style="width: 145px"><input id="areHeadersVisibleCheckbox" type="checkbox" checked="true" /> Enable Headers</label>
-        <label class="igOptions-item" style="width: 175px"><input id="isFormulaBarVisibleCheckbox" type="checkbox" checked="true"  /> Enable Formula Bar</label>
-        <label class="igOptions-item" style="width: 225px"><input id="isEnterKeyNavEnabledCheckbox" type="checkbox" checked="true"  />Enable Enter Key Navigation</label>
-        <label id="zoomLevelLabel" class="igOptions-item">Zoom Level: 100% </label>
+    <div class="options horizontal">
+        <label class="options-label" style="width: 145px"><input id="areHeadersVisibleCheckbox" type="checkbox" checked="true" /> Enable Headers</label>
+        <label class="options-label" style="width: 175px"><input id="isFormulaBarVisibleCheckbox" type="checkbox" checked="true"  /> Enable Formula Bar</label>
+        <label class="options-label" style="width: 225px"><input id="isEnterKeyNavEnabledCheckbox" type="checkbox" checked="true"  />Enable Enter Key Navigation</label>
+        <label id="zoomLevelLabel" class="options-label">Zoom Level: 100% </label>
     </div>
-    <div class="igOptions">
-        <label class="igOptions-item" style="width: 145px"><input type="checkbox" id="areGridlinesVisibleCheckbox" checked="true" /> Enable Gridlines</label>
-        <label class="igOptions-item" style="width: 175px"><input type="checkbox" id="isTabBarAreaVisibleCheckbox" checked="true" /> Enable Tab Bar Area</label>
-        <label class="igOptions-item" style="width: 225px"><input type="checkbox" id="isProtectedCheckbox" /> Enable Protected Mode</label>
+    <div class="options horizontal">
+        <label class="options-label" style="width: 145px"><input type="checkbox" id="areGridlinesVisibleCheckbox" checked="true" /> Enable Gridlines</label>
+        <label class="options-label" style="width: 175px"><input type="checkbox" id="isTabBarAreaVisibleCheckbox" checked="true" /> Enable Tab Bar Area</label>
+        <label class="options-label" style="width: 225px"><input type="checkbox" id="isProtectedCheckbox" /> Enable Protected Mode</label>
         <input id="spreadsheetZoomLevelRange" type="range" min="50" max="150" step="5" />
     </div>
     <igc-spreadsheet id="spreadsheet" width="100%" height="calc(100% - 7.5rem)">

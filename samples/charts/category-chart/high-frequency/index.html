@@ -7,24 +7,24 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <label class="igOptions-label">Refresh Interval: </label>
-        <label class="igOptions-value" id="refreshInfoLabel"></label>
-        <input class="igOptions-slider" id="refreshSlider" type="range" min="10" max="500"></input>
-        <label class="igOptions-label">Data Points: </label>
-        <label class="igOptions-value" id="dataInfoLabel" >100000 </label>
-        <input class="igOptions-slider" id="slider" type="range" min="10000" max="1000000" step="1000" value="100000"></input>
-        <button class="igOptions-button" id="dataGenerate"> Generate Data</button>
-        <label class="igOptions-item"><input type="checkbox" id ="scalingRatio" /> Optimize Scaling </label>
-        <span id="fps" class="igOptions-label" />
+<div class="container sample">
+    <div class="options horizontal">
+        <label class="options-label">Refresh Interval: </label>
+        <label class="options-value" id="refreshInfoLabel"></label>
+        <input class="options-slider" id="refreshSlider" type="range" min="10" max="500"></input>
+        <label class="options-label">Data Points: </label>
+        <label class="options-value" id="dataInfoLabel" >100000 </label>
+        <input class="options-slider" id="slider" type="range" min="10000" max="1000000" step="1000" value="100000"></input>
+        <button class="options-button" id="dataGenerate"> Generate Data</button>
+        <label class="options-label"><input type="checkbox" id ="scalingRatio" /> Optimize Scaling </label>
+        <span id="fps" class="options-label" />
     </div>
 
     <igc-category-chart id="chart"
