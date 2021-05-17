@@ -34,6 +34,7 @@ class SampleInfo {
     public SampleFileSourceCode: string; // source code from /src/MapBindingDataCSV.ts file
     public SampleFileBrowserCode: string; // source code for a sample in browser
     public SampleFileSourceClass: string; // MapBindingDataCSV
+    public SampleFileOriginalClass: string; // MapBindingDataCSV
 
     public SampleImportLines: string[];
     public SampleImportPackages: string[];
@@ -426,8 +427,9 @@ class Transformer {
             code = Strings.replace(code, "AutoInsertClassName", info.SampleFileSourceClass);
             // removing CodeSandbox's workaround for creating WC element:
             code = Strings.replace(code, "new " + info.SampleFileSourceClass + "();", "");
+            code = Strings.replace(code, "new " + info.SampleFileOriginalClass + "();", "");
 
-            code = this.lintSample(code)
+            code = this.lintSample(code);
             code = Strings.replace(code, "// AutoInsertNewLine", "");
             // code = code.trim();
             // console.log(codeClassName);
@@ -521,11 +523,12 @@ class Transformer {
                 info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
                 info.SampleFileSourceCode = this.lintSample(info.SampleFileSourceCode, info.SampleFileSourcePath, true);
 
-                // let classExp = new RegExp(/(export.class.)(.*)(.\{)/g);
-                // let className = info.SampleFileSourceCode.match(classExp)[0];
-                // className = className.replace('export class ', '');
-                // className = className.replace(' {', '');
-                // info.SampleFileSourceClass = className; //.replace('export class ', '');
+                let orgClassExp = new RegExp(/(export.class.)(.*)(.\{)/g);
+                let orgClassName = info.SampleFileSourceCode.match(orgClassExp)[0];
+                orgClassName = orgClassName.replace('export class ', '');
+                orgClassName = orgClassName.replace(' {', '');
+                orgClassName = Strings.replace(orgClassName, ' ', '');
+                info.SampleFileOriginalClass = orgClassName;
 
                 // using folder names to make sure each sample has unique class name
                 let className = info.ComponentFolder + "-" + info.SampleFolderName;
