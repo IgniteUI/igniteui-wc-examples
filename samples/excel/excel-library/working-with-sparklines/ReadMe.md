@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/master/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Excel Library - Sparklines.
+This folder contains implementation of Web Components application with example of Excel Library - Working With Sparklines.
 
 ## Preview
 
