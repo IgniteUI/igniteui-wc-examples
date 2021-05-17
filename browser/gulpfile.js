@@ -22,7 +22,7 @@ exports.updateSamples = updateSamples = gulp.series(
     sb.findSamples,
     sb.updateSampleReadme,
     sb.updateSamplePackages,
-    sb.updateSampleIndex,
+    // sb.updateSampleIndex,
     sb.updateSampleStyles,
  // sb.updateSampleResources,
     sb.updateSampleCodeFiles
