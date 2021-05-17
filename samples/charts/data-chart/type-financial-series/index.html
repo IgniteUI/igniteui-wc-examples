@@ -7,28 +7,28 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-    <span class="igOptions-label"> Series Display Type: </span>
+<div class="container sample">
+    <div class="options horizontal">
+    <span class="options-label"> Series Display Type: </span>
     <select id="seriesSelect">
         <option>Candlestick</option>
         <option>OHLC</option>
     </select>
-    <span class="igOptions-label"> Indicator Display Type: </span>
+    <span class="options-label"> Indicator Display Type: </span>
     <select id="indicatorSelect">
         <option>Line</option>
         <option>Area</option>
         <option>Column</option>
     </select>
     </div>
-    <div class="igComponent" style="height: calc(100% - 3rem)">
+    <div class="container" style="height: calc(100% - 3rem)">
         <igc-data-chart id="chart" width="100%" height="100%"
         is-horizontal-zoom-enabled="true"
         is-vertical-zoom-enabled="true">

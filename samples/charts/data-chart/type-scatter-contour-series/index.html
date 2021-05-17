@@ -7,31 +7,31 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <label class="igOptions-label">Thickness: </label>
-        <label class="igOptions-value" id="thicknessLabel">
+<div class="container sample">
+    <div class="options horizontal">
+        <label class="options-label">Thickness: </label>
+        <label class="options-value" id="thicknessLabel">
         </label>
-        <input class="igOptions-slider" id="thicknessSlider"
+        <input class="options-slider" id="thicknessSlider"
             type="range" min="1" max="10" step="1">
         </input>
 
-        <label class="igOptions-label">Contours: </label>
-        <label class="igOptions-value" id="contoursLabel">
+        <label class="options-label">Contours: </label>
+        <label class="options-value" id="contoursLabel">
         </label>
-        <input class="igOptions-slider" id="contoursSlider"
+        <input class="options-slider" id="contoursSlider"
             type="range" min="1" max="15" step="1">
         </input>
 
     </div>
-    <div class="igComponent" style="height: calc(100% - 3rem)">
+    <div class="container" style="height: calc(100% - 3rem)">
         <igc-data-chart id="chart" width="100%" height="100%"
             is-horizontal-zoom-enabled="true"
             is-vertical-zoom-enabled="true"

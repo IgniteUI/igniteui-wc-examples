@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/master/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Geographic Map - Scatter Density Series.
+This folder contains implementation of Web Components application with example of Geographic Map - Geo Scatter Density Series.
 
 ## Preview
 

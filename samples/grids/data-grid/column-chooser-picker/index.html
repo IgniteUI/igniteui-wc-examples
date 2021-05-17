@@ -7,32 +7,30 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer-horizontal">
- <div class="columnChooserContainer">
-   <div class="columnsOrderOptionsContainer">
-    <igc-column-chooser
-        id="columnUI"
-        height="100%"
-        width="200px"
-        title="Column Chooser"
-        show-all-text="Show All"
-        hide-all-text="Hide All">
-    </igc-column-chooser>
-   </div>
-</div>
-    <div class="gridContainer">
+<div class="container horizontal">
+    <div class="container" style="margin-left: 0.4rem; margin-top: 2px; margin-right: 0.5rem; margin-bottom: 0.25rem; padding: 0.5rem; background: rgb(248, 248, 248); border-radius: 10px; box-shadow: 1px 1px 2px 2px rgb(50 50 50 / 25%)">
+        <igc-column-chooser
+            id="columnUI"
+            height="100%"
+            width="200px"
+            title="Column Chooser"
+            show-all-text="Show All"
+            hide-all-text="Hide All">
+        </igc-column-chooser>
+    </div>
+    <div class="container">
     <igc-data-grid
         id="grid"
         height="100%"
         width="100%"
-        is-column-igOptions-enabled="true"
+        is-column-options-enabled="true"
         auto-generate-columns="false">
             <igc-text-column field="ProductID" header-text="Product ID" width="*>125" horizontal-alignment="center" is-hidden="true"></igc-text-column>
             <igc-image-column field="CountryFlag" header-text="Country" width="*>115" content-opacity="1" horizontal-alignment="center"

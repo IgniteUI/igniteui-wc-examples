@@ -574,7 +574,7 @@ function updateCodeViewer(cb) {
     for (const sample of samples) {
         var codeViewPath = outputFolder + sample.SampleRoute + ".json";
 
-        console.log("generating: " + codeViewPath);
+        console.log(">> generating: " + codeViewPath);
 
         var content = "{\r\n \"sampleFiles\":\r\n";
         var contentItems = [];

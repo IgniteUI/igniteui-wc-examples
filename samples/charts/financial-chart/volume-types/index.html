@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <label class="igOptions-label">Volume Type:</label>
+<div class="container sample">
+    <div class="options horizontal">
+        <label class="options-label">Volume Type:</label>
         <select id="volumeTypeSelect">
             <option>Area</option>
             <option>Column</option>
@@ -24,13 +24,13 @@
             <option>None</option>
         </select>
     </div>
-    <div class="igComponent" style="height: calc(100% - 3rem)">
+    <div class="container" style="height: calc(100% - 3rem)">
         <igc-financial-chart id="chart" width="100%" height="100%"
             y-axis-extent="60"
             volume-thickness="2"
             volume-brushes="rgba(136, 77, 255, 0.75)"
             volume-outlines="rgba(136, 77, 255, 1)"
-            zoom-igOptions-slider-type="None">
+            zoom-slider-type="None">
         </igc-financial-chart>
     </div>
 </div>

@@ -7,32 +7,32 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <label class="igOptions-label">Refresh Interval: </label>
-        <label class="igOptions-value" id="refreshInfoLabel">
+<div class="container sample">
+    <div class="options horizontal">
+        <label class="options-label">Refresh Interval: </label>
+        <label class="options-value" id="refreshInfoLabel">
         </label>
-        <input class="igOptions-slider" id="refreshSlider" type="range"
+        <input class="options-slider" id="refreshSlider" type="range"
             min="5" max="1000">
         </input>
-        <label class="igOptions-label">Data Points: </label>
-        <label class="igOptions-value" id="dataInfoLabel" >
+        <label class="options-label">Data Points: </label>
+        <label class="options-value" id="dataInfoLabel" >
         </label>
-        <input class="igOptions-slider" id="dataPointsSlider" type="range"
+        <input class="options-slider" id="dataPointsSlider" type="range"
             min="10000" max="100000" step="1000">
         </input>
         <button id="genDataBtn">Generate Data</button>
-        <label class="igOptions-item">
+        <label class="options-label">
             <input id="scalingRatio" type="checkbox"></input> Optimize Scaling
         </label>
-        <span id="fpsSpan" class="igOptions-label"></span>
+        <span id="fpsSpan" class="options-label"></span>
     </div>
     <div style="height: calc(100% - 3rem)">
         <igc-financial-chart id="chart" width="100%" height="100%"

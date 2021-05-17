@@ -7,37 +7,37 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <span class="igOptions-label">Scale Mode: </span>
+<div class="container sample">
+    <div class="options horizontal">
+        <span class="options-label">Scale Mode: </span>
         <select id="scaleModeSelect">
             <option>Select</option>
             <option>InterpolateRGB</option>
             <option>InterpolateHSV</option>
         </select>
-        <label class="igOptions-label">Minimum: </label>
-        <label class="igOptions-value" id="scaleMinLabel">
+        <label class="options-label">Minimum: </label>
+        <label class="options-value" id="scaleMinLabel">
         </label>
-        <input class="igOptions-slider" id="scaleMinSlider"
+        <input class="options-slider" id="scaleMinSlider"
             type="range" min="-5" max="0" step="1">
         </input>
 
-        <label class="igOptions-label">Maximum: </label>
-        <label class="igOptions-value" id="scaleMaxLabel">
+        <label class="options-label">Maximum: </label>
+        <label class="options-value" id="scaleMaxLabel">
         </label>
-        <input class="igOptions-slider" id="scaleMaxSlider"
+        <input class="options-slider" id="scaleMaxSlider"
             type="range" min="0" max="5" step="1">
         </input>
 
     </div>
-    <div class="igComponent" style="height: calc(100% - 3rem)">
+    <div class="container" style="height: calc(100% - 3rem)">
         <igc-data-chart id="chart" width="100%" height="100%"
             is-horizontal-zoom-enabled="true"
             is-vertical-zoom-enabled="true"

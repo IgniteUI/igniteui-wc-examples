@@ -7,29 +7,29 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <span class="igOptions-item">  Column: </span>
-        <select id="filterColumnDropDown" class="igOptions-item">
+<div class="container sample">
+    <div class="options horizontal">
+        <span class="options-label">  Column: </span>
+        <select id="filterColumnDropDown" class="options-label">
             <option>Name</option>
             <option>Street</option>
             <option>City</option>
             <option>Country</option>
         </select>
-        <select id="filterModeDropDown" class="igOptions-item">
+        <select id="filterModeDropDown" class="options-label">
             <option>Contains</option>
             <option>StartsWith</option>
             <option>EndsWith</option>
         </select>
-        <label class="igOptions-item"> Expression: </label>
-        <input id="filterTextBox" class="igOptions-input-text" type="text" name="title" />
+        <label class="options-label"> Expression: </label>
+        <input id="filterTextBox" class="options-text" type="text" name="title" />
     </div>
 
     <igc-data-grid

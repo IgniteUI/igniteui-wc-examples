@@ -8,7 +8,7 @@ import { IgcScatterPolygonSeriesComponent } from 'igniteui-webcomponents-charts'
 import { IgcStyleShapeEventArgs } from 'igniteui-webcomponents-charts';
 import { DataContext } from 'igniteui-webcomponents-core';
 import { html } from 'lit-html';
-import "./DataChartStyles.css";
+import "./MapLegendStyles.css";
 
 ModuleManager.register(
     IgcDataChartCoreModule,
