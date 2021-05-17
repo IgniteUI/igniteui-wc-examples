@@ -7,32 +7,32 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" rel="stylesheet" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-  <div class="igOptions">
-        <span class="igOptions-item">Enter Key Mode: </span>
-        <select id="enterModeDropBox" class="igOptions-item">
+<div class="container">
+  <div class="options">
+        <label class="options-item">Enter Key Mode: </label>
+        <select class="options-select" id="enterModeDropBox">
           <option>Edit</option>
           <option>MoveUp</option>
           <option>MoveDown</option>
           <option>MoveLeft</option>
           <option>MoveRight</option>
           <option>None</option>
-        </select>
+        </select class="options-select">
 
-        <span class="igOptions-item">Enter Key After Edit Mode: </span>
-        <select id="enterAfterEditMode" class="igOptions-item">
+        <label class="options-label">Enter Key After Edit Mode: </label>
+        <select class="options-select" id="enterAfterEditMode">
           <option>MoveDown</option>
-          <option>MoveUp</option>        
+          <option>MoveUp</option>
           <option>MoveLeft</option>
           <option>MoveRight</option>
-        </select>
+        </select class="options-select">
     </div>
     <igc-data-grid
         id="grid"
