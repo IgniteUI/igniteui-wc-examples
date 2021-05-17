@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>DatePickerOverview</title>
+    <title>DatePickerFormat</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
@@ -9,15 +9,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
     <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
 
+
   </head>
 
   <body>
     <div id="root">
 
+<div class="container" style="align-items: center;">
 
-<div class="container sample" style="align-items: center;">
-  <igc-date-picker id="datePicker" height="50px" width="220px"
-                   show-today-button="true" show-week-numbers="true">
+  <div class="options">
+    <span class="options-label">Date Format: </span>
+    <select value="LongDate" id="dateFormat">
+        <option>DateLong</option>
+        <option>DateShort</option>
+    </select>
+  </div>
+  <igc-date-picker id="datePicker" date-format="DateLong" height="60px" width="220px">
   </igc-date-picker>
 </div>
 
