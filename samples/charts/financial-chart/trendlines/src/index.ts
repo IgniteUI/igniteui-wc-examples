@@ -2,7 +2,7 @@ import { IgcFinancialChartModule } from 'igniteui-webcomponents-charts';
 import { IgcFinancialChartComponent } from 'igniteui-webcomponents-charts';
 import { TrendLineType } from 'igniteui-webcomponents-core';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-import { StocksUtility } from './StocksUtility';
+import { StocksHistory } from './StocksHistory';
 
 ModuleManager.register(IgcFinancialChartModule);
 
@@ -14,11 +14,14 @@ export class FinancialChartTrendlines {
     constructor() {
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
-        this.chart.dataSource = this.getData();
         this.chart.trendLineType = this.trendLineType;
 
         let trendLineSelect = document.getElementById('trendLineSelect');
         trendLineSelect!.addEventListener('change', this.onTrendlineChanged);
+
+        StocksHistory.getMicrosoftStock().then((stocks: any[]) => {
+            this.chart.dataSource = stocks;
+        });
     }
 
     public onTrendlineChanged = (e: any) => {
@@ -65,14 +68,6 @@ export class FinancialChartTrendlines {
             break;
         }
         this.chart.trendLineType = this.trendLineType;
-    }
-
-    getData(): any[] {
-        const data = [
-            StocksUtility.GetStocks(6, 10, 'Amazon (AMZN)'),
-            StocksUtility.GetStocks(6, 10, 'Microsoft (MSFT)')
-        ];
-        return data;
     }
 }
 
