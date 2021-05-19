@@ -12,10 +12,7 @@ export class FinancialChartTitles {
     constructor() {
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
-        this.getData();
-    }
-
-    getData(): void {
+    
         StocksHistory.getAmazonStock().then((stocks: any[]) => {
             this.chart.dataSource = stocks;
         });
