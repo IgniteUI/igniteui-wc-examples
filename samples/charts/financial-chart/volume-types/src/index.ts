@@ -14,7 +14,7 @@ export class FinancialChartVolumeTypes {
     constructor() {
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
-        this.chart.dataSource = StocksUtility.GetStocks();
+        this.chart.dataSource = this.initData();
         this.chart.volumeType = this.volumeType;
 
         let volumeTypeSelect = document.getElementById('volumeTypeSelect');
@@ -38,6 +38,16 @@ export class FinancialChartVolumeTypes {
             break;
         }
         this.chart.volumeType = this.volumeType;
+    }
+
+    initData(): any[] {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth();
+        const dateEnd = new Date(year, month, 1);
+        const dateStart = new Date(year - 1, month, 1);
+
+        return StocksUtility.GetStocksBetween(dateStart, dateEnd);
     }
 
 }
