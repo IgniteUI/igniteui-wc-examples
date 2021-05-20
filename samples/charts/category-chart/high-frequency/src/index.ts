@@ -14,19 +14,16 @@ export class CategoryChartHighFrequency {
 
     public refreshMilliseconds: number = 10;
     public interval: number = -1;
-    public fps: HTMLSpanElement;
-    public frameTime: Date;
-    public frameCount: number = 0;
-    public scalingRatio: number = NaN;
     private dataInfoLabel: HTMLLabelElement;
     private refreshInfoLabel: HTMLLabelElement;
+    private timerTickButton : HTMLButtonElement;
+    private shouldTick: boolean = false;
 
     constructor() {
 
-        this.onFpsRef = this.onFpsRef.bind(this);
-        this.onScalingRatioChanged = this.onScalingRatioChanged.bind(this);
         this.onRefreshFrequencyChanged = this.onRefreshFrequencyChanged.bind(this);
         this.onDataGenerateClick = this.onDataGenerateClick.bind(this);
+        this.onTimerButtonClick = this.onTimerButtonClick.bind(this);
         this.onDataPointsChanged = this.onDataPointsChanged.bind(this);
         this.tick = this.tick.bind(this);
 
@@ -54,10 +51,8 @@ export class CategoryChartHighFrequency {
         let dataGenerate1 = document.getElementById('dataGenerate') as HTMLInputElement;
         dataGenerate1!.addEventListener('click', this.onDataGenerateClick);
 
-        let scalingRatio1 = document.getElementById('scalingRatio') as HTMLInputElement;
-        scalingRatio1!.addEventListener('change', this.onScalingRatioChanged);
-
-        this.fps = document.getElementById('fps') as HTMLSpanElement;
+        this.timerTickButton = document.getElementById('timerButton') as HTMLButtonElement;
+        this.timerTickButton!.addEventListener('click', this.onTimerButtonClick);
     }
 
     public componentWillUnmount() {
@@ -67,21 +62,8 @@ export class CategoryChartHighFrequency {
         }
     }
 
-    public onFpsRef(span: HTMLSpanElement) {
-        this.fps = span;
-    }
-
     public onChartInit(): void {
-        this.frameTime = new Date();
         this.setupInterval();
-    }
-
-    public onScalingRatioChanged = (e: any) => {
-        if (e.target.checked) {
-            this.scalingRatio = 1.0;
-        } else {
-            this.scalingRatio = NaN;
-        }
     }
 
     public onDataGenerateClick() {
@@ -91,6 +73,17 @@ export class CategoryChartHighFrequency {
 
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.dataSource = this.data;
+    }
+
+    public onTimerButtonClick() {
+        this.shouldTick = !this.shouldTick;
+
+        if (this.shouldTick) {
+            this.timerTickButton.textContent = "Stop";
+        }
+        else {
+            this.timerTickButton.textContent = "Start";
+        }
     }
 
     public onDataPointsChanged = (e: any) => {
@@ -139,24 +132,16 @@ export class CategoryChartHighFrequency {
     }
 
     public tick(): void {
-        this.dataIndex++;
-        const oldItem = this.data[0];
-        const newItem = CategoryChartSharedData.getNewItem(this.data, this.dataIndex);
+        if (this.shouldTick) {
+            this.dataIndex++;
+            const oldItem = this.data[0];
+            const newItem = CategoryChartSharedData.getNewItem(this.data, this.dataIndex);
 
-        // updating data source and notifying category chart
-        this.data.push(newItem);
-        this.chart.notifyInsertItem(this.data, this.data.length - 1, newItem);
-        this.data.shift();
-        this.chart.notifyRemoveItem(this.data, 0, oldItem);
-
-        this.frameCount++;
-        const currTime = new Date();
-        const elapsed = (currTime.getTime() - this.frameTime.getTime());
-        if (elapsed > 5000) {
-            const fps = this.frameCount / (elapsed / 1000.0);
-            this.frameTime = currTime;
-            this.frameCount = 0;
-            this.fps.textContent = ' FPS: ' + Math.round(fps).toString();
+            // updating data source and notifying category chart
+            this.data.push(newItem);
+            this.chart.notifyInsertItem(this.data, this.data.length - 1, newItem);
+            this.data.shift();
+            this.chart.notifyRemoveItem(this.data, 0, oldItem);
         }
     }
 }
