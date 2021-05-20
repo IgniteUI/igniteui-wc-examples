@@ -16,15 +16,14 @@
 
 <div class="container sample">
     <div class="options horizontal">
-        <label class="options-label">Refresh Interval: </label>
+        <label class="options-label">Refresh: </label>
+        <button id="timerButton">Start</button>
         <label class="options-value" id="refreshInfoLabel"></label>
         <input class="options-slider" id="refreshSlider" type="range" min="10" max="500"></input>
-        <label class="options-label">Data Points: </label>
+        <button class="options-button" id="dataGenerate">Generate</button>
+        <label class="options-label">Points: </label>
         <label class="options-value" id="dataInfoLabel" >100000 </label>
-        <input class="options-slider" id="slider" type="range" min="10000" max="1000000" step="1000" value="100000"></input>
-        <button class="options-button" id="dataGenerate"> Generate Data</button>
-        <label class="options-label"><input type="checkbox" id ="scalingRatio" /> Optimize Scaling </label>
-        <span id="fps" class="options-label" />
+        <input class="options-slider" id="slider" type="range" min="10000" max="1000000" step="1000" value="100000"></input>                
     </div>
 
     <igc-category-chart id="chart"
