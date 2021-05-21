@@ -46,10 +46,10 @@ export class DataChartTypeScatterSeries {
 
         this.legend = document.getElementById('legend') as IgcLegendComponent;
         this.chart.legend = this.legend;
-        this.setSeries('Bubble');
+        this.setSeries('Point');
 
         const seriesTypeSelect = document.getElementById('seriesTypeSelect') as HTMLSelectElement;
-        seriesTypeSelect.value = 'Bubble';
+        seriesTypeSelect!.value = 'Point';
         seriesTypeSelect!.addEventListener('change', this.onSeriesTypeChanged);
     }
 
@@ -59,119 +59,98 @@ export class DataChartTypeScatterSeries {
     }
 
     public setSeries(seriesType: string) {
-        if (seriesType === 'Point') {
+        if (seriesType === "Point") {
             const series1 = new IgcScatterSeriesComponent();
-            series1.title = 'Rich Countries';
             series1.markerType = MarkerType.Circle;
-            series1.dataSource = SampleScatterStats.getCountriesWithHighIncome();
             series1.showDefaultTooltip = true;
-            series1.xMemberPath = 'Population';
-            series1.yMemberPath = 'GdpTotal';
-            series1.xAxisName = 'xAxis';
-            series1.yAxisName = 'yAxis';
-
+            series1.title = "High Income Countries";
+            series1.xAxisName = "xAxis";
+            series1.yAxisName = "yAxis";
+            series1.xMemberPath = "Population";
+            series1.yMemberPath = "GdpTotal";
+            series1.dataSource = SampleScatterStats.getCountriesWithHighIncome();
+            
             const series2 = new IgcScatterSeriesComponent();
-            series2.title = 'Poor Countries';
             series2.markerType = MarkerType.Circle;
-            series2.dataSource = SampleScatterStats.getCountriesWithLowIncome();
             series2.showDefaultTooltip = true;
-            series2.xMemberPath = 'Population';
-            series2.yMemberPath = 'GdpTotal';
-            series2.xAxisName = 'xAxis';
-            series2.yAxisName = 'yAxis';
-
+            series2.title = "Low Income Countries";
+            series2.xAxisName = "xAxis";
+            series2.yAxisName = "yAxis";
+            series2.xMemberPath = "Population";
+            series2.yMemberPath = "GdpTotal";
+            series2.dataSource = SampleScatterStats.getCountriesWithLowIncome();
+            
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-        } else if (seriesType === 'Line') {
+        } else if (seriesType === "Line") {
             const series1 = new IgcScatterLineSeriesComponent();
-            series1.title = 'Rich Countries';
             series1.markerType = MarkerType.Circle;
-            series1.dataSource = SampleScatterStats.getCountriesWithHighIncome();
             series1.showDefaultTooltip = true;
-            series1.xMemberPath = 'Population';
-            series1.yMemberPath = 'GdpTotal';
-            series1.xAxisName = 'xAxis';
-            series1.yAxisName = 'yAxis';
+            series1.title = "High Income Countries";
+            series1.xAxisName = "xAxis";
+            series1.yAxisName = "yAxis";
+            series1.xMemberPath = "Population";
+            series1.yMemberPath = "GdpTotal";
+            series1.dataSource = SampleScatterStats.getCountriesWithHighIncome();
 
             const series2 = new IgcScatterLineSeriesComponent();
-            series2.title = 'Poor Countries';
             series2.markerType = MarkerType.Circle;
-            series2.dataSource = SampleScatterStats.getCountriesWithLowIncome();
             series2.showDefaultTooltip = true;
-            series2.xMemberPath = 'Population';
-            series2.yMemberPath = 'GdpTotal';
-            series2.xAxisName = 'xAxis';
-            series2.yAxisName = 'yAxis';
-
+            series2.title = "Low Income Countries";
+            series2.xAxisName = "xAxis";
+            series2.yAxisName = "yAxis";
+            series2.xMemberPath = "Population";
+            series2.yMemberPath = "GdpTotal";
+            series2.dataSource = SampleScatterStats.getCountriesWithLowIncome();
+            
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-        } else if (seriesType === 'Spline') {
+        } else if (seriesType === "Spline") {
             const series1 = new IgcScatterSplineSeriesComponent();
-            series1.title = 'Rich Countries';
             series1.markerType = MarkerType.Circle;
-            series1.dataSource = SampleScatterStats.getCountriesWithHighIncome();
             series1.showDefaultTooltip = true;
-            series1.xMemberPath = 'Population';
-            series1.yMemberPath = 'GdpTotal';
-            series1.xAxisName = 'xAxis';
-            series1.yAxisName = 'yAxis';
-
+            series1.title = "High Income Countries";
+            series1.xAxisName = "xAxis";
+            series1.yAxisName = "yAxis";
+            series1.xMemberPath = "Population";
+            series1.yMemberPath = "GdpTotal";
+            series1.dataSource = SampleScatterStats.getCountriesWithHighIncome();
+            
             const series2 = new IgcScatterSplineSeriesComponent();
-            series2.title = 'Poor Countries';
             series2.markerType = MarkerType.Circle;
-            series2.dataSource = SampleScatterStats.getCountriesWithLowIncome();
             series2.showDefaultTooltip = true;
-            series2.xMemberPath = 'Population';
-            series2.yMemberPath = 'GdpTotal';
-            series2.xAxisName = 'xAxis';
-            series2.yAxisName = 'yAxis';
-
+            series2.title = "Low Income Countries";
+            series2.xAxisName = "xAxis";
+            series2.yAxisName = "yAxis";
+            series2.xMemberPath = "Population";
+            series2.yMemberPath = "GdpTotal";
+            series2.dataSource = SampleScatterStats.getCountriesWithLowIncome();
+            
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-        } else if (seriesType === 'Bubble') {
-            const sizeScale = new IgcSizeScaleComponent();
-            sizeScale.minimumValue = 10;
-            sizeScale.maximumValue = 60;
-
-            const brushScale1 = new IgcValueBrushScaleComponent();
-            brushScale1.brushes = ['#FFFFFF', '#b56ffc'];
-            brushScale1.minimumValue = 10;
-            brushScale1.maximumValue = 60;
-
+        } else if (seriesType === "Bubble") {
             const series1 = new IgcBubbleSeriesComponent();
-            series1.title = 'Large Countries';
             series1.markerType = MarkerType.Circle;
-            series1.dataSource = SampleScatterStats.getCountriesWithLargePop();
             series1.showDefaultTooltip = true;
-            series1.xMemberPath = 'Population';
-            series1.yMemberPath = 'GdpTotal';
-            series1.radiusMemberPath = 'GdpPerCapita';
-            series1.radiusScale = sizeScale;
-            // series1.fillMemberPath = 'GdpPerCapita';
-            // series1.fillScale = brushScale1;
-            series1.xAxisName = 'xAxis';
-            series1.yAxisName = 'yAxis';
-
-            const brushScale2 = new IgcCustomPaletteBrushScaleComponent();
-            brushScale2.brushes = ['#FFFFFF', '#b56ffc'];
-            brushScale2.brushSelectionMode = BrushSelectionMode.Interpolate;
+            series1.title = "High Income Countries";
+            series1.xAxisName = "xAxis";
+            series1.yAxisName = "yAxis";
+            series1.xMemberPath = "Population";
+            series1.yMemberPath = "GdpTotal";
+            series1.dataSource = SampleScatterStats.getCountriesWithHighIncome();
 
             const series2 = new IgcBubbleSeriesComponent();
-            series2.title = 'Small Countries';
             series2.markerType = MarkerType.Circle;
-            series2.dataSource = SampleScatterStats.getCountriesWithSmallPop();
             series2.showDefaultTooltip = true;
-            series2.xMemberPath = 'Population';
-            series2.yMemberPath = 'GdpTotal';
-            series2.radiusMemberPath = 'GdpPerCapita';
-            series2.radiusScale = sizeScale;
-            // series2.fillMemberPath = 'GdpPerCapita';
-            // series2.fillScale = brushScale2;
-            series2.xAxisName = 'xAxis';
-            series2.yAxisName = 'yAxis';
+            series2.title = "Low Income Countries";
+            series2.xAxisName = "xAxis";
+            series2.yAxisName = "yAxis";
+            series2.xMemberPath = "Population";
+            series2.yMemberPath = "GdpTotal";
+            series2.dataSource = SampleScatterStats.getCountriesWithLowIncome();
 
             this.chart.series.clear();
             this.chart.series.add(series1);

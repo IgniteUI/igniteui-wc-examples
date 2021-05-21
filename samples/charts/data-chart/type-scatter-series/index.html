@@ -15,16 +15,23 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options horizontal">
-        <span class="options-label">Scatter Series </span>
-        <select id="seriesTypeSelect">
-            <option>Bubble</option>
-            <option>Point</option>
-            <option>Line</option>
-            <option>Spline</option>
-        </select>
-        <label class="legend-title">Legend </label>
-        <igc-legend id="legend" orientation="Horizontal"></igc-legend>
+    <div class="options vertical">
+        <span class="legend-title">Legend: </span>
+        <div class="legend">
+            <igc-legend id="legend" orientation="Horizontal"></igc-legend>
+        </div>
+
+        <div class="overlay-right">
+            <div class="options horizontal">
+                <label class="options-label">Scatter Series: </label>
+                <select id="seriesTypeSelect">
+                    <option>Bubble</option>
+                    <option>Point</option>
+                    <option>Line</option>
+                    <option>Spline</option>
+                </select>
+            </div>
+        </div>
     </div>
 
     <div class="container" style="height: calc(100% - 3rem)">
