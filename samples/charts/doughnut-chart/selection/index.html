@@ -15,26 +15,40 @@
     <div id="root">
 
 <div class="container sample" >
-  <div class="options vertical">
-    <label class="legend-title">Global Electricity Demand by Energy Use </label>
-    <igc-item-legend id="legend" orientation="Horizontal"></igc-item-legend>
-  </div>
+    <div class="options vertical">
+        <span class="legend-title">Global Electricity Demand by Energy Use</span>
+        <div class="legend">
+            <igc-item-legend id="legend"></igc-item-legend>
+        </div>
+    </div>
 
-    <igc-doughnut-chart
-        id="chart"
-        height="calc(100% - 2.5rem)"
-        allow-slice-selection="true">
+    <div class="container relative">
+        <div class="container-overlay">
+            <igc-doughnut-chart
+                id="chart"
+                width="100%"
+                height="100%"
+                allow-slice-selection="true"
+                inner-extent="0.6">
+                <igc-ring-series
+                    name="ringSeries" id="ringSeries"
+                    label-member-path="Summary"
+                    labels-position="OutsideEnd"
+                    label-extent="30"
+                    value-member-path="MarketShare"
+                    legend-label-member-path="Category"
+                    radius-factor="0.7"
+                    start-angle="30"
+                    >
+                </igc-ring-series>
+            </igc-doughnut-chart>
 
-        <igc-ring-series
-            name="ringSeries" id="ringSeries"
-            label-member-path="Summary"
-            value-member-path="MarketShare"
-            radius-factor="0.6"
-            labels-position="OutsideEnd"
-            label-extent="30">
-        </igc-ring-series>
-
-    </igc-doughnut-chart>
+            <div class="overlay-center" style="line-height: 1.1;">
+              <label id="selectedSliceLabel" class="options-label" style="font-size: 1.2rem;"></label>
+              <label id="selectedSliceValue" class="options-label" style="font-size: 2.2rem;"></label>
+          </div>
+        </div>
+    </div>
 </div>
 
     </div>
