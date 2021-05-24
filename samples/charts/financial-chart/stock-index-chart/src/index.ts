@@ -7,8 +7,8 @@ import { StockIndexData } from './StockIndexData';
 
 ModuleManager.register(IgcFinancialChartModule);
 
-export class FinancialChartAxisTypes {
-
+export class FinancialChartIndexChart {
+// FinancialChartAxisTypes
     private chart: IgcFinancialChartComponent;
 
     constructor() {
@@ -19,4 +19,4 @@ export class FinancialChartAxisTypes {
     }
 }
 
-new FinancialChartAxisTypes();
+new FinancialChartIndexChart();
