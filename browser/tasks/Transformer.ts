@@ -385,7 +385,15 @@ class Transformer {
 
         // let codeSeparator = "export class " + info.SampleFileSourceClass + " {";
         let classExp = new RegExp(/(export.class.)(.*)(.\{)/g);
-        let className = info.SampleFileSourceCode.match(classExp)[0];
+        let classMatch = info.SampleFileSourceCode.match(classExp);
+        if (classMatch === undefined || classMatch === null || classMatch.length === 0)
+        {
+            console.log(">> cannot find 'export class' in file: " + info.SampleFilePath);
+            console.log("-----------------------");
+            console.log(info.SampleFileSourceCode);
+            console.log("-----------------------");
+        }
+        let className = classMatch[0];
         let classSeparator = "" + className + "";
 
         let fileLines = info.SampleFileSourceCode.split("\n");
@@ -499,13 +507,17 @@ class Transformer {
                     info.HtmlFileRoot = info.HtmlFileRoot.trim();
                 }
 
-                if (Strings.includes(filePath, igConfig.SamplesFileExtension) &&
-                    Strings.excludes(filePath, igConfig.SamplesFileExclusions, true)) {
-                        fileNames.push(filePath);
-                    // console.log(filePath);
-                    // && !filePath.includes("index.tsx")
-                    // info.SampleFileName = this.getFileName(filePath);
+                if (filePath.indexOf('index.ts') > 0) {
+                    fileNames.push(filePath);
                 }
+
+                // if (Strings.includes(filePath, igConfig.SamplesFileExtension) &&
+                //     Strings.excludes(filePath, igConfig.SamplesFileExclusions, true)) {
+                //         fileNames.push(filePath);
+                //     // console.log(filePath);
+                //     // && !filePath.includes("index.tsx")
+                //     // info.SampleFileName = this.getFileName(filePath);
+                // }
             }
 
             if (fileNames.length === 0) {
