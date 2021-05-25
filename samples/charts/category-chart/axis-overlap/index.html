@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <title>CategoryChartHighlighting</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
+
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample">
+      <div class="options vertical">
+        <span class="legend-title">Highest Grossing Movie Franchises</span>
+        <div class="legend">
+          <igc-legend id="legend" orientation="horizontal"></igc-legend>
+        </div>
+        <div class="overlay-right">
+          <div class="options horizontal">
+            <label class="options-label">X-Axis Overlap</label>          
+            <label id="overlapLabel" class="options-value">1</label>
+            <input id="overlapSlider" class="options-slider" type="range" min="0" max="1" step="0.1" value="1" />
+          </div>
+        </div>
+      </div>
+      <igc-category-chart id="chart"
+            width="100%"
+            height="calc(100% - 3rem)"
+            chart-type="Column"
+            is-horizontal-zoom-enabled="false"
+            is-vertical-zoom-enabled="false"
+            x-axis-interval="1"
+            x-axis-overlap="1">
+      </igc-category-chart>
+    </div>
+
+  </div>
+  <script src="src/index.ts"></script>
+
+</body>
+
+</html>
