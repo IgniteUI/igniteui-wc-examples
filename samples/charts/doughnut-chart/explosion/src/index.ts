@@ -19,7 +19,6 @@ export class DoughnutChartExplosion {
     private chart: IgcDoughnutChartComponent;
 
     constructor() {
-
         let ringSeries = document.getElementById('ringSeries') as IgcRingSeriesComponent;
         ringSeries.dataSource = this.getData();
         ringSeries.explodedSlices.add(3);
@@ -30,24 +29,20 @@ export class DoughnutChartExplosion {
         this.chart.sliceClick = this.onSliceClick;
     }
 
-     public onSliceClick = (s: IgcDoughnutChartComponent, e: IgcSliceClickEventArgs) => {
-
-     e.isExploded = !e.isExploded;
-     e.isSelected = false;
-     }
-
-    public getData(): any[] {
-        let data: any[] = [
-            { MarketShare: 37, Company: "Space Cooling", Summary: "Space Cooling 37%" , },
-            { MarketShare: 25, Company: "Residential Appliance", Summary: "Residential Appliance 25%" , },
-            { MarketShare: 12, Company: "Heating", Summary: "Heating 12%" ,},
-            { MarketShare: 8, Company: "Lighting", Summary: "Lighting 8%" ,},
-            { MarketShare: 18, Company: "Other Services", Summary: "Other Services 18%" ,} ,
-        ];
-
-        return data;
+    public onSliceClick = (s: IgcDoughnutChartComponent, e: IgcSliceClickEventArgs) => {
+        e.isExploded = !e.isExploded;
+        e.isSelected = false;
     }
 
+    public getData(): any[] {
+        return [
+            { MarketShare: 37,  Category: "Cooling",        Summary: "Cooling 37%" , },
+            { MarketShare: 25,  Category: "Residential",    Summary: "Residential 25%" , },
+            { MarketShare: 12,  Category: "Heating",        Summary: "Heating 12%" ,},
+            { MarketShare: 8,   Category: "Lighting",       Summary: "Lighting 8%" ,},
+            { MarketShare: 18,  Category: "Other",          Summary: "Other 18%" ,} ,
+        ];
+    }
 }
 
 new DoughnutChartExplosion();
