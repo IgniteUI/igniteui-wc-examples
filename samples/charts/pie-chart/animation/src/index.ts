@@ -11,28 +11,21 @@ export class PieChartAnimation {
     public isAnimating: boolean = false;
 
     constructor() {
+        this.onAnimationToggle = this.onAnimationToggle.bind(this);
+        this.onAnimationClear = this.onAnimationClear.bind(this);
 
-    this.onAnimationToggle = this.onAnimationToggle.bind(this);
-    this.onAnimationClear = this.onAnimationClear.bind(this);
-
-    this.chart = document.getElementById('chart') as IgcPieChartComponent;
-    this.chart.dataSource = this.initData();
-    this.onChartInit();
-
-    let Animatebutton = document.getElementById('animateButton') as HTMLInputElement;
-    Animatebutton!.addEventListener('click', this.onAnimationToggle);
-    }
-
-    public initData(): any[] {
-        let data = [
-            { MarketShare: 30, Company: 'Google', },
-            { MarketShare: 30, Company: 'Apple', },
-            { MarketShare: 15, Company: 'Microsoft', },
-            { MarketShare: 15, Company: 'Samsung', },
-            { MarketShare: 10, Company: 'Other', },
+        this.chart = document.getElementById('chart') as IgcPieChartComponent;
+        this.chart.dataSource = [
+            { MarketShare: 37, Category: "Cooling" },
+            { MarketShare: 25, Category: "Residential" },
+            { MarketShare: 12, Category: "Heating" },
+            { MarketShare: 11, Category: "Lighting" },
+            { MarketShare: 15, Category: "Other" }
         ];
+        this.onChartInit();
 
-        return data;
+        let Animatebutton = document.getElementById('animateButton') as HTMLInputElement;
+        Animatebutton!.addEventListener('click', this.onAnimationToggle);
     }
 
     public componentWillUnmount() {
@@ -41,13 +34,11 @@ export class PieChartAnimation {
 
     public onAnimationToggle = () => {
         if (!this.isAnimating) {
-            console.log('animation start');
             this.chart.startAngle = 0;
             this.chart.radiusFactor = 0.1;
             this.isAnimating = true;
             this.interval = window.setInterval(() => this.tick(), 15);
         } else {
-            console.log('animation stop');
             this.isAnimating = false;
             this.onAnimationClear();
         }
@@ -66,7 +57,6 @@ export class PieChartAnimation {
     }
 
     public tick(): void {
-
         if (this.isAnimating) {
             if (this.chart.radiusFactor < 1.0)
                 this.chart.radiusFactor += 0.0025;
@@ -81,7 +71,6 @@ export class PieChartAnimation {
             }
         }
     }
-
 }
 
 new PieChartAnimation();
