@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>DataChartTypeRadialAreaSeries</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options vertical">
+        <label class="legend-title">Legend </label>
+        <igc-legend id="legend" orientation="Horizontal"></igc-legend>
+    </div>
+
+    <div class="container" style="height: calc(100% - 3rem)">
+        <igc-data-chart id="chart"
+            chart-title="COMPANY FINANCES BY DEPARTMENT"
+            width="100%"
+            height="100%"
+            grid-mode="BeforeSeries"
+            brushes="#9FB328, #7446B9"
+            outlines="#9FB328, #7446B9">
+            <igc-category-angle-axis name="angleAxis" label="Department">
+            </igc-category-angle-axis>
+            <igc-numeric-radius-axis name="radiusAxis" inner-radius-extent-scale="0.1" minimum-value="0">
+            </igc-numeric-radius-axis>
+            <igc-radial-area-series
+                name="series1"
+                value-member-path="Budget"
+                value-axis-name="radiusAxis"
+                angle-axis-name="angleAxis"
+                title="Budget">
+            </igc-radial-area-series>
+            <igc-radial-area-series
+                name="series2"
+                value-member-path="Spending"
+                value-axis-name="radiusAxis"
+                angle-axis-name="angleAxis"
+                title="Spending">
+            </igc-radial-area-series>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+    <script src="src/index.ts"></script>
+
+  </body>
+</html>
