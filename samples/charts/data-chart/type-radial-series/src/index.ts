@@ -40,10 +40,10 @@ export class DataChartTypeRadialSeries {
 
         this.legend = document.getElementById('legend') as IgcLegendComponent;
         this.chart.legend = this.legend;
-        this.setSeries('Pie');
+        this.setSeries('Radial Pie Chart');
 
         const seriesTypeSelect = document.getElementById('seriesTypeSelect') as HTMLSelectElement;
-        seriesTypeSelect.value = 'Pie';
+        seriesTypeSelect.value = 'Radial Pie Chart';
         seriesTypeSelect!.addEventListener('change', this.onSeriesTypeChanged);
     }
 
@@ -53,7 +53,7 @@ export class DataChartTypeRadialSeries {
     }
 
     public setSeries(seriesType: string) {
-         if (seriesType === 'Area') {
+         if (seriesType === 'Radial Area Chart') {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgcRadialAreaSeriesComponent();
             series1.valueMemberPath  = 'Budget';
@@ -69,7 +69,7 @@ export class DataChartTypeRadialSeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-        } else if (seriesType === 'Pie') {
+        } else if (seriesType === 'Radial Pie Chart') {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgcRadialPieSeriesComponent();
             series1.valueMemberPath  = 'Budget';
@@ -85,7 +85,8 @@ export class DataChartTypeRadialSeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-        } else if (seriesType === 'Line') {
+
+        } else if (seriesType === 'Radial Line Chart') {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgcRadialLineSeriesComponent();
             series1.valueMemberPath  = 'Budget';
@@ -101,7 +102,8 @@ export class DataChartTypeRadialSeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-        } else if (seriesType === 'Column') {
+
+        } else if (seriesType === 'Radial Column Chart') {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgcRadialColumnSeriesComponent();
             series1.valueMemberPath  = 'Budget';
