@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>DataChartAxisCrossing</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options horizontal">
+      <label class="option-label">X-Axis Crossing Value: </label>
+      <label class="options-value" id="xAxisCrossLabel">0</label>
+      <input class="options-slider" id="xAxisCrossingSlider" type="range" min="-360" max="360" step="10" value="0"/>
+      <label class="option-label">Y-Axis Crossing Value: </label>
+      <label class="options-value" id="yAxisCrossLabel">0</label>
+      <input class="options-slider" id="yAxisCrossingSlider" type="range" min="-1.25" max="1.25" step="0.125" value="0"/>
+    </div>
+
+    <div class="container"  style="height: calc(100% - 3rem)">
+        <igc-data-chart id="chart" width="100%" height="100%" is-horizontal-zoom-enabled="true"
+                        is-vertical-zoom-enabled="true" plot-area-margin-bottom="60" plot-area-margin-top="60"
+                        plot-area-margin-left="30" plot-area-margin-right="30">
+            <igc-numeric-x-axis id="xAxis" name="xAxis" interval="40" minimum-value="-360" maximum-value="360"
+                                label-location="InsideBottom" label-top-margin="10" crossing-axis-name="yAxis"
+                                crossing-value="0" stroke-thickness="1" stroke="Black">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis id="yAxis" name="yAxis" minimum-value="-1.25" maximum-value="1.25" interval="0.25"
+                                label-location="InsideLeft" label-right-margin="10" crossing-axis-name="xAxis"
+                                crossing-value="0" stroke-thickness="1" stroke="Black">
+            </igc-numeric-y-axis>
+
+            <igc-scatter-spline-series x-axis-name="xAxis" y-axis-name="yAxis" marker-type="Circle" x-member-path="X" y-member-path="sinValue"></igc-scatter-spline-series>
+            <igc-scatter-spline-series x-axis-name="xAxis" y-axis-name="yAxis" marker-type="Circle" x-member-path="X" y-member-path="cosValue"></igc-scatter-spline-series>
+        </igc-data-chart>
+    <div>
+
+</div>
+
+    </div>
+    <script src="src/index.ts"></script>
+
+  </body>
+</html>
