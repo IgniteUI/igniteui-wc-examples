@@ -16,29 +16,26 @@
 
 <div class="container sample">
     <div class="options vertical">
-        <span class="legend-title">Legend: </span>
+        <span class="legend-title"> Points of Sail Chart</span>
         <div class="legend">
             <igc-legend id="legend" orientation="Horizontal"></igc-legend>
         </div>
+    </div>
 
-        <div class="overlay-right">
-            <div class="options horizontal">
-                <label class="options-label">Polar Series: </label>
-                <select id="seriesTypeSelect">
-                    <option>Area</option>
-                    <option>Spline Area</option>
-                    <option>Spline</option>
-                    <option>Line</option>
-                    <option>Scatter</option>
-                </select>
-            </div>
+    <div class="overlay-right" style="margin-right: 1rem">
+        <div class="options horizontal">
+            <label class="options-label">Type of Polar Chart </label>
+            <select id="seriesTypeSelect">
+                <option>Polar Area Chart</option>
+                <option>Polar Spline Chart</option>
+                <option>Polar Line Chart</option>
+                <option>Polar Scatter Chart</option>
+            </select>
         </div>
     </div>
 
-    <div class="container" style="height: calc(100% - 3rem)">
+    <div class="container" >
         <igc-data-chart id="chart" width="100%" height="100%"
-            chart-title="Sailing Chart"
-            subtitle="Wind Speed vs. Boat Speed"
             title-top-margin="10px"
             is-horizontal-zoom-enabled="false"
             is-vertical-zoom-enabled="false" >

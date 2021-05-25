@@ -44,10 +44,10 @@ export class DataChartTypePolarSeries {
 
         this.legend = document.getElementById('legend') as IgcLegendComponent;
         this.chart.legend = this.legend;
-        this.setSeries('Spline Area');
+        this.setSeries('Polar Area Chart');
 
         const seriesTypeSelect = document.getElementById('seriesTypeSelect') as HTMLSelectElement;
-        seriesTypeSelect.value = 'Spline Area';
+        seriesTypeSelect.value = 'Polar Area Chart';
         seriesTypeSelect!.addEventListener('change', this.onSeriesTypeChanged);
     }
 
@@ -57,7 +57,7 @@ export class DataChartTypePolarSeries {
     }
 
     public setSeries(seriesType: string) {
-         if (seriesType === 'Area') {
+         if (seriesType === 'Polar Area Chart') {
             // creating a series with mapping to data columns of wind pattern
             const series1 = new IgcPolarAreaSeriesComponent();
             series1.angleMemberPath = 'Direction';
@@ -81,33 +81,7 @@ export class DataChartTypePolarSeries {
             this.chart.series.add(series2);
             this.chart.series.add(series1);
         }
-        else if (seriesType === 'Spline Area') {
-            // creating a series with mapping to data columns of wind pattern
-            const series1 = new IgcPolarSplineAreaSeriesComponent();
-            series1.angleMemberPath = 'Direction';
-            series1.radiusMemberPath  = 'BoatSpeed';
-            series1.radiusAxisName = 'radiusAxis';
-            series1.angleAxisName = 'angleAxis';
-            series1.title = 'Boat Speed';
-            series1.markerType = MarkerType.Circle;
-            series1.showDefaultTooltip = true;
-            series1.areaFillOpacity = 1;
-
-            const series2 = new IgcPolarSplineAreaSeriesComponent();
-            series2.angleMemberPath = 'Direction';
-            series2.radiusMemberPath  = 'WindSpeed';
-            series2.radiusAxisName = 'radiusAxis';
-            series2.angleAxisName = 'angleAxis';
-            series2.title = 'Wind Speed';
-            series2.markerType = MarkerType.Circle;
-            series2.showDefaultTooltip = true;
-            series2.areaFillOpacity = 1;
-            
-            this.chart.series.clear();
-            this.chart.series.add(series2);
-            this.chart.series.add(series1);
-        }
-        else if (seriesType === 'Spline') {
+        else if (seriesType === 'Polar Spline Chart') {
             // creating a series with mapping to data columns of wind pattern
             const series1 = new IgcPolarSplineSeriesComponent();
             series1.angleMemberPath = 'Direction';
@@ -131,7 +105,7 @@ export class DataChartTypePolarSeries {
             this.chart.series.add(series2);
             this.chart.series.add(series1);
         }
-        else if (seriesType === 'Line') {
+        else if (seriesType === 'Polar Line Chart') {
             // creating a series with mapping to data columns of wind pattern
             const series1 = new IgcPolarLineSeriesComponent();
             series1.angleMemberPath = 'Direction';
@@ -150,12 +124,12 @@ export class DataChartTypePolarSeries {
             series2.title = 'Wind Speed';
             series2.markerType = MarkerType.Circle;
             series2.areaFillOpacity = 1;
-            
+
             this.chart.series.clear();
             this.chart.series.add(series2);
             this.chart.series.add(series1);
         }
-        else if (seriesType === 'Scatter') {
+        else if (seriesType === 'Polar Scatter Chart') {
             // creating a series with mapping to data columns of wind pattern
             const series1 = new IgcPolarScatterSeriesComponent();
             series1.angleMemberPath = 'Direction';
