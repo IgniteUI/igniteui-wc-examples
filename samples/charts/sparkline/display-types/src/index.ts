@@ -14,7 +14,7 @@ export class SparklineDisplayTypes {
 
     constructor() {
 
-        this.data = this.createData(360 * 1.5);
+        this.data = this.generateData();
 
         this.chart1 = document.getElementById('chart1') as IgcSparklineComponent;
         this.chart2 = document.getElementById('chart2') as IgcSparklineComponent;
@@ -27,25 +27,34 @@ export class SparklineDisplayTypes {
         this.chart4.dataSource  = this.data;
     }
 
-    public createData(itemsCount: number): any[] {
+    public generateData()
+    {
         const data: any[] = [];
         let index = 0;
-        let min = 1000;
-        let max = -1000
-        for (let angle = 0; angle <= itemsCount; angle += 10) {
-            const v1 = Math.sin(angle * Math.PI / 180);
-            const v2 = Math.sin(3 * angle * Math.PI / 180) / 3;
+        let min = 1000.0;
+        let max = -1000.0;
+
+        for (let angle = 0; angle < 360 * 4; angle += 5)
+        {
+            let v1 = Math.sin(angle * Math.PI / 180);
+            let v2 = Math.sin(3 * angle * Math.PI / 180) / 3;
+            let revenue = v1 + v2;
+            let expanse = revenue < 0 ? revenue : 0;
+            let income = revenue > 0 ? revenue : 0;
+
             data.push({
-                'Index': index++,
-                'Angle': angle,
-                'Value': v1 + v2
+                "Index": index++,
+                "Angle": angle,
+                // Value = v1 + v2
+                "Value": revenue,
+                "Expanse": expanse,
+                "Income": income
             });
+
             min = Math.min(min, v1 + v2);
             max = Math.max(max, v1 + v2);
         }
 
-        console.log(min);
-        console.log(max);
         return data;
     }
 }

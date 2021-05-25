@@ -15,30 +15,32 @@
     <div id="root">
 
 <div class="igContainer">
+    <label class="igOptions-label">Revenue Sparkline</label>
     <igc-sparkline id="chart1"
         height="calc(30% - 2.5rem)"
         width="100%"
         display-type="Line"
         minimum="-1"
         maximum="1"
-        value-member-path="Revenue"></igc-sparkline>
-    <label class="igOptions-label">Revenue Sparkline</label>
+        value-member-path="Value"
+        label-member-path="Angle"></igc-sparkline>
+    <label class="igOptions-label">Income Sparkline</label>
     <igc-sparkline id="chart2"
         height="calc(30% - 2.5rem)"
         width="100%"
         display-type="Line"
         minimum="-1"
         maximum="1"
-        value-member-path="Income"></igc-sparkline>
-    <label class="igOptions-label">Income Sparkline</label>
+        value-member-path="Income"
+        label-member-path="Angle"></igc-sparkline>
+    <label class="igOptions-label">Expanse Sparkline</label>
     <igc-sparkline id="chart3"
         height="calc(30% - 2.5rem)"
         width="100%"
         display-type="Line"
         minimum="-1" maximum="1"
-        value-member-path="Expanse" ></igc-sparkline>
-    <label class="igOptions-label">Expanse Sparkline</label>
-
+        value-member-path="Expanse" 
+        label-member-path="Angle"></igc-sparkline>
 </div>
 
     </div>
