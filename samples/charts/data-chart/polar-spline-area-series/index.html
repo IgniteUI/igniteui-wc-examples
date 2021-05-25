@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>DataChartTypePolarSplineAreaSeries</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options vertical">
+        <label class="legend-title">Legend </label>
+        <igc-legend id="legend" orientation="Horizontal"></igc-legend>
+    </div>
+
+    <div class="container" style="height: calc(100% - 3rem)">
+        <igc-data-chart id="chart"
+            width="100%"
+            height="100%"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true"
+            title-top-margin="10px"
+            chart-title="SAIL CHART"
+            subtitle="Wind Speed vs. Boat Speed">
+            <igc-numeric-angle-axis name="angleAxis"
+                start-angle-offset="-90"
+                interval="30"
+                minimum-value="0"
+                maximum-value="360">
+            </igc-numeric-angle-axis>
+            <igc-numeric-radius-axis name="radiusAxis"
+                inner-radius-extent-scale="0.1"
+                radius-extent-scale="0.9"
+                minimum-value="0"
+                maximum-value="100"
+                interval="25">
+            </igc-numeric-radius-axis>
+            <igc-polar-spline-area-series
+                name="series1"
+                angle-member-path="Direction"
+                radius-member-path="WindSpeed"
+                radius-axis-name="radiusAxis"
+                angle-axis-name="angleAxis"
+                title="Wind Speed">
+            </igc-polar-spline-area-series>
+            <igc-polar-spline-area-series
+                name="series2"
+                angle-member-path="Direction"
+                radius-member-path="BoatSpeed"
+                radius-axis-name="radiusAxis"
+                angle-axis-name="angleAxis"
+                title="Boat Speed">
+            </igc-polar-spline-area-series>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+    <script src="src/index.ts"></script>
+
+  </body>
+</html>
