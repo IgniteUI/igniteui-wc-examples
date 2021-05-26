@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>DataChartFinalValueLayerStyling</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="container" >
+        <igc-data-chart id="chart" width="100%" height="100%"
+            subtitle="Renewable Energy Generated">
+
+            <igc-category-x-axis name="xAxis" label="Year">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis name="yAxis" title="TWh"
+                label-location="OutsideRight">
+            </igc-numeric-y-axis>
+            <igc-line-series
+                name="series1"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
+                value-member-path="USA">
+            </igc-line-series>
+
+            <igc-final-value-layer
+                name="crosshairLayer"
+                axis-annotation-background="Orange"
+                axis-annotation-text-color="Black"
+                axis-annotation-outline="Black">
+            </igc-final-value-layer>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+    <script src="src/index.ts"></script>
+
+  </body>
+</html>
