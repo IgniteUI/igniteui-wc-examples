@@ -17,8 +17,7 @@
 <div class="container sample">
     <div class="options horizontal">
         <span class="options-label">Trendline Type: </span>
-        <select id="trendlineType"
-            defaultValue="ExponentialFit">
+        <select id="trendlineType">
             <option>CubicFit</option>
             <option>CumulativeAverage</option>
             <option>ExponentialAverage</option>
@@ -35,16 +34,19 @@
             <option>WeightedAverage</option>
         </select>
     </div>
-    <igc-sparkline id="sparkline"
-        height="calc(100% - 3.5rem)"
-        width="100%"
-        value-member-path="Value"
-        display-type="Area"
-        trend-line-thickness="3"
-        trend-line-period="5"
-        trend-line-type="ExponentialFit"
-        trend-line-brush="Red"></igc-sparkline>
 
+    <div class="container vertical">
+        <igc-sparkline id="sparkline"
+            height="100%"
+            width="100%"
+            value-member-path="Value"
+            display-type="Area"
+            trend-line-thickness="3"
+            trend-line-period="5"
+            trend-line-type="ExponentialFit"
+            trend-line-brush="Red">
+        </igc-sparkline>
+    </div>
 </div>
 
     </div>
