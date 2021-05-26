@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>TreeMapEvents</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+
+    <div class="options vertical">
+        <div class="options horizontal">
+            <label style="margin-left: 0.25rem; margin-right: 1.0rem">Treemap Hovered Node's</label>
+            <!-- this label displays info about currently hovered item in Treemap -->
+            <label style="margin-left: 0.5rem">Parent:</label>
+            <label id="hoveredNodeParent" style="width: 3rem; font-weight: 800">None</label> 
+            <label style="margin-left: 1.5rem">Name:</label>
+            <label id="hoveredNodeName" style="width: 5rem; font-weight: 800">None</label>
+            <label style="margin-left: 1.5rem">Value:</label>
+            <label id="hoveredNodeValue" style="width: 5rem; font-weight: 800">None</label>
+        </div>
+        <div class="options horizontal">
+            <label style="margin-left: 0.25rem; margin-right: 1.0rem">Treemap Selected Node's</label>
+            <!-- this label displays info about currently selected item in Treemap -->
+            <label style="margin-left: 0.5rem">Parent:</label>
+            <label id="selectedNodeParent" style="width: 3rem; font-weight: 800">None</label> 
+            <label style="margin-left: 1.5rem">Name:</label>
+            <label id="selectedNodeName" style="width: 5rem; font-weight: 800">None</label>
+            <label style="margin-left: 1.5rem">Value:</label>
+            <label id="selectedNodeValue" style="width: 5rem; font-weight: 800">None</label>
+        </div>
+    </div>
+
+    <div class="options vertical">
+        <span class="legend-title">Comparing Population of Countries</span>
+    </div>
+
+    <div class="container vertical" style="padding: 0.75rem; width: calc(100% - 1.5rem); height: calc(100% - 1.5rem)">
+        <igc-treemap
+            id="treeMap"
+            width="100%"
+            height="100%"
+            root-title="Countries"
+            parent-id-member-path="Parent"
+            id-member-path="Name"
+            label-member-path="Name"
+            value-member-path="Pop"
+            header-display-mode="Overlay"
+            fill-brushes="#299e41, #4e62cf, #5e359c"
+            is-fill-scale-logarithmic="true"
+            parent-node-bottom-padding="0"
+            parent-node-left-padding="0"
+            parent-node-right-padding="0"
+            parent-node-top-padding="0">
+        </igc-treemap>
+    </div>
+</div>
+
+    </div>
+    <script src="src/index.ts"></script>
+
+  </body>
+</html>
