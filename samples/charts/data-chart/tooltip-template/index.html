@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>DataChartTooltipTemplate</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v4.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="container" style="height: calc(100% - 3rem)">
+        <igc-data-chart id="chart" width="100%" height="100%"
+            is-horizontal-zoom-enabled="false"
+            is-vertical-zoom-enabled="false">
+
+            <igc-category-x-axis name="xAxis" label="Country">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis name="yAxis">
+            </igc-numeric-y-axis>
+            <igc-column-series
+                name="series1"
+                title="Coal"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
+                value-member-path="Coal"
+                show-default-tooltip="false">
+            </igc-column-series>
+            <igc-column-series
+                name="series2"
+                title="Hydro"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
+                value-member-path="Hydro"
+                show-default-tooltip="false">
+            </igc-column-series>
+            <igc-column-series
+                name="series3"
+                title="Nuclear"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
+                value-member-path="Nuclear"
+                show-default-tooltip="false">
+            </igc-column-series>
+            <igc-column-series
+                name="series4"
+                title="Gas"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
+                value-member-path="Gas"
+                show-default-tooltip="false">
+            </igc-column-series>
+            <igc-column-series
+                name="series5"
+                title="Oil"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
+                value-member-path="Oil"
+                show-default-tooltip="false">
+            </igc-column-series>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+    <script src="src/index.ts"></script>
+
+  </body>
+</html>
