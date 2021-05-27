@@ -1,7 +1,7 @@
 {
-  "name": "wc-data-chart-value-overlay",
+  "name": "wc-data-chart-series-value-overlay",
   "version": "1.0.0",
-  "description": "This project provides example of Data Chart Value Overlay using IgniteUI for Web Components",
+  "description": "This project provides example of Data Chart Series Value Overlay using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",

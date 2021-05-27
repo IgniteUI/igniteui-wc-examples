@@ -16,7 +16,7 @@ ModuleManager.register(
     IgcValueOverlayModule
 );
 
-export class DataChartValueOverlay {
+export class DataChartSeriesValueOverlay {
 
     private chart: IgcDataChartComponent;
 
@@ -43,4 +43,4 @@ export class DataChartValueOverlay {
     }
 }
 
-new DataChartValueOverlay();
+new DataChartSeriesValueOverlay();
