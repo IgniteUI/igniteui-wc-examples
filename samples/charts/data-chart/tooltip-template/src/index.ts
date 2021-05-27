@@ -20,6 +20,10 @@ export class DataChartTooltipTemplate {
 
     constructor() {
 
+        this.onSeriesMouseEnter = this.onSeriesMouseEnter.bind(this);
+        this.createDataChartTooltip = this.createDataChartTooltip.bind(this);
+        this.createDataChartTooltipLine = this.createDataChartTooltipLine.bind(this);
+
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleCategoryData.create();
         this.chart.seriesMouseEnter = this.onSeriesMouseEnter;
@@ -49,11 +53,11 @@ export class DataChartTooltipTemplate {
         title.className = "tooltipTitle";
         tooltip.appendChild(title);
     
-        var line1 = DataChartTooltipTemplate.createDataChartTooltipLine(dataSeries, "Coal", dataItem.Coal);
-        var line2 = DataChartTooltipTemplate.createDataChartTooltipLine(dataSeries, "Hydro", dataItem.Hydro);
-        var line3 = DataChartTooltipTemplate.createDataChartTooltipLine(dataSeries, "Nuclear", dataItem.Nuclear);
-        var line4 = DataChartTooltipTemplate.createDataChartTooltipLine(dataSeries, "Gas", dataItem.Gas);
-        var line5 = DataChartTooltipTemplate.createDataChartTooltipLine(dataSeries, "Oil", dataItem.Oil);
+        var line1 = this.createDataChartTooltipLine(dataSeries, "Coal", dataItem.Coal);
+        var line2 = this.createDataChartTooltipLine(dataSeries, "Hydro", dataItem.Hydro);
+        var line3 = this.createDataChartTooltipLine(dataSeries, "Nuclear", dataItem.Nuclear);
+        var line4 = this.createDataChartTooltipLine(dataSeries, "Gas", dataItem.Gas);
+        var line5 = this.createDataChartTooltipLine(dataSeries, "Oil", dataItem.Oil);
     
         tooltip.appendChild(line1);
         tooltip.appendChild(line2);
@@ -63,9 +67,8 @@ export class DataChartTooltipTemplate {
     
         return tooltip;
     }
-    
-    public static createDataChartTooltipLine(dataSeries: any, dataName: string, dataValue: string): any {
-    
+
+    createDataChartTooltipLine(dataSeries: any, dataName: string, dataValue: string): any {
         var label = document.createElement("label");
         label.innerHTML = dataName + ":";
         label.className = "tooltipLbl";
@@ -89,6 +92,7 @@ export class DataChartTooltipTemplate {
         line.appendChild(value);
         return line;
     }
+
 }
 
 new DataChartTooltipTemplate();
