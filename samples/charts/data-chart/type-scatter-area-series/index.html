@@ -15,55 +15,36 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options horizontal">
-        <span class="options-label">Scale Mode: </span>
-        <select id="scaleModeSelect">
-            <option>Select</option>
-            <option>InterpolateRGB</option>
-            <option>InterpolateHSV</option>
-        </select>
-        <label class="options-label">Minimum: </label>
-        <label class="options-value" id="scaleMinLabel">
-        </label>
-        <input class="options-slider" id="scaleMinSlider"
-            type="range" min="-5" max="0" step="1">
-        </input>
-
-        <label class="options-label">Maximum: </label>
-        <label class="options-value" id="scaleMaxLabel">
-        </label>
-        <input class="options-slider" id="scaleMaxSlider"
-            type="range" min="0" max="5" step="1">
-        </input>
-
-    </div>
-    <div class="container" style="height: calc(100% - 3rem)">
-        <igc-data-chart id="chart" width="100%" height="100%"
-            is-horizontal-zoom-enabled="true"
-            is-vertical-zoom-enabled="true"
-            chart-title="MAGNETIC FIELD DISTRIBUTION"
-            grid-mode="BeforeSeries">
-            <igc-numeric-x-axis name="xAxis1" label-location="OutsideLeft"
-                minimum-value="-180" maximum-value="180" interval="30" title="Longitude">
-            </igc-numeric-x-axis>
-            <igc-numeric-y-axis name="yAxis1" label-location="OutsideBottom"
-                minimum-value="-90" maximum-value="90" interval="30"  title="Latitude">
-            </igc-numeric-y-axis>
-
-            <igc-numeric-x-axis name="xAxis2" label-location="OutsideTop"
-                minimum-value="-180" maximum-value="180" interval="30">
-            </igc-numeric-x-axis>
-            <igc-numeric-y-axis name="yAxis2" label-location="OutsideRight"
-                minimum-value="-90" maximum-value="90" interval="30" title="Latitude">
-            </igc-numeric-y-axis>
-
+    <div class="container vertical">
+        <igc-data-chart
+            id="chart"
+            width="100%"
+            height="100%"
+            grid-mode="BeforeSeries"
+            subtitle="Distribution of Magnetic Field"
+            subtitle-top-margin="10"
+            is-horizontal-zoom-enabled="false"
+            is-vertical-zoom-enabled="false">
+            <igc-numeric-x-axis
+                name="xAxis"
+                title-bottom-margin="10"
+                title="Longitude"
+                minimum-value="-180"
+                maximum-value="180"></igc-numeric-x-axis>
+            <igc-numeric-y-axis
+                name="yAxis"
+                title-left-margin="10"
+                title="Latitude"
+                minimum-value="-90"
+                maximum-value="90"></igc-numeric-y-axis>
             <igc-scatter-area-series
                 id="series"
-                x-axis-name="xAxis1"
-                y-axis-name="yAxis1"
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
                 x-member-path="X"
                 y-member-path="Y"
-                color-member-path="Z">
+                color-member-path="Z"
+                show-default-tooltip="true">
             </igc-scatter-area-series>
         </igc-data-chart>
     </div>
