@@ -20,7 +20,8 @@
     <% if (false) { %>
     <!-- This area isn't needed for webpack, only parcel -->
     <script src="@webcomponents/custom-elements/src/native-shim.js"></script>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
     <% } %>
   </body>
 </html>

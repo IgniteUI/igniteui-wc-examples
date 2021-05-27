@@ -24,6 +24,7 @@
           </igc-financial-chart>
       </div>
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
   </body>
 </html>
