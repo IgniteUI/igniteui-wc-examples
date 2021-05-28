@@ -89,7 +89,7 @@ export class DataChartSeriesTooltips {
         }
     }
 
-    getCustomTooltipHydro(context: any) {
+    getCustomTooltipHydro(context: any): any {
         let ratio = Math.round((context.item.Hydro / context.item.Total) * 100);
         return html`<div>
                 <div style='color: black'> Country: ${context.item.Country}</div>
@@ -97,7 +97,7 @@ export class DataChartSeriesTooltips {
                 <div style='color: ${context.series.actualBrush}'> Ratio: ${ratio} %</div>`;
     }
 
-    getCustomTooltipSolar(context: any) {
+    getCustomTooltipSolar(context: any): any {
         let ratio = Math.round((context.item.Solar / context.item.Total) * 100);
         return html`<div>
                 <div style='color: black'> Country: ${context.item.Country}</div>
@@ -105,7 +105,7 @@ export class DataChartSeriesTooltips {
                 <div style='color: ${context.series.actualBrush}'> Ratio: ${ratio} %</div>`;
     }
 
-    getCustomTooltipWind(context: any) {
+    getCustomTooltipWind(context: any): any {
         let ratio = Math.round((context.item.Wind / context.item.Total) * 100);
         return html`<div>
                 <div style='color: black'> Country: ${context.item.Country}</div>

@@ -214,7 +214,7 @@ export class DockManagerUpdatingPanes {
         this.geoLocationMap.backgroundContent = tileSource;
     }
 
-    public createLocationMapTooltip(context: any) {
+    public createLocationMapTooltip(context: any): any {
         const dataContext = context as DataContext;
         if (!dataContext) return null;
 

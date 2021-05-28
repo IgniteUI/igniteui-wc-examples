@@ -56,7 +56,7 @@ export class MapCustomTooltips {
         this.geoMap.series.add(symbolSeries);
     }
 
-    public createSymbolTooltip(context: any) {
+    public createSymbolTooltip(context: any): any {
         const dataContext = context as DataContext;
         if (!dataContext) return null;
 

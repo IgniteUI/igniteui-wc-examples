@@ -75,7 +75,7 @@ export class DataChartTypeScatterPolylineSeries {
         }
     }
 
-    public createTooltip(context: any) {
+    public createTooltip(context: any): any {
         const dataContext = context as DataContext;
         if (!dataContext) return null;
 
