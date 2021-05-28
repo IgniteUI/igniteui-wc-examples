@@ -8,7 +8,6 @@ import { IgcScatterPolygonSeriesComponent } from 'igniteui-webcomponents-charts'
 import { IgcStyleShapeEventArgs } from 'igniteui-webcomponents-charts';
 import { DataContext } from 'igniteui-webcomponents-core';
 import { html } from 'lit-html';
-import "./MapLegendStyles.css";
 
 ModuleManager.register(
     IgcDataChartCoreModule,
@@ -77,7 +76,7 @@ export class DataChartTypeScatterPolygonSeries {
         }
     }
 
-    public createTooltip(context: any) {
+    public createTooltip(context: any): any {
         const dataContext = context as DataContext;
         if (!dataContext) return null;
 
@@ -85,26 +84,11 @@ export class DataChartTypeScatterPolygonSeries {
         if (!dataItem) return null;
 
         let tooltip = html`<div>
-
-        <div style='display: 'inline-block', marginLeft: 5'>
-            <div class='tooltipBox'>
-                <div class='tooltipRow'>
-                    <div class='tooltipLbl'>Class</div>
-                    <div class='tooltipVal'>${dataItem.class}</div>
-                </div>
-                <div class='tooltipRow'>
-                    <div class='tooltipLbl'>Seat</div>
-                    <div class='tooltipVal'>${dataItem.seat} </div>
-                </div>
-                <div class='tooltipRow'>
-                    <div class='tooltipLbl'>Price</div>
-                    <div class='tooltipVal'>${dataItem.price}</div>
-                </div>
-                <div class='tooltipRow'>
-                    <div class='tooltipLbl'>Status</div>
-                    <div class='tooltipVal'>${dataItem.status}</div>
-                </div>
-            </div>
+        <div class='ui-tooltip-content'>
+            <div>Class: ${dataItem.class}</div>
+            <div>Seat: ${dataItem.seat}</div>
+            <div>Price: $${dataItem.price}</div>
+            <div>Status: ${dataItem.status}</div>
         </div>`;
         return tooltip;
     }
