@@ -19,9 +19,7 @@ ModuleManager.register(
 );
 
 export class DataChartTypeScatterPolylineSeries {
-
     constructor() {
-
         this.onAirplaneShapesLoaded = this.onAirplaneShapesLoaded.bind(this);
         this.onAirplaneSeatsLoaded = this.onAirplaneSeatsLoaded.bind(this);
         this.createTooltip = this.createTooltip.bind(this);
@@ -36,23 +34,18 @@ export class DataChartTypeScatterPolylineSeries {
     }
 
     public onAirplaneShapesLoaded(jsonData: any[]) {
-        console.log('onAirplaneShapesLoaded');
-        let airplaneShapeSeries = (document.getElementById('airplaneShapeSeries') as IgcScatterPolylineSeriesComponent);
+        let airplaneShapeSeries = document.getElementById('airplaneShapeSeries') as IgcScatterPolylineSeriesComponent;
         airplaneShapeSeries.dataSource = jsonData;
-        airplaneShapeSeries.renderSeries(false);
     }
 
     public onAirplaneSeatsLoaded(jsonData: any[]) {
-        console.log('onAirplaneSeatsLoaded');
-        let airplaneSeatSeries = (document.getElementById('airplaneSeatSeries') as IgcScatterPolylineSeriesComponent);
+        let airplaneSeatSeries = document.getElementById('airplaneSeatSeries') as IgcScatterPolylineSeriesComponent;
         airplaneSeatSeries.styleShape = this.onStylingShape;
         airplaneSeatSeries.dataSource = jsonData;
         airplaneSeatSeries.tooltipTemplate = this.createTooltip;
-        airplaneSeatSeries.renderSeries(false);
     }
 
     public onStylingShape(sender: any, args: IgcStyleShapeEventArgs) {
-
         args.shapeOpacity = 1.0;
         args.shapeStrokeThickness = 1.0;
         args.shapeStroke = "Black";
@@ -70,7 +63,6 @@ export class DataChartTypeScatterPolylineSeries {
         if (itemRecord.class === 'Economy') {
             args.shapeStroke = "Red";
         }
-
         if (itemRecord.status === 'Sold') {
             args.shapeStroke = 'Gray';
         }
@@ -83,31 +75,15 @@ export class DataChartTypeScatterPolylineSeries {
         const dataItem = dataContext.item as any;
         if (!dataItem) return null;
 
-        let tooltip = html`<div>
-
-        <div style='display: 'inline-block', marginLeft: 5'>
-            <div class='tooltipBox'>
-                <div class='tooltipRow'>
-                    <div class='tooltipLbl'>Class</div>
-                    <div class='tooltipVal'>${dataItem.class}</div>
-                </div>
-                <div class='tooltipRow'>
-                    <div class='tooltipLbl'>Seat</div>
-                    <div class='tooltipVal'>${dataItem.seat} </div>
-                </div>
-                <div class='tooltipRow'>
-                    <div class='tooltipLbl'>Price</div>
-                    <div class='tooltipVal'>${dataItem.price}</div>
-                </div>
-                <div class='tooltipRow'>
-                    <div class='tooltipLbl'>Status</div>
-                    <div class='tooltipVal'>${dataItem.status}</div>
-                </div>
-            </div>
-        </div>`;
+        let tooltip = html`
+            <div class='ui-tooltip-content'>
+                <div>Class: ${dataItem.class}</div>
+                <div>Seat: ${dataItem.seat}</div>
+                <div>Price: $${dataItem.price}</div>
+                <div>Status: ${dataItem.status}</div>
+            </div>`;
         return tooltip;
     }
-
 }
 
 new DataChartTypeScatterPolylineSeries();

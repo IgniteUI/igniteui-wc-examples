@@ -15,47 +15,40 @@
     <div id="root">
 
 <div class="container sample">
-    <igc-data-chart id="chart" width="100%" height="100%"
-        is-horizontal-zoom-enabled="true"
-        is-vertical-zoom-enabled="true"
+    <igc-data-chart
+        id="chart"
+        width="100%"
+        height="100%"
+        subtitle="Airplane Seating Chart (Polylines)"
         subtitle-top-margin="10"
-        subtitle="Airplane Seating Chart (Polylines)">
-
-        <igc-numeric-x-axis name="xAxis" minimum-value=-800 maximum-value=800 interval=200>
-        </igc-numeric-x-axis>
-        <igc-numeric-y-axis name="yAxis" minimum-value=-600 maximum-value=600 interval=200>
-        </igc-numeric-y-axis>
-
+        is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true">
+        <igc-numeric-x-axis
+            name="xAxis"
+            minimum-value="-1000"
+            maximum-value="1000"
+            interval="200"></igc-numeric-x-axis>
+        <igc-numeric-y-axis
+            name="yAxis"
+            minimum-value="-600"
+            maximum-value="600"
+            interval="200"></igc-numeric-y-axis>
         <igc-scatter-polyline-series
             id="airplaneShapeSeries"
-            name="airplaneShapeSeries"
             x-axis-name="xAxis"
             y-axis-name="yAxis"
             shape-member-path="points"
-            title="Airplane Shape"
-            thickness="1"
-            brush="Black"
-            outline="Black">
-        </igc-scatter-polyline-series>
-
+            show-default-tooltip="false"
+            thickness="0.5"
+            brush="LightGray"
+            outline="Black"></igc-scatter-polyline-series>
         <igc-scatter-polyline-series
             id="airplaneSeatSeries"
-            name="airplaneSeatSeries"
             x-axis-name="xAxis"
             y-axis-name="yAxis"
-            shape-member-path="points"
-            title="Airplane Seats">
-        </igc-scatter-polyline-series>
-
+            title="Airplane Seats"
+            shape-member-path="points"></igc-scatter-polyline-series>
     </igc-data-chart>
-
-    <div class="legend">
-        <div><span style="border-color: dodgerblue; "></span><label>First Class</label></div>
-        <div><span style="border-color: LimeGreen; "></span><label>Business Class</label></div>
-        <div><span style="border-color: Orange; "></span><label>Premium Class</label></div>
-        <div><span style="border-color: red; "></span><label>Economy Class</label></div>
-        <div><span style="border-color: gray; "></span><label>Sold Seat</label> </div>
-    </div>
 </div>
 
     </div>
