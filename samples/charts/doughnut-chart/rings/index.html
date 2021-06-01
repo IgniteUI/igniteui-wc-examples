@@ -1,13 +1,14 @@
 <html>
   <head>
-    <title>DoughnutChartRings</title>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
   </head>
 
@@ -15,46 +16,43 @@
     <div id="root">
 
 <div class="container sample">
-    <igc-doughnut-chart id="chart"
-        height="100%"
-        width="100%"
-        allow-slice-selection="true"
-        allow-slice-explosion="false">
-
-        <igc-ring-series
-            id="ringSeries1"
-            name="Months"
+    <div class="legend-title">
+        Hierarchical Chart
+    </div>
+    <div class="container fill">
+        <igc-doughnut-chart
+        allow-slice-selection="false"
+        allow-slice-explosion="false"
+        name="chart"
+        id ="chart">
+            <igc-ring-series
+            
+            value-member-path="value"
+            label-member-path="label"
             labels-position="Center"
-            label-member-path="Label"
-            value-member-path="Value"
-            radius-factor="1.0"
-            start-angle="0"
-            othersCategoryThreshold="0"
-            brushes="#3cbdc9, #9fb328, #f96232, #8a58d6">
-        </igc-ring-series>
-
-        <igc-ring-series
-            id="ringSeries2"
-            name="Seasons"
-            labels-position="Center"
-            label-member-path="Label"
-            value-member-path="Value"
-            radius-factor="1.0"
-            start-angle="0"
+            brushes="rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1)"
             outlines="white"
-            others-category-threshold="0"
-            brushes="#3cbdc9, #3cbdc9, #3cbdc9,
-                     #9fb328, #9fb328, #9fb328,
-                     #f96232, #f96232, #f96232,
-                     #8a58d6, #8a58d6, #8a58d6">
-        </igc-ring-series>
-
-    </igc-doughnut-chart>
+            radius-factor="0.9"
+            name="series1"
+            id ="series1">
+            </igc-ring-series>
+            <igc-ring-series
+            brushes="rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1)"
+            value-member-path="value"
+            label-member-path="label"
+            labels-position="Center"
+            outlines="white"
+            radius-factor="0.9"
+            name="series2"
+            id ="series2">
+            </igc-ring-series>
+        </igc-doughnut-chart>
+    </div>
 </div>
 
     </div>
+
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
     <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>

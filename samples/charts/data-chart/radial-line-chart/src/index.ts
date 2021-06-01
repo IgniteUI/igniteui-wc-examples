@@ -1,34 +1,53 @@
-import { SampleRadialData } from './SampleRadialData';
-import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartRadialCoreModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartRadialModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { IgcLegendModule } from 'igniteui-webcomponents-charts';
-import { IgcLegendComponent } from 'igniteui-webcomponents-charts';
+import { DataItem, Data } from './SampleData';
+
+import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartRadialModule, IgcDataChartRadialCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
+import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcRadialLineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
+    IgcLegendModule,
     IgcDataChartCoreModule,
-    IgcDataChartRadialCoreModule,
     IgcDataChartRadialModule,
-    IgcDataChartInteractivityModule,
-    IgcLegendModule
+    IgcDataChartRadialCoreModule,
+    IgcDataChartInteractivityModule
 );
 
-export class DataChartTypeRadialLineSeries {
+export class Sample {
 
-    private chart: IgcDataChartComponent;
-    private legend: IgcLegendComponent;
+    private legend: IgcLegendComponent
+    private chart: IgcDataChartComponent
+    private angleAxis: IgcCategoryAngleAxisComponent
+    private radiusAxis: IgcNumericRadiusAxisComponent
+    private radialLineSeries1: IgcRadialLineSeriesComponent
+    private radialLineSeries2: IgcRadialLineSeriesComponent
 
     constructor() {
+        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
+        var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
+        var angleAxis = this.angleAxis = document.getElementById('angleAxis') as IgcCategoryAngleAxisComponent;
+        var radiusAxis = this.radiusAxis = document.getElementById('radiusAxis') as IgcNumericRadiusAxisComponent;
+        var radialLineSeries1 = this.radialLineSeries1 = document.getElementById('RadialLineSeries1') as IgcRadialLineSeriesComponent;
+        var radialLineSeries2 = this.radialLineSeries2 = document.getElementById('RadialLineSeries2') as IgcRadialLineSeriesComponent;
 
-        this.chart = document.getElementById('chart') as IgcDataChartComponent;
-        this.chart.dataSource = SampleRadialData.create();
+        chart.legend = this.legend
+        angleAxis.dataSource = this.data
+        radialLineSeries1.angleAxis = this.angleAxis
+        radialLineSeries1.valueAxis = this.radiusAxis
+        radialLineSeries1.dataSource = this.data
+        radialLineSeries2.dataSource = this.data
+        radialLineSeries2.angleAxis = this.angleAxis
+        radialLineSeries2.valueAxis = this.radiusAxis
+   }
 
-        this.legend = document.getElementById('legend') as IgcLegendComponent;
-        this.chart.legend = this.legend;
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
     }
+    
 }
 
-new DataChartTypeRadialLineSeries();
+new Sample();

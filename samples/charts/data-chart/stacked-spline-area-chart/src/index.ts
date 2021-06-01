@@ -1,0 +1,61 @@
+import { DataItem, Data } from './SampleData';
+
+import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
+import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcStackedSplineAreaSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+ModuleManager.register(
+    IgcDataChartCoreModule,
+    IgcDataChartCategoryModule,
+    IgcDataChartCategoryCoreModule,
+    IgcDataChartInteractivityModule,
+    IgcDataChartStackedModule,
+    IgcStackedFragmentSeriesModule
+);
+
+export class Sample {
+
+    private legend: IgcLegendComponent
+    private chart: IgcDataChartComponent
+    private xAxis: IgcCategoryXAxisComponent
+    private yAxis: IgcNumericYAxisComponent
+    private stackedSplineAreaSeries: IgcStackedSplineAreaSeriesComponent
+    private s1: IgcStackedFragmentSeriesComponent
+    private s2: IgcStackedFragmentSeriesComponent
+    private s3: IgcStackedFragmentSeriesComponent
+    private s4: IgcStackedFragmentSeriesComponent
+    private s5: IgcStackedFragmentSeriesComponent
+    private s6: IgcStackedFragmentSeriesComponent
+
+    constructor() {
+        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
+        var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
+        var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
+        var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
+        var stackedSplineAreaSeries = this.stackedSplineAreaSeries = document.getElementById('StackedSplineAreaSeries') as IgcStackedSplineAreaSeriesComponent;
+        var s1 = this.s1 = document.getElementById('s1') as IgcStackedFragmentSeriesComponent;
+        var s2 = this.s2 = document.getElementById('s2') as IgcStackedFragmentSeriesComponent;
+        var s3 = this.s3 = document.getElementById('s3') as IgcStackedFragmentSeriesComponent;
+        var s4 = this.s4 = document.getElementById('s4') as IgcStackedFragmentSeriesComponent;
+        var s5 = this.s5 = document.getElementById('s5') as IgcStackedFragmentSeriesComponent;
+        var s6 = this.s6 = document.getElementById('s6') as IgcStackedFragmentSeriesComponent;
+
+        chart.legend = this.legend
+        xAxis.dataSource = this.data
+        stackedSplineAreaSeries.xAxis = this.xAxis
+        stackedSplineAreaSeries.yAxis = this.yAxis
+        stackedSplineAreaSeries.dataSource = this.data
+   }
+
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
+    }
+    
+}
+
+new Sample();

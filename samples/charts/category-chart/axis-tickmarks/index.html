@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="legend-title">
+        Highest Grossing Movie Franchises
+    </div>
+
+    <div class="legend">
+        <igc-legend
+        orientation="Horizontal"
+        name="Legend"
+        id ="Legend">
+        </igc-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-category-chart
+        chart-type="Line"
+        x-axis-tick-length="10"
+        y-axis-tick-length="0"
+        x-axis-tick-stroke="gray"
+        y-axis-tick-stroke="rgba(0, 0, 0, 0)"
+        x-axis-tick-stroke-thickness="1"
+        y-axis-tick-stroke-thickness="0"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
+        name="chart"
+        id ="chart">
+        </igc-category-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

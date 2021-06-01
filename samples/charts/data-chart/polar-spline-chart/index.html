@@ -1,13 +1,14 @@
 <html>
   <head>
-    <title>DataChartTypePolarSplineSeries</title>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
   </head>
 
@@ -15,56 +16,60 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <label class="legend-title">Legend </label>
-        <igc-legend id="legend" orientation="Horizontal"></igc-legend>
+    <div class="legend-title">
+        Wind Speed vs Boat Speed
     </div>
-
-    <div class="container" style="height: calc(100% - 3rem)">
-        <igc-data-chart id="chart"
-            width="100%"
-            height="100%"
-            is-horizontal-zoom-enabled="true"
-            is-vertical-zoom-enabled="true"
-            title-top-margin="10px"
-            chart-title="SAIL CHART"
-            subtitle="Wind Speed vs. Boat Speed">
-            <igc-numeric-angle-axis name="angleAxis"
-                start-angle-offset="-90"
-                interval="30"
-                minimum-value="0"
-                maximum-value="360">
+    <div class="container fill">
+        <igc-data-chart
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
+        name="chart"
+        id ="chart">
+            <igc-numeric-angle-axis
+            start-angle-offset="-90"
+            minimum-value="0"
+            maximum-value="360"
+            interval="30"
+            name="angleAxis"
+            id ="angleAxis">
             </igc-numeric-angle-axis>
-            <igc-numeric-radius-axis name="radiusAxis"
-                inner-radius-extent-scale="0.1"
-                radius-extent-scale="0.9"
-                minimum-value="0"
-                maximum-value="100"
-                interval="25">
+            <igc-numeric-radius-axis
+            radius-extent-scale="0.9"
+            inner-radius-extent-scale="0.1"
+            minimum-value="0"
+            maximum-value="100"
+            interval="25"
+            name="radiusAxis"
+            id ="radiusAxis">
             </igc-numeric-radius-axis>
             <igc-polar-spline-series
-                name="series1"
-                angle-member-path="Direction"
-                radius-member-path="WindSpeed"
-                radius-axis-name="radiusAxis"
-                angle-axis-name="angleAxis"
-                title="Wind Speed">
+            angle-member-path="direction"
+            radius-member-path="windSpeed"
+            marker-type="Circle"
+            thickness="1"
+            show-default-tooltip="true"
+            title="Wind Speed"
+            name="PolarSplineSeries1"
+            id ="PolarSplineSeries1">
             </igc-polar-spline-series>
             <igc-polar-spline-series
-                name="series2"
-                angle-member-path="Direction"
-                radius-member-path="BoatSpeed"
-                radius-axis-name="radiusAxis"
-                angle-axis-name="angleAxis"
-                title="Boat Speed">
+            
+            angle-member-path="direction"
+            radius-member-path="boatSpeed"
+            show-default-tooltip="true"
+            thickness="1"
+            title="Boat Speed"
+            marker-type="Circle"
+            name="PolarSplineSeries2"
+            id ="PolarSplineSeries2">
             </igc-polar-spline-series>
         </igc-data-chart>
     </div>
 </div>
 
     </div>
+
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
     <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>

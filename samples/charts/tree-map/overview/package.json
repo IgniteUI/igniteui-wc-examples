@@ -1,7 +1,11 @@
 {
-  "name": "wc-tree-map-overview",
+  "name": "example-ignite-ui-web-components",
+  "description": "This project provides example of using Ignite UI for Web Components",
+  "author": "Infragistics",
   "version": "1.0.0",
-  "description": "This project provides example of Tree Map Overview using IgniteUI for Web Components",
+  "license": "",
+  "private": true,
+  "homepage": ".",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
@@ -17,10 +21,18 @@
     "serve:prod:legacy": "webpack-dev-server --env.NODE_ENV=production --env.legacy=true --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --inline --progress  --watch --open --content-base dist/",
     "start:legacy": "npm run serve:dev:legacy"
   },
-  "author": "Infragistics",
   "dependencies": {
     "igniteui-webcomponents-core": "1.3.0-beta.0",
     "igniteui-webcomponents-charts": "1.3.0-beta.0",
+    "igniteui-webcomponents-datasources": "1.1.1",
+    "igniteui-webcomponents-excel": "1.3.0-beta.0",
+    "igniteui-webcomponents-gauges": "1.3.0-beta.0",
+    "igniteui-webcomponents-grids": "1.3.0-beta.0",
+    "igniteui-webcomponents-inputs": "1.3.0-beta.0",
+    "igniteui-webcomponents-layouts": "1.3.0-beta.0",
+    "igniteui-webcomponents-maps": "1.3.0-beta.0",
+    "igniteui-webcomponents-spreadsheet": "1.3.0-beta.0",
+    "igniteui-webcomponents-spreadsheet-chart-adapter": "1.3.0-beta.0",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
@@ -51,7 +63,5 @@
     "file-loader": "^4.2.0",
     "style-loader": "^0.22.1",
     "xml-loader": "^1.2.1"
-  },
-  "license": "",
-  "homepage": "."
+  }
 }

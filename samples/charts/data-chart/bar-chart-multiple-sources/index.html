@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="legend-title">
+        Highest Grossing Movie Franchises
+    </div>
+
+    <div class="legend">
+        <igc-legend
+        orientation="Horizontal"
+        name="Legend"
+        id ="Legend">
+        </igc-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        
+        name="Chart"
+        id ="Chart">
+            <igc-category-y-axis
+            
+            gap="0.5"
+            overlap="-0.1"
+            is-inverted="true"
+            label="franchise"
+            name="yAxis"
+            id ="yAxis">
+            </igc-category-y-axis>
+            <igc-numeric-x-axis
+            title="Billions of U.S. Dollars"
+            name="xAxis"
+            id ="xAxis">
+            </igc-numeric-x-axis>
+            <igc-bar-series
+            
+            value-member-path="totalRevenue"
+            is-transition-in-enabled="true"
+            is-highlighting-enabled="true"
+            show-default-tooltip="true"
+            title="Total Revenue of Franchise"
+            name="BarSeries1"
+            id ="BarSeries1">
+            </igc-bar-series>
+            <igc-bar-series
+            
+            title="Highest Grossing Movie in Series"
+            value-member-path="highestGrossing"
+            show-default-tooltip="true"
+            is-transition-in-enabled="true"
+            is-highlighting-enabled="true"
+            name="BarSeries2"
+            id ="BarSeries2">
+            </igc-bar-series>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

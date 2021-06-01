@@ -1,13 +1,14 @@
 <html>
   <head>
-    <title>DataChartTypeRadialLineSeries</title>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
   </head>
 
@@ -15,44 +16,66 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <label class="legend-title">Legend </label>
-        <igc-legend id="legend" orientation="Horizontal"></igc-legend>
+    <div class="legend-title">
+        Ronaldo vs. Messi Player Stats
     </div>
 
-    <div class="container" style="height: calc(100% - 3rem)">
-        <igc-data-chart id="chart"
-            chart-title="COMPANY FINANCES BY DEPARTMENT"
-            width="100%"
-            height="100%"
-            grid-mode="BeforeSeries"
-            brushes="#9FB328, #7446B9"
-            outlines="#9FB328, #7446B9">
-            <igc-category-angle-axis name="angleAxis" label="Department">
+    <div class="legend">
+        <igc-legend
+        orientation="Horizontal"
+        name="Legend"
+        id ="Legend">
+        </igc-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
+        name="chart"
+        id ="chart">
+            <igc-category-angle-axis
+            
+            label="attribute"
+            name="angleAxis"
+            id ="angleAxis">
             </igc-category-angle-axis>
-            <igc-numeric-radius-axis name="radiusAxis" inner-radius-extent-scale="0.1" minimum-value="0">
+            <igc-numeric-radius-axis
+            inner-radius-extent-scale="0.1"
+            minimum-value="0"
+            maximum-value="10"
+            interval="2"
+            name="radiusAxis"
+            id ="radiusAxis">
             </igc-numeric-radius-axis>
             <igc-radial-line-series
-                name="series1"
-                value-member-path="Budget"
-                value-axis-name="radiusAxis"
-                angle-axis-name="angleAxis"
-                title="Budget">
+            value-member-path="ronaldoValue"
+            marker-type="Circle"
+            thickness="3"
+            area-fill-opacity="0.8"
+            show-default-tooltip="true"
+            title="Ronaldo"
+            name="RadialLineSeries1"
+            id ="RadialLineSeries1">
             </igc-radial-line-series>
             <igc-radial-line-series
-                name="series2"
-                value-member-path="Spending"
-                value-axis-name="radiusAxis"
-                angle-axis-name="angleAxis"
-                title="Spending">
+            
+            value-member-path="messiValue"
+            show-default-tooltip="true"
+            area-fill-opacity="0.8"
+            thickness="3"
+            title="Messi"
+            marker-type="Circle"
+            name="RadialLineSeries2"
+            id ="RadialLineSeries2">
             </igc-radial-line-series>
         </igc-data-chart>
     </div>
 </div>
 
     </div>
+
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
     <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>

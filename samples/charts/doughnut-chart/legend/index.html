@@ -1,46 +1,58 @@
 <html>
   <head>
-    <title>DoughnutChartLegend</title>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-  <div class="container sample">
-    <div class="options vertical">
-      <label class="legend-title">Global Electricity Demand by Energy Use </label>
-      <igc-item-legend id="legend" orientation="Horizontal"></igc-item-legend>
+<div class="container sample">
+    <div class="legend-title">
+        Global Electricity Demand by Energy Use
     </div>
 
-    <igc-doughnut-chart
-        id="chart"
-        width="100%"
-        height="100%" >
+    <div class="legend">
+        <igc-item-legend
+        orientation="Horizontal"
+        name="legend"
+        id ="legend">
+        </igc-item-legend>
+    </div>
 
-        <igc-ring-series
-            name="ringSeries" id="ringSeries"
-            label-member-path="Summary"
-            value-member-path="MarketShare"
-            radius-factor="0.6"
+    <div class="container fill">
+        <igc-doughnut-chart
+        allow-slice-explosion="true"
+        name="chart"
+        id ="chart">
+            <igc-ring-series
+            
+            value-member-path="marketShare"
+            label-member-path="summary"
+            legend-label-member-path="category"
             labels-position="OutsideEnd"
-            label-extent="30">
-        </igc-ring-series>
-
-    </igc-doughnut-chart>
-  </div>
+            label-extent="30"
+            start-angle="30"
+            outlines="white"
+            radius-factor="0.6"
+            name="series"
+            id ="series">
+            </igc-ring-series>
+        </igc-doughnut-chart>
+    </div>
 </div>
 
     </div>
+
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
     <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>

@@ -1,30 +1,36 @@
-import { IgcPieChartModule } from 'igniteui-webcomponents-charts';
-import { IgcPieChartComponent } from 'igniteui-webcomponents-charts';
+import { DataItem, Data } from './SampleData';
+
+import { IgcItemLegendModule, IgcPieChartModule } from 'igniteui-webcomponents-charts';
+import { IgcItemLegendComponent, IgcPieChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
-ModuleManager.register(IgcPieChartModule);
+ModuleManager.register(
+    IgcItemLegendModule,
+    IgcPieChartModule
+);
 
-export class PieChartOverview {
+export class Sample {
 
-    private chart: IgcPieChartComponent;
+    private legend: IgcItemLegendComponent
+    private chart: IgcPieChartComponent
 
     constructor() {
+        var legend = this.legend = document.getElementById('legend') as IgcItemLegendComponent;
+        var chart = this.chart = document.getElementById('chart') as IgcPieChartComponent;
 
-        this.chart = document.getElementById('chart') as IgcPieChartComponent;
-        this.chart.dataSource = this.initData();
+        chart.dataSource = this.data
+        chart.legend = this.legend
+   }
+
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
     }
-
-    public initData(): any[] {
-        let data = [
-            { MarketShare: 30, Company: 'Google', },
-            { MarketShare: 30, Company: 'Apple', },
-            { MarketShare: 15, Company: 'Microsoft', },
-            { MarketShare: 15, Company: 'Samsung', },
-            { MarketShare: 10, Company: 'Other', },
-        ];
-
-        return data;
-    }
+    
 }
 
-new PieChartOverview();
+new Sample();

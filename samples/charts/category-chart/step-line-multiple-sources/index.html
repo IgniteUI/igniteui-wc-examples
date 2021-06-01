@@ -1,13 +1,14 @@
 <html>
   <head>
-    <title>StepLineMultipleSources</title>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
   </head>
 
@@ -15,27 +16,37 @@
     <div id="root">
 
 <div class="container sample">
-  <div class="options horizontal">
-    <span id="legend-title" >Renewable Electricity Generated: </span>
-    <igc-legend id="legend" orientation="Horizontal" ></igc-legend >
-  </div>
+    <div class="legend-title">
+        Renewable Electricity Generated
+    </div>
 
-    <igc-category-chart id="chart"
-        width="100%"
-        height="calc(100% - 7rem)"
+    <div class="legend">
+        <igc-legend
+        orientation="Horizontal"
+        name="Legend"
+        id ="Legend">
+        </igc-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-category-chart
         chart-type="StepLine"
-        y-axis-minimum-value="0"
-        y-axis-title="TWh"
+        x-axis-interval="1"
         is-category-highlighting-enabled="true"
+        y-axis-title="TWh"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
         is-series-highlighting-enabled="true"
         tool-tip-type="Category"
-        is-transition-in-enabled="true">
-    </igc-category-chart>
+        name="chart"
+        id ="chart">
+        </igc-category-chart>
+    </div>
 </div>
 
     </div>
+
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
     <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>
