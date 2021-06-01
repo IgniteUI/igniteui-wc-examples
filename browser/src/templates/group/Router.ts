@@ -16,7 +16,6 @@ export class RouterGroupName {
         // ------------------------------------
         // {AutoInsertRoutingConditions}
         // ------------------------------------
-
         // if (route.indexOf("/category-chart-overview") >= 0) {
             // console.log("SB found sample: " + route)
             //let sample = await import("./componet/overview/CategoryChartOverview");
@@ -27,9 +26,10 @@ export class RouterGroupName {
         if (this.cachedSamples.has(route)) {
             console.log("SB sample imported: " + route)
             return this.cachedSamples.get(route);
-        } else {
-            console.log("SB is missing router: " + route)
         }
+        // else {
+        //     console.log("SB is missing router: " + route)
+        // }
     }
 
 }

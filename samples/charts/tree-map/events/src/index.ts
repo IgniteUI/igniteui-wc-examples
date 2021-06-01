@@ -1,7 +1,7 @@
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcTreemapModule, IgcTreemapNodePointerEventArgs } from 'igniteui-webcomponents-charts';
 import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
-import { CountryTreeData } from './CountryTreeData';
+import { SampleData } from './SampleData';
 
 ModuleManager.register(IgcTreemapModule);
 
@@ -18,9 +18,9 @@ export class TreeMapEvents {
         this.onNodePointerEnter = this.onNodePointerEnter.bind(this);
         this.onNodePointerLeave = this.onNodePointerLeave.bind(this);
         this.onNodePointerPressed = this.onNodePointerPressed.bind(this);
-        
+
         this.treeMap = document.getElementById('treeMap') as IgcTreemapComponent;
-        this.treeMap.dataSource = CountryTreeData.create();
+        this.treeMap.dataSource = SampleData.create();
         this.treeMap.nodePointerEnter = this.onNodePointerEnter;
         this.treeMap.nodePointerLeave = this.onNodePointerLeave;
         this.treeMap.nodePointerPressed = this.onNodePointerPressed;
@@ -38,14 +38,14 @@ export class TreeMapEvents {
             return;
         }
 
-        if (!args.item.Parent) {
+        if (!args.item.parent) {
             this.hoveredNodeParent.innerText = "Countries";
-            this.hoveredNodeName.innerText = args.item.Name;
+            this.hoveredNodeName.innerText = args.item.name;
             this.hoveredNodeValue.innerText = "None";
         } else {
-            let population = (args.item.Pop / 1000000).toFixed(0).toString() + " M";
-            this.hoveredNodeParent.innerText = args.item.Parent;
-            this.hoveredNodeName.innerText = args.item.Name;
+            let population = (args.item.pop / 1000000).toFixed(0).toString() + " M";
+            this.hoveredNodeParent.innerText = args.item.parent;
+            this.hoveredNodeName.innerText = args.item.name;
             this.hoveredNodeValue.innerText = population;
         }
     }
@@ -59,14 +59,14 @@ export class TreeMapEvents {
             return;
         }
 
-        if (!args.item.Parent) {
+        if (!args.item.parent) {
             this.selectedNodeParent.innerText = "Countries";
-            this.selectedNodeName.innerText = args.item.Name;
+            this.selectedNodeName.innerText = args.item.name;
             this.selectedNodeValue.innerText = "None";
         } else {
-            let population = (args.item.Pop / 1000000).toFixed(0).toString() + " M";
-            this.selectedNodeParent.innerText = args.item.Parent;
-            this.selectedNodeName.innerText = args.item.Name;
+            let population = (args.item.pop / 1000000).toFixed(0).toString() + " M";
+            this.selectedNodeParent.innerText = args.item.parent;
+            this.selectedNodeName.innerText = args.item.name;
             this.selectedNodeValue.innerText = population;
         }
     }

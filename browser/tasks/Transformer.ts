@@ -795,6 +795,10 @@ class Transformer {
             }
             routingConditions += '\n';
         }
+        routingConditions += "       ";
+        routingConditions += " else { console.log('SB is missing router for: ' + route) }";
+        routingConditions += '\n';
+
         fileContent = fileContent.replace('// {AutoInsertRoutingConditions}', routingConditions);
         fileContent = fileContent.replace('GroupName', Strings.toTitleCase(group.Name));
         // console.log(fileContent);
@@ -813,7 +817,9 @@ class Transformer {
         // let samplePath = sampleInfo.ComponentFolder + '/' + sampleInfo.SampleFolderName + '/' + sampleInfo.SampleImportName;
         let samplePath = sampleInfo.ComponentFolder + '/' + sampleInfo.SampleFolderName + '/index';
         let routingPath = sampleInfo.SampleRoute.replace('/' + sampleInfo.ComponentGroup.toLowerCase(), "");
-        condition += '(route.indexOf("' + routingPath + '") >= 0) {\n';
+        //condition += '(route.indexOf("' + routingPath + '") >= 0) {\n';
+        routingPath = "/" + sampleInfo.ComponentGroup.toLowerCase() + routingPath
+        condition += '(route === "' + routingPath + '") {\n';
         condition += '            let sample = await import("./' + samplePath + '");\n';
         condition += '            this.cachedSamples.set(route, sample.' + sampleInfo.SampleImportName + '.register());\n';
         condition += '        }\n';
