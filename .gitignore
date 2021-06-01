@@ -5,6 +5,7 @@
 # **/node_modules
 samples/**/node_modules
 samples/**/package-lock.json
+tests
 
 browser/node_modules
 browser/src.
