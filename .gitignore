@@ -5,6 +5,7 @@
 # **/node_modules
 samples/**/node_modules
 samples/**/package-lock.json
+samples/**/build
 tests
 
 browser/node_modules
