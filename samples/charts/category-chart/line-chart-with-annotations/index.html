@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>CategoryChartLineChartWithAnnotations</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options horizontal">
+        <label class="options-label">Annotations: </label>
+        <label class="options-label"><input type="checkbox" id="checkbox1" checked="true"></input> Crosshair </label>
+        <label class="options-label"><input type="checkbox" id="checkbox2" checked="true"></input> Callouts </label>
+        <label class="options-label"><input type="checkbox" id="checkbox3" checked="true"></input> Final Values </label>
+        <label class="options-label"><input type="checkbox" id="checkbox4" checked="true"></input> Markers </label>
+    </div>
+    <div class="container fill" style="height: calc(100% - 1.25rem)">
+      <igc-category-chart id="chart"
+          width="100%" height="100%"
+          chart-type="Line"
+          subtitle="Renewable Electricity Generated"
+          is-horizontal-zoom-enabled="false"
+          is-vertical-zoom-enabled="false"
+          yAxisTitle="TWh"
+          y-axis-label-location="OutsideRight"
+          thickness="2"
+          callouts-visible="true"
+          callouts-x-member-path="index"
+          callouts-y-member-path="value"
+          callouts-label-member-path="label"
+          crosshairs-snap-to-data="false"
+          crosshairs-display-mode="Both"
+          crosshairs-annotation-enabled="true"
+          final-value-annotations-visible="true"
+          marker-types="Circle">
+        </igc-category-chart>
+    </div>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
