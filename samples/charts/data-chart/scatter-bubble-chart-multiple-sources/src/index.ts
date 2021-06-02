@@ -2,6 +2,7 @@ import { DataEuropeItem, DataEurope, DataAfricaItem, DataAfrica } from './Sample
 
 import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcSizeScaleComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -37,6 +38,14 @@ export class Sample {
         bubbleSeries2.xAxis = this.xAxis
         bubbleSeries2.yAxis = this.yAxis
         bubbleSeries2.dataSource = this.dataEurope
+
+        const sizeScale = new IgcSizeScaleComponent();
+        sizeScale.minimumValue = 10;
+        sizeScale.maximumValue = 50;
+        bubbleSeries1.radiusScale = sizeScale;
+        bubbleSeries2.radiusScale = sizeScale;
+        bubbleSeries1.radiusScaleUseGlobalValues = true;
+        bubbleSeries2.radiusScaleUseGlobalValues = true;
    }
 
     private _dataEurope: DataEurope = null;
@@ -47,7 +56,7 @@ export class Sample {
         }
         return this._dataEurope;
     }
-    
+
     private _dataAfrica: DataAfrica = null;
     public get dataAfrica(): DataAfrica {
         if (this._dataAfrica == null)
@@ -56,7 +65,7 @@ export class Sample {
         }
         return this._dataAfrica;
     }
-    
+
 }
 
 new Sample();

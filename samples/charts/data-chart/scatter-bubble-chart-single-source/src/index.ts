@@ -2,6 +2,7 @@ import { DataEuropeItem, DataEurope } from './SampleData';
 
 import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcSizeScaleComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -28,6 +29,11 @@ export class Sample {
         bubbleSeries1.xAxis = this.xAxis
         bubbleSeries1.yAxis = this.yAxis
         bubbleSeries1.dataSource = this.dataEurope
+
+        const sizeScale = new IgcSizeScaleComponent();
+        sizeScale.minimumValue = 10;
+        sizeScale.maximumValue = 50;
+        bubbleSeries1.radiusScale = sizeScale;
    }
 
     private _dataEurope: DataEurope = null;
@@ -38,7 +44,7 @@ export class Sample {
         }
         return this._dataEurope;
     }
-    
+
 }
 
 new Sample();
