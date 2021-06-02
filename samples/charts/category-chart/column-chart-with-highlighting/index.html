@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>CategoryChartColumnChartWithHighlighting</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+
+    <div class="options horizontal">
+        <label class="options-label">Highlight Target: </label>
+        <select id="highlightingTarget">
+          <option>Series</option>
+          <option>Item</option>
+          <option>Category</option>
+          <option>None</option>
+        </select>
+        
+        <span class="options-label">Mode:</span>
+        <select id="highlightingMode">
+          <option>Auto</option>
+          <option>Brighten</option>
+          <option>BrightenSpecific</option>
+          <option>FadeOthers</option>
+          <option>FadeOthersSpecific</option>
+          <option>None</option>
+        </select>
+        <span class="options-label">Behavior:</span>
+        <select id="behaviorMode">
+          <option>Auto</option>
+          <option>DirectlyOver</option>
+          <option>NearestItems</option>
+          <option>NearestItemsAndSeries</option>
+          <option>NearestItemsRetainMainShapes</option>
+        </select>
+        <span class="options-label">Legend:</span>
+        <select id="legendHighlightingMode">
+          <option>Auto</option>
+          <option>MatchSeries</option>
+          <option>None</option>
+        </select>
+    </div>
+    <div class="options vertical">
+      <span class="legend-title">
+         Average Temperatures in the U.S. Cities
+      </span>
+      <div class="legend">
+          <igc-legend
+          orientation="Horizontal"
+          name="Legend"
+          id ="Legend">
+          </igc-legend>
+      </div>
+    </div>
+    <igc-category-chart id="chart" style="height: calc(100% - 3rem)"
+        width="100%"
+        height="100%"
+        x-axis-interval="1"
+        y-axis-minimum-value="0"
+        y-axis-title="Temperatures in Celsius"
+        is-series-highlighting-enabled="true"
+        is-category-highlighting-enabled="true"
+        is-item-highlighting-enabled="true">
+    </igc-category-chart>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
