@@ -20,7 +20,7 @@ const plugins = [
   ]),
   new HtmlWebpackPlugin({
     // inject: 'head',
-    title: 'Samples for IgniteUI Web Components',
+    title: 'Samples | IgniteUI for Web Components | Infragistics',
     // template: '!!ejs-loader!src/index.html'
     template: '!!ejs-loader!public/index.html',
     publicPath: isProd ? './' : '/'

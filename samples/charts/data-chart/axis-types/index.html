@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <span class="igOptions-item">Series Type:</span>
+<div class="container sample">
+    <div class="options horizontal">
+        <span class="options-label">Series Type:</span>
         <select id="axisSelect">
             <option>Column (CategoryXAxis)</option>
             <option>Bar (CategoryYAxis)</option>
@@ -24,7 +24,7 @@
             <option>Financial (TimeXAxis)</option>
         </select>
     </div>
-    <div class="igComponent" style="height: calc(100% - 3rem)">
+    <div class="container" style="height: calc(100% - 3rem)">
         <igc-data-chart id="chart" width="100%" height="100%"
         is-horizontal-zoom-enabled="true"
         is-vertical-zoom-enabled="true">
@@ -33,7 +33,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

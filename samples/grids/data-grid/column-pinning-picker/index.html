@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-<div class="igOptions" padding-bottom="10px">
-    <button id="pinLeft" class="igOptions-item" style="width: 100px">Pin Left</button>
-    <button id="pinRight" class="igOptions-item" style="width: 100px">Pin Right</button>
-    <button id="unpinColumns" class="igOptions-item" style="width: 115px">Unpin Columns</button>
+<div class="container sample">
+<div class="options horizontal" padding-bottom="10px">
+    <button id="pinLeft" class="options-label" style="width: 100px">Pin Left</button>
+    <button id="pinRight" class="options-label" style="width: 100px">Pin Right</button>
+    <button id="unpinColumns" class="options-label" style="width: 115px">Unpin Columns</button>
 </div>
 <igc-data-grid
 id="grid"
@@ -44,7 +44,8 @@ auto-generate-columns="false">
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

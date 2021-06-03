@@ -7,29 +7,30 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
+<div class="container sample">
+    <div class="options horizontal">
         <button id="button1">Save Workbook</button>
     </div>
-    <div class="igOptions">
-        <label class="igOptions-label">Add a Comment to cell A1: </label>
+    <div class="options horizontal">
+        <label class="options-label">Add a Comment to cell A1: </label>
         <input type="checkbox" id="addComment"></input> <br/>
-        <label class="igOptions-label">Add a Formula for cells F2 to F20: </label>
+        <label class="options-label">Add a Formula for cells F2 to F20: </label>
         <input type="checkbox" id="addFormula"></input>  <br/>
-        <label class="igOptions-label">Merge Cells: </label>
+        <label class="options-label">Merge Cells: </label>
         <input type="checkbox" id="mergeCells"></input>
     </div>
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

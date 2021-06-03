@@ -9,7 +9,9 @@ export class FinancialChartHighFrequency {
 
     private chart: IgcFinancialChartComponent;
     private dataInfoLabel: HTMLLabelElement;
-    private refreshIntervalValue: HTMLLabelElement;
+    private refreshIntervalLabel: HTMLLabelElement;
+    private timerButton: HTMLButtonElement;
+    private shouldTick : boolean = true;
     public dataIndex: number = 0;
     public dataPoints: number = 10000;
     public dataInfo: string = StocksUtility.toShortString(this.dataPoints);
@@ -18,7 +20,7 @@ export class FinancialChartHighFrequency {
     public refreshMilliseconds: number = 10;
     public interval: number = -1;
 
-    public fps: HTMLSpanElement;
+    public fps: HTMLLabelElement;
     public frameTime: Date;
     public frameCount: number = 0;
     public scalingRatio: number = NaN;
@@ -34,8 +36,8 @@ export class FinancialChartHighFrequency {
         this.dataInfoLabel = document.getElementById('dataInfoLabel') as HTMLLabelElement;
         this.dataInfoLabel.textContent = this.dataInfo;
 
-        this.refreshIntervalValue = document.getElementById('refreshIntervalValue') as HTMLLabelElement;
-        this.refreshIntervalValue.textContent = (this.refreshMilliseconds / 1000).toString() + 's';
+        this.refreshIntervalLabel = document.getElementById('refreshInfoLabel') as HTMLLabelElement;
+        this.refreshIntervalLabel.textContent = (this.refreshMilliseconds / 1000).toString() + 's';
 
         const dataPointsSlider = document.getElementById('dataPointsSlider') as HTMLInputElement;
         dataPointsSlider.value = this.dataPoints.toString();
@@ -48,17 +50,20 @@ export class FinancialChartHighFrequency {
         const genDataBtn = document.getElementById('genDataBtn') as HTMLButtonElement;
         genDataBtn!.addEventListener('click', this.onDataGenerateClick);
 
+        this.timerButton = document.getElementById('timerButton') as HTMLButtonElement;
+        this.timerButton!.addEventListener('click', this.onStopStartClick);
+
         const scalingRatio = document.getElementById('scalingRatio') as HTMLButtonElement;
         scalingRatio!.addEventListener('change', this.onScalingRatioChanged);
 
-        this.fps = document.getElementById('fpsSpan') as HTMLSpanElement;
+        this.fps = document.getElementById('fpsSpan') as HTMLLabelElement;
     }
 
     public componentWillUnmount() {
         if (this.interval >= 0) {
-             window.clearInterval(this.interval);
-             this.interval = -1;
-         }
+            window.clearInterval(this.interval);
+            this.interval = -1;
+        }
     }
 
     public onScalingRatioChanged = (e: any) => {
@@ -74,6 +79,18 @@ export class FinancialChartHighFrequency {
         this.dataIndex = this.data.length;
 
         this.chart.dataSource = this.data;
+    }
+
+    public onStopStartClick = (e: any) => {
+
+        this.shouldTick = !this.shouldTick;
+        
+        if(this.shouldTick){        
+            this.timerButton.textContent = "Stop Data";
+        }
+        else{
+            this.timerButton.textContent = "Live Data";
+        }        
     }
 
     public onDataPointsChanged = (e: any) => {
@@ -122,7 +139,7 @@ export class FinancialChartHighFrequency {
         this.refreshMilliseconds = num;
         this.setupInterval();
 
-        this.refreshIntervalValue.textContent = (this.refreshMilliseconds / 1000).toString() + 's';
+        this.refreshIntervalLabel.textContent = (this.refreshMilliseconds / 1000).toString() + 's';
     }
 
     public setupInterval(): void {
@@ -132,28 +149,30 @@ export class FinancialChartHighFrequency {
         }
 
         this.interval = window.setInterval(() => this.tick(),
-        this.refreshMilliseconds);
+            this.refreshMilliseconds);
     }
 
     public tick(): void {
-        this.dataIndex++;
-        const oldItem = this.data[0];
-        const newItem = StocksUtility.GetNewItem(this.data);
+        if (this.shouldTick) {
+            this.dataIndex++;
+            const oldItem = this.data[0];
+            const newItem = StocksUtility.GetNewItem(this.data);
 
-        // updating data source and notifying category chart
-        this.data.push(newItem);
-        this.chart.notifyInsertItem(this.data, this.data.length - 1, newItem);
-        this.data.shift();
-        this.chart.notifyRemoveItem(this.data, 0, oldItem);
+            // updating data source and notifying category chart
+            this.data.push(newItem);
+            this.chart.notifyInsertItem(this.data, this.data.length - 1, newItem);
+            this.data.shift();
+            this.chart.notifyRemoveItem(this.data, 0, oldItem);
 
-        this.frameCount++;
-        const currTime = new Date();
-        const elapsed = (currTime.getTime() - this.frameTime.getTime());
-        if (elapsed > 5000) {
-            const fps = this.frameCount / (elapsed / 1000.0);
-            this.frameTime = currTime;
-            this.frameCount = 0;
-            this.fps.textContent = ' FPS: ' + Math.round(fps).toString();
+            this.frameCount++;
+            const currTime = new Date();
+            const elapsed = (currTime.getTime() - this.frameTime.getTime());
+            if (elapsed > 5000) {
+                const fps = this.frameCount / (elapsed / 1000.0);
+                this.frameTime = currTime;
+                this.frameCount = 0;
+                this.fps.textContent = ' FPS: ' + Math.round(fps).toString();
+            }
         }
     }
 }

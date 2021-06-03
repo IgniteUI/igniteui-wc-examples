@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
+<div class="container sample">
+    <div class="options horizontal">
     <button id="animateButton"><label>Animate Chart</label> </button>
     </div>
 
@@ -24,7 +24,7 @@
         height="100%">
         <igc-ring-series
             name="ringSeries" id="ringSeries"
-            label-member-path="Company"
+            label-member-path="Summary"
             value-member-path="MarketShare"
             radius-factor="0.1"
             start-angle = 0
@@ -34,7 +34,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

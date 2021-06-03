@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <span class="igOptions-item">Header Click Action: </span>
-        <select id="headerClickActionDropDown" class="igOptions-item">
+<div class="container sample">
+    <div class="options horizontal">
+        <span class="options-label">Header Click Action: </span>
+        <select id="headerClickActionDropDown" class="options-label">
             <option>SortByMultipleColumns</option>
             <option>SortByMultipleColumnsTriState</option>
             <option>SortByOneColumnOnly</option>
@@ -42,7 +42,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

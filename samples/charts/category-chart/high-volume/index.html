@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <label class="igOptions-label">Data Points: </label>
-        <label class="igOptions-value" id="dataInfoLabel"> 500000 </label>
-        <input id="dataPointsSlider" class="igOptions-slider" type="range" min="10000" max="1000000" step="1000"
+<div class="container sample">
+    <div class="options horizontal">
+        <label class="options-label">Data Points: </label>
+        <label class="options-value" id="dataInfoLabel"> 500000 </label>
+        <input id="dataPointsSlider" class="options-slider" type="range" min="10000" max="1000000" step="1000"
             value=500000 />
         <button id="DataGenerate">Generate Data</button>
     </div>
@@ -30,7 +30,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

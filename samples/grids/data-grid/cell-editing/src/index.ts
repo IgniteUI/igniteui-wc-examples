@@ -34,7 +34,12 @@ export class DataGridCellEditing {
 
         let dropDown = document.getElementById('editModeDropBox');
         if (dropDown !== null){
-            dropDown.onchange = this.dropDownValueChanged;
+            dropDown.onchange = this.editModeChanged;
+        }
+
+        let dropDown2 = document.getElementById('editModeClickActionDropBox');
+        if (dropDown2 !== null){
+            dropDown2.onchange = this.editModeClickActionChanged;
         }
 
         this.commitButton = document.getElementById('commitClick') as HTMLButtonElement;
@@ -95,7 +100,7 @@ export class DataGridCellEditing {
         }
     }
 
-    public dropDownValueChanged = (event: any) => {
+    public editModeChanged = (event: any) => {
 
         this.grid.cancelEdits();
         this.grid.editMode = event.target.value;
@@ -104,6 +109,12 @@ export class DataGridCellEditing {
             this.undoButton.disabled = !this.grid.canUndo;
             this.redoButton.disabled = !this.grid.canRedo;
         }
+    }
+
+    public editModeClickActionChanged = (event: any) => {
+
+        this.grid.editModeClickAction = event.target.value;
+       
     }
 
     public onDeleteRowClick = (e: MouseEvent) => {

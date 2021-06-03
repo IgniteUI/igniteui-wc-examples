@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions-horizontal">
-        <label htmlFor="panes" class="igOptions-label" style="margin-top: 0.25rem;">Hidden Panes:</label>
-        <select name="panes" id="panes" class="igOptions-input-text"></select>
-        
+<div class="container sample">
+    <div class="options horizontal">
+        <label htmlFor="panes" class="options-label" style="margin-top: 0.25rem;">Hidden Panes:</label>
+        <select name="panes" id="panes" class="options-text"></select>
+
         <button id="showOnePane"  type="button">Show One Pane</button>
         <button id="showAllPanes" type="button">Show All Panes</button>
     </div>
@@ -39,7 +39,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

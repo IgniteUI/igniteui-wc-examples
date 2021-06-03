@@ -21,20 +21,15 @@ export class SparklineGrid {
     public data: any[] = [];
 
     constructor() {
-
         this.data = Products.getData();
 
         this.onUpdatingHistoryColumn = this.onUpdatingHistoryColumn.bind(this);
-        this.onUpdatingReturnsColumn = this.onUpdatingReturnsColumn.bind(this);
-
+        
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = this.data;
 
         const historyColumn = document.getElementById('historyColumn') as IgcTemplateColumnComponent;
         historyColumn.cellUpdating = this.onUpdatingHistoryColumn;
-
-        const returnsColumn = document.getElementById('returnsColumn') as IgcTemplateColumnComponent;
-        returnsColumn.cellUpdating = this.onUpdatingReturnsColumn;
     }
 
     public onUpdatingHistoryColumn(s: IgcTemplateColumnComponent, e: IgcTemplateCellUpdatingEventArgs) {
@@ -44,63 +39,30 @@ export class SparklineGrid {
 
         if (content.childElementCount === 0) {
             chart = new IgcSparklineComponent();
+            chart.width = '100%';
+            chart.height = '100%';
             chart.valueMemberPath = 'Sold';
             chart.labelMemberPath = 'Week';
             chart.displayType = SparklineDisplayType.Line;
-            chart.lineThickness = 2;
             chart.brush = 'rgb(21, 190, 6)';
-            chart.negativeBrush = 'rgb(211, 17, 3)';
-            chart.width = '100%';
-            chart.height = '100%';
+            
+            let container = document.createElement("div") as HTMLDivElement;
+            container.style.width = "100%";
+            container.style.height = "70px";
+            container.style.background = "transparent";
+            container.append(chart);
 
-            content.style.width = 'calc(100% - 0.5rem)';
-            content.style.height = 'calc(100% - 0.5rem)';
-            content.style.padding = '0.25rem';
-            content.style.margin = '0px';
-            content.style.display = 'inline-grid';
-            content.appendChild(chart);
+            content.appendChild(container);
         }
         else {
-            chart = content.children[0] as IgcSparklineComponent;
+            let container = content.children[0] as HTMLDivElement;
+            chart = container.children[0] as IgcSparklineComponent;
         }
 
         if (chart) {
             chart.dataSource = info.rowItem.OrderHistory;
         }
     }
-
-    public onUpdatingReturnsColumn(s: IgcTemplateColumnComponent, e: IgcTemplateCellUpdatingEventArgs) {
-        const content = e.content as HTMLDivElement;
-        let chart: IgcSparklineComponent | null = null;
-        let info = e.cellInfo as IgcTemplateCellInfo;
-
-        if (content.childElementCount === 0) {
-            chart = new IgcSparklineComponent();
-            chart.valueMemberPath = 'Balance';
-            chart.labelMemberPath = 'Week';
-            chart.displayType = SparklineDisplayType.Column;
-            chart.lineThickness = 2;
-            chart.brush = 'rgb(21, 190, 6)';
-            chart.negativeBrush = 'rgb(211, 17, 3)';
-            chart.width = '100%';
-            chart.height = '100%';
-
-            content.style.width = 'calc(100% - 0.5rem)';
-            content.style.height = 'calc(100% - 0.5rem)';
-            content.style.padding = '0.25rem';
-            content.style.margin = '0px';
-            content.style.display = 'inline-grid';
-            content.appendChild(chart);
-        }
-        else {
-            chart = content.children[0] as IgcSparklineComponent;
-        }
-
-        if (chart) {
-            chart.dataSource = info.rowItem.ReturnRate;
-        }
-    }
-
 }
 
 new SparklineGrid();

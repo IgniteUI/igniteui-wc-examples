@@ -7,24 +7,30 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-  <div class="igOptions">
+<div class="container sample">
+  <div class="options horizontal">
     <button id="commitClick" disabled="true">Commit</button>
     <button id="undoClick" disabled="true">Undo</button>
     <button id="redoClick" disabled="true">Redo</button>
-      <span class="igOptions-item">Edit Mode: </span>
-      <select id="editModeDropBox" class="igOptions-item">
+      <span class="options-label">Edit Mode: </span>
+      <select id="editModeDropBox" class="options-label">
         <option>Cell</option>
         <option>CellBatch</option>
         <option>Row</option>
         <option>None</option>
+      </select>
+    <label id="excel-style-editing" >Excel Style</label>
+    <span class="options-label">Edit Mode: </span>
+      <select id="editModeClickActionDropBox" class="options-label">
+        <option>SingleClick</option>
+        <option>DoubleClick</option>
       </select>
   </div>
 
@@ -37,6 +43,7 @@
       default-column-min-width="125"
       is-column-options-enabled="true"
       auto-generate-columns="false"
+      edit-mode-click-action="SingleClick"
       edit-mode="Cell">
 
       <igc-text-column field="Name" width="*>150"></igc-text-column>
@@ -52,7 +59,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

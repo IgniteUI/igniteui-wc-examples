@@ -1,47 +1,35 @@
-import { IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
-import { IgcDoughnutChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
-import { IgcRingSeriesModule } from 'igniteui-webcomponents-charts';
-import { IgcSliceClickEventArgs } from 'igniteui-webcomponents-charts';
+import { DataItem, Data } from './SampleData';
+
+import { IgcLegendModule, IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
+import { IgcDoughnutChartComponent, IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
-    IgcDoughnutChartModule,
-    IgcRingSeriesModule
+    IgcLegendModule,
+    IgcDoughnutChartModule
 );
 
-export class DoughnutChartOverview {
+export class Sample {
 
-    private chart: IgcDoughnutChartComponent;
+    private chart: IgcDoughnutChartComponent
+    private series: IgcRingSeriesComponent
 
     constructor() {
+        var chart = this.chart = document.getElementById('chart') as IgcDoughnutChartComponent;
+        var series = this.series = document.getElementById('series') as IgcRingSeriesComponent;
 
-        let ringSeries = document.getElementById('ringSeries') as IgcRingSeriesComponent;
-        ringSeries.explodedSlices.add(3);
-        ringSeries.explodedSlices.add(4);
-        ringSeries.dataSource = this.getData();
+        series.dataSource = this.data
+   }
 
-        this.chart = document.getElementById('chart') as IgcDoughnutChartComponent;
-        this.chart.sliceClick = this.onSliceClick;
-        // this.chart.series.add(ringSeries);
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
     }
-
-    public onSliceClick = (s: IgcDoughnutChartComponent, e: IgcSliceClickEventArgs) => {
-
-        e.isExploded = !e.isExploded;
-        e.isSelected = false;
-    }
-
-    public getData(): any[] {
-        return[
-                { MarketShare: 30, Company: 'Google',    },
-                { MarketShare: 15, Company: 'Microsoft', },
-                { MarketShare: 30, Company: 'Apple',     },
-                { MarketShare: 15, Company: 'Samsung',   },
-                { MarketShare: 10, Company: 'Other',     },
-        ];
-    }
-
+    
 }
 
-new DoughnutChartOverview();
+new Sample();

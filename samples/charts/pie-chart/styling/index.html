@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="legend-title">
+        Global Electricity Demand by Energy Use
+    </div>
+
+    <div class="legend">
+        <igc-item-legend
+        orientation="Horizontal"
+        name="legend"
+        id ="legend">
+        </igc-item-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-pie-chart
+        
+        value-member-path="marketShare"
+        label-member-path="category"
+        labels-position="OutsideEnd"
+        radius-factor="0.7"
+        label-extent="30"
+        start-angle="0"
+        brushes="rgba(247, 210, 98, 1) rgba(168, 168, 183, 1) rgba(224, 81, 169, 1) rgba(248, 161, 95, 1) rgba(115, 86, 86, 1)"
+        outlines="white"
+        name="chart"
+        id ="chart">
+        </igc-pie-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

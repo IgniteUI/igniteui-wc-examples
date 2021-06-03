@@ -13,7 +13,10 @@
 
   <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
   <link href="https://static.infragistics.com/xplatform/images/browsers/wc.png" rel="shortcut icon" >
-  <link href="<%= htmlWebpackPlugin.options.publicPath %>assets/css/index.css" rel="stylesheet" />
+  <link href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" rel="stylesheet" type="text/css" />
+  <link href="https://static.infragistics.com/xplatform/css/samples/custom-legend.css" rel="stylesheet" type="text/css" />
+
+  <!-- <link href="<%= htmlWebpackPlugin.options.publicPath %>assets/css/index.css" rel="stylesheet" /> -->
   <link href="<%= htmlWebpackPlugin.options.publicPath %>assets/css/browser.css" rel="stylesheet" />
 
 </head>
@@ -31,16 +34,35 @@
        <label id="nav-category-chart" class="nav-component">Category Chart</label> 
        <div id="nav-category-chart-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-annotations">Annotations</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-area-chart-multiple-sources">Area Chart Multiple Sources</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-area-chart-single-source">Area Chart Single Source</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-area-chart-styling">Area Chart Styling</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-axis-gap">Axis Gap</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-axis-gridlines">Axis Gridlines</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-axis-labels">Axis Labels</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-axis-locations">Axis Locations</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-axis-options">Axis Options</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-axis-overlap">Axis Overlap</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-axis-range">Axis Range</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-axis-tickmarks">Axis Tickmarks</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-axis-titles">Axis Titles</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-column-chart-multiple-sources">Column Chart Multiple Sources</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-column-chart-single-source">Column Chart Single Source</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-column-chart-styling">Column Chart Styling</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-high-frequency">High Frequency</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-high-volume">High Volume</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-highlighting">Highlighting</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-line-chart-multiple-sources">Line Chart Multiple Sources</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-line-chart-single-source">Line Chart Single Source</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-line-chart-styling">Line Chart Styling</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-line-chart-with-animations">Line Chart With Animations</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-line-chart-with-legend">Line Chart With Legend</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-marker-options">Markers</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-marker-options">Marker Options</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-marker-templates">Marker Templates</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-overview">Overview</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-point-chart-multiple-sources">Point Chart Multiple Sources</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-point-chart-single-source">Point Chart Single Source</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-point-chart-styling">Point Chart Styling</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-spline-area-multiple-sources">Spline Area Multiple Sources</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-spline-area-single-source">Spline Area Single Source</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-spline-area-styling">Spline Area Styling</a> 
@@ -60,11 +82,16 @@
        <label id="nav-data-chart" class="nav-component">Data Chart</label> 
        <div id="nav-data-chart-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-axis-annotations">Axis Annotations</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-axis-crossing">Axis Crossing</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-axis-locations">Axis Locations</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-axis-scales">Axis Scales</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-axis-settings">Axis Settings</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-axis-sharing">Axis Sharing</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-axis-types">Axis Types</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-bar-chart-multiple-sources">Bar Chart Multiple Sources</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-bar-chart-single-source">Bar Chart Single Source</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-bar-chart-styling">Bar Chart Styling</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-callout-layer-styling">Callout Layer Styling</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-category-area-series">Category Area Series</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-category-bar-series">Category Bar Series</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-category-column-series">Category Column Series</a> 
@@ -76,6 +103,14 @@
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-category-step-area-series">Category Step Area Series</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-category-step-line-series">Category Step Line Series</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-category-waterfall-series">Category Waterfall Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-chart-navigation">Chart Navigation</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-chart-overview">Chart Overview</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-chart-performance">Chart Performance</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-chart-synchronization">Chart Synchronization</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-chart-titles">Chart Titles</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-composite-chart">Composite Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-crosshair-layer-styling">Crosshair Layer Styling</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-final-value-layer-styling">Final Value Layer Styling</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-financial-candlestick-series">Financial Candlestick Series</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-financial-indicator-area">Financial Indicator Area</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-financial-indicator-column">Financial Indicator Column</a> 
@@ -84,33 +119,37 @@
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-financial-overlays">Financial Overlays</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-financial-series">Financial Series</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-legends">Legends</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-chart-navigation">Navigation</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-chart-overview">Overview</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-chart-performance">Performance</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-polar-area-series">Polar Area Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-polar-line-series">Polar Line Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-polar-scatter-series">Polar Scatter Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-polar-series">Polar Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-polar-spline-area-series">Polar Spline Area Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-polar-spline-series">Polar Spline Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-radial-area-series">Radial Area Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-radial-column-series">Radial Column Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-radial-line-series">Radial Line Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-radial-pie-series">Radial Pie Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-radial-series">Radial Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-polar-area-chart">Polar Area Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-polar-area-chart-styling">Polar Area Chart Styling</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-polar-chart-types">Polar Chart Types</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-polar-line-chart">Polar Line Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-polar-scatter-chart">Polar Scatter Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-polar-spline-area-chart">Polar Spline Area Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-polar-spline-chart">Polar Spline Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-radial-area-chart">Radial Area Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-radial-area-chart-styling">Radial Area Chart Styling</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-radial-chart-types">Radial Chart Types</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-radial-column-chart">Radial Column Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-radial-line-chart">Radial Line Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-radial-pie-chart">Radial Pie Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-range-area-chart">Range Area Chart</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-range-area-series">Range Area Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-range-column-chart">Range Column Chart</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-range-column-series">Range Column Series</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-range-series">Range Series</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-scatter-area-series">Scatter Area Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-scatter-bubble-chart-multiple-sources">Scatter Bubble Chart Multiple Sources</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-scatter-bubble-chart-single-source">Scatter Bubble Chart Single Source</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-scatter-bubble-chart-styling">Scatter Bubble Chart Styling</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-scatter-bubble-series">Scatter Bubble Series</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-scatter-contour-series">Scatter Contour Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-scatter-density-series">Scatter Density Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-scatter-line-series">Scatter Line Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-scatter-point-series">Scatter Point Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-scatter-hd-series">Scatter Hd Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-scatter-line-chart">Scatter Line Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-scatter-point-chart">Scatter Point Chart</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-scatter-polygon-series">Scatter Polygon Series</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-scatter-polyline-series">Scatter Polyline Series</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-scatter-series">Scatter Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-scatter-spline-series">Scatter Spline Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-scatter-spline-chart">Scatter Spline Chart</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-series-animations">Series Animations</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-series-annotations">Series Annotations</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-series-error-bars">Series Error Bars</a> 
@@ -119,23 +158,23 @@
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-series-markers">Series Markers</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-series-tooltips">Series Tooltips</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-series-trendlines">Series Trendlines</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-series-value-overlay">Series Value Overlay</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-shape-series">Shape Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked-area-series">Stacked Area Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked-bar-series">Stacked Bar Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked-column-series">Stacked Column Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked-line-series">Stacked Line Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked-series">Stacked Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked-spline-area-series">Stacked Spline Area Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked-spline-series">Stacked Spline Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked100-area-series">Stacked100 Area Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked100-bar-series">Stacked100 Bar Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked100-column-series">Stacked100 Column Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked100-line-series">Stacked100 Line Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked100-spline-area-series">Stacked100 Spline Area Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-type-stacked100-spline-series">Stacked100 Spline Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-chart-synchronization">Synchronization</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-chart-titles">Titles</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-value-overlay">Value Overlay</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-area-chart">Stacked Area Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-bar-chart">Stacked Bar Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-chart-types">Stacked Chart Types</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-column-chart">Stacked Column Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-line-chart">Stacked Line Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-spline-area-chart">Stacked Spline Area Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-spline-chart">Stacked Spline Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-100-area-chart">Stacked100 Area Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-100-bar-chart">Stacked100 Bar Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-100-column-chart">Stacked100 Column Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-100-line-chart">Stacked100 Line Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-100-spline-area-chart">Stacked100 Spline Area Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-stacked-100-spline-chart">Stacked100 Spline Chart</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-tooltip-template">Tooltip Template</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-waterfall-chart">Waterfall Chart</a> 
        </div>
        <label id="nav-doughnut-chart" class="nav-component">Doughnut Chart</label> 
        <div id="nav-doughnut-chart-list" class="nav-list" state="collapsed"> 
@@ -158,6 +197,7 @@
            <a class="nav-link" href="#" data-nav="/samples/charts/financial-chart-overview">Overview</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/financial-chart-panes">Panes</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/financial-chart-performance">Performance</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/financial-chart-stock-index-chart">Stock Index Chart</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/financial-chart-styling">Styling</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/financial-chart-titles">Titles</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/financial-chart-tooltip-types">Tooltip Types</a> 
@@ -172,6 +212,7 @@
            <a class="nav-link" href="#" data-nav="/samples/charts/pie-chart-others">Others</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/pie-chart-overview">Overview</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/pie-chart-selection">Selection</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/pie-chart-styling">Styling</a> 
        </div>
        <label id="nav-sparkline" class="nav-component">Sparkline</label> 
        <div id="nav-sparkline-list" class="nav-list" state="collapsed"> 
@@ -181,51 +222,57 @@
            <a class="nav-link" href="#" data-nav="/samples/charts/sparkline-display-types">Display Types</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/sparkline-display-win-loss">Display Win Loss</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/sparkline-grid">Grid</a> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/sparkline-marker-options">Markers</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/sparkline-marker-options">Marker Options</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/sparkline-normal-range">Normal Range</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/sparkline-trendlines">Trendlines</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/sparkline-unknown-values">Unknown Values</a> 
        </div>
        <label id="nav-tree-map" class="nav-component">Tree Map</label> 
        <div id="nav-tree-map-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/tree-map-events">Events</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/tree-map-layout">Layout</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/tree-map-overview">Overview</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/tree-map-styling">Styling</a> 
        </div>
        <label id="nav-zoomslider" class="nav-component">Zoomslider</label> 
        <div id="nav-zoomslider-list" class="nav-list" state="collapsed"> 
-           <a class="nav-link" href="#" data-nav="/samples/charts/zoomslider-overview">Zoom Slider Overview</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/zoomslider-overview">Overview</a> 
        </div>
 
        <div class="nav-group">EDITORS</div> 
        <label id="nav-date-picker" class="nav-component">Date Picker</label> 
        <div id="nav-date-picker-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/editors/date-picker-date-limits">Date Limits</a> 
+           <a class="nav-link" href="#" data-nav="/samples/editors/date-picker-editing">Editing</a> 
+           <a class="nav-link" href="#" data-nav="/samples/editors/date-picker-format">Format</a> 
            <a class="nav-link" href="#" data-nav="/samples/editors/date-picker-overview">Overview</a> 
            <a class="nav-link" href="#" data-nav="/samples/editors/date-picker-range">Range</a> 
        </div>
        <label id="nav-multi-column-combobox" class="nav-component">Multi Column Combobox</label> 
        <div id="nav-multi-column-combobox-list" class="nav-list" state="collapsed"> 
-           <a class="nav-link" href="#" data-nav="/samples/editors/multi-column-combobox-overview">Multi Column Combo Box Overview</a> 
+           <a class="nav-link" href="#" data-nav="/samples/editors/multi-column-combobox-overview">Overview</a> 
        </div>
 
        <div class="nav-group">EXCEL</div> 
        <label id="nav-excel-library" class="nav-component">Excel Library</label> 
        <div id="nav-excel-library-list" class="nav-list" state="collapsed"> 
-           <a class="nav-link" href="#" data-nav="/samples/excel/excel-library-working-with-cells">Cells</a> 
-           <a class="nav-link" href="#" data-nav="/samples/excel/excel-library-working-with-charts">Charts</a> 
+           <a class="nav-link" href="#" data-nav="/samples/excel/excel-library-operations-on-workbooks">Operations On Workbooks</a> 
+           <a class="nav-link" href="#" data-nav="/samples/excel/excel-library-operations-on-worksheets">Operations On Worksheets</a> 
            <a class="nav-link" href="#" data-nav="/samples/excel/excel-library-overview">Overview</a> 
-           <a class="nav-link" href="#" data-nav="/samples/excel/excel-library-working-with-sparklines">Sparklines</a> 
            <a class="nav-link" href="#" data-nav="/samples/excel/excel-library-tables">Tables</a> 
-           <a class="nav-link" href="#" data-nav="/samples/excel/excel-library-operations-on-workbooks">Workbooks</a> 
-           <a class="nav-link" href="#" data-nav="/samples/excel/excel-library-operations-on-worksheets">Worksheets</a> 
+           <a class="nav-link" href="#" data-nav="/samples/excel/excel-library-working-with-cells">Working With Cells</a> 
+           <a class="nav-link" href="#" data-nav="/samples/excel/excel-library-working-with-charts">Working With Charts</a> 
+           <a class="nav-link" href="#" data-nav="/samples/excel/excel-library-working-with-sparklines">Working With Sparklines</a> 
        </div>
        <label id="nav-spreadsheet" class="nav-component">Spreadsheet</label> 
        <div id="nav-spreadsheet-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/excel/spreadsheet-activation">Activation</a> 
-           <a class="nav-link" href="#" data-nav="/samples/excel/spreadsheet-adapter-chart">Adapter</a> 
+           <a class="nav-link" href="#" data-nav="/samples/excel/spreadsheet-adapter-chart">Adapter Chart</a> 
            <a class="nav-link" href="#" data-nav="/samples/excel/spreadsheet-adapter-combo">Adapter Combo</a> 
            <a class="nav-link" href="#" data-nav="/samples/excel/spreadsheet-clipboard">Clipboard</a> 
            <a class="nav-link" href="#" data-nav="/samples/excel/spreadsheet-commands">Commands</a> 
            <a class="nav-link" href="#" data-nav="/samples/excel/spreadsheet-conditional-formatting">Conditional Formatting</a> 
-           <a class="nav-link" href="#" data-nav="/samples/excel/spreadsheet-config-options">Configuring</a> 
+           <a class="nav-link" href="#" data-nav="/samples/excel/spreadsheet-config-options">Config Options</a> 
            <a class="nav-link" href="#" data-nav="/samples/excel/spreadsheet-data-validation">Data Validation</a> 
            <a class="nav-link" href="#" data-nav="/samples/excel/spreadsheet-filter-dialog">Filter Dialog</a> 
            <a class="nav-link" href="#" data-nav="/samples/excel/spreadsheet-format-dialog">Format Dialog</a> 
@@ -259,7 +306,7 @@
            <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge-ranges">Ranges</a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge-scale">Scale</a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge-tickmarks">Tickmarks</a> 
-           <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge-type-curved">Type Curve</a> 
+           <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge-type-curved">Type Curved</a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge-type-filled">Type Filled</a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge-type-horizontal">Type Horizontal</a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge-type-multi-range">Type Multi Range</a> 
@@ -308,29 +355,30 @@
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-column-pinning-picker">Column Pinning Picker</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-column-pinning-toolbar">Column Pinning Toolbar</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-column-resizing">Column Resizing</a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-column-scrolling">Column Scrolling</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-column-sorting">Column Sorting</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-column-summaries">Column Summaries</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-column-types">Column Types</a> 
-           <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-column-scrolling">Horizontal Scrolling</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-overview">Overview</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-performance">Performance</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-row-grouping">Row Grouping</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-row-highlighting">Row Highlighting</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-row-paging">Row Paging</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-row-pinning">Row Pinning</a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-row-selection">Row Selection</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-type-comparison-table">Type Comparison Table</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-type-heatmap-table">Type Heatmap Table</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-type-marketing-table">Type Marketing Table</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-type-matrix-table">Type Matrix Table</a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-type-periodic-table">Type Periodic Table</a> 
-           <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-type-table">Type Sparkline Table</a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/data-grid-type-table">Type Table</a> 
        </div>
 
        <div class="nav-group">LAYOUTS</div> 
        <label id="nav-dock-manager" class="nav-component">Dock Manager</label> 
        <div id="nav-dock-manager-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/layouts/dock-manager-embedding-frames">Embedding Frames</a> 
-           <a class="nav-link" href="#" data-nav="/samples/layouts/dock-manager-hiding-panes">Hide Panes</a> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/dock-manager-hiding-panes">Hiding Panes</a> 
            <a class="nav-link" href="#" data-nav="/samples/layouts/dock-manager-overview">Overview</a> 
            <a class="nav-link" href="#" data-nav="/samples/layouts/dock-manager-updating-panes">Updating Panes</a> 
        </div>
@@ -338,34 +386,34 @@
        <div class="nav-group">MAPS</div> 
        <label id="nav-geographic-map" class="nav-component">Geographic Map</label> 
        <div id="nav-geographic-map-list" class="nav-list" state="collapsed"> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-data-csv">Binding Data CSV</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-data-json-points">Binding Data Json Points</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-data-model">Binding Data Model</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-multiple-shapes">Binding Multiple Shapes</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-multiple-sources">Binding Multiple Sources</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-shp-points">Binding Shapefile Points</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-shp-polygons">Binding Shapefile Polygons</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-shp-polylines">Binding Shapefile Polylines</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-display-bing-imagery">Display Imagery Bing Tiles</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-display-esri-imagery">Display Imagery Esri Tiles</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-display-heat-imagery">Display Imagery Heat Tiles</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-display-osm-imagery">Display Imagery OSM</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-custom-tooltips">Map Custom Tooltips</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-display-all-imagery">Map Imagery Sources</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-marker-template">Map Marker Template</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-marker-type">Map Marker Type</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-navigation">Map Navigation</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-overview">Map Overview</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-shape-styling">Map Shape Styling</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-synchronization">Map Synchronization</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-triangulating-data">Map Triangulating Data</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-scatter-area-series">Scatter Area Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-scatter-bubble-series">Scatter Bubble Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-scatter-contour-series">Scatter Contour Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-scatter-density-series">Scatter Density Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-shape-polygon-series">Scatter Polygon Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-shape-polyline-series">Scatter Polyline Series</a> 
-           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-scatter-symbol-series">Scatter Symbol Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-data-csv">Geo Binding Data Csv</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-data-json-points">Geo Binding Data Json Points</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-data-model">Geo Binding Data Model</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-multiple-shapes">Geo Binding Multiple Shapes</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-multiple-sources">Geo Binding Multiple Sources</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-shp-points">Geo Binding Shp Points</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-shp-polygons">Geo Binding Shp Polygons</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-binding-shp-polylines">Geo Binding Shp Polylines</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-display-all-imagery">Geo Display All Imagery</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-display-bing-imagery">Geo Display Bing Imagery</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-display-esri-imagery">Geo Display Esri Imagery</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-display-heat-imagery">Geo Display Heat Imagery</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-display-osm-imagery">Geo Display Osm Imagery</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-custom-tooltips">Geo Map Custom Tooltips</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-marker-template">Geo Map Marker Template</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-marker-type">Geo Map Marker Type</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-navigation">Geo Map Navigation</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-overview">Geo Map Overview</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-shape-styling">Geo Map Shape Styling</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-synchronization">Geo Map Synchronization</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-triangulating-data">Geo Map Triangulating Data</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-scatter-area-series">Geo Scatter Area Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-scatter-bubble-series">Geo Scatter Bubble Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-scatter-contour-series">Geo Scatter Contour Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-scatter-density-series">Geo Scatter Density Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-scatter-symbol-series">Geo Scatter Symbol Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-shape-polygon-series">Geo Shape Polygon Series</a> 
+           <a class="nav-link" href="#" data-nav="/samples/maps/geo-map-type-shape-polyline-series">Geo Shape Polyline Series</a> 
        </div>
 
 

@@ -7,26 +7,27 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <button class="igOptions-item" id="saveBtn" onClick={this.exportData}>Save Workbook</button>
-    <label class="igOptions-item"><input id="isSorted" type="checkbox"></input>Apply Sort</label>
-    <label class="igOptions-item"><input id="isFiltered" type="checkbox"></input>Apply Filter</label>
-    <label class="igOptions-item"><input id="isProtected" type="checkbox"></input>Protect Worksheet</label>
-    <label class="igOptions-item"><input id="showGridlines" type="checkbox"></input>Show Gridlines</label>
-    <label class="igOptions-item"><input id="showHeaders" type="checkbox"></input>Show Row and Column Headers</label>
-    <label class="igOptions-item"><input id="applyFormat" type="checkbox"></input>Apply Conditional Formatting</label>
+<div class="container sample">
+    <button class="options-label" id="saveBtn" onClick={this.exportData}>Save Workbook</button>
+    <label class="options-label"><input id="isSorted" type="checkbox"></input>Apply Sort</label>
+    <label class="options-label"><input id="isFiltered" type="checkbox"></input>Apply Filter</label>
+    <label class="options-label"><input id="isProtected" type="checkbox"></input>Protect Worksheet</label>
+    <label class="options-label"><input id="showGridlines" type="checkbox"></input>Show Gridlines</label>
+    <label class="options-label"><input id="showHeaders" type="checkbox"></input>Show Row and Column Headers</label>
+    <label class="options-label"><input id="applyFormat" type="checkbox"></input>Apply Conditional Formatting</label>
 
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

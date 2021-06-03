@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/master/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Linear Gauge - Type Curve.
+This folder contains implementation of Web Components application with example of Linear Gauge - Type Curved.
 
 ## Preview
 

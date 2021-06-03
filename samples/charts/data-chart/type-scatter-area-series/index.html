@@ -7,55 +7,37 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <span class="igOptions-label">Scale Mode: </span>
-        <select id="scaleModeSelect">
-            <option>Select</option>
-            <option>InterpolateRGB</option>
-            <option>InterpolateHSV</option>
-        </select>
-        <label class="igOptions-label">Minimum: </label>
-        <label class="igOptions-value" id="scaleMinLabel">
-        </label>
-        <input class="igOptions-slider" id="scaleMinSlider"
-            type="range" min="-5" max="0" step="1">
-        </input>
+<div class="container sample">
 
-        <label class="igOptions-label">Maximum: </label>
-        <label class="igOptions-value" id="scaleMaxLabel">
-        </label>
-        <input class="igOptions-slider" id="scaleMaxSlider"
-            type="range" min="0" max="5" step="1">
-        </input>
-
+    <div class="options horizontal">
+        <div class="legend-title">
+            <span>Distribution of Magnetic Field</span>
+        </div>
     </div>
-    <div class="igComponent" style="height: calc(100% - 3rem)">
-        <igc-data-chart id="chart" width="100%" height="100%"
-            is-horizontal-zoom-enabled="true"
-            is-vertical-zoom-enabled="true"
-            chart-title="MAGNETIC FIELD DISTRIBUTION"
-            grid-mode="BeforeSeries">
-            <igc-numeric-x-axis name="xAxis1" label-location="OutsideLeft"
-                minimum-value="-180" maximum-value="180" interval="30" title="Longitude">
-            </igc-numeric-x-axis>
-            <igc-numeric-y-axis name="yAxis1" label-location="OutsideBottom"
-                minimum-value="-90" maximum-value="90" interval="30"  title="Latitude">
-            </igc-numeric-y-axis>
 
-            <igc-numeric-x-axis name="xAxis2" label-location="OutsideTop"
-                minimum-value="-180" maximum-value="180" interval="30">
-            </igc-numeric-x-axis>
-            <igc-numeric-y-axis name="yAxis2" label-location="OutsideRight"
-                minimum-value="-90" maximum-value="90" interval="30" title="Latitude">
-            </igc-numeric-y-axis>
+    <div class="container vertical">
+        <igc-data-chart
+            id="chart"
+            width="100%"
+            height="100%"
+            grid-mode="BeforeSeries"
+            is-horizontal-zoom-enabled="false"
+            is-vertical-zoom-enabled="false">
+
+            <!-- primary axes required for scatter-contour-series -->
+            <igc-numeric-x-axis name="xAxis1" label-location="OutsideLeft" minimum-value="-180" maximum-value="180" interval="30" title="Longitude"></igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis1" label-location="OutsideBottom" minimum-value="-90" maximum-value="90" interval="30"  title="Latitude"></igc-numeric-y-axis>
+
+            <!-- optional axes that provide more context for displayed data -->
+            <igc-numeric-x-axis name="xAxis2" label-location="OutsideTop" minimum-value="-180" maximum-value="180" interval="30"></igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis2" label-location="OutsideRight" minimum-value="-90" maximum-value="90" interval="30" title="Latitude"></igc-numeric-y-axis>
 
             <igc-scatter-area-series
                 id="series"
@@ -63,14 +45,16 @@
                 y-axis-name="yAxis1"
                 x-member-path="X"
                 y-member-path="Y"
-                color-member-path="Z">
+                color-member-path="Z"
+                show-default-tooltip="true">
             </igc-scatter-area-series>
         </igc-data-chart>
     </div>
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

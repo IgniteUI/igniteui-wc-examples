@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <span>Global Electricity Demand by Energy Use</span>
-    <div class="igLegend">
-      <igc-item-legend id="legend"></igc-item-legend>
-  </div> 
+<div class="container sample">
+
+    <div class="options vertical">
+      <label class="legend-title">Global Electricity Demand by Energy Use </label>
+      <igc-item-legend id="legend" orientation="Horizontal"></igc-item-legend>
+    </div>
+
     <igc-pie-chart id="chart"
         width="100%"
         height="calc(100% - 2.5rem)"
@@ -26,14 +28,15 @@
         value-member-path="MarketShare"
         selection-mode="Multiple"
         radius-factor="0.6"
-        labels-position="OutsideEnd" 
+        labels-position="OutsideEnd"
         label-extent="30"
         legend-label-member-path="Summary">
     </igc-pie-chart>
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

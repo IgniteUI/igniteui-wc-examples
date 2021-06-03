@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
+<div class="container sample">
 
-<div class="igOptions">
-    <span class="igOptions-label">Shape Styling: </span>
+<div class="options horizontal">
+    <span class="options-label">Shape Styling: </span>
     <select value="ShapeComparisonStyling" id="OptionsSelect">
         <option>ShapeComparisonStyling</option>
         <option>ShapeScaleStyling</option>
@@ -34,7 +34,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

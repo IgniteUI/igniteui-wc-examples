@@ -7,25 +7,25 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <button class="igOptions-item" id="createBtn">Create Workbook</button>
-        <button class="igOptions-item" id="saveBtn">Save Workbook</button>
-        <span class="igOptions-item">Select Table to Export: </span>
+<div class="container sample">
+    <div class="options horizontal">
+        <button class="options-label" id="createBtn">Create Workbook</button>
+        <button class="options-label" id="saveBtn">Save Workbook</button>
+        <span class="options-label">Select Table to Export: </span>
         <select id="tableSelect">
             <option>Employees - Table1</option>
             <option>Expenses - Table2</option>
             <option>Income - Table3</option>
         </select>
     </div>
-    <div class="igComponent">
+    <div class="container">
         <igc-data-grid id="grid"
             height="300px"
             width="100%">
@@ -34,7 +34,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

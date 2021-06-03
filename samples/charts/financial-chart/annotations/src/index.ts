@@ -15,8 +15,8 @@ export class FinancialChartAnnotations {
     private crosshairsMode = CrosshairsDisplayMode.Both;
     private crosshairsVisible = true;
     private finalValuesVisible = true;
-    private markersTypes = MarkerType.Circle;
-    private toolTipTypes = ToolTipType.Item;
+    private markersTypes = MarkerType.None;
+    private toolTipType = ToolTipType.Item;
 
     constructor() {
 
@@ -27,7 +27,7 @@ export class FinancialChartAnnotations {
         this.chart.crosshairsAnnotationEnabled = this.crosshairsVisible;
         this.chart.finalValueAnnotationsVisible = this.finalValuesVisible;
         this.chart.markerTypes.add(this.markersTypes);
-        this.chart.toolTipType = this.toolTipTypes;
+        this.chart.toolTipType = this.toolTipType;
 
         let crosshairs = document.getElementById('crosshairs');
         crosshairs!.addEventListener('change', this.onCrosshairsVisible);
@@ -41,19 +41,13 @@ export class FinancialChartAnnotations {
         let markers = document.getElementById('markers');
         markers!.addEventListener('change', this.onMarkersVisible);
 
-        let tooltips = document.getElementById('toolTipTypes');
-        tooltips!.addEventListener('change', this.onToolTipsChanged);
+        let itemTooltip = document.getElementById('itemTooltip');
+        itemTooltip!.addEventListener('change', this.onItemTooltipChanged);
     }
 
     public onCrosshairsVisible = (e: any) => {
         this.crosshairsVisible = e.target.checked;
-        if (this.crosshairsVisible) {
-            this.crosshairsMode = CrosshairsDisplayMode.Both;
-        }
-        else {
-            this.crosshairsMode = CrosshairsDisplayMode.None;
-        }
-        this.chart.crosshairsDisplayMode = this.crosshairsMode;
+        this.chart.crosshairsDisplayMode = this.crosshairsVisible ? CrosshairsDisplayMode.Both : CrosshairsDisplayMode.None;
         this.chart.crosshairsAnnotationEnabled = this.crosshairsVisible;
     }
 
@@ -73,9 +67,9 @@ export class FinancialChartAnnotations {
         this.chart.markerTypes.add(this.markersTypes);
     }
 
-    public onToolTipsChanged = (e: any) => {
-        this.toolTipTypes = e.target.checked ? ToolTipType.Item : ToolTipType.None;
-        this.chart.toolTipType = this.toolTipTypes;
+    public onItemTooltipChanged = (e: any) => {
+        this.toolTipType = e.target.checked ? ToolTipType.Item : ToolTipType.None;
+        this.chart.toolTipType = this.toolTipType;
     }
 
     getData(): any[] {

@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="legend-title">
+        Population Statistics for Selected Continents
+    </div>
+
+    <div class="legend">
+        <igc-legend
+        orientation="Horizontal"
+        name="Legend"
+        id ="Legend">
+        </igc-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        
+        name="chart"
+        id ="chart">
+            <igc-numeric-x-axis
+            minimum-value="5"
+            maximum-value="15"
+            title="Death Rate (per 1,000 people)"
+            name="xAxis"
+            id ="xAxis">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis
+            minimum-value="0"
+            maximum-value="50"
+            interval="10"
+            title="Birth Rate (per 1,000 people)"
+            name="yAxis"
+            id ="yAxis">
+            </igc-numeric-y-axis>
+            <igc-scatter-series
+            
+            x-member-path="deathRate"
+            y-member-path="birthRate"
+            marker-type="Circle"
+            show-default-tooltip="true"
+            title="Europe"
+            name="ScatterSeries1"
+            id ="ScatterSeries1">
+            </igc-scatter-series>
+            <igc-scatter-series
+            title="Africa"
+            x-member-path="deathRate"
+            y-member-path="birthRate"
+            marker-type="Circle"
+            show-default-tooltip="true"
+            name="ScatterSeries2"
+            id ="ScatterSeries2">
+            </igc-scatter-series>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

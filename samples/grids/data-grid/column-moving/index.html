@@ -7,26 +7,26 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <span class="igOptions-item" style="width: 160px">Moving Mode:</span>
-        <select id="columnMovingModeDropDown" class="igOptions-item" style="width: 135px" >
+<div class="container sample">
+    <div class="options horizontal">
+        <span class="options-label" style="width: 160px">Moving Mode:</span>
+        <select id="columnMovingModeDropDown" class="options-label" style="width: 135px" >
             <option>Deferred</option>
             <option>None</option>
         </select>
-        <span class="igOptions-item">Separator Width: </span>
+        <span class="options-label">Separator Width: </span>
         <input id="separatorWidthRange" type="range" min=1 max=5 step="1" />
     </div>
-    <div class="igOptions">
-        <span class="igOptions-item" style="width: 160px">Animation Mode:</span>
-        <select id="columnMovingAnimationModeDropDown" class="igOptions-item" style="width: 135px" >
+    <div class="options horizontal">
+        <span class="options-label" style="width: 160px">Animation Mode:</span>
+        <select id="columnMovingAnimationModeDropDown" class="options-label" style="width: 135px" >
             <option>Auto</option>
             <option>SlideOver</option>
             <option>None</option>
@@ -54,7 +54,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

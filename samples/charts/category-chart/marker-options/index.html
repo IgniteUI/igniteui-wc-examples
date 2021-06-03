@@ -1,12 +1,13 @@
 <html>
   <head>
-    <title>CategoryChartMarkers</title>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
     <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
   </head>
@@ -14,50 +15,23 @@
   <body>
     <div id="root">
 
-<div class="igContainer">
-<div class="igOptions">
-        <span class="igOptions-label">Chart Type: </span>
-        <select value="Line" id="chartType">
-            <option>Auto</option>
-            <option>Area</option>
-            <option>Column</option>
-            <option>Point</option>
-            <option>Line</option>
-            <option>Spline</option>
-            <option>SplineArea</option>
-            <option>StepArea</option>
-            <option>StepLine</option>
-            <option>Waterfall</option>
-        </select>
-        <span class="igOptions-label"> Marker Type: </span>
-        <select value="Circle" id="markersTypes">
-            <option>Automatic</option>
-            <option>Circle</option>
-            <option>Triangle</option>
-            <option>Pyramid</option>
-            <option>Square</option>
-            <option>Diamond</option>
-            <option>Pentagon</option>
-            <option>Hexagon</option>
-            <option>Tetragram</option>
-            <option>Pentagram</option>
-            <option>Hexagram</option>
-            <option>None</option>
-        </select>
+<div class="container sample">
+    <div class="legend-title">
+        Renewable Electricity Generated
     </div>
-    <igc-category-chart id="chart"
-        width="100%"
-        height="calc(100% - 3rem)"
-        chart-Title="Olympic Medals By Country"
-        is-series-highlighting-enabled="true"
+    <div class="container fill">
+        <igc-category-chart
         chart-type="Line"
-        marker-types="Circle"
-        y-axis-minimum-value="0">
-    </igc-category-chart>
+        is-series-highlighting-enabled="true"
+        name="chart"
+        id ="chart">
+        </igc-category-chart>
+    </div>
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
 
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
   </body>
 </html>

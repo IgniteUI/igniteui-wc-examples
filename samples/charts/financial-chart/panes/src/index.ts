@@ -12,9 +12,18 @@ export class FinancialChartPanes {
     constructor() {
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
-        this.chart.dataSource = StocksUtility.GetStocks();
+        this.chart.dataSource = this.initData();
     }
 
+    initData(): any[] {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth();
+        const dateEnd = new Date(year, month, 1);
+        const dateStart = new Date(year - 1, month, 1);
+
+        return StocksUtility.GetStocksBetween(dateStart, dateEnd);
+    }
 }
 
 new FinancialChartPanes();

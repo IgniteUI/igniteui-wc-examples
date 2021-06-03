@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer-center">
-    <div class="igOptions">
+<div class="container sample center">
+    <div class="options horizontal">
         <button id="animationButton1" class="button1">Gauge Animation #1</button>
         <button id="animationButton2" class="button2">Gauge Animation #2</button>
         <button id="animationButton3" class="button3">Gauge Animation #3</button>
@@ -50,7 +50,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

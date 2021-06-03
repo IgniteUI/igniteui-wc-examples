@@ -1,41 +1,55 @@
 <html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
 
-<head>
-  <title>CategoryChartLineChartWithLegend</title>
-  <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
-  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-  <link rel="stylesheet" href="/src/index.css" type="text/css" />
+  </head>
 
-</head>
+  <body>
+    <div id="root">
 
-<body>
-  <div id="root">
-
-    <div class="igContainer">
-      <div class="igOptions">
-        <span>Renewable Electricity Generated</span>
-        <igc-legend id="legend" orientation="Horizontal"></igc-legend>
-      </div>
-
-      <igc-category-chart id="chart"
-           width="100%"
-           height="calc(100% - 7rem)"
-           chart-type="Line"
-           brushes="#ee5879, #c4c4c4, #9af2e4"
-           marker-outlines="#ee5879, #c4c4c4, #9af2e4"
-           marker-types="circle"
-           y-axis-title="TWh"
-           y-axis-title-left-margin="5"
-      </igc-category-chart>
+<div class="container sample">
+    <div class="legend-title">
+        Renewable Electricity Generated
     </div>
 
-  </div>
-  <script src="src/index.ts"></script>
+    <div class="legend">
+        <igc-legend
+        orientation="Horizontal"
+        name="Legend"
+        id ="Legend">
+        </igc-legend>
+    </div>
 
-</body>
+    <div class="container fill">
+        <igc-category-chart
+        chart-type="Line"
+        y-axis-label-left-margin="0"
+        y-axis-title-left-margin="10"
+        y-axis-title="TWh"
+        brushes="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
+        outlines="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
+        thickness="2"
+        marker-brushes="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
+        marker-outlines="white"
+        name="chart"
+        id ="chart">
+        </igc-category-chart>
+    </div>
+</div>
 
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
 </html>

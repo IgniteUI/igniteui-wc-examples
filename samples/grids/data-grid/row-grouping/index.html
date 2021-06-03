@@ -7,22 +7,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <span class="igOptions-item" style="width:175px" >Section Header Display Mode:</span>
-        <select class="igOptions-item" style="width:100px" defaultValue="Split" id="displayModeSelector">
+<div class="container sample">
+    <div class="options horizontal">
+        <span class="options-label" style="width:175px" >Section Header Display Mode:</span>
+        <select class="options-label" style="width:100px" defaultValue="Split" id="displayModeSelector">
             <option>Split</option>
             <option>Combined</option>
         </select>
 
-        <label class="igOptions-label"> Group Header Collapsible: </label>
+        <label class="options-label"> Group Header Collapsible: </label>
         <input type="checkbox" id="groupCollapsibleCheckbox"></input>
     </div>
 
@@ -47,7 +47,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

@@ -63,7 +63,7 @@ export class MapBindingShapefilePoints {
         this.geoMap.series.add(geoSeries);
     }
 
-    public createTooltip(context: any) {
+    public createTooltip(context: any): any {
         // const dataContext = context.dataContext as DataContext;
         // if (!dataContext) return null;
 

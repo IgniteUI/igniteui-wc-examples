@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <input type="button" class="igOptions-item" id="cutBtn" value="Cut" />
-        <input type="button" class="igOptions-item" id="copyBtn" value="Copy" />
-        <input type="button" class="igOptions-item" id="pasteBtn" value="Paste" />
+<div class="container sample">
+    <div class="options horizontal">
+        <input type="button" class="options-label" id="cutBtn" value="Cut" />
+        <input type="button" class="options-label" id="copyBtn" value="Copy" />
+        <input type="button" class="options-label" id="pasteBtn" value="Paste" />
     </div>
     <igc-spreadsheet id="spreadsheet" width="100%" height="calc(100% - 2.5rem)">
 
@@ -27,7 +27,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

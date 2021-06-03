@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>DataGridRowSelection</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options">
+        <button class="options-button" id="selectAllClick">Select All Rows</button>
+        <button class="options-button" id="deSelectAllClick">Deselect All Rows</button>
+    </div>
+
+    <igc-data-grid
+        id="grid"
+        height="calc(100% - 3.5rem)"
+        width="100%"
+        selection-mode="MultipleRow"
+        default-column-min-width="125"
+        is-column-options-enabled="true"
+        auto-generate-columns="false">
+
+        <igc-text-column field="Name" width="*>150"></igc-text-column>
+        <igc-text-column field="Street" header-text="Street" width="*>155"></igc-text-column>
+        <igc-text-column field="City" header-text="City" width="*>125"></igc-text-column>
+        <igc-numeric-column field="Salary" header-text="Salary" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+
+        <igc-image-column field="Photo" header-text="Photo" content-opacity="1"
+        horizontal-alignment="center"  width="*>90"></igc-image-column>
+        <igc-date-time-column field="Birthday" header-text="Date of Birth" width="*>140"></igc-date-time-column>
+
+    </igc-data-grid>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

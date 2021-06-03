@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>CategoryChartMarkers</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+  <div class="options vertical">
+    <span class="legend-title">Percentage Change in Energy Generation in 2019</span>
+    <div class="legend">
+      <igc-legend id="legend" orientation="horizontal"></igc-legend>
+    </div>
+  </div>
+    <igc-category-chart id="chart"
+        width="100%"
+        height="calc(100% - 3rem)"
+        chart-type="Column"
+        thickness="2"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
+        is-series-highlighting-enabled="true";
+        x-axis-major-stroke-thickness="1"
+        x-axis-major-stroke="LightGray"
+        y-axis-minimum-value="-20"
+        y-axis-maximum-value="30"
+        y-axis-interval="10">
+    </igc-category-chart>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

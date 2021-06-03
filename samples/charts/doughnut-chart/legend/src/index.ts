@@ -1,36 +1,38 @@
-import { IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
-import { IgcDoughnutChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
-import { IgcItemLegendComponent } from 'igniteui-webcomponents-charts';
-import { IgcItemLegendModule } from 'igniteui-webcomponents-charts';
+import { DataItem, Data } from './SampleData';
+
+import { IgcLegendModule, IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
+import { IgcItemLegendComponent, IgcDoughnutChartComponent, IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
-    IgcDoughnutChartModule,
-    IgcItemLegendModule
+    IgcLegendModule,
+    IgcDoughnutChartModule
 );
 
-export class DoughnutChartLegend {
+export class Sample {
 
-    private series: IgcRingSeriesComponent;
+    private legend: IgcItemLegendComponent
+    private chart: IgcDoughnutChartComponent
+    private series: IgcRingSeriesComponent
 
     constructor() {
+        var legend = this.legend = document.getElementById('legend') as IgcItemLegendComponent;
+        var chart = this.chart = document.getElementById('chart') as IgcDoughnutChartComponent;
+        var series = this.series = document.getElementById('series') as IgcRingSeriesComponent;
 
-        this.series = document.getElementById('ringSeries') as IgcRingSeriesComponent;
-        this.series.dataSource = this.getData();
-        this.series.legend = document.getElementById('legend') as IgcItemLegendComponent;
+        series.dataSource = this.data
+        series.legend = this.legend
+   }
+
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
     }
-
-    public getData(): any[] {
-        return[
-            { MarketShare: 37, Company: "Space Cooling", Summary: "Space Cooling 37%" },
-            { MarketShare: 25, Company: "Residential Appliance", Summary: "Residential Appliance 25%"  },
-            { MarketShare: 12, Company: "Heating", Summary: "Heating 12%" },
-            { MarketShare: 8, Company: "Lighting", Summary: "Lighting 8%" },
-            { MarketShare: 18, Company: "Other Services", Summary: "Other Services 18%" }
-
-        ];
-    }
+    
 }
 
-new DoughnutChartLegend();
+new Sample();

@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/master/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Excel Library - Worksheets.
+This folder contains implementation of Web Components application with example of Excel Library - Operations On Worksheets.
 
 ## Preview
 

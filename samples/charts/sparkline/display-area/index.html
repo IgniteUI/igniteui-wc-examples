@@ -7,41 +7,56 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <igc-sparkline id="chart1"
-        height="calc(30% - 2.5rem)"
-        width="100%"
-        display-type="Area"
-        minimum="-1"
-        maximum="1"
-        value-member-path="Revenue"></igc-sparkline>
-    <label class="igOptions-label">Revenue Sparkline</label>
-    <igc-sparkline id="chart2"
-        height="calc(30% - 2.5rem)"
-        width="100%"
-        display-type="Area"
-        minimum="-1"
-        maximum="1"
-        value-member-path="Income"></igc-sparkline>
-    <label class="igOptions-label">Income Sparkline</label>
-    <igc-sparkline id="chart3"
-        height="calc(30% - 2.5rem)"
-        width="100%" display-type="Area"
-        minimum="-1" maximum="1"
-        value-member-path="Expanse" ></igc-sparkline>
-    <label class="igOptions-label">Expanse Sparkline</label>
+<div class="container sample">
+    <div class="container vertical">
+        <section>Revenue Sparkline</section>
+        <igc-sparkline
+            id="chart1"
+            height="100%"
+            width="100%"
+            display-type="Area"
+            value-member-path="Revenue"
+            label-member-path="Angle"
+            minimum="-1"
+            maximum="1">
+        </igc-sparkline>
 
+        <section>Income Sparkline</section>
+        <igc-sparkline
+            id="chart2"
+            height="100%"
+            width="100%"
+            display-type="Area"
+            value-member-path="Income"
+            label-member-path="Angle"
+            minimum="-1"
+            maximum="1">
+        </igc-sparkline>
+
+        <section>Expanse Sparkline</section>
+        <igc-sparkline
+            id="chart3"
+            height="100%"
+            width="100%"
+            display-type="Area"
+            value-member-path="Expanse"
+            label-member-path="Angle"
+            minimum="-1"
+            maximum="1">
+        </igc-sparkline>
+    </div>
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

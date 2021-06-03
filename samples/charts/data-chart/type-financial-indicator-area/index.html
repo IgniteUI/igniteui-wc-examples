@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igComponent" style="height: calc(50% - 2.5rem)">
+<div class="container sample">
+    <div class="container" style="height: calc(50% - 2.5rem)">
         <igc-data-chart id="chart1"
             width="100%"
             height="100%"
@@ -40,8 +40,8 @@
             </igc-financial-price-series>
         </igc-data-chart>
     </div>
-    <div class="igOptions">
-        <span class="igOptions-label"> Indicator Display Type: </span>
+    <div class="options horizontal">
+        <span class="options-label"> Indicator Display Type: </span>
         <select id="indicatorSelect">
             <option>AbsoluteVolumeOscillator</option>
             <option>AccumulationDistribution</option>
@@ -76,7 +76,7 @@
         </select>
     </div>
 
-    <div class="igComponent" style="height: calc(50% - 2.5rem)">
+    <div class="container" style="height: calc(50% - 2.5rem)">
         <igc-data-chart id="chart2"
             width="100%"
             height="100%"
@@ -92,7 +92,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

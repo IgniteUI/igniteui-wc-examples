@@ -7,24 +7,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <label class="igOptions-label">Refresh Interval: </label>
-        <label class="igOptions-value" id="refreshInfoLabel"></label>
-        <input class="igOptions-slider" id="refreshSlider" type="range" min="10" max="500"></input>
-        <label class="igOptions-label">Data Points: </label>
-        <label class="igOptions-value" id="dataInfoLabel" >100000 </label>
-        <input class="igOptions-slider" id="slider" type="range" min="10000" max="1000000" step="1000" value="100000"></input>
-        <button class="igOptions-button" id="dataGenerate"> Generate Data</button>
-        <label class="igOptions-item"><input type="checkbox" id ="scalingRatio" /> Optimize Scaling </label>
-        <span id="fps" class="igOptions-label" />
+<div class="container sample">
+    <div class="options horizontal">
+        <label class="options-label">Refresh: </label>
+        <button id="timerButton">Start</button>
+        <label class="options-value" id="refreshInfoLabel"></label>
+        <input class="options-slider" id="refreshSlider" type="range" min="10" max="500"></input>
+        <button class="options-button" id="dataGenerate">Generate</button>
+        <label class="options-label">Points: </label>
+        <label class="options-value" id="dataInfoLabel" >100000 </label>
+        <input class="options-slider" id="slider" type="range" min="10000" max="1000000" step="1000" value="100000"></input>
     </div>
 
     <igc-category-chart id="chart"
@@ -35,7 +34,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

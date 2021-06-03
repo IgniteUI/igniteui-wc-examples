@@ -7,72 +7,104 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <button class="igOptions-item" id="panUp" style="width: 80px">Pan Up</button>
-        <button class="igOptions-item" id="panLeft" style="width: 80px">Pan Left</button>
-        <button class="igOptions-item" id="zoomIn" style="width: 80px">Zoom In</button>
-        <span class="igOptions-item" style="width: 85px">Pan Modifier:</span>
-        <select id="panModSelect" style="width: 85px">
-            <option>Alt</option>
-            <option>Control</option>
-            <option>Shift</option>
-            <option>Windows</option>
-            <option>Apple</option>
-            <option>None</option>
-        </select>
-        <span class="igOptions-item">Default Drag Option:</span>
-        <select id="interactionSelect">
-            <option>DragZoom</option>
-            <option>DragPan</option>
-            <option>None</option>
-        </select>
+<div class="container sample">
+    <div class="options horizontal">
+        <div class="options vertical" style="width: 100px">
+            <button id="panUp">Pan Up</button>
+            <button id="panDown">Pan Down</button>
+        </div>
+        <div class="options vertical" style="width: 100px">
+            <button id="panLeft">Pan Left</button>
+            <button id="panRight">Pan Right</button>
+        </div>
+        <div class="options vertical" style="width: 100px">
+            <button id="zoomIn">Zoom In</button>
+            <button id="zoomOut">Zoom Out</button>
+        </div>
+        <div class="options vertical" style="width: 120px; align-self: center">
+            <label class="options-label" style="margin: 5px">Pan Modifier:</label>
+            <label class="options-label" style="margin: 5px">Zoom Modifier:</label>
+        </div>
+        <div class="options vertical" style="width: 100px">
+            <select id="panModSelect" style="margin: 5px">
+                <option>Alt</option>
+                <option>Control</option>
+                <option>Shift</option>
+                <option>Windows</option>
+                <option>Apple</option>
+                <option>None</option>
+            </select>
+            <select id="dragModSelect" style="margin: 5px">
+                <option>Alt</option>
+                <option>Control</option>
+                <option>Shift</option>
+                <option>Windows</option>
+                <option>Apple</option>
+                <option>None</option>
+            </select>
+        </div>
+        <div class="options vertical" style="width: 150px; align-self: center">
+            <label class="options-label" style="margin: 5px;">Interaction:</label>
+            <label class="options-label" style="margin: 5px;">Zooming:</label>
+        </div>
+        <div class="options vertical" style="width: 100px">
+            <select id="interactionSelect" style="margin: 5px">
+                <option>DragZoom</option>
+                <option>DragPan</option>
+                <option>None</option>
+            </select>
+            <input id="zoomEnabled" class="options-item" type="checkbox" @onchange="OnEnableZoomingChange" checked="@IsZoomingEnabled" />
+        </div>
     </div>
-    <div class="igOptions" style="margin-bottom: 15px">
-        <button class="igOptions-item" id="panDown" style="width: 80px">Pan Down</button>
-        <button class="igOptions-item" id="panRight" style="width: 80px">Pan Right</button>
-        <button class="igOptions-item" id="zoomOut" style="width: 80px">Zoom Out</button>
-        <span class="igOptions-item" style="width: 85px">Zoom Modifier:</span>
-        <select id="dragModSelect" style="width: 85px">
-            <option>Alt</option>
-            <option>Control</option>
-            <option>Shift</option>
-            <option>Windows</option>
-            <option>Apple</option>
-            <option>None</option>
-        </select>
-        <label class="igOptions-item">
-            <input type="checkbox" id="zoomEnabled">
-            </checkbox> Enable Zooming
-        </label>
-    </div>
-    <div class="igComponent" style="height: calc(100% - 5rem)">
-        <igc-data-chart id="chart" width="100%" height="100%"
-        is-horizontal-zoom-enabled="true"
-        is-vertical-zoom-enabled="true">
-            <igc-numeric-x-axis name="xAxis"
-                is-logarithmic="true"
-                abbreviate-large-numbers="true"
-                title="Population">
-            </igc-numeric-x-axis>
-            <igc-numeric-y-axis name="yAxis"
-                is-logarithmic="true"
-                abbreviate-large-numbers="true"
-                title="Total GDP ($)">
-            </igc-numeric-y-axis>
+
+    <div class="container vertical">
+        <igc-data-chart
+            id="chart"
+            width="100%"
+            height="100%"
+            subtitle="Stock Prices Series in Candlestick Display Type"
+            subtitle-top-margin="10"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true"
+            pan-modifier="Alt"
+            drag-modifier="Shift"
+            default-interaction="DragPan">
+            <igc-category-x-axis
+                name="xAxis"
+                label="Label"></igc-category-x-axis>
+            <igc-numeric-y-axis
+                name="yAxis"
+                title="Amount (in USD)"
+                title-right-margin="10"
+                label-right-margin="10"
+                label-horizontal-alignment="Left"
+                label-location="OutsideRight"></igc-numeric-y-axis>
+            <igc-financial-price-series
+                x-axis-name="xAxis"
+                y-axis-name="yAxis"
+                display-type="Candlestick"
+                open-member-path="Open"
+                close-member-path="Close"
+                high-member-path="High"
+                low-member-path="Low"
+                volume-member-path="Volume"
+                show-default-tooltip="true"
+                is-transition-in-enabled="true"
+                title="Price"></igc-financial-price-series>
         </igc-data-chart>
     </div>
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

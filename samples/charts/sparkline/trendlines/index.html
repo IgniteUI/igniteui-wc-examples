@@ -7,18 +7,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <div class="igOptions">
-        <span class="igOptions-item">Trendline Type: </span>
-        <select id="trendlineType"
-            defaultValue="ExponentialFit">
+<div class="container sample">
+    <div class="options horizontal">
+        <span class="options-label">Trendline Type: </span>
+        <select id="trendlineType">
             <option>CubicFit</option>
             <option>CumulativeAverage</option>
             <option>ExponentialAverage</option>
@@ -35,20 +34,24 @@
             <option>WeightedAverage</option>
         </select>
     </div>
-    <igc-sparkline id="sparkline"
-        height="calc(100% - 3.5rem)"
-        width="100%"
-        value-member-path="Value"
-        display-type="Area"
-        trend-line-thickness="3"
-        trend-line-period="5"
-        trend-line-type="ExponentialFit"
-        trend-line-brush="Red"></igc-sparkline>
 
+    <div class="container vertical">
+        <igc-sparkline id="sparkline"
+            height="100%"
+            width="100%"
+            value-member-path="Value"
+            display-type="Area"
+            trend-line-thickness="3"
+            trend-line-period="5"
+            trend-line-type="ExponentialFit"
+            trend-line-brush="Red">
+        </igc-sparkline>
+    </div>
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

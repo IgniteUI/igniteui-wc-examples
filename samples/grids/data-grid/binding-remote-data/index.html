@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
@@ -16,7 +16,7 @@
 
 <igc-data-grid id="grid" width="100%" height="100%"
     auto-generate-columns="false"
-    is-column-igOptions-enabled="true">
+    is-column-options-enabled="true">
     <igc-text-column field="OrderID" header-text="ID" width="*>90" horizontal-alignment="center">
     </igc-text-column>
     <igc-date-time-column field="OrderDate" header-text="Order Date" width="*>130">
@@ -40,7 +40,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

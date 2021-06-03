@@ -1,12 +1,13 @@
 <html>
   <head>
-    <title>CategoryChartAxisOptions</title>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
     <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
   </head>
@@ -14,65 +15,58 @@
   <body>
     <div id="root">
 
-<div class="igContainer">
-    <igc-category-chart id="chart"
-        width="100%"
-        height="100%"
+<div class="container sample">
+    <div class="legend-title">
+        Olympic Medals By Country
+    </div>
+    <div class="container fill">
+        <igc-category-chart
         chart-type="Line"
-        marker-types="Circle"
-        chart-title="Olympic Medals By Country"
-        thickness="3"
-
-        x-axis-label-text-style="10pt Verdana"
-        x-axis-label-top-margin="5"
-        x-axis-label-text-color="gray"
-        x-axis-label-location="OutsideBottom"
-        y-axis-label-text-style="10pt Verdana"
-        y-axis-label-right-margin="5"
-        y-axis-label-text-color="gray"
-        y-axis-label-location="OutsideRight"
-        y-axis-label-horizontal-alignment="left"
-
-        x-axis-title="Olympic Games"
-        x-axis-title-text-color="gray"
-        x-axis-title-text-style="10pt Verdana"
-        x-axis-title-angle="0"
-        y-axis-title="Total Medals"
-        y-axis-title-text-style="10pt Verdana"
-        y-axis-title-text-color="gray"
-        y-axis-title-angle="90"
-        y-axis-title-left-margin="5"
-
-        x-axis-tick-length="10"
-        x-axis-tick-stroke-thickness="0.5"
-        x-axis-tick-stroke="black"
-        y-axis-tick-length="10"
-        y-axis-tick-stroke-thickness="0.5"
-        y-axis-tick-stroke="black"
-
-        x-axis-major-stroke="gray"
-        x-axis-major-stroke-thickness="0.5"
-        y-axis-major-stroke="black"
-        y-axis-major-stroke-thickness="1"
-        y-axis-minor-interval="5"
-        y-axis-minor-stroke="gray"
-        y-axis-minor-stroke-thickness="0.5"
-        x-axis-stroke="gray"
-        x-axis-stroke-thickness="1"
-        y-axis-stroke="gray"
-        y-axis-stroke-thickness="1"
-
+        x-axis-interval="1"
+        x-axis-gap="0.125"
+        x-axis-overlap="0"
+        y-axis-interval="25"
         y-axis-minimum-value="50"
         y-axis-maximum-value="150"
-        x-axis-interval="1"
-        y-axis-interval="25"
-        x-axis-gap="0.125"
-        x-axis-overlap="0" >
-    </igc-category-chart>
+        y-axis-minor-interval="5"
+        x-axis-label-top-margin="5"
+        y-axis-label-right-margin="0"
+        x-axis-label-text-color="gray"
+        y-axis-label-text-color="gray"
+        y-axis-title-left-margin="5"
+        x-axis-title-text-color="gray"
+        y-axis-title-text-color="gray"
+        x-axis-label-text-style="9pt Verdana"
+        y-axis-label-text-style="9pt Verdana"
+        x-axis-title-text-style="10pt Verdana"
+        y-axis-title-text-style="10pt Verdana"
+        x-axis-major-stroke="gray"
+        y-axis-major-stroke="black"
+        x-axis-major-stroke-thickness="0.5"
+        y-axis-major-stroke-thickness="1"
+        y-axis-minor-stroke-thickness="0.5"
+        x-axis-tick-length="10"
+        y-axis-tick-length="10"
+        x-axis-tick-stroke="black"
+        y-axis-tick-stroke="black"
+        x-axis-tick-stroke-thickness="0.5"
+        y-axis-tick-stroke-thickness="0.5"
+        x-axis-title="Olympic Games"
+        y-axis-title="Total Medals"
+        y-axis-minor-stroke="gray"
+        x-axis-title-angle="0"
+        y-axis-title-angle="90"
+        y-axis-label-location="OutsideRight"
+        thickness="3"
+        name="chart"
+        id ="chart">
+        </igc-category-chart>
+    </div>
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
 
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
   </body>
 </html>

@@ -34,6 +34,7 @@ class SampleInfo {
     public SampleFileSourceCode: string; // source code from /src/MapBindingDataCSV.ts file
     public SampleFileBrowserCode: string; // source code for a sample in browser
     public SampleFileSourceClass: string; // MapBindingDataCSV
+    public SampleFileOriginalClass: string; // MapBindingDataCSV
 
     public SampleImportLines: string[];
     public SampleImportPackages: string[];
@@ -381,16 +382,31 @@ class Transformer {
     }
 
     public static getSampleCodeInBrowser(info: SampleInfo, sampleTemplate: string): string {
-        let codeSeparator = "export class " + info.SampleFileSourceClass + " {";
-        let lines = info.SampleFileSourceCode.split(codeSeparator);
+
+        // let codeSeparator = "export class " + info.SampleFileSourceClass + " {";
+        let classExp = new RegExp(/(export.class.)(.*)(.\{)/g);
+        let classMatch = info.SampleFileSourceCode.match(classExp);
+        if (classMatch === undefined || classMatch === null || classMatch.length === 0)
+        {
+            console.log(">> cannot find 'export class' in file: " + info.SampleFilePath);
+            console.log("-----------------------");
+            console.log(info.SampleFileSourceCode);
+            console.log("-----------------------");
+        }
+        let className = classMatch[0];
+        let classSeparator = "" + className + "";
+
+        let fileLines = info.SampleFileSourceCode.split("\n");
+        let lines = info.SampleFileSourceCode.split(classSeparator);
         // console.log(" ------------------------------ ");
-        // console.log("  codeSeparator '" + codeSeparator + "'");
+        // console.log("  classSeparator '" + classSeparator + "'");
+        // console.log("  file.length " + fileLines.length);
         // console.log("  lines.length " + lines.length);
 
         let code = "";
 
         if (lines.length < 2) {
-            console.log("WARNING Transformer cannot find: '" + codeSeparator + "' \n in sample: " + info.SampleFilePath);
+            console.log("WARNING Transformer cannot find: '" + classSeparator + "' \n in sample: " + info.SampleFilePath);
         } else {
 
             // let codeRemoveLines = [
@@ -419,8 +435,9 @@ class Transformer {
             code = Strings.replace(code, "AutoInsertClassName", info.SampleFileSourceClass);
             // removing CodeSandbox's workaround for creating WC element:
             code = Strings.replace(code, "new " + info.SampleFileSourceClass + "();", "");
+            code = Strings.replace(code, "new " + info.SampleFileOriginalClass + "();", "");
 
-            code = this.lintSample(code)
+            code = this.lintSample(code);
             code = Strings.replace(code, "// AutoInsertNewLine", "");
             // code = code.trim();
             // console.log(codeClassName);
@@ -433,6 +450,8 @@ class Transformer {
         if (code.trim() === "") {
             console.log("ERROR cannot transform " + info.SampleFileSourcePath)
         }
+
+        // console.log("  code.length " + code.length);
 
         return code;
     }
@@ -488,13 +507,17 @@ class Transformer {
                     info.HtmlFileRoot = info.HtmlFileRoot.trim();
                 }
 
-                if (Strings.includes(filePath, igConfig.SamplesFileExtension) &&
-                    Strings.excludes(filePath, igConfig.SamplesFileExclusions, true)) {
-                        fileNames.push(filePath);
-                    // console.log(filePath);
-                    // && !filePath.includes("index.tsx")
-                    // info.SampleFileName = this.getFileName(filePath);
+                if (filePath.indexOf('index.ts') > 0) {
+                    fileNames.push(filePath);
                 }
+
+                // if (Strings.includes(filePath, igConfig.SamplesFileExtension) &&
+                //     Strings.excludes(filePath, igConfig.SamplesFileExclusions, true)) {
+                //         fileNames.push(filePath);
+                //     // console.log(filePath);
+                //     // && !filePath.includes("index.tsx")
+                //     // info.SampleFileName = this.getFileName(filePath);
+                // }
             }
 
             if (fileNames.length === 0) {
@@ -512,11 +535,20 @@ class Transformer {
                 info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
                 info.SampleFileSourceCode = this.lintSample(info.SampleFileSourceCode, info.SampleFileSourcePath, true);
 
-                let classExp = new RegExp(/(export.class.)(.*)(.\{)/g);
-                let className = info.SampleFileSourceCode.match(classExp)[0];
-                className = className.replace('export class ', '');
-                className = className.replace(' {', '');
-                info.SampleFileSourceClass = className; //.replace('export class ', '');
+                let orgClassExp = new RegExp(/(export.class.)(.*)(.\{)/g);
+                let orgClassName = info.SampleFileSourceCode.match(orgClassExp)[0];
+                orgClassName = orgClassName.replace('export class ', '');
+                orgClassName = orgClassName.replace(' {', '');
+                orgClassName = Strings.replace(orgClassName, ' ', '');
+                info.SampleFileOriginalClass = orgClassName;
+
+                // using folder names to make sure each sample has unique class name
+                let className = info.ComponentFolder + "-" + info.SampleFolderName;
+                className = Strings.replace(className, "/", " ");
+                className = Strings.replace(className, "-", " ");
+                className = Strings.toTitleCase(className);
+                className = Strings.replace(className, " ", "");
+                info.SampleFileSourceClass = className;
 
                 // console.log("TRANS '" + className + "'");
                 // info.SampleFileBrowserCode = this.getSampleCodeInBrowser(info, sampleTemplate)
@@ -763,6 +795,10 @@ class Transformer {
             }
             routingConditions += '\n';
         }
+        routingConditions += "       ";
+        routingConditions += " else { console.log('SB is missing router for: ' + route) }";
+        routingConditions += '\n';
+
         fileContent = fileContent.replace('// {AutoInsertRoutingConditions}', routingConditions);
         fileContent = fileContent.replace('GroupName', Strings.toTitleCase(group.Name));
         // console.log(fileContent);
@@ -781,7 +817,9 @@ class Transformer {
         // let samplePath = sampleInfo.ComponentFolder + '/' + sampleInfo.SampleFolderName + '/' + sampleInfo.SampleImportName;
         let samplePath = sampleInfo.ComponentFolder + '/' + sampleInfo.SampleFolderName + '/index';
         let routingPath = sampleInfo.SampleRoute.replace('/' + sampleInfo.ComponentGroup.toLowerCase(), "");
-        condition += '(route.indexOf("' + routingPath + '") >= 0) {\n';
+        //condition += '(route.indexOf("' + routingPath + '") >= 0) {\n';
+        routingPath = "/" + sampleInfo.ComponentGroup.toLowerCase() + routingPath
+        condition += '(route === "' + routingPath + '") {\n';
         condition += '            let sample = await import("./' + samplePath + '");\n';
         condition += '            this.cachedSamples.set(route, sample.' + sampleInfo.SampleImportName + '.register());\n';
         condition += '        }\n';

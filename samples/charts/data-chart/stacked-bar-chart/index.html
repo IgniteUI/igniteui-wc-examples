@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="legend-title">
+        Renewable energy consumption
+    </div>
+
+    <div class="legend">
+        <igc-legend
+        orientation="Horizontal"
+        name="legend"
+        id ="legend">
+        </igc-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
+        name="chart"
+        id ="chart">
+            <igc-category-y-axis
+            
+            gap="0.75"
+            is-inverted="true"
+            label="location"
+            name="yAxis"
+            id ="yAxis">
+            </igc-category-y-axis>
+            <igc-numeric-x-axis
+            minimum-value="0"
+            title="TWh"
+            name="xAxis"
+            id ="xAxis">
+            </igc-numeric-x-axis>
+            <igc-stacked-bar-series
+            
+            area-fill-opacity="1"
+            show-default-tooltip="true"
+            name="StackedBarSeries"
+            id ="StackedBarSeries">
+                <igc-stacked-fragment-series
+                name="s1"
+                id ="s1"
+                value-member-path="hydro">
+                </igc-stacked-fragment-series>
+                <igc-stacked-fragment-series
+                name="s2"
+                id ="s2"
+                value-member-path="wind">
+                </igc-stacked-fragment-series>
+                <igc-stacked-fragment-series
+                name="s3"
+                id ="s3"
+                value-member-path="solar">
+                </igc-stacked-fragment-series>
+                <igc-stacked-fragment-series
+                name="s4"
+                id ="s4"
+                value-member-path="other">
+                </igc-stacked-fragment-series>
+            </igc-stacked-bar-series>
+            <igc-callout-layer
+            label-member-path="label"
+            x-member-path="x"
+            y-member-path="y"
+            callout-text-color="black"
+            callout-background="rgba(0, 0, 0, 0)"
+            callout-leader-brush="rgba(0, 0, 0, 0)"
+            name="CalloutLayer"
+            id ="CalloutLayer">
+            </igc-callout-layer>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

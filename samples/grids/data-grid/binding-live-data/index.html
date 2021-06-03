@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer-vertical" style="max-height: 7.5rem; overflow: hidden;">
-    <div class="igOptions-horizontal" style="min-height: 3rem; padding-left: 1rem; padding-bottom: 0.5rem; align-items: center;">
+<div class="container vertical" style="max-height: 7.5rem; overflow: hidden;">
+    <div class="options horizontal" style="min-height: 3rem; padding-left: 1rem; padding-bottom: 0.5rem; align-items: center;">
 
         <span style="padding-right: 1rem;" >Grouping</span>
         <mwc-switch checked id="groupingSwitch"></mwc-switch>
@@ -23,16 +23,16 @@
         <span style="padding-right: 1rem; padding-left: 2rem; ">Heat</span>
         <mwc-switch checked id="heatSwitch"></mwc-switch>
 
-        <div class="igOptions-horizontal" style="align-items: center; padding-bottom: 0rem; ">
+        <div class="options horizontal" style="align-items: center; padding-bottom: 0rem; ">
             <span id="frequencySpan" style="padding-right: 1rem; padding-left: 2rem; ">Frequency: </span>
             <mwc-slider style="min-width: 4rem; margin: 0rem;"
                 id="fSlider" min="100" max="1000" step="100"
-                class="igOptions-slider"
+                class="options-slider"
                 value={this.state.frequency}
                 onChange={this.onFrequencyChange} />
         </div>
 
-        <div class="igOptions-horizontal" style="align-items: center; padding-bottom: 0rem; " >
+        <div class="options horizontal" style="align-items: center; padding-bottom: 0rem; " >
             <span id="volumeSpan" style="padding-right: 1rem; ">Volume: </span>
             <mwc-slider style="min-width: 4rem; margin: 0rem;"
                 id="vSlider" min="100" max="10000" step="100"
@@ -41,7 +41,7 @@
         </div >
     </div>
 
-    <div class="igOptions-horizontal" style="min-height: 3rem; padding-left: 1rem; padding-bottom: 0.5rem;">
+    <div class="options horizontal" style="min-height: 3rem; padding-left: 1rem; padding-bottom: 0.5rem;">
         <mwc-button id="liveButton" raised color="primary" >Live Prices</mwc-button>
         <span>&nbsp;</span><span>&nbsp;</span>
         <mwc-button id="liveAllButton" raised color="secondary" >Live All Prices</mwc-button>
@@ -52,7 +52,7 @@
 
 </div>
 
-<div class="igComponent" style="height: calc(100% - 8rem)">
+<div class="container" style="height: calc(100% - 8rem)">
     <igc-data-grid
     id="grid"
     width="100%"
@@ -114,7 +114,8 @@
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

@@ -10,22 +10,23 @@ ModuleManager.register(IgcFinancialChartModule);
 export class FinancialChartAxisTypes {
 
     private chart: IgcFinancialChartComponent;
-    private xAxisMode = FinancialChartXAxisMode.Time;
-    private yAxisMode = FinancialChartYAxisMode.PercentChange;
+    private xAxisMode = FinancialChartXAxisMode.Ordinal;
+    private yAxisMode = FinancialChartYAxisMode.Numeric;
 
     constructor() {
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
-        this.chart.dataSource = this.getData();
+        this.chart.dataSource = this.initData();
         this.chart.xAxisMode = this.xAxisMode;
         this.chart.yAxisMode = this.yAxisMode;
-        this.chart.isWindowSyncedToVisibleRange = true;
 
-        let xAxisSelect = document.getElementById('xAxisSelect');
+        let xAxisSelect = <HTMLSelectElement>document.getElementById('xAxisSelect');
         xAxisSelect!.addEventListener('change', this.onXAxisModeChanged);
+        xAxisSelect!.value = "Ordinal";
 
-        let yAxisSelect = document.getElementById('yAxisSelect');
+        let yAxisSelect = <HTMLSelectElement>document.getElementById('yAxisSelect');
         yAxisSelect!.addEventListener('change', this.onYAxisModeChanged);
+        yAxisSelect!.value = "Numeric";
     }
 
     public onXAxisModeChanged = (e: any) => {
@@ -50,12 +51,14 @@ export class FinancialChartAxisTypes {
         this.chart.yAxisMode = this.yAxisMode;
     }
 
-    getData(): any[] {
-        const data = [
-            StocksUtility.GetStocks(6, 10, 'Amazon (AMZN)'),
-            StocksUtility.GetStocks(6, 10, 'Tesla (TSLA)'),
-        ];
-        return data;
+    initData(): any[] {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth();
+        const dateEnd = new Date(year, month, 1);
+        const dateStart = new Date(year - 1, month, 1);
+
+        return StocksUtility.GetStocksBetween(dateStart, dateEnd);
     }
 }
 

@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
 
   </head>
 
   <body>
     <div id="root">
 
-<div class="igContainer">
+<div class="container sample">
     <igc-category-chart id="chart"
         height="calc(100% - 3rem)"
         width="100%"
@@ -52,12 +52,13 @@
         x-axis-overlap="1">
     </igc-category-chart>
 
-    <igc-igLegend id="legend" orientation="Horizontal" height="40px"></igc-legend>
+    <igc-legend id="legend" orientation="Horizontal" height="40px"></igc-legend>
 
 </div>
 
     </div>
-    <script src="src/index.ts"></script>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
   </body>
 </html>

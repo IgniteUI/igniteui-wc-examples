@@ -21,7 +21,9 @@ export class DatePickerRange {
         let today = new Date(Date.now());
 
         this.fromDatePicker.value = today;
+        this.fromDatePicker.allowTextInput = false;
         this.toDatePicker.value = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+        this.toDatePicker.allowTextInput = false;
 
         this.fromDatePicker.valueChanged = this.onFromValueChanged;
         this.toDatePicker.valueChanged = this.onToValueChanged;

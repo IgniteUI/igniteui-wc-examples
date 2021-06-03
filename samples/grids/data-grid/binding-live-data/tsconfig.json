@@ -1,19 +1,14 @@
 {
   "compilerOptions": {
-      "esModuleInterop": true,
       "noImplicitReturns": true,
-      "noImplicitThis": true,
+      "esModuleInterop": true,
       "noImplicitAny": true,
-      "noUnusedLocals": false,
-      "suppressImplicitAnyIndexErrors": true,
-      "allowSyntheticDefaultImports": true,
-      "skipLibCheck": true,
       "declarationDir": "dist/types",
       "moduleResolution": "node",
       "declaration": true,
       "target": "es2015",
       "module": "es2015",
-      "strict": false
+      "strict": true
   },
   "include": [
       "src/**/*"

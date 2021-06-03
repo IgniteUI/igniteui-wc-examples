@@ -1,25 +1,24 @@
-import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartScatterCoreModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartScatterModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { IgcNumberAbbreviatorModule } from 'igniteui-webcomponents-charts';
-import { IgcBubbleSeriesModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
-import { IgcSizeScaleComponent } from 'igniteui-webcomponents-charts';
-import { IgcValueBrushScaleComponent } from 'igniteui-webcomponents-charts';
-import { ModifierKeys } from 'igniteui-webcomponents-core';
-import { InteractionState } from 'igniteui-webcomponents-core';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-import { SampleScatterStats } from './SampleScatterStats';
+// data chart's modules:
+import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
+import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
+import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
+// financial series modules:
+import { IgcDataChartFinancialModule } from 'igniteui-webcomponents-charts';
+// data chart's elements:
+import { IgcNumericYAxisComponent } from 'igniteui-webcomponents-charts';
+import { IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts';
+import { IgcFinancialPriceSeriesComponent } from 'igniteui-webcomponents-charts';
+import { InteractionState } from 'igniteui-webcomponents-core';
+import { ModifierKeys } from 'igniteui-webcomponents-core';
+import { SampleFinancialData } from './SampleFinancialData';
 
 ModuleManager.register(
     IgcDataChartCoreModule,
-    IgcDataChartScatterCoreModule,
-    IgcDataChartScatterModule,
+    IgcDataChartCategoryModule,
+    IgcDataChartFinancialModule,
     IgcDataChartInteractivityModule,
-    IgcBubbleSeriesModule,
-    IgcNumberAbbreviatorModule
 );
 
 export class DataChartNavigation {
@@ -29,19 +28,12 @@ export class DataChartNavigation {
     constructor() {
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
-        this.chart.dataSource = this.getData();
+        this.chart.dataSource = SampleFinancialData.create();
 
-        this.createSeries();
         this.chart.actualWindowScaleHorizontal = 0.60;
         this.chart.actualWindowScaleVertical = 0.60;
         this.chart.actualWindowPositionVertical = 0.20;
         this.chart.actualWindowPositionHorizontal = 0.20;
-
-        this.chart.isVerticalZoomEnabled = true;
-        this.chart.isHorizontalZoomEnabled = true;
-        this.chart.panModifier = ModifierKeys.Control;
-        this.chart.dragModifier = ModifierKeys.Alt;
-        this.chart.defaultInteraction = InteractionState.DragZoom;
 
         const panUp = document.getElementById('panUp') as HTMLButtonElement;
         panUp!.addEventListener('click', this.onPanUpClick);
@@ -62,84 +54,80 @@ export class DataChartNavigation {
         zoomOut!.addEventListener('click', this.onZoomOutClick);
 
         const panModSelect = document.getElementById('panModSelect') as HTMLSelectElement;
-        panModSelect.value = 'Alt';
+        panModSelect!.value = 'Alt';
         panModSelect!.addEventListener('change', this.onPanModifierChange);
 
         const interactionSelect = document.getElementById('interactionSelect') as HTMLSelectElement;
+        interactionSelect!.value = 'DragPan';
         interactionSelect!.addEventListener('change', this.onDefaultInteractionChange);
 
         const dragModSelect = document.getElementById('dragModSelect') as HTMLSelectElement;
+        dragModSelect!.value = 'Shift';
         dragModSelect!.addEventListener('change', this.onDragModifierChange);
 
         const zoomEnabled = document.getElementById('zoomEnabled') as HTMLInputElement;
-        zoomEnabled.checked = true;
+        zoomEnabled!.checked = true;
         zoomEnabled!.addEventListener('change', this.onZoomEnabledChange);
     }
 
     public onDefaultInteractionChange = (e: any) => {
-        let defaultInteraction: InteractionState;
         switch (e.target.value) {
             case 'DragZoom':
-                defaultInteraction = InteractionState.DragZoom;
+                this.chart.defaultInteraction = InteractionState.DragZoom;
                 break;
             case 'DragPan':
-                defaultInteraction = InteractionState.DragPan;
+                this.chart.defaultInteraction = InteractionState.DragPan;
                 break;
             case 'None':
-                defaultInteraction = InteractionState.None;
+                this.chart.defaultInteraction = InteractionState.None;
                 break;
         }
-        this.chart.defaultInteraction = defaultInteraction;
     }
 
     public onPanModifierChange = (e: any) => {
-        let panModifier: ModifierKeys;
         switch (e.target.value) {
             case 'Alt':
-                panModifier = ModifierKeys.Alt;
+                this.chart.panModifier = ModifierKeys.Alt;
                 break;
             case 'Control':
-                panModifier = ModifierKeys.Control;
+                this.chart.panModifier = ModifierKeys.Control;
                 break;
             case 'Shift':
-                panModifier = ModifierKeys.Shift;
+                this.chart.panModifier = ModifierKeys.Shift;
                 break;
             case 'Windows':
-                panModifier = ModifierKeys.Windows;
+                this.chart.panModifier = ModifierKeys.Windows;
                 break;
             case 'Apple':
-                panModifier = ModifierKeys.Apple;
+                this.chart.panModifier = ModifierKeys.Apple;
                 break;
             case 'None':
-                panModifier = ModifierKeys.None;
+                this.chart.panModifier = ModifierKeys.None;
                 break;
         }
-        this.chart.panModifier = panModifier;
     }
 
     public onDragModifierChange = (e: any) => {
-        let dragModifier: ModifierKeys;
         switch (e.target.value) {
             case 'Alt':
-                dragModifier = ModifierKeys.Alt;
+                this.chart.dragModifier = ModifierKeys.Alt;
                 break;
             case 'Control':
-                dragModifier = ModifierKeys.Control;
+                this.chart.dragModifier = ModifierKeys.Control;
                 break;
             case 'Shift':
-                dragModifier = ModifierKeys.Shift;
+                this.chart.dragModifier = ModifierKeys.Shift;
                 break;
             case 'Windows':
-                dragModifier = ModifierKeys.Windows;
+                this.chart.dragModifier = ModifierKeys.Windows;
                 break;
             case 'Apple':
-                dragModifier = ModifierKeys.Apple;
+                this.chart.dragModifier = ModifierKeys.Apple;
                 break;
             case 'None':
-                dragModifier = ModifierKeys.None;
+                this.chart.dragModifier = ModifierKeys.None;
                 break;
         }
-        this.chart.dragModifier = dragModifier;
     }
 
     public onZoomEnabledChange = (e: any) => {
@@ -194,38 +182,6 @@ export class DataChartNavigation {
         if (this.chart.actualWindowScaleVertical > 0.05) {
             this.chart.actualWindowScaleVertical -= 0.05;
         }
-    }
-
-    public createSeries() {
-        const sizeScale = new IgcSizeScaleComponent();
-        sizeScale.minimumValue = 10;
-        sizeScale.maximumValue = 60;
-
-        const brushScale1 = new IgcValueBrushScaleComponent();
-        brushScale1.brushes = ['#FFFFFF', '#b56ffc'];
-        brushScale1.minimumValue = 10;
-        brushScale1.maximumValue = 60;
-
-        const series = new IgcBubbleSeriesComponent();
-        series.title = 'Countries';
-        series.dataSource = SampleScatterStats.getCountries();
-        series.showDefaultTooltip = true;
-        series.xMemberPath = 'Population';
-        series.yMemberPath = 'GdpTotal';
-        series.radiusMemberPath = 'GdpPerCapita';
-        series.radiusScale = sizeScale;
-        // series.fillMemberPath = 'GdpPerCapita';
-        // series.fillScale = brushScale1;
-        series.xAxisName = 'xAxis';
-        series.yAxisName = 'yAxis';
-
-        this.chart.series.clear();
-        this.chart.series.add(series);
-    }
-
-    getData(): any[] {
-        const data = SampleScatterStats.getCountriesWithHighIncome();
-        return data;
     }
 }
 

@@ -155,7 +155,7 @@ export class MapShapeStyling {
         this.geoSeries.dataSource = this.shapeRecords;
     }
 
-    public createTooltip(context: any) {
+    public createTooltip(context: any): any {
         if (!context) return null;
 
         const dataItem = context.item as any;
