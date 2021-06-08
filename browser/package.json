@@ -1,7 +1,7 @@
 {
   "name": "wc-samples-browser",
   "description": "Samples for Ignite UI Web Components",
-  "version": "0.0.1",
+  "version": "21.1.1",
   "author": "Infragistics",
   "bundleDependencies": false,
   "deprecated": false,
