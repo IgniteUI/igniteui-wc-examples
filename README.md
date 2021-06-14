@@ -34,7 +34,6 @@ Follow these instructions to run a single sample on your computer:
 
 - in VS Code, open a folder with existing sample, e.g.
 <br>
-
 [./samples/charts/category-chart/axis-options/](./samples/charts/category-chart/axis-options/)
 
 - type `npm install` command in terminal window
