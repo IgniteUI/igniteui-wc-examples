@@ -5,7 +5,7 @@
     <!-- <div style="font-size: 2.5rem; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem; color: white; ">for Web Components </div> -->
 </div>
 
-# Web Component Examples
+# Examples of Ignite UI for Web Components
 
 This repository contains over 250 examples on how to use [Ignite UI for Web Components](https://infragistics.com/webcomponentssite/components/general-getting-started.html)
 
