@@ -33,8 +33,8 @@ git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 Follow these instructions to run a single sample on your computer:
 
 - in VS Code, open a folder with existing sample, e.g.
-<br>
-[./samples/charts/category-chart/axis-options/](./samples/charts/category-chart/axis-options/)
+
+[./samples/charts/category-chart/overview](./samples/charts/category-chart/overview)
 
 - type `npm install` command in terminal window
 
