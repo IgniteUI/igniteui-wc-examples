@@ -19,6 +19,7 @@ This repository contains over 250 examples on how to use [Ignite UI for Web Comp
 - and many more
 
 You can run each sample project individually from the [./samples](./samples) folder or you can browse all samples in one website from the [./browser](./browser) folder. In addition, you can run each sample on Code Sandbox website by clicking on the `Edit on CodeSandbox` button in a readme file of sample project, e.g.
+
 [./samples/charts/category-chart/overview/README.md](./samples/charts/category-chart/overview/README.md)
 
 
