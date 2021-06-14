@@ -4001,16 +4001,16 @@ iferr@^0.1.5:
   resolved "https://registry.yarnpkg.com/iferr/-/iferr-0.1.5.tgz#c60eed69e6d8fdb6b3104a1fcbca1c192dc5b501"
   integrity sha1-xg7taebY/bazEEofy8ocGS3FtQE=
 
-igniteui-webcomponents-charts@1.3.0-beta.0:
-  version "1.3.0-beta.0"
-  resolved "https://registry.yarnpkg.com/igniteui-webcomponents-charts/-/igniteui-webcomponents-charts-1.3.0-beta.0.tgz#4cc3d32061bdfc6667515983c0e363153af2ce5a"
+igniteui-webcomponents-charts@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/igniteui-webcomponents-charts/-/igniteui-webcomponents-charts-1.3.0.tgz#4cc3d32061bdfc6667515983c0e363153af2ce5a"
   integrity sha512-A4rAj57G6dU80Be6jlVkH0PSNnFqayW3DlqwRnrk2wJHCh9tbfKyevDGlng0E4kUXqEsR9CdLtkrZocs4lAF2w==
   dependencies:
     tslib "^1.7.1"
 
-igniteui-webcomponents-core@1.3.0-beta.0:
-  version "1.3.0-beta.0"
-  resolved "https://registry.yarnpkg.com/igniteui-webcomponents-core/-/igniteui-webcomponents-core-1.3.0-beta.0.tgz#a887e93930ffc961430f95e71ed89d4eacbf967a"
+igniteui-webcomponents-core@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/igniteui-webcomponents-core/-/igniteui-webcomponents-core-1.3.0.tgz#a887e93930ffc961430f95e71ed89d4eacbf967a"
   integrity sha512-ECf6p7UEBWzTaUvwMfkniZQCFEbEwcNx5ihfI3axRVJwLOscluM0yAsf17vKQzmt/bT02qHMyWPxCxNCmCBMSw==
   dependencies:
     lit-html "^1.1.2"

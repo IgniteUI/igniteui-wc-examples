@@ -5,7 +5,7 @@
     <!-- <div style="font-size: 2.5rem; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem; color: white; ">for Web Components </div> -->
 </div>
 
-# Web Component Examples
+# Examples of Ignite UI for Web Components
 
 This repository contains over 250 examples on how to use [Ignite UI for Web Components](https://infragistics.com/webcomponentssite/components/general-getting-started.html)
 
@@ -18,7 +18,9 @@ This repository contains over 250 examples on how to use [Ignite UI for Web Comp
 - [Excel Library](https://infragistics.com/webcomponentssite/components/excel_library_using_workbooks.html)
 - and many more
 
-You can run each sample project individually from the [./samples](./samples) folder or you can browse all samples in one website from the [./browser](./browser) folder. Also, you can run each sample on Code Sandbox website by clicking on the `Edit on CodeSandbox` button in a readme file of sample project, .e.g. [./samples/charts/category-chart/overview/README.md](./samples/charts/category-chart/overview/README.md)
+You can run each sample project individually from the [./samples](./samples) folder or you can browse all samples in one website from the [./browser](./browser) folder. In addition, you can run each sample on Code Sandbox website by clicking on the `Edit on CodeSandbox` button in a readme file of sample project, e.g.
+
+[./samples/charts/category-chart/overview/README.md](./samples/charts/category-chart/overview/README.md)
 
 
 ## Setup
@@ -33,9 +35,8 @@ git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 Follow these instructions to run a single sample on your computer:
 
 - in VS Code, open a folder with existing sample, e.g.
-<br>
 
-[./samples/charts/category-chart/axis-options/](./samples/charts/category-chart/axis-options/)
+[./samples/charts/category-chart/overview](./samples/charts/category-chart/overview)
 
 - type `npm install` command in terminal window
 
