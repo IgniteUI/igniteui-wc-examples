@@ -1,21 +1,17 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# dependencies
-# /node_modules
-# **/node_modules
-samples/**/node_modules
-samples/**/package-lock.json
-samples/**/build
-tests
+# samples auto-generated files:
+/samples/**/build/
+/samples/**/node_modules/
+/samples/**/package-lock.json
+/tmp/
+/tests/
 
-browser/node_modules
-browser/src.
-browser/src./*
-browser/src/samples
-browser/src/samples/*
-browser/package-lock.json
-browser/**/*.org
-browser/**/code-viewer/**
+# browser auto-generated files:
+/browser/node_modules
+/browser/src/samples
+/browser/build
+/browser/**/code-viewer/**
 
 # IDEs and editors
 /.idea
@@ -28,20 +24,13 @@ browser/**/code-viewer/**
 
 # IDE - VS
 .vs/
-
-# IDE - VSCode
 .vscode/*
+**/.vs/
 **/.vscode/*
 # !.vscode/settings.json
 # !.vscode/tasks.json
 # !.vscode/launch.json
 # !.vscode/extensions.json
-
-# testing
-/coverage
-
-# production
-/build
 
 # misc
 .DS_Store
@@ -53,6 +42,3 @@ browser/**/code-viewer/**
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-test.txt
-
-browser/debug.log
