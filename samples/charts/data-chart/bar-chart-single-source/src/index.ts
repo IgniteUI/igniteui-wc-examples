@@ -1,7 +1,7 @@
 import { DataItem, Data } from './SampleData';
-
 import { IgcDataChartCoreModule, IgcDataChartCategoryCoreModule, IgcDataChartCategoryModule, IgcDataChartInteractivityModule, IgcDataChartVerticalCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcBarSeriesComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -29,7 +29,7 @@ export class Sample {
         barSeries1.xAxis = this.xAxis
         barSeries1.yAxis = this.yAxis
         barSeries1.dataSource = this.data
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -40,6 +40,9 @@ export class Sample {
         return this._data;
     }
     
+
+
+
 }
 
 new Sample();

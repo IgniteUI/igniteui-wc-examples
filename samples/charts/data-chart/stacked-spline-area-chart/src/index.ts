@@ -1,7 +1,7 @@
 import { DataItem, Data } from './SampleData';
-
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcStackedSplineAreaSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -45,7 +45,7 @@ export class Sample {
         stackedSplineAreaSeries.xAxis = this.xAxis
         stackedSplineAreaSeries.yAxis = this.yAxis
         stackedSplineAreaSeries.dataSource = this.data
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -56,6 +56,9 @@ export class Sample {
         return this._data;
     }
     
+
+
+
 }
 
 new Sample();

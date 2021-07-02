@@ -1,7 +1,7 @@
 import { DataEuropeItem, DataEurope, DataAfricaItem, DataAfrica } from './SampleData';
-
 import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcScatterSeriesComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -37,7 +37,7 @@ export class Sample {
         scatterSeries2.xAxis = this.xAxis
         scatterSeries2.yAxis = this.yAxis
         scatterSeries2.dataSource = this.dataAfrica
-   }
+    }
 
     private _dataEurope: DataEurope = null;
     public get dataEurope(): DataEurope {
@@ -57,6 +57,9 @@ export class Sample {
         return this._dataAfrica;
     }
     
+
+
+
 }
 
 new Sample();

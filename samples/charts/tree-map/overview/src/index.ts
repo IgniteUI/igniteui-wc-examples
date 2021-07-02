@@ -1,7 +1,7 @@
-import { SampleData } from './SampleData';
-
+import { DataItem, Data } from './SampleData';
 import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -16,9 +16,19 @@ export class Sample {
         var treemap = this.treemap = document.getElementById('treemap') as IgcTreemapComponent;
 
         treemap.dataSource = this.data
-   }
+    }
 
-   public data: any[] = SampleData.create();
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
+    }
+    
+
+
 
 }
 

@@ -1,7 +1,7 @@
 import { DataItem, Data } from './SampleData';
-
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcRangeAreaSeriesComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -26,7 +26,7 @@ export class Sample {
         series.xAxis = this.xAxis
         series.yAxis = this.yAxis
         series.dataSource = this.data
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -37,6 +37,9 @@ export class Sample {
         return this._data;
     }
     
+
+
+
 }
 
 new Sample();
