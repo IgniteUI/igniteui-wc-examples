@@ -29,7 +29,7 @@ eval(require('typescript')
 .readFileSync("./tasks/Transformer.ts").toString()));
 
 function log(msg) {
-    console.log('gulp-samples.js ' + msg);
+    console.log('>> ' + msg);
 }
 log('loaded');
 
@@ -742,8 +742,27 @@ function logUniqueFiles(cb) {
 
 } exports.logUniqueFiles = logUniqueFiles;
 
+function logVersionIgniteUI(cb) {
+    let packageFile = fs.readFileSync("./package.json");
+    let packageJson = JSON.parse(packageFile.toString());
+    let packageData = JSON.stringify(packageJson.dependencies, null, ' ');
 
+    for (const line of packageData.split('\n')) {
+        if (line.indexOf('igniteui-') > 0) {
+            let package = line.split(':');
+            console.log('>> using package: ' + package[1].trim() + ' ' + package[0].trim());
+        }
+    }
+    cb();
+} exports.logVersionIgniteUI = logVersionIgniteUI;
 
+function logVersionTypescript(cb) {
+    var packageFile = fs.readFileSync("./node_modules/typescript/package.json", "utf8");
+    let packageJson = JSON.parse(packageFile.toString());
+    let packageData = JSON.stringify(packageJson.version, null, ' ');
+    console.log(">> using package: " + packageData + ' typescript' );
+    cb();
+} exports.logVersionTypescript = logVersionTypescript;
 
 
 
