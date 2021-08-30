@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>DataGridCellMerging</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample">
+
+      <div class="options horizontal">
+        <span class="options-label">Merged Cell Mode: </span>
+        <select id="selectionDropBox" class="options-label">
+            <option>Always</option>
+            <option>Never</option>
+            <option>OnlyWhenSorted</option>
+        </select>
+    </div>
+
+<igc-data-grid id="grid" width="100%" height="100%"
+merged-cell-mode="Always"
+    auto-generate-columns="false"
+    is-column-options-enabled="true">
+    <igc-text-column field="OrderID" header-text="ID" width="*>90" horizontal-alignment="center">
+    </igc-text-column>
+    <igc-date-time-column field="OrderDate" header-text="Order Date" width="*>130">
+    </igc-date-time-column>
+    <igc-text-column field="ShipName" header-text="Name"  width="*>185">
+    </igc-text-column>
+    <igc-numeric-column field="Freight" header-text="Freight" width="*>115"
+        positive-prefix="$" min-fraction-digits="2">
+    </igc-numeric-column>
+    <igc-date-time-column field="ShippedDate" header-text="Ship Date" width="*>125"
+        horizontal-alignment="right">
+    </igc-date-time-column>
+    <igc-text-column field="ShipAddress" header-text="Shipping Address" width="*>250">
+    </igc-text-column>
+    <igc-text-column field="ShipCity" header-text="City" width="*>130">
+    </igc-text-column>
+    <igc-text-column field="ShipCountry" header-text="Country" width="*>110">
+    </igc-text-column>
+</igc-data-grid>
+
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
