@@ -1,0 +1,176 @@
+:root {
+  --main-color: rgb(227,230,233);
+  --white: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+igc-dockmanager {
+  background-color: var(--main-color);
+  padding: 20px;
+}
+
+igc-dockmanager::part(pane-header) {
+  background-color: white;
+  border-bottom: 2px solid var(--main-color);
+}
+
+igc-dockmanager::part(pane-header active) {
+  font-weight: 700;
+  color: rgb(113,115,116);
+  box-shadow: inset 0 -2px 0 0 rgb(113,115,116);
+  border: none;
+}
+
+igc-dockmanager::part(pane-header floating window) {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+igc-dockmanager::part( pane-header floating window actions) {
+  visibility: collapse;
+  pointer-events: none;
+}
+
+igc-dockmanager::part(pane-header-actions floating window) {
+  visibility: hidden;
+}
+
+igc-dockmanager::part(pane-header-content) {
+  color: rgba(104, 97, 97, 0.938);
+}
+
+igc-dockmanager::part(splitter) {
+  flex: 0 0 15px;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+igc-dockmanager::part(splitter-base) {
+  background: transparent;
+  pointer-events: none;
+}
+
+igc-dockmanager::part(splitter-base)::after {
+  content: none;
+}
+
+igc-dockmanager::part(content-pane) {
+  border-radius: 10px;
+}
+
+igc-dockmanager::part(floating-window) {
+  border: none;
+  border-radius: 20px;
+}
+
+igc-dockmanager::part(tab-header top) {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: var(--main-color);
+}
+
+igc-dockmanager::part(tab-header bottom) {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: var(--main-color);
+}
+
+igc-dockmanager::part(tab-header active selected) {
+  font-weight: 700;
+  color: rgb(113,115,116);
+  box-shadow: none;
+  border: none;
+}
+
+igc-dockmanager::part(tab-header active selected top) {
+  font-weight: 700;
+  color: rgb(113,115,116);
+  box-shadow: inset 0 -2px 0 0 rgb(113,115,116);
+  border: none;
+}
+
+igc-dockmanager::part(tab-header active selected bottom) {
+  font-weight: 700;
+  color: rgb(113,115,116);
+  box-shadow: inset 0 2px 0 0 rgb(113,115,116);
+}
+
+igc-dockmanager::part(tabs-strip) {
+  border-radius: 40px;
+}
+
+igc-dockmanager::part(tab-strip-area bottom) {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom: 2px solid var(--main-color);
+  background-color: white;
+}
+
+igc-dockmanager::part(tab-strip-area top) {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom: 2px solid var(--main-color);
+  background-color: white;
+}
+
+igc-dockmanager::part(tab-strip-actions bottom) {
+  display: none;
+}
+
+igc-dockmanager::part(document-panel) {
+  padding: 10px;
+}
+
+igc-dockmanager::part(root-docking-indicator) {
+  background-color: rgba(170, 172, 173, 0.795);
+}
+
+igc-dockmanager::part(docking-indicator) {
+  background-color: rgba(49, 45, 49, 0.733);
+}
+
+igc-dockmanager::part(docking-preview) {
+  background-color: var(--main-color);
+  opacity: 0.7;
+}
+
+igc-dockmanager::part(unpinned-pane-header) {
+  border-radius: 5px;
+  margin: 5px;
+  box-shadow: 21px 5px 26px 14px rgba(0,0,0,0.27);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.context-menu-btn {
+  border: none;
+  border-radius: 10px;
+  background-color: var(--main-color);
+}
+
+.dockManagerFull {
+  padding: 0rem;
+  margin: 0rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dockManagerFrame {
+  padding: 0rem;
+  margin: 0rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}

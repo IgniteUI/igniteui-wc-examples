@@ -1,0 +1,71 @@
+<html>
+
+<head>
+  <title>DockManagerStyling</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+  <script type="module" src="./menu-component.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <igc-dockmanager id="dockManager">
+
+      <div slot="dataHeader" class="header">
+        <span>DATA</span>
+        <menu-component></menu-component>
+      </div>
+      <div class="dockManagerFull" slot="content1">
+        <iframe class="dockManagerFrame" seamless frameBorder="0"
+          src='https://infragistics.com/webcomponents-demos/charts/doughnut-chart-overview'></iframe>
+      </div>
+
+      <div slot="renewableElectricityHeader" class="header">
+        <span>Renewable Electricity Generated</span>
+        <menu-component></menu-component>
+      </div>
+      <div class="dockManagerFull" slot="content2">
+        <iframe class="dockManagerFrame" seamless frameBorder="0"
+          src='https://infragistics.com/webcomponents-demos/charts/category-chart-area-chart-multiple-sources'></iframe>
+      </div>
+      <div slot="geoMapHeader" class="header">
+        <span>GEOGRAPHIC MAP</span>
+        <menu-component></menu-component>
+      </div>
+      <div class="dockManagerFull" slot="content3">
+        <iframe class="dockManagerFrame" seamless frameBorder="0"
+          src='https://infragistics.com/react-demos/maps/geo-map-binding-data-csv'></iframe>
+      </div>
+      
+      <div slot="electricityDemandHeader" class="header">
+        <span>GLOBAL ELECTRICITY DEMAND</span>
+        <menu-component></menu-component>
+      </div>
+      <div class="dockManagerFull" slot="content4">
+        <iframe class="dockManagerFrame" seamless frameBorder="0"
+          src='https://infragistics.com/webcomponents-demos/charts/pie-chart-legend'></iframe>
+      </div>
+
+      <div slot="doughnutChartHeader" class="header">
+        <span>Doughnut Chart Data</span>
+        <menu-component></menu-component>
+      </div>
+      <div class="dockManagerFull" slot="content5">
+        <iframe class="dockManagerFrame" seamless frameBorder="0"
+          src='https://www.infragistics.com/webcomponents-demos/charts/doughnut-chart-rings'></iframe>
+      </div>
+    </igc-dockmanager>
+  </div>
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
