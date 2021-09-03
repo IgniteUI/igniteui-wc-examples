@@ -102,7 +102,7 @@ export class DockManagerStylePanes {
                             header: "Doughnut Chart",
                             contentId: "content5",
                             headerId: "doughnutChartHeader",
-                            unpinnedLocation: IgcUnpinnedLocation.top,
+                            unpinnedLocation: IgcUnpinnedLocation.right,
                             isPinned: true,
                             allowDocking: false,
                             allowFloating: false,
