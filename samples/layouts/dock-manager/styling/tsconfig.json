@@ -12,7 +12,7 @@
   },
   "include": [
       "src/**/*"
-, "menu-component.js"  ],
+  ],
   "exclude": [
       "node_modules",
       "dist"

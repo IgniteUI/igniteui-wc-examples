@@ -1,4 +1,5 @@
 import "./DockManagerStyles.css";
+import { MenuComponent } from './menu-component';
 import { defineCustomElements } from "igniteui-dockmanager/loader";
 import {
     IgcDockManagerComponent,
@@ -8,6 +9,7 @@ import {
     IgcUnpinnedLocation} from "igniteui-dockmanager";
 
 defineCustomElements();
+window.customElements.define('menu-component', MenuComponent);
 
 export class DockManagerStylePanes {
     private dockManager: IgcDockManagerComponent;
@@ -131,7 +133,6 @@ export class DockManagerStylePanes {
     }
 
     handlePinPane() {
-        console.log(this.dockManager.activePane.isPinned);
         this.dockManager.activePane.isPinned = !this.dockManager.activePane.isPinned;
         this.dockManager.layout = {...this.layout};
     }

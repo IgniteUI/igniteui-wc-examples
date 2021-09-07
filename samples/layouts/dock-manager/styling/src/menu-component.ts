@@ -58,58 +58,60 @@ template.innerHTML = `
 `
 
 export class MenuComponent extends HTMLElement {
-  shadowRoot = this.attachShadow({mode: 'closed'});
-  handlePaneClose;
-  menuItems;
+  shadow: any;
+  handlePaneClose: Event;
+  handlePinPane: Event;
+  menuItems: HTMLElement;
 
   constructor() {
       super();
-
+      this.shadow = this.shadowRoot;
+      this.shadow = this.attachShadow({mode: 'closed'});
       // clone template content nodes to the shadow DOM
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
+      this.shadow.appendChild(template.content.cloneNode(true));
 
       this.handlePaneClose = new CustomEvent('closePane', {
         bubbles: true,
         cancelable: false
       });
-
+  
       this.handlePinPane = new CustomEvent('pinPane', {
         bubbles: true,
         cancelable: false
       });
   
-      this.menuItems = this.shadowRoot.getElementById('menu-items');
+      this.menuItems = this.shadow.getElementById('menu-items');
+  }
 
-      this.shadowRoot.getElementById('expand-btn').addEventListener('click', () => this.expandMenu());
+  connectedCallback() {
+    this.shadow.getElementById('expand-btn').addEventListener('click', () => this.expandMenu());
 
-      this.shadowRoot.getElementById('pin')?.addEventListener('click', () => {
-        this.dispatchEvent(this.handlePinPane);
-        this.menuItems.style.display = 'none';
+    this.shadow.getElementById('pin').addEventListener('click', () => {
+      this.dispatchEvent(this.handlePinPane);
+      this.menuItems.style.display = 'none';
 
-        this.changePinIcon();
-      });
+      this.changePinIcon();
+    });
 
-      this.shadowRoot.getElementById('close')?.addEventListener('click', () => this.dispatchEvent(this.handlePaneClose));
+    this.shadow.getElementById('close').addEventListener('click', () => this.dispatchEvent(this.handlePaneClose));
 
-      document.addEventListener('click', (event) => {
-        if(event.target !== this) {
-            this.menuItems.style.display = 'none'
-        } 
-      });
+    document.addEventListener('click', (event) => {
+      if(event.target !== this) {
+          this.menuItems.style.display = 'none'
+      } 
+    });
   }
 
   expandMenu() {
-    this.menuItems?.style.display === '' || this.menuItems?.style.display === 'none' ? 
+    this.menuItems.style.display === '' || this.menuItems.style.display === 'none' ? 
         (this.menuItems.style.display = 'flex') : (this.menuItems.style.display = 'none');
   }
 
   changePinIcon() {
-    if (this.shadowRoot.getElementById('pin').children[0].name === 'unpin') {
-      this.shadowRoot.getElementById('pin').children[0].name = 'pin';
+    if (this.shadow.getElementById('pin').children[0].name === 'unpin') {
+      this.shadow.getElementById('pin').children[0].name = 'pin';
     } else {
-      this.shadowRoot.getElementById('pin').children[0].name = 'unpin';
+      this.shadow.getElementById('pin').children[0].name = 'unpin';
     }
   }
 }
-
-window.customElements.define('menu-component', MenuComponent);
