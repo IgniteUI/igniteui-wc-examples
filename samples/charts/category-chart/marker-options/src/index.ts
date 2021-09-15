@@ -74,7 +74,7 @@ export class Sample {
         var chart = this.chart;
 
         var chartVal = item.primitiveValue;
-        chart.chartTypes = chartVal;
+        chart.chartType = chartVal;
     }
 
 }
