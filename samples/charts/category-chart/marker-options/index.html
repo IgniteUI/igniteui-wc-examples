@@ -21,11 +21,15 @@
         
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="PropertyEditor"
+        id ="PropertyEditor">
             <igc-property-editor-property-description
             property-path="ChartType"
             label="Chart Type"
-            primitive-value="Line">
+            primitive-value="Line"
+            name="ChartTypeEditor"
+            id ="ChartTypeEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             drop-down-names="Circle, Automatic, Triangle, Pyramid, Square, Diamond, Pentagon, Hexagon, Tetragram, Pentagram, Hexagram, None"
@@ -34,7 +38,9 @@
             label="Marker Type"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-values="Circle, Automatic, Triangle, Pyramid, Square, Diamond, Pentagon, Hexagon, Tetragram, Pentagram, Hexagram, None">
+            drop-down-values="Circle, Automatic, Triangle, Pyramid, Square, Diamond, Pentagon, Hexagon, Tetragram, Pentagram, Hexagram, None"
+            name="MarkerTypeEditor"
+            id ="MarkerTypeEditor">
             </igc-property-editor-property-description>
         </igc-property-editor>
     </div>
