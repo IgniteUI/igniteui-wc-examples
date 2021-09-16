@@ -16,13 +16,13 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
-    "build:dev": "webpack --mode development --config ./webpack.config.js --progress --color --display-error-details",
-    "build:prod": "cross-env NODE_ENV=production node --max_old_space_size=25192 node_modules/webpack/bin/webpack --mode production --config ./webpack.config.js  --progress  --color --display-error-details --bail",
+    "build:dev": "gulp updateBrowser && webpack --mode development --config ./webpack.config.js --progress --color --display-error-details",
+    "build:prod": "gulp updateBrowser && cross-env NODE_ENV=production node --max_old_space_size=25192 node_modules/webpack/bin/webpack --mode production --config ./webpack.config.js  --progress  --color --display-error-details --bail",
     "clean": "npm cache clear && rimraf -- dist",
     "server": "npm run server:dev",
-    "server:dev": "node --max_old_space_size=25192 node_modules/webpack-dev-server/bin/webpack-dev-server.js --mode development --config ./webpack.config.js --hot --inline --progress --watch --open",
-    "server:prod": "cross-env NODE_ENV=production webpack-dev-server  --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --inline --progress  --watch --open --content-base dist/",
-    "start": "gulp updateBrowser && npm run server:dev",
+    "server:dev": "gulp updateBrowser && node --max_old_space_size=25192 node_modules/webpack-dev-server/bin/webpack-dev-server.js --mode development --config ./webpack.config.js --hot --inline --progress --watch --open",
+    "server:prod": "gulp updateBrowser && cross-env NODE_ENV=production webpack-dev-server  --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --inline --progress  --watch --open --content-base dist/",
+    "start": "npm run server:dev",
     "test": "karma start"
   },
   "dependencies": {
