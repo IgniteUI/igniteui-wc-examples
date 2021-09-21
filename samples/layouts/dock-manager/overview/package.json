@@ -19,7 +19,7 @@
   },
   "author": "Infragistics",
   "dependencies": {
-    "@infragistics/igniteui-webcomponents-core": "21.1.46",
+    "igniteui-webcomponents-core": "1.3.3",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
