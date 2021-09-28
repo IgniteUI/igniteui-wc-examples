@@ -16,10 +16,35 @@
     <div id="root">
 
 <div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor
+        
+        description-type="CategoryChart"
+        is-horizontal="true"
+        is-wrapping-enabled="true">
+            <igc-property-editor-property-description
+            property-path="YAxisMinimumValue"
+            label="Y Axis Minimum Value"
+            value-type="EnumValue"
+            should-override-default-editor="true"
+            drop-down-names="0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100"
+            drop-down-values="0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100"
+            primitive-value="0">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            drop-down-values="100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200"
+            primitive-value="150"
+            property-path="YAxisMaximumValue"
+            label="Y Axis Maximum Value"
+            value-type="EnumValue"
+            should-override-default-editor="true"
+            drop-down-names="100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200">
+            </igc-property-editor-property-description>
+        </igc-property-editor>
+    </div>
     <div class="legend-title">
         Highest Grossing Movie Franchises
     </div>
-
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -27,7 +52,6 @@
         id ="Legend">
         </igc-legend>
     </div>
-
     <div class="container fill">
         <igc-category-chart
         chart-type="Line"

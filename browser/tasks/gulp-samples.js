@@ -29,7 +29,7 @@ eval(require('typescript')
 .readFileSync("./tasks/Transformer.ts").toString()));
 
 function log(msg) {
-    console.log('gulp-samples.js ' + msg);
+    console.log('>> ' + msg);
 }
 log('loaded');
 
@@ -742,8 +742,49 @@ function logUniqueFiles(cb) {
 
 } exports.logUniqueFiles = logUniqueFiles;
 
+function logVersionIgniteUI(cb) {
+    let packageFile = fs.readFileSync("./package.json");
+    let packageJson = JSON.parse(packageFile.toString());
+    let packageData = JSON.stringify(packageJson.dependencies, null, ' ');
 
+    let igPackages = [];
+    for (const line of packageData.split('\n')) {
+        if (line.indexOf('igniteui-') > 0) {
+            let packageLine = Strings.replace(line, ',', '')
+            packageLine = Strings.replace(packageLine, '"', '');
+            packageLine = Strings.replace(packageLine, '@infragistics/', '');
+            let packagePair = packageLine.split(':');
+            let packageVersion = packagePair[1].trim();
+            let packageName = packagePair[0].trim();
 
+            console.log('>> using package: ' + packageVersion + ' ' + packageName);
+            let package = { ver: packageVersion, name: packageName };
+            igPackages.push(package);
+        }
+    }
+
+    let outputText = '[\r\n';
+    for (let i = 0; i < igPackages.length; i++) {
+        outputText += JSON.stringify(igPackages[i]);
+        if (i < igPackages.length - 1)
+            outputText += ',';
+        outputText += '\r\n';
+    }
+    outputText += "]";
+
+    const outputPath = "./src/BrowserInfo.json";
+
+    fs.writeFileSync(outputPath, outputText);
+    cb();
+} exports.logVersionIgniteUI = logVersionIgniteUI;
+
+function logVersionTypescript(cb) {
+    var packageFile = fs.readFileSync("./node_modules/typescript/package.json", "utf8");
+    let packageJson = JSON.parse(packageFile.toString());
+    let packageData = JSON.stringify(packageJson.version, null, ' ');
+    console.log(">> using package: " + packageData + ' typescript' );
+    cb();
+} exports.logVersionTypescript = logVersionTypescript;
 
 
 

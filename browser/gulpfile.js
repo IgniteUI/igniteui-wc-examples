@@ -4,6 +4,8 @@ let sb = require('./tasks/gulp-samples.js')
 
 // NOTE run "gulp updateBrowser" before running "npm run start"
 exports.updateBrowser = updateBrowser = gulp.series(
+    sb.logVersionTypescript,
+    sb.logVersionIgniteUI,
     sb.findSamples,
     sb.copySamples,
     sb.updateCodeViewer,
@@ -65,6 +67,9 @@ exports.logSamples = logSamples = gulp.series(
 // exports.logUniqueFiles = sb.logUniqueFiles;
 // exports.logRootFiles   = sb.logRootFiles;
 // exports.lintSamples    = sb.lintSamples;
+
+exports.logVersionIgniteUI   = sb.logVersionIgniteUI;
+exports.logVersionTypescript = sb.logVersionTypescript;
 
 exports.logRoutes = logRoutes = gulp.series(
     sb.findSamples,

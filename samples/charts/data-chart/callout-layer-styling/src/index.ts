@@ -1,7 +1,7 @@
 import { DataItem, Data, CalloutsItem, Callouts } from './SampleData';
-
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartAnnotationModule, IgcDataChartInteractivityModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent, IgcCalloutLayerComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -32,7 +32,7 @@ export class Sample {
         lineSeries1.yAxis = this.yAxis
         lineSeries1.dataSource = this.data
         calloutLayer1.dataSource = this.callouts
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -52,6 +52,9 @@ export class Sample {
         return this._callouts;
     }
     
+
+
+
 }
 
 new Sample();

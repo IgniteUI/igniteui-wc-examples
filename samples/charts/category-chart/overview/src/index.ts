@@ -1,7 +1,7 @@
 import { DataItem, Data } from './SampleData';
-
 import { IgcLegendModule, IgcCategoryChartModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -21,7 +21,7 @@ export class Sample {
 
         chart.dataSource = this.data
         chart.legend = this.legend
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -32,6 +32,9 @@ export class Sample {
         return this._data;
     }
     
+
+
+
 }
 
 new Sample();

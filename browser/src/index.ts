@@ -5,7 +5,11 @@ import "./assets/css/Scrollbars.css";
 
 import { Router } from './router';
 
-console.log("SB github");
+const BrowserInfo = require("./BrowserInfo.json"); // auto-generated
+// logging versions of IG packages
+for (const item of BrowserInfo) {
+    console.log('SB uses v' + item.ver + ' ' + item.name);
+}
 
 Router.instance.connect(document.getElementById("router-target"));
 

@@ -1,7 +1,7 @@
 import { DataItem, Data } from './SampleData';
-
 import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartRadialModule, IgcDataChartRadialCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcRadialLineSeriesComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -37,7 +37,7 @@ export class Sample {
         radialLineSeries2.dataSource = this.data
         radialLineSeries2.angleAxis = this.angleAxis
         radialLineSeries2.valueAxis = this.radiusAxis
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -48,6 +48,9 @@ export class Sample {
         return this._data;
     }
     
+
+
+
 }
 
 new Sample();

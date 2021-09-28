@@ -1,7 +1,7 @@
-import { SampleData } from './SampleData';
-
+import { DataItem, Data } from './SampleData';
 import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { IgcTreemapComponent, IgcTreemapNodeStyleMappingComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -32,10 +32,19 @@ export class Sample {
         var styling8 = this.styling8 = document.getElementById('styling8') as IgcTreemapNodeStyleMappingComponent;
 
         treemap.dataSource = this.data
-   }
+    }
+
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
+    }
+    
 
 
-   public data: any[] = SampleData.create();
 
 }
 

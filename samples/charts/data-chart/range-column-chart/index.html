@@ -16,10 +16,10 @@
     <div id="root">
 
 <div class="container sample">
+    
     <div class="legend-title">
-        Monthly Temperature Range in LA and NYC for 2020 (in Celsius)
+        Monthly Temperature Range in LA and NYC
     </div>
-
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -27,7 +27,6 @@
         id ="legend">
         </igc-legend>
     </div>
-
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="false"
@@ -56,9 +55,9 @@
             </igc-range-column-series>
             <igc-range-column-series
             
-            title="New York City"
             low-member-path="lowNY"
             high-member-path="highNY"
+            title="New York City"
             name="series2"
             id ="series2">
             </igc-range-column-series>

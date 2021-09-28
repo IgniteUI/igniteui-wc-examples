@@ -1,7 +1,7 @@
 import { DataItem, Data } from './SampleData';
-
 import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcStacked100BarSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -42,7 +42,7 @@ export class Sample {
         stacked100BarSeries.xAxis = this.xAxis
         stacked100BarSeries.yAxis = this.yAxis
         stacked100BarSeries.dataSource = this.data
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -53,6 +53,9 @@ export class Sample {
         return this._data;
     }
     
+
+
+
 }
 
 new Sample();

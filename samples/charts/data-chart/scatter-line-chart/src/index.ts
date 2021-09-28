@@ -1,7 +1,7 @@
 import { DataForGermanyItem, DataForGermany, DataForFranceItem, DataForFrance, DataForNorwayItem, DataForNorway } from './SampleData';
-
 import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcScatterLineSeriesComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -43,7 +43,7 @@ export class Sample {
         scatterLineSeries3.xAxis = this.xAxis
         scatterLineSeries3.yAxis = this.yAxis
         scatterLineSeries3.dataSource = this.dataForNorway
-   }
+    }
 
     private _dataForGermany: DataForGermany = null;
     public get dataForGermany(): DataForGermany {
@@ -72,6 +72,9 @@ export class Sample {
         return this._dataForNorway;
     }
     
+
+
+
 }
 
 new Sample();

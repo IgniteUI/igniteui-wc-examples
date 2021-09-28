@@ -1,7 +1,7 @@
 {
   "name": "wc-samples-browser",
   "description": "Samples for Ignite UI Web Components",
-  "version": "21.1.1",
+  "version": "21.1.2",
   "author": "Infragistics",
   "bundleDependencies": false,
   "deprecated": false,
@@ -16,12 +16,12 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
-    "build:dev": "webpack --mode development --config ./webpack.config.js --progress --color --display-error-details",
-    "build:prod": "cross-env NODE_ENV=production node --max_old_space_size=25192 node_modules/webpack/bin/webpack --mode production --config ./webpack.config.js  --progress  --color --display-error-details --bail",
+    "build:dev": "gulp updateBrowser && webpack --mode development --config ./webpack.config.js --progress --color --display-error-details",
+    "build:prod": "gulp updateBrowser && cross-env NODE_ENV=production node --max_old_space_size=25192 node_modules/webpack/bin/webpack --mode production --config ./webpack.config.js  --progress  --color --display-error-details --bail",
     "clean": "npm cache clear && rimraf -- dist",
     "server": "npm run server:dev",
-    "server:dev": "node --max_old_space_size=25192 node_modules/webpack-dev-server/bin/webpack-dev-server.js --mode development --config ./webpack.config.js --hot --inline --progress --watch --open",
-    "server:prod": "cross-env NODE_ENV=production webpack-dev-server  --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --inline --progress  --watch --open --content-base dist/",
+    "server:dev": "gulp updateBrowser && node --max_old_space_size=25192 node_modules/webpack-dev-server/bin/webpack-dev-server.js --mode development --config ./webpack.config.js --hot --inline --progress --watch --open",
+    "server:prod": "gulp updateBrowser && cross-env NODE_ENV=production webpack-dev-server  --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --inline --progress  --watch --open --content-base dist/",
     "start": "npm run server:dev",
     "test": "karma start"
   },
@@ -56,7 +56,7 @@
     "gulp-replace": "^1.0.0",
     "gulp-shell": "^0.8.0",
     "gulp-uglify": "^3.0.2",
-    "igniteui-dockmanager": "^1.5.0-beta.1",
+    "igniteui-dockmanager": "^1.6.0",
     "lit-html": "^1.1.2",
     "through2": "^4.0.2",
     "worker-loader": "^2.0.0"

@@ -1,8 +1,8 @@
 import { DataItem, Data } from './SampleData';
-
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcPropertyEditorModule } from 'igniteui-webcomponents-grids';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -18,7 +18,7 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         chart.dataSource = this.data
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -29,6 +29,9 @@ export class Sample {
         return this._data;
     }
     
+
+
+
 }
 
 new Sample();

@@ -1,7 +1,7 @@
 import { MonthsItem, Months, SeasonsItem, Seasons } from './SampleData';
-
 import { IgcLegendModule, IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
 import { IgcDoughnutChartComponent, IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -22,7 +22,7 @@ export class Sample {
 
         series1.dataSource = this.seasons
         series2.dataSource = this.months
-   }
+    }
 
     private _months: Months = null;
     public get months(): Months {
@@ -42,6 +42,9 @@ export class Sample {
         return this._seasons;
     }
     
+
+
+
 }
 
 new Sample();
