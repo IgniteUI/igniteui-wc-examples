@@ -10,7 +10,7 @@ import { IgcSplitPaneOrientation } from 'igniteui-dockmanager';
 // import { IgcLinearGaugeComponent } from 'igniteui-webcomponents-gauges';
 // import { IgcLinearGraphRangeComponent } from 'igniteui-webcomponents-gauges';
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
-import { IgcCategoryChartComponent, CategoryChartType, YAxisLabelsLocation } from 'igniteui-webcomponents-charts';
+import { IgcCategoryChartComponent, CategoryChartType, YAxisLabelLocation } from 'igniteui-webcomponents-charts';
 import { CategoryTransitionInMode, MarkerType, ToolTipType } from 'igniteui-webcomponents-charts';
 import { DataContext } from 'igniteui-webcomponents-core';
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
@@ -120,7 +120,7 @@ export class DockManagerUpdatingPanes {
         this.productivityChart.includedProperties = ['Value', 'Month'];
         this.productivityChart.chartType = CategoryChartType.Column;
         this.productivityChart.thickness = 1;
-        this.productivityChart.yAxisLabelLocation = YAxisLabelsLocation.OutsideRight;
+        this.productivityChart.yAxisLabelLocation = YAxisLabelLocation.OutsideRight;
         this.productivityChart.yAxisLabelRightMargin = 20;
         this.productivityChart.yAxisMinimumValue = 25;
         this.productivityChart.yAxisMaximumValue = 100;
