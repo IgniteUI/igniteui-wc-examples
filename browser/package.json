@@ -56,7 +56,8 @@
     "gulp-replace": "^1.0.0",
     "gulp-shell": "^0.8.0",
     "gulp-uglify": "^3.0.2",
-    "igniteui-dockmanager": "^1.6.0",
+    "igniteui-webcomponents": "file:../../../igniteui-webcomponents-0.0.0.tgz",
+    "lit": "^2.0.2",
     "lit-html": "^1.1.2",
     "through2": "^4.0.2",
     "worker-loader": "^2.0.0"

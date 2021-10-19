@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>List Item Content</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+    <link rel="stylesheet" href="./node_modules/igniteui-webcomponents/src/styles/themes/material.css" type="text/css"></link>
+  </head>
+
+  <body>
+    <div id="root">
+      <igc-list>
+        <igc-list-header>
+            <h1>Job Positions</h1>
+        </igc-list-header>
+        <igc-list-item>
+            <h2 slot="title">Terrance Orta</h2>
+            <span slot="subtitle">770-504-2217</span>
+        </igc-list-item>
+        <igc-list-item>
+          <h2 slot="title">Richard Mahoney</h2>
+          <span slot="subtitle">423-676-2869</span>
+        </igc-list-item>
+        <igc-list-item>
+          <h2 slot="title">Donna Price</h2>
+          <span slot="subtitle">859-496-2817</span>
+        </igc-list-item>
+      </igc-list>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
