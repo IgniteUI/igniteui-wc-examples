@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Form Overview</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+
+    <link rel="stylesheet" href="./node_modules/igniteui-webcomponents/src/styles/themes/material.css" type="text/css"></link>
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div>
+  <igc-form id="form" novalidate>
+    <div>Subscribe</div>
+    <igc-input name="name" type="text" label="Your Name" size="large" dir="ltr"></igc-input>
+    <igc-input name="email" type="email" label="Your E-mail" size="large" dir="ltr"></igc-input>
+    <igc-checkbox name="agreement" labelPosition="after" dir="ltr">I accept the license agreement</igc-checkbox>
+    <br />
+    <igc-button type="reset">Reset</igc-button>
+    <igc-button type="submit">Submit</igc-button>
+  </igc-form>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
