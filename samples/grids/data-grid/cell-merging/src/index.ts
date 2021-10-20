@@ -1,0 +1,64 @@
+import './odatajs-4.0.0';
+import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
+import { MergedCellMode } from 'igniteui-webcomponents-grids';
+import { IgcColumnSortDescription } from 'igniteui-webcomponents-grids';
+import { ModuleManager } from 'igniteui-webcomponents-core';
+import { ODataVirtualDataSource } from 'igniteui-webcomponents-datasources';
+import { ListSortDirection } from 'igniteui-webcomponents-core';
+
+ModuleManager.register(IgcDataGridModule, IgcGridColumnOptionsModule);
+
+export class DataGridCellMerging {
+
+    private grid: IgcDataGridComponent;
+
+    constructor() {
+
+        this.grid = document.getElementById('grid') as IgcDataGridComponent;
+        this.dropDownValueChanged = this.dropDownValueChanged.bind(this);
+
+
+        const vds = new ODataVirtualDataSource();
+        vds.baseUri = 'https://services.odata.org/V4/Northwind/Northwind.svc';
+        vds.entitySet = 'Orders';
+        vds.pageSizeRequested = 200;
+
+        this.grid.dataSource = vds;
+        this.grid.mergedCellMode = MergedCellMode.Always;
+
+        let dropDown = document.getElementById('selectionDropBox');
+        dropDown!.addEventListener('change', this.dropDownValueChanged);
+
+        let g = new IgcColumnSortDescription();
+        g.field = 'ShipName';
+        g.sortDirection = ListSortDirection.Ascending;
+        this.grid.sortDescriptions.add(g);
+    }
+
+    dropDownValueChanged() {
+
+        let dropDown = document.getElementById('selectionDropBox') as any;
+        let grid = document.getElementById('grid') as IgcDataGridComponent;
+
+        switch (dropDown.value) {
+            case 'Always': {
+                grid.mergedCellMode = MergedCellMode.Always;
+                break;
+            }
+            case 'Never': {
+                grid.mergedCellMode = MergedCellMode.Never;
+                break;
+            }
+            case 'OnlyWhenSorted': {
+                grid.mergedCellMode = MergedCellMode.OnlyWhenSorted;
+                break;
+            }
+        }
+
+    }
+
+}
+
+new DataGridCellMerging();
