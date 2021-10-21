@@ -1,7 +1,7 @@
 {
-  "name": "wc-list-overview",
+  "name": "wc-list-styling",
   "version": "1.0.0",
-  "description": "This project provides example for list overview using IgniteUI for Web Components",
+  "description": "This project provides example for list styling using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
