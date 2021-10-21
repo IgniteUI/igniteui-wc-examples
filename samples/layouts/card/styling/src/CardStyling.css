@@ -1,0 +1,35 @@
+
+/* @import '../node_modules/igniteui-webcomponents/src/styles/themes/material.css'; */
+
+
+.card-wrapper {
+    max-width: 320px;
+    min-width: 220px;
+}
+test {
+background: #011627,
+/* header-text-color: #FEFEFE, */
+/* subtitle-text-color: #ECAA53, */
+/* content-text-color: #FEFEFE */
+}
+:root {
+    --igc-surface-500: #011627;
+    --igc-surface-500-contrast: #FEFEFE;
+    --igc-icon-fill: #ECAA53; 
+}
+
+igc-card {
+    background-color: var(--igc-surface-500);
+}
+
+igc-card-content::slotted(*) {
+    color: var(--igc-surface-500-contrast);
+}
+
+igc-card-header::part(subtitle) {
+    color: var(--igc-icon-fill);
+}
+
+igc-icon-button::part(icon) {
+    fill: var(--igc-icon-fill);
+}

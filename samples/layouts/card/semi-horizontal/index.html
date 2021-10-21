@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Card Semi-horizontal Layout</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+    <link rel="stylesheet" href="./node_modules/igniteui-webcomponents/dist/src/styles/themes/material.css.js" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample" style="align-items: center;">
+  <div class="card-wrapper">
+    <igc-card>
+      <div class="semi-horizontal">
+          <div>
+              <igc-card-header>
+                  <igc-avatar src="mellow_d.jpg" slot="thumbnail">MD</igc-avatar>
+                  <h5 slot="title">HERE</h5>
+                  <h5 slot="subtitle">by Mellow D</h5>
+              </igc-card-header>
+              <igc-card-content>
+                  <p>Far far away, behind the word mountains,
+                      far from the countries Vokalia and Consonantia,
+                      there live the blind texts.</p>
+              </igc-card-content>
+              <igc-card-actions>
+                  <igc-button>play album</igc-button>
+              </igc-card-actions>
+          </div>
+          <igc-card-media class="card-media">
+              <img src="here_media.jpg">
+          </igc-card-media>
+      </div>
+  </igc-card>
+  </div>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
