@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>NavDrawer Add Positions and Navbar</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+    <link rel="stylesheet" href="./node_modules/igniteui-webcomponents/src/styles/themes/material.css" type="text/css"></link>
+  </head>
+
+  <body>
+    <div id="root" style="display: flex;">
+        <igc-nav-drawer id="navDrawer" open="true">
+            <igc-nav-drawer-header-item>
+                Sample Drawer
+            </igc-nav-drawer-header-item>
+
+            <igc-nav-drawer-item>
+                <igc-icon slot="icon" name="home"></igc-icon>
+                <span slot="content">Home</span>
+            </igc-nav-drawer-item>
+
+            <igc-nav-drawer-item>
+                <igc-icon slot="icon" name="search"></igc-icon>
+                <span slot="content">Search</span>
+            </igc-nav-drawer-item>
+        </igc-nav-drawer>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
