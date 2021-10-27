@@ -23,11 +23,11 @@
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "@igniteui/material-icons-extended": "^2.9.0",
     "@infragistics/igniteui-webcomponents-core": "21.2.0-dev.633",
     "@infragistics/igniteui-webcomponents-inputs": "21.2.0-dev.633",
     "@infragistics/igniteui-webcomponents-layouts": "21.2.0-dev.633",
-    "igniteui-webcomponents": "igniteui-webcomponents-0.0.0.tgz",
+    "igniteui-webcomponents": "^1.0.0-beta",
+    "lit": "^2.0.2",
     "lit-html": "^1.2.1",
     "tslib": "^2.0.0"
   },
