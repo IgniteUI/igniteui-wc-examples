@@ -1,3 +1,4 @@
+import 'igniteui-webcomponents/src/styles/themes/material.css';
 import "igniteui-webcomponents";
 import { IgcListComponent, IgcRadioGroupComponent } from "igniteui-webcomponents";
 
