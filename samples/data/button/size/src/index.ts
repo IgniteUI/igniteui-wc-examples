@@ -1,3 +1,4 @@
+import 'igniteui-webcomponents/src/styles/themes/material.css';
 import './ButtonSizingStyle.css';
 import 'igniteui-webcomponents';
 import { IgcButtonComponent, IgcRadioGroupComponent } from 'igniteui-webcomponents';
