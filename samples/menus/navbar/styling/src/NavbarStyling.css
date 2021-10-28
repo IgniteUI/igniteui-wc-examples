@@ -1,0 +1,15 @@
+igc-navbar {
+    background-color: gainsboro;
+}
+
+igc-navbar::part(start) {
+    color: dimgrey;
+}
+
+igc-navbar::part(middle) {
+    font-family: Titillium Web,sans-serif;
+}
+
+igc-navbar::part(end) {
+    color: darkgray;
+}
