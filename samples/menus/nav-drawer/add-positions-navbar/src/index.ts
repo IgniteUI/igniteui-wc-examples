@@ -1,13 +1,7 @@
-import IgcIconComponent from 'igniteui-webcomponents/src/components/icon/icon';
-import IgcButtonComponent from 'igniteui-webcomponents/src/components/button/button';
-import IgcNavbarComponent from 'igniteui-webcomponents/src/components/navbar/navbar';
+import 'igniteui-webcomponents';
+import 'igniteui-webcomponents/src/styles/themes/material.css';
+import { IgcNavDrawerComponent, IgcRadioGroupComponent } from 'igniteui-webcomponents';
 import { registerIcon } from 'igniteui-webcomponents/src/components/icon/icon.registry';
-import IgcNavDrawerComponent from 'igniteui-webcomponents/src/components/nav-drawer/nav-drawer';
-import IgcNavDrawerItemComponent from 'igniteui-webcomponents/src/components/nav-drawer/nav-drawer-item';
-import IgcNavDrawerHeaderItemComponent from 'igniteui-webcomponents/src/components/nav-drawer/nav-drawer-header-item';
-import IgcRadioComponent from 'igniteui-webcomponents/src/components/radio/radio';
-import IgcRadioGroupComponent from 'igniteui-webcomponents/src/components/radio-group/radio-group';
-
 export class NavDrawerAddPositionsNavbar {
     constructor() {
       const menu = document.getElementById('menu');
@@ -31,15 +25,6 @@ export class NavDrawerAddPositionsNavbar {
     }
 }
 
-customElements.get('igc-radio') || customElements.define('igc-radio', IgcRadioComponent);
-customElements.get('igc-radio-group') || customElements.define('igc-radio-group', IgcRadioGroupComponent);
-customElements.get('igc-icon') || customElements.define('igc-icon', IgcIconComponent);
-customElements.get('igc-button') || customElements.define('igc-button', IgcButtonComponent);
-customElements.get('igc-navbar') || customElements.define('igc-navbar', IgcNavbarComponent);
-customElements.get('igc-nav-drawer') || customElements.define('igc-nav-drawer', IgcNavDrawerComponent);
-customElements.get('igc-nav-drawer-item') || customElements.define('igc-nav-drawer-item', IgcNavDrawerItemComponent);
-customElements.get('igc-nav-drawer-header-item') || customElements.define('igc-nav-drawer-header-item', IgcNavDrawerHeaderItemComponent);
-
 registerIcon(
   'search',
   'https://unpkg.com/material-design-icons@3.0.1/action/svg/production/ic_search_24px.svg'
@@ -54,6 +39,5 @@ registerIcon(
   'menu',
   'https://unpkg.com/material-design-icons@3.0.1/navigation/svg/production/ic_menu_24px.svg'
 );
-
 
 new NavDrawerAddPositionsNavbar();
