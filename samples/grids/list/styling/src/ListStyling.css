@@ -1,6 +1,18 @@
-:root {
-    --igc-surface-500: 204, 100%, 50%;
+igc-list-header {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3f51b5;
+}
+
+igc-list-item::part(title) {
+    font-size: 18px;
+    color: #3f51b5;
+}
+
+igc-list-item::part(subtitle) {
+    color: #0099ff;
+}
+
+igc-list-item::part(end) {
     --igc-secondary-500: 230,48%,47%;
-    --igc-overline-font-size: 1rem;
-    --igc-overline-font-weight: 700;
 }
