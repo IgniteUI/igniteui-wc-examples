@@ -12,7 +12,7 @@ export class NavDrawerAddPositionsNavbar {
       })
 
       document.getElementById('root')!.onclick = (e) => {
-        if(e.target != document.getElementById('navDrawer')) {
+        if(e.target === document.getElementById('content')) {
           navDrawer.hide();
         }
       }

@@ -11,8 +11,6 @@
   </head>
 
   <body>
-    <igc-button id="toggleBtn" style="margin-left: 50px;">Toggle</igc-button>
-
     <div id="root" style="display: flex;">
         <igc-nav-drawer id="navDrawer">
             <igc-nav-drawer-header-item>
@@ -39,6 +37,10 @@
               </igc-nav-drawer-item>
             </div>
         </igc-nav-drawer>
+
+        <div id="content" style="width: 100%">
+          <igc-button id="toggleBtn" style="margin-left: 50px;">Toggle</igc-button>
+        </div>
     </div>
 
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
