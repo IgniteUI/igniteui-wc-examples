@@ -5,6 +5,7 @@ import { RouterMaps } from "./samples/maps/router";
 import { RouterExcel } from "./samples/excel/router";
 import { RouterLayouts } from "./samples/layouts/router";
 import { RouterEditors } from "./samples/editors/router";
+import { RouterMenus } from "./samples/menus/router";
 import { RouterInputs } from "./samples/inputs/router";
 import { RouterScheduling } from "./samples/scheduling/router";
 import { RouterInputs } from "./samples/inputs/router";
@@ -103,6 +104,9 @@ export class Router {
         }
         if (route.indexOf("/editors/") >= 0) {
             this.displaySample(await RouterEditors.get(route));
+        }
+        if (route.indexOf("/menus/") >= 0) {
+            this.displaySample(await RouterMenus.get(route));
         }
         if (route.indexOf("/inputs/") >= 0) {
             this.displaySample(await RouterInputs.get(route));
