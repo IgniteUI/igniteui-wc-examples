@@ -35,6 +35,7 @@ log('loaded');
 
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSources = [
+    // igConfig.SamplesCopyPath + '/charts/**/package.json',
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
@@ -43,33 +44,42 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
     igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
     igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
+
     igConfig.SamplesCopyPath + '/maps/**/package.json',
+
+    // igConfig.SamplesCopyPath + '/excel/**/package.json',
     igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
     igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
+
+    // igConfig.SamplesCopyPath + '/gauges/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
-    igConfig.SamplesCopyPath + '/grids/**/package.json',
+
+    // igConfig.SamplesCopyPath + '/grids/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
+
+    // igConfig.SamplesCopyPath + '/layouts/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/card/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/avatar/**/package.json',
- // igConfig.SamplesCopyPath + '/layouts/**/package.json',
 
     igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
 
-    igConfig.SamplesCopyPath + '/menus/**/package.json',
- // igConfig.SamplesCopyPath + '/menus/nav-drawer/**/package.json',
- // igConfig.SamplesCopyPath + '/menus/nav-bar/**/package.json',
+    // igConfig.SamplesCopyPath + '/menus/**/package.json',
+    igConfig.SamplesCopyPath + '/menus/nav-drawer/**/package.json',
+    igConfig.SamplesCopyPath + '/menus/nav-bar/**/package.json',
 
-    igConfig.SamplesCopyPath + '/inputs/**/package.json',
- // igConfig.SamplesCopyPath + '/inputs/link-button/**/package.json',
- // igConfig.SamplesCopyPath + '/inputs/button/**/package.json',
- // igConfig.SamplesCopyPath + '/inputs/badge/**/package.json',
- // igConfig.SamplesCopyPath + '/inputs/checkbox/**/package.json',
- // igConfig.SamplesCopyPath + '/inputs/radio/**/package.json',
- // igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
- // igConfig.SamplesCopyPath + '/inputs/switch/**/package.json',
+    // igConfig.SamplesCopyPath + '/inputs/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/link-button/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/button/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/badge/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/checkbox/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/radio/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/switch/**/package.json',
 
     // excluding samples that are not finished:
      '!' + igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',
@@ -310,7 +320,7 @@ function copySamples(cb) {
             //   sample.SampleFolderPath + '/**/*.*',
               sample.SampleFolderPath + '/src/*.*',
         // '!' + sample.SampleFolderPath + '/src/index.ts',
-        '!' + sample.SampleFolderPath + '/src/index.css',
+       // '!' + sample.SampleFolderPath + '/src/index.css',
         '!' + sample.SampleFolderPath + '/src/typedecls.d.ts',
         // '!' + sample.SampleFolderPath + '/sandbox.config.json',
         // '!' + sample.SampleFolderPath + '/README.md',
