@@ -6,7 +6,7 @@ import { RouterExcel } from "./samples/excel/router";
 import { RouterLayouts } from "./samples/layouts/router";
 import { RouterEditors } from "./samples/editors/router";
 import { RouterScheduling } from "./samples/scheduling/router";
-import { RouterData } from "./samples/data/router";
+import { RouterInputs } from "./samples/inputs/router";
 
 export class Router {
 
@@ -103,13 +103,11 @@ export class Router {
         if (route.indexOf("/editors/") >= 0) {
             this.displaySample(await RouterEditors.get(route));
         }
-<<<<<<< HEAD
         if (route.indexOf("/scheduling/") >= 0) {
             this.displaySample(await RouterScheduling.get(route));
-=======
-        if (route.indexOf("/data/") >= 0) {
-            this.displaySample(await RouterData.get(route));
->>>>>>> ff7cb8d1 (sample(radio): add overview example)
+        }
+        if (route.indexOf("/inputs/") >= 0) {
+            this.displaySample(await RouterInputs.get(route));
         }
 
         else if (route !== "/" && route !== "/index") {

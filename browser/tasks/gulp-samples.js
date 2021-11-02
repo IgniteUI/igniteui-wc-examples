@@ -53,7 +53,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/editors/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
     igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
-    igConfig.SamplesCopyPath + '/data/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/**/package.json',
 
     // igConfig.SamplesCopyPath + '/layouts/**/package.json',
     // excluding samples that are not finished:
