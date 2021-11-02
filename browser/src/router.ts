@@ -6,6 +6,7 @@ import { RouterExcel } from "./samples/excel/router";
 import { RouterLayouts } from "./samples/layouts/router";
 import { RouterEditors } from "./samples/editors/router";
 import { RouterScheduling } from "./samples/scheduling/router";
+import { RouterInputs } from "./samples/inputs/router";
 
 export class Router {
 
@@ -104,6 +105,9 @@ export class Router {
         }
         if (route.indexOf("/scheduling/") >= 0) {
             this.displaySample(await RouterScheduling.get(route));
+        }
+        if (route.indexOf("/inputs/") >= 0) {
+            this.displaySample(await RouterInputs.get(route));
         }
 
         else if (route !== "/" && route !== "/index") {
