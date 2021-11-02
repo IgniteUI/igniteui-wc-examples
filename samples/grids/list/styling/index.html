@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>List Styling</title>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+    <link href="https://static.infragistics.com/xplatform/css/samples/custom-legend.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <igc-list>
+        <igc-list-header>
+          <h1>Contacts</h1>
+        </igc-list-header>
+        <igc-list-item>
+          <igc-avatar slot="start" src="../../../../assets/avatar/1.jpg" shape="circle">AA</igc-avatar>
+          <h2 slot="title">Terrance Orta</h2>
+          <span slot="subtitle">770-504-2217</span>
+          <igc-button slot="end" variant="contained">
+            Text
+          </igc-button>
+          <igc-button slot="end" variant="contained">
+            Call
+          </igc-button>
+        </igc-list-item>
+        <igc-list-item>
+          <igc-avatar slot="start" src="../../../../assets/avatar/2.jpg" shape="circle">AA</igc-avatar>
+          <h2 slot="title">Richard Mahoney</h2>
+          <span slot="subtitle">423-676-2869</span>
+          <igc-button slot="end" variant="contained">
+            Text
+          </igc-button>
+          <igc-button slot="end" variant="contained">
+            Call
+          </igc-button>
+        </igc-list-item>
+        <igc-list-item>
+          <igc-avatar slot="start" src="../../../../assets/avatar/3.jpg" shape="circle">AA</igc-avatar>
+          <h2 slot="title">Donna Price</h2>
+          <span slot="subtitle">859-496-2817</span>
+          <igc-button slot="end" variant="contained">
+            Text
+          </igc-button>
+          <igc-button slot="end" variant="contained">
+            Call
+          </igc-button>
+        </igc-list-item>
+      </igc-list>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
