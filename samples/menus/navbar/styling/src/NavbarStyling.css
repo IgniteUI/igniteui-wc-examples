@@ -1,9 +1,13 @@
+igc-icon {
+    color: currentColor;
+}
+
 igc-navbar {
     background-color: gainsboro;
 }
 
 igc-navbar::part(start) {
-    color: dimgrey;
+    color: darkolivegreen;
 }
 
 igc-navbar::part(middle) {
