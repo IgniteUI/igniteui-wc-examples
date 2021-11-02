@@ -114,6 +114,10 @@ export class Router {
             this.displaySample(await RouterInputs.get(route));
         }
 
+        if (route.indexOf("/inputs/") >= 0) {
+            this.displaySample(await RouterInputs.get(route));
+        }
+
         else if (route !== "/" && route !== "/index") {
             console.log("SB missing router for " + route)
             // this.navigateToRoute(""); // TODO add fallback
