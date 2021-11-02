@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>Card Styling</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample" style="align-items: center;">
+  <div class="card-wrapper">
+    <igc-card>
+      <igc-card-media height="180px">
+          <img src="https://images.unsplash.com/photo-1541516160071-4bb0c5af65ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
+      </igc-card-media>
+
+      <igc-card-header>
+          <h3 slot="title">Jane Doe</h3>
+          <h5 slot="subtitle">Professional Photographer</h5>
+      </igc-card-header>
+
+      <igc-card-content>
+          <p>Hi! I'm Jane, photographer and filmmaker.
+              Photography is a way of feeling, of touching,
+              of loving. What you have caught on film is captured forever...
+              it remembers little things, long after you have
+              forgotten everything.</p>
+      </igc-card-content>
+
+      <igc-card-actions>
+          <div slot="end">
+              <igc-icon-button name="twitter">
+                  <igc-ripple></igc-ripple>
+              </igc-icon-button>
+              <igc-icon-button name="facebook">
+                  <igc-ripple></igc-ripple>
+              </igc-icon-button>
+              <igc-icon-button name="instagram">
+                  <igc-ripple></igc-ripple>
+              </igc-icon-button>
+          </div>
+      </igc-card-actions>
+
+  </igc-card>
+  </div>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

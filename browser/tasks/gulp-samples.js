@@ -52,6 +52,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/grids/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
+    igConfig.SamplesCopyPath + '/layouts/card/**/package.json',
 
  // igConfig.SamplesCopyPath + '/layouts/**/package.json',
 
