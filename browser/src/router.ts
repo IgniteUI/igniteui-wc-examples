@@ -8,7 +8,6 @@ import { RouterEditors } from "./samples/editors/router";
 import { RouterMenus } from "./samples/menus/router";
 import { RouterInputs } from "./samples/inputs/router";
 import { RouterScheduling } from "./samples/scheduling/router";
-import { RouterInputs } from "./samples/inputs/router";
 
 export class Router {
 
@@ -117,18 +116,9 @@ export class Router {
         if (route.indexOf("/inputs/") >= 0) {
             this.displaySample(await RouterInputs.get(route));
         }
-
-        if (route.indexOf("/inputs/") >= 0) {
-            this.displaySample(await RouterInputs.get(route));
-        }
-
         else if (route !== "/" && route !== "/index") {
             console.log("SB missing router for " + route)
             // this.navigateToRoute(""); // TODO add fallback
-        }
-
-        if (route.indexOf("/inputs/") >= 0) {
-            this.displaySample(await RouterInputs.get(route));
         }
 
         // switch (route) {
