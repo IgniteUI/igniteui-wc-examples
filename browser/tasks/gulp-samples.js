@@ -52,9 +52,18 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/grids/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
-    igConfig.SamplesCopyPath + '/menus/nav-drawer/**/package.json',
 
-    // igConfig.SamplesCopyPath + '/layouts/**/package.json',
+ // igConfig.SamplesCopyPath + '/layouts/**/package.json',
+
+    igConfig.SamplesCopyPath + '/menus/nav-drawer/**/package.json',
+    igConfig.SamplesCopyPath + '/menus/navbar/**/package.json',
+
+    igConfig.SamplesCopyPath + '/inputs/**/package.json',
+ // igConfig.SamplesCopyPath + '/inputs/link-button/**/package.json',
+ // igConfig.SamplesCopyPath + '/inputs/button/**/package.json',
+
+ // igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
+
     // excluding samples that are not finished:
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**',
