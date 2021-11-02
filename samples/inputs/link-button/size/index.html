@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Link Button Sizing</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <igc-radio-group id="radio-group" alignment="horizontal">
+        <igc-radio name="size" value="small" label-position="after">Small</igc-radio>
+        <igc-radio name="size" value="medium" label-position="after">Medium</igc-radio>
+        <igc-radio name="size" value="large" label-position="after" checked="true">Large</igc-radio>
+      </igc-radio-group>
+
+      <div class="button-container">
+        <igc-link-button
+          id="flat-btn"
+          variant="flat"
+          target="_blank"
+          href="https://www.infragistics.com/webcomponentssite/components/general-getting-started.html">
+            Flat
+        </igc-link-button>
+        <igc-link-button
+          id="contained-btn"
+          variant="contained"
+          target="_blank"
+          href="https://www.infragistics.com/webcomponentssite/components/general-getting-started.html">
+            Contained
+        </igc-link-button>
+        <igc-link-button
+          id="outlined-btn"
+          variant="outlined"
+          target="_blank"
+          href="https://www.infragistics.com/webcomponentssite/components/general-getting-started.html">
+            Outlined
+        </igc-link-button>
+        <igc-link-button
+          id="fab-btn"
+          variant="fab"
+          target="_blank"
+          href="https://www.infragistics.com/webcomponentssite/components/general-getting-started.html">
+            FAB
+        </igc-link-button>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
