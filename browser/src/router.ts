@@ -123,6 +123,10 @@ export class Router {
             // this.navigateToRoute(""); // TODO add fallback
         }
 
+        if (route.indexOf("/inputs/") >= 0) {
+            this.displaySample(await RouterInputs.get(route));
+        }
+
         // switch (route) {
         //     //NOTE! this is spelled out explicitly on purpose. I'm not sure the bundlers would like it if you
         //     //tried to make this more dynamic.

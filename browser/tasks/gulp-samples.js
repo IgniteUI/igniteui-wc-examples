@@ -54,7 +54,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
 
     igConfig.SamplesCopyPath + '/inputs/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/link-button/**/package.json',
+    //igConfig.SamplesCopyPath + '/inputs/link-button/**/package.json',
 
     igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/**/package.json',
