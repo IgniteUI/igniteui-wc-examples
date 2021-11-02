@@ -1,0 +1,22 @@
+.card-wrapper {
+    max-width: 320px;
+    min-width: 220px;
+}
+
+igc-card {
+    background-color: #011627;
+}
+
+igc-card-header,
+igc-card-content {
+    color: #FEFEFE;
+} 
+
+igc-card-header::part(subtitle) {
+    color: #ECAA53;
+    opacity: 0.9;
+}
+
+igc-icon-button::part(icon) {
+    fill: #ECAA53;
+}
