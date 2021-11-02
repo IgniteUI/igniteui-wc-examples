@@ -18,10 +18,12 @@ export class LinkButtonSizing {
         this.fabButton = document.getElementById('fab-btn') as IgcLinkButtonComponent;
 
         this.radioGroup.addEventListener('click', (radio: any) => {
-            this.outlinedButton.size = radio.target.value;
-            this.flatButton.size = radio.target.value;
-            this.containedButton.size = radio.target.value;
-            this.fabButton.size = radio.target.value;
+            if (radio.target.value) {
+                this.outlinedButton.size = radio.target.value;
+                this.flatButton.size = radio.target.value;
+                this.containedButton.size = radio.target.value;
+                this.fabButton.size = radio.target.value;
+            }
         });        
     }
 }
