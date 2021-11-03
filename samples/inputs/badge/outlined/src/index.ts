@@ -1,6 +1,8 @@
 import 'igniteui-webcomponents/src/components/badge/badge';
 import 'igniteui-webcomponents/src/styles/themes/material.css';
 
-export class BadgeOutlined {}
+export class BadgeOutlined {
+    constructor() {}
+}
 
 new BadgeOutlined();
