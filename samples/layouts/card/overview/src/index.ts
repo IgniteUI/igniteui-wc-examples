@@ -4,13 +4,12 @@ import { registerIconFromText } from 'igniteui-webcomponents';
 import { all } from '@igniteui/material-icons-extended';
 import './CardOverview.css';
 
+all.forEach((icon: any) => {
+    registerIconFromText(icon.name, icon.value);
+});
 
 export class CardOverview {
-    constructor() {
-        all.forEach((icon: any) => {
-            registerIconFromText(icon.name, icon.value);
-        });
-    }
+    constructor() {}
 }
 
 new CardOverview();
