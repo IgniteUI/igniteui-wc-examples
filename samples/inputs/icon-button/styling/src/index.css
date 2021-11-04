@@ -1,0 +1,10 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+igc-icon-button::part(base) {
+  padding: 12px;
+  color: olive;
+}
+
+igc-icon-button::part(icon) {
+  --size: 32px;
+}
