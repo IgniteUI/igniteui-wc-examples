@@ -4,13 +4,13 @@ import { registerIcon } from 'igniteui-webcomponents/src/components/icon/icon.re
 import 'igniteui-webcomponents/src/styles/themes/material.css';
 
 export class IconAvatar {
-    constructor() {}
+    constructor() {
+        registerIcon(
+            "home",
+            "https://unpkg.com/material-design-icons@3.0.1/action/svg/production/ic_home_24px.svg",
+            "material"
+        );
+    }
 }
-
-registerIcon(
-    "home",
-    "https://unpkg.com/material-design-icons@3.0.1/action/svg/production/ic_home_24px.svg",
-    "material"
-);
 
 new IconAvatar();
