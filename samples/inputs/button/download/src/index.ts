@@ -1,8 +1,8 @@
 import 'igniteui-webcomponents/src/styles/themes/material.css';
 import 'igniteui-webcomponents';
 
-export class ContainedLinkButton {
+export class DownloadButton {
     constructor() {}
 }
 
-new ContainedLinkButton();
+new DownloadButton();
