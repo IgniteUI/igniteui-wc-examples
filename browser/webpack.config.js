@@ -55,20 +55,20 @@ var config = {
             enforce: 'pre',
             test: /\.worker\.ts$/,
             exclude: [/\/node_modules\//],
-            use: [ 'worker-loader', 'awesome-typescript-loader', 'source-map-loader' ]
+            use: [ 'worker-loader', 'ts-loader', 'source-map-loader' ]
           },
           {
             enforce: 'pre',
             test: /\.tsx?$/,
             exclude: [/\/node_modules\//],
-            use: ['awesome-typescript-loader', 'source-map-loader']
+            use: ['ts-loader', 'source-map-loader']
           }
         ]
       },
       !isProd
         ? {
             test: /\.(js|ts)$/,
-            loader: 'istanbul-instrumenter-loader',
+            loader: 'ts-loader',
             exclude: [/[\\/]node_modules[\\/]/],
             options: {
               esModules: true
