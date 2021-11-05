@@ -1,7 +1,9 @@
-import 'igniteui-webcomponents/src/components/checkbox/checkbox';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/material.css';
 import './CheckboxLabelStyles.css'
 
-export class CheckboxLabel {}
+export class CheckboxLabel {
+    constructor() {}
+}
 
 new CheckboxLabel();
