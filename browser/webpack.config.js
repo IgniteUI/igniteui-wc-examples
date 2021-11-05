@@ -70,16 +70,12 @@ var config = {
             test: /\.(js|ts)$/,
             loader: 'istanbul-instrumenter-loader',
             exclude: [/[\\/]node_modules[\\/]/],
-            query: {
+            options: {
               esModules: true
             }
           }
         : null,
-      { test: /\.html$/, loader: 'html-loader' },
-      { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
-      { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
-      { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
-      { test: /\.xml$/, use: ['xml-loader'] }
+     
     ].filter(Boolean)
   },
   resolve: {
@@ -87,7 +83,7 @@ var config = {
   },
   plugins: plugins,
   devServer: {
-    contentBase: path.join(__dirname, 'dist/'),
+    static: path.join(__dirname, 'dist/'),
     compress: true,
     port: 4200,
     hot: true,
