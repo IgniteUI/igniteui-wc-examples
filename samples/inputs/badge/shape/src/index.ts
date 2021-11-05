@@ -1,6 +1,8 @@
 import 'igniteui-webcomponents';
-import './BadgeShapeStyles.css'
+import 'igniteui-webcomponents/themes/material.css';
 
-export class BadgeShape {}
+export class BadgeShape {
+    constructor() {}
+}
 
 new BadgeShape();
