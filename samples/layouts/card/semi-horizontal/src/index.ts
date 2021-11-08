@@ -1,9 +1,13 @@
-import 'igniteui-webcomponents';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import { defineComponents, IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent, 
+    IgcAvatarComponent, IgcButtonComponent } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/material.css';
 import './SemiHorizontal.css';
 
 export class CardSemiHorizontal {
-    constructor() {}
+    constructor() {
+        defineComponents(IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent, 
+            IgcAvatarComponent, IgcButtonComponent);
+    }
 }
 
 new CardSemiHorizontal();

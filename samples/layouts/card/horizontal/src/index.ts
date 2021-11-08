@@ -1,9 +1,11 @@
-import 'igniteui-webcomponents';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import { defineComponents, IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent} from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/material.css';
 import './CardHorizontal.css';
 
 export class CardHorizontal {
-    constructor() {}
+    constructor() {
+        defineComponents(IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent);
+    }
 }
 
 new CardHorizontal();
