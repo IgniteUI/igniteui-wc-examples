@@ -1,8 +1,10 @@
-import 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/material.css';
+import { defineComponents, IgcBadgeComponent } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/bootstrap.css';
 
 export class BadgeShape {
-    constructor() {}
+    constructor() {
+        defineComponents(IgcBadgeComponent);
+    }
 }
 
 new BadgeShape();

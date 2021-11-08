@@ -1,5 +1,5 @@
 import {defineComponents, IgcFormComponent, IgcInputComponent, IgcCheckboxComponent, IgcButtonComponent } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/material.css'
+import 'igniteui-webcomponents/themes/bootstrap.css';
 
 export class FormOverview {
     constructor() {
@@ -21,6 +21,5 @@ export class FormOverview {
         });
     }
 }
-
 
 new FormOverview();
