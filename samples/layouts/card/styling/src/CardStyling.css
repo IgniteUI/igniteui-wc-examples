@@ -7,10 +7,10 @@ igc-card {
     background-color: #011627;
 }
 
-igc-card-header,
-igc-card-content {
+igc-card-content,
+igc-card-header::part(title) { 
     color: #FEFEFE;
-} 
+}
 
 igc-card-header::part(subtitle) {
     color: #ECAA53;

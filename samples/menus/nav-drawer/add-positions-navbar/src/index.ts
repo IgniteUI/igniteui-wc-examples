@@ -5,7 +5,7 @@ import 'igniteui-webcomponents/themes/bootstrap.css';
 export class NavDrawerAddPositionsNavbar {
     constructor() {
       defineComponents(IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponent, IgcNavDrawerItemComponent,
-        IgcIconComponent, IgcRadioComponent, IgcRadioGroupComponent, registerIcon);
+        IgcIconComponent, IgcRadioComponent, IgcRadioGroupComponent);
       const menu = document.getElementById('menu');
       const navDrawer = document.querySelector('igc-nav-drawer') as IgcNavDrawerComponent;
 

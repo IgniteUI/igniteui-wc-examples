@@ -1,13 +1,12 @@
-import IgcCalendarComponent from 'igniteui-webcomponents/src/components/calendar/calendar';
-import 'igniteui-webcomponents/src/components/calendar/calendar';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
-import { DateRangeType } from 'igniteui-webcomponents/src/components/calendar/common/calendar.model';
+import { defineComponents, IgcCalendarComponent, DateRangeType } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/bootstrap.css';
 
 export class CalendarSpecialDates {
 
     private calendar: IgcCalendarComponent;
 
     constructor() {
+        defineComponents(IgcCalendarComponent);
         this.calendar = document.getElementById('calendar1') as IgcCalendarComponent;
 
         const today = new Date();
@@ -15,7 +14,6 @@ export class CalendarSpecialDates {
             new Date(today.getFullYear(), today.getMonth(), 3),
             new Date(today.getFullYear(), today.getMonth(), 8)
         ];
-
         this.calendar.specialDates = [{ type: DateRangeType.Between, dateRange: range }];
     }
 }

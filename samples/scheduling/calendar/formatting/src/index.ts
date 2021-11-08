@@ -1,9 +1,5 @@
-import IgcCalendarComponent from 'igniteui-webcomponents/src/components/calendar/calendar';
-import IgcRadioComponent from 'igniteui-webcomponents/src/components/radio/radio';
-import 'igniteui-webcomponents/src/components/radio-group/radio-group';
-import 'igniteui-webcomponents/src/components/radio/radio';
-import 'igniteui-webcomponents/src/components/calendar/calendar';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import { defineComponents, IgcCalendarComponent, IgcRadioComponent, IgcRadioGroupComponent } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/bootstrap.css';
 
 export class CalendarFormatting {
 
@@ -11,6 +7,7 @@ export class CalendarFormatting {
     private radios: NodeListOf<IgcRadioComponent>;
 
     constructor() {
+        defineComponents(IgcCalendarComponent, IgcRadioComponent, IgcRadioGroupComponent);
         this.calendar = document.getElementById('calendar1') as IgcCalendarComponent;
         this.calendar.formatOptions = {
             month: 'short',

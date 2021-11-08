@@ -3,7 +3,7 @@ import { defineComponents, IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponen
 import 'igniteui-webcomponents/themes/bootstrap.css';
 export class NavDrawerAddItems {
     constructor() {
-      defineComponents(IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponent, IgcNavDrawerItemComponent, IgcIconComponent, registerIcon);
+      defineComponents(IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponent, IgcNavDrawerItemComponent, IgcIconComponent);
 
       registerIcon(
         'search',
