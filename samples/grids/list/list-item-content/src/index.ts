@@ -1,8 +1,10 @@
-import 'igniteui-webcomponents/src/styles/themes/material.css';
-import 'igniteui-webcomponents';
+import {defineComponents, IgcListComponent, IgcListHeaderComponent, IgcListItemComponent} from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/bootstrap.css';
 
 export class ListItemContent {
-    constructor() {}
+    constructor() {
+        defineComponents(IgcListComponent, IgcListHeaderComponent, IgcListItemComponent);
+    }
 }
 
 new ListItemContent();
