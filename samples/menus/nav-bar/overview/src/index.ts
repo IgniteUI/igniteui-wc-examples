@@ -1,8 +1,10 @@
-import 'igniteui-webcomponents';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import { defineComponents, IgcNavbarComponent } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/bootstrap.css';
 
 export class NavbarOverview {
-    constructor() { }
+    constructor() {
+        defineComponents(IgcNavbarComponent);
+    }
 }
 
 new NavbarOverview();

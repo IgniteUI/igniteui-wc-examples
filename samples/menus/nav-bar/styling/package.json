@@ -1,7 +1,7 @@
 {
-  "name": "wc-navbar-styling",
+  "name": "wc-nav-bar-styling",
   "version": "1.0.0",
-  "description": "This project provides example of Navbar Styling using IgniteUI for Web Components",
+  "description": "This project provides example of Nav Bar Styling using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
@@ -19,7 +19,7 @@
   },
   "author": "Infragistics",
   "dependencies": {
-    "igniteui-webcomponents": "1.0.0-beta",
+    "igniteui-webcomponents": "1.0.0-beta.2",
     "lit": "^2.0.2"
   },
   "devDependencies": {
@@ -37,7 +37,14 @@
     "typescript": "^3.7.5",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "@types/source-map": "^0.5.7",
+    "babel-plugin-transform-custom-element-classes": "^0.1.0",
+    "csv-loader": "^3.0.2",
+    "file-loader": "^4.2.0",
+    "source-map": "^0.7.3",
+    "parcel-bundler": "^1.6.1",
+    "xml-loader": "^1.2.1"
   },
   "license": "",
   "homepage": "."
