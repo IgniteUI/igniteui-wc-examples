@@ -3,10 +3,10 @@ import { defineComponents, IgcCardComponent, IgcCardHeaderComponent, IgcCardCont
 import 'igniteui-webcomponents/themes/bootstrap.css';
 import './SemiHorizontal.css';
 
+defineComponents(IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent,
+    IgcAvatarComponent, IgcButtonComponent);
 export class CardSemiHorizontal {
     constructor() {
-        defineComponents(IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent,
-            IgcAvatarComponent, IgcButtonComponent);
     }
 }
 

@@ -2,9 +2,9 @@ import { defineComponents, IgcNavbarComponent, IgcIconComponent, registerIconFro
 import 'igniteui-webcomponents/themes/bootstrap.css';
 import './NavbarStyling.css';
 
+defineComponents(IgcNavbarComponent, IgcIconComponent);
 export class NavbarStyling {
     constructor() {
-        defineComponents(IgcNavbarComponent, IgcIconComponent);
         registerIconFromText(
             'home',
             '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>'

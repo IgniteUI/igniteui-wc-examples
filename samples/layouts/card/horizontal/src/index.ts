@@ -2,9 +2,9 @@ import { defineComponents, IgcCardComponent, IgcCardHeaderComponent, IgcCardCont
 import 'igniteui-webcomponents/themes/bootstrap.css';
 import './CardHorizontal.css';
 
+defineComponents(IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent);
 export class CardHorizontal {
     constructor() {
-        defineComponents(IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent);
     }
 }
 

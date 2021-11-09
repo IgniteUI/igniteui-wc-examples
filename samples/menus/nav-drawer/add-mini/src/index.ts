@@ -2,10 +2,10 @@ import { defineComponents, IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponen
   IgcButtonComponent, IgcIconComponent, registerIcon } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/bootstrap.css';
 
+defineComponents(IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponent, IgcNavDrawerItemComponent,
+  IgcButtonComponent, IgcIconComponent);
 export class NavDrawerAddMini {
     constructor() {
-      defineComponents(IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponent, IgcNavDrawerItemComponent,
-        IgcButtonComponent, IgcIconComponent);
       const btn = document.getElementById('toggleBtn');
       const navDrawer = document.querySelector('igc-nav-drawer') as IgcNavDrawerComponent;
 

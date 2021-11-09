@@ -1,12 +1,12 @@
 import { defineComponents, IgcCalendarComponent, DateRangeType } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/bootstrap.css';
 
+defineComponents(IgcCalendarComponent);
 export class CalendarDisabledDates {
 
     private calendar: IgcCalendarComponent;
 
     constructor() {
-        defineComponents(IgcCalendarComponent);
         this.calendar = document.getElementById('calendar1') as IgcCalendarComponent;
 
         const today = new Date();

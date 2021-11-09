@@ -2,10 +2,10 @@ import { defineComponents, IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponen
   IgcIconComponent, IgcRadioComponent, IgcRadioGroupComponent, registerIcon } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/bootstrap.css';
 
+defineComponents(IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponent, IgcNavDrawerItemComponent,
+  IgcIconComponent, IgcRadioComponent, IgcRadioGroupComponent);
 export class NavDrawerAddPositionsNavbar {
     constructor() {
-      defineComponents(IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponent, IgcNavDrawerItemComponent,
-        IgcIconComponent, IgcRadioComponent, IgcRadioGroupComponent);
       const menu = document.getElementById('menu');
       const navDrawer = document.querySelector('igc-nav-drawer') as IgcNavDrawerComponent;
 

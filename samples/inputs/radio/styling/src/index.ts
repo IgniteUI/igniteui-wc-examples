@@ -2,9 +2,9 @@ import {defineComponents, IgcRadioComponent, IgcRadioGroupComponent } from 'igni
 import 'igniteui-webcomponents/themes/bootstrap.css';
 import "./index.css";
 
+defineComponents(IgcRadioComponent, IgcRadioGroupComponent);
 export class RadioStyling {
   constructor() {
-    defineComponents(IgcRadioComponent, IgcRadioGroupComponent);
   }
 }
 

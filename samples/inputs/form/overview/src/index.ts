@@ -1,9 +1,9 @@
 import {defineComponents, IgcFormComponent, IgcInputComponent, IgcCheckboxComponent, IgcButtonComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/bootstrap.css';
 
+defineComponents(IgcFormComponent, IgcInputComponent, IgcCheckboxComponent, IgcButtonComponent);
 export class FormOverview {
     constructor() {
-        defineComponents(IgcFormComponent, IgcInputComponent, IgcCheckboxComponent, IgcButtonComponent);
         document.addEventListener('igcSubmit', function (event) {
             const customEvent = event as CustomEvent<FormData>;
             const formData = customEvent.detail;

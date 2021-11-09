@@ -1,13 +1,13 @@
 import { defineComponents, IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent,
         IgcButtonComponent, IgcIconButtonComponent, IgcRippleComponent, registerIconFromText } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/bootstrap.css';
 import { all } from '@igniteui/material-icons-extended';
+import 'igniteui-webcomponents/themes/bootstrap.css';
 import './CardOverview.css';
 
+defineComponents(IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent,
+    IgcButtonComponent, IgcIconButtonComponent, IgcRippleComponent);
 export class CardOverview {
     constructor() {
-        defineComponents(IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent,
-            IgcButtonComponent, IgcIconButtonComponent, IgcRippleComponent);
         all.forEach((icon: any) => {
             registerIconFromText(icon.name, icon.value);
         });
