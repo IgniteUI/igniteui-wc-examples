@@ -35,10 +35,10 @@ exports.updateReadme = updateReadme = gulp.series(
     sb.updateSampleReadme,
 );
 
-// exports.updateSamplePackages = updatePackages = gulp.series(
-//     sb.findSamples,
-//     sb.updateSamplePackages,
-// );
+exports.updateSamplePackages = updatePackages = gulp.series(
+    sb.findSamples,
+    sb.updateSamplePackages,
+);
 
 // exports.updateSampleResources = updateSampleResources = gulp.series(
 //     sb.findSamples,
