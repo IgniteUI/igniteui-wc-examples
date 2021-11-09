@@ -21,7 +21,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "^1.0.0-beta.1",
+    "igniteui-webcomponents": "1.0.0-beta.2",
     "lit": "^2.0.2",
     "tslib": "^2.0.0"
   },

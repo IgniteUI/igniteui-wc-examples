@@ -1,6 +1,7 @@
-import "igniteui-webcomponents/themes/material.css";
-import { registerIcon } from "igniteui-webcomponents/components/icon/icon.registry";
-import "igniteui-webcomponents";
+import { defineComponents, IgcIconButtonComponent, registerIcon } from "igniteui-webcomponents";
+import "igniteui-webcomponents/themes/bootstrap.css";
+
+defineComponents(IgcIconButtonComponent);
 
 export class IconButtonVariants {
     constructor() {
