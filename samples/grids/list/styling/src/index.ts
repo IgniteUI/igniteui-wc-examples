@@ -1,4 +1,4 @@
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import 'igniteui-webcomponents/themes/material.css';
 import './ListStyling.css';
 import 'igniteui-webcomponents';
 

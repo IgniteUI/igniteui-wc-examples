@@ -1,5 +1,5 @@
-import "igniteui-webcomponents/src/components/radio/radio";
-import "igniteui-webcomponents/src/styles/themes/material.css";
+import "igniteui-webcomponents/components/radio/radio";
+import "igniteui-webcomponents/themes/material.css";
 
 export class RadioInvalid {
   constructor() {}

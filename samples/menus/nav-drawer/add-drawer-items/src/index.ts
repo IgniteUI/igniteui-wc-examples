@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
-import { registerIcon } from 'igniteui-webcomponents/src/components/icon/icon.registry';
+import 'igniteui-webcomponents/themes/material.css';
+import { registerIcon } from 'igniteui-webcomponents/components/icon/icon.registry';
 export class NavDrawerAddItems {
     constructor() {}
 }

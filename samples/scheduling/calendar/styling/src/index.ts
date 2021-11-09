@@ -1,6 +1,6 @@
 import './CalendarStyling.css'
-import 'igniteui-webcomponents/src/components/calendar/calendar';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import 'igniteui-webcomponents/components/calendar/calendar';
+import 'igniteui-webcomponents/themes/material.css';
 
 export class CalendarStyling {
     constructor() {

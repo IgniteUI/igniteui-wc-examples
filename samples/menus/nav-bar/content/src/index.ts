@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents';
 import { registerIconFromText } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import 'igniteui-webcomponents/themes/material.css';
 
 registerIconFromText(
     'home',

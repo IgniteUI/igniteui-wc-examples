@@ -1,9 +1,9 @@
-import IgcCalendarComponent from 'igniteui-webcomponents/src/components/calendar/calendar';
-import IgcRadioComponent from 'igniteui-webcomponents/src/components/radio/radio';
-import 'igniteui-webcomponents/src/components/radio-group/radio-group';
-import 'igniteui-webcomponents/src/components/radio/radio';
-import 'igniteui-webcomponents/src/components/calendar/calendar';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import IgcCalendarComponent from 'igniteui-webcomponents/components/calendar/calendar';
+import IgcRadioComponent from 'igniteui-webcomponents/components/radio/radio';
+import 'igniteui-webcomponents/components/radio-group/radio-group';
+import 'igniteui-webcomponents/components/radio/radio';
+import 'igniteui-webcomponents/components/calendar/calendar';
+import 'igniteui-webcomponents/themes/material.css';
 
 export class CalendarSize {
 

@@ -1,7 +1,7 @@
-import IgcCalendarComponent from 'igniteui-webcomponents/src/components/calendar/calendar';
-import 'igniteui-webcomponents/src/components/calendar/calendar';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
-import { DateRangeType } from 'igniteui-webcomponents/src/components/calendar/common/calendar.model';
+import IgcCalendarComponent from 'igniteui-webcomponents/components/calendar/calendar';
+import 'igniteui-webcomponents/components/calendar/calendar';
+import 'igniteui-webcomponents/themes/material.css';
+import { DateRangeType } from 'igniteui-webcomponents/components/calendar/common/calendar.model';
 
 export class CalendarSpecialDates {
 

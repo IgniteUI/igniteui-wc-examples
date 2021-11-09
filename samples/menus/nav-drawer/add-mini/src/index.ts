@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import 'igniteui-webcomponents/themes/material.css';
 import { IgcNavDrawerComponent } from 'igniteui-webcomponents';
-import { registerIcon } from 'igniteui-webcomponents/src/components/icon/icon.registry';
+import { registerIcon } from 'igniteui-webcomponents/components/icon/icon.registry';
 
 export class NavDrawerAddMini {
     constructor() {
