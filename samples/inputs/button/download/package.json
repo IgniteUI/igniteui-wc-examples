@@ -1,7 +1,7 @@
 {
-  "name": "wc-link-button-outlined",
+  "name": "wc-download-link-button",
   "version": "1.0.0",
-  "description": "This project provides example of outlined link button using IgniteUI for Web Components",
+  "description": "This project provides example of download link button using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
@@ -21,7 +21,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "^1.0.0-beta",
+    "igniteui-webcomponents": "^1.0.0-beta.2",
     "lit": "^2.0.2",
     "tslib": "^2.0.0"
   },

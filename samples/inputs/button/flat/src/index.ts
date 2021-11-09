@@ -1,8 +1,10 @@
-import 'igniteui-webcomponents/src/styles/themes/material.css';
-import 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/material.css';
+import { defineComponents, IgcButtonComponent } from 'igniteui-webcomponents';
 
 export class FlatButton {
-    constructor() {}
+    constructor() {
+        defineComponents(IgcButtonComponent);
+    }
 }
 
 new FlatButton();
