@@ -40,6 +40,11 @@ exports.updateSamplePackages = updatePackages = gulp.series(
     sb.updateSamplePackages,
 );
 
+exports.updateSampleWebpackConfigs = updateSampleWebpackConfigs = gulp.series(
+    sb.findSamples,
+    sb.updateSampleWebpackConfigs,
+);
+
 // exports.updateSampleResources = updateSampleResources = gulp.series(
 //     sb.findSamples,
 //     sb.updateSampleResources,
