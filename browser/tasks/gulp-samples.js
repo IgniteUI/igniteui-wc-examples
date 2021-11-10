@@ -81,6 +81,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/inputs/radio/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/switch/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/icon-button/**/package.json',
 
     // excluding samples that are not finished:
      '!' + igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',
