@@ -1,6 +1,8 @@
-import 'igniteui-webcomponents/src/components/checkbox/switch';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/material.css';
 
-export class SwitchDisabled {}
+export class SwitchDisabled {
+    constructor() {}
+}
 
 new SwitchDisabled();

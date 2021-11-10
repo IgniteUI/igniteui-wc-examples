@@ -1,7 +1,6 @@
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import 'igniteui-webcomponents/themes/material.css';
+import { defineComponents, IgcButtonComponent, IgcRadioComponent, IgcRadioGroupComponent } from 'igniteui-webcomponents';
 import './ButtonSizingStyle.css';
-import 'igniteui-webcomponents';
-import { IgcButtonComponent, IgcRadioGroupComponent } from 'igniteui-webcomponents';
 
 export class ButtonSizing {
     radioGroup: IgcRadioGroupComponent;
@@ -11,6 +10,7 @@ export class ButtonSizing {
     fabButton: IgcButtonComponent;
 
     constructor() {
+        defineComponents(IgcButtonComponent, IgcRadioComponent, IgcRadioGroupComponent);
         this.radioGroup = document.getElementById('radio-group') as IgcRadioGroupComponent;
         this.outlinedButton = document.getElementById('outlined-btn') as IgcButtonComponent;
         this.flatButton = document.getElementById('flat-btn') as IgcButtonComponent;

@@ -1,9 +1,11 @@
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import 'igniteui-webcomponents/themes/material.css';
+import { defineComponents, IgcButtonComponent } from 'igniteui-webcomponents';
 import './ButtonStyle.css';
-import 'igniteui-webcomponents';
 
 export class ButtonStyling {
-    constructor() {}
+    constructor() {
+        defineComponents(IgcButtonComponent);
+    }
 }
 
 new ButtonStyling();
