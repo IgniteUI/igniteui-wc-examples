@@ -65,6 +65,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/card/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/avatar/**/package.json',
+    igConfig.SamplesCopyPath + '/layouts/icon/**/package.json',
 
     igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
 
@@ -526,6 +527,49 @@ function updateSampleStyles(cb) {
     });
 
 } exports.updateSampleStyles = updateSampleStyles;
+
+// update samples' webpack.config.js files based on template files
+function updateSampleWebpackConfigs(cb) {
+
+    gulp.src([
+        './templates/sample/webpack.config.js',
+    ])
+    .pipe(flatten({ "includeParents": -1 }))
+    .pipe(es.map(function(file, fileCallback) {
+        let sourceContent = file.contents.toString();
+        let sourcePath = Transformer.getRelative(file.dirname);
+        sourcePath = sourcePath.replace('../browser/templates/sample', '');
+
+        for (const sample of samples) {
+            // if (sample.isUsingFileName(file.basename)) {
+                let samplePath = sampleOutputFolder + sample.SampleFolderPath;
+                let targetPath = samplePath + sourcePath + '/' + file.basename;
+
+                // log('updateSampleStyles ' + samplePath);
+                // log('updateSampleStyles ' + sourcePath);
+                // log('updateSampleStyles ' + targetPath);
+
+                if (fs.existsSync(targetPath)) {
+                    let targetContent = fs.readFileSync(targetPath, "utf8");
+                    if (sourceContent !== targetContent) {
+                        fs.writeFileSync(targetPath , sourceContent);
+                        console.log('file updated ' + targetPath);
+                    } else {
+                        // console.log('file skipped ' + targetPath);
+                    }
+                } else {
+                    fs.writeFileSync(targetPath, sourceContent);
+                    console.log('file added ' + targetPath);
+                }
+        }
+        fileCallback(null, file);
+        // SampleFiles.push(fileDir + "/" + file.basename);
+    }))
+    .on("end", function() {
+        cb();
+    });
+
+} exports.updateSampleWebpackConfigs = updateSampleWebpackConfigs;
 
 // update samples' resources/data files (.ts) files based on template files
 function updateSampleResources(cb) {

@@ -62,8 +62,7 @@
     "igniteui-webcomponents": "^1.0.0-beta.2",
     "lit": "^2.0.2",
     "lit-html": "^1.1.2",
-    "through2": "^4.0.2",
-    "worker-loader": "^2.0.0"
+    "through2": "^4.0.2"
   },
   "devDependencies": {
     "@types/jasmine": "^2.5.53",
@@ -73,9 +72,9 @@
     "cross-env": "^5.0.1",
     "css-loader": "^1.0.0",
     "csv-loader": "^3.0.2",
+    "file-loader": "^4.2.0",
     "ejs-loader": "^0.3.0",
     "eslint": "^5.4.0",
-    "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "istanbul-instrumenter-loader": "^3.0.0",
@@ -94,10 +93,11 @@
     "tslint": "^5.5.0",
     "tslint-loader": "^3.5.3",
     "typescript": "^3.6.4",
-    "webpack": "^4.17.0",
-    "webpack-cli": "^3.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0",
-    "xml-loader": "^1.2.1"
+    "xml-loader": "^1.2.1",
+    "worker-loader": "^3.0.8"
   },
   "_from": "@nobrainr/typescript_universal-webpack-karma_jasmine@^1.0.0",
   "_id": "@nobrainr/typescript_universal-webpack-karma_jasmine@1.0.0",

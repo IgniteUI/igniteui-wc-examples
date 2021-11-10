@@ -209,14 +209,14 @@ class Transformer {
         descr = Strings.replace(descr, 'sample-name', sample.SampleDisplayName);
 
         let samplePackage = sample.PackageFileContent;
-        samplePackage.name = title;
-        samplePackage.description = descr;
+        //samplePackage.name = title;
+        //samplePackage.description = descr;
         samplePackage.author = tempPackage.author;
         samplePackage.main = tempPackage.main;
         samplePackage.license = tempPackage.license;
         samplePackage.homepage = tempPackage.homepage;
         samplePackage.version = tempPackage.version;
-        samplePackage.private = tempPackage.private;
+        //samplePackage.private = tempPackage.private;
         samplePackage.browserslist = tempPackage.browserslist;
 
         samplePackage.scripts = tempPackage.scripts;
@@ -243,31 +243,31 @@ class Transformer {
         // samplePackage.dependencies = {};
 
         // updating dependencies in sa sample by checking against OPTIONAL dependencies in the template
-        // for (let name in tempPackage.dependenciesOptional) {
-        //     let dependency = tempPackage.dependenciesOptional[name];
-        //     if (dependency.usage === "always") {
-        //         samplePackage.dependencies[name] = dependency.version;
-        //     } else if (dependency.usage === "detect") {
-        //         let isDependencyImported = sample.SampleFileSourceCode.indexOf(name) >= 0;
-        //         if (isDependencyImported) {
-        //             samplePackage.dependencies[name] = dependency.version;
-        //         // using keywords to check if the dependency is used by some other file, e.g. ExcelUtility.ts
-        //         } else if (dependency.keywords !== undefined && dependency.keywords.length > 0) {
-        //             for (let keyword of dependency.keywords) {
-        //                 let isDependencyUsed = sample.SampleFileSourceCode.indexOf(keyword) >= 0;
-        //                 if (isDependencyUsed) {
-        //                     samplePackage.dependencies[name] = dependency.version;
-        //                     break;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        for (let name in tempPackage.dependenciesOptional) {
+            let dependency = tempPackage.dependenciesOptional[name];
+            if (dependency.usage === "always") {
+                samplePackage.dependencies[name] = dependency.version;
+            } else if (dependency.usage === "detect") {
+                let isDependencyImported = sample.SampleFileSourceCode.indexOf(name) >= 0;
+                if (isDependencyImported) {
+                    samplePackage.dependencies[name] = dependency.version;
+                // using keywords to check if the dependency is used by some other file, e.g. ExcelUtility.ts
+                } else if (dependency.keywords !== undefined && dependency.keywords.length > 0) {
+                    for (let keyword of dependency.keywords) {
+                        let isDependencyUsed = sample.SampleFileSourceCode.indexOf(keyword) >= 0;
+                        if (isDependencyUsed) {
+                            samplePackage.dependencies[name] = dependency.version;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
 
         // updating dependencies in a sample by checking against REQUIRED dependencies in the template
-        // for (let name in tempPackage.dependencies) {
-        //     samplePackage.dependencies[name] = tempPackage.dependencies[name];
-        // }
+        for (let name in tempPackage.dependencies) {
+            samplePackage.dependencies[name] = tempPackage.dependencies[name];
+        }
         // console.log("sample: " + sample.SampleFolderPath);
         // console.log("dependencies \n" + JSON.stringify(samplePackage.dependencies, null, '  '));
 

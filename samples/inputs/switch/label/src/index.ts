@@ -1,6 +1,9 @@
-import 'igniteui-webcomponents/src/components/checkbox/switch';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/material.css';
+import './SwitchLabelStyles.css'
 
-export class SwitchLabel {}
+export class SwitchLabel {
+    constructor() {}
+}
 
 new SwitchLabel();

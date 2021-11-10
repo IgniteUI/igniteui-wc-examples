@@ -1,6 +1,8 @@
 import 'igniteui-webcomponents';
-import './BadgeVariantsStyles.css'
+import "igniteui-webcomponents/themes/material.css";
 
-export class BadgeVariants {}
+export class BadgeVariants {
+    constructor() {}
+}
 
 new BadgeVariants();
