@@ -1,4 +1,4 @@
-import { defineComponents, IgcIconComponent, registerIconFromText } "igniteui-webcomponents";
+import { defineComponents, IgcIconComponent, registerIconFromText } from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/bootstrap.css";
 import './index.css';
 
