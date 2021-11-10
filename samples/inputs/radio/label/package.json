@@ -1,10 +1,9 @@
 {
-  "name": "example-ignite-ui-web-components",
-  "description": "This project provides example of using Ignite UI for Web Components",
+  "name": "wc-radio-label",
+  "description": "This project provides example of Radio Label using IgniteUI for Web Components",
   "author": "Infragistics",
   "version": "1.0.0",
   "license": "",
-  "private": true,
   "homepage": ".",
   "main": "src/index.ts",
   "scripts": {
@@ -23,7 +22,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "^1.0.0-beta",
+    "igniteui-webcomponents": "1.0.0-beta.2",
     "lit": "^2.0.0"
   },
   "devDependencies": {
@@ -50,5 +49,5 @@
     "webpack-dev-server": "^3.11.0",
     "xml-loader": "^1.2.1",
     "worker-loader": "^3.0.8"
-    }
+  }
 }

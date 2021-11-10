@@ -1,6 +1,7 @@
-import 'igniteui-webcomponents';
-import 'igniteui-webcomponents/src/styles/themes/material.css'
+import {defineComponents, IgcFormComponent, IgcInputComponent, IgcCheckboxComponent, IgcButtonComponent } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/bootstrap.css';
 
+defineComponents(IgcFormComponent, IgcInputComponent, IgcCheckboxComponent, IgcButtonComponent);
 export class FormOverview {
     constructor() {
         document.addEventListener('igcSubmit', function (event) {
@@ -20,6 +21,5 @@ export class FormOverview {
         });
     }
 }
-
 
 new FormOverview();

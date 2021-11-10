@@ -1,9 +1,10 @@
-import "igniteui-webcomponents/src/components/radio/radio";
-import "igniteui-webcomponents/src/components/radio-group/radio-group";
-import "igniteui-webcomponents/src/styles/themes/material.css";
+import {defineComponents, IgcRadioComponent, IgcRadioGroupComponent } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/bootstrap.css';
 
+defineComponents(IgcRadioComponent, IgcRadioGroupComponent);
 export class RadioLabel {
-  constructor() {}
+  constructor() {
+  }
 }
 
 new RadioLabel();

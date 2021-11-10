@@ -1,8 +1,9 @@
-import 'igniteui-webcomponents';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
-import { IgcNavDrawerComponent } from 'igniteui-webcomponents';
-import { registerIcon } from 'igniteui-webcomponents/src/components/icon/icon.registry';
+import { defineComponents, IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponent, IgcNavDrawerItemComponent,
+  IgcButtonComponent, IgcIconComponent, registerIcon } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/bootstrap.css';
 
+defineComponents(IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponent, IgcNavDrawerItemComponent,
+  IgcButtonComponent, IgcIconComponent);
 export class NavDrawerAddMini {
     constructor() {
       const btn = document.getElementById('toggleBtn');
@@ -17,18 +18,17 @@ export class NavDrawerAddMini {
           navDrawer.hide();
         }
       }
+
+      registerIcon(
+        'search',
+        'https://unpkg.com/material-design-icons@3.0.1/action/svg/production/ic_search_24px.svg'
+      );
+      
+      registerIcon(
+        'home',
+        'https://unpkg.com/material-design-icons@3.0.1/action/svg/production/ic_home_24px.svg'
+      );
     }
 }
-
-registerIcon(
-  'search',
-  'https://unpkg.com/material-design-icons@3.0.1/action/svg/production/ic_search_24px.svg'
-);
-
-registerIcon(
-  'home',
-  'https://unpkg.com/material-design-icons@3.0.1/action/svg/production/ic_home_24px.svg'
-);
-
 
 new NavDrawerAddMini();

@@ -1,6 +1,7 @@
-import 'igniteui-webcomponents/src/components/calendar/calendar';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
+import { defineComponents, IgcCalendarComponent } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/bootstrap.css';
 
+defineComponents(IgcCalendarComponent);
 export class CalendarHeader {
     constructor() {
     }

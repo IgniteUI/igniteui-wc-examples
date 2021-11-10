@@ -1,7 +1,7 @@
-import 'igniteui-webcomponents';
-import { registerIcon } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/material.css';
+import { defineComponents, IgcAvatarComponent, IgcIconComponent, registerIcon } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/bootstrap.css';
 
+defineComponents(IgcAvatarComponent, IgcIconComponent);
 export class AvatarSize {
     constructor() {
         registerIcon(

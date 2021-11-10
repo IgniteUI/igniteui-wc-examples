@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/vnext/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Radio Button using [Radio Button](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
+This folder contains implementation of Web Components application with example of Group using [Radio](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
 
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -12,10 +12,10 @@ This folder contains implementation of Web Components application with example o
         <a target="_blank" href="./src/index.ts" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="View Code" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-code.png"/>
         </a>
-        <a target="_blank" href="https://www.infragistics.com/webcomponents-demos/samples/charts/category-chart-axis-options" rel="noopener noreferrer">
+        <a target="_blank" href="https://www.infragistics.com/webcomponents-demos/samples/inputs/radio-group" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-run.png"/>
         </a>
-        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-wc-examples/tree/master/samples/charts/category-chart/axis-options?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/{SampleFile}" rel="noopener noreferrer">
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-wc-examples/tree/master/samples/inputs/radio/group?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/{SampleFile}" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-sandbox.png"/>
         </a>
     </body>
@@ -28,7 +28,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/inputs/input/radio-group
+cd ../samples/inputs/radio/group
 ```
 
 open above folder in VS Code or type:

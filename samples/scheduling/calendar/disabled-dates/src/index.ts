@@ -1,8 +1,7 @@
-import IgcCalendarComponent from 'igniteui-webcomponents/src/components/calendar/calendar';
-import 'igniteui-webcomponents/src/components/calendar/calendar';
-import 'igniteui-webcomponents/src/styles/themes/material.css';
-import { DateRangeType } from 'igniteui-webcomponents/src/components/calendar/common/calendar.model';
+import { defineComponents, IgcCalendarComponent, DateRangeType } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/bootstrap.css';
 
+defineComponents(IgcCalendarComponent);
 export class CalendarDisabledDates {
 
     private calendar: IgcCalendarComponent;
@@ -15,7 +14,6 @@ export class CalendarDisabledDates {
             new Date(today.getFullYear(), today.getMonth(), 3),
             new Date(today.getFullYear(), today.getMonth(), 8)
         ];
-
         this.calendar.disabledDates = [{ type: DateRangeType.Between, dateRange: range }];
     }
 }

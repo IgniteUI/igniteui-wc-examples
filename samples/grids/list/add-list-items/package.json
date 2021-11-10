@@ -1,7 +1,7 @@
 {
-  "name": "wc-add-list-items",
+  "name": "wc-list-add-items",
   "version": "1.0.0",
-  "description": "This project provides example for adding list items using IgniteUI for Web Components",
+  "description": "This project provides example of List Add Items using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
@@ -23,7 +23,7 @@
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "^1.0.0-beta",
+    "igniteui-webcomponents": "1.0.0-beta.2",
     "igniteui-webcomponents-core": "1.3.3",
     "lit": "^2.0.2",
     "lit-html": "^1.2.1",
