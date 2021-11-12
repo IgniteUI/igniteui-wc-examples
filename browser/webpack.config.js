@@ -65,16 +65,16 @@ var config = {
           }
         ]
       },
-      !isProd
-        ? {
-            test: /\.(js|ts)$/,
-            loader: 'istanbul-instrumenter-loader',
-            exclude: [/[\\/]node_modules[\\/]/],
-            query: {
-              esModules: true
-            }
-          }
-        : null,
+      // !isProd
+      //   ? {
+      //       test: /\.(js|ts)$/,
+      //       loader: 'istanbul-instrumenter-loader',
+      //       exclude: [/[\\/]node_modules[\\/]/],
+      //       query: {
+      //         esModules: true
+      //       }
+      //     }
+      //   : null,
       { test: /\.html$/, loader: 'html-loader' },
       { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
       { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
