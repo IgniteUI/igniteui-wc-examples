@@ -62,16 +62,16 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/editors/**/package.json',
 
     // igConfig.SamplesCopyPath + '/layouts/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/card/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/avatar/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/icon/**/package.json',
+    // igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
+    // igConfig.SamplesCopyPath + '/layouts/card/**/package.json',
+    // igConfig.SamplesCopyPath + '/layouts/avatar/**/package.json',
+    // igConfig.SamplesCopyPath + '/layouts/icon/**/package.json',
 
-    igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
+    // igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
 
     // igConfig.SamplesCopyPath + '/menus/**/package.json',
-    igConfig.SamplesCopyPath + '/menus/nav-drawer/**/package.json',
-    igConfig.SamplesCopyPath + '/menus/nav-bar/**/package.json',
+    // igConfig.SamplesCopyPath + '/menus/nav-drawer/**/package.json',
+    // igConfig.SamplesCopyPath + '/menus/nav-bar/**/package.json',
 
     // igConfig.SamplesCopyPath + '/inputs/**/package.json',
     // igConfig.SamplesCopyPath + '/inputs/link-button/**/package.json',

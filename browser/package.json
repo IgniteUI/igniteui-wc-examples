@@ -59,10 +59,12 @@
     "gulp-shell": "^0.8.0",
     "gulp-uglify": "^3.0.2",
     "igniteui-dockmanager": "^1.6.0",
-    "igniteui-webcomponents": "^1.0.0-beta.2",
     "lit": "^2.0.2",
     "lit-html": "^1.1.2",
     "through2": "^4.0.2"
+  },
+  "dependenciesExclude": {
+    "igniteui-webcomponents": "^1.0.0-beta.2"
   },
   "devDependencies": {
     "@types/jasmine": "^2.5.53",
