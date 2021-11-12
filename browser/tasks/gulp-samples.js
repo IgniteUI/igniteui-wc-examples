@@ -58,7 +58,7 @@ var sampleSources = [
 
     // igConfig.SamplesCopyPath + '/grids/**/package.json',
     igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
-    igConfig.SamplesCopyPath + '/grids/list/**/package.json',
+    //igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
 
     // igConfig.SamplesCopyPath + '/layouts/**/package.json',
