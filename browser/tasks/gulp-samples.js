@@ -85,7 +85,7 @@ var sampleSources = [
     // igConfig.SamplesCopyPath + '/inputs/icon-button/**/package.json',
 
     // excluding samples that are not finished:
-     '!' + igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',
 
      // excluding samples' node_modules:
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
