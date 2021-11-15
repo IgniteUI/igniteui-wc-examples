@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
+const isLegacy = !!process.env.legacy && !(process.env.legacy == "false");
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -35,6 +36,22 @@ const plugins = [
   })
 ];
 
+const presets = [
+  ["@babel/preset-env", {
+    "useBuiltIns": "usage",
+    "corejs": 3,
+    "targets": {
+      "browsers": isLegacy ? ["defaults"] : [
+        "last 2 Chrome versions",
+        "last 2 Safari versions",
+        "last 2 iOS versions",
+        "last 2 Firefox versions",
+        "last 2 Edge versions"]
+    }
+  }],
+  "@babel/preset-typescript"
+];
+
 var config = {
   devtool: isProd ? false : 'source-map',
   context: path.resolve('./src'),
@@ -55,13 +72,34 @@ var config = {
             enforce: 'pre',
             test: /\.worker\.ts$/,
             exclude: [/\/node_modules\//],
-            use: [ 'worker-loader', 'awesome-typescript-loader', 'source-map-loader' ]
+            use: [ 
+              { loader: 'worker-loader' },
+              { loader: 'babel-loader', options: {
+                "compact": isProd ? true : false,
+                "presets": presets,
+                "plugins": [
+                  "@babel/plugin-proposal-class-properties",
+                  "@babel/plugin-transform-runtime"
+                ] }
+              },
+              { loader: 'source-map-loader' }
+            ]
           },
           {
             enforce: 'pre',
             test: /\.tsx?$/,
             exclude: [/\/node_modules\//],
-            use: ['awesome-typescript-loader', 'source-map-loader']
+            use: [
+              { loader: 'babel-loader', options: {
+                "compact": isProd ? true : false,
+                "presets": presets,
+                "plugins": [
+                  "@babel/plugin-proposal-class-properties",
+                  "@babel/plugin-transform-runtime"
+                ] }
+              },
+              { loader: 'source-map-loader' }
+            ]
           }
         ]
       },
