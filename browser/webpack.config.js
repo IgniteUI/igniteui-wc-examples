@@ -1,3 +1,4 @@
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -33,7 +34,8 @@ const plugins = [
         failOnHint: true
       }
     }
-  })
+  }),
+  new ForkTsCheckerWebpackPlugin({ tsconfig: path.join(__dirname, 'tsconfig.json') })
 ];
 
 const presets = [
@@ -88,7 +90,12 @@ var config = {
           {
             enforce: 'pre',
             test: /\.tsx?$/,
-            exclude: [/\/node_modules\//],
+            exclude:
+            function(modulePath) {
+              return /node_modules/.test(modulePath) &&
+                !/igniteui-webcomponents/.test(modulePath) &&
+                !/lit-html/.test(modulePath);
+            },
             use: [
               { loader: 'babel-loader', options: {
                 "compact": isProd ? true : false,
@@ -103,16 +110,6 @@ var config = {
           }
         ]
       },
-      // !isProd
-      //   ? {
-      //       test: /\.(js|ts)$/,
-      //       loader: 'istanbul-instrumenter-loader',
-      //       exclude: [/[\\/]node_modules[\\/]/],
-      //       query: {
-      //         esModules: true
-      //       }
-      //     }
-      //   : null,
       { test: /\.html$/, loader: 'html-loader' },
       { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
       { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
@@ -121,7 +118,8 @@ var config = {
     ].filter(Boolean)
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    mainFields: ['esm2015', 'module', 'main'],
+    extensions: ['.ts', '.js', 'json']
   },
   plugins: plugins,
   devServer: {
@@ -192,6 +190,11 @@ var config = {
         igniteuiDockmanager: {
           test: /[\\/]node_modules[\\/](igniteui-dockmanager)[\\/]/,
           name: 'igniteui-dockmanager',
+          chunks: 'all',
+        },
+        igniteuiWebComponents: {
+          test: /[\\/]node_modules[\\/](igniteui-webcomponents)[\\/]/,
+          name: 'igniteui-webcomponents',
           chunks: 'all',
         }
       }
