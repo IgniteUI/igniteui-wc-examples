@@ -418,7 +418,7 @@ class Transformer {
             let codeClassBody = lines[1].trim();
             let codeClassConstructor = `
     connectedCallback() { // auto renamed from constructor"
-        console.log("Sample connectedCallback");
+        // console.log("Sample connectedCallback");
         this.innerHTML = htmlTemplate; // auto insert
             `;
 

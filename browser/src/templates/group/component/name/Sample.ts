@@ -25,7 +25,7 @@ export class AutoInsertClassName extends SampleBase { // auto appended base clas
 
     constructor() {
         super(); // auto inserted
-        console.log("Sample constructor");
+        // console.log("Sample constructor");
     }
     // AutoInsertClassBody
 
