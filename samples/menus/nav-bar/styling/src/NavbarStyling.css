@@ -3,7 +3,7 @@ igc-icon {
 }
 
 igc-navbar {
-    background-color: gainsboro;
+    background-color: lightsteelblue;
 }
 
 igc-navbar::part(start) {
@@ -15,5 +15,5 @@ igc-navbar::part(middle) {
 }
 
 igc-navbar::part(end) {
-    color: darkgray;
+    color: darkslateblue;
 }
