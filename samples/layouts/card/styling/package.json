@@ -20,9 +20,9 @@
   "author": "Infragistics",
   "dependencies": {
     "@igniteui/material-icons-extended": "^2.9.0",
-    "@infragistics/igniteui-webcomponents-core": "21.2.0-dev.683",
-    "@infragistics/igniteui-webcomponents-inputs": "21.2.0-dev.683",
-    "@infragistics/igniteui-webcomponents-layouts": "21.2.0-dev.683",
+    "@infragistics/igniteui-webcomponents-core": "21.2.0-dev.692",
+    "@infragistics/igniteui-webcomponents-inputs": "21.2.0-dev.692",
+    "@infragistics/igniteui-webcomponents-layouts": "21.2.0-dev.692",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
