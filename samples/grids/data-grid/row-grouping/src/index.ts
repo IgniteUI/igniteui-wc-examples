@@ -3,7 +3,7 @@ import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
-import { DataSourceSectionHeaderDisplayMode } from 'igniteui-webcomponents-core';
+import { GroupHeaderDisplayMode } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcDataGridModule);
@@ -21,7 +21,7 @@ export class DataGridRowGrouping {
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = DataGridSharedData.getEmployees(50);
 
-        this.grid.groupHeaderDisplayMode = DataSourceSectionHeaderDisplayMode.Split;
+        this.grid.groupHeaderDisplayMode = GroupHeaderDisplayMode.Split;
         this.grid.isGroupCollapsable = true;
 
         let displayModeSelector = document.getElementById('displayModeSelector') as any ;
