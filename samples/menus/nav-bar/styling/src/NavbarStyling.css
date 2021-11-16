@@ -3,17 +3,18 @@ igc-icon {
 }
 
 igc-navbar {
-    background-color: gainsboro;
+    background-color: #232121
 }
 
 igc-navbar::part(start) {
-    color: darkolivegreen;
+    color: #f23269;
 }
 
 igc-navbar::part(middle) {
     font-family: Titillium Web,sans-serif;
+    color: #e9e8ea
 }
 
 igc-navbar::part(end) {
-    color: darkgray;
+    color: #e9e8ea
 }
