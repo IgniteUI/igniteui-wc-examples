@@ -12,17 +12,19 @@
 
   <body>
     <div id="root">
-      <igc-radio-group id="radio-group" alignment="horizontal">
-        <igc-radio name="size" value="small" label-position="after">Small</igc-radio>
-        <igc-radio name="size" value="medium" label-position="after">Medium</igc-radio>
-        <igc-radio name="size" value="large" label-position="after" checked="true">Large</igc-radio>
-      </igc-radio-group>
-
-      <div class="button-container">
-        <igc-button id="flat-btn">Flat</igc-button>
-        <igc-button id="contained-btn" variant="contained">Contained</igc-button>
-        <igc-button id="outlined-btn" variant="outlined">Outlined</igc-button>
-        <igc-button id="fab-btn" variant="fab">Like</igc-button>
+      <div class="container sample center">
+        <igc-radio-group id="radio-group" alignment="horizontal">
+          <igc-radio name="size" value="small" label-position="after">Small</igc-radio>
+          <igc-radio name="size" value="medium" label-position="after">Medium</igc-radio>
+          <igc-radio name="size" value="large" label-position="after" checked="true">Large</igc-radio>
+        </igc-radio-group>
+  
+        <div class="button-container">
+          <igc-button id="flat-btn">Flat</igc-button>
+          <igc-button id="contained-btn" variant="contained">Contained</igc-button>
+          <igc-button id="outlined-btn" variant="outlined">Outlined</igc-button>
+          <igc-button id="fab-btn" variant="fab">Like</igc-button>
+        </div>
       </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
