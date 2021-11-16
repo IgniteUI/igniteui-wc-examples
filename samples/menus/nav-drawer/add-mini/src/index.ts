@@ -13,7 +13,7 @@ export class NavDrawerAddMini {
         navDrawer.toggle();
       })
 
-      document.getElementById('root')!.onclick = (e) => {
+      document.getElementById('nav-drawer-container')!.onclick = (e) => {
         if(e.target === document.getElementById('content')) {
           navDrawer.hide();
         }
