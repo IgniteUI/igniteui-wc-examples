@@ -5,9 +5,11 @@ import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
 import { GroupHeaderDisplayMode } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+import { IgcColumnGroupingModule } from 'igniteui-webcomponents-grids'
 
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(IgcColumnGroupingModule);
 
 export class DataGridRowGrouping {
 
@@ -23,6 +25,7 @@ export class DataGridRowGrouping {
 
         this.grid.groupHeaderDisplayMode = GroupHeaderDisplayMode.Split;
         this.grid.isGroupCollapsable = true;
+        this.grid.isGroupByAreaVisible = true;
 
         let displayModeSelector = document.getElementById('displayModeSelector') as any ;
         displayModeSelector!.addEventListener('change', this.onSectionHeaderDisplayModeChanging);
