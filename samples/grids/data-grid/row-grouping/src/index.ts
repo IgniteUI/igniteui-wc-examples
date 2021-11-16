@@ -25,7 +25,6 @@ export class DataGridRowGrouping {
 
         this.grid.groupHeaderDisplayMode = GroupHeaderDisplayMode.Split;
         this.grid.isGroupCollapsable = true;
-        this.grid.isGroupByAreaVisible = true;
 
         let displayModeSelector = document.getElementById('displayModeSelector') as any ;
         displayModeSelector!.addEventListener('change', this.onSectionHeaderDisplayModeChanging);
