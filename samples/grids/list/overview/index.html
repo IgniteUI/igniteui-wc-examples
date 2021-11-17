@@ -9,50 +9,52 @@
 
   <body>
     <div id="root">
-      <igc-radio-group id="radio-group" alignment="horizontal">
-        <igc-radio name="size" value="small" label-position="after">Small</igc-radio>
-        <igc-radio name="size" value="medium" label-position="after">Medium</igc-radio>
-        <igc-radio name="size" value="large" label-position="after" checked="true">Large</igc-radio>
-      </igc-radio-group>
-
-      <igc-list id="list">
-        <igc-list-header>
-          <h1>Contacts</h1>
-        </igc-list-header>
-        <igc-list-item>
-          <igc-avatar slot="start" src="https://static.infragistics.com/xplatform/images/avatars/8.jpg" shape="circle">AA</igc-avatar>
-          <h2 slot="title">Terrance Orta</h2>
-          <span slot="subtitle">770-504-2217</span>
-          <igc-button slot="end" variant="outlined">
-            Text
-          </igc-button>
-          <igc-button slot="end" variant="outlined">
-            Call
-          </igc-button>
-        </igc-list-item>
-        <igc-list-item>
-          <igc-avatar slot="start" src="https://static.infragistics.com/xplatform/images/avatars/17.jpg" shape="circle">AA</igc-avatar>
-          <h2 slot="title">Richard Mahoney</h2>
-          <span slot="subtitle">423-676-2869</span>
-          <igc-button slot="end" variant="outlined">
-            Text
-          </igc-button>
-          <igc-button slot="end" variant="outlined">
-            Call
-          </igc-button>
-        </igc-list-item>
-        <igc-list-item>
-          <igc-avatar slot="start" src="https://static.infragistics.com/xplatform/images/avatars/9.jpg" shape="circle">AA</igc-avatar>
-          <h2 slot="title">Donna Price</h2>
-          <span slot="subtitle">859-496-2817</span>
-          <igc-button slot="end" variant="outlined">
-            Text
-          </igc-button>
-          <igc-button slot="end" variant="outlined">
-            Call
-          </igc-button>
-        </igc-list-item>
-      </igc-list>
+      <div class="container sample center">
+        <igc-radio-group id="radio-group" alignment="horizontal">
+          <igc-radio name="size" value="small" label-position="after">Small</igc-radio>
+          <igc-radio name="size" value="medium" label-position="after">Medium</igc-radio>
+          <igc-radio name="size" value="large" label-position="after" checked="true">Large</igc-radio>
+        </igc-radio-group>
+  
+        <igc-list id="list" style="margin-top: 10px;">
+          <igc-list-header>
+            <h1>Contacts</h1>
+          </igc-list-header>
+          <igc-list-item>
+            <igc-avatar slot="start" src="https://static.infragistics.com/xplatform/images/avatars/8.jpg" shape="circle">AA</igc-avatar>
+            <h2 slot="title">Terrance Orta</h2>
+            <span slot="subtitle">770-504-2217</span>
+            <igc-button slot="end" variant="outlined">
+              Text
+            </igc-button>
+            <igc-button slot="end" variant="outlined">
+              Call
+            </igc-button>
+          </igc-list-item>
+          <igc-list-item>
+            <igc-avatar slot="start" src="https://static.infragistics.com/xplatform/images/avatars/17.jpg" shape="circle">AA</igc-avatar>
+            <h2 slot="title">Richard Mahoney</h2>
+            <span slot="subtitle">423-676-2869</span>
+            <igc-button slot="end" variant="outlined">
+              Text
+            </igc-button>
+            <igc-button slot="end" variant="outlined">
+              Call
+            </igc-button>
+          </igc-list-item>
+          <igc-list-item>
+            <igc-avatar slot="start" src="https://static.infragistics.com/xplatform/images/avatars/9.jpg" shape="circle">AA</igc-avatar>
+            <h2 slot="title">Donna Price</h2>
+            <span slot="subtitle">859-496-2817</span>
+            <igc-button slot="end" variant="outlined">
+              Text
+            </igc-button>
+            <igc-button slot="end" variant="outlined">
+              Call
+            </igc-button>
+          </igc-list-item>
+        </igc-list>
+      </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
     <% if (false) { %><script src="src/index.ts"></script><% } %>
