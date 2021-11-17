@@ -8,6 +8,7 @@ export class NavDrawerAddPositionsNavbar {
     constructor() {
       const menu = document.getElementById('menu');
       const navDrawer = document.querySelector('igc-nav-drawer') as IgcNavDrawerComponent;
+      const navbarHeader = document.getElementById('navbar-header');
 
       menu!.addEventListener('click', () => {
         navDrawer.show();
@@ -16,6 +17,25 @@ export class NavDrawerAddPositionsNavbar {
       document.getElementById('nav-drawer-container')!.onclick = (e) => {
         if(e.target === document.getElementById('content')) {
           navDrawer.hide();
+        }
+      }
+
+      navDrawer.onclick = (e) => {
+        const target = e.target as HTMLElement;
+        const drawerItem = target.closest('igc-nav-drawer-item');
+
+        if (drawerItem) {
+          drawerItem.active = true;
+          const span = drawerItem.querySelector('span');
+          navbarHeader!.innerHTML = span!.innerText;
+
+          const drawerItems = Array.from<IgcNavDrawerItemComponent>(
+            navDrawer.querySelectorAll('igc-nav-drawer-item')
+          ).filter((item) => item !== drawerItem);
+
+          drawerItems.forEach((item) => {
+            item.active = false;
+          });
         }
       }
 
