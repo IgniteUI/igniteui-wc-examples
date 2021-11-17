@@ -8,6 +8,7 @@ export class NavDrawerAddPositionsNavbar {
     constructor() {
       const menu = document.getElementById('menu');
       const navDrawer = document.querySelector('igc-nav-drawer') as IgcNavDrawerComponent;
+      const navbarHeader = document.getElementById('navbar-header');
 
       menu!.addEventListener('click', () => {
         navDrawer.show();
@@ -25,6 +26,8 @@ export class NavDrawerAddPositionsNavbar {
 
         if (drawerItem) {
           drawerItem.active = true;
+          const span = drawerItem.querySelector('span');
+          navbarHeader!.innerHTML = span!.innerText;
 
           const drawerItems = Array.from<IgcNavDrawerItemComponent>(
             navDrawer.querySelectorAll('igc-nav-drawer-item')
