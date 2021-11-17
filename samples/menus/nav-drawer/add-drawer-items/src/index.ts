@@ -12,18 +12,15 @@ export class NavDrawerAddItems {
         const drawerItem = target.closest('igc-nav-drawer-item');
 
         if (drawerItem) {
-          const iconName = drawerItem.querySelector('igc-icon')?.name;
-          const icons = document.querySelectorAll(`igc-icon`);
+          drawerItem.active = true;
 
-          icons.forEach(icon => {
-            const parentItem = icon.parentElement! as IgcNavDrawerItemComponent;
+          const drawerItems = Array.from<IgcNavDrawerItemComponent>(
+            navDrawer.querySelectorAll('igc-nav-drawer-item')
+          ).filter((item) => item !== drawerItem);
 
-            if(icon.name === iconName) {
-              parentItem.active = true;
-            } else {
-              parentItem.active = false;
-            }
-          })
+          drawerItems.forEach((item) => {
+            item.active = false;
+          });
         }
       }
 
