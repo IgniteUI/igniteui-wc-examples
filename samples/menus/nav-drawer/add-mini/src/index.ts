@@ -24,7 +24,7 @@ export class NavDrawerAddMini {
         const drawerItem = target.closest('igc-nav-drawer-item');
      
         if (drawerItem) {
-          const iconName = drawerItem.querySelector('igc-icon')?.name;
+          const iconName = drawerItem.querySelector('igc-icon')!.name;
           const icons = document.querySelectorAll(`igc-icon`);
           
           icons.forEach(icon => {
