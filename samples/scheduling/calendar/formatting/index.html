@@ -14,7 +14,7 @@
     <div id="root">
     <div class="container sample">
 
-      <igc-radio-group alignment="horizontal">
+      <igc-radio-group alignment="horizontal" style="margin-bottom: 10px;">
         <igc-radio name="locale" value="en" checked>EN</igc-radio>
         <igc-radio name="locale" value="de">DE</igc-radio>
         <igc-radio name="locale" value="fr">FR</igc-radio>
@@ -22,13 +22,12 @@
         <igc-radio name="locale" value="ja">JA</igc-radio>
       </igc-radio-group>
       
-      <div style="width: 400px; border: 1px solid gainsboro;">
-        <igc-calendar 
-          id="calendar1"
-          week-start="monday"
-        >
-        </igc-calendar>
-      </div>
+      <igc-calendar
+        id="calendar1"
+        week-start="monday"
+        style="width: 400px;"
+      >
+      </igc-calendar>
     </div>
 
     </div>
