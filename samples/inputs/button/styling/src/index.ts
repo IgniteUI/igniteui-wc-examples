@@ -1,5 +1,5 @@
 import { defineComponents, IgcButtonComponent } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/bootstrap.css';
+import 'igniteui-webcomponents/themes/material.css';
 import './ButtonStyle.css';
 
 defineComponents(IgcButtonComponent);
