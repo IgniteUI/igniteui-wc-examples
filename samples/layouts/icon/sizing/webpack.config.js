@@ -30,7 +30,6 @@ module.exports = env => {
         { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
         { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
         { test: /\.xml$/, use: ['xml-loader'] },
-        { test: /\.css$/, loaders: ['style-loader', 'css-loader' ]},
         { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
         { test: /\.(ts|js)$/, loader: 'babel-loader',
         options: {
