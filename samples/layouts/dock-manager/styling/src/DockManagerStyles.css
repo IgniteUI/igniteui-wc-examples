@@ -31,10 +31,13 @@ igc-dockmanager::part(pane-header-content) {
 
 igc-dockmanager::part(splitter) {
   flex: 0 0 15px;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 igc-dockmanager::part(splitter-base) {
   background: transparent;
+  pointer-events: none;
 }
 
 igc-dockmanager::part(splitter-base)::after {
@@ -116,65 +119,4 @@ igc-dockmanager::part(unpinned-pane-header) {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
-
-.stock-price{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.stock-item-movement-up {
-  display: flex;
-  color: rgb(0,153,255);
-}
-.stock-item-movement-down {
-  display: flex;
-  color: rgb(233, 80, 164);
-}
-
-igc-avatar::part(image) {
-  background-color: white;
-}
-
-igc-card {
-  height: inherit;
-}
-
-igc-card-content {
-  padding-top: 5px;
-  padding-bottom: 0px;
-}
-
-/* ACCOUNTS */
-
-.account-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-/* TOP MOVERS */
-
-.top-movers-content {
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.top-move-stock-item {
-  min-width: 20%;
-  margin: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* PHYSICAL CARDS */
-
-.add-card-btn {
-  display: flex;
-  justify-content: flex-end;
 }
