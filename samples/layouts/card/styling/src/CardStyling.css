@@ -17,6 +17,6 @@ igc-card-header::part(subtitle) {
     opacity: 0.9;
 }
 
-igc-icon-button::part(icon) {
-    fill: #ECAA53;
+igc-icon-button+igc-icon-button {
+    margin-left: 10px;
 }

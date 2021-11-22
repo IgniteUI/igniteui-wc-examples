@@ -1,4 +1,5 @@
-igc-button[variant=contained]:not([disabled])::part(base) {
-    color: #0c1335;
-    padding: 12px;
+igc-button::part(base) {
+    background-color: #e99221;
+    color: #011627;
+    padding: 18px;
 }
