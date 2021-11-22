@@ -31,7 +31,6 @@ module.exports = env => {
         { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
         { test: /\.xml$/, use: ['xml-loader'] },
         { test: /\.css$/, loaders: ['style-loader', 'css-loader' ]},
-        { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
         { test: /\.(ts|js)$/, loader: 'babel-loader',
         options: {
           "compact": isProd ? true : false,

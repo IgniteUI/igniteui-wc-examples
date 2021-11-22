@@ -49,7 +49,6 @@ module.exports = env => {
         { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
         { test: /\.xml$/, use: ['xml-loader'] },
         { test: /\.css$/, loaders: ['style-loader', 'css-loader' ]},
-        { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
         { test: /worker\.(ts|js)$/, 
         use: [
           { loader: 'worker-loader'},

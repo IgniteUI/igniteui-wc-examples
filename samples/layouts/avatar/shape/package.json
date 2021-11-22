@@ -47,7 +47,7 @@
     "webpack-dev-server": "^3.11.0",
     "xml-loader": "^1.2.1",
     "worker-loader": "^3.0.8"
-    },
+  },
   "license": "",
   "homepage": "."
 }
