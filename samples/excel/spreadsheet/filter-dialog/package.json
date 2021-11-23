@@ -19,8 +19,8 @@
   },
   "author": "Infragistics",
   "dependencies": {
-    "@infragistics/igniteui-webcomponents-core": "21.2.0-dev.695",
-    "@infragistics/igniteui-webcomponents-spreadsheet": "21.2.0-dev.695",
+    "igniteui-webcomponents-core": "1.4.0",
+    "igniteui-webcomponents-spreadsheet": "1.4.0",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
