@@ -2,19 +2,21 @@
 import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
+import { IgcNumberAbbreviatorModule } from 'igniteui-webcomponents-charts';
 // series' modules:
 import { IgcFinancialPriceSeriesModule } from 'igniteui-webcomponents-charts';
-import { IgcMoneyFlowIndexIndicatorModule } from 'igniteui-webcomponents-charts';
+import { IgcColumnSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-import { SampleFinancialData } from './SampleFinancialData';
+import { SharedAxisFinancialData } from './SharedAxisFinancialData';
 
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule,
     IgcDataChartInteractivityModule,
     IgcFinancialPriceSeriesModule,
-    IgcMoneyFlowIndexIndicatorModule
+    IgcNumberAbbreviatorModule,
+    IgcColumnSeriesModule
 );
 
 export class DataChartAxisSharing {
@@ -28,7 +30,7 @@ export class DataChartAxisSharing {
     }
 
     getData(): any[] {
-        const data = SampleFinancialData.create();
+        const data = SharedAxisFinancialData.create();
         return data;
     }
 }
