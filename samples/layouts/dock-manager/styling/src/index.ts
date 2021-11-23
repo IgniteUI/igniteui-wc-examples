@@ -73,7 +73,7 @@ export class DockManagerStylePanes {
                                             header: "ACCOUNTS",
                                             contentId: "content1",
                                             headerId: "accountHeader",
-                                            unpinnedLocation: IgcUnpinnedLocation.left,
+                                            unpinnedLocation: IgcUnpinnedLocation.top,
                                             isPinned: true,
                                             allowMaximize: false,
                                             allowClose: false,

@@ -36,6 +36,7 @@ template.innerHTML = `
         padding: 10px;
         position: absolute;
         right: 10px;
+        z-index: 1;
         background-color: var(--main-color);
         border-radius: 10px;
         display: none;
