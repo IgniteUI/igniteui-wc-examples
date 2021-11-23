@@ -21,8 +21,8 @@ igc-dockmanager::part(pane-header) {
 igc-dockmanager::part(pane-header active) {
   font-weight: 700;
   color: var(--secondary-color);
-  box-shadow: inset 0 -2px 0 0 var(--secondary-color);
-  border: none;
+  box-shadow: none;
+  border-bottom: 2px solid var(--secondary-color);
 }
 
 igc-dockmanager::part(pane-header-content) {
@@ -72,12 +72,13 @@ igc-dockmanager::part(tabs-content) {
   background-color: var(--white);
 }
 
-igc-dockmanager::part(root-docking-indicator) {
-  background-color: rgba(170, 172, 173, 0.795);
-}
-
+igc-dockmanager::part(root-docking-indicator),
 igc-dockmanager::part(docking-indicator) {
   background-color: rgba(49, 45, 49, 0.733);
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  margin: 2px
 }
 
 igc-dockmanager::part(docking-preview) {
@@ -159,13 +160,12 @@ igc-card-content {
 .top-movers-content {
   margin: 0 auto;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 150px);
+  justify-content: space-evenly;
 }
 
 .top-move-stock-item {
-  min-width: 20%;
   margin: 1rem;
   display: flex;
   flex-direction: column;

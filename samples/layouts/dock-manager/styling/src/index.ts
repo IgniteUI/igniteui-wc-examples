@@ -81,7 +81,7 @@ export class DockManagerStylePanes {
                                         },
                                         {
                                             type: IgcDockManagerPaneType.contentPane,
-                                            header: "Cards",
+                                            header: "PHYSICAL CARDS",
                                             contentId: "content5",
                                             headerId: "cardsHeader",
                                             unpinnedLocation: IgcUnpinnedLocation.right,
