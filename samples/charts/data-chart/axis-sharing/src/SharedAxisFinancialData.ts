@@ -11,7 +11,7 @@ export class SharedAxisFinancialData {
         let c = Math.round(l + (Math.random() * (h - l)));
 
         if (items === undefined) {
-            items = 365;
+            items = 400;
         }
 
         const today = new Date();
