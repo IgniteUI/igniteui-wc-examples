@@ -75,7 +75,7 @@ igc-dockmanager::part(tabs-content) {
 igc-dockmanager::part(root-docking-indicator),
 igc-dockmanager::part(docking-indicator) {
   background-color: rgba(49, 45, 49, 0.733);
-  color: #ffffff;
+  color: var(--white);
   border: none;
   border-radius: 5px;
   margin: 2px
