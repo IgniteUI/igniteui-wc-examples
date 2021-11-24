@@ -663,10 +663,10 @@ function updateCodeViewer(cb) {
             }
             else if (file.indexOf(".ts") > 0 && file.indexOf(sample.SampleFileName) == -1) {
 
-                var isMain = file.indexOf("index") == -1;
+                var isIndex = file.indexOf("index.ts") > 0;
                 var tsContent = fs.readFileSync(file, "utf8");
                 var tsItem = new CodeViewer(file, tsContent, "ts", "ts", true);
-                tsItem.fileHeader = isMain ? "ts" : "DATA";
+                tsItem.fileHeader = isIndex ? "ts" : "DATA";
                 contentItems.push(tsItem);
             }
             else if (file.indexOf(".html") > 0) {
