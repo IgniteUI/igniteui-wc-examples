@@ -21,7 +21,7 @@ import {
     IgcCardMediaComponent,
     IgcCardActionsComponent,
     IgcRippleComponent,
-    registerIcon,
+    registerIconFromText,
     IgcIconButtonComponent,
     IgcIconComponent
 } from "igniteui-webcomponents";
@@ -47,6 +47,8 @@ defineComponents(
 
 export class DockManagerStylePanes {
     private dockManager: IgcDockManagerComponent;
+    private arrowDown = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7 10l5 5 5-5H7z"/></svg>';
+    private arrowUp = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7 14l5-5 5 5H7z"/></svg>';
 
     layout: IgcDockManagerLayout = {
         rootPane: {
@@ -75,6 +77,7 @@ export class DockManagerStylePanes {
                                             headerId: "accountHeader",
                                             unpinnedLocation: IgcUnpinnedLocation.top,
                                             isPinned: true,
+                                            allowFloating: false,
                                             allowMaximize: false,
                                             allowClose: false,
                                             allowPinning: false
@@ -86,6 +89,7 @@ export class DockManagerStylePanes {
                                             headerId: "cardsHeader",
                                             unpinnedLocation: IgcUnpinnedLocation.right,
                                             isPinned: true,
+                                            allowFloating: false,
                                             allowMaximize: false,
                                             allowPinning: false,
                                             allowClose: false
@@ -104,6 +108,7 @@ export class DockManagerStylePanes {
                                           headerId: "transactionsHeader",
                                           unpinnedLocation: IgcUnpinnedLocation.bottom,
                                           isPinned: true,
+                                          allowFloating: false,
                                           allowMaximize: false,
                                           allowClose: false,
                                           allowPinning: false
@@ -124,6 +129,7 @@ export class DockManagerStylePanes {
                                   headerId: "todayTopMovers",
                                   unpinnedLocation: IgcUnpinnedLocation.top,
                                   isPinned: true,
+                                  allowFloating: false,
                                   allowMaximize: false,
                                   allowClose: false,
                                   allowPinning: false
@@ -144,6 +150,7 @@ export class DockManagerStylePanes {
                           headerId: "popularStocksHeader",
                           unpinnedLocation: IgcUnpinnedLocation.top,
                           isPinned: true,
+                          allowFloating: false,
                           allowMaximize: false,
                           allowPinning: false,
                           allowClose: false
@@ -161,18 +168,18 @@ export class DockManagerStylePanes {
         this.dockManager.addEventListener("closePane", () => this.handleClosePane());
         this.dockManager.addEventListener("pinPane", () => this.handlePinPane());
 
-        registerIcon("arrow-down", "https://fonts.gstatic.com/s/i/materialiconsoutlined/arrow_drop_down/v15/24px.svg", "material");
-        registerIcon("arrow-up", "https://fonts.gstatic.com/s/i/materialiconsoutlined/arrow_drop_up/v12/24px.svg", "material");
+        registerIconFromText("arrow-down", this.arrowDown, "material");
+        registerIconFromText("arrow-up", this.arrowUp, "material");
     }
 
     handleClosePane() {
         this.dockManager.activePane.hidden = true;
-        this.dockManager.layout = { ...this.layout };
+        this.dockManager.layout = { ...this.dockManager.layout };
     }
 
     handlePinPane() {
         this.dockManager.activePane.isPinned = !this.dockManager.activePane.isPinned;
-        this.dockManager.layout = { ...this.layout };
+        this.dockManager.layout = { ...this.dockManager.layout };
     }
 }
 
