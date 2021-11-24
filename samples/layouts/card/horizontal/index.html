@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Horizontal Card Layout</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample" style="align-items: center;">
+  <div class="card-wrapper">
+    <igc-card outlined>
+      <div class="card-horizontal">
+          <div>
+              <igc-card-header>
+                  <img src="https://static.infragistics.com/xplatform/images/music/rozes.jpg" slot="thumbnail">
+                  <h5 slot="title">Rozes</h5>
+                  <h5 slot="subtitle">Under the Grave (2016)</h5>
+              </igc-card-header>
+              <igc-card-content>
+                  <p>As I have always said: I write what’s real and what’s true,
+                      even if it means throwing myself under the bus.</p>
+              </igc-card-content>
+          </div>
+          <div class="divider"></div>
+          <igc-card-actions>
+              <span class="material-icons">skip_previous</span>
+              <span class="material-icons">play_arrow</span>
+              <span class="material-icons">skip_next</span>
+          </igc-card-actions>
+      </div>
+  </igc-card>
+  </div>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

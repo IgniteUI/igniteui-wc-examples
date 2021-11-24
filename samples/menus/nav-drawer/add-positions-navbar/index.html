@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>NavDrawer Add Positions and Navbar</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div id="nav-drawer-container" class="container sample center">
+        <igc-nav-drawer id="navDrawer" style="position: relative">
+          <igc-nav-drawer-header-item>
+              Sample Drawer
+          </igc-nav-drawer-header-item>
+
+          <igc-nav-drawer-item active>
+              <igc-icon slot="icon" name="home"></igc-icon>
+              <span slot="content">Home</span>
+          </igc-nav-drawer-item>
+
+          <igc-nav-drawer-item>
+              <igc-icon slot="icon" name="search"></igc-icon>
+              <span slot="content">Search</span>
+          </igc-nav-drawer-item>
+        </igc-nav-drawer>
+
+        <div id="content" style="width: 100%; height: inherit;">
+          <igc-radio-group id="radio-group" alignment="horizontal" style="margin-bottom: 10px;">
+            <igc-radio name="position" value="start" label-position="after" checked>Start</igc-radio>
+            <igc-radio name="position" value="end" label-position="after">End</igc-radio>
+            <igc-radio name="position" value="top" label-position="after">Top</igc-radio>
+            <igc-radio name="position" value="bottom" label-position="after">Bottom</igc-radio>
+          </igc-radio-group>
+
+          <igc-navbar>
+            <igc-icon slot="start" name="menu" id="menu"></igc-icon>
+            <h2 id="navbar-header">Home</h2>
+          </igc-navbar>
+        </div>
+      </div>
+        
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

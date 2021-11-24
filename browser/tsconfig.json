@@ -7,7 +7,7 @@
     "sourceMap": true,
     "experimentalDecorators": true,
     "outDir": "dist",
-    "lib": ["es2017", "dom"],
+    "lib": ["es2017", "dom", "DOM.Iterable"],
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     "removeComments": true

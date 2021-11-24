@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>CardOverview</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample" style="align-items: center;">
+  <div class="card-wrapper">
+    <igc-card>
+        <igc-card-media>
+            <img src="https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=50">
+        </igc-card-media>
+
+        <igc-card-header>
+            <h3 slot="title">New York City</h3>
+            <h5 slot="subtitle">City in New York</h5>
+        </igc-card-header>
+
+        <igc-card-content>
+            <p>New York City comprises 5 boroughs sitting where the
+                Hudson River meets the Atlantic Ocean. At its core is Manhattan,
+                a densely populated borough that’s among the world’s major commercial,
+                financial and cultural centers.</p>
+        </igc-card-content>
+
+        <igc-card-actions>
+            <igc-button slot="start">
+                <igc-ripple></igc-ripple>
+                Read more
+            </igc-button>
+            <div slot="end">
+                <igc-icon-button name="twitter" style="margin-right: 10px;">
+                    <igc-ripple></igc-ripple>
+                </igc-icon-button>
+                <igc-icon-button name="facebook">
+                    <igc-ripple></igc-ripple>
+                </igc-icon-button>
+            </div>
+        </igc-card-actions>
+    </igc-card>
+  </div>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

@@ -1,0 +1,5 @@
+igc-button::part(base) {
+    background-color: #e99221;
+    color: #011627;
+    padding: 18px;
+}

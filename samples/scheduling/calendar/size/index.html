@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Calendar Size</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+    <div class="container sample">
+
+      <igc-radio-group alignment="horizontal" style="margin-bottom: 10px;">
+        <igc-radio name="size" value="small">Small</igc-radio>
+        <igc-radio name="size" value="medium">Medium</igc-radio>
+        <igc-radio name="size" value="large" checked>Large</igc-radio>
+      </igc-radio-group>
+      
+      <igc-calendar id="calendar1" style="width: 400px;"></igc-calendar>
+    </div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

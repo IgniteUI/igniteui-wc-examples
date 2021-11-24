@@ -5,7 +5,8 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 import { FilterExpression } from 'igniteui-webcomponents-core';
 import { FilterFactory } from 'igniteui-webcomponents-core';
 import { DataGridSharedData } from './DataGridSharedData';
-
+import { FilterUIType } from 'igniteui-webcomponents-grids';
+ 
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
@@ -25,7 +26,7 @@ export class DataGridColumnFiltering {
         this.applyFilter = this.applyFilter.bind(this);
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
-
+        this.grid.filterUIType = FilterUIType.FilterRow;
         document.getElementById('filterColumnDropDown')!.addEventListener('change', this.onFilterColumnDropDownValueChanged);
         document.getElementById('filterModeDropDown')!.addEventListener('change', this.onFilterModeDropDownValueChanged);
         document.getElementById('filterTextBox')!.addEventListener('change', this.onFilterTextBoxTextChanged);

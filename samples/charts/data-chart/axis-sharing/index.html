@@ -25,33 +25,28 @@
         </igc-numeric-y-axis>
 
         <igc-numeric-y-axis name="yAxisLeft" label-location="OutsideLeft"
-        minimum-value="0" title="Money Flow Index"
-        maximum-value="300"
-        major-stroke-thickness="0">
+        minimum-value="5000" title="Trade Volume"
+        maximum-value="45000"
+        major-stroke-thickness="0"
+        abbreviate-large-numbers="true">
         </igc-numeric-y-axis>
 
-        <igc-money-flow-index-indicator
-        name="series2"
+        <igc-column-series
+        name="volumeSeries"
         x-axis-name="xAxisShared"
         y-axis-name="yAxisLeft"
-        display-type="Area"
-        high-member-path="High"
-        low-member-path="Low"
-        close-member-path="Close"
-        open-member-path="Open"
-        volume-member-path="Volume">
-        </igc-money-flow-index-indicator>
+        value-member-path="Volume">
+        </igc-column-series>
 
         <igc-financial-price-series
-        name="series1"
+        name="stockSeries"
         x-axis-name="xAxisShared"
         y-axis-name="yAxisRight"
         display-type="Candlestick"
         high-member-path="High"
         low-member-path="Low"
         close-member-path="Close"
-        open-member-path="Open"
-        volume-member-path="Volume">
+        open-member-path="Open">
         </igc-financial-price-series>
     </igc-data-chart>
 </div>
