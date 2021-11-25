@@ -168,6 +168,11 @@ export class DockManagerStylePanes {
         this.dockManager.addEventListener("closePane", () => this.handleClosePane());
         this.dockManager.addEventListener("pinPane", () => this.handlePinPane());
 
+        const cards = document.querySelectorAll('igc-card');
+        cards.forEach(card => {
+            (card as IgcCardComponent).outlined = false;
+        });
+
         registerIconFromText("arrow-down", this.arrowDown, "material");
         registerIconFromText("arrow-up", this.arrowUp, "material");
     }

@@ -177,4 +177,5 @@ igc-card-content {
 .add-card-btn {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 0.5rem;
 }
