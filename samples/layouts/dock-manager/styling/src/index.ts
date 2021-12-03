@@ -1,7 +1,7 @@
 import "./DockManagerStyles.css";
 import { MenuComponent } from "./menu-component";
 import { defineCustomElements } from "igniteui-dockmanager/loader";
-import { IgcDockManagerComponent, IgcDockManagerLayout, IgcDockManagerPaneType, IgcSplitPaneOrientation, IgcUnpinnedLocation } from "igniteui-dockmanager";
+import { IgcContentPane, IgcDockManagerComponent, IgcDockManagerLayout, IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
 
 defineCustomElements();
 window.customElements.define("menu-component", MenuComponent);
@@ -49,6 +49,73 @@ export class DockManagerStylePanes {
     private dockManager: IgcDockManagerComponent;
     private arrowDown = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7 10l5 5 5-5H7z"/></svg>';
     private arrowUp = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7 14l5-5 5 5H7z"/></svg>';
+    private maxWidth = 1200;
+    private minWidth = 800;
+
+    private accountPane: IgcContentPane = {
+        type: IgcDockManagerPaneType.contentPane,
+        header: "ACCOUNTS",
+        contentId: "content1",
+        headerId: "accountHeader",
+        floatingHeaderId: "accountFloatingHeader",
+        isPinned: true,
+        allowMaximize: false,
+        allowClose: false,
+        allowPinning: false
+    };
+
+    private cardsPane: IgcContentPane = {
+        type: IgcDockManagerPaneType.contentPane,
+        header: "PHYSICAL CARDS",
+        contentId: "content5",
+        headerId: "cardsHeader",
+        floatingHeaderId: "cardsFloatingHeader",
+        isPinned: true,
+        allowMaximize: false,
+        allowPinning: false,
+        allowClose: false
+    };
+
+    private transactionsPane: IgcContentPane = {
+        type: IgcDockManagerPaneType.contentPane,
+        header: "TRANSACTIONS",
+        contentId: "content3",
+        headerId: "transactionsHeader",
+        floatingHeaderId: "transactionsFloatingHeader",
+        isPinned: true,
+        allowMaximize: false,
+        allowClose: false,
+        allowPinning: false
+    };
+
+    private popularStocksPane: IgcContentPane = {
+        type: IgcDockManagerPaneType.contentPane,
+        header: "POPULAR STOCKS",
+        contentId: "content4",
+        floatingHeaderId: "popularStocksFloatingHeader",
+        headerId: "popularStocksHeader",
+        isPinned: true,
+        allowMaximize: false,
+        allowPinning: false,
+        allowClose: false
+    };
+
+    private topMoversPane: IgcContentPane = {
+        type: IgcDockManagerPaneType.contentPane,
+        header: "TODAY'S TOP MOVERS",
+        contentId: "content2",
+        headerId: "todayTopMovers",
+        floatingHeaderId: "todayTopMoversFloatingHeader",
+        isPinned: true,
+        allowMaximize: false,
+        allowClose: false,
+        allowPinning: false
+    };
+
+    newLayout: IgcDockManagerLayout = {rootPane:{
+        type: IgcDockManagerPaneType.splitPane,
+        orientation: IgcSplitPaneOrientation.horizontal,
+        panes: []}};
 
     layout: IgcDockManagerLayout = {
         rootPane: {
@@ -69,93 +136,96 @@ export class DockManagerStylePanes {
                                     type: IgcDockManagerPaneType.splitPane,
                                     orientation: IgcSplitPaneOrientation.vertical,
                                     size: 300,
-                                    panes: [
-                                        {
-                                            type: IgcDockManagerPaneType.contentPane,
-                                            header: "ACCOUNTS",
-                                            contentId: "content1",
-                                            headerId: "accountHeader",
-                                            unpinnedLocation: IgcUnpinnedLocation.top,
-                                            isPinned: true,
-                                            allowFloating: false,
-                                            allowMaximize: false,
-                                            allowClose: false,
-                                            allowPinning: false
-                                        },
-                                        {
-                                            type: IgcDockManagerPaneType.contentPane,
-                                            header: "PHYSICAL CARDS",
-                                            contentId: "content5",
-                                            headerId: "cardsHeader",
-                                            unpinnedLocation: IgcUnpinnedLocation.right,
-                                            isPinned: true,
-                                            allowFloating: false,
-                                            allowMaximize: false,
-                                            allowPinning: false,
-                                            allowClose: false
-                                        }
-                                    ]
+                                    panes: [this.accountPane, this.cardsPane]
                                 },
                                 {
-                                  type: IgcDockManagerPaneType.splitPane,
-                                  orientation: IgcSplitPaneOrientation.vertical,
-                                  size: 300,
-                                  panes: [
-                                      {
-                                          type: IgcDockManagerPaneType.contentPane,
-                                          header: "TRANSACTIONS",
-                                          contentId: "content3",
-                                          headerId: "transactionsHeader",
-                                          unpinnedLocation: IgcUnpinnedLocation.bottom,
-                                          isPinned: true,
-                                          allowFloating: false,
-                                          allowMaximize: false,
-                                          allowClose: false,
-                                          allowPinning: false
-                                      }
-                                  ]
+                                    type: IgcDockManagerPaneType.splitPane,
+                                    orientation: IgcSplitPaneOrientation.vertical,
+                                    size: 300,
+                                    panes: [this.transactionsPane]
                                 }
                             ]
                         },
                         {
-                          type: IgcDockManagerPaneType.splitPane,
-                          orientation: IgcSplitPaneOrientation.horizontal,
-                          size: 130,
-                          panes: [
-                              {
-                                  type: IgcDockManagerPaneType.contentPane,
-                                  header: "TODAY'S TOP MOVERS",
-                                  contentId: "content2",
-                                  headerId: "todayTopMovers",
-                                  unpinnedLocation: IgcUnpinnedLocation.top,
-                                  isPinned: true,
-                                  allowFloating: false,
-                                  allowMaximize: false,
-                                  allowClose: false,
-                                  allowPinning: false
-                              }
-                          ]
-                      }
+                            type: IgcDockManagerPaneType.splitPane,
+                            orientation: IgcSplitPaneOrientation.horizontal,
+                            size: 130,
+                            panes: [this.topMoversPane]
+                        }
                     ]
                 },
                 {
                     type: IgcDockManagerPaneType.splitPane,
                     orientation: IgcSplitPaneOrientation.vertical,
                     size: 200,
+                    panes: [this.popularStocksPane]
+                }
+            ]
+        }
+    };
+
+    layout1: IgcDockManagerLayout = {
+        rootPane: {
+            type: IgcDockManagerPaneType.splitPane,
+            orientation: IgcSplitPaneOrientation.horizontal,
+            panes: [
+                {
+                    type: IgcDockManagerPaneType.splitPane,
+                    orientation: IgcSplitPaneOrientation.vertical,
+                    size: 300,
                     panes: [
-                      {
-                          type: IgcDockManagerPaneType.contentPane,
-                          header: "POPULAR STOCKS",
-                          contentId: "content4",
-                          headerId: "popularStocksHeader",
-                          unpinnedLocation: IgcUnpinnedLocation.top,
-                          isPinned: true,
-                          allowFloating: false,
-                          allowMaximize: false,
-                          allowPinning: false,
-                          allowClose: false
-                      }
+                        {
+                            type: IgcDockManagerPaneType.splitPane,
+                            orientation: IgcSplitPaneOrientation.horizontal,
+                            size: 300,
+                            panes: [
+                                {
+                                    type: IgcDockManagerPaneType.splitPane,
+                                    orientation: IgcSplitPaneOrientation.vertical,
+                                    size: 300,
+                                    panes: [
+                                        {
+                                            type: IgcDockManagerPaneType.tabGroupPane,
+                                            size: 100,
+                                            panes: [this.accountPane, this.cardsPane]
+                                        },
+                                        this.transactionsPane
+                                    ]
+                                },
+                                {
+                                    type: IgcDockManagerPaneType.splitPane,
+                                    orientation: IgcSplitPaneOrientation.vertical,
+                                    size: 300,
+                                    panes: [this.popularStocksPane]
+                                }
+                            ]
+                        },
+                        {
+                            type: IgcDockManagerPaneType.splitPane,
+                            orientation: IgcSplitPaneOrientation.horizontal,
+                            size: 130,
+                            panes: [this.topMoversPane]
+                        }
                     ]
+                }
+            ]
+        }
+    };
+
+    layout2: IgcDockManagerLayout = {
+        rootPane: {
+            type: IgcDockManagerPaneType.splitPane,
+            orientation: IgcSplitPaneOrientation.vertical,
+            panes: [
+                {
+                    type: IgcDockManagerPaneType.tabGroupPane,
+                    size: 200,
+                    panes: [this.accountPane, this.cardsPane, this.transactionsPane]
+                },
+                {
+                    type: IgcDockManagerPaneType.tabGroupPane,
+                    size: 300,
+                    panes: [this.popularStocksPane, this.topMoversPane]
                 }
             ]
         }
@@ -163,18 +233,26 @@ export class DockManagerStylePanes {
 
     constructor() {
         this.dockManager = document.getElementById("dockManager") as IgcDockManagerComponent;
-        this.dockManager.layout = { ...this.layout };
+        this.handleLayoutViews(document.body.clientWidth);
 
         this.dockManager.addEventListener("closePane", () => this.handleClosePane());
         this.dockManager.addEventListener("pinPane", () => this.handlePinPane());
 
-        const cards = document.querySelectorAll('igc-card');
-        cards.forEach(card => {
+        document.getElementById("close")?.addEventListener("click", () => this.handleClosePane());
+
+        const cards = document.querySelectorAll("igc-card");
+        cards.forEach((card) => {
             (card as IgcCardComponent).outlined = false;
         });
 
         registerIconFromText("arrow-down", this.arrowDown, "material");
         registerIconFromText("arrow-up", this.arrowUp, "material");
+
+        document.defaultView?.addEventListener("resize", () => this.handleLayoutViews(this.dockManager.offsetWidth));
+
+        document.querySelectorAll(".closeButton").forEach((closeBtn) => {
+            closeBtn.addEventListener("click", () => this.handleClosePane());
+        });
     }
 
     handleClosePane() {
@@ -185,6 +263,31 @@ export class DockManagerStylePanes {
     handlePinPane() {
         this.dockManager.activePane.isPinned = !this.dockManager.activePane.isPinned;
         this.dockManager.layout = { ...this.dockManager.layout };
+    }
+
+    handleLayoutViews(width: number) {
+        let newLayout: any;
+
+        if (width > this.maxWidth) {
+            newLayout = { ...this.layout };
+        }
+        if (width <= this.maxWidth) {
+            newLayout = { ...this.layout1 };
+        }
+        if (width <= this.minWidth) {
+            newLayout = { ...this.layout2 };
+        }
+
+        this.setLayoutView(newLayout);
+    }
+
+    setLayoutView(layout: IgcDockManagerLayout) {
+        if (!this.dockManager.layout) {
+            this.dockManager.layout = { ...layout };
+        } else if (layout.rootPane.id !== this.dockManager.layout.rootPane.id) {
+            this.dockManager.focus();
+            this.dockManager.layout = { ...layout };
+        }
     }
 }
 

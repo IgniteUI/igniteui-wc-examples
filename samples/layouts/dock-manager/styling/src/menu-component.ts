@@ -8,7 +8,7 @@ template.innerHTML = `
 
     <div id="menu-items">
       <button id="pin" class="item">
-        Pin
+        <span>Unpin</span>
         <igc-icon-component name="unpin" />
       </button>
       <button id="close" class="item">
@@ -109,10 +109,12 @@ export class MenuComponent extends HTMLElement {
   }
 
   changePinIcon() {
-    if (this.shadow.getElementById('pin').children[0].name === 'unpin') {
-      this.shadow.getElementById('pin').children[0].name = 'pin';
+    if (this.shadow.getElementById('pin').children[1].name === 'unpin') {
+      this.shadow.getElementById('pin').children[1].name = 'pin';
+      this.shadow.getElementById('pin').children[0].innerText = 'Pin';
     } else {
-      this.shadow.getElementById('pin').children[0].name = 'unpin';
+      this.shadow.getElementById('pin').children[1].name = 'unpin';
+      this.shadow.getElementById('pin').children[0].innerText = 'Unpin';
     }
   }
 }
