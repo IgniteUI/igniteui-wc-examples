@@ -1,13 +1,11 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
-igc-radio::part(base checked):focus-within igc-radio::part(control) {
-    background: rgba(128,128,0, .32);
+:root {
+    --igc-primary-h: 60deg;
+    --igc-primary-s: 100%;
+    --igc-primary-l: 25%;
 }
 
-igc-radio::part(control checked)::before {
-    background: olive;
-}
-
-igc-radio::part(control checked)::after {
-    border-color: olive;
+igc-radio::part(control) {
+    --size: 18px;
 }
