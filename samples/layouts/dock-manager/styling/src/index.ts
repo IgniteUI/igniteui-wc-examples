@@ -112,11 +112,6 @@ export class DockManagerStylePanes {
         allowPinning: false
     };
 
-    newLayout: IgcDockManagerLayout = {rootPane:{
-        type: IgcDockManagerPaneType.splitPane,
-        orientation: IgcSplitPaneOrientation.horizontal,
-        panes: []}};
-
     layout: IgcDockManagerLayout = {
         rootPane: {
             type: IgcDockManagerPaneType.splitPane,
@@ -230,8 +225,14 @@ export class DockManagerStylePanes {
             ]
         }
     };
+    
+    layouts:IgcDockManagerLayout[] = [];
+    index = 0;
+    newIndex = -1;
 
     constructor() {
+        this.layouts = [this.layout, this.layout1, this.layout2];
+        
         this.dockManager = document.getElementById("dockManager") as IgcDockManagerComponent;
         this.handleLayoutViews(document.body.clientWidth);
 
@@ -266,27 +267,28 @@ export class DockManagerStylePanes {
     }
 
     handleLayoutViews(width: number) {
-        let newLayout: any;
-
         if (width > this.maxWidth) {
-            newLayout = { ...this.layout };
+            this.index = 0;
         }
         if (width <= this.maxWidth) {
-            newLayout = { ...this.layout1 };
+            this.index = 1;
         }
         if (width <= this.minWidth) {
-            newLayout = { ...this.layout2 };
+            this.index = 2;
         }
 
-        this.setLayoutView(newLayout);
+        this.setLayoutView(this.layouts[this.index]);
+
+        this.newIndex = this.index;
     }
 
     setLayoutView(layout: IgcDockManagerLayout) {
-        if (!this.dockManager.layout) {
-            this.dockManager.layout = { ...layout };
-        } else if (layout.rootPane.id !== this.dockManager.layout.rootPane.id) {
-            this.dockManager.focus();
-            this.dockManager.layout = { ...layout };
+        if (this.index !== this.newIndex) {
+            if (this.dockManager.activePane) {
+                this.dockManager.focus();
+            }
+
+            this.dockManager.layout = JSON.parse(JSON.stringify(layout));
         }
     }
 }
