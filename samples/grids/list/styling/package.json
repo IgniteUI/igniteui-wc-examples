@@ -21,7 +21,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "1.0.0-rc.0",
+    "igniteui-webcomponents": "^1.0.0",
     "lit": "^2.0.2",
     "tslib": "^2.0.0"
   },
@@ -49,7 +49,7 @@
     "style-loader": "^0.22.1",
     "xml-loader": "^1.2.1",
     "worker-loader": "^3.0.8"
-    },
+  },
   "license": "",
   "homepage": "."
 }

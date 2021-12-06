@@ -35,7 +35,6 @@ log('loaded');
 
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSources = [
-    // igConfig.SamplesCopyPath + '/charts/**/package.json',
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
@@ -47,16 +46,13 @@ var sampleSources = [
 
     igConfig.SamplesCopyPath + '/maps/**/package.json',
 
-    // igConfig.SamplesCopyPath + '/excel/**/package.json',
     igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
     igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
 
-    // igConfig.SamplesCopyPath + '/gauges/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
 
-    // igConfig.SamplesCopyPath + '/grids/**/package.json',
     igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
     igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
@@ -667,9 +663,10 @@ function updateCodeViewer(cb) {
             }
             else if (file.indexOf(".ts") > 0 && file.indexOf(sample.SampleFileName) == -1) {
 
-                var isMain = file.indexOf("index") == -1;
+                var isIndex = file.indexOf("index.ts") > 0;
                 var tsContent = fs.readFileSync(file, "utf8");
-                var tsItem = new CodeViewer(file, tsContent, "ts", "ts", isMain);
+                var tsItem = new CodeViewer(file, tsContent, "ts", "ts", true);
+                tsItem.fileHeader = isIndex ? "ts" : "DATA";
                 contentItems.push(tsItem);
             }
             else if (file.indexOf(".html") > 0) {

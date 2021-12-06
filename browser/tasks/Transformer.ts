@@ -989,10 +989,10 @@ class PackageDependency {
 class CodeViewer {
     public path: string;
     public hasRelativeAssetsUrls: Boolean;
-    public content: string;
     public isMain: Boolean;
     public fileExtension: string;
     public fileHeader: string;
+    public content: string;
 
     constructor(filePath: string, content: string, fileExtension: string, fileHeader: string, isMain: Boolean) {
 
