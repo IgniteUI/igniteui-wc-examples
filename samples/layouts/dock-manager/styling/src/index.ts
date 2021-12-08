@@ -239,7 +239,7 @@ export class DockManagerStylePanes {
         this.dockManager.addEventListener("closePane", () => this.handleClosePane());
         this.dockManager.addEventListener("pinPane", () => this.handlePinPane());
 
-        document.getElementById("close")?.addEventListener("click", () => this.handleClosePane());
+        document.getElementById("close")!.addEventListener("click", () => this.handleClosePane());
 
         const cards = document.querySelectorAll("igc-card");
         cards.forEach((card) => {
@@ -249,7 +249,7 @@ export class DockManagerStylePanes {
         registerIconFromText("arrow-down", this.arrowDown, "material");
         registerIconFromText("arrow-up", this.arrowUp, "material");
 
-        document.defaultView?.addEventListener("resize", () => this.handleLayoutViews(this.dockManager.offsetWidth));
+        document.defaultView!.addEventListener("resize", () => this.handleLayoutViews(this.dockManager.offsetWidth));
 
         document.querySelectorAll(".closeButton").forEach((closeBtn) => {
             closeBtn.addEventListener("click", () => this.handleClosePane());
