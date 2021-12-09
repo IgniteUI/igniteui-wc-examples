@@ -7,6 +7,7 @@ import { IgcColumnSortDescription } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { ODataVirtualDataSource } from 'igniteui-webcomponents-datasources';
 import { ListSortDirection } from 'igniteui-webcomponents-core';
+import { HeaderClickAction } from '@infragistics/igniteui-react-grids';
 
 ModuleManager.register(IgcDataGridModule, IgcGridColumnOptionsModule);
 
@@ -27,6 +28,7 @@ export class DataGridCellMerging {
 
         this.grid.dataSource = vds;
         this.grid.mergedCellMode = MergedCellMode.Always;
+        this.grid.headerClickAction = HeaderClickAction.SortByMultipleColumnsTriState;
 
         let dropDown = document.getElementById('selectionDropBox');
         dropDown!.addEventListener('change', this.dropDownValueChanged);
