@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>DataGridRowGrouping</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options horizontal">
+        <span class="options-label" style="width:175px" >Section Header Display Mode:</span>
+        <select class="options-label" style="width:100px" defaultValue="Split" id="displayModeSelector">
+            <option>Split</option>
+            <option>Combined</option>
+        </select>
+    </div>
+
+    <igc-data-grid
+        id="grid"
+        height="calc(100% - 3rem)"
+        width="100%"
+        is-column-options-enabled="true"
+        is-group-collapsable="true"
+        auto-generate-columns="false">
+            <igc-text-column field="Name" header-text="Name" width="*>230" ></igc-text-column>
+            <igc-numeric-column field="Age" header-text="Age" width="*>95"></igc-numeric-column>
+            <igc-date-time-column field="Birthday" header-text="Date of Birth"
+            horizontal-alignment="right" width="*>140"></igc-date-time-column>
+            <igc-text-column field="Street" header-text="Address" width="*>155"></igc-text-column>
+            <igc-text-column field="City" header-text="City" width="*>120" horizontal-alignment="center"></igc-text-column>
+            <igc-text-column field="CountryFlag" header-text="Country" width="*>120" content-opacity="1" horizontal-alignment="center"
+                              padding-top="5" padding-bottom="5"></igc-image-column>
+            <igc-numeric-column field="Salary" header-text="Salary" width="*>105"
+            positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+            
+    </igc-data-grid>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
