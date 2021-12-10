@@ -2,9 +2,9 @@ import { defineComponents, IgcCheckboxComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/bootstrap.css';
 
 defineComponents(IgcCheckboxComponent);
-export class CheckboxChecked {
+export class CheckboxOverview {
     constructor() {
     }
 }
 
-new CheckboxChecked();
+new CheckboxOverview();
