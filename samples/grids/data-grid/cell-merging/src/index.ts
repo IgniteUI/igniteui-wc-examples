@@ -7,7 +7,7 @@ import { IgcColumnSortDescription } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { ODataVirtualDataSource } from 'igniteui-webcomponents-datasources';
 import { ListSortDirection } from 'igniteui-webcomponents-core';
-import { HeaderClickAction } from '@infragistics/igniteui-react-grids';
+import { HeaderClickAction } from 'igniteui-webcomponents-grids';
 
 ModuleManager.register(IgcDataGridModule, IgcGridColumnOptionsModule);
 
