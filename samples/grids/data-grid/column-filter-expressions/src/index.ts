@@ -10,7 +10,7 @@ import { FilterUIType } from 'igniteui-webcomponents-grids';
 ModuleManager.register(IgcDataGridModule);
 ModuleManager.register(IgcGridColumnOptionsModule);
 
-export class DataGridColumnFiltering {
+export class DataGridColumnFilterExpressions {
 
     private grid: IgcDataGridComponent;
     private filterText: string = '';
@@ -77,4 +77,4 @@ export class DataGridColumnFiltering {
     }
 }
 
-new DataGridColumnFiltering();
+new DataGridColumnFilterExpressions();
