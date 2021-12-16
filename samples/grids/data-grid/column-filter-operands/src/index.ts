@@ -26,7 +26,7 @@ export class DataGridColumnFilterOperands {
         this.grid.onload = this.onGridLoad;
     }
 
-    onGridLoad = () =>
+    onGridLoad()
     {
         const filterOperand = new IgcFilterOperand();
         filterOperand.editorType = EditorType.Text;
