@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
 
   </head>
 
@@ -15,23 +15,6 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options horizontal">
-        <span class="options-label">  Column: </span>
-        <select id="filterColumnDropDown" class="options-label">
-            <option>Name</option>
-            <option>Street</option>
-            <option>City</option>
-            <option>Country</option>
-        </select>
-        <select id="filterModeDropDown" class="options-label">
-            <option>Contains</option>
-            <option>StartsWith</option>
-            <option>EndsWith</option>
-        </select>
-        <label class="options-label"> Expression: </label>
-        <input id="filterTextBox" class="options-text" type="text" name="title" />
-    </div>
-
     <igc-data-grid
         id="grid"
         height="calc(100% - 2rem)"
@@ -44,7 +27,7 @@
         <igc-text-column field="Name" width="*>150"></igc-text-column>
         <igc-text-column field="Street" width="*>160"></igc-text-column>
         <igc-text-column field="City" width="*>125"></igc-text-column>
-        <igc-image-column field="CountryFlag" header-text="Country" content-opacity="1"
+        <igc-text-column field="Country" header-text="Country" content-opacity="1"
             horizontal-alignment="center" width="*>110" padding-top="5" padding-bottom="5"></igc-image-column>
         <igc-numeric-column field="Sales" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
         <igc-date-time-column field="Birthday" header-text="Birthday" width="*>115"></igc-date-time-column>

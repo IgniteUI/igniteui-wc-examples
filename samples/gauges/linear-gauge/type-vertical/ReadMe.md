@@ -1,7 +1,7 @@
-<!-- NOTE: do not change this file because it's auto re-generated from: -->
+<!-- NOTE: do not change this file because it's auto re-generated from template: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/vnext/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Type Vertical using [Linear Gauge](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
+This folder contains implementation of Web Components application with example of Type Vertical feature using [Linear Gauge](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
 
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">

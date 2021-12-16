@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>DataGridColumnFilterOperands</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <igc-data-grid
+        id="grid"
+        height="calc(100% - 2rem)"
+        width="100%"
+        default-column-min-width="100"
+        is-column-options-enabled="true"
+        auto-generate-columns="false"
+        filter-ui-type="FilterRow">
+        <igc-text-column field="Country" header-text="Country" content-opacity="1" horizontal-alignment="center" padding-top="5" padding-bottom="5"></igc-text-column>
+        <igc-numeric-column field="Age" width="*>120"></igc-numeric-column>
+        <igc-numeric-column field="Sales" width="*>170" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+    </igc-data-grid>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
