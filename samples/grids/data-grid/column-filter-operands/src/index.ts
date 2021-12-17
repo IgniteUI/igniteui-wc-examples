@@ -1,4 +1,4 @@
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule, IgcGridColumnsChangedEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { IgcGridCustomFilterRequestedEventArgs } from 'igniteui-webcomponents-grids';
@@ -15,19 +15,16 @@ export class DataGridColumnFilterOperands {
 
     private grid: IgcDataGridComponent;
 
-    constructor() {
-
+    constructor() {        
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.filterUIType = FilterUIType.FilterRow;
         this.grid.dataSource = DataGridSharedData.getEmployees(4000);
-        if (!this.grid) { return; }
 
-        this.grid = this.grid;
-        this.grid.onload = this.onGridLoad;
+        this.onLoad();
     }
 
-    onGridLoad()
-    {
+    onLoad() {
+
         const filterOperand = new IgcFilterOperand();
         filterOperand.editorType = EditorType.Text;
         filterOperand.displayName = "Show Only France";
@@ -51,7 +48,7 @@ export class DataGridColumnFilterOperands {
         let column3 = this.grid.actualColumns.item(2);
         if (column3 !== null && column3 !== undefined)    
         column3.filterOperands.add(filterOperand3);
-    }
+    }   
 
     onFilter1(s: IgcFilterOperand, e: IgcGridCustomFilterRequestedEventArgs)
     {
