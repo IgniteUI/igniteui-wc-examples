@@ -20,10 +20,10 @@ export class DataGridColumnFilterOperands {
         this.grid.filterUIType = FilterUIType.FilterRow;
         this.grid.dataSource = DataGridSharedData.getEmployees(4000);
 
-        this.onLoad();
+        this.grid.actualColumnsChanged = this.onActualColumnsChanged.bind(this);
     }
 
-    onLoad() {
+    onActualColumnsChanged() {
 
         const filterOperand = new IgcFilterOperand();
         filterOperand.editorType = EditorType.Text;
