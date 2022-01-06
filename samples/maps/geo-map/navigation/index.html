@@ -2,22 +2,85 @@
   <head>
     <title>MapNavigation</title>
     <meta charset="UTF-8" />
-
-    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
     <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
-
   </head>
-
   <body>
     <div id="root">
 
 <div class="container sample">
     <igc-geographic-map id="geoMap" width="100%" height="100%">
-
     </igc-geographic-map>
+
+    <div class="overlay-left overlay-border vertical" style="background: rgba(217, 217, 217, 0.5)">
+      <label style="font-weight: 600">Zoom to Map Region</label>
+      <select id="selectMapRegion">
+        <option>United States</option>
+        <option>United Kingdom</option>
+        <option>South Africa</option>
+        <option>Poland</option>
+      </select>
+      <label style="font-weight: 600">Map Geographic Rect</label>
+      <div  class="horizontal">
+          <div  class="vertical"  style="margin-right: 1rem">
+              <label id="lblGeoTop"></label>
+              <label id="lblGeoLeft"></label>
+          </div>
+          <div  class="vertical">
+              <label id="lblGeoHeight"></label>
+              <label id="lblGeoWidth"></label>
+          </div>
+      </div>
+
+      <label style="font-weight: 600">Map Window Rect</label>
+      <div  class="horizontal">
+          <div  class="vertical"  style="margin-right: 1rem">
+              <label id="lblWindowTop"></label>
+              <label id="lblWindowLeft"></label>
+          </div>
+          <div  class="vertical">
+              <label id="lblWindowHeight"></label>
+              <label id="lblWindowWidth"></label>
+          </div>
+      </div>
+
+      <label style="font-weight: 600">Map Window Position</label>
+      <div  class="horizontal">
+          <div  class="vertical"  style="margin-right: 1rem">
+              <label>Horizontal:</label>
+              <label>Vertical:</label>
+              <label>Scale:</label>
+          </div>
+          <div  class="vertical">
+              <label id="lblWindowPositionX"> </label>
+              <label id="lblWindowPositionY"> </label>
+              <label id="lblWindowScale"> </label>
+          </div>
+      </div>
+
+      <label style="font-weight: 600">Map Hover Coordinates</label>
+      <div  class="horizontal">
+          <div  class="vertical" style="margin-right: 1rem">
+              <label>Window X: </label>
+              <label>Window Y: </label>
+              <label>Longitude: </label>
+              <label>Latitude: </label>
+              <label>Pixel X: </label>
+              <label>Pixel Y: </label>
+          </div>
+          <div  class="vertical">
+              <label id="lblWindowHoverX"></label>
+              <label id="lblWindowHoverY"></label>
+              <label id="lblGeoLongitude"> </label>
+              <label id="lblGeoLatitudes"> </label>
+              <label id="lblPixelX"> </label>
+              <label id="lblPixelY"> </label>
+          </div>
+      </div>
+  </div>
 
 </div>
 
