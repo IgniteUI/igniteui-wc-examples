@@ -1,7 +1,7 @@
 {
-  "name": "wc-dock-manager-embedding-frames",
+  "name": "wc-dock-manager-add-content-runtime",
   "version": "1.0.0",
-  "description": "This project provides example of Dock Manager Embedding Frames using IgniteUI for Web Components",
+  "description": "This project provides example of Dock Manager Add Content at Runtime using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
