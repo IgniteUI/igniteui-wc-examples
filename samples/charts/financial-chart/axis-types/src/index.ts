@@ -12,6 +12,7 @@ export class FinancialChartAxisTypes {
     private chart: IgcFinancialChartComponent;
     private xAxisMode = FinancialChartXAxisMode.Ordinal;
     private yAxisMode = FinancialChartYAxisMode.Numeric;
+    private yAxisIsLogarithmic = false;
 
     constructor() {
 
@@ -19,6 +20,7 @@ export class FinancialChartAxisTypes {
         this.chart.dataSource = this.initData();
         this.chart.xAxisMode = this.xAxisMode;
         this.chart.yAxisMode = this.yAxisMode;
+        this.chart.yAxisIsLogarithmic = this.yAxisIsLogarithmic;
 
         let xAxisSelect = <HTMLSelectElement>document.getElementById('xAxisSelect');
         xAxisSelect!.addEventListener('change', this.onXAxisModeChanged);
@@ -27,6 +29,9 @@ export class FinancialChartAxisTypes {
         let yAxisSelect = <HTMLSelectElement>document.getElementById('yAxisSelect');
         yAxisSelect!.addEventListener('change', this.onYAxisModeChanged);
         yAxisSelect!.value = "Numeric";
+
+        let yAxisIsLogarithmicSelect = document.getElementById('yAxisIsLogarithmicSelect');
+        yAxisIsLogarithmicSelect!.addEventListener('change', this.onYAxisIsLogarithmicChanged);
     }
 
     public onXAxisModeChanged = (e: any) => {
@@ -49,6 +54,11 @@ export class FinancialChartAxisTypes {
             this.yAxisMode = FinancialChartYAxisMode.Numeric;
         }
         this.chart.yAxisMode = this.yAxisMode;
+    }
+
+    public onYAxisIsLogarithmicChanged = (e: any) => {
+        this.yAxisIsLogarithmic = e.target.checked;
+        this.chart.yAxisIsLogarithmic = this.yAxisIsLogarithmic;
     }
 
     initData(): any[] {
