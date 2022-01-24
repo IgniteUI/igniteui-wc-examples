@@ -1,6 +1,6 @@
 import { defineComponents, IgcNavbarComponent, IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponent, IgcNavDrawerItemComponent,
   IgcIconComponent, IgcRadioComponent, IgcRadioGroupComponent, registerIconFromText } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/bootstrap.css';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';;
 
 defineComponents(IgcNavbarComponent, IgcNavDrawerComponent, IgcNavDrawerHeaderItemComponent, IgcNavDrawerItemComponent,
   IgcIconComponent, IgcRadioComponent, IgcRadioGroupComponent);
