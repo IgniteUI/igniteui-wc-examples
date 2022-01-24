@@ -1,5 +1,5 @@
 import { defineComponents, IgcIconButtonComponent, registerIconFromText } from "igniteui-webcomponents";
-import "igniteui-webcomponents/themes/bootstrap.css";
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import "./IconButtonStyling.css";
 
 defineComponents(IgcIconButtonComponent);

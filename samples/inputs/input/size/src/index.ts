@@ -1,5 +1,5 @@
 import { defineComponents, IgcIconComponent, IgcInputComponent, IgcRadioComponent, IgcRadioGroupComponent, registerIconFromText } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/bootstrap.css';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './InputSizingStyle.css';
 
 defineComponents(IgcIconComponent, IgcInputComponent, IgcRadioComponent, IgcRadioGroupComponent);
