@@ -2,7 +2,7 @@ import { DataItem, Data } from './SampleData';
 import { IgcPropertyEditorModule } from 'igniteui-webcomponents-grids';
 import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorDescriptionModule, TreemapDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-grids';
+import { IgcPropertyEditorComponent } from 'igniteui-webcomponents-grids';
 import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -14,16 +14,15 @@ ModuleManager.register(
 
 export class Sample {
 
-    private propertyEditor: IgcPropertyEditorComponent
-    private propertyEditorPropertyDescription: IgcPropertyEditorPropertyDescriptionComponent
+    private propertyEditor1: IgcPropertyEditorComponent
     private treemap: IgcTreemapComponent
 
     constructor() {
-        var propertyEditor = this.propertyEditor = document.querySelector('igc-property-editor') as IgcPropertyEditorComponent;
+        var propertyEditor1 = this.propertyEditor1 = document.getElementById('propertyEditor1') as IgcPropertyEditorComponent;
         var treemap = this.treemap = document.getElementById('treemap') as IgcTreemapComponent;
 
-        propertyEditor.componentRenderer = this.renderer
-        propertyEditor.target = this.treemap
+        propertyEditor1.componentRenderer = this.renderer
+        propertyEditor1.target = this.treemap
         treemap.dataSource = this.data
     }
 

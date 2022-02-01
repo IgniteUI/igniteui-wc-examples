@@ -28,13 +28,11 @@ export class Sample {
         var chartTypeEditor = this.chartTypeEditor = document.getElementById('ChartTypeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var markerTypeEditor = this.markerTypeEditor = document.getElementById('MarkerTypeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         this.editorChangeUpdateMarkerType = this.editorChangeUpdateMarkerType.bind(this);
-        this.editorChangeUpdateChartType = this.editorChangeUpdateChartType.bind(this);
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         propertyEditor.componentRenderer = this.renderer
         propertyEditor.target = this.chart
         markerTypeEditor.changed = this.editorChangeUpdateMarkerType
-        chartTypeEditor.changed = this.editorChangeUpdateChartType
         chart.dataSource = this.data
     }
 
@@ -46,7 +44,7 @@ export class Sample {
         }
         return this._data;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -60,22 +58,15 @@ export class Sample {
         return this._componentRenderer
     }
 
-
+    
     public editorChangeUpdateMarkerType(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
         var item = sender as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart;
-
+            
         var markerVal = item.primitiveValue;
-        chart.markerTypes = markerVal;
+        chart.markerTypes = markerVal;   
     }
-
-    public editorChangeUpdateChartType(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        var item = sender as IgcPropertyEditorPropertyDescriptionComponent;
-        var chart = this.chart;
-
-        var chartVal = item.primitiveValue;
-        chart.chartType = chartVal;
-    }
+        
 
 }
 

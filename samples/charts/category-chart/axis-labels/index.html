@@ -16,12 +16,15 @@
     <div id="root">
 
 <div class="container sample">
+
     <div class="options vertical">
         <igc-property-editor
-
+        
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="propertyEditor1"
+        id ="propertyEditor1">
             <igc-property-editor-property-description
             property-path="XAxisLabelAngle"
             label="X Axis Label Angle"
@@ -33,12 +36,19 @@
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             drop-down-values="-90, -45, 0, 45, 90"
-            primitive-value="0"
             property-path="YAxisLabelAngle"
             label="Y Axis Label Angle"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="-90, -45, 0, 45, 90">
+            drop-down-names="-90, -45, 0, 45, 90"
+            primitive-value="0">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            drop-down-values="red, green"
+            property-path="xAxisLabelTextColor"
+            label="Y Axis Label Color"
+            value-type="EnumValue"
+            drop-down-names="red, green">
             </igc-property-editor-property-description>
         </igc-property-editor>
     </div>

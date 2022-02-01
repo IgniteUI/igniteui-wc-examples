@@ -34,9 +34,9 @@ export class Sample {
         radialColumnSeries1.angleAxis = this.angleAxis
         radialColumnSeries1.valueAxis = this.radiusAxis
         radialColumnSeries1.dataSource = this.data
-        radialColumnSeries2.dataSource = this.data
         radialColumnSeries2.angleAxis = this.angleAxis
         radialColumnSeries2.valueAxis = this.radiusAxis
+        radialColumnSeries2.dataSource = this.data
     }
 
     private _data: Data = null;

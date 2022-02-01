@@ -3,7 +3,7 @@ import { IgcPropertyEditorModule } from 'igniteui-webcomponents-grids';
 import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcPropertyEditorComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-grids';
+import { IgcPropertyEditorComponent } from 'igniteui-webcomponents-grids';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -16,17 +16,16 @@ ModuleManager.register(
 export class Sample {
 
     private legend: IgcLegendComponent
-    private propertyEditor: IgcPropertyEditorComponent
-    private propertyEditorPropertyDescription: IgcPropertyEditorPropertyDescriptionComponent
+    private propertyEditor1: IgcPropertyEditorComponent
     private chart: IgcCategoryChartComponent
 
     constructor() {
         var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
-        var propertyEditor = this.propertyEditor = document.querySelector('igc-property-editor') as IgcPropertyEditorComponent;
+        var propertyEditor1 = this.propertyEditor1 = document.getElementById('propertyEditor1') as IgcPropertyEditorComponent;
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
-        propertyEditor.componentRenderer = this.renderer
-        propertyEditor.target = this.chart
+        propertyEditor1.componentRenderer = this.renderer
+        propertyEditor1.target = this.chart
         chart.dataSource = this.data
     }
 
