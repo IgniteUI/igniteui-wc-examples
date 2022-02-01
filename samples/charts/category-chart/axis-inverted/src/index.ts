@@ -1,9 +1,9 @@
 import { DataItem, Data } from './SampleData';
 import { IgcPropertyEditorModule } from 'igniteui-webcomponents-grids';
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
+import { ComponentRenderer, PropertyEditorDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorComponent } from 'igniteui-webcomponents-grids';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-import { ComponentRenderer, PropertyEditorDescriptionModule, CategoryChartDescriptionModule } from "igniteui-webcomponents-core";
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -14,15 +14,15 @@ ModuleManager.register(
 
 export class Sample {
 
+    private propertyEditor1: IgcPropertyEditorComponent
     private chart: IgcCategoryChartComponent
-    private propertyEditor: IgcPropertyEditorComponent
 
     constructor() {
-        var chart = (this.chart = document.getElementById("chart") as IgcCategoryChartComponent);
-        var propertyEditor = (this.propertyEditor = document.querySelector("igc-property-editor") as IgcPropertyEditorComponent);
+        var propertyEditor1 = this.propertyEditor1 = document.getElementById('propertyEditor1') as IgcPropertyEditorComponent;
+        var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
-        propertyEditor.componentRenderer = this.renderer;
-        propertyEditor.target = this.chart;
+        propertyEditor1.componentRenderer = this.renderer
+        propertyEditor1.target = this.chart
         chart.dataSource = this.data
     }
 
@@ -35,6 +35,7 @@ export class Sample {
         return this._data;
     }
     
+
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
@@ -43,7 +44,7 @@ export class Sample {
             PropertyEditorDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
         }
-        return this._componentRenderer;
+        return this._componentRenderer
     }
 
 
