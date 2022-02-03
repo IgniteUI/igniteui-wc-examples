@@ -1,7 +1,7 @@
 {
-  "name": "wc-slider-label-formatter",
+  "name": "wc-slider-tick-labels",
   "version": "1.0.0",
-  "description": "This project provides example of slider label formatter using IgniteUI for Web Components",
+  "description": "This project provides example of slider tick mark labels using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
@@ -21,7 +21,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "^2.0.0-beta.1",
+    "igniteui-webcomponents": "^2.0.0-rc.0",
     "lit": "^2.0.2",
     "tslib": "^2.0.0"
   },

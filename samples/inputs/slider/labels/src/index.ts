@@ -1,12 +1,11 @@
-import { defineComponents, IgcSliderComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcSliderComponent, IgcSliderLabelComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './SliderLabelsStyle.css';
 
-defineComponents(IgcSliderComponent);
+defineComponents(IgcSliderComponent, IgcSliderLabelComponent);
 
 export class SliderLabels {
-    constructor() {
-    }
+    constructor() { }
 }
 
 new SliderLabels();
