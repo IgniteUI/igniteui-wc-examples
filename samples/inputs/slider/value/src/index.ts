@@ -7,7 +7,7 @@ defineComponents(IgcSliderComponent, IgcRangeSliderComponent);
 export class SliderValue {
     constructor() {
         const slider = document.querySelector('igc-slider') as IgcSliderComponent;
-        const rangeSlider = document.querySelector('igc-range-slider') as IgcSliderComponent;
+        const rangeSlider = document.querySelector('igc-range-slider') as IgcRangeSliderComponent;
         const sliderValueSpan = document.getElementById('slider-value') as HTMLElement;
         const sliderLowerSpan = document.getElementById('slider-lower') as HTMLElement;
         const sliderUpperSpan = document.getElementById('slider-upper') as HTMLElement;

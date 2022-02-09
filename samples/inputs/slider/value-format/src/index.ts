@@ -15,8 +15,7 @@ export class SliderValueFormat {
         }
 
         slider2.valueFormatOptions = {
-            style: 'unit',
-            unit: 'gigabyte'
+            minimumFractionDigits: 1
         }
     }
 }
