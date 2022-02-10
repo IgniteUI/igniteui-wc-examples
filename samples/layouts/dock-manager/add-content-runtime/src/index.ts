@@ -3,11 +3,9 @@ import { defineCustomElements } from 'igniteui-dockmanager/loader';
 import { IgcContentPane, IgcDockManagerPaneType, IgcDocumentHost, IgcSplitPane, IgcTabGroupPane } from 'igniteui-dockmanager';
 import { IgcSplitPaneOrientation } from 'igniteui-dockmanager';
 import { IgcDockManagerComponent } from 'igniteui-dockmanager';
-import { defineComponents, IgcButtonComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/bootstrap.css';
 
 defineCustomElements();
-defineComponents(IgcButtonComponent);
 
 export class DockManagerAddContentRuntime {
     private dockManager: IgcDockManagerComponent;
@@ -146,15 +144,10 @@ export class DockManagerAddContentRuntime {
             };
 
             const splitPanes = this.dockManager.layout.rootPane.panes.filter(p => p.type === 'splitPane') as IgcSplitPane[];
-            const parentDocumentHost = splitPanes.map(sp => sp.panes).filter(sp => sp.some(spp => spp.type === 'documentHost'))[0];
+            let parentDocumentHost = splitPanes.find(sp => sp.panes.some(spp => spp.type === 'documentHost'));
 
-            if (parentDocumentHost !== undefined) {
-                const childDocumentHost = parentDocumentHost.filter(p => p.type === 'documentHost')[0] as IgcDocumentHost;
-                const tabGroup = childDocumentHost.rootPane.panes.filter(p => p.type === 'tabGroupPane')[0] as IgcTabGroupPane;
-
-                tabGroup.panes.push(cp);
-            } else {
-                const cpp: IgcSplitPane = {
+            if (parentDocumentHost === undefined) {
+                parentDocumentHost = {
                     type: IgcDockManagerPaneType.splitPane,
                     orientation: IgcSplitPaneOrientation.vertical,
                     size: 200,
@@ -165,19 +158,40 @@ export class DockManagerAddContentRuntime {
                             rootPane: {
                                 type: IgcDockManagerPaneType.splitPane,
                                 orientation: IgcSplitPaneOrientation.horizontal,
-                                panes: [
-                                    {
-                                        type: IgcDockManagerPaneType.tabGroupPane,
-                                        panes: [cp]
-                                    }
-                                ]
+                                panes: []
                             }
                         }
                     ]
                 }
 
-                this.dockManager.layout.rootPane.panes.push(cpp);
+                this.dockManager.layout.rootPane.panes.push(parentDocumentHost);
             }
+
+            const childDocumentHost = parentDocumentHost!.panes.find(p => p.type === 'documentHost') as IgcDocumentHost;
+            let tabGroup = childDocumentHost.rootPane.panes[0];
+    
+            if (tabGroup) {
+                if (tabGroup.type !== 'tabGroupPane') {
+                    tabGroup = (tabGroup as IgcSplitPane).panes.find(p => p.type === 'tabGroupPane') as IgcTabGroupPane;
+                }
+
+                tabGroup.panes.push(cp);
+            } else {
+                const contentPanes = childDocumentHost.rootPane.panes.filter(p => p.type === 'contentPane') as IgcContentPane[];
+
+                const tg: IgcTabGroupPane = {
+                    type: IgcDockManagerPaneType.tabGroupPane,
+                    panes: [cp]
+                };
+
+                if (childDocumentHost.rootPane.panes.length === contentPanes.length) {
+                    childDocumentHost.rootPane.panes = [];
+                    contentPanes.forEach(cp => tg.panes.push(cp));
+                }
+
+                childDocumentHost.rootPane.panes.push(tg)
+            }
+            
 
             this.attachPane();
         })
