@@ -177,17 +177,10 @@ export class DockManagerAddContentRuntime {
 
                 tabGroup.panes.push(cp);
             } else {
-                const contentPanes = childDocumentHost.rootPane.panes.filter(p => p.type === 'contentPane') as IgcContentPane[];
-
                 const tg: IgcTabGroupPane = {
                     type: IgcDockManagerPaneType.tabGroupPane,
                     panes: [cp]
                 };
-
-                if (childDocumentHost.rootPane.panes.length === contentPanes.length) {
-                    childDocumentHost.rootPane.panes = [];
-                    contentPanes.forEach(cp => tg.panes.push(cp));
-                }
 
                 childDocumentHost.rootPane.panes.push(tg)
             }
