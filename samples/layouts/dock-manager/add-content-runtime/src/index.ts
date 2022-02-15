@@ -1,8 +1,15 @@
 import './DockManagerStyles.css'
 import { defineCustomElements } from 'igniteui-dockmanager/loader';
-import { IgcContentPane, IgcDockManagerPaneType, IgcDocumentHost, IgcSplitPane, IgcTabGroupPane } from 'igniteui-dockmanager';
-import { IgcSplitPaneOrientation } from 'igniteui-dockmanager';
-import { IgcDockManagerComponent } from 'igniteui-dockmanager';
+import { 
+    IgcContentPane,
+    IgcDockManagerPaneType,
+    IgcDocumentHost,
+    IgcSplitPane,
+    IgcTabGroupPane,
+    IgcSplitPaneOrientation,
+    IgcDockManagerComponent,
+    IgcDockManagerPane
+} from 'igniteui-dockmanager';
 import 'igniteui-webcomponents/themes/bootstrap.css';
 
 defineCustomElements();
@@ -144,7 +151,7 @@ export class DockManagerAddContentRuntime {
             };
 
             const splitPanes = this.dockManager.layout.rootPane.panes.filter(p => p.type === 'splitPane') as IgcSplitPane[];
-            let parentDocumentHost = splitPanes.find(sp => sp.panes.some(spp => spp.type === 'documentHost'));
+            let parentDocumentHost = this.getDocumentHostSplitPane(splitPanes) as IgcSplitPane;
 
             if (parentDocumentHost === undefined) {
                 parentDocumentHost = {
@@ -168,7 +175,7 @@ export class DockManagerAddContentRuntime {
             }
 
             const childDocumentHost = parentDocumentHost!.panes.find(p => p.type === 'documentHost') as IgcDocumentHost;
-            let tabGroup = childDocumentHost.rootPane.panes[0];
+            let tabGroup = childDocumentHost.rootPane.panes.find(p => p.type === 'tabGroupPane' || p.type === 'splitPane');
     
             if (tabGroup) {
                 if (tabGroup.type !== 'tabGroupPane') {
@@ -220,6 +227,27 @@ export class DockManagerAddContentRuntime {
     
         this.dockManager.layout = { ...this.dockManager.layout };
         this._counter++;
+    }
+
+    private getDocumentHostSplitPane(splitPanes: IgcDockManagerPane[]): any {
+        if (!splitPanes) {
+            return;
+        }
+
+        for(const s of splitPanes) {
+            const splitPane = s as IgcSplitPane;
+            const hasDocHost = splitPane.panes.some(p => p.type === 'documentHost')
+
+            if (hasDocHost) {
+                return splitPane;
+            } else {
+                const hasSplitPane = splitPane.panes.some(p => p.type === 'splitPane')
+
+                if (hasSplitPane) {
+                    return this.getDocumentHostSplitPane(splitPane.panes);
+                }
+            }
+        }
     }
 }
 
