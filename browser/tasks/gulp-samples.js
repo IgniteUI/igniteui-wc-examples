@@ -55,6 +55,7 @@ var sampleSources = [
 
     igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
     igConfig.SamplesCopyPath + '/grids/list/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
 
     igConfig.SamplesCopyPath + '/layouts/**/package.json',
@@ -733,9 +734,11 @@ function logSourceFiles(cb) {
        '!./samples/**/src/index.*',
 
        '!./samples/**/src/AssetsUtils.ts',
+       '!./samples/**/src/AnimationsData.ts',
        '!./samples/**/src/CategoryChartSharedData.ts',
        '!./samples/**/src/DataChartSharedData.ts',
        '!./samples/**/src/DataGridSharedData.ts',
+       '!./samples/**/src/DataService.ts',
        '!./samples/**/src/DockManagerSharedData.ts',
        '!./samples/**/src/EsriUtility.ts',
        '!./samples/**/src/ExcelUtility.ts',
@@ -763,6 +766,7 @@ function logSourceFiles(cb) {
        '!./samples/**/src/StocksHistory.ts',
        '!./samples/**/src/StocksUtility.ts',
        '!./samples/**/src/StringUtils.ts',
+       '!./samples/**/src/SvgIcons.ts',
        '!./samples/**/src/TaskUtils.ts',
        '!./samples/**/src/WorldCities.ts',
        '!./samples/**/src/WorldConnections.ts',

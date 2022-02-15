@@ -1,0 +1,5 @@
+igc-tree {
+    width: 320px;
+    max-height: 360px;
+    overflow-y: auto;
+}
