@@ -50,6 +50,7 @@ export class DockManagerAddContentRuntime {
                         type: IgcDockManagerPaneType.splitPane,
                         orientation: IgcSplitPaneOrientation.vertical,
                         size: 200,
+                        allowEmpty: true,
                         panes: [
                             {
                                 type: IgcDockManagerPaneType.documentHost,
@@ -152,29 +153,23 @@ export class DockManagerAddContentRuntime {
 
             const splitPanes = this.dockManager.layout.rootPane.panes.filter(p => p.type === 'splitPane') as IgcSplitPane[];
             let parentDocumentHost = this.getDocumentHostSplitPane(splitPanes) as IgcSplitPane;
+            let childDocumentHost = parentDocumentHost!.panes.find(p => p.type === 'documentHost') as IgcDocumentHost;
 
-            if (parentDocumentHost === undefined) {
-                parentDocumentHost = {
-                    type: IgcDockManagerPaneType.splitPane,
-                    orientation: IgcSplitPaneOrientation.vertical,
+            if ((parentDocumentHost.panes.length === 0 && parentDocumentHost.allowEmpty) || !childDocumentHost) {
+                const docHost: IgcDocumentHost = {
+                    type: IgcDockManagerPaneType.documentHost,
                     size: 200,
-                    panes: [
-                        {
-                            type: IgcDockManagerPaneType.documentHost,
-                            size: 200,
-                            rootPane: {
-                                type: IgcDockManagerPaneType.splitPane,
-                                orientation: IgcSplitPaneOrientation.horizontal,
-                                panes: []
-                            }
-                        }
-                    ]
-                }
+                    rootPane: {
+                        type: IgcDockManagerPaneType.splitPane,
+                        orientation: IgcSplitPaneOrientation.horizontal,
+                        panes: []
+                    }
+                };
 
-                this.dockManager.layout.rootPane.panes.push(parentDocumentHost);
+                parentDocumentHost.panes.push(docHost);
+                childDocumentHost = parentDocumentHost!.panes.find(p => p.type === 'documentHost') as IgcDocumentHost;
             }
 
-            const childDocumentHost = parentDocumentHost!.panes.find(p => p.type === 'documentHost') as IgcDocumentHost;
             let tabGroup = childDocumentHost.rootPane.panes.find(p => p.type === 'tabGroupPane' || p.type === 'splitPane');
     
             if (tabGroup) {
@@ -238,7 +233,7 @@ export class DockManagerAddContentRuntime {
             const splitPane = s as IgcSplitPane;
             const hasDocHost = splitPane.panes.some(p => p.type === 'documentHost')
 
-            if (hasDocHost) {
+            if (hasDocHost || splitPane.allowEmpty) {
                 return splitPane;
             } else {
                 const hasSplitPane = splitPane.panes.some(p => p.type === 'splitPane')
