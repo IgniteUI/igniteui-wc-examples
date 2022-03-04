@@ -9,7 +9,6 @@ import {
     IgcDockManagerComponent,
     IgcDockManagerPane
 } from 'igniteui-dockmanager';
-import 'igniteui-webcomponents/themes/bootstrap.css';
 
 defineCustomElements();
 
@@ -151,7 +150,8 @@ export class DockManagerAddContentRuntime {
               header: `New Document ${this.counter}`,
             };
 
-            let tabGroup = this.docHostRootPane.panes.find((p: IgcDockManagerPane) => p.type === IgcDockManagerPaneType.tabGroupPane);
+            let tabGroup = this.docHostRootPane.panes.find((p: IgcDockManagerPane) => 
+                p.type === IgcDockManagerPaneType.tabGroupPane) as IgcTabGroupPane;
     
             if (tabGroup) {
                 tabGroup.panes.push(cp);
