@@ -101,7 +101,7 @@ export class DockManagerHidePanes {
                         },
                         {
                             type: IgcDockManagerPaneType.contentPane,
-                            contentId: "content20",
+                            contentId: "content10",
                             header: "Content Pane 2"
                         }
                     ]
