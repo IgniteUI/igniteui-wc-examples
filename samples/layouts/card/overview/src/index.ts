@@ -1,7 +1,7 @@
 import { defineComponents, IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent,
         IgcButtonComponent, IgcIconButtonComponent, IgcRippleComponent, registerIconFromText } from 'igniteui-webcomponents';
 import { all } from '@igniteui/material-icons-extended';
-import 'igniteui-webcomponents/themes/bootstrap.css';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './CardOverview.css';
 
 defineComponents(IgcCardComponent, IgcCardHeaderComponent, IgcCardContentComponent, IgcCardMediaComponent, IgcCardActionsComponent,

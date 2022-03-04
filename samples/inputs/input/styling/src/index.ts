@@ -1,5 +1,5 @@
 import { defineComponents, IgcIconComponent, IgcInputComponent, registerIconFromText } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/bootstrap.css';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './InputStyling.css';
 
 defineComponents(IgcIconComponent, IgcInputComponent);

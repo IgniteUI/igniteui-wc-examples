@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Slider Value</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample center">
+          <igc-slider value="40"></igc-slider>
+          <div class="value-container">
+            <span class="slider-label">Value: </span>
+            <span id="slider-value">40</span>
+          </div>
+          
+          <igc-range-slider lower="20" upper="70"></igc-range-slider>
+          <div class="value-container">
+            <span class="slider-label">Lower: </span>
+            <span id="slider-lower">20</span>
+            <span class="slider-label">, Upper: </span>
+            <span id="slider-upper">70</span>
+          </div>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
