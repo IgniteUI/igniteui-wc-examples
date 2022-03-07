@@ -46,6 +46,7 @@ export class DockManagerOverview {
                                 rootPane: {
                                     type: IgcDockManagerPaneType.splitPane,
                                     orientation: IgcSplitPaneOrientation.horizontal,
+                                    allowEmpty: true,
                                     panes: [
                                         {
                                             type: IgcDockManagerPaneType.tabGroupPane,
@@ -53,12 +54,14 @@ export class DockManagerOverview {
                                                 {
                                                     type: IgcDockManagerPaneType.contentPane,
                                                     header: 'Document 1',
-                                                    contentId: 'content3'
+                                                    contentId: 'content3',
+                                                    documentOnly: true
                                                 },
                                                 {
                                                     type: IgcDockManagerPaneType.contentPane,
                                                     header: 'Document 2',
-                                                    contentId: 'content4'
+                                                    contentId: 'content4',
+                                                    documentOnly: true
                                                 }
                                             ]
                                         }
