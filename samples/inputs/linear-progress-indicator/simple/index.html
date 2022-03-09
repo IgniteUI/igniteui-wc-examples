@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Simple Linear Progress Indicator</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample center">
+        <igc-linear-progress value="100"></igc-linear-progress>
+        <igc-linear-progress value="300"></igc-linear-progress>
+        <igc-circular-progress value="100"></igc-circular-progress>
+        <igc-circular-progress indeterminate></igc-circular-progress>
+        <igc-circular-progress id="circularProgress" max="100">
+          <igc-circular-gradient slot="gradient" offset="0%" color="#ff9a40">
+          </igc-circular-gradient>
+          <igc-circular-gradient id="gradient2" slot="gradient" offset="50%" color="#1eccd4">
+          </igc-circular-gradient>
+          <igc-circular-gradient slot="gradient" offset="100%" color="#ff0079">
+          </igc-circular-gradient>
+        </igc-circular-progress>
+        <div class="button-container">
+          <igc-icon-button id="removeIcon" name="remove" collection="material"></igc-icon-button>
+          <igc-icon-button id="addIcon" name="add" collection="material"></igc-icon-button>
+        </div>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
