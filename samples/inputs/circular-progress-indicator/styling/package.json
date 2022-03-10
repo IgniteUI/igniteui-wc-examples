@@ -1,7 +1,7 @@
 {
-  "name": "wc-dynamic-linear-progress",
+  "name": "wc-circular-progress-styling",
   "version": "1.0.0",
-  "description": "This project provides example of dynamic linear progress indicator using IgniteUI for Web Components",
+  "description": "This project provides example of circular progress indicator styling using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",

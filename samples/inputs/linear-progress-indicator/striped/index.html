@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Simple Linear Progress Indicator</title>
+    <title>Linear Progress Indicator Styles</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
@@ -13,7 +13,11 @@
   <body>
     <div id="root">
       <div class="container sample center">
-        <igc-linear-progress value="100"></igc-linear-progress>
+        <igc-linear-progress class="progress-container" value="100" variant="primary"></igc-linear-progress>
+        <igc-linear-progress class="progress-container" value="100" variant="success" indeterminate striped></igc-linear-progress>
+        <igc-linear-progress value="100" variant="danger" label-align="bottom-end" label-format="Custom text"></igc-linear-progress>
+        <igc-linear-progress class="progress-container" value="100" variant="info" striped hide-label></igc-linear-progress>
+        <igc-linear-progress class="progress-container" value="100" variant="warning" label-align="bottom-start"></igc-linear-progress>
       </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->

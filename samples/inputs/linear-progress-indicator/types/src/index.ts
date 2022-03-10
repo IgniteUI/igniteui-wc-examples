@@ -4,7 +4,8 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 defineComponents(IgcLinearProgressComponent);
 
 export class ProgressIndicatorTypes {
-    constructor() { }
+    constructor() {
+    }
 }
 
 new ProgressIndicatorTypes();

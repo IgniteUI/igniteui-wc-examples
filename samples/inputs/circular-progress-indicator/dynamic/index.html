@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Simple Linear Progress Indicator</title>
+    <title>Dynamic Circular Progress Indicator</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
@@ -11,9 +11,18 @@
   </head>
 
   <body>
-    <div id="root">
-      <div class="container sample center">
-        <igc-linear-progress value="100"></igc-linear-progress>
+    <div id="sample-content">
+      <igc-circular-progress id="circularProgress" max="100">
+        <igc-circular-gradient slot="gradient" offset="0%" color="#ff9a40">
+        </igc-circular-gradient>
+        <igc-circular-gradient slot="gradient" offset="50%" color="#1eccd4">
+        </igc-circular-gradient>
+        <igc-circular-gradient slot="gradient" offset="100%" color="#ff0079">
+        </igc-circular-gradient>
+      </igc-circular-progress>
+      <div class="button-container">
+        <igc-icon-button id="removeIcon" name="remove" collection="material"></igc-icon-button>
+        <igc-icon-button id="addIcon" name="add" collection="material"></igc-icon-button>
       </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->

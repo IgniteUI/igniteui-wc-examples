@@ -1,11 +1,12 @@
 import { defineComponents, IgcLinearProgressComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import './LinearProgressStyling.css';
+import './LinearProgressStyles.css'
 
 defineComponents(IgcLinearProgressComponent);
 
-export class LinearProgressStyling {
-    constructor() { }
+export class ProgressIndicatorStyles {
+    constructor() {
+    }
 }
 
-new LinearProgressStyling();
+new ProgressIndicatorStyles();
