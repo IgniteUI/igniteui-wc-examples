@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "^2.0.0",
+    "igniteui-webcomponents": "^2.1.0-beta.0",
     "lit": "^2.0.0"
   },
   "devDependencies": {
