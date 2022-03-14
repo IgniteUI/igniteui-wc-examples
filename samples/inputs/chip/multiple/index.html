@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <title>Default Chip</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample center">
+      <igc-chip selectable removable>
+        <span slot="select"><igc-icon name="custom-select"></igc-icon></span>
+        Custom Icons
+        <span slot="remove"><igc-icon name="custom-remove"></igc-icon></span>
+      </igc-chip>
+      <igc-chip removable>
+        <span slot="start"><igc-icon name="brush"></igc-icon></span>
+        Start Slot
+      </igc-chip>
+      <igc-chip selectable>
+        End Slot
+        <span slot="end"><igc-icon name="brick-wall"></igc-icon></span>
+      </igc-chip>
+      <igc-chip disabled>
+        Disabled Chip
+        <span slot="end"><igc-icon name="dog-icon"></igc-icon></span>
+      </igc-chip>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
