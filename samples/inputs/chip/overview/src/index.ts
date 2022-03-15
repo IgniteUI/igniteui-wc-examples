@@ -3,7 +3,7 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 defineComponents(IgcIconComponent, IgcChipComponent);
 
-export class ChipDefault {
+export class ChipOverview {
   constructor() {
     registerIconFromText(
       'cancel',
@@ -17,4 +17,4 @@ export class ChipDefault {
   }
 }
 
-new ChipDefault();
+new ChipOverview();
