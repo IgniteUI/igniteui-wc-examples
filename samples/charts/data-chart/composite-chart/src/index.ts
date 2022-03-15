@@ -31,6 +31,14 @@ export class DataChartCompositeChart {
         this.chart.dataSource = this.data;
     }
 
+    public formatNumber(num: number): string {
+        var ret = num;
+        if (num >= 1000000) return (num / 1000000.0).toFixed(1) + "M";
+        if (num >= 1000) return (num / 1000.0).toFixed(1) + "K";
+    
+        return ret.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+
     public initData(){
         this.data = [
             { Date: "Jan 1, 2019", Revenue: 16914, Expenses: 10183 },
@@ -44,11 +52,24 @@ export class DataChartCompositeChart {
             { Date: "Jan 1, 2021", Revenue: 28072, Expenses: 17133 }
         ];
 
-        for(let i=0; i<this.data.length; i++){
+        for (let i = 0; i < this.data.length; i++) {
             const item = this.data[i];
-
+      
+            item.Revenue = item.Revenue * 1000;
+            item.Expenses = item.Expenses * 1000;
+      
             item.Income = item.Revenue - item.Expenses;
-            item.IncomePerRevenue = (item.Income / item.Revenue * 100);
+            item.IncomePerRevenue = (item.Income / item.Revenue) * 100;
+      
+            // calculating x-offset for callouts
+            item.RevenueX = i;
+            item.ExpensesX = i + 0.5;
+      
+            // formatting values for callouts
+            item.FormattedRevenue = "$" + this.formatNumber(item.Revenue);
+            item.FormattedIncome = "$" + this.formatNumber(item.Income);
+            item.FormattedExpenses = "$" + this.formatNumber(item.Expenses);
+            item.FormattedProfit = item.IncomePerRevenue + "%";
         }
     }
 }
