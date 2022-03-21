@@ -1,12 +1,12 @@
 import "./DockManagerStyles.css";
-import { defineCustomElements } from "@infragistics/igniteui-dockmanager/loader";
+import { defineCustomElements } from "igniteui-dockmanager/loader";
 import {
     IgcContentPane,
     IgcDockManagerComponent,
     IgcDockManagerLayout,
     IgcDockManagerPaneType,
     IgcPaneCloseEventArgs,
-    IgcSplitPaneOrientation } from "@infragistics/igniteui-dockmanager";
+    IgcSplitPaneOrientation } from "igniteui-dockmanager";
 
 defineCustomElements();
 
