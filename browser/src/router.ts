@@ -8,6 +8,7 @@ import { RouterEditors } from "./samples/editors/router";
 import { RouterMenus } from "./samples/menus/router";
 import { RouterInputs } from "./samples/inputs/router";
 import { RouterScheduling } from "./samples/scheduling/router";
+import { RouterNotifications } from "./samples/notifications/router";
 
 export class Router {
 
@@ -112,6 +113,9 @@ export class Router {
         }
         else if (route.indexOf("/scheduling/") >= 0) {
             this.displaySample(await RouterScheduling.get(route));
+        }
+        else if (route.indexOf("/notifications/") >= 0) {
+            this.displaySample(await RouterNotifications.get(route));
         }
         else if (route !== "/" && route !== "/index") {
             console.log("SB missing router for " + route)
