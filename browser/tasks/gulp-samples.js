@@ -70,8 +70,8 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/menus/nav-bar/**/package.json',
 
     igConfig.SamplesCopyPath + '/notifications/**/package.json',
-    igConfig.SamplesCopyPath + '/notifications/toast/**/package.json',
     igConfig.SamplesCopyPath + '/notifications/snackbar/**/package.json',
+    igConfig.SamplesCopyPath + '/notifications/toast/**/package.json',
 
     igConfig.SamplesCopyPath + '/inputs/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/link-button/**/package.json',

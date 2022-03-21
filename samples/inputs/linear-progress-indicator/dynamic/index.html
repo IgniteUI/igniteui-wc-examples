@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Dynamic Linear Progress Indicator</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample center">
+        <igc-linear-progress id="linearProgress" max="100" label-align="bottom-start"></igc-linear-progress>
+        <div class="button-container">
+          <igc-icon-button id="removeIcon" name="remove" collection="material"></igc-icon-button>
+          <igc-icon-button id="addIcon" name="add" collection="material"></igc-icon-button>
+        </div>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

@@ -24,9 +24,9 @@
         <igc-data-chart id="chart" width="100%" height="100%"
             is-horizontal-zoom-enabled="false"
             is-vertical-zoom-enabled="false">
-            <igc-category-x-axis id="xAxis" name="xAxis" label="Date"></igc-category-x-axis>
+            <igc-category-x-axis id="xAxis" name="xAxis" label="Date" overlap="0" gap="0.1" use-clustering-mode="true"></igc-category-x-axis>
             <igc-numeric-y-axis id="yAxis" name="yAxis" abbreviate-large-numbers="true" title="In Millions of U.S. Dollars"
-                                minimum-value="0" maximum-value="30000" title-left-margin="5" title-right-margin="0">
+                                minimum-value="0" maximum-value="30000000" title-left-margin="5" title-right-margin="0">
             </igc-numeric-y-axis>
             <igc-numeric-y-axis id="yAxis2" name="yAxis2" abbreviate-large-numbers="true" title="Percentage" major-stroke-thickness="0"
                                 minimum-value="0" maximum-value="160" label-location="OutsideRight" label-horizontal-alignment="Left">
@@ -38,15 +38,15 @@
                                title="Expenses" marker-type="Hidden"></igc-column-series>
 
             <igc-spline-area-series name="series3" x-axis-name="xAxis" y-axis-name="yAxis2" value-member-path="IncomePerRevenue"
-                                    title="Income / Revenue %" marker-type="Hidden">
+                                    title="Income / Revenue %" marker-type="Circle">
             </igc-spline-area-series>
 
-            <igc-callout-layer is-auto-callout-behavior-enabled="true" target-series-name="series1" use-value-for-auto-callout-labels="true"
-                               callout-leader-brush="Transparent" callout-text-color="Black" callout-background="Transparent">
+            <igc-callout-layer is-auto-callout-behavior-enabled="false" target-series-name="series1" x-member-path="RevenueX" y-member-path="Revenue" label-member-path="FormattedRevenue" use-value-for-auto-callout-labels="false"
+                               callout-leader-brush="Transparent" callout-text-color="Black" callout-background="Transparent" callout-position-padding="-5">
             </igc-callout-layer>
 
-            <igc-callout-layer is-auto-callout-behavior-enabled="true" target-series-name="series2" use-value-for-auto-callout-labels="true"
-                               callout-leader-brush="Transparent" callout-text-color="Black" callout-background="Transparent">
+            <igc-callout-layer is-auto-callout-behavior-enabled="false" target-series-name="series2" x-member-path="ExpensesX" y-member-path="Expenses" label-member-path="FormattedExpenses" use-value-for-auto-callout-labels="false"
+                               callout-leader-brush="Transparent" callout-text-color="Black" callout-background="Transparent" callout-position-padding="-5">
             </igc-callout-layer>
 
             <igc-callout-layer is-auto-callout-behavior-enabled="true" target-series-name="series3" use-value-for-auto-callout-labels="true"
