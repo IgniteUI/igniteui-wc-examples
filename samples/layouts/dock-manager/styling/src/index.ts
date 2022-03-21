@@ -1,7 +1,7 @@
 import "./DockManagerStyles.css";
 import { MenuComponent } from "./menu-component";
-import { defineCustomElements } from "igniteui-dockmanager/loader";
-import { IgcContentPane, IgcDockManagerComponent, IgcDockManagerLayout, IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
+import { defineCustomElements } from "@infragistics/igniteui-dockmanager/loader";
+import { IgcContentPane, IgcDockManagerComponent, IgcDockManagerLayout, IgcDockManagerPaneType, IgcSplitPaneOrientation } from "@infragistics/igniteui-dockmanager";
 
 defineCustomElements();
 window.customElements.define("menu-component", MenuComponent);
