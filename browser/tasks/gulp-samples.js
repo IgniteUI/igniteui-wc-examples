@@ -695,22 +695,14 @@ function updateCodeViewer(cb) {
 // testing
 
 function logRoutes(cb) {
-    // findSamples();
-
-    let routingGroups = Transformer.getRoutingGroups(samples);
-    for (const group of routingGroups) {
-
-        console.log('- group ' + group.Name);
-
-        for (const component of group.Components) {
-
-            console.log('- component ' + component.Name);
-            for (const sample of component.Samples) {
-                console.log('' + sample.SampleRoute + '/ **' + sample.SampleFileName + ' === ' + sample.SampleDisplayName);
-            }
-        }
+    let routes = [];
+    for (const sample of samples) {
+        routes.push(sample.SampleRoute)
     }
-
+    routes.sort();
+    for (const route of routes) {
+        console.log(route);
+    }
     cb();
 } exports.logRoutes = logRoutes;
 
