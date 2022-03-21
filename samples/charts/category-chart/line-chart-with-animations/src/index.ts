@@ -69,8 +69,7 @@ export class CategoryChartLineChartWithAnimations {
     }
 
     public reloadChart() {
-        this.chart.dataSource = [];
-        this.chart.dataSource = this.data;
+        this.chart.replayTransitionIn();
     }
 }
 
