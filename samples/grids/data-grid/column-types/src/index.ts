@@ -60,7 +60,7 @@ export class DataGridColumnTypes {
         if (cityComboColumn)
             cityComboColumn.dataSource = this.cityList;
             cityComboColumn.textField = "City";
-            cityComboColumn.valueField = ["City"];
+            cityComboColumn.valueField = "City";
 
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = this.data;
