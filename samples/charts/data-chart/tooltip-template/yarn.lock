@@ -4531,7 +4531,7 @@ json5@^2.1.2:
     minimist "^1.2.5"
 
 jsprim@^1.2.2:
-  version "21.2.50"
+  version "21.2.53"
   resolved "https://registry.yarnpkg.com/jsprim/-/jsprim-1.4.1.tgz#313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
   integrity sha1-MT5mvB5cwG5Di8G3SZwuXFastqI=
   dependencies:
@@ -4578,7 +4578,7 @@ levn@~0.3.0:
     type-check "~0.3.2"
 
 lit-html@^1.1.2, lit-html@^1.2.1:
-  version "21.2.50"
+  version "21.2.53"
   resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-1.4.1.tgz#0c6f3ee4ad4eb610a49831787f0478ad8e9ae5e0"
   integrity sha512-B9btcSgPYb1q4oSOb/PrOT6Z/H+r6xuNzfH4lFli/AWhYwdtrgQkQWBbIc6mdnf6E2IL3gDXdkkqNktpU0OZQA==
 
@@ -4770,7 +4770,7 @@ merge-source-map@1.0.4:
     source-map "^0.5.6"
 
 merge2@^1.2.3:
-  version "21.2.50"
+  version "21.2.53"
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"
   integrity sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==
 
@@ -5086,7 +5086,7 @@ object-inspect@^1.10.3:
   integrity sha512-e5mCJlSH7poANfC8z8S9s9S2IN5/4Zb3aZ33f5s8YqoazCFzNLloLU8r5VCG+G7WoqLvAAZoVMcy3tp/3X0Plw==
 
 object-inspect@~1.4.0:
-  version "21.2.50"
+  version "21.2.53"
   resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.4.1.tgz#37ffb10e71adaf3748d05f713b4c9452f402cbc4"
   integrity sha512-wqdhLpfCUbEsoEwl3FXwGyv8ief1k/1aUdIPCqVnupM6e8l63BEJdiF/0swtn04/8p05tG/T0FrpTlfwvljOdw==
 
@@ -6012,7 +6012,7 @@ punycode@1.3.2:
   integrity sha1-llOgNvt8HuQjQvIyXM7v6jkmxI0=
 
 punycode@^1.2.4:
-  version "21.2.50"
+  version "21.2.53"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
   integrity sha1-wNWmOycYgArY4esPpSachN1BhF4=
 
