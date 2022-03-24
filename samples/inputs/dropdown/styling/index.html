@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Drop Down Styling</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample center">
+        <igc-dropdown>
+          <igc-button slot="target">Countries</igc-button>
+          <igc-dropdown-group>
+            <span slot="label">Europe</span>
+            <igc-dropdown-item>
+              <igc-icon slot="prefix" name="place" collection="material"></igc-icon>
+              Germany
+              <span slot="suffix">DE</span>
+            </igc-dropdown-item>
+            <igc-dropdown-item>
+              <igc-icon slot="prefix" name="place" collection="material"></igc-icon>
+              France
+              <span slot="suffix">FR</span>
+            </igc-dropdown-item>
+            <igc-dropdown-item selected>
+              <igc-icon slot="prefix" name="place" collection="material"></igc-icon>
+              Spain
+              <span slot="suffix">ES</span>
+            </igc-dropdown-item>
+          </igc-dropdown-group>
+          
+          <igc-dropdown-group>
+            <span slot="label">North America</span>
+            <igc-dropdown-item>
+              <igc-icon slot="prefix" name="place" collection="material"></igc-icon>
+              USA
+              <span slot="suffix">US</span>
+            </igc-dropdown-item>
+            <igc-dropdown-item>
+              <igc-icon slot="prefix" name="place" collection="material"></igc-icon>
+              Canada
+              <span slot="suffix">CA</span>
+            </igc-dropdown-item>
+            <igc-dropdown-item>
+              <igc-icon slot="prefix" name="place" collection="material"></igc-icon>
+              Mexico
+              <span slot="suffix">MX</span>
+            </igc-dropdown-item>
+          </igc-dropdown-group>
+        </igc-dropdown>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
