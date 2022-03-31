@@ -20,7 +20,7 @@
   "author": "Infragistics",
   "dependencies": {
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "^2.1.1",
+    "igniteui-webcomponents": "^2.2.0-beta.1",
     "lit": "^2.0.2"
   },
   "devDependencies": {

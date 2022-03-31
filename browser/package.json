@@ -59,7 +59,7 @@
     "gulp-shell": "^0.8.0",
     "gulp-uglify": "^3.0.2",
     "igniteui-dockmanager": "^1.7.0",
-    "igniteui-webcomponents": "^2.1.1",
+    "igniteui-webcomponents": "^2.2.0-beta.1",
     "lit": "^2.0.2",
     "lit-html": "^2.0.0",
     "through2": "^4.0.2"
