@@ -1,0 +1,8 @@
+igc-dropdown::part(list) {
+    height: 200px;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Drop Down Position</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample center">
+        <igc-dropdown id="dropdown" size="small" distance="5">
+          <igc-button slot="target">Options</igc-button>
+          <igc-dropdown-item>top</igc-dropdown-item>
+          <igc-dropdown-item>top-start</igc-dropdown-item>
+          <igc-dropdown-item>top-end</igc-dropdown-item>
+          <igc-dropdown-item>bottom</igc-dropdown-item>
+          <igc-dropdown-item selected>bottom-start</igc-dropdown-item>
+          <igc-dropdown-item>bottom-end</igc-dropdown-item>
+          <igc-dropdown-item>right</igc-dropdown-item>
+          <igc-dropdown-item>right-start</igc-dropdown-item>
+          <igc-dropdown-item>right-end</igc-dropdown-item>
+          <igc-dropdown-item>left</igc-dropdown-item>
+          <igc-dropdown-item>left-start</igc-dropdown-item>
+          <igc-dropdown-item>left-end</igc-dropdown-item>
+        </igc-dropdown>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
