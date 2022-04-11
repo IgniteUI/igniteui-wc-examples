@@ -8,24 +8,7 @@ module.exports = env => {
   console.log(env);
   const isLegacy = !!env.legacy && !(env.legacy == "false");
   const isProd = env.NODE_ENV === 'production';
-
-	const presets = [
-    ["@babel/preset-env", {
-      "useBuiltIns": "usage",
-      "corejs": 3,
-      "targets": {
-        "browsers": isLegacy ? ["defaults"] : [
-          "last 2 Chrome versions",
-          "last 2 Safari versions",
-          "last 2 iOS versions",
-          "last 2 Firefox versions",
-          "last 2 Edge versions"]
-      }
-    }],
-    "@babel/preset-typescript"
-  ];
-
-	return {
+  return {
     entry: isLegacy ? [
       path.resolve(__dirname, 'node_modules/@webcomponents/custom-elements'),
       path.resolve(__dirname, 'node_modules/@webcomponents/template'),
@@ -33,13 +16,12 @@ module.exports = env => {
     ] : path.resolve(__dirname, 'src'),
     devtool: isProd ? false : 'source-map',
     output: {
-      filename: isProd ? '[hash].bundle.js' : '[hash].bundle.js',
-			globalObject: 'this',
+      filename: isProd ? '[chunkhash].bundle.js' : '[hash].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
 
     resolve: {
-      mainFields: ['esm2015', 'module', 'main'],
+      mainFields: ['fesm2015', 'module', 'main'],
       extensions: ['.ts', '.js', '.json']
     },
 
@@ -48,24 +30,25 @@ module.exports = env => {
         { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
         { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
         { test: /\.xml$/, use: ['xml-loader'] },
-        { test: /\.css$/, loaders: ['style-loader', 'css-loader' ]},
-         { test: /worker\.(ts|js)$/, 
-        use: [
-          { loader: 'worker-loader'},
-          { loader: 'babel-loader', options: {
-            "compact": isProd ? true : false,
-            "presets": presets,
-            "plugins": [
-              "@babel/plugin-proposal-class-properties",
-              "@babel/plugin-transform-runtime"
-            ] }
-          }
-        ]
-        },
+        { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
         { test: /\.(ts|js)$/, loader: 'babel-loader',
         options: {
           "compact": isProd ? true : false,
-          "presets": presets,
+          "presets": [
+            ["@babel/preset-env", {
+              "useBuiltIns": "usage",
+              "corejs": 3,
+              "targets": {
+                "browsers": isLegacy ? ["defaults"] : [
+                  "last 2 Chrome versions",
+                  "last 2 Safari versions",
+                  "last 2 iOS versions",
+                  "last 2 Firefox versions",
+                  "last 2 Edge versions"]
+              }
+            }],
+            "@babel/preset-typescript"
+          ],
           "plugins": [
             "@babel/plugin-proposal-class-properties",
             "@babel/plugin-transform-runtime"
