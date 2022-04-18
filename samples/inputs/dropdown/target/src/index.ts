@@ -11,8 +11,8 @@ export class DropDownTarget {
         const target1 = document.getElementById('target1');
         const target2 = document.getElementById('target2');
 
-        target1?.addEventListener('click', this.handleClick);
-        target2?.addEventListener('click', this.handleClick);
+        target1!.addEventListener('click', this.handleClick);
+        target2!.addEventListener('click', this.handleClick);
     }
 
     private handleClick = (event: MouseEvent) => {
