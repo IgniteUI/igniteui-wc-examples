@@ -17,6 +17,7 @@
 
 <div class="container sample">
 
+    
     <div class="legend-title">
         Renewable Electricity Generated
     </div>
@@ -30,16 +31,17 @@
     <div class="container fill">
         <igc-category-chart
         chart-type="Line"
-        y-axis-title="TWh"
-        y-axis-title-left-margin="10"
         y-axis-label-left-margin="0"
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
+        y-axis-title-left-margin="10"
+        y-axis-title="TWh"
         brushes="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
         outlines="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
         thickness="2"
         marker-brushes="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
         marker-outlines="white"
+        computed-plot-area-margin-mode="Series"
         name="chart"
         id ="chart">
         </igc-category-chart>
