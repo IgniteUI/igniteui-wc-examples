@@ -19,7 +19,7 @@
   },
   "author": "Infragistics",
   "dependencies": {
-    "@infragistics/igniteui-webcomponents": "^2.2.0",
+    "igniteui-webcomponents": "^2.2.0",
     "lit": "^2.0.2"
   },
   "devDependencies": {
