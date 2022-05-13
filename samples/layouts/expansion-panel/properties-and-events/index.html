@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Expansion Panel Properties and Events</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample" style="align-items: center;">
+        <div class="panel-wrapper">
+          <igc-expansion-panel id="exp-panel">
+            <div slot="title">Golden Retriever</div>
+            <div slot="subTitle">Medium-large gun dog</div>
+            <div>
+              <p>The Golden Retriever is a medium-large gun dog that retrieves shot waterfowl, such as ducks
+              and upland game birds, during hunting and shooting parties.[3] The name "retriever" refers to the breed's ability
+              to retrieve shot game undamaged due to their soft mouth. Golden retrievers have an instinctive love of water, and
+              are easy to train to basic or advanced obedience standards.
+              </p>
+            </div>
+          </igc-expansion-panel>
+        </div>
+        <span id="fired-event"></span>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
