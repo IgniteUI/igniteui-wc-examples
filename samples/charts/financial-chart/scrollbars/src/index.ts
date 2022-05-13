@@ -8,7 +8,7 @@ import { IgRect } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcFinancialChartModule);
 
-export class FinancialChartIndexChart {
+export class FinancialChartScrollbars {
 // FinancialChartAxisTypes
     private chart: IgcFinancialChartComponent;
 
@@ -23,4 +23,4 @@ export class FinancialChartIndexChart {
     }
 }
 
-new FinancialChartIndexChart();
+new FinancialChartScrollbars();
