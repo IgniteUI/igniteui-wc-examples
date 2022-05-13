@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>FinancialChartStockIndexChart</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="container">
+        <igc-financial-chart width="100%" height="100%"
+          id="chart"
+          chart-title="S&P 500"
+          y-axis-title="Financial Prices"
+          is-toolbar-visible="false"
+          chart-type="Candle"
+          zoom-slider-type="None"
+          is-vertical-zoom-enabled="true"
+          is-horizontal-zoom-enabled="true"
+          horizontal-view-scrollbar-mode="Persistent"
+          vertical-view-scrollbar-mode="Persistent">
+        </igc-financial-chart>
+    </div>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

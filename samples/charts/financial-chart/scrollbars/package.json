@@ -1,7 +1,7 @@
 {
-  "name": "wc-data-chart-scrollbars",
+  "name": "wc-financial-chart-scrollbars-chart",
   "version": "1.0.0",
-  "description": "This project provides example of Data Chart Scrollbars using IgniteUI for Web Components",
+  "description": "This project provides example of Financial Chart Scrollbars using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
