@@ -13,7 +13,7 @@ ModuleManager.register(
     IgcGridColumnOptionsModule
 );
 
-export class DataGridAccessibility {
+export class DataGridPager {
 
     private grid: IgcDataGridComponent;
     private data: any[] = [];
@@ -111,4 +111,4 @@ export class DataGridAccessibility {
     // }
 }
 
-new DataGridAccessibility();
+new DataGridPager();
