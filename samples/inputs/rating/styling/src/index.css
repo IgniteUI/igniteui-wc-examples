@@ -1,0 +1,35 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+igc-rating {
+    --symbol-size: 24px;
+}
+
+igc-rating::part(label) {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: var(--igc-overline-text-transform);
+    color: hsla(var(--igc-gray-600), var(--igc-gray-a));
+}
+
+igc-rating::part(base) {
+    filter: hue-rotate(312deg);
+}
+
+igc-rating::part(symbols-wrapper) {
+    gap: 6px; 
+}
+
+igc-rating::part(symbol large) {
+    min-width: var(--symbol-size);
+    min-height: var(--symbol-size);
+    width: var(--symbol-size);
+    height: var(--symbol-size);
+    line-height: var(--symbol-size);
+    font-size: var(--symbol-size);
+}
+
+igc-rating::part(fraction large) {
+    min-height: calc(var(--symbol-size) + 8px);
+    height: calc(var(--symbol-size) + 8px);
+}
