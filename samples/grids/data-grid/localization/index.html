@@ -20,6 +20,8 @@
         height="100%"
         width="100%"
         auto-generate-columns="false"
+        summary-scope="Root"
+        group-summary-display-mode="RowTop"
         is-group-collapsable="true"
         is-column-options-enabled="true"
         default-column-min-width="100"
@@ -31,7 +33,7 @@
             <igc-numeric-column field="OrderValue" show-grouping-separator="true" header-text="Order Totals" positive-prefix="$" width="*>195"></igc-numeric-column>
             <igc-date-time-column field="OrderDate" header-text="Order Date" horizontal-alignment="right" width="*>180"></igc-date-time-column>
             <igc-numeric-column field="Profit" show-grouping-separator="true" header-text="Profit" positive-prefix="$" width="*>165"></igc-numeric-column>
-            <igc-text-column field="Countries" header-text="Country" width="*>115"></igc-text-column>
+            <igc-combo-box-column id="countryColumn" field="Countries" header-text="Country" width="*>115"></igc-combo-box-column>
     </igc-data-grid>
 </div>
 
