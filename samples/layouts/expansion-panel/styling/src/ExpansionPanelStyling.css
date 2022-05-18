@@ -3,6 +3,7 @@
     background-color: #18203b;
     color: white;
     border-radius: 8px;
+    padding: 16;
 }
 
 igc-button::part(base){
@@ -23,7 +24,7 @@ igc-expansion-panel::part(header) {
 }
 
 igc-expansion-panel::part(title),
-igc-expansion-panel::part(subTitle) {
+igc-expansion-panel::part(subtitle) {
     color: #ffd351;
 }
 
@@ -31,6 +32,7 @@ igc-expansion-panel::part(subTitle) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding: 10;
 }
 
 p {

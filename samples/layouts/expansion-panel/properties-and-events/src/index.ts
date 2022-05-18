@@ -12,7 +12,7 @@ export class ExpansionPanelPropertiesAndEvents {
     constructor() {
         this.panel = document.getElementById("exp-panel") as IgcExpansionPanelComponent;
         this.firedEventSpan = document.getElementById("fired-event") as HTMLSpanElement;
-        this.subtitle = document.querySelector("[slot='subTitle']");
+        this.subtitle = document.querySelector("[slot='subtitle']");
 
         this.panel.addEventListener("igcOpened", this.handleExpansionPanelEvents.bind(this));
         this.panel.addEventListener("igcClosed", this.handleExpansionPanelEvents.bind(this));

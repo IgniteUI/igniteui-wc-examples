@@ -4,6 +4,10 @@
     height: 300px;
 }
 
+#exp-panel{
+    width: 100%;
+}
+
 span#fired-event {
     background-color: rgba(0,0,0,0.5);
     border-radius: 26px;
