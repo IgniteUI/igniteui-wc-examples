@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>DataGridLocalization</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <igc-data-grid
+        id="grid"
+        height="100%"
+        width="100%"
+        auto-generate-columns="false"
+        summary-scope="Root"
+        group-summary-display-mode="RowTop"
+        is-group-collapsable="true"
+        is-column-options-enabled="true"
+        default-column-min-width="100"
+        >
+            <igc-numeric-column field="ProductID" header-text="ID" horizontal-alignment="center" ></igc-numeric-column>
+            <igc-text-column field="ProductName" header-text="Product" width="*>160"></igc-text-column>
+            <igc-numeric-column positive-prefix="$" field="BundlePrice" show-grouping-separator="true" header-text="Price" ></igc-numeric-column>
+            <igc-numeric-column field="OrderItems" header-text="Order Items" width="*>135"></igc-numeric-column>
+            <igc-numeric-column field="OrderValue" show-grouping-separator="true" header-text="Order Totals" positive-prefix="$" width="*>195"></igc-numeric-column>
+            <igc-date-time-column field="OrderDate" header-text="Order Date" horizontal-alignment="right" width="*>180"></igc-date-time-column>
+            <igc-numeric-column field="Profit" show-grouping-separator="true" header-text="Profit" positive-prefix="$" width="*>165"></igc-numeric-column>
+            <igc-combo-box-column id="countryColumn" field="Countries" header-text="Country" width="*>115"></igc-combo-box-column>
+    </igc-data-grid>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
