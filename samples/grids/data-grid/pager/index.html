@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>DataGridPager</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <igc-data-grid
+    id="grid"
+    height="100%"
+    width="100%"
+    auto-generate-columns="false"
+    is-column-options-enabled="true"
+    is-pager-visible="true"
+    page-size="20">
+        <igc-text-column field="ProductID" header-text="ID" width="*>95"></igc-text-column>
+        <igc-text-column field="ProductName" header-text="Product" width="*>160"></igc-text-column>
+        <igc-image-column field="CountryFlag" header-text="Country" width="*>120" contentOpacity="1"
+                          padding-top="5" padding-bottom="5"></igc-image-column>
+        <igc-numeric-column field="ProductPrice" header-text="Price" width="*>95" positive-prefix="$" show-grouping-separator="true" min-fraction-digits="2"></igc-numeric-column>
+        <igc-numeric-column field="OrderItems" header-text="Orders" width="*>105"></igc-numeric-column>
+        <igc-numeric-column field="OrderValue" header-text="Order Value" width="*>140" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+        <igc-date-time-column field="OrderDate" header-text="Order Date" width="*>135" dateTimeFormat="DateShort" ></igc-date-time-column>
+        <igc-numeric-column field="Margin" header-text="Margin" width="*>115" positive-suffix="%"></igc-numeric-column>
+        <igc-numeric-column field="Profit" header-text="Profit" width="*>105" positive-prefix="$" show-grouping-separator="true"></igc-numeric-column>
+        <igc-text-column field="Status" header-text="Status" width="*>100"></igc-text-column>
+    </igc-data-grid>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
