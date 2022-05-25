@@ -1,25 +1,25 @@
-export interface NodeData {
+export interface ItemData {
     Name: string;
     Icon: string;
-    Files?: NodeData[];
+    Files?: ItemData[];
 }
 
-export interface SelectableNodeData extends NodeData {
+export interface SelectableItemData extends ItemData {
     Selected?: boolean;
 }
 
-export const REMOTE_ROOT: NodeData = {
+export const REMOTE_ROOT: ItemData = {
     Name: 'Network',
     Icon: 'network',
     Files: []
 };
 
-export const REMOTE_DATA: NodeData[] = [
+export const REMOTE_DATA: ItemData[] = [
     { Name: 'DESKTOP-XYZ', Icon: 'desktop' },
     { Name: 'DESKTOP-ABC', Icon: 'desktop' },
     { Name: 'DESKTOP-123', Icon: 'desktop' }
 ];
-export const DATA: NodeData[] = [
+export const DATA: ItemData[] = [
     {
         Name: 'Computer', Icon: 'desktop', Files: [
             {
@@ -72,13 +72,3 @@ export const DATA: NodeData[] = [
         ]
     }
 ];
-
-export class DataService {
-    public static getData(): Promise<any[]> {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-            return resolve(REMOTE_DATA);
-        }, 1500);
-      });
-    }
-}

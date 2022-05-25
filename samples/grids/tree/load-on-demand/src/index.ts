@@ -1,22 +1,64 @@
-import { defineComponents, IgcCheckboxComponent, IgcIconComponent, IgcTreeComponent, IgcTreeItemComponent, registerIconFromText } from "igniteui-webcomponents";
+import { defineComponents, IgcCheckboxComponent, IgcIconComponent, IgcTreeComponent, IgcTreeItemComponent, IgcCircularProgressComponent, registerIconFromText } from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import { DATA, NodeData, REMOTE_ROOT, DataService } from "./LoadOnDemandData";
+import { DataService } from "./DataService";
+import { DATA, ItemData, REMOTE_ROOT, SelectableItemData } from "./LoadOnDemandData";
 import { icons } from "./SvgIcons";
 import "./TreeLoadOnDemand.css";
 
-defineComponents(IgcTreeComponent, IgcTreeItemComponent, IgcCheckboxComponent, IgcIconComponent);
+defineComponents(IgcTreeComponent, IgcTreeItemComponent, IgcCheckboxComponent, IgcIconComponent, IgcCircularProgressComponent);
 export class TreeLoadOnDemand {
     public data = DATA;
     private tree: IgcTreeComponent;
     private remoteItem: IgcTreeItemComponent | undefined;
+    private dataService: DataService;
 
     constructor() {
         this.createIcons();
         this.tree = document.getElementById("tree") as IgcTreeComponent;
+        this.dataService = new DataService();
         this.renderItems(this.data);
         this.renderRemoteItem();
 
         this.tree.addEventListener("igcItemExpanded", this.handleExpanded.bind(this));
+        this.tree.addEventListener("igcSelection", this.handleSelection.bind(this));
+    }
+
+    private handleSelection(ev: CustomEvent) {
+        const selectionSet = new Set<IgcTreeItemComponent>(ev.detail.newSelection);
+        if (!this.remoteItem) {
+            return;
+        }
+        this.remoteItem.getChildren({ flatten: true }).forEach((item: IgcTreeItemComponent) => {
+            if (selectionSet.has(item)) {
+                item.value.Selected = true;
+            } else {
+                item.value.Selected = false;
+            }
+            this.dataService.setSelected(item);
+        });
+    }
+
+    private async handleExpanded(ev: CustomEvent) {
+        const item = ev.detail as IgcTreeItemComponent;
+        if (item === this.remoteItem && !item.hasChildren) {
+            item.loading = true;
+            item.disabled = true;
+            await this.loadRemoteData(item);
+            item.loading = false;
+            item.disabled = false;
+        }
+    }
+
+    private renderItems(items: SelectableItemData[], parent: HTMLElement = this.tree) {
+        if (items === undefined) {
+            return;
+        }
+
+        items.forEach((i) => {
+            const item = this.createTreeItem(i, parent);
+            item.value = i;
+            this.renderItems(i.Files!, item);
+        });
     }
 
     private renderRemoteItem() {
@@ -35,23 +77,17 @@ export class TreeLoadOnDemand {
         this.remoteItem.appendChild(div);
     }
 
-    private async handleExpanded(ev: CustomEvent) {
-        const item = ev.detail as IgcTreeItemComponent;
-        if (item === this.remoteItem && !item.hasChildren) {
-            item.loading = true;
-            await this.loadNestedData(item);
-            item.loading = false;
-        }
-    }
+    private async loadRemoteData(item: IgcTreeItemComponent) {
+        this.dataService.clearData();
 
-    private async loadNestedData(item: IgcTreeItemComponent) {
-        const itemSelectionState = item.selected;
-
-        await DataService.getData().then((data) => {
+        await this.dataService.getData().then((data) => {
+            if (item.selected) {
+                data.forEach((e) => {
+                    e.Selected = true;
+                });
+            }
             this.renderItems(data, item);
         });
-
-        item.selected = itemSelectionState;
 
         const indicatorSlot = item.querySelector('div[slot="indicator"]') as Node;
         if (indicatorSlot) {
@@ -60,37 +96,27 @@ export class TreeLoadOnDemand {
 
         const label = item.querySelector('div[slot="label"]');
 
-        if(label && !label.querySelector('igc-icon[name="refresh"]')) {
-            this.appendRefreshIcon(item);
+        if (label && !label.querySelector('igc-icon[name="refresh"]')) {
+            this.appendRefreshIcon();
+            this.setRemoteItemsSelection();
         }
     }
 
-    private createTreeItem(nodeData: NodeData, parent: HTMLElement): IgcTreeItemComponent {
+    private createTreeItem(itemData: SelectableItemData, parent: HTMLElement): IgcTreeItemComponent {
         const item = document.createElement("igc-tree-item") as IgcTreeItemComponent;
 
-        if (nodeData.Name === "Computer") {
+        if (itemData.Name === "Computer") {
             item.expanded = true;
         }
 
-        const itemSlot = this.createLabelSlot(nodeData);
+        const itemSlot = this.createLabelSlot(itemData);
         item.appendChild(itemSlot);
         parent.appendChild(item);
 
         return item;
     }
 
-    private renderItems(items: NodeData[], parent: HTMLElement = this.tree) {
-        if (items === undefined) {
-            return;
-        }
-
-        items.forEach((i) => {
-            const item = this.createTreeItem(i, parent);
-            this.renderItems(i.Files!, item);
-        });
-    }
-
-    private createLabelSlot(data: NodeData): HTMLElement {
+    private createLabelSlot(data: ItemData): HTMLElement {
         const icon = document.createElement("igc-icon");
         icon.setAttribute("name", data.Icon);
         icon.setAttribute("collection", "material");
@@ -109,8 +135,12 @@ export class TreeLoadOnDemand {
         return div;
     }
 
-    private appendRefreshIcon(item: IgcTreeItemComponent) {
-        const label = item.querySelector('div[slot="label"]');
+    private appendRefreshIcon() {
+        if (!this.remoteItem) {
+            return;
+        }
+
+        const label = this.remoteItem.querySelector('div[slot="label"]');
 
         const refreshIcon = document.createElement("igc-icon");
         refreshIcon.setAttribute("name", "refresh");
@@ -121,12 +151,41 @@ export class TreeLoadOnDemand {
             label.appendChild(refreshIcon);
         }
 
-        refreshIcon.addEventListener("click", async () => {
-            item.loading = true;
-            Array.from(item.children).filter(c => c.tagName === "IGC-TREE-ITEM").forEach(c => item.removeChild(c));
-            await this.loadNestedData(item);
-            item.expanded = true;
-            item.loading = false;
+        refreshIcon.addEventListener("click", this.refreshItems.bind(this));
+    }
+
+    private async refreshItems() {
+        if (!this.remoteItem) {
+            return;
+        }
+
+        const selecitonState = this.remoteItem.selected ? true : false;
+        const expansionState =  this.remoteItem.expanded;
+        this.remoteItem.loading = true;
+        this.remoteItem.disabled = true;
+
+        Array.from(this.remoteItem.children)
+        .filter((c) => c.tagName === "IGC-TREE-ITEM")
+        .forEach((c) => this.remoteItem!.removeChild(c));
+        
+        this.remoteItem.selected = selecitonState;
+
+        await this.loadRemoteData(this.remoteItem);
+
+        this.setRemoteItemsSelection();
+
+        this.remoteItem.expanded = expansionState;
+        this.remoteItem.loading = false;
+        this.remoteItem.disabled = false;
+    }
+
+    private setRemoteItemsSelection() {
+        if (!this.remoteItem) {
+            return;
+        }
+
+        this.remoteItem.getChildren().forEach((item) => {
+            item.selected = item.value.Selected;
         });
     }
 
