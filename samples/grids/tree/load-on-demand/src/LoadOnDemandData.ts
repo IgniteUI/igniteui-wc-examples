@@ -8,12 +8,6 @@ export interface SelectableItemData extends ItemData {
     Selected?: boolean;
 }
 
-export const REMOTE_ROOT: ItemData = {
-    Name: 'Network',
-    Icon: 'network',
-    Files: []
-};
-
 export const REMOTE_DATA: ItemData[] = [
     { Name: 'DESKTOP-XYZ', Icon: 'desktop' },
     { Name: 'DESKTOP-ABC', Icon: 'desktop' },
@@ -69,6 +63,11 @@ export const DATA: ItemData[] = [
                         { Name: 'Image 107', Icon: 'picture' }
                     ]
             }
-        ]
+        ],
+    },
+    {
+        Name: 'Network',
+        Icon: 'network',
+        Files: []
     }
 ];

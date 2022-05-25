@@ -2,33 +2,28 @@ import { IgcTreeItemComponent } from "igniteui-webcomponents";
 import { REMOTE_DATA, SelectableItemData } from "./LoadOnDemandData";
 
 export class DataService {
-    private _data: SelectableItemData[] = [];
+    /**
+     * As we are simulating remote data operations,
+     * this set is used to store the selection state of the records before reload.
+     */
     private _selected: Set<string> = new Set<string>();
 
-    public getData(): Promise<SelectableItemData[]> {
+    public getChildren(parent: SelectableItemData): Promise<SelectableItemData[]> {
         return new Promise((resolve) => {
             setTimeout(() => {
-                this._data = REMOTE_DATA;
-                const passed = this._data.map((e) => {
+                const passed = REMOTE_DATA.map((item) => {
                     const selectionState: Partial<SelectableItemData> = {};
-                    if (this._selected.has(e.Name)) {
+                    // If the record persists in the set it is marked as selected
+                    if (this._selected.has(item.Name)) {
                         selectionState.Selected = true;
                     } else {
-                        selectionState.Selected = false;
+                        selectionState.Selected = parent.Selected;
                     }
-                    return Object.assign({}, e, selectionState);
+                    return Object.assign({}, item, selectionState);
                 });
                 return resolve(passed);
             }, 2000);
         });
-    }
-
-    public clearData() {
-        this._data = [];
-    }
-
-    public clearSelect() {
-        this._selected = new Set<string>();
     }
 
     public setSelected(item: IgcTreeItemComponent) {
