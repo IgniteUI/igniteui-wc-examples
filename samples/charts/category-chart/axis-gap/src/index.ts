@@ -1,30 +1,28 @@
-import { DataItem, Data } from './SampleData';
-import { IgcPropertyEditorModule } from 'igniteui-webcomponents-grids';
+import { Data } from './sampleData';
 import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
-import { ComponentRenderer, PropertyEditorDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-grids';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
-    IgcPropertyEditorModule,
     IgcLegendModule,
     IgcCategoryChartModule
 );
 
 export class Sample {
 
-    private propertyEditor: IgcPropertyEditorComponent
-    private propertyEditorPropertyDescription: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcCategoryChartComponent
+    private xAxisGapValue: HTMLLabelElement;
 
     constructor() {
-        var propertyEditor = this.propertyEditor = document.querySelector('igc-property-editor') as IgcPropertyEditorComponent;
+        this.onXAxisGapChanged = this.onXAxisGapChanged.bind(this);
+
+        const xAxisSlider = document.getElementById("xAxisGapSlider") as HTMLInputElement;
+        xAxisSlider.addEventListener("input", this.onXAxisGapChanged);
+
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
-        propertyEditor.componentRenderer = this.renderer
-        propertyEditor.target = this.chart
+        this.chart.xAxisGap = 1.0;
+        this.chart.xAxisMaximumGap = 1.5;
         chart.dataSource = this.data
     }
 
@@ -36,21 +34,12 @@ export class Sample {
         }
         return this._data;
     }
-    
 
-    private _componentRenderer: ComponentRenderer = null;
-    public get renderer(): ComponentRenderer {
-        if (this._componentRenderer == null) {
-            this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
-            PropertyEditorDescriptionModule.register(context);
-            LegendDescriptionModule.register(context);
-            CategoryChartDescriptionModule.register(context);
-        }
-        return this._componentRenderer
+    public onXAxisGapChanged(e: any) {
+        const value = e.target.value;
+        this.chart.xAxisGap = value;
+        this.xAxisGapValue = value;
     }
-
-
 }
 
 new Sample();
