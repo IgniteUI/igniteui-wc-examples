@@ -22,10 +22,10 @@ export class ExpansionPanelPropertiesAndEvents {
 
         if(this.subtitle){
             if(ev.type === "igcOpened"){
-                this.subtitle.style.visibility = 'collapse';
+                this.subtitle.style.display = 'none';
             }
             if(ev.type === "igcClosed"){
-                this.subtitle.style.visibility = 'visible';
+                this.subtitle.style.display = 'block';
             }
         }
 

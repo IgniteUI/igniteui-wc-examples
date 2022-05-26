@@ -17,7 +17,6 @@ igc-expansion-panel::part(indicator) {
     color: #ffd351;
 }
 
-
 igc-expansion-panel::part(header) {
     background-color: #18203b;
 }
