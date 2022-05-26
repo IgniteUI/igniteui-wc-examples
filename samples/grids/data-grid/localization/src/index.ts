@@ -71,16 +71,18 @@ export class DataGridLocalization {
 
         const productGroup = new IgcColumnGroupDescription();
         productGroup.field = 'ProductName';
-        productGroup.displayName = 'ProductName';
+        productGroup.displayName = '商品名';
         this.grid.groupDescriptions.add(productGroup);
 
         const productCount = new IgcColumnSummaryDescription();
         productCount.field = 'ProductName';
+        productCount.displayName = "商品名"
         productCount.operand = SummaryOperand.Count;
         this.grid.summaryDescriptions.add(productCount);
 
         const priceMin = new IgcColumnSummaryDescription();
         priceMin.field = 'BundlePrice';
+        priceMin.displayName = '価格';
         priceMin.operand = SummaryOperand.Min;
         priceMin.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMin);
