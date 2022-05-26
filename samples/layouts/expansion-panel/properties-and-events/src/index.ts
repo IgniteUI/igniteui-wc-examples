@@ -19,7 +19,6 @@ export class ExpansionPanelPropertiesAndEvents {
     }
 
     public handleExpansionPanelEvents(ev: CustomEvent) {
-
         if(this.subtitle){
             if(ev.type === "igcOpened"){
                 this.subtitle.style.display = 'none';
@@ -32,9 +31,9 @@ export class ExpansionPanelPropertiesAndEvents {
         clearTimeout(this.timeout!);
 
         this.firedEventSpan.textContent = ev.type + " event fired!";
-        this.firedEventSpan.style.visibility = 'visible';
-        this.timeout! = setTimeout(() => {
-            this.firedEventSpan.style.visibility = 'collapse';
+        this.firedEventSpan.style.display = 'block';
+        this.timeout = setTimeout(() => {
+            this.firedEventSpan.style.display = 'none';
         }, 2000);
     }
 }

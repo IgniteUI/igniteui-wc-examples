@@ -13,5 +13,5 @@ span#fired-event {
     border-radius: 26px;
     padding: 1rem 1.5rem;
     color:white;
-    visibility: collapse;
+    display: none;
 }
