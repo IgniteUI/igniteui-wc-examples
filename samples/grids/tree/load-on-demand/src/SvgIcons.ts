@@ -1,4 +1,4 @@
-export const icons = [
+export const ICONS = [
     {
         name: "album",
         value: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

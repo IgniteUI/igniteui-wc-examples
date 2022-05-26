@@ -732,9 +732,7 @@ function logSourceFiles(cb) {
     gulp.src([
         './samples/**/src/*.ts',
        '!./samples/**/src/index.*',
-
        '!./samples/**/src/AssetsUtils.ts',
-       '!./samples/**/src/AnimationsData.ts',
        '!./samples/**/src/CategoryChartSharedData.ts',
        '!./samples/**/src/DataChartSharedData.ts',
        '!./samples/**/src/DataGridSharedData.ts',

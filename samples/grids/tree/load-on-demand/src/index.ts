@@ -2,7 +2,7 @@ import { defineComponents, IgcCheckboxComponent, IgcIconComponent, IgcTreeCompon
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { DataService } from "./DataService";
 import { DATA, ItemData, SelectableItemData } from "./LoadOnDemandData";
-import { icons } from "./SvgIcons";
+import { ICONS } from "./SvgIcons";
 import "./TreeLoadOnDemand.css";
 
 defineComponents(IgcTreeComponent, IgcTreeItemComponent, IgcCheckboxComponent, IgcIconComponent, IgcCircularProgressComponent);
@@ -37,10 +37,35 @@ export class TreeLoadOnDemand {
 
     private async handleExpanded(ev: CustomEvent) {
         const item = ev.detail as IgcTreeItemComponent;
-        if (Array.isArray(item.value.Files) && !item.value.Files.length) {
+        // The parent record of remote items initially has an empty Files array
+        if (this.isRemoteItemsParent(item.value.Files)) {
             await this.loadRemoteItems(item);
             this.appendRefreshIcon(item);
         }
+    }
+
+    private async loadRemoteItems(item: IgcTreeItemComponent) {
+        // Save current selection state
+        const selecitonState = item.selected;
+
+        // Removing child items one by one modifies their parent selection state
+        Array.from(item.children)
+        .filter((c) => c.tagName === "IGC-TREE-ITEM")
+        .forEach((c) => item!.removeChild(c));
+        
+        // Restoring selection state of the parent as before
+        item.selected = selecitonState;
+
+        item.loading = true;
+        item.disabled = true;
+
+        await this.dataService.getChildren(item.value).then((data) => {
+            this.renderItems(data, item);
+            item.value.Files = data;
+        });
+
+        item.loading = false;
+        item.disabled = false;
     }
 
     private renderItems(items: SelectableItemData[], parent: HTMLElement = this.tree) {
@@ -48,7 +73,7 @@ export class TreeLoadOnDemand {
             return;
         }
 
-        if (Array.isArray(items) && !items.length) {
+        if (this.isRemoteItemsParent(items)) {
             this.createTreeItem({Name: 'Loading', Icon: 'network'}, parent);
         }
 
@@ -90,47 +115,30 @@ export class TreeLoadOnDemand {
         return div;
     }
 
-    private async loadRemoteItems(item: IgcTreeItemComponent) {
-        // Save current selection state
-        const selecitonState = item.selected;
-
-        // Removing child items one by one modifies their parent selection state
-        Array.from(item.children)
-        .filter((c) => c.tagName === "IGC-TREE-ITEM")
-        .forEach((c) => item!.removeChild(c));
-        
-        // Restoring selection state of the parent as before
-        item.selected = selecitonState;
-
-        item.loading = true;
-        item.disabled = true;
-
-        await this.dataService.getChildren(item.value).then((data) => {
-            this.renderItems(data, item);
-            item.value.Files = data;
-        });
-
-        item.loading = false;
-        item.disabled = false;
-    }
-
     private appendRefreshIcon(item: IgcTreeItemComponent) {
         const label = item.querySelector('div[slot="label"]');
+
+        if (!label) {
+            return;
+        }
 
         const refreshIcon = document.createElement("igc-icon");
         refreshIcon.setAttribute("name", "refresh");
         refreshIcon.setAttribute("collection", "material");
         refreshIcon.classList.add("tree-item-icon");
 
-        if (label) {
-            label.appendChild(refreshIcon);
-        }
+        label.appendChild(refreshIcon);
 
         refreshIcon.addEventListener("click", this.loadRemoteItems.bind(this, item));
     }
 
+    private isRemoteItemsParent(items: SelectableItemData[]){
+        // Parent records of remote items initially have no child items, i.e. their Files array is empty
+        return Array.isArray(items) && !items.length;
+    }
+
     private createIcons() {
-        icons.forEach((icon) => {
+        ICONS.forEach((icon) => {
             registerIconFromText(icon.name, icon.value, "material");
         });
     }

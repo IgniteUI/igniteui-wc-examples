@@ -4,7 +4,7 @@ import { REMOTE_DATA, SelectableItemData } from "./LoadOnDemandData";
 export class DataService {
     /**
      * As we are simulating remote data operations,
-     * this set is used to store the selection state of the records before reload.
+     * this set is used to store the selection state of the records before reloading.
      */
     private _selected: Set<string> = new Set<string>();
 
