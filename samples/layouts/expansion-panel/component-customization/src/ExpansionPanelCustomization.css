@@ -6,20 +6,9 @@ igc-expansion-panel {
     padding: 0;
 }
 
-.panel-wrapper{
-    width: 100%;
-    display:flex;
-}
-
-.example-content {
+igc-button {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-p {
-    display: block;
-    margin-bottom: 16px;
+    margin-top: 16px;
 }
 
 a {

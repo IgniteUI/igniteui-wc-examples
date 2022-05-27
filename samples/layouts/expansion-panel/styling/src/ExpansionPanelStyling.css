@@ -26,15 +26,9 @@ igc-expansion-panel::part(subtitle) {
     color: #ffd351;
 }
 
-.example-content {
+igc-button {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-p {
-    display: block;
-    margin-bottom: 16px;
+    margin-top: 16px;
 }
 
 a {
