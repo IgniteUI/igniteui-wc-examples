@@ -62,7 +62,8 @@
     "igniteui-webcomponents": "^2.2.0",
     "lit": "^2.0.2",
     "lit-html": "^2.0.0",
-    "through2": "^4.0.2"
+    "through2": "^4.0.2",
+    "core-js": "^3.6.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
