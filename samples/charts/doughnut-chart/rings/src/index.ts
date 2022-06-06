@@ -1,6 +1,7 @@
-import { MonthsItem, Months, SeasonsItem, Seasons } from './SampleData';
 import { IgcLegendModule, IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
 import { IgcDoughnutChartComponent, IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
+import { CalendarSeasonsItem, CalendarSeasons } from './CalendarSeasons';
+import { CalendarMonthsItem, CalendarMonths } from './CalendarMonths';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -15,31 +16,36 @@ export class Sample {
     private series1: IgcRingSeriesComponent
     private series2: IgcRingSeriesComponent
 
+    private _bind: () => void;
+
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcDoughnutChartComponent;
         var series1 = this.series1 = document.getElementById('series1') as IgcRingSeriesComponent;
         var series2 = this.series2 = document.getElementById('series2') as IgcRingSeriesComponent;
 
-        series1.dataSource = this.seasons
-        series2.dataSource = this.months
+        this._bind = () => {
+            series1.dataSource = this.calendarSeasons
+            series2.dataSource = this.calendarMonths
+        }
+        this._bind();
     }
 
-    private _months: Months = null;
-    public get months(): Months {
-        if (this._months == null)
+    private _calendarSeasons: CalendarSeasons = null;
+    public get calendarSeasons(): CalendarSeasons {
+        if (this._calendarSeasons == null)
         {
-            this._months = new Months();
+            this._calendarSeasons = new CalendarSeasons();
         }
-        return this._months;
+        return this._calendarSeasons;
     }
     
-    private _seasons: Seasons = null;
-    public get seasons(): Seasons {
-        if (this._seasons == null)
+    private _calendarMonths: CalendarMonths = null;
+    public get calendarMonths(): CalendarMonths {
+        if (this._calendarMonths == null)
         {
-            this._seasons = new Seasons();
+            this._calendarMonths = new CalendarMonths();
         }
-        return this._seasons;
+        return this._calendarMonths;
     }
     
 

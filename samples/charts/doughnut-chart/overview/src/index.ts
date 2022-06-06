@@ -1,6 +1,6 @@
-import { DataItem, Data } from './SampleData';
 import { IgcLegendModule, IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
 import { IgcDoughnutChartComponent, IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
+import { CompanyMarketSharesItem, CompanyMarketShares } from './CompanyMarketShares';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -14,20 +14,25 @@ export class Sample {
     private chart: IgcDoughnutChartComponent
     private series: IgcRingSeriesComponent
 
+    private _bind: () => void;
+
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcDoughnutChartComponent;
         var series = this.series = document.getElementById('series') as IgcRingSeriesComponent;
 
-        series.dataSource = this.data
+        this._bind = () => {
+            series.dataSource = this.companyMarketShares
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _companyMarketShares: CompanyMarketShares = null;
+    public get companyMarketShares(): CompanyMarketShares {
+        if (this._companyMarketShares == null)
         {
-            this._data = new Data();
+            this._companyMarketShares = new CompanyMarketShares();
         }
-        return this._data;
+        return this._companyMarketShares;
     }
     
 
