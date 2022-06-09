@@ -33,6 +33,10 @@ export class CategoryChartTooltipTypes {
                 this.chart.toolTipType = ToolTipType.Default;
                 break;
             }
+            case 'Data': {
+                this.chart.toolTipType = ToolTipType.Data;
+                break;
+            }
             case 'Item': {
                 this.chart.toolTipType = ToolTipType.Item;
                 break;
