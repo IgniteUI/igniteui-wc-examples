@@ -1,39 +1,44 @@
-import { DataItem, Data } from './SampleData';
-import { IgcPropertyEditorModule } from 'igniteui-webcomponents-grids';
+import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
-import { ComponentRenderer, PropertyEditorDescriptionModule, TreemapDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-grids';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, TreemapDescriptionModule } from 'igniteui-webcomponents-core';
+import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
 import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
+import { CountyHierarchicalDataItem, CountyHierarchicalData } from './CountyHierarchicalData';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
+defineAllComponents();
 ModuleManager.register(
-    IgcPropertyEditorModule,
+    IgcPropertyEditorPanelModule,
     IgcTreemapModule
 );
 
 export class Sample {
 
-    private propertyEditor: IgcPropertyEditorComponent
-    private propertyEditorPropertyDescription: IgcPropertyEditorPropertyDescriptionComponent
+    private propertyEditorPanel1: IgcPropertyEditorPanelComponent
     private treemap: IgcTreemapComponent
 
+    private _bind: () => void;
+
     constructor() {
-        var propertyEditor = this.propertyEditor = document.querySelector('igc-property-editor') as IgcPropertyEditorComponent;
+        var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
         var treemap = this.treemap = document.getElementById('treemap') as IgcTreemapComponent;
 
-        propertyEditor.componentRenderer = this.renderer
-        propertyEditor.target = this.treemap
-        treemap.dataSource = this.data
+        this._bind = () => {
+            propertyEditorPanel1.componentRenderer = this.renderer
+            propertyEditorPanel1.target = this.treemap
+            treemap.dataSource = this.countyHierarchicalData
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countyHierarchicalData: CountyHierarchicalData = null;
+    public get countyHierarchicalData(): CountyHierarchicalData {
+        if (this._countyHierarchicalData == null)
         {
-            this._data = new Data();
+            this._countyHierarchicalData = new CountyHierarchicalData();
         }
-        return this._data;
+        return this._countyHierarchicalData;
     }
     
 
@@ -42,7 +47,7 @@ export class Sample {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            PropertyEditorDescriptionModule.register(context);
+            PropertyEditorPanelDescriptionModule.register(context);
             TreemapDescriptionModule.register(context);
         }
         return this._componentRenderer

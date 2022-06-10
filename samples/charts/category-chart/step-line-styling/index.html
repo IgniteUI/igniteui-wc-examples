@@ -16,7 +16,7 @@
     <div id="root">
 
 <div class="container sample">
-
+    
     <div class="legend-title">
         Renewable Electricity Generated
     </div>
@@ -30,9 +30,9 @@
     <div class="container fill">
         <igc-category-chart
         chart-type="StepLine"
-        x-axis-interval="1"
         is-category-highlighting-enabled="true"
         y-axis-title="TWh"
+        included-properties="Year, Europe, China, USA"
         brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
         outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
         is-horizontal-zoom-enabled="false"
@@ -40,7 +40,7 @@
         is-series-highlighting-enabled="true"
         marker-brushes="white"
         marker-outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
-        tool-tip-type="Category"
+        crosshairs-snap-to-data="true"
         name="chart"
         id ="chart">
         </igc-category-chart>

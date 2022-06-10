@@ -1,45 +1,61 @@
-import { Data } from './sampleData';
+import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
+import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-import { ModuleManager } from 'igniteui-webcomponents-core';
+import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
+defineAllComponents();
 ModuleManager.register(
+    IgcPropertyEditorPanelModule,
     IgcLegendModule,
     IgcCategoryChartModule
 );
 
 export class Sample {
 
+    private propertyEditorPanel1: IgcPropertyEditorPanelComponent
     private chart: IgcCategoryChartComponent
-    private xAxisGapValue: HTMLLabelElement;
+
+    private _bind: () => void;
 
     constructor() {
-        this.onXAxisGapChanged = this.onXAxisGapChanged.bind(this);
-
-        const xAxisSlider = document.getElementById("xAxisGapSlider") as HTMLInputElement;
-        xAxisSlider.addEventListener("input", this.onXAxisGapChanged);
-
+        var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
-        this.chart.xAxisGap = 1.0;
-        this.chart.xAxisMaximumGap = 1.5;
-        chart.dataSource = this.data
-    }
-
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
-        {
-            this._data = new Data();
+        this._bind = () => {
+            propertyEditorPanel1.componentRenderer = this.renderer
+            propertyEditorPanel1.target = this.chart
+            chart.dataSource = this.countryRenewableElectricity
         }
-        return this._data;
+        this._bind();
     }
 
-    public onXAxisGapChanged(e: any) {
-        const value = e.target.value;
-        this.chart.xAxisGap = value;
-        this.xAxisGapValue = value;
+    private _countryRenewableElectricity: CountryRenewableElectricity = null;
+    public get countryRenewableElectricity(): CountryRenewableElectricity {
+        if (this._countryRenewableElectricity == null)
+        {
+            this._countryRenewableElectricity = new CountryRenewableElectricity();
+        }
+        return this._countryRenewableElectricity;
     }
+    
+
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            LegendDescriptionModule.register(context);
+            CategoryChartDescriptionModule.register(context);
+        }
+        return this._componentRenderer
+    }
+
+
 }
 
 new Sample();

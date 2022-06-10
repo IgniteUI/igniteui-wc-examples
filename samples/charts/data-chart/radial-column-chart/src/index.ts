@@ -1,6 +1,6 @@
-import { DataItem, Data } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartRadialModule, IgcDataChartRadialCoreModule, IgcDataChartInteractivityModule, IgcLegendModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcRadialColumnSeriesComponent } from 'igniteui-webcomponents-charts';
+import { FootballPlayerStatsItem, FootballPlayerStats } from './FootballPlayerStats';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -21,6 +21,8 @@ export class Sample {
     private radialColumnSeries1: IgcRadialColumnSeriesComponent
     private radialColumnSeries2: IgcRadialColumnSeriesComponent
 
+    private _bind: () => void;
+
     constructor() {
         var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
@@ -29,23 +31,26 @@ export class Sample {
         var radialColumnSeries1 = this.radialColumnSeries1 = document.getElementById('RadialColumnSeries1') as IgcRadialColumnSeriesComponent;
         var radialColumnSeries2 = this.radialColumnSeries2 = document.getElementById('RadialColumnSeries2') as IgcRadialColumnSeriesComponent;
 
-        chart.legend = this.legend
-        angleAxis.dataSource = this.data
-        radialColumnSeries1.angleAxis = this.angleAxis
-        radialColumnSeries1.valueAxis = this.radiusAxis
-        radialColumnSeries1.dataSource = this.data
-        radialColumnSeries2.dataSource = this.data
-        radialColumnSeries2.angleAxis = this.angleAxis
-        radialColumnSeries2.valueAxis = this.radiusAxis
+        this._bind = () => {
+            chart.legend = this.legend
+            angleAxis.dataSource = this.footballPlayerStats
+            radialColumnSeries1.angleAxis = this.angleAxis
+            radialColumnSeries1.valueAxis = this.radiusAxis
+            radialColumnSeries1.dataSource = this.footballPlayerStats
+            radialColumnSeries2.dataSource = this.footballPlayerStats
+            radialColumnSeries2.angleAxis = this.angleAxis
+            radialColumnSeries2.valueAxis = this.radiusAxis
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _footballPlayerStats: FootballPlayerStats = null;
+    public get footballPlayerStats(): FootballPlayerStats {
+        if (this._footballPlayerStats == null)
         {
-            this._data = new Data();
+            this._footballPlayerStats = new FootballPlayerStats();
         }
-        return this._data;
+        return this._footballPlayerStats;
     }
     
 

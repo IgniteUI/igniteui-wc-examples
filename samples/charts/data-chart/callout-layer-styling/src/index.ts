@@ -1,6 +1,7 @@
-import { DataItem, Data, CalloutsItem, Callouts } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartAnnotationModule, IgcDataChartInteractivityModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent, IgcCalloutLayerComponent } from 'igniteui-webcomponents-charts';
+import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -20,6 +21,8 @@ export class Sample {
     private lineSeries1: IgcLineSeriesComponent
     private calloutLayer1: IgcCalloutLayerComponent
 
+    private _bind: () => void;
+
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
@@ -27,29 +30,32 @@ export class Sample {
         var lineSeries1 = this.lineSeries1 = document.getElementById('LineSeries1') as IgcLineSeriesComponent;
         var calloutLayer1 = this.calloutLayer1 = document.getElementById('CalloutLayer1') as IgcCalloutLayerComponent;
 
-        xAxis.dataSource = this.data
-        lineSeries1.xAxis = this.xAxis
-        lineSeries1.yAxis = this.yAxis
-        lineSeries1.dataSource = this.data
-        calloutLayer1.dataSource = this.callouts
+        this._bind = () => {
+            xAxis.dataSource = this.countryRenewableElectricity
+            lineSeries1.xAxis = this.xAxis
+            lineSeries1.yAxis = this.yAxis
+            lineSeries1.dataSource = this.countryRenewableElectricity
+            calloutLayer1.dataSource = this.countryRenewableCallouts
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countryRenewableElectricity: CountryRenewableElectricity = null;
+    public get countryRenewableElectricity(): CountryRenewableElectricity {
+        if (this._countryRenewableElectricity == null)
         {
-            this._data = new Data();
+            this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
-        return this._data;
+        return this._countryRenewableElectricity;
     }
     
-    private _callouts: Callouts = null;
-    public get callouts(): Callouts {
-        if (this._callouts == null)
+    private _countryRenewableCallouts: CountryRenewableCallouts = null;
+    public get countryRenewableCallouts(): CountryRenewableCallouts {
+        if (this._countryRenewableCallouts == null)
         {
-            this._callouts = new Callouts();
+            this._countryRenewableCallouts = new CountryRenewableCallouts();
         }
-        return this._callouts;
+        return this._countryRenewableCallouts;
     }
     
 

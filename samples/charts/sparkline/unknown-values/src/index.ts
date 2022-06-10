@@ -1,52 +1,59 @@
+import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-webcomponents-core';
+import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import { UnknownValuePlotting } from 'igniteui-webcomponents-core';
+import { SparklineUnknownDataItem, SparklineUnknownData } from './SparklineUnknownData';
 
-ModuleManager.register(IgcSparklineModule);
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
+defineAllComponents();
+ModuleManager.register(
+    IgcPropertyEditorPanelModule,
+    IgcSparklineModule
+);
 
-export class SparklineUnknownValues {
+export class Sample {
 
-    private sparkline: IgcSparklineComponent;
-    public data: any[] = [];
+    private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private chart: IgcSparklineComponent
+
+    private _bind: () => void;
+
     constructor() {
+        var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var chart = this.chart = document.getElementById('chart') as IgcSparklineComponent;
 
-        this.data = this.getData();
-
-        this.onRangeVisibilityChanged = this.onRangeVisibilityChanged.bind(this);
-        this.sparkline = document.getElementById('sparkline') as IgcSparklineComponent;
-        this.sparkline.dataSource = this.data;
-
-        let plotUnknownValue = document.getElementById('plotUnknownValue');
-        plotUnknownValue!.addEventListener('change', this.onRangeVisibilityChanged);
-    }
-
-    public onRangeVisibilityChanged(e: any) {
-        const selection = e.target.checked as boolean;
-
-        if (selection) {
-            this.sparkline.unknownValuePlotting = UnknownValuePlotting.LinearInterpolate;
+        this._bind = () => {
+            propertyEditorPanel1.componentRenderer = this.renderer
+            propertyEditorPanel1.target = this.chart
+            chart.dataSource = this.sparklineUnknownData
         }
-        else {
-            this.sparkline.unknownValuePlotting = UnknownValuePlotting.DontPlot;
-        }
+        this._bind();
     }
 
-    public getData(): any[] {
-        const data: any[] = [
-            { "Label": 4,  "Value": 4 },
-            { "Label": 5,  "Value": 5 },
-            { "Label": 2,  "Value": null },
-            { "Label": 7,  "Value": 7 },
-            { "Label": -1, "Value": -1 },
-            { "Label": 3,  "Value": 3 },
-            { "Label": -2, "Value": -2 },
-            { "Label": 5,  "Value": null },
-            { "Label": 2,  "Value": 2 },
-            { "Label": 6,  "Value": 6 },
-        ];
-        return data;
+    private _sparklineUnknownData: SparklineUnknownData = null;
+    public get sparklineUnknownData(): SparklineUnknownData {
+        if (this._sparklineUnknownData == null)
+        {
+            this._sparklineUnknownData = new SparklineUnknownData();
+        }
+        return this._sparklineUnknownData;
     }
+    
+
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            SparklineDescriptionModule.register(context);
+        }
+        return this._componentRenderer
+    }
+
+
 }
 
-new SparklineUnknownValues();
+new Sample();

@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    
+    
+    
+    <div class="container fill">
+        <igc-data-chart
+        is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true"
+        name="chart"
+        id ="chart">
+            <igc-category-x-axis
+            interval="1"
+            label-location="OutsideBottom"
+            label-extent="30"
+            label="month"
+            name="xAxis"
+            id ="xAxis">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis
+            label-location="OutsideBottom"
+            name="yAxis"
+            id ="yAxis">
+            </igc-numeric-y-axis>
+            <igc-financial-price-series
+            
+            open-member-path="open"
+            high-member-path="high"
+            low-member-path="low"
+            close-member-path="close"
+            volume-member-path="volume"
+            show-default-tooltip="true"
+            title="Stock Price"
+            name="Series1"
+            id ="Series1">
+            </igc-financial-price-series>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

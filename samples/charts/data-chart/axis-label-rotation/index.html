@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor-panel
+        
+        description-type="DataChart"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
+            <igc-property-editor-property-description
+            property-path="ShouldConsiderAutoRotationForInitialLabels"
+            label="Rotate Labels?"
+            should-override-default-editor="true"
+            primitive-value="True">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            drop-down-values="None, SizeChanging, SizeChangingAndZoom"
+            primitive-value="SizeChangingAndZoom"
+            property-path="autoMarginAndAngleUpdateMode"
+            label="AutoMarginAndAngleUpdateMode:"
+            value-type="EnumValue"
+            should-override-default-editor="true"
+            drop-down-names="None, SizeChanging, SizeChangingAndZoom">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+    
+    
+    <div class="container fill">
+        <igc-data-chart
+        is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true"
+        should-auto-expand-margin-for-initial-labels="true"
+        should-consider-auto-rotation-for-initial-labels="true"
+        auto-margin-and-angle-update-mode="SizeChangingAndZoom"
+        name="chart"
+        id ="chart">
+            <igc-category-x-axis
+            
+            use-enhanced-interval-management="true"
+            enhanced-interval-prefer-more-category-labels="true"
+            label-extent="60"
+            label="month"
+            name="xAxis"
+            id ="xAxis">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis
+            name="yAxis"
+            id ="yAxis">
+            </igc-numeric-y-axis>
+            <igc-column-series
+            
+            value-member-path="temperature"
+            name="colSeries1"
+            id ="colSeries1">
+            </igc-column-series>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

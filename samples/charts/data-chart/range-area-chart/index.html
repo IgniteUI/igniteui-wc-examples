@@ -16,11 +16,11 @@
     <div id="root">
 
 <div class="container sample">
-
+    
     <div class="legend-title">
         Monthly Temperature Range in Los Angeles
     </div>
-
+    
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="false"
@@ -43,10 +43,18 @@
             id ="yAxis">
             </igc-numeric-y-axis>
             <igc-range-area-series
-
-            low-member-path="lowLA"
-            high-member-path="highLA"
-            title="Los Angeles"
+            
+            low-member-path="nY_Low"
+            high-member-path="nY_High"
+            title="New York"
+            name="series"
+            id ="series">
+            </igc-range-area-series>
+            <igc-range-area-series
+            
+            low-member-path="nY_Low"
+            high-member-path="nY_High"
+            title="New York"
             name="series"
             id ="series">
             </igc-range-area-series>

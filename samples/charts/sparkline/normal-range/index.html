@@ -1,13 +1,14 @@
 <html>
   <head>
-    <title>SparklineNormalRange</title>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
   </head>
 
@@ -15,29 +16,62 @@
     <div id="root">
 
 <div class="container sample">
-    <label class="options-label"><input id="rangeVisibility" checked="true" type="checkbox" />Range Visibility</label>
-    <label class="options-label" ><input id="minRange" type="range" min="-2" max="7" step="0.5"
-    value="1" />Min Range <label id="minRangeLabel"></label> </label>
-    <label class="options-label"><input id="maxRange" type="range" min="-2" max="7" step="0.5"
-    value="4"/>Max Range <label id="maxRangeLabel"></label></label>
-
-    <igc-sparkline id="sparkline"
-        height="calc(100% - 3.5rem)"
-        width="100%"
-        value-Member-Path="Value"
-        display-type="Area"
+    <div class="options vertical">
+        <igc-property-editor-panel
+        
+        description-type="Sparkline"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
+            <igc-property-editor-property-description
+            property-path="NormalRangeVisibility"
+            label="Normal Range Visibility"
+            value-type="EnumValue"
+            should-override-default-editor="true"
+            drop-down-names="Visible, Collapsed"
+            drop-down-values="Visible, Collapsed"
+            primitive-value="Visible">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            drop-down-values="-7, -6, -5, -4, -3, -2, -1, 0"
+            primitive-value="-5"
+            property-path="NormalRangeMinimum"
+            label="Normal Range Minimum"
+            value-type="EnumValue"
+            should-override-default-editor="true"
+            drop-down-names="-7, -6, -5, -4, -3, -2, -1, 0">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            drop-down-values="7, 6, 5, 4, 3, 2, 1, 0"
+            primitive-value="5"
+            property-path="NormalRangeMaximum"
+            label="Normal Range Maximum"
+            value-type="EnumValue"
+            should-override-default-editor="true"
+            drop-down-names="7, 6, 5, 4, 3, 2, 1, 0">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+    
+    
+    <div class="container fill">
+        <igc-sparkline
         normal-range-visibility="Visible"
-        normal-range-minimum="1"
-        normal-range-maximum="4"
-        normal-range-fill="rgba(255, 0, 0, 0.4)"
-        display-normal-range-in-front="true" >
-    </igc-sparkline>
-
+        value-member-path="value"
+        label-member-path="label"
+        normal-range-minimum="-5"
+        normal-range-maximum="5"
+        display-type="Area"
+        name="chart"
+        id ="chart">
+        </igc-sparkline>
+    </div>
 </div>
 
     </div>
+
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
     <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>

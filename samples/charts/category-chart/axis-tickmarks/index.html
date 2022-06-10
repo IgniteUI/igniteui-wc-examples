@@ -17,21 +17,23 @@
 
 <div class="container sample">
     <div class="options vertical">
-        <igc-property-editor
-
+        <igc-property-editor-panel
+        
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="XAxisTickLength"
             label="X Axis Tick Length"
-            value-type="EnumValue"
+            value-type="Slider"
             should-override-default-editor="true"
-            drop-down-names="0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20"
-            drop-down-values="0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20"
-            primitive-value="10">
+            primitive-value="10"
+            min="0"
+            max="20">
             </igc-property-editor-property-description>
-        </igc-property-editor>
+        </igc-property-editor-panel>
     </div>
     <div class="legend-title">
         Renewable Electricity Generated
@@ -52,8 +54,10 @@
         y-axis-tick-stroke="rgba(0, 0, 0, 0)"
         x-axis-tick-stroke-thickness="1"
         y-axis-tick-stroke-thickness="0"
+        included-properties="Year, Europe, China, USA"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
+        computed-plot-area-margin-mode="Series"
         name="chart"
         id ="chart">
         </igc-category-chart>

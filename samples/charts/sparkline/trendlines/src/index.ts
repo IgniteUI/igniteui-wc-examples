@@ -1,48 +1,59 @@
+import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-webcomponents-core';
+import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
-import { ModuleManager } from 'igniteui-webcomponents-core';
+import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData';
 
-ModuleManager.register(IgcSparklineModule);
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
+defineAllComponents();
+ModuleManager.register(
+    IgcPropertyEditorPanelModule,
+    IgcSparklineModule
+);
 
-export class SparklineTrendlines {
-    private sparkline: IgcSparklineComponent;
+export class Sample {
+
+    private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private chart: IgcSparklineComponent
+
+    private _bind: () => void;
 
     constructor() {
-        this.onTrendlineChanged = this.onTrendlineChanged.bind(this);
+        var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var chart = this.chart = document.getElementById('chart') as IgcSparklineComponent;
 
-        this.sparkline = document.getElementById('sparkline') as IgcSparklineComponent;
-        this.sparkline.dataSource = this.getData();
-
-        let trendlineType = document.getElementById('trendlineType') as HTMLSelectElement;
-        trendlineType!.value = "ExponentialFit";
-        trendlineType!.addEventListener('change', this.onTrendlineChanged);
-    }
-
-    public onTrendlineChanged(e: any) {
-        const selection = e.target.value.toString();
-        this.sparkline.trendLineType = selection;
-    }
-
-    public getData(): any[] {
-        const data: any[] = [];
-        let index = 0;
-        let min = 1000;
-        let max = -1000;
-
-        for (let angle = 0; angle <= 360 * 4; angle += 5) {
-            const v1 = Math.sin(angle * Math.PI / 180);
-            const v2 = Math.sin(3 * angle * Math.PI / 180) / 3;
-            let revenue = v1 + v2;
-            data.push({
-                Label: index++,
-                Angle: angle,
-                Value: revenue
-            });
-            min = Math.min(min, revenue);
-            max = Math.max(max, revenue);
+        this._bind = () => {
+            propertyEditorPanel1.componentRenderer = this.renderer
+            propertyEditorPanel1.target = this.chart
+            chart.dataSource = this.sparklineMixedData
         }
-        return data;
+        this._bind();
     }
+
+    private _sparklineMixedData: SparklineMixedData = null;
+    public get sparklineMixedData(): SparklineMixedData {
+        if (this._sparklineMixedData == null)
+        {
+            this._sparklineMixedData = new SparklineMixedData();
+        }
+        return this._sparklineMixedData;
+    }
+    
+
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            SparklineDescriptionModule.register(context);
+        }
+        return this._componentRenderer
+    }
+
+
 }
 
-new SparklineTrendlines();
+new Sample();
