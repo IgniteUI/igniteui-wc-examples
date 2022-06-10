@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>DockManagerCustomizeButtons</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample">
+        <igc-dockmanager id="dockManager">
+
+          <button slot="closeButton">x</button>
+
+          <button slot="maximizeButton">
+            <img src="https://www.svgrepo.com/show/419558/arrow-top-chevron-chevron-top.svg" alt="" />
+          </button>
+
+          <button slot="minimizeButton">
+            <img src="https://www.svgrepo.com/show/419557/bottom-chevron-chevron-down.svg" alt="" />
+          </button>
+
+          <button slot="pinButton">
+            <img src="https://www.svgrepo.com/show/154123/pin.svg" alt="" />
+          </button>
+
+          <button slot="unpinButton">
+            <img src="https://www.svgrepo.com/show/154123/pin.svg" alt="" />
+          </button>
+
+          <div slot="content1" class="dockManagerContent">Content 1</div>
+          <div slot="content2" class="dockManagerContent">Content 2</div>
+          <div slot="content3" class="dockManagerContent">Content 3</div>
+          <div slot="content4" class="dockManagerContent">Content 4</div>
+          <div slot="content5" class="dockManagerContent">Content 5</div>
+          <div slot="content6" class="dockManagerContent">Content 6</div>
+          <div slot="content7" class="dockManagerContent">Content 7</div>
+          <div slot="content8" class="dockManagerContent">Content 8</div>
+          <div slot="content9" class="dockManagerContent">Content 9</div>
+          <div slot="content10" class="dockManagerContent">Content 10</div>
+          <div slot="content11" class="dockManagerContent">Content 11</div>
+          <div slot="content12" class="dockManagerContent">Content 12</div>
+        </igc-dockmanager>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
