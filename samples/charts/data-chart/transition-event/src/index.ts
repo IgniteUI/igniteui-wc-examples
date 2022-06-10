@@ -45,9 +45,9 @@ export class Sample {
             waterfallSeries1.xAxis = this.xAxis
             waterfallSeries1.yAxis = this.yAxis
             waterfallSeries1.dataSource = this.companyIncomeData
+            waterfallSeries2.xAxis = this.xAxis
             waterfallSeries2.yAxis = this.yAxis
             waterfallSeries2.dataSource = this.companyIncomeData
-            waterfallSeries2.xAxis = this.xAxis
         }
         this._bind();
     }

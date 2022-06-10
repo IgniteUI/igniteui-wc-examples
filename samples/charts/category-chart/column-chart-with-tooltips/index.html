@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>CategoryChartColumnChartWithTooltips</title>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
@@ -15,44 +15,49 @@
   <body>
     <div id="root">
 
-      <div class="container sample">
-        <div className="options vertical">
-          <span class="legend-title">
-              Highest Grossing Movie Franchises
-          </span>
-          <div class="legend">
-              <igc-legend
-              orientation="Horizontal"
-              name="Legend"
-              id ="Legend">
-              </igc-legend>
-          </div>
-        </div>
-        <div className="overlay-right" >
-          <div className="options horizontal">
-          <span class="options-label">Tooltip Type: </span>
-            <select value="Default" id="toolTipSelect" >
-                <option>Default</option>
-                <option>Item</option>
-                <option>Category</option>
-            </select>
-          </div>
-        </div>
-        <div class="container fill">
-            <igc-category-chart
-            chart-type="Column"
-            x-axis-interval="1"
-            y-axis-label-left-margin="0"
-            y-axis-title-left-margin="10"
-            y-axis-title-right-margin="5"
-            y-axis-title="Billions of U.S. Dollars"
-            is-horizontal-zoom-enabled="false"
-            is-vertical-zoom-enabled="false"
-            name="chart"
-            id ="chart">
-            </igc-category-chart>
-        </div>
-      </div>
+<div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor-panel
+        
+        description-type="CategoryChart"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="PropertyEditor"
+        id ="PropertyEditor">
+            <igc-property-editor-property-description
+            property-path="ToolTipType"
+            label="ToolTip Type:"
+            primitive-value="Data"
+            name="ToolTipTypeEditor"
+            id ="ToolTipTypeEditor">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+    <div class="legend-title">
+        Highest Grossing Movie Franchises
+    </div>
+    <div class="legend">
+        <igc-legend
+        name="Legend"
+        id ="Legend">
+        </igc-legend>
+    </div>
+    <div class="container fill">
+        <igc-category-chart
+        chart-type="Column"
+        x-axis-interval="1"
+        y-axis-label-left-margin="0"
+        y-axis-title-left-margin="10"
+        y-axis-title-right-margin="5"
+        y-axis-title="Billions of U.S. Dollars"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
+        crosshairs-snap-to-data="true"
+        name="chart"
+        id ="chart">
+        </igc-category-chart>
+    </div>
+</div>
 
     </div>
 
