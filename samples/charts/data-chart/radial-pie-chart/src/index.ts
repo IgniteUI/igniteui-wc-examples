@@ -37,9 +37,9 @@ export class Sample {
             radialPieSeries1.angleAxis = this.angleAxis
             radialPieSeries1.valueAxis = this.radiusAxis
             radialPieSeries1.dataSource = this.footballPlayerStats
-            radialPieSeries2.dataSource = this.footballPlayerStats
             radialPieSeries2.angleAxis = this.angleAxis
             radialPieSeries2.valueAxis = this.radiusAxis
+            radialPieSeries2.dataSource = this.footballPlayerStats
         }
         this._bind();
     }
