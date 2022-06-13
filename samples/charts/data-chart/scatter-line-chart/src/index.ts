@@ -2,7 +2,6 @@ import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, Ig
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcScatterLineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { HealthDataForGermanyItem, HealthDataForGermany } from './HealthDataForGermany';
 import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFrance';
-import { HealthDataForNorwayItem, HealthDataForNorway } from './HealthDataForNorway';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -24,7 +23,6 @@ export class Sample {
     private yAxis: IgcNumericYAxisComponent
     private scatterLineSeries1: IgcScatterLineSeriesComponent
     private scatterLineSeries2: IgcScatterLineSeriesComponent
-    private scatterLineSeries3: IgcScatterLineSeriesComponent
 
     private _bind: () => void;
 
@@ -35,7 +33,6 @@ export class Sample {
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
         var scatterLineSeries1 = this.scatterLineSeries1 = document.getElementById('ScatterLineSeries1') as IgcScatterLineSeriesComponent;
         var scatterLineSeries2 = this.scatterLineSeries2 = document.getElementById('ScatterLineSeries2') as IgcScatterLineSeriesComponent;
-        var scatterLineSeries3 = this.scatterLineSeries3 = document.getElementById('ScatterLineSeries3') as IgcScatterLineSeriesComponent;
 
         this._bind = () => {
             chart.legend = this.legend
@@ -45,9 +42,6 @@ export class Sample {
             scatterLineSeries2.xAxis = this.xAxis
             scatterLineSeries2.yAxis = this.yAxis
             scatterLineSeries2.dataSource = this.healthDataForFrance
-            scatterLineSeries3.xAxis = this.xAxis
-            scatterLineSeries3.yAxis = this.yAxis
-            scatterLineSeries3.dataSource = this.healthDataForNorway
         }
         this._bind();
     }
@@ -68,15 +62,6 @@ export class Sample {
             this._healthDataForFrance = new HealthDataForFrance();
         }
         return this._healthDataForFrance;
-    }
-    
-    private _healthDataForNorway: HealthDataForNorway = null;
-    public get healthDataForNorway(): HealthDataForNorway {
-        if (this._healthDataForNorway == null)
-        {
-            this._healthDataForNorway = new HealthDataForNorway();
-        }
-        return this._healthDataForNorway;
     }
     
 

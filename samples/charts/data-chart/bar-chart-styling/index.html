@@ -36,6 +36,8 @@
             id ="yAxis">
             </igc-category-y-axis>
             <igc-numeric-x-axis
+            minimum-value="0"
+            maximum-value="80"
             interval="20"
             label-format="{0}%"
             name="xAxis"
@@ -49,7 +51,11 @@
             
             value-member-path="percent"
             is-transition-in-enabled="true"
+            brush="rgba(134, 6, 138, 0.654901960784314)"
+            outline="rgba(133, 6, 138, 1)"
+            thickness="2"
             is-highlighting-enabled="true"
+            area-fill-opacity="0.5"
             show-default-tooltip="true"
             name="BarSeries1"
             id ="BarSeries1">
@@ -59,7 +65,7 @@
             x-member-path="x"
             y-member-path="y"
             content-member-path="label"
-            callout-text-color="black"
+            callout-text-color="rgba(133, 6, 138, 1)"
             callout-background="rgba(0, 0, 0, 0)"
             callout-leader-brush="rgba(0, 0, 0, 0)"
             name="CalloutLayer1"

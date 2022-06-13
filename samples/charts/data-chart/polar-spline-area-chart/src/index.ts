@@ -32,9 +32,9 @@ export class Sample {
             polarSplineAreaSeries1.angleAxis = this.angleAxis
             polarSplineAreaSeries1.radiusAxis = this.radiusAxis
             polarSplineAreaSeries1.dataSource = this.boatSailingData
-            polarSplineAreaSeries2.dataSource = this.boatSailingData
             polarSplineAreaSeries2.angleAxis = this.angleAxis
             polarSplineAreaSeries2.radiusAxis = this.radiusAxis
+            polarSplineAreaSeries2.dataSource = this.boatSailingData
         }
         this._bind();
     }

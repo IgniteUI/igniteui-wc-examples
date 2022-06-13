@@ -3,7 +3,7 @@ import { IgcDataChartCategoryModule, IgcDataChartInteractivityModule } from 'ign
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataChartCategoryDescriptionModule, DataChartInteractivityDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
-import { TemperatureAverageDataItem, TemperatureAverageData } from './TemperatureAverageData';
+import { TemperatureAverageDataLongLabelsItem, TemperatureAverageDataLongLabels } from './TemperatureAverageDataLongLabels';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -34,21 +34,21 @@ export class Sample {
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer
             propertyEditorPanel1.target = this.chart
-            xAxis.dataSource = this.temperatureAverageData
+            xAxis.dataSource = this.temperatureAverageDataLongLabels
             colSeries1.xAxis = this.xAxis
             colSeries1.yAxis = this.yAxis
-            colSeries1.dataSource = this.temperatureAverageData
+            colSeries1.dataSource = this.temperatureAverageDataLongLabels
         }
         this._bind();
     }
 
-    private _temperatureAverageData: TemperatureAverageData = null;
-    public get temperatureAverageData(): TemperatureAverageData {
-        if (this._temperatureAverageData == null)
+    private _temperatureAverageDataLongLabels: TemperatureAverageDataLongLabels = null;
+    public get temperatureAverageDataLongLabels(): TemperatureAverageDataLongLabels {
+        if (this._temperatureAverageDataLongLabels == null)
         {
-            this._temperatureAverageData = new TemperatureAverageData();
+            this._temperatureAverageDataLongLabels = new TemperatureAverageDataLongLabels();
         }
-        return this._temperatureAverageData;
+        return this._temperatureAverageDataLongLabels;
     }
     
 

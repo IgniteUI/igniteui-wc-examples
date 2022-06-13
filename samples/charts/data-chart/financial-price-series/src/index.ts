@@ -1,5 +1,5 @@
-import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { Stock2YearsItem, Stock2Years } from './Stock2Years';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -11,7 +11,8 @@ ModuleManager.register(
     IgcDataChartFinancialCoreModule,
     IgcDataChartFinancialModule,
     IgcDataChartFinancialOverlaysModule,
-    IgcDataChartInteractivityModule
+    IgcDataChartInteractivityModule,
+    IgcDataChartAnnotationModule
 );
 
 export class Sample {
@@ -20,6 +21,7 @@ export class Sample {
     private xAxis: IgcCategoryXAxisComponent
     private yAxis: IgcNumericYAxisComponent
     private series1: IgcFinancialPriceSeriesComponent
+    private tooltip: IgcDataToolTipLayerComponent
 
     private _bind: () => void;
 
@@ -28,6 +30,7 @@ export class Sample {
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
         var series1 = this.series1 = document.getElementById('Series1') as IgcFinancialPriceSeriesComponent;
+        var tooltip = this.tooltip = document.getElementById('Tooltip') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             xAxis.dataSource = this.stock2Years

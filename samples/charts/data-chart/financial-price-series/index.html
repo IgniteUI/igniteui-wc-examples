@@ -23,6 +23,8 @@
         <igc-data-chart
         is-horizontal-zoom-enabled="true"
         is-vertical-zoom-enabled="true"
+        should-auto-expand-margin-for-initial-labels="true"
+        computed-plot-area-margin-mode="Series"
         name="chart"
         id ="chart">
             <igc-category-x-axis
@@ -34,12 +36,12 @@
             id ="xAxis">
             </igc-category-x-axis>
             <igc-numeric-y-axis
-            label-location="OutsideBottom"
+            label-location="OutsideRight"
             name="yAxis"
             id ="yAxis">
             </igc-numeric-y-axis>
             <igc-financial-price-series
-            
+            display-type="Candlestick"
             open-member-path="open"
             high-member-path="high"
             low-member-path="low"
@@ -50,6 +52,10 @@
             name="Series1"
             id ="Series1">
             </igc-financial-price-series>
+            <igc-data-tool-tip-layer
+            name="Tooltip"
+            id ="Tooltip">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>
