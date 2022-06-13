@@ -40,7 +40,6 @@ igc-dockmanager::part(pane-header-minimize-button),
 igc-dockmanager::part(pane-header-maximize-button) {
   width: 24px;
   height: 24px;
-  margin: 0 8px;
   border: none;
   transition: opacity 250ms ease-in-out;
   opacity: 0.3;
