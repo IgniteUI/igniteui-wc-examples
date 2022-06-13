@@ -33,7 +33,9 @@
         name="chart"
         id ="chart">
             <igc-numeric-x-axis
-            title="Hours Worked per Week"
+            is-logarithmic="true"
+            abbreviate-large-numbers="true"
+            title="Population"
             name="xAxis"
             id ="xAxis">
             </igc-numeric-x-axis>
@@ -46,7 +48,7 @@
             </igc-numeric-y-axis>
             <igc-bubble-series
             radius-member-path="population"
-            x-member-path="workedHours"
+            x-member-path="population"
             y-member-path="gDP"
             marker-type="Circle"
             show-default-tooltip="true"
@@ -56,7 +58,7 @@
             </igc-bubble-series>
             <igc-bubble-series
             title="European Countries"
-            x-member-path="workedHours"
+            x-member-path="population"
             y-member-path="gDP"
             radius-member-path="population"
             marker-type="Circle"

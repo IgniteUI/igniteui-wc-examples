@@ -33,7 +33,9 @@
         name="chart"
         id ="chart">
             <igc-numeric-x-axis
-            title="Hours Worked per Week"
+            is-logarithmic="true"
+            abbreviate-large-numbers="true"
+            title="Population"
             name="xAxis"
             id ="xAxis">
             </igc-numeric-x-axis>
@@ -46,12 +48,13 @@
             </igc-numeric-y-axis>
             <igc-bubble-series
             radius-member-path="population"
-            x-member-path="workedHours"
+            x-member-path="population"
             y-member-path="gDP"
             marker-type="Circle"
             marker-thickness="2"
-            marker-brush="rgba(186, 231, 114, 1)"
-            marker-outline="rgba(186, 231, 114, 1)"
+            marker-brush="rgba(62, 202, 62, 1)"
+            marker-outline="rgba(62, 202, 62, 1)"
+            marker-fill-opacity="0.5"
             show-default-tooltip="true"
             title="African Countries"
             name="BubbleSeries1"
@@ -59,12 +62,13 @@
             </igc-bubble-series>
             <igc-bubble-series
             title="European Countries"
-            x-member-path="workedHours"
+            x-member-path="population"
             y-member-path="gDP"
             radius-member-path="population"
             marker-type="Circle"
-            marker-outline="rgba(248, 174, 95, 1)"
-            marker-brush="rgba(248, 174, 95, 1)"
+            marker-outline="rgba(171, 6, 221, 1)"
+            marker-brush="rgba(171, 6, 221, 1)"
+            marker-fill-opacity="0.5"
             marker-thickness="2"
             show-default-tooltip="true"
             name="BubbleSeries2"
