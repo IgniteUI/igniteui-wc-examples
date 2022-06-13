@@ -61,11 +61,11 @@ export class Sample {
             CategoryChartDescriptionModule.register(context);
             DataChartInteractivityDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
     
-    public editorChangeUpdateMarkerType({ sender, args }: { sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs }): void {
+    public editorChangeUpdateMarkerType(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
         var item = sender as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart;
             

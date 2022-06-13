@@ -71,11 +71,11 @@ export class Sample {
             DataChartCoreDescriptionModule.register(context);
             DataChartCategoryDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
     
-    public editorButtonReplayTransitionIn({ sender, args }: { sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs }): void {
+    public editorButtonReplayTransitionIn(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         var series = this.chart.actualSeries;
         for (var i = 0; i < series.length; i++) {
             series[i].replayTransitionIn();

@@ -50,7 +50,7 @@ export class Sample {
             PropertyEditorPanelDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
 
