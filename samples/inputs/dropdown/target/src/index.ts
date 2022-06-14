@@ -16,7 +16,7 @@ export class DropDownTarget {
     }
 
     private handleClick = (event: MouseEvent) => {
-        this.dropdown.toggle(event.target);
+        this.dropdown.toggle(event.target as HTMLElement);
     };
 }
 
