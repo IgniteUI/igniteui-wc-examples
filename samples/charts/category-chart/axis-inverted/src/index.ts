@@ -1,7 +1,7 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
+import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
@@ -16,12 +16,16 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private xAxisInvertedEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private yAxisInvertedEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcCategoryChartComponent
 
     private _bind: () => void;
 
     constructor() {
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var xAxisInvertedEditor = this.xAxisInvertedEditor = document.getElementById('XAxisInvertedEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var yAxisInvertedEditor = this.yAxisInvertedEditor = document.getElementById('YAxisInvertedEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {

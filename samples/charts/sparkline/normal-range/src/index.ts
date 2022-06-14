@@ -1,7 +1,7 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
+import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData';
 
@@ -16,12 +16,18 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private normalRangeVisibilityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private normalRangeMinimumEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private normalRangeMaximumEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcSparklineComponent
 
     private _bind: () => void;
 
     constructor() {
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var normalRangeVisibilityEditor = this.normalRangeVisibilityEditor = document.getElementById('NormalRangeVisibilityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var normalRangeMinimumEditor = this.normalRangeMinimumEditor = document.getElementById('NormalRangeMinimumEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var normalRangeMaximumEditor = this.normalRangeMaximumEditor = document.getElementById('NormalRangeMaximumEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart = document.getElementById('chart') as IgcSparklineComponent;
 
         this._bind = () => {

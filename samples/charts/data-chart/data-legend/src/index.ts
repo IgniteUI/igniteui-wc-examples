@@ -1,5 +1,5 @@
 import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule, IgcDataLegendModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
-import { IgcDataLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcCrosshairLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcCrosshairLayerComponent } from 'igniteui-webcomponents-charts';
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 
@@ -23,7 +23,9 @@ export class Sample {
     private xAxis: IgcNumericXAxisComponent
     private yAxis: IgcNumericYAxisComponent
     private bubbleSeries1: IgcBubbleSeriesComponent
+    private sizeScale1: IgcSizeScaleComponent
     private bubbleSeries2: IgcBubbleSeriesComponent
+    private sizeScale2: IgcSizeScaleComponent
     private crosshairLayer: IgcCrosshairLayerComponent
 
     private _bind: () => void;
@@ -34,7 +36,9 @@ export class Sample {
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
         var bubbleSeries1 = this.bubbleSeries1 = document.getElementById('BubbleSeries1') as IgcBubbleSeriesComponent;
+        var sizeScale1 = this.sizeScale1 = document.getElementById('SizeScale1') as IgcSizeScaleComponent;
         var bubbleSeries2 = this.bubbleSeries2 = document.getElementById('BubbleSeries2') as IgcBubbleSeriesComponent;
+        var sizeScale2 = this.sizeScale2 = document.getElementById('SizeScale2') as IgcSizeScaleComponent;
         var crosshairLayer = this.crosshairLayer = document.getElementById('CrosshairLayer') as IgcCrosshairLayerComponent;
 
         this._bind = () => {

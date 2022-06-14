@@ -26,11 +26,11 @@ export class Sample {
     }
 
     private _multipleStocks: MultipleStocks = null;
-    private _multipleStocks_fetching: boolean = false;
+    private _multipleStocksFetching: boolean = false;
     public get multipleStocks(): MultipleStocks {
-        if (this._multipleStocks == null && !this._multipleStocks_fetching)
+        if (this._multipleStocks == null && !this._multipleStocksFetching)
         {
-            this._multipleStocks_fetching = true;
+            this._multipleStocksFetching = true;
             ( async () => { this._multipleStocks = await (await MultipleStocks.fetch()); if ((this as any)._bind) { (this as any)._bind(); }  })();
         }
         return this._multipleStocks;

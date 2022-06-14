@@ -1,5 +1,5 @@
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartAnnotationModule, IgcDataChartInteractivityModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent, IgcCalloutLayerComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent, IgcCalloutLayerComponent, IgcFinalValueLayerComponent, IgcCrosshairLayerComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
 
@@ -20,6 +20,8 @@ export class Sample {
     private yAxis: IgcNumericYAxisComponent
     private lineSeries1: IgcLineSeriesComponent
     private calloutLayer1: IgcCalloutLayerComponent
+    private finalValueLayer: IgcFinalValueLayerComponent
+    private crosshairLayer: IgcCrosshairLayerComponent
     private tooltips: IgcDataToolTipLayerComponent
 
     private _bind: () => void;
@@ -30,6 +32,8 @@ export class Sample {
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
         var lineSeries1 = this.lineSeries1 = document.getElementById('LineSeries1') as IgcLineSeriesComponent;
         var calloutLayer1 = this.calloutLayer1 = document.getElementById('CalloutLayer1') as IgcCalloutLayerComponent;
+        var finalValueLayer = this.finalValueLayer = document.getElementById('FinalValueLayer') as IgcFinalValueLayerComponent;
+        var crosshairLayer = this.crosshairLayer = document.getElementById('CrosshairLayer') as IgcCrosshairLayerComponent;
         var tooltips = this.tooltips = document.getElementById('Tooltips') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {

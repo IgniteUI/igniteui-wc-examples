@@ -1,7 +1,7 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, TreemapDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
+import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
 import { CountyHierarchicalDataItem, CountyHierarchicalData } from './CountyHierarchicalData';
 
@@ -16,12 +16,20 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private layoutTypeEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private layoutOrientationEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private headerDisplayModeEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private labelVerticalAlignmentEditor: IgcPropertyEditorPropertyDescriptionComponent
     private treemap: IgcTreemapComponent
 
     private _bind: () => void;
 
     constructor() {
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var layoutTypeEditor = this.layoutTypeEditor = document.getElementById('LayoutTypeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var layoutOrientationEditor = this.layoutOrientationEditor = document.getElementById('LayoutOrientationEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var headerDisplayModeEditor = this.headerDisplayModeEditor = document.getElementById('HeaderDisplayModeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var labelVerticalAlignmentEditor = this.labelVerticalAlignmentEditor = document.getElementById('LabelVerticalAlignmentEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var treemap = this.treemap = document.getElementById('treemap') as IgcTreemapComponent;
 
         this._bind = () => {
