@@ -1,6 +1,6 @@
-import { DataItem, Data } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDataChartPolarCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcNumericAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcPolarSplineAreaSeriesComponent } from 'igniteui-webcomponents-charts';
+import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -19,6 +19,8 @@ export class Sample {
     private polarSplineAreaSeries1: IgcPolarSplineAreaSeriesComponent
     private polarSplineAreaSeries2: IgcPolarSplineAreaSeriesComponent
 
+    private _bind: () => void;
+
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var angleAxis = this.angleAxis = document.getElementById('angleAxis') as IgcNumericAngleAxisComponent;
@@ -26,21 +28,24 @@ export class Sample {
         var polarSplineAreaSeries1 = this.polarSplineAreaSeries1 = document.getElementById('PolarSplineAreaSeries1') as IgcPolarSplineAreaSeriesComponent;
         var polarSplineAreaSeries2 = this.polarSplineAreaSeries2 = document.getElementById('PolarSplineAreaSeries2') as IgcPolarSplineAreaSeriesComponent;
 
-        polarSplineAreaSeries1.angleAxis = this.angleAxis
-        polarSplineAreaSeries1.radiusAxis = this.radiusAxis
-        polarSplineAreaSeries1.dataSource = this.data
-        polarSplineAreaSeries2.dataSource = this.data
-        polarSplineAreaSeries2.angleAxis = this.angleAxis
-        polarSplineAreaSeries2.radiusAxis = this.radiusAxis
+        this._bind = () => {
+            polarSplineAreaSeries1.angleAxis = this.angleAxis
+            polarSplineAreaSeries1.radiusAxis = this.radiusAxis
+            polarSplineAreaSeries1.dataSource = this.boatSailingData
+            polarSplineAreaSeries2.dataSource = this.boatSailingData
+            polarSplineAreaSeries2.angleAxis = this.angleAxis
+            polarSplineAreaSeries2.radiusAxis = this.radiusAxis
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _boatSailingData: BoatSailingData = null;
+    public get boatSailingData(): BoatSailingData {
+        if (this._boatSailingData == null)
         {
-            this._data = new Data();
+            this._boatSailingData = new BoatSailingData();
         }
-        return this._data;
+        return this._boatSailingData;
     }
     
 

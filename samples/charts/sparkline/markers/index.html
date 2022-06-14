@@ -1,13 +1,14 @@
 <html>
   <head>
-    <title>SparklineMarkers</title>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
   </head>
 
@@ -15,39 +16,95 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options horizontal">
-        <label class="options-label"><input id="High" checked="true" type="checkbox" />High Markers</label>
-        <label class="options-label"><input id="Low" checked="true" type="checkbox" />Low Markers</label>
-        <label class="options-label"><input id="First" checked="true" type="checkbox" />First Markers</label>
-        <label class="options-label"><input id="Last" checked="true" type="checkbox" />Last Markers</label>
-        <label class="options-label"><input id="Negative" checked="true" type="checkbox" />Negative Markers</label>
-        <label class="options-label"><input id="All" checked="true" type="checkbox" />All Markers</label>
+    <div class="options vertical">
+        <igc-property-editor-panel
+        
+        description-type="Sparkline"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
+            <igc-property-editor-property-description
+            property-path="FirstMarkerVisibility"
+            label="First Markers"
+            value-type="EnumValue"
+            should-override-default-editor="true"
+            drop-down-names="Visible, Collapsed"
+            drop-down-values="Visible, Collapsed"
+            primitive-value="Visible">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            drop-down-values="Visible, Collapsed"
+            primitive-value="Visible"
+            property-path="HighMarkerVisibility"
+            label="High Markers"
+            value-type="EnumValue"
+            drop-down-names="Visible, Collapsed">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            drop-down-values="Visible, Collapsed"
+            primitive-value="Visible"
+            property-path="LowMarkerVisibility"
+            label="Low Markers"
+            value-type="EnumValue"
+            drop-down-names="Visible, Collapsed">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            drop-down-values="Visible, Collapsed"
+            primitive-value="Visible"
+            property-path="NegativeMarkerVisibility"
+            label="Negative Markers"
+            value-type="EnumValue"
+            drop-down-names="Visible, Collapsed">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            drop-down-values="Visible, Collapsed"
+            primitive-value="Visible"
+            property-path="LastMarkerVisibility"
+            label="Last Markers"
+            value-type="EnumValue"
+            drop-down-names="Visible, Collapsed">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            drop-down-values="Visible, Collapsed"
+            primitive-value="Visible"
+            property-path="MarkerVisibility"
+            label="All Markers"
+            value-type="EnumValue"
+            drop-down-names="Visible, Collapsed">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
     </div>
-    <igc-sparkline id="sparkline"
-        height="calc(100% - 3.5rem)" width="100%"
-        value-member-path="Value"
-        display-type="Line"
-        minimum="-3"
-        maximum="8"
+    
+    
+    <div class="container fill">
+        <igc-sparkline
         marker-visibility="Visible"
-        high-marker-visibility="Visible"
-        low-marker-visibility="Visible"
+        negative-marker-visibility="Visible"
         first-marker-visibility="Visible"
         last-marker-visibility="Visible"
-        negative-marker-visibility="Visible"
+        low-marker-visibility="Visible"
+        high-marker-visibility="Visible"
         marker-size="10"
         first-marker-size="10"
         last-marker-size="10"
-        low-marker-size="10"
         high-marker-size="10"
-        negative-marker-size="10">
-    </igc-sparkline>
-
+        low-marker-size="10"
+        negative-marker-size="10"
+        minimum="0"
+        maximum="60"
+        value-member-path="value"
+        label-member-path="label"
+        display-type="Line"
+        name="chart"
+        id ="chart">
+        </igc-sparkline>
+    </div>
 </div>
 
     </div>
+
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
     <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>

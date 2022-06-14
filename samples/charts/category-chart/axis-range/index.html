@@ -17,11 +17,13 @@
 
 <div class="container sample">
     <div class="options vertical">
-        <igc-property-editor
-
+        <igc-property-editor-panel
+        
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="YAxisMinimumValue"
             label="Y Axis Minimum Value"
@@ -40,7 +42,7 @@
             should-override-default-editor="true"
             drop-down-names="100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200">
             </igc-property-editor-property-description>
-        </igc-property-editor>
+        </igc-property-editor-panel>
     </div>
     <div class="legend-title">
         Highest Grossing Movie Franchises
@@ -57,8 +59,10 @@
         chart-type="Line"
         y-axis-minimum-value="0"
         y-axis-maximum-value="150"
+        included-properties="year, europe, china, america"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
+        computed-plot-area-margin-mode="Series"
         name="chart"
         id ="chart">
         </igc-category-chart>

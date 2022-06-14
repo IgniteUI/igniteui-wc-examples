@@ -1,68 +1,66 @@
-import { DataItem, Data } from './SampleData';
-
+import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
+import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import { IgcDomainChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcChartSeriesEventArgs } from 'igniteui-webcomponents-charts';
-import { ToolTipType } from 'igniteui-webcomponents-charts';
+import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
+defineAllComponents();
 ModuleManager.register(
+    IgcPropertyEditorPanelModule,
     IgcLegendModule,
     IgcCategoryChartModule
 );
 
 export class Sample {
 
+    private propertyEditor: IgcPropertyEditorPanelComponent
+    private toolTipTypeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private legend: IgcLegendComponent
     private chart: IgcCategoryChartComponent
 
+    private _bind: () => void;
+
     constructor() {
+        var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
+        var toolTipTypeEditor = this.toolTipTypeEditor = document.getElementById('ToolTipTypeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
-        chart.dataSource = this.data
-        chart.legend = this.legend
-        chart.seriesAdded = this.onSeriesAdded;
-        this.onToolTipTypeChanged = this.onToolTipTypeChanged.bind(this);
-        let toolTipSelect = document.getElementById('toolTipSelect');
-        toolTipSelect!.addEventListener('change', this.onToolTipTypeChanged);
-   }
-
-   public onToolTipTypeChanged = (e: any) => {
-    let value = e.target.value;
-
-    switch (value) {
-        case 'Default': {
-            this.chart.toolTipType = ToolTipType.Default;
-            break;
+        this._bind = () => {
+            propertyEditor.componentRenderer = this.renderer
+            propertyEditor.target = this.chart
+            chart.dataSource = this.highestGrossingMovies
+            chart.legend = this.legend
         }
-        case 'Item': {
-            this.chart.toolTipType = ToolTipType.Item;
-            break;
-        }
-        case 'Category': {
-            this.chart.toolTipType = ToolTipType.Category;
-            break;
-        }
+        this._bind();
     }
-}
 
-public onSeriesAdded = (s: IgcDomainChartComponent, e: IgcChartSeriesEventArgs) => {
-    if (e.series.isAnnotationLayer) {
-        e.series.transitionDuration = 100;
-    }
-}
-
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _highestGrossingMovies: HighestGrossingMovies = null;
+    public get highestGrossingMovies(): HighestGrossingMovies {
+        if (this._highestGrossingMovies == null)
         {
-            this._data = new Data();
+            this._highestGrossingMovies = new HighestGrossingMovies();
         }
-        return this._data;
+        return this._highestGrossingMovies;
     }
     
+
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            LegendDescriptionModule.register(context);
+            CategoryChartDescriptionModule.register(context);
+        }
+        return this._componentRenderer;
+    }
+
+
 }
 
 new Sample();

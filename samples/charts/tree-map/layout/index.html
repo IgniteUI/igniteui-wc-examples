@@ -17,11 +17,13 @@
 
 <div class="container sample">
     <div class="options vertical">
-        <igc-property-editor
-
+        <igc-property-editor-panel
+        
         description-type="Treemap"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="LayoutType"
             label="Layout"
@@ -42,15 +44,15 @@
             primitive-value="Center"
             label="Labels">
             </igc-property-editor-property-description>
-        </igc-property-editor>
+        </igc-property-editor-panel>
     </div>
     <div class="legend-title">
         Comparing Population of Countries
     </div>
-
+    
     <div class="container fill">
         <igc-treemap
-        value-member-path="pop"
+        value-member-path="population"
         root-title="Countries"
         parent-id-member-path="parent"
         label-member-path="name"

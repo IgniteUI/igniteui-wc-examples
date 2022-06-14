@@ -1,6 +1,6 @@
-import { DataItem, Data } from './SampleData';
 import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
+import { EnergyRenewableConsumptionItem, EnergyRenewableConsumption } from './EnergyRenewableConsumption';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -14,21 +14,26 @@ export class Sample {
     private legend: IgcLegendComponent
     private chart: IgcCategoryChartComponent
 
+    private _bind: () => void;
+
     constructor() {
         var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
-        chart.dataSource = this.data
-        chart.legend = this.legend
+        this._bind = () => {
+            chart.dataSource = this.energyRenewableConsumption
+            chart.legend = this.legend
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _energyRenewableConsumption: EnergyRenewableConsumption = null;
+    public get energyRenewableConsumption(): EnergyRenewableConsumption {
+        if (this._energyRenewableConsumption == null)
         {
-            this._data = new Data();
+            this._energyRenewableConsumption = new EnergyRenewableConsumption();
         }
-        return this._data;
+        return this._energyRenewableConsumption;
     }
     
 

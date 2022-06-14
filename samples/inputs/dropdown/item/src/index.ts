@@ -1,7 +1,7 @@
-import { defineComponents, registerIconFromText, IgcButtonComponent, IgcDropDownComponent, IgcDropDownItemComponent, IgcIconComponent } from 'igniteui-webcomponents';
+import { defineComponents, registerIconFromText, IgcButtonComponent, IgcDropdownComponent, IgcDropdownItemComponent, IgcIconComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-defineComponents(IgcButtonComponent, IgcDropDownComponent, IgcDropDownItemComponent, IgcIconComponent);
+defineComponents(IgcButtonComponent, IgcDropdownComponent, IgcDropdownItemComponent, IgcIconComponent);
 
 export class DropDownItem {
     constructor() {

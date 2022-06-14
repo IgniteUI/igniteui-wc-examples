@@ -1,13 +1,13 @@
-import { defineComponents, IgcButtonComponent, IgcDropDownComponent, IgcDropDownItemComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcButtonComponent, IgcDropdownComponent, IgcDropdownItemComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-defineComponents(IgcButtonComponent, IgcDropDownComponent, IgcDropDownItemComponent);
+defineComponents(IgcButtonComponent, IgcDropdownComponent, IgcDropdownItemComponent);
 
 export class DropDownTarget {
-    private dropdown: IgcDropDownComponent;
+    private dropdown: IgcDropdownComponent;
 
     constructor() {
-        this.dropdown = document.getElementById('dropdown') as IgcDropDownComponent;
+        this.dropdown = document.getElementById('dropdown') as IgcDropdownComponent;
         const target1 = document.getElementById('target1');
         const target2 = document.getElementById('target2');
 

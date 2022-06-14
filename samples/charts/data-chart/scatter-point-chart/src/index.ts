@@ -1,6 +1,7 @@
-import { DataEuropeItem, DataEurope, DataAfricaItem, DataAfrica } from './SampleData';
 import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcScatterSeriesComponent } from 'igniteui-webcomponents-charts';
+import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
+import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -22,6 +23,8 @@ export class Sample {
     private scatterSeries1: IgcScatterSeriesComponent
     private scatterSeries2: IgcScatterSeriesComponent
 
+    private _bind: () => void;
+
     constructor() {
         var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
@@ -30,31 +33,34 @@ export class Sample {
         var scatterSeries1 = this.scatterSeries1 = document.getElementById('ScatterSeries1') as IgcScatterSeriesComponent;
         var scatterSeries2 = this.scatterSeries2 = document.getElementById('ScatterSeries2') as IgcScatterSeriesComponent;
 
-        chart.legend = this.legend
-        scatterSeries1.xAxis = this.xAxis
-        scatterSeries1.yAxis = this.yAxis
-        scatterSeries1.dataSource = this.dataEurope
-        scatterSeries2.xAxis = this.xAxis
-        scatterSeries2.yAxis = this.yAxis
-        scatterSeries2.dataSource = this.dataAfrica
+        this._bind = () => {
+            chart.legend = this.legend
+            scatterSeries1.xAxis = this.xAxis
+            scatterSeries1.yAxis = this.yAxis
+            scatterSeries1.dataSource = this.countryDemographicEurope
+            scatterSeries2.xAxis = this.xAxis
+            scatterSeries2.yAxis = this.yAxis
+            scatterSeries2.dataSource = this.countryDemographicAfrican
+        }
+        this._bind();
     }
 
-    private _dataEurope: DataEurope = null;
-    public get dataEurope(): DataEurope {
-        if (this._dataEurope == null)
+    private _countryDemographicEurope: CountryDemographicEurope = null;
+    public get countryDemographicEurope(): CountryDemographicEurope {
+        if (this._countryDemographicEurope == null)
         {
-            this._dataEurope = new DataEurope();
+            this._countryDemographicEurope = new CountryDemographicEurope();
         }
-        return this._dataEurope;
+        return this._countryDemographicEurope;
     }
     
-    private _dataAfrica: DataAfrica = null;
-    public get dataAfrica(): DataAfrica {
-        if (this._dataAfrica == null)
+    private _countryDemographicAfrican: CountryDemographicAfrican = null;
+    public get countryDemographicAfrican(): CountryDemographicAfrican {
+        if (this._countryDemographicAfrican == null)
         {
-            this._dataAfrica = new DataAfrica();
+            this._countryDemographicAfrican = new CountryDemographicAfrican();
         }
-        return this._dataAfrica;
+        return this._countryDemographicAfrican;
     }
     
 

@@ -58,7 +58,6 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
 
-    igConfig.SamplesCopyPath + '/layouts/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/card/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/avatar/**/package.json',
@@ -67,25 +66,26 @@ var sampleSources = [
 
     igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
 
-    igConfig.SamplesCopyPath + '/menus/**/package.json',
     igConfig.SamplesCopyPath + '/menus/nav-drawer/**/package.json',
     igConfig.SamplesCopyPath + '/menus/nav-bar/**/package.json',
 
-    igConfig.SamplesCopyPath + '/notifications/**/package.json',
     igConfig.SamplesCopyPath + '/notifications/snackbar/**/package.json',
     igConfig.SamplesCopyPath + '/notifications/toast/**/package.json',
 
-    igConfig.SamplesCopyPath + '/inputs/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/link-button/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/button/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/badge/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/checkbox/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/chip/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/circular-progress-indicator/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/dropdown/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/icon-button/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/input/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/linear-progress-indicator/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/radio/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/ripple/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/slider/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/switch/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/icon-button/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/switches/**/package.json',
 
     // excluding samples that are not finished:
     '!' + igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',

@@ -1,6 +1,6 @@
-import { DataItem, Data } from './SampleData';
 import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartRadialModule, IgcDataChartRadialCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcRadialPieSeriesComponent } from 'igniteui-webcomponents-charts';
+import { FootballPlayerStatsItem, FootballPlayerStats } from './FootballPlayerStats';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -21,6 +21,8 @@ export class Sample {
     private radialPieSeries1: IgcRadialPieSeriesComponent
     private radialPieSeries2: IgcRadialPieSeriesComponent
 
+    private _bind: () => void;
+
     constructor() {
         var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
@@ -29,23 +31,26 @@ export class Sample {
         var radialPieSeries1 = this.radialPieSeries1 = document.getElementById('RadialPieSeries1') as IgcRadialPieSeriesComponent;
         var radialPieSeries2 = this.radialPieSeries2 = document.getElementById('RadialPieSeries2') as IgcRadialPieSeriesComponent;
 
-        chart.legend = this.legend
-        angleAxis.dataSource = this.data
-        radialPieSeries1.angleAxis = this.angleAxis
-        radialPieSeries1.valueAxis = this.radiusAxis
-        radialPieSeries1.dataSource = this.data
-        radialPieSeries2.dataSource = this.data
-        radialPieSeries2.angleAxis = this.angleAxis
-        radialPieSeries2.valueAxis = this.radiusAxis
+        this._bind = () => {
+            chart.legend = this.legend
+            angleAxis.dataSource = this.footballPlayerStats
+            radialPieSeries1.angleAxis = this.angleAxis
+            radialPieSeries1.valueAxis = this.radiusAxis
+            radialPieSeries1.dataSource = this.footballPlayerStats
+            radialPieSeries2.angleAxis = this.angleAxis
+            radialPieSeries2.valueAxis = this.radiusAxis
+            radialPieSeries2.dataSource = this.footballPlayerStats
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _footballPlayerStats: FootballPlayerStats = null;
+    public get footballPlayerStats(): FootballPlayerStats {
+        if (this._footballPlayerStats == null)
         {
-            this._data = new Data();
+            this._footballPlayerStats = new FootballPlayerStats();
         }
-        return this._data;
+        return this._footballPlayerStats;
     }
     
 

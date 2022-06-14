@@ -17,17 +17,19 @@
 
 <div class="container sample">
     <div class="options vertical">
-        <igc-property-editor
-
+        <igc-property-editor-panel
+        
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="false">
+        is-wrapping-enabled="false"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="YAxisLabelLocation"
             label="Y Axis - Label Location"
             primitive-value="OutsideRight">
             </igc-property-editor-property-description>
-        </igc-property-editor>
+        </igc-property-editor-panel>
     </div>
     <div class="legend-title">
         Renewable Electricity Generated
@@ -45,8 +47,10 @@
         x-axis-interval="1"
         y-axis-title="Labels Location"
         y-axis-label-location="OutsideRight"
+        included-properties="year, europe, china, america"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
+        computed-plot-area-margin-mode="Series"
         name="chart"
         id ="chart">
         </igc-category-chart>

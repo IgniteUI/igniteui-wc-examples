@@ -17,21 +17,24 @@
 
 <div class="container sample">
     <div class="options vertical">
-        <igc-property-editor
-
+        <igc-property-editor-panel
+        
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="XAxisOverlap"
             label="X Axis - Overlap"
-            value-type="EnumValue"
+            value-type="Slider"
             should-override-default-editor="true"
-            drop-down-names="1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0"
-            drop-down-values="1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0"
-            primitive-value="1">
+            primitive-value="0"
+            min="0"
+            max="1"
+            step="0.1">
             </igc-property-editor-property-description>
-        </igc-property-editor>
+        </igc-property-editor-panel>
     </div>
     <div class="legend-title">
         Highest Grossing Movie Franchises
@@ -50,6 +53,7 @@
         x-axis-overlap="1"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
+        crosshairs-snap-to-data="true"
         name="chart"
         id ="chart">
         </igc-category-chart>

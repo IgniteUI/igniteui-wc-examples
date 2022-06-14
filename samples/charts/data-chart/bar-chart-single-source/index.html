@@ -16,7 +16,6 @@
     <div id="root">
 
 <div class="container sample">
-
     
     <div class="legend-title">
         Where Online Shoppers Start Their Search
@@ -33,6 +32,8 @@
             gap="0.5"
             overlap="-0.1"
             is-inverted="true"
+            use-enhanced-interval-management="true"
+            enhanced-interval-prefer-more-category-labels="true"
             label="shop"
             name="yAxis"
             id ="yAxis">
@@ -42,6 +43,10 @@
             name="xAxis"
             id ="xAxis">
             </igc-numeric-x-axis>
+            <igc-category-highlight-layer
+            name="CategoryHighlightLayer"
+            id ="CategoryHighlightLayer">
+            </igc-category-highlight-layer>
             <igc-bar-series
             
             value-member-path="percent"
@@ -51,6 +56,10 @@
             name="BarSeries1"
             id ="BarSeries1">
             </igc-bar-series>
+            <igc-data-tool-tip-layer
+            name="Tooltips"
+            id ="Tooltips">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>

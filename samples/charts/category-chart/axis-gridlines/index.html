@@ -17,11 +17,13 @@
 
 <div class="container sample">
     <div class="options vertical">
-        <igc-property-editor
-
+        <igc-property-editor-panel
+        
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="YAxisStroke"
             label="Y Axis Stroke"
@@ -49,7 +51,7 @@
             should-override-default-editor="true"
             drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen">
             </igc-property-editor-property-description>
-        </igc-property-editor>
+        </igc-property-editor-panel>
     </div>
     <div class="legend-title">
         Renewable Electricity Generated
@@ -77,9 +79,11 @@
         x-axis-stroke-thickness="2"
         y-axis-stroke-thickness="2"
         y-axis-minor-stroke="gray"
+        included-properties="year, europe, china, america"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
         thickness="2"
+        computed-plot-area-margin-mode="Series"
         name="chart"
         id ="chart">
         </igc-category-chart>
