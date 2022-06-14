@@ -25,6 +25,7 @@ igc-dockmanager::part(pane-header-close-button) {
     background-color: #e73c7e;
 }
 
+igc-dockmanager::part(context-menu-unpin-button),
 igc-dockmanager::part(pane-header-pin-button),
 igc-dockmanager::part(pane-header-unpin-button) {
   background: rgb(218, 218, 218);
