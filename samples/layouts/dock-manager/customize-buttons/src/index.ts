@@ -6,7 +6,7 @@ import { IgcDockManagerComponent } from 'igniteui-dockmanager';
 
 defineCustomElements();
 
-export class DockManagerOverview {
+export class DockManagerButtonsCustomization {
 
     private dockManager: IgcDockManagerComponent;
 
@@ -140,4 +140,4 @@ export class DockManagerOverview {
     }
 }
 
-new DockManagerOverview();
+new DockManagerButtonsCustomization();

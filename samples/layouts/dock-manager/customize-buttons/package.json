@@ -1,7 +1,7 @@
 {
-  "name": "wc-dock-manager-overview",
+  "name": "wc-dock-manager-customize-buttons",
   "version": "1.0.0",
-  "description": "This project provides example of Dock Manager Overview using IgniteUI for Web Components",
+  "description": "This project provides example of Dock Manager Buttons Customization using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
