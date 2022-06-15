@@ -1,6 +1,6 @@
-import { DataItem, Data } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcStackedSplineAreaSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
+import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -25,10 +25,11 @@ export class Sample {
     private s3: IgcStackedFragmentSeriesComponent
     private s4: IgcStackedFragmentSeriesComponent
     private s5: IgcStackedFragmentSeriesComponent
-    private s6: IgcStackedFragmentSeriesComponent
+
+    private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
@@ -38,22 +39,24 @@ export class Sample {
         var s3 = this.s3 = document.getElementById('s3') as IgcStackedFragmentSeriesComponent;
         var s4 = this.s4 = document.getElementById('s4') as IgcStackedFragmentSeriesComponent;
         var s5 = this.s5 = document.getElementById('s5') as IgcStackedFragmentSeriesComponent;
-        var s6 = this.s6 = document.getElementById('s6') as IgcStackedFragmentSeriesComponent;
 
-        chart.legend = this.legend
-        xAxis.dataSource = this.data
-        stackedSplineAreaSeries.xAxis = this.xAxis
-        stackedSplineAreaSeries.yAxis = this.yAxis
-        stackedSplineAreaSeries.dataSource = this.data
+        this._bind = () => {
+            chart.legend = this.legend
+            xAxis.dataSource = this.continentsBirthRate
+            stackedSplineAreaSeries.xAxis = this.xAxis
+            stackedSplineAreaSeries.yAxis = this.yAxis
+            stackedSplineAreaSeries.dataSource = this.continentsBirthRate
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _continentsBirthRate: ContinentsBirthRate = null;
+    public get continentsBirthRate(): ContinentsBirthRate {
+        if (this._continentsBirthRate == null)
         {
-            this._data = new Data();
+            this._continentsBirthRate = new ContinentsBirthRate();
         }
-        return this._data;
+        return this._continentsBirthRate;
     }
     
 

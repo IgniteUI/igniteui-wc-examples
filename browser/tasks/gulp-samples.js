@@ -55,31 +55,37 @@ var sampleSources = [
 
     igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
     igConfig.SamplesCopyPath + '/grids/list/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
 
-    igConfig.SamplesCopyPath + '/layouts/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/card/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/avatar/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/icon/**/package.json',
+    igConfig.SamplesCopyPath + '/layouts/expansion-panel/**/package.json',
 
     igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
 
-    igConfig.SamplesCopyPath + '/menus/**/package.json',
     igConfig.SamplesCopyPath + '/menus/nav-drawer/**/package.json',
     igConfig.SamplesCopyPath + '/menus/nav-bar/**/package.json',
 
-    igConfig.SamplesCopyPath + '/inputs/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/link-button/**/package.json',
+    igConfig.SamplesCopyPath + '/notifications/snackbar/**/package.json',
+    igConfig.SamplesCopyPath + '/notifications/toast/**/package.json',
+
     igConfig.SamplesCopyPath + '/inputs/button/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/badge/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/checkbox/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/chip/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/circular-progress-indicator/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/dropdown/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/icon-button/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/input/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/linear-progress-indicator/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/radio/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/ripple/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/slider/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/switch/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/icon-button/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/switches/**/package.json',
 
     // excluding samples that are not finished:
     '!' + igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',
@@ -691,22 +697,14 @@ function updateCodeViewer(cb) {
 // testing
 
 function logRoutes(cb) {
-    // findSamples();
-
-    let routingGroups = Transformer.getRoutingGroups(samples);
-    for (const group of routingGroups) {
-
-        console.log('- group ' + group.Name);
-
-        for (const component of group.Components) {
-
-            console.log('- component ' + component.Name);
-            for (const sample of component.Samples) {
-                console.log('' + sample.SampleRoute + '/ **' + sample.SampleFileName + ' === ' + sample.SampleDisplayName);
-            }
-        }
+    let routes = [];
+    for (const sample of samples) {
+        routes.push(sample.SampleRoute)
     }
-
+    routes.sort();
+    for (const route of routes) {
+        console.log(route);
+    }
     cb();
 } exports.logRoutes = logRoutes;
 
@@ -731,11 +729,11 @@ function logSourceFiles(cb) {
     gulp.src([
         './samples/**/src/*.ts',
        '!./samples/**/src/index.*',
-
        '!./samples/**/src/AssetsUtils.ts',
        '!./samples/**/src/CategoryChartSharedData.ts',
        '!./samples/**/src/DataChartSharedData.ts',
        '!./samples/**/src/DataGridSharedData.ts',
+       '!./samples/**/src/DataService.ts',
        '!./samples/**/src/DockManagerSharedData.ts',
        '!./samples/**/src/EsriUtility.ts',
        '!./samples/**/src/ExcelUtility.ts',
@@ -763,6 +761,7 @@ function logSourceFiles(cb) {
        '!./samples/**/src/StocksHistory.ts',
        '!./samples/**/src/StocksUtility.ts',
        '!./samples/**/src/StringUtils.ts',
+       '!./samples/**/src/SvgIcons.ts',
        '!./samples/**/src/TaskUtils.ts',
        '!./samples/**/src/WorldCities.ts',
        '!./samples/**/src/WorldConnections.ts',

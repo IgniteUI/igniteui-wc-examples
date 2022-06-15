@@ -16,11 +16,11 @@
     <div id="root">
 
 <div class="container sample">
-
+    
     <div class="legend-title">
         Where Online Shoppers Start Their Search
     </div>
-
+    
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="false"
@@ -28,7 +28,7 @@
         name="Chart"
         id ="Chart">
             <igc-category-y-axis
-
+            
             gap="0.75"
             is-inverted="true"
             label="shop"
@@ -36,16 +36,26 @@
             id ="yAxis">
             </igc-category-y-axis>
             <igc-numeric-x-axis
+            minimum-value="0"
+            maximum-value="80"
             interval="20"
             label-format="{0}%"
             name="xAxis"
             id ="xAxis">
             </igc-numeric-x-axis>
+            <igc-category-highlight-layer
+            name="CategoryHighlightLayer"
+            id ="CategoryHighlightLayer">
+            </igc-category-highlight-layer>
             <igc-bar-series
-
+            
             value-member-path="percent"
             is-transition-in-enabled="true"
+            brush="rgba(134, 6, 138, 0.654901960784314)"
+            outline="rgba(133, 6, 138, 1)"
+            thickness="2"
             is-highlighting-enabled="true"
+            area-fill-opacity="0.5"
             show-default-tooltip="true"
             name="BarSeries1"
             id ="BarSeries1">
@@ -55,12 +65,16 @@
             x-member-path="x"
             y-member-path="y"
             content-member-path="label"
-            callout-text-color="black"
+            callout-text-color="rgba(133, 6, 138, 1)"
             callout-background="rgba(0, 0, 0, 0)"
             callout-leader-brush="rgba(0, 0, 0, 0)"
             name="CalloutLayer1"
             id ="CalloutLayer1">
             </igc-callout-layer>
+            <igc-data-tool-tip-layer
+            name="Tooltips"
+            id ="Tooltips">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>

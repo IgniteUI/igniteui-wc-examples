@@ -16,7 +16,7 @@
     <div id="root">
 
 <div class="container sample">
-
+    
     <div class="legend-title">
         Renewable Electricity Generated
     </div>
@@ -31,7 +31,6 @@
         <igc-category-chart
         chart-type="StepArea"
         is-transition-in-enabled="true"
-        x-axis-interval="1"
         is-category-highlighting-enabled="true"
         y-axis-title="TWh"
         title-left-margin="25"
@@ -41,7 +40,7 @@
         is-vertical-zoom-enabled="false"
         is-series-highlighting-enabled="true"
         title-alignment="Left"
-        tool-tip-type="Category"
+        crosshairs-snap-to-data="true"
         name="chart"
         id ="chart">
         </igc-category-chart>

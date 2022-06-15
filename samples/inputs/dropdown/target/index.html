@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Drop Down Target</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample center">
+        <div class="options horizontal">
+          <igc-button id="target1">First Target</igc-button>
+          <igc-button id="target2" style="margin-left: 20px;">Second Target</igc-button>
+  
+          <igc-dropdown id="dropdown" same-width>
+            <igc-dropdown-item>Option 1</igc-dropdown-item>
+            <igc-dropdown-item>Option 2</igc-dropdown-item>
+            <igc-dropdown-item>Option 3</igc-dropdown-item>
+          </igc-dropdown>
+        </div>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

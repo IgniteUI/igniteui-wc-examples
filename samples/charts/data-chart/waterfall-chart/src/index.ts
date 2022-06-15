@@ -1,6 +1,6 @@
-import { DataItem, Data } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcWaterfallSeriesComponent } from 'igniteui-webcomponents-charts';
+import { CompanyIncomeDataItem, CompanyIncomeData } from './CompanyIncomeData';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -17,6 +17,8 @@ export class Sample {
     private waterfallSeries1: IgcWaterfallSeriesComponent
     private waterfallSeries2: IgcWaterfallSeriesComponent
 
+    private _bind: () => void;
+
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
@@ -24,22 +26,25 @@ export class Sample {
         var waterfallSeries1 = this.waterfallSeries1 = document.getElementById('WaterfallSeries1') as IgcWaterfallSeriesComponent;
         var waterfallSeries2 = this.waterfallSeries2 = document.getElementById('WaterfallSeries2') as IgcWaterfallSeriesComponent;
 
-        xAxis.dataSource = this.data
-        waterfallSeries1.xAxis = this.xAxis
-        waterfallSeries1.yAxis = this.yAxis
-        waterfallSeries1.dataSource = this.data
-        waterfallSeries2.xAxis = this.xAxis
-        waterfallSeries2.yAxis = this.yAxis
-        waterfallSeries2.dataSource = this.data
+        this._bind = () => {
+            xAxis.dataSource = this.companyIncomeData
+            waterfallSeries1.xAxis = this.xAxis
+            waterfallSeries1.yAxis = this.yAxis
+            waterfallSeries1.dataSource = this.companyIncomeData
+            waterfallSeries2.xAxis = this.xAxis
+            waterfallSeries2.yAxis = this.yAxis
+            waterfallSeries2.dataSource = this.companyIncomeData
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _companyIncomeData: CompanyIncomeData = null;
+    public get companyIncomeData(): CompanyIncomeData {
+        if (this._companyIncomeData == null)
         {
-            this._data = new Data();
+            this._companyIncomeData = new CompanyIncomeData();
         }
-        return this._data;
+        return this._companyIncomeData;
     }
     
 

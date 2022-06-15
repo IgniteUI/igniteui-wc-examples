@@ -16,7 +16,7 @@
     <div id="root">
 
 <div class="container sample">
-
+    
     <div class="legend-title">
         Percentage Change in Energy Generation
     </div>
@@ -30,16 +30,17 @@
     <div class="container fill">
         <igc-category-chart
         chart-type="Column"
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
         x-axis-gap="0.5"
-        y-axis-interval="10"
-        y-axis-minimum-value="-20"
-        y-axis-maximum-value="30"
+        is-category-highlighting-enabled="true"
         x-axis-major-stroke="lightgray"
         brushes="rgba(157, 231, 114, 1) rgba(139, 91, 177, 1) rgba(109, 177, 255, 1) rgba(238, 88, 121, 1) rgba(248, 161, 95, 1)"
         outlines="white"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
         is-series-highlighting-enabled="true"
+        highlighting-mode="FadeOthersSpecific"
+        highlighting-behavior="NearestItemsAndSeries"
+        crosshairs-display-mode="None"
         name="chart"
         id ="chart">
         </igc-category-chart>

@@ -1,0 +1,12 @@
+igc-dropdown::part(list) {
+    height: 220px;
+}
+
+igc-dropdown-item[selected] {
+    background: #28a745;
+}
+
+igc-dropdown-group::part(label) {
+    display: flex;
+    justify-content: center;
+}

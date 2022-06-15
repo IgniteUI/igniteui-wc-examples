@@ -1,6 +1,6 @@
-import { DataItem, Data } from './SampleData';
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
+import { TemperatureAverageDataItem, TemperatureAverageData } from './TemperatureAverageData';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -12,19 +12,24 @@ export class Sample {
 
     private chart: IgcCategoryChartComponent
 
+    private _bind: () => void;
+
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
-        chart.dataSource = this.data
+        this._bind = () => {
+            chart.dataSource = this.temperatureAverageData
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _temperatureAverageData: TemperatureAverageData = null;
+    public get temperatureAverageData(): TemperatureAverageData {
+        if (this._temperatureAverageData == null)
         {
-            this._data = new Data();
+            this._temperatureAverageData = new TemperatureAverageData();
         }
-        return this._data;
+        return this._temperatureAverageData;
     }
     
 

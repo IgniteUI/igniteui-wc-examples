@@ -5,6 +5,7 @@
 /samples/**/dist/
 /samples/**/node_modules/
 /samples/**/package-lock.json
+/samples/**/yarn.lock
 /tmp/
 /tests/
 
@@ -15,6 +16,7 @@
 /browser/dist
 /browser/**/code-viewer/**
 /browser/package-lock.json
+/browser/yarn.lock
 /browser/src/BrowserInfo.json
 
 # IDEs and editors

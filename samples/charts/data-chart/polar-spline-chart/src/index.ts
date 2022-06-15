@@ -1,6 +1,6 @@
-import { DataItem, Data } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDataChartPolarCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcNumericAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcPolarSplineSeriesComponent } from 'igniteui-webcomponents-charts';
+import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -19,6 +19,8 @@ export class Sample {
     private polarSplineSeries1: IgcPolarSplineSeriesComponent
     private polarSplineSeries2: IgcPolarSplineSeriesComponent
 
+    private _bind: () => void;
+
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var angleAxis = this.angleAxis = document.getElementById('angleAxis') as IgcNumericAngleAxisComponent;
@@ -26,21 +28,24 @@ export class Sample {
         var polarSplineSeries1 = this.polarSplineSeries1 = document.getElementById('PolarSplineSeries1') as IgcPolarSplineSeriesComponent;
         var polarSplineSeries2 = this.polarSplineSeries2 = document.getElementById('PolarSplineSeries2') as IgcPolarSplineSeriesComponent;
 
-        polarSplineSeries1.angleAxis = this.angleAxis
-        polarSplineSeries1.radiusAxis = this.radiusAxis
-        polarSplineSeries1.dataSource = this.data
-        polarSplineSeries2.dataSource = this.data
-        polarSplineSeries2.angleAxis = this.angleAxis
-        polarSplineSeries2.radiusAxis = this.radiusAxis
+        this._bind = () => {
+            polarSplineSeries1.angleAxis = this.angleAxis
+            polarSplineSeries1.radiusAxis = this.radiusAxis
+            polarSplineSeries1.dataSource = this.boatSailingData
+            polarSplineSeries2.dataSource = this.boatSailingData
+            polarSplineSeries2.angleAxis = this.angleAxis
+            polarSplineSeries2.radiusAxis = this.radiusAxis
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _boatSailingData: BoatSailingData = null;
+    public get boatSailingData(): BoatSailingData {
+        if (this._boatSailingData == null)
         {
-            this._data = new Data();
+            this._boatSailingData = new BoatSailingData();
         }
-        return this._data;
+        return this._boatSailingData;
     }
     
 

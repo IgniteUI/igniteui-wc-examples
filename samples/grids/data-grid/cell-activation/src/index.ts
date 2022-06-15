@@ -3,6 +3,7 @@ import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { EnterKeyBehaviors } from 'igniteui-webcomponents-grids';
 import { EnterKeyBehaviorAfterEdit } from 'igniteui-webcomponents-grids';
+import { EditModeType } from 'igniteui-webcomponents-grids';
 import { DataGridSharedData } from './DataGridSharedData';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -38,9 +39,12 @@ export class DataGridCellActivation {
         this.grid.enterBehavior = event.target.value;
         if (this.grid.enterBehavior === EnterKeyBehaviors.Edit) {
             this.enterKeyAfterEditButton.disabled = false;
+            this.grid.editMode = EditModeType.Cell;
+
         }
         else {
             this.enterKeyAfterEditButton.disabled = true;
+            this.grid.editMode = EditModeType.None;
         }
     }
 
