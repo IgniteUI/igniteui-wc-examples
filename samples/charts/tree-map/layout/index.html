@@ -17,40 +17,50 @@
 
 <div class="container sample">
     <div class="options vertical">
-        <igc-property-editor
-
+        <igc-property-editor-panel
+        
         description-type="Treemap"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="LayoutType"
             label="Layout"
-            primitive-value="Squarified">
+            primitive-value="Squarified"
+            name="LayoutTypeEditor"
+            id ="LayoutTypeEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="LayoutOrientation"
             primitive-value="Vertical"
-            label="Orientation">
+            label="Orientation"
+            name="LayoutOrientationEditor"
+            id ="LayoutOrientationEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="HeaderDisplayMode"
             primitive-value="Overlay"
-            label="Headers">
+            label="Headers"
+            name="HeaderDisplayModeEditor"
+            id ="HeaderDisplayModeEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="LabelVerticalAlignment"
             primitive-value="Center"
-            label="Labels">
+            label="Labels"
+            name="LabelVerticalAlignmentEditor"
+            id ="LabelVerticalAlignmentEditor">
             </igc-property-editor-property-description>
-        </igc-property-editor>
+        </igc-property-editor-panel>
     </div>
     <div class="legend-title">
         Comparing Population of Countries
     </div>
-
+    
     <div class="container fill">
         <igc-treemap
-        value-member-path="pop"
+        value-member-path="population"
         root-title="Countries"
         parent-id-member-path="parent"
         label-member-path="name"

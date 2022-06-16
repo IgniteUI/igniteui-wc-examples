@@ -16,7 +16,7 @@
     <div id="root">
 
 <div class="container sample">
-
+    
     <div class="legend-title">
         Highest Grossing Movie Franchises
     </div>
@@ -29,14 +29,16 @@
     </div>
     <div class="container fill">
         <igc-data-chart
-
+        
         name="Chart"
         id ="Chart">
             <igc-category-y-axis
-
+            
             gap="0.5"
             overlap="-0.1"
             is-inverted="true"
+            use-enhanced-interval-management="true"
+            enhanced-interval-prefer-more-category-labels="true"
             label="franchise"
             name="yAxis"
             id ="yAxis">
@@ -46,8 +48,12 @@
             name="xAxis"
             id ="xAxis">
             </igc-numeric-x-axis>
+            <igc-category-highlight-layer
+            name="CategoryHighlightLayer"
+            id ="CategoryHighlightLayer">
+            </igc-category-highlight-layer>
             <igc-bar-series
-
+            
             value-member-path="totalRevenue"
             is-transition-in-enabled="true"
             is-highlighting-enabled="true"
@@ -57,7 +63,7 @@
             id ="BarSeries1">
             </igc-bar-series>
             <igc-bar-series
-
+            
             title="Highest Grossing Movie in Series"
             value-member-path="highestGrossing"
             show-default-tooltip="true"
@@ -66,6 +72,10 @@
             name="BarSeries2"
             id ="BarSeries2">
             </igc-bar-series>
+            <igc-data-tool-tip-layer
+            name="Tooltips"
+            id ="Tooltips">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>

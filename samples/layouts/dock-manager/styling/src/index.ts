@@ -25,7 +25,7 @@ import {
     IgcIconButtonComponent,
     IgcIconComponent
 } from "igniteui-webcomponents";
-import "igniteui-webcomponents/themes/bootstrap.css";
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 defineComponents(
     IgcAvatarComponent,
@@ -240,11 +240,6 @@ export class DockManagerStylePanes {
         this.dockManager.addEventListener("pinPane", () => this.handlePinPane());
 
         document.getElementById("close")!.addEventListener("click", () => this.handleClosePane());
-
-        const cards = document.querySelectorAll("igc-card");
-        cards.forEach((card) => {
-            (card as IgcCardComponent).outlined = false;
-        });
 
         registerIconFromText("arrow-down", this.arrowDown, "material");
         registerIconFromText("arrow-up", this.arrowUp, "material");

@@ -1,6 +1,6 @@
-import { DataItem, Data } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcStacked100ColumnSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
+import { OnlineTrafficByDeviceItem, OnlineTrafficByDevice } from './OnlineTrafficByDevice';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -24,8 +24,10 @@ export class Sample {
     private s2: IgcStackedFragmentSeriesComponent
     private s3: IgcStackedFragmentSeriesComponent
 
+    private _bind: () => void;
+
     constructor() {
-        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
@@ -34,20 +36,23 @@ export class Sample {
         var s2 = this.s2 = document.getElementById('s2') as IgcStackedFragmentSeriesComponent;
         var s3 = this.s3 = document.getElementById('s3') as IgcStackedFragmentSeriesComponent;
 
-        chart.legend = this.legend
-        xAxis.dataSource = this.data
-        stacked100ColumnSeries.xAxis = this.xAxis
-        stacked100ColumnSeries.yAxis = this.yAxis
-        stacked100ColumnSeries.dataSource = this.data
+        this._bind = () => {
+            chart.legend = this.legend
+            xAxis.dataSource = this.onlineTrafficByDevice
+            stacked100ColumnSeries.xAxis = this.xAxis
+            stacked100ColumnSeries.yAxis = this.yAxis
+            stacked100ColumnSeries.dataSource = this.onlineTrafficByDevice
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _onlineTrafficByDevice: OnlineTrafficByDevice = null;
+    public get onlineTrafficByDevice(): OnlineTrafficByDevice {
+        if (this._onlineTrafficByDevice == null)
         {
-            this._data = new Data();
+            this._onlineTrafficByDevice = new OnlineTrafficByDevice();
         }
-        return this._data;
+        return this._onlineTrafficByDevice;
     }
     
 

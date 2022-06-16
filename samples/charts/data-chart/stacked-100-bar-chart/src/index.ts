@@ -1,6 +1,6 @@
-import { DataItem, Data } from './SampleData';
 import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcStacked100BarSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
+import { EnergyRenewableConsumptionItem, EnergyRenewableConsumption } from './EnergyRenewableConsumption';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -26,8 +26,10 @@ export class Sample {
     private s3: IgcStackedFragmentSeriesComponent
     private s4: IgcStackedFragmentSeriesComponent
 
+    private _bind: () => void;
+
     constructor() {
-        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcCategoryYAxisComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
@@ -37,20 +39,23 @@ export class Sample {
         var s3 = this.s3 = document.getElementById('s3') as IgcStackedFragmentSeriesComponent;
         var s4 = this.s4 = document.getElementById('s4') as IgcStackedFragmentSeriesComponent;
 
-        chart.legend = this.legend
-        yAxis.dataSource = this.data
-        stacked100BarSeries.xAxis = this.xAxis
-        stacked100BarSeries.yAxis = this.yAxis
-        stacked100BarSeries.dataSource = this.data
+        this._bind = () => {
+            chart.legend = this.legend
+            yAxis.dataSource = this.energyRenewableConsumption
+            stacked100BarSeries.xAxis = this.xAxis
+            stacked100BarSeries.yAxis = this.yAxis
+            stacked100BarSeries.dataSource = this.energyRenewableConsumption
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _energyRenewableConsumption: EnergyRenewableConsumption = null;
+    public get energyRenewableConsumption(): EnergyRenewableConsumption {
+        if (this._energyRenewableConsumption == null)
         {
-            this._data = new Data();
+            this._energyRenewableConsumption = new EnergyRenewableConsumption();
         }
-        return this._data;
+        return this._energyRenewableConsumption;
     }
     
 

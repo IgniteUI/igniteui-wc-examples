@@ -1,88 +1,71 @@
+import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
-import { IgcSparklineCoreModule } from 'igniteui-webcomponents-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-webcomponents-core';
+import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import { SparklineSharedData } from './SparklineSharedData';
-import { Visibility } from 'igniteui-webcomponents-core';
+import { SparklineProfitDataItem, SparklineProfitData } from './SparklineProfitData';
 
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
+defineAllComponents();
 ModuleManager.register(
-    IgcSparklineCoreModule,
+    IgcPropertyEditorPanelModule,
     IgcSparklineModule
 );
 
-export class SparklineMarkers {
+export class Sample {
 
-    private sparkline: IgcSparklineComponent;
-    public data: any[] = [];
+    private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private firstMarkerVisibilityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private highMarkerVisibilityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private lowMarkerVisibilityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private negativeMarkerVisibilityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private lastMarkerVisibilityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private markerVisibilityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private chart: IgcSparklineComponent
+
+    private _bind: () => void;
 
     constructor() {
+        var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var firstMarkerVisibilityEditor = this.firstMarkerVisibilityEditor = document.getElementById('FirstMarkerVisibilityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var highMarkerVisibilityEditor = this.highMarkerVisibilityEditor = document.getElementById('HighMarkerVisibilityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var lowMarkerVisibilityEditor = this.lowMarkerVisibilityEditor = document.getElementById('LowMarkerVisibilityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var negativeMarkerVisibilityEditor = this.negativeMarkerVisibilityEditor = document.getElementById('NegativeMarkerVisibilityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var lastMarkerVisibilityEditor = this.lastMarkerVisibilityEditor = document.getElementById('LastMarkerVisibilityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var markerVisibilityEditor = this.markerVisibilityEditor = document.getElementById('MarkerVisibilityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var chart = this.chart = document.getElementById('chart') as IgcSparklineComponent;
 
-        this.onMarkerCheckboxChanged = this.onMarkerCheckboxChanged.bind(this);
-
-        this.data = SparklineSharedData.getPaddedDataForMarkers();
-
-        this.sparkline = document.getElementById('sparkline') as IgcSparklineComponent;
-        this.sparkline.dataSource = this.data;
-
-        let High = document.getElementById('High');
-        High!.addEventListener('change', this.onMarkerCheckboxChanged);
-
-        let Low = document.getElementById('Low');
-        Low!.addEventListener('change', this.onMarkerCheckboxChanged);
-
-        let First = document.getElementById('First');
-        First!.addEventListener('change', this.onMarkerCheckboxChanged);
-
-        let Last = document.getElementById('Last');
-        Last!.addEventListener('change', this.onMarkerCheckboxChanged);
-
-        let Negative = document.getElementById('Negative');
-        Negative!.addEventListener('change', this.onMarkerCheckboxChanged);
-
-        let All = document.getElementById('All');
-        All!.addEventListener('change', this.onMarkerCheckboxChanged);
+        this._bind = () => {
+            propertyEditorPanel1.componentRenderer = this.renderer
+            propertyEditorPanel1.target = this.chart
+            chart.dataSource = this.sparklineProfitData
+        }
+        this._bind();
     }
 
-    public onMarkerCheckboxChanged(e: any) {
-
-        const selection = e.target.checked as boolean;
-
-        let visibility: Visibility;
-        if (selection) {
-            visibility = Visibility.Visible;
+    private _sparklineProfitData: SparklineProfitData = null;
+    public get sparklineProfitData(): SparklineProfitData {
+        if (this._sparklineProfitData == null)
+        {
+            this._sparklineProfitData = new SparklineProfitData();
         }
-        else {
-            visibility = Visibility.Collapsed;
-        }
-
-        switch (e.target.id) {
-            case 'High': {
-                this.sparkline.highMarkerVisibility = visibility;
-                break;
-            }
-            case 'Low': {
-                this.sparkline.lowMarkerVisibility = visibility;
-                break;
-            }
-            case 'First': {
-                this.sparkline.firstMarkerVisibility = visibility;
-                break;
-            }
-            case 'Last': {
-                this.sparkline.lastMarkerVisibility = visibility;
-                break;
-            }
-            case 'Negative': {
-                this.sparkline.negativeMarkerVisibility = visibility;
-                break;
-            }
-            case 'All': {
-                this.sparkline.markerVisibility = visibility;
-                break;
-            }
-        }
+        return this._sparklineProfitData;
     }
+    
+
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            SparklineDescriptionModule.register(context);
+        }
+        return this._componentRenderer;
+    }
+
 
 }
 
-new SparklineMarkers();
+new Sample();

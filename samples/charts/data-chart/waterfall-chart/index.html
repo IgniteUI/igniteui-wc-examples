@@ -16,11 +16,11 @@
     <div id="root">
 
 <div class="container sample">
-
+    
     <div class="legend-title">
         Facebook Consolidated Statements of Income
     </div>
-
+    
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="false"
@@ -38,20 +38,22 @@
             minimum-value="0"
             maximum-value="60"
             title="Millions of Dollars"
+            title-angle="90"
             title-left-margin="10"
             name="yAxis"
             id ="yAxis">
             </igc-numeric-y-axis>
             <igc-waterfall-series
-
+            
             value-member-path="costs"
             is-transition-in-enabled="true"
             show-default-tooltip="true"
+            title="Value"
             name="WaterfallSeries1"
             id ="WaterfallSeries1">
             </igc-waterfall-series>
             <igc-waterfall-series
-
+            title="Value"
             value-member-path="netIncome"
             show-default-tooltip="true"
             is-transition-in-enabled="true"

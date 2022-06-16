@@ -1,60 +1,53 @@
+import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
+import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
-ModuleManager.register(IgcSparklineModule);
+ModuleManager.register(
+    IgcPropertyEditorPanelModule,
+    IgcSparklineModule
+);
 
-export class SparklineDisplayLines {
+export class Sample {
 
-    private chart1: IgcSparklineComponent;
-    private chart2: IgcSparklineComponent;
-    private chart3: IgcSparklineComponent;
+    private chart: IgcSparklineComponent
 
-    public data: any[] = [];
+    private _bind: () => void;
 
     constructor() {
+        var chart = this.chart = document.getElementById('chart') as IgcSparklineComponent;
 
-        this.data = this.generateData();
-
-        this.chart1 = document.getElementById('chart1') as IgcSparklineComponent;
-        this.chart2 = document.getElementById('chart2') as IgcSparklineComponent;
-        this.chart3 = document.getElementById('chart3') as IgcSparklineComponent;
-
-         this.chart1.dataSource = this.data;
-         this.chart2.dataSource = this.data;
-         this.chart3.dataSource = this.data;
-    }
-
-    public generateData()
-    {
-        const data: any[] = [];
-        let index = 0;
-        let min = 1000.0;
-        let max = -1000.0;
-
-        for (let angle = 0; angle < 360 * 4; angle += 5)
-        {
-            let v1 = Math.sin(angle * Math.PI / 180);
-            let v2 = Math.sin(3 * angle * Math.PI / 180) / 3;
-            let revenue = v1 + v2;
-            let expanse = revenue < 0 ? revenue : 0;
-            let income = revenue > 0 ? revenue : 0;
-
-            data.push({
-                "Index": index++,
-                "Angle": angle,
-                // Value = v1 + v2
-                "Value": revenue,
-                "Expanse": expanse,
-                "Income": income
-            });
-
-            min = Math.min(min, v1 + v2);
-            max = Math.max(max, v1 + v2);
+        this._bind = () => {
+            chart.dataSource = this.sparklineMixedData
         }
-
-        return data;
+        this._bind();
     }
+
+    private _sparklineMixedData: SparklineMixedData = null;
+    public get sparklineMixedData(): SparklineMixedData {
+        if (this._sparklineMixedData == null)
+        {
+            this._sparklineMixedData = new SparklineMixedData();
+        }
+        return this._sparklineMixedData;
+    }
+    
+
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            SparklineDescriptionModule.register(context);
+        }
+        return this._componentRenderer;
+    }
+
+
 }
 
-new SparklineDisplayLines();
+new Sample();

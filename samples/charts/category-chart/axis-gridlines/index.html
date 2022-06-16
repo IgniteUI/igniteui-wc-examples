@@ -17,11 +17,13 @@
 
 <div class="container sample">
     <div class="options vertical">
-        <igc-property-editor
-
+        <igc-property-editor-panel
+        
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="YAxisStroke"
             label="Y Axis Stroke"
@@ -29,7 +31,9 @@
             should-override-default-editor="true"
             drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen"
             drop-down-values="gray, darkslategray, salmon, cornflowerblue, darkgreen"
-            primitive-value="gray">
+            primitive-value="gray"
+            name="YAxisStroke"
+            id ="YAxisStroke">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             drop-down-values="gray, darkslategray, salmon, cornflowerblue, darkgreen"
@@ -38,7 +42,9 @@
             label="Y Axis Major Stroke"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen">
+            drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen"
+            name="YAxisMajorStroke"
+            id ="YAxisMajorStroke">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             drop-down-values="gray, darkslategray, salmon, cornflowerblue, darkgreen"
@@ -47,9 +53,11 @@
             label="Y Axis Minor Stroke"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen">
+            drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen"
+            name="YAxisMinorStroke"
+            id ="YAxisMinorStroke">
             </igc-property-editor-property-description>
-        </igc-property-editor>
+        </igc-property-editor-panel>
     </div>
     <div class="legend-title">
         Renewable Electricity Generated
@@ -77,9 +85,11 @@
         x-axis-stroke-thickness="2"
         y-axis-stroke-thickness="2"
         y-axis-minor-stroke="gray"
+        included-properties="year, europe, china, america"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
         thickness="2"
+        computed-plot-area-margin-mode="Series"
         name="chart"
         id ="chart">
         </igc-category-chart>

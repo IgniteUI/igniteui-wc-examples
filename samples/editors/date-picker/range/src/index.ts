@@ -1,7 +1,7 @@
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcDatePickerModule } from 'igniteui-webcomponents-inputs';
 import { IgcDatePickerComponent } from 'igniteui-webcomponents-inputs';
-import { IgcValueChangedEventArgs } from 'igniteui-webcomponents-inputs';
+import { IgcSelectedValueChangedEventArgs } from 'igniteui-webcomponents-inputs';
 
 ModuleManager.register(IgcDatePickerModule);
 
@@ -25,18 +25,18 @@ export class DatePickerRange {
         this.toDatePicker.value = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
         this.toDatePicker.allowTextInput = false;
 
-        this.fromDatePicker.valueChanged = this.onFromValueChanged;
-        this.toDatePicker.valueChanged = this.onToValueChanged;
+        this.fromDatePicker.selectedValueChanged = this.onFromValueChanged;
+        this.toDatePicker.selectedValueChanged = this.onToValueChanged;
     }
 
-    public onFromValueChanged(s: IgcDatePickerComponent, e: IgcValueChangedEventArgs) {
+    public onFromValueChanged(s: IgcDatePickerComponent, e: IgcSelectedValueChangedEventArgs) {
         if (e.newValue > this.toDatePicker.value) {
             let newDate: Date = e.newValue;
             this.toDatePicker.value = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
         }
     }
 
-    public onToValueChanged(s: IgcDatePickerComponent, e: IgcValueChangedEventArgs) {
+    public onToValueChanged(s: IgcDatePickerComponent, e: IgcSelectedValueChangedEventArgs) {
         if (e.newValue < this.fromDatePicker.value) {
             let newDate: Date = e.newValue;
             this.fromDatePicker.value = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() - 1);

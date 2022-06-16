@@ -1,6 +1,6 @@
-import { DataItem, Data } from './SampleData';
 import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDataChartPolarCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcPolarLineSeriesComponent } from 'igniteui-webcomponents-charts';
+import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -21,6 +21,8 @@ export class Sample {
     private polarLineSeries1: IgcPolarLineSeriesComponent
     private polarLineSeries2: IgcPolarLineSeriesComponent
 
+    private _bind: () => void;
+
     constructor() {
         var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
@@ -29,22 +31,25 @@ export class Sample {
         var polarLineSeries1 = this.polarLineSeries1 = document.getElementById('PolarLineSeries1') as IgcPolarLineSeriesComponent;
         var polarLineSeries2 = this.polarLineSeries2 = document.getElementById('PolarLineSeries2') as IgcPolarLineSeriesComponent;
 
-        chart.legend = this.legend
-        polarLineSeries1.angleAxis = this.angleAxis
-        polarLineSeries1.radiusAxis = this.radiusAxis
-        polarLineSeries1.dataSource = this.data
-        polarLineSeries2.dataSource = this.data
-        polarLineSeries2.angleAxis = this.angleAxis
-        polarLineSeries2.radiusAxis = this.radiusAxis
+        this._bind = () => {
+            chart.legend = this.legend
+            polarLineSeries1.angleAxis = this.angleAxis
+            polarLineSeries1.radiusAxis = this.radiusAxis
+            polarLineSeries1.dataSource = this.boatSailingData
+            polarLineSeries2.dataSource = this.boatSailingData
+            polarLineSeries2.angleAxis = this.angleAxis
+            polarLineSeries2.radiusAxis = this.radiusAxis
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _boatSailingData: BoatSailingData = null;
+    public get boatSailingData(): BoatSailingData {
+        if (this._boatSailingData == null)
         {
-            this._data = new Data();
+            this._boatSailingData = new BoatSailingData();
         }
-        return this._data;
+        return this._boatSailingData;
     }
     
 

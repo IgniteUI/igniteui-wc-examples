@@ -1,13 +1,14 @@
 <html>
   <head>
-    <title>SparklineTrendlines</title>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" type="text/css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
   </head>
 
@@ -15,43 +16,45 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options horizontal">
-        <span class="options-label">Trendline Type: </span>
-        <select id="trendlineType">
-            <option>CubicFit</option>
-            <option>CumulativeAverage</option>
-            <option>ExponentialAverage</option>
-            <option>ExponentialFit</option>
-            <option>LinearFit</option>
-            <option>LogarithmicFit</option>
-            <option>ModifiedAverage</option>
-            <option>None</option>
-            <option>PowerLawFit</option>
-            <option>QuadraticFit</option>
-            <option>QuarticFit</option>
-            <option>QuinticFit</option>
-            <option>SimpleAverage</option>
-            <option>WeightedAverage</option>
-        </select>
+    <div class="options vertical">
+        <igc-property-editor-panel
+        
+        description-type="Sparkline"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
+            <igc-property-editor-property-description
+            property-path="TrendLineType"
+            label="Trendline Type"
+            value-type="EnumValue"
+            should-override-default-editor="true"
+            drop-down-names="CubicFit, CumulativeAverage, ExponentialAverage, ExponentialFit, LinearFit, LogarithmicFit, ModifiedAverage, None, PowerLawFit, QuadraticFit, QuarticFit, QuinticFit, SimpleAverage, WeightedAverage"
+            drop-down-values="CubicFit, CumulativeAverage, ExponentialAverage, ExponentialFit, LinearFit, LogarithmicFit, ModifiedAverage, None, PowerLawFit, QuadraticFit, QuarticFit, QuinticFit, SimpleAverage, WeightedAverage"
+            primitive-value="CubicFit"
+            name="TrendLineTypeEditor"
+            id ="TrendLineTypeEditor">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
     </div>
-
-    <div class="container vertical">
-        <igc-sparkline id="sparkline"
-            height="100%"
-            width="100%"
-            value-member-path="Value"
-            display-type="Area"
-            trend-line-thickness="3"
-            trend-line-period="5"
-            trend-line-type="ExponentialFit"
-            trend-line-brush="Red">
+    
+    
+    <div class="container fill">
+        <igc-sparkline
+        
+        value-member-path="value"
+        label-member-path="label"
+        trend-line-type="CubicFit"
+        display-type="Area"
+        name="chart"
+        id ="chart">
         </igc-sparkline>
     </div>
 </div>
 
     </div>
+
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
     <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>

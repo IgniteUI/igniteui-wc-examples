@@ -45,7 +45,7 @@ export class CategoryChartHighlighting {
     }
 
     public onHighlightingTargetChanged = (e: any) => {
-        let value = e.target as String;
+        let value = e.target.value as String;
 
         if(value == "Series"){
             this.chart.isItemHighlightingEnabled = false;

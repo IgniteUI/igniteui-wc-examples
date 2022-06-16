@@ -17,11 +17,13 @@
 
 <div class="container sample">
     <div class="options vertical">
-        <igc-property-editor
-
+        <igc-property-editor-panel
+        
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="XAxisLabelAngle"
             label="X Axis Label Angle"
@@ -29,7 +31,9 @@
             should-override-default-editor="true"
             drop-down-names="0, 45, 90, 135, 180, 225, 270"
             drop-down-values="0, 45, 90, 135, 180, 225, 270"
-            primitive-value="0">
+            primitive-value="0"
+            name="XAxisLabelAngleEditor"
+            id ="XAxisLabelAngleEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             drop-down-values="-90, -45, 0, 45, 90"
@@ -38,9 +42,22 @@
             label="Y Axis Label Angle"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="-90, -45, 0, 45, 90">
+            drop-down-names="-90, -45, 0, 45, 90"
+            name="YAxisLabelAngleEditor"
+            id ="YAxisLabelAngleEditor">
             </igc-property-editor-property-description>
-        </igc-property-editor>
+            <igc-property-editor-property-description
+            drop-down-values="red, green"
+            primitive-value="red"
+            property-path="XAxisLabelTextColor"
+            label="Y Axis Label Color"
+            value-type="EnumValue"
+            should-override-default-editor="true"
+            drop-down-names="red, green"
+            name="XAxisLabelTextColorEditor"
+            id ="XAxisLabelTextColorEditor">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
     </div>
     <div class="legend-title">
         Renewable Electricity Generated
@@ -65,8 +82,11 @@
         y-axis-label-angle="0"
         y-axis-label-location="OutsideRight"
         title-top-margin="10"
+        top-margin="20"
+        included-properties="year, europe, china, america"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
+        computed-plot-area-margin-mode="Series"
         name="chart"
         id ="chart">
         </igc-category-chart>

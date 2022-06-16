@@ -1,14 +1,15 @@
-import { DataItem, Data } from './SampleData';
-import { IgcPropertyEditorModule } from 'igniteui-webcomponents-grids';
+import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
-import { ComponentRenderer, PropertyEditorDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcPropertyEditorComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-grids';
+import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
+import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
+defineAllComponents();
 ModuleManager.register(
-    IgcPropertyEditorModule,
+    IgcPropertyEditorPanelModule,
     IgcLegendModule,
     IgcCategoryChartModule
 );
@@ -16,28 +17,38 @@ ModuleManager.register(
 export class Sample {
 
     private legend: IgcLegendComponent
-    private propertyEditor: IgcPropertyEditorComponent
-    private propertyEditorPropertyDescription: IgcPropertyEditorPropertyDescriptionComponent
+    private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private yAxisStroke: IgcPropertyEditorPropertyDescriptionComponent
+    private yAxisMajorStroke: IgcPropertyEditorPropertyDescriptionComponent
+    private yAxisMinorStroke: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcCategoryChartComponent
+
+    private _bind: () => void;
 
     constructor() {
         var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
-        var propertyEditor = this.propertyEditor = document.querySelector('igc-property-editor') as IgcPropertyEditorComponent;
+        var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var yAxisStroke = this.yAxisStroke = document.getElementById('YAxisStroke') as IgcPropertyEditorPropertyDescriptionComponent;
+        var yAxisMajorStroke = this.yAxisMajorStroke = document.getElementById('YAxisMajorStroke') as IgcPropertyEditorPropertyDescriptionComponent;
+        var yAxisMinorStroke = this.yAxisMinorStroke = document.getElementById('YAxisMinorStroke') as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
-        propertyEditor.componentRenderer = this.renderer
-        propertyEditor.target = this.chart
-        chart.dataSource = this.data
-        chart.legend = this.legend
+        this._bind = () => {
+            propertyEditorPanel1.componentRenderer = this.renderer
+            propertyEditorPanel1.target = this.chart
+            chart.dataSource = this.countryRenewableElectricity
+            chart.legend = this.legend
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countryRenewableElectricity: CountryRenewableElectricity = null;
+    public get countryRenewableElectricity(): CountryRenewableElectricity {
+        if (this._countryRenewableElectricity == null)
         {
-            this._data = new Data();
+            this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
-        return this._data;
+        return this._countryRenewableElectricity;
     }
     
 
@@ -46,11 +57,11 @@ export class Sample {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            PropertyEditorDescriptionModule.register(context);
+            PropertyEditorPanelDescriptionModule.register(context);
             LegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
 

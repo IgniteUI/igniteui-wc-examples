@@ -19,11 +19,6 @@ export class MultiColumnComboBoxOverview {
         this.multiColumnComboBox.textField = "Country";
         this.multiColumnComboBox.sortMode = SortMode.SortByOneColumnOnly;
         this.multiColumnComboBox.placeholder = "Choose a country";
-        var cw: IgcColumnWidth = new IgcColumnWidth();
-        cw.isStarSized = false;
-        cw.minimumWidth =200;  
-        cw.value =200;
-        this.multiColumnComboBox.defaultColumnWidth = cw;  
     }
 }
 

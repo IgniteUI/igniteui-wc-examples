@@ -1,7 +1,11 @@
 {
-  "name": "wc-sparkline-markers",
+  "name": "example-ignite-ui-web-components",
+  "description": "This project provides example of using Ignite UI for Web Components",
+  "author": "Infragistics",
   "version": "1.0.0",
-  "description": "This project provides example of Sparkline Markers using IgniteUI for Web Components",
+  "license": "",
+  "private": true,
+  "homepage": ".",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
@@ -17,15 +21,23 @@
     "serve:prod:legacy": "webpack-dev-server --env.NODE_ENV=production --env.legacy=true --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --inline --progress  --watch --open --content-base dist/",
     "start:legacy": "npm run serve:dev:legacy"
   },
-  "author": "Infragistics",
   "dependencies": {
-    "igniteui-webcomponents-core": "1.4.1",
-    "igniteui-webcomponents-charts": "1.4.1",
+    "igniteui-webcomponents-core": "3.2.1",
+    "igniteui-webcomponents-charts": "3.2.1",
+    "igniteui-webcomponents-datasources": "3.2.1",
+    "igniteui-webcomponents-excel": "3.2.1",
+    "igniteui-webcomponents-gauges": "3.2.1",
+    "igniteui-webcomponents-grids": "3.2.1",
+    "igniteui-webcomponents-inputs": "3.2.1",
+    "igniteui-webcomponents-layouts": "3.2.1",
+    "igniteui-webcomponents-maps": "3.2.1",
+    "igniteui-webcomponents-spreadsheet": "3.2.1",
+    "igniteui-webcomponents-spreadsheet-chart-adapter": "3.2.1",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "lit-html": "^2.0.0",
+    "igniteui-webcomponents": "^3.2.0",    "lit-html": "^2.2.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
@@ -41,7 +53,7 @@
     "fork-ts-checker-webpack-plugin": "^4.1.5",
     "html-webpack-plugin": "^4.3.0",
     "source-map": "^0.7.3",
-    "typescript": "^3.7.5",
+    "typescript": "^4.4.4",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0",
@@ -52,7 +64,5 @@
     "style-loader": "^0.22.1",
     "xml-loader": "^1.2.1",
     "worker-loader": "^3.0.8"
-    },
-  "license": "",
-  "homepage": "."
+    }
 }

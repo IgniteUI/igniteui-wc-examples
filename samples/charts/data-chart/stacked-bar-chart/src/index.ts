@@ -1,6 +1,6 @@
-import { DataItem, Data, CalloutDataItem, CalloutData } from './SampleData';
 import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule, IgcCalloutLayerModule } from 'igniteui-webcomponents-charts';
-import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcStackedBarSeriesComponent, IgcStackedFragmentSeriesComponent, IgcCalloutLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcStackedBarSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
+import { EnergyRenewableConsumptionItem, EnergyRenewableConsumption } from './EnergyRenewableConsumption';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -26,10 +26,11 @@ export class Sample {
     private s2: IgcStackedFragmentSeriesComponent
     private s3: IgcStackedFragmentSeriesComponent
     private s4: IgcStackedFragmentSeriesComponent
-    private calloutLayer: IgcCalloutLayerComponent
+
+    private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcCategoryYAxisComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
@@ -38,31 +39,24 @@ export class Sample {
         var s2 = this.s2 = document.getElementById('s2') as IgcStackedFragmentSeriesComponent;
         var s3 = this.s3 = document.getElementById('s3') as IgcStackedFragmentSeriesComponent;
         var s4 = this.s4 = document.getElementById('s4') as IgcStackedFragmentSeriesComponent;
-        var calloutLayer = this.calloutLayer = document.getElementById('CalloutLayer') as IgcCalloutLayerComponent;
 
-        yAxis.dataSource = this.data
-        stackedBarSeries.xAxis = this.xAxis
-        stackedBarSeries.yAxis = this.yAxis
-        stackedBarSeries.dataSource = this.data
-        calloutLayer.dataSource = this.calloutData
+        this._bind = () => {
+            chart.legend = this.legend
+            yAxis.dataSource = this.energyRenewableConsumption
+            stackedBarSeries.xAxis = this.xAxis
+            stackedBarSeries.yAxis = this.yAxis
+            stackedBarSeries.dataSource = this.energyRenewableConsumption
+        }
+        this._bind();
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _energyRenewableConsumption: EnergyRenewableConsumption = null;
+    public get energyRenewableConsumption(): EnergyRenewableConsumption {
+        if (this._energyRenewableConsumption == null)
         {
-            this._data = new Data();
+            this._energyRenewableConsumption = new EnergyRenewableConsumption();
         }
-        return this._data;
-    }
-    
-    private _calloutData: CalloutData = null;
-    public get calloutData(): CalloutData {
-        if (this._calloutData == null)
-        {
-            this._calloutData = new CalloutData();
-        }
-        return this._calloutData;
+        return this._energyRenewableConsumption;
     }
     
 

@@ -1,8 +1,7 @@
-import { DataEuropeItem, DataEurope } from './SampleData';
-
 import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
-import { IgcSizeScaleComponent } from 'igniteui-webcomponents-charts';
+import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
@@ -20,30 +19,33 @@ export class Sample {
     private yAxis: IgcNumericYAxisComponent
     private bubbleSeries1: IgcBubbleSeriesComponent
 
+    private _bind: () => void;
+
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
         var bubbleSeries1 = this.bubbleSeries1 = document.getElementById('BubbleSeries1') as IgcBubbleSeriesComponent;
 
-        bubbleSeries1.xAxis = this.xAxis
-        bubbleSeries1.yAxis = this.yAxis
-        bubbleSeries1.dataSource = this.dataEurope
-
-        const sizeScale = new IgcSizeScaleComponent();
-        sizeScale.minimumValue = 10;
-        sizeScale.maximumValue = 50;
-        bubbleSeries1.radiusScale = sizeScale;
-   }
-
-    private _dataEurope: DataEurope = null;
-    public get dataEurope(): DataEurope {
-        if (this._dataEurope == null)
-        {
-            this._dataEurope = new DataEurope();
+        this._bind = () => {
+            bubbleSeries1.xAxis = this.xAxis
+            bubbleSeries1.yAxis = this.yAxis
+            bubbleSeries1.dataSource = this.countryStatsEurope
         }
-        return this._dataEurope;
+        this._bind();
     }
+
+    private _countryStatsEurope: CountryStatsEurope = null;
+    public get countryStatsEurope(): CountryStatsEurope {
+        if (this._countryStatsEurope == null)
+        {
+            this._countryStatsEurope = new CountryStatsEurope();
+        }
+        return this._countryStatsEurope;
+    }
+    
+
+
 
 }
 

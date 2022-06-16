@@ -1,5 +1,5 @@
 import { defineComponents, IgcButtonComponent, IgcRadioComponent, IgcRadioGroupComponent } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/bootstrap.css';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './ButtonSizingStyle.css';
 
 defineComponents(IgcButtonComponent, IgcRadioComponent, IgcRadioGroupComponent);
