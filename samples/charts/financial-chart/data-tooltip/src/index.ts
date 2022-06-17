@@ -2,8 +2,6 @@ import { IgcFinancialChartModule, IgcDataChartInteractivityModule, IgcDataLegend
 import { IgcFinancialChartComponent } from 'igniteui-webcomponents-charts';
 import { MultipleStocks } from './MultipleStocks';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcFinancialChartModule,
     IgcDataChartInteractivityModule,

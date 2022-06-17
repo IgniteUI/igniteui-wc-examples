@@ -2,8 +2,6 @@ import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { IgcTreemapComponent, IgcTreemapNodeStyleMappingComponent } from 'igniteui-webcomponents-charts';
 import { CountyHierarchicalDataItem, CountyHierarchicalData } from './CountyHierarchicalData';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcTreemapModule
 );

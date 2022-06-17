@@ -2,8 +2,6 @@ import { IgcDataChartCoreModule, IgcDataChartRadialModule, IgcDataChartRadialCor
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcRadialColumnSeriesComponent } from 'igniteui-webcomponents-charts';
 import { FootballPlayerStatsItem, FootballPlayerStats } from './FootballPlayerStats';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartRadialModule,

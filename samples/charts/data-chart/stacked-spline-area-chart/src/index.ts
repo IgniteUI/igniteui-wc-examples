@@ -2,8 +2,6 @@ import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategor
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcStackedSplineAreaSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
 import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule,

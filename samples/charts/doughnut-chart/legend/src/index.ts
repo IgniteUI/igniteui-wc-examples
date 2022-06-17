@@ -2,8 +2,6 @@ import { IgcItemLegendModule, IgcDoughnutChartModule } from 'igniteui-webcompone
 import { IgcItemLegendComponent, IgcDoughnutChartComponent, IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcItemLegendModule,
     IgcDoughnutChartModule

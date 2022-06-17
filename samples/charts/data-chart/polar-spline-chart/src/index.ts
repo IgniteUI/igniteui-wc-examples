@@ -2,8 +2,6 @@ import { IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDataChartPolarCoreM
 import { IgcDataChartComponent, IgcNumericAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcPolarSplineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartPolarModule,
@@ -32,9 +30,9 @@ export class Sample {
             polarSplineSeries1.angleAxis = this.angleAxis
             polarSplineSeries1.radiusAxis = this.radiusAxis
             polarSplineSeries1.dataSource = this.boatSailingData
-            polarSplineSeries2.dataSource = this.boatSailingData
             polarSplineSeries2.angleAxis = this.angleAxis
             polarSplineSeries2.radiusAxis = this.radiusAxis
+            polarSplineSeries2.dataSource = this.boatSailingData
         }
         this._bind();
     }

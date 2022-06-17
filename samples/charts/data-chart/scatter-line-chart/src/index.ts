@@ -3,8 +3,6 @@ import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, Ig
 import { HealthDataForGermanyItem, HealthDataForGermany } from './HealthDataForGermany';
 import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFrance';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcLegendModule,
     IgcNumberAbbreviatorModule,

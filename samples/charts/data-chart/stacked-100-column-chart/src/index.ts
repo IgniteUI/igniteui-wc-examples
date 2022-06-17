@@ -2,8 +2,6 @@ import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategor
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcStacked100ColumnSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
 import { OnlineTrafficByDeviceItem, OnlineTrafficByDevice } from './OnlineTrafficByDevice';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule,

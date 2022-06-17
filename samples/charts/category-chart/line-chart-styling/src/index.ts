@@ -2,8 +2,6 @@ import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcLegendModule,
     IgcCategoryChartModule

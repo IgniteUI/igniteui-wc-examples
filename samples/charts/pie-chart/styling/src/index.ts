@@ -2,8 +2,6 @@ import { IgcPieChartModule, IgcItemLegendModule } from 'igniteui-webcomponents-c
 import { IgcItemLegendComponent, IgcPieChartComponent } from 'igniteui-webcomponents-charts';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcPieChartModule,
     IgcItemLegendModule

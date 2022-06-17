@@ -2,8 +2,6 @@ import { IgcDataChartCoreModule, IgcDataChartCategoryCoreModule, IgcDataChartCat
 import { IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcCategoryHighlightLayerComponent, IgcBarSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { OnlineShoppingSearchesItem, OnlineShoppingSearches } from './OnlineShoppingSearches';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartCategoryCoreModule,

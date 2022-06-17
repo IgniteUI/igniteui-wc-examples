@@ -2,8 +2,6 @@ import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartRadialModule, IgcD
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcRadialAreaSeriesComponent } from 'igniteui-webcomponents-charts';
 import { FootballPlayerStatsItem, FootballPlayerStats } from './FootballPlayerStats';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcLegendModule,
     IgcDataChartCoreModule,
@@ -37,9 +35,9 @@ export class Sample {
             radialAreaSeries1.angleAxis = this.angleAxis
             radialAreaSeries1.valueAxis = this.radiusAxis
             radialAreaSeries1.dataSource = this.footballPlayerStats
+            radialAreaSeries2.dataSource = this.footballPlayerStats
             radialAreaSeries2.angleAxis = this.angleAxis
             radialAreaSeries2.valueAxis = this.radiusAxis
-            radialAreaSeries2.dataSource = this.footballPlayerStats
         }
         this._bind();
     }

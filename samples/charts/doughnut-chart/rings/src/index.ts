@@ -3,8 +3,6 @@ import { IgcDoughnutChartComponent, IgcRingSeriesComponent } from 'igniteui-webc
 import { CalendarSeasonsItem, CalendarSeasons } from './CalendarSeasons';
 import { CalendarMonthsItem, CalendarMonths } from './CalendarMonths';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcLegendModule,
     IgcDoughnutChartModule

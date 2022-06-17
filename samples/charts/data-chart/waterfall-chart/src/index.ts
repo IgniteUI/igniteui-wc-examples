@@ -2,8 +2,6 @@ import { IgcDataChartCoreModule, IgcDataChartCategoryModule } from 'igniteui-web
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcWaterfallSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CompanyIncomeDataItem, CompanyIncomeData } from './CompanyIncomeData';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule

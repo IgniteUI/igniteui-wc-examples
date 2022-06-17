@@ -2,8 +2,6 @@ import { IgcDataChartCoreModule, IgcDataChartCategoryModule } from 'igniteui-web
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcRangeAreaSeriesComponent } from 'igniteui-webcomponents-charts';
 import { TemperatureRangeDataItem, TemperatureRangeData } from './TemperatureRangeData';
 
-import { ModuleManager } from 'igniteui-webcomponents-core';
-
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule
@@ -14,7 +12,8 @@ export class Sample {
     private chart: IgcDataChartComponent
     private xAxis: IgcCategoryXAxisComponent
     private yAxis: IgcNumericYAxisComponent
-    private series: IgcRangeAreaSeriesComponent
+    private rangeAreaSeries1: IgcRangeAreaSeriesComponent
+    private rangeAreaSeries2: IgcRangeAreaSeriesComponent
 
     private _bind: () => void;
 
@@ -22,16 +21,17 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
-        var series = this.series = document.getElementById('series') as IgcRangeAreaSeriesComponent;
+        var rangeAreaSeries1 = this.rangeAreaSeries1 = document.getElementById('RangeAreaSeries1') as IgcRangeAreaSeriesComponent;
+        var rangeAreaSeries2 = this.rangeAreaSeries2 = document.getElementById('RangeAreaSeries2') as IgcRangeAreaSeriesComponent;
 
         this._bind = () => {
             xAxis.dataSource = this.temperatureRangeData
-            series.xAxis = this.xAxis
-            series.yAxis = this.yAxis
-            series.dataSource = this.temperatureRangeData
-            series.xAxis = this.xAxis
-            series.yAxis = this.yAxis
-            series.dataSource = this.temperatureRangeData
+            rangeAreaSeries1.xAxis = this.xAxis
+            rangeAreaSeries1.yAxis = this.yAxis
+            rangeAreaSeries1.dataSource = this.temperatureRangeData
+            rangeAreaSeries2.xAxis = this.xAxis
+            rangeAreaSeries2.yAxis = this.yAxis
+            rangeAreaSeries2.dataSource = this.temperatureRangeData
         }
         this._bind();
     }
