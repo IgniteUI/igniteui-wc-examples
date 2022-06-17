@@ -20,6 +20,7 @@
     <div class="legend-title">
         Wind Speed vs Boat Speed
     </div>
+    
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -27,6 +28,7 @@
         id ="Legend">
         </igc-legend>
     </div>
+    
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="false"
@@ -62,13 +64,14 @@
             id ="PolarAreaSeries1">
             </igc-polar-area-series>
             <igc-polar-area-series
+            
             angle-member-path="direction"
             radius-member-path="boatSpeed"
-            marker-type="Circle"
-            thickness="1"
-            area-fill-opacity="0.8"
             show-default-tooltip="true"
+            area-fill-opacity="0.8"
+            thickness="1"
             title="Boat Speed"
+            marker-type="Circle"
             name="PolarAreaSeries2"
             id ="PolarAreaSeries2">
             </igc-polar-area-series>

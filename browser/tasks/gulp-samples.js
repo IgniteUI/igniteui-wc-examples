@@ -262,16 +262,22 @@ function logSamples(cb) {
     cb();
 } exports.logSamples = logSamples;
 
-function logSandboxLinks(cb) {
+function logSandboxUrls(cb) {
+    let content = "";
     let base = "https://codesandbox.io/s/github/IgniteUI/igniteui-wc-examples/tree/master";
     for (const sample of samples) {
 
         let url = base + "" + sample.SampleFolderPath;
         url = url.replace("../", "/")
+        content += url + "\n";
         console.log(url);
     }
+
+    let output = "./sandbox-wc.txt";
+    fs.writeFileSync(output, content);
+
     cb();
-} exports.logSandboxLinks = logSandboxLinks;
+} exports.logSandboxUrls = logSandboxUrls;
 
 function copySamples(cb) {
 

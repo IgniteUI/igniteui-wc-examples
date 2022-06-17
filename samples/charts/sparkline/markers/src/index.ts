@@ -6,8 +6,10 @@ import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { SparklineProfitDataItem, SparklineProfitData } from './SparklineProfitData';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
+import { defineAllComponents } from 'igniteui-webcomponents';
+import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
     IgcSparklineModule

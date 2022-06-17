@@ -1,10 +1,11 @@
-import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
+import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcStackedSplineAreaSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
 import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
+    IgcLegendModule,
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule,
     IgcDataChartCategoryCoreModule,

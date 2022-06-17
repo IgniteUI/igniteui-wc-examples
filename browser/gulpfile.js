@@ -81,9 +81,9 @@ exports.logRoutes = logRoutes = gulp.series(
     sb.logRoutes,
 );
 
-exports.logSandboxLinks = logSandboxLinks = gulp.series(
+exports.logSandboxUrls = logSandboxUrls = gulp.series(
     sb.findSamples,
-    sb.logSandboxLinks,
+    sb.logSandboxUrls,
 );
 
 exports.updateCodeViewer = updateCodeViewer = gulp.series(

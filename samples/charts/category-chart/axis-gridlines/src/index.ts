@@ -6,8 +6,10 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
+import { defineAllComponents } from 'igniteui-webcomponents';
+import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
     IgcLegendModule,
