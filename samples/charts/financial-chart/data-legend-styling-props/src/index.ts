@@ -2,6 +2,8 @@ import { IgcFinancialChartModule, IgcDataChartInteractivityModule, IgcDataLegend
 import { IgcDataLegendComponent, IgcFinancialChartComponent } from 'igniteui-webcomponents-charts';
 import { StockGoogleItem, StockGoogle } from './StockGoogle';
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
 ModuleManager.register(
     IgcFinancialChartModule,
     IgcDataChartInteractivityModule,

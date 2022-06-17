@@ -2,6 +2,8 @@ import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { TemperatureAverageDataItem, TemperatureAverageData } from './TemperatureAverageData';
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
 ModuleManager.register(
     IgcCategoryChartModule
 );

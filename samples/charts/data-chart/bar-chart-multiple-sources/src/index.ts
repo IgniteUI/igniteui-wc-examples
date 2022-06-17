@@ -2,6 +2,8 @@ import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryCoreModule
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcCategoryHighlightLayerComponent, IgcBarSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
 ModuleManager.register(
     IgcLegendModule,
     IgcDataChartCoreModule,

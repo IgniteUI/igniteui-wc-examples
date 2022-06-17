@@ -2,6 +2,8 @@ import { IgcLegendModule, IgcDoughnutChartModule } from 'igniteui-webcomponents-
 import { IgcDoughnutChartComponent, IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CompanyMarketSharesItem, CompanyMarketShares } from './CompanyMarketShares';
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
 ModuleManager.register(
     IgcLegendModule,
     IgcDoughnutChartModule

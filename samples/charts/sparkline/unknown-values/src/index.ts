@@ -7,10 +7,9 @@ import { SparklineUnknownDataItem, SparklineUnknownData } from './SparklineUnkno
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
-//endifdef editor
 import { ModuleManager } from 'igniteui-webcomponents-core';
-//ifdef editor
 defineAllComponents();
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
     IgcSparklineModule

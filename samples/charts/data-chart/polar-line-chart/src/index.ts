@@ -2,6 +2,8 @@ import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDa
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcPolarLineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
 ModuleManager.register(
     IgcLegendModule,
     IgcDataChartCoreModule,

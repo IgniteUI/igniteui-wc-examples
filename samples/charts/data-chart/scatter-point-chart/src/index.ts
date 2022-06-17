@@ -3,6 +3,8 @@ import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, Ig
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
 ModuleManager.register(
     IgcLegendModule,
     IgcDataChartCoreModule,

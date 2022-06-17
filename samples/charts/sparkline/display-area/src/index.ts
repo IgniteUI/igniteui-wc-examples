@@ -2,6 +2,8 @@ import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData';
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
 ModuleManager.register(
     IgcSparklineModule
 );

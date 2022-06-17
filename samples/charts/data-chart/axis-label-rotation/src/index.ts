@@ -7,10 +7,9 @@ import { TemperatureAverageDataLongLabelsItem, TemperatureAverageDataLongLabels 
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
-//endifdef editor
 import { ModuleManager } from 'igniteui-webcomponents-core';
-//ifdef editor
 defineAllComponents();
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
     IgcDataChartCategoryModule,

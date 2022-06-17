@@ -3,6 +3,8 @@ import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisCompon
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule,

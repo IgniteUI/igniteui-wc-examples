@@ -2,6 +2,8 @@ import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDa
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcPolarAreaSeriesComponent } from 'igniteui-webcomponents-charts';
 import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
 ModuleManager.register(
     IgcLegendModule,
     IgcDataChartCoreModule,
@@ -34,9 +36,9 @@ export class Sample {
             polarAreaSeries1.angleAxis = this.angleAxis
             polarAreaSeries1.radiusAxis = this.radiusAxis
             polarAreaSeries1.dataSource = this.boatSailingData
+            polarAreaSeries2.dataSource = this.boatSailingData
             polarAreaSeries2.angleAxis = this.angleAxis
             polarAreaSeries2.radiusAxis = this.radiusAxis
-            polarAreaSeries2.dataSource = this.boatSailingData
         }
         this._bind();
     }

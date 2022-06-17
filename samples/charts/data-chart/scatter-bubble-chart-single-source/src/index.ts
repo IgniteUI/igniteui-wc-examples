@@ -2,6 +2,8 @@ import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatter
 import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
 ModuleManager.register(
     IgcNumberAbbreviatorModule,
     IgcDataChartCoreModule,

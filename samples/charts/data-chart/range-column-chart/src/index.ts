@@ -2,6 +2,8 @@ import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcLegendModule } f
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcRangeColumnSeriesComponent } from 'igniteui-webcomponents-charts';
 import { TemperatureRangeDataItem, TemperatureRangeData } from './TemperatureRangeData';
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule,
