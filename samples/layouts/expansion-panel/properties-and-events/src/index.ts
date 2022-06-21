@@ -1,8 +1,8 @@
-import { defineComponents, IgcExpansionPanelComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcExpansionPanelComponent, IgcIconComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './ExpansionPanelPropertiesAndEvents.css';
 
-defineComponents(IgcExpansionPanelComponent);
+defineComponents(IgcExpansionPanelComponent, IgcIconComponent);
 export class ExpansionPanelPropertiesAndEvents {
     private panel: IgcExpansionPanelComponent;
     private firedEventSpan: HTMLSpanElement;

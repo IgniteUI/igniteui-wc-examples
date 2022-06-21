@@ -25,6 +25,7 @@
     "igniteui-webcomponents-excel": "3.2.1",
     "igniteui-webcomponents-grids": "3.2.1",
     "igniteui-webcomponents-inputs": "3.2.1",
+	"igniteui-webcomponents-layouts": "3.2.1",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
