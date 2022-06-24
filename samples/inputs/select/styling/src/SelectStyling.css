@@ -1,0 +1,12 @@
+igc-select::part(base) {
+    background: rgb(169, 214, 229);
+}
+
+igc-select-item::part(prefix),
+igc-select-item::part(suffix) {
+    color: rgb(1, 42, 74);
+}
+
+igc-select-item[active] {
+    background: rgb(42, 111, 151);
+}
