@@ -1,7 +1,7 @@
 import { defineComponents, IgcIconComponent, IgcDateTimeInputComponent, registerIconFromText } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-defineComponents(IgcIconComponent, IgcDateTimeInputComponent); // IgcDateTimeInputComponent
+defineComponents(IgcIconComponent, IgcDateTimeInputComponent);
 
 const upIcon =
 '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z"/></svg>';
