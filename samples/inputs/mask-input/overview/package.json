@@ -1,7 +1,7 @@
 {
-  "name": "wc-mask-input-applying-mask",
+  "name": "wc-mask-input-overview",
   "version": "1.0.0",
-  "description": "This project provides example of Mask Input Applying Mask using IgniteUI for Web Components",
+  "description": "This project provides example of Mask Input Overview using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
