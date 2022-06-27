@@ -877,6 +877,8 @@ function updateIG(cb) {
         { name: "@infragistics/igniteui-webcomponents-charts"                   , version: "22.1.51" },
         { name: "@infragistics/igniteui-webcomponents-excel"                    , version: "22.1.51" },
         { name: "@infragistics/igniteui-webcomponents-gauges"                   , version: "22.1.51" },
+        { name: "@infragistics/igniteui-webcomponents-grids"                    , version: "22.1.51" },
+        { name: "@infragistics/igniteui-webcomponents-inputs"                   , version: "22.1.51" },
         { name: "@infragistics/igniteui-webcomponents-layouts"                  , version: "22.1.51" },
         { name: "@infragistics/igniteui-webcomponents-maps"                     , version: "22.1.51" },
         { name: "@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter", version: "22.1.51" },
