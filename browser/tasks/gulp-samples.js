@@ -867,4 +867,100 @@ function logVersionTypescript(cb) {
 
 
 
+function updateIG(cb) {
+
+    // NOTE: change this array with new version of packages and optionally use "@infragistics/" proget prefix, e.g.
+    // "@infragistics/igniteui-angular-charts" instead of "igniteui-angular-charts"
+    let packageUpgrades = [
+        // these IG packages are often updated:
+        { name: "igniteui-webcomponents-core"                     , version: "3.2.1" },
+        { name: "igniteui-webcomponents-charts"                   , version: "3.2.1" },
+        { name: "igniteui-webcomponents-excel"                    , version: "3.2.1" },
+        { name: "igniteui-webcomponents-gauges"                   , version: "3.2.1" },
+        { name: "igniteui-webcomponents-grids"                    , version: "3.2.1" },
+        { name: "igniteui-webcomponents-inputs"                   , version: "3.2.1" },
+        { name: "igniteui-webcomponents-layouts"                  , version: "3.2.1" },
+        { name: "igniteui-webcomponents-maps"                     , version: "3.2.1" },
+        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "3.2.1" },
+        { name: "igniteui-webcomponents-spreadsheet"              , version: "3.2.1" },
+        { name: "igniteui-webcomponents-datasources"              , version: "3.2.1", },
+        // these IG packages are sometimes updated:
+        { name: "igniteui-webcomponents", version: "^3.2.0",  },
+        { name: "igniteui-dockmanager", version: "^1.8.0" },
+    ];
+
+    // NOTE you can comment out strings in this array to run these function only on a subset of samples
+    var packagePaths = [
+        './package.json', // browser
+        '../samples/charts/**/package.json',
+        '../samples/editors/**/package.json',
+        '../samples/excel/**/package.json',
+        '../samples/gauges/**/package.json',
+        '../samples/grids/**/package.json',
+        '../samples/inputs/**/package.json',
+        '../samples/layouts/**/package.json',
+        '../samples/maps/**/package.json',
+        '../samples/menus/**/package.json',
+        '../samples/notifications/**/package.json',
+        '../samples/scheduling/**/package.json',
+
+        // '../samples/charts/category-chart/**/package.json',
+        // '../samples/maps/geo-map/type-scatter-bubble-series/package.json',
+        '!../samples/**/node_modules/**/package.json',
+        '!../samples/**/node_modules/**',
+        '!../samples/**/node_modules',
+    ];
+
+    // creating package mapping without proget prefix so we can upgrade to/from proget packages
+    let packageMappings = {};
+    for (const item of packageUpgrades) {
+        item.id = item.name.replace("@infragistics/", "");
+        let name = item.name.replace("@infragistics/", "");
+        packageMappings[name] = item;
+    }
+
+    // console.log(packageMappings);
+
+    let updatedPackages = 0;
+    // gulp all package.json files in samples/browser
+    gulp.src(packagePaths, {allowEmpty: true})
+    .pipe(es.map(function(file, fileCallback) {
+        let filePath = file.dirname + "\\" + file.basename;
+
+        var fileContent = file.contents.toString();
+        var fileLines = fileContent.split('\n');
+
+        var fileChanged = false;
+        for (let i = 0; i < fileLines.length; i++) {
+            const line = fileLines[i];
+            let words = line.split(":");
+            if (words.length === 2) {
+                // matching packages
+                let packageName = words[0].replace("@infragistics/", "").replace('"', '').replace('"', '').trim();
+                let packageInfo = packageMappings[packageName];
+                if (packageInfo !== undefined) {
+                    let newLine = '    "' + packageInfo.name + '": "' + packageInfo.version + '",';
+                    if (fileLines[i].trim() !== newLine.trim()) {
+                        fileLines[i] = newLine;
+                        fileChanged = true;
+                    }
+                }
+            }
+        }
+
+        if (fileChanged) {
+            let newContent = fileLines.join('\n'); // newContent !== fileContent
+            updatedPackages++;
+            fs.writeFileSync(filePath, newContent);
+            log("updated: " + filePath);
+        }
+        fileCallback(null, file);
+    }))
+    .on("end", function() {
+        log("updateIG... done = " + updatedPackages + " files");
+        cb();
+    });
+
+} exports.updateIG = updateIG;
+
 
