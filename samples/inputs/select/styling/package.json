@@ -19,14 +19,14 @@
   },
   "author": "Infragistics",
   "dependencies": {
+    "@webcomponents/custom-elements": "^1.4.1",
+    "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
     "igniteui-webcomponents": "file:../../../../../igniteui-webcomponents-0.0.0.tgz",
     "lit": "^2.0.2",
-    "tslib": "^2.0.0",
-    "@webcomponents/custom-elements": "^1.4.1",
-    "@webcomponents/template": "^1.4.2",
-    "lit-html": "^2.0.0"
+    "lit-html": "^2.0.0",
+    "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",

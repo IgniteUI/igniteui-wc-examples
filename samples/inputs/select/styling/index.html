@@ -13,8 +13,10 @@
   <body>
     <div id="root">
       <div class="container sample center">
-        <igc-select>
-          <igc-select-group>
+        <igc-select label="Destinations:">
+          <igc-icon slot="prefix" name="place" collection="material"></igc-icon>
+          <span slot="helper-text">Choose the desired place</span>
+          <igc-select-group disabled>
             <span slot="label">Europe</span>
             <igc-select-item>
               <igc-icon slot="prefix" name="place" collection="material"></igc-icon>
