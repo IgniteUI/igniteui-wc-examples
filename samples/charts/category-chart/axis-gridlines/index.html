@@ -16,7 +16,7 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
+        <div class="options vertical">
         <igc-property-editor-panel
         
         description-type="CategoryChart"
@@ -31,7 +31,9 @@
             should-override-default-editor="true"
             drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen"
             drop-down-values="gray, darkslategray, salmon, cornflowerblue, darkgreen"
-            primitive-value="gray">
+            primitive-value="gray"
+            name="YAxisStroke"
+            id ="YAxisStroke">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             drop-down-values="gray, darkslategray, salmon, cornflowerblue, darkgreen"
@@ -40,7 +42,9 @@
             label="Y Axis Major Stroke"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen">
+            drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen"
+            name="YAxisMajorStroke"
+            id ="YAxisMajorStroke">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             drop-down-values="gray, darkslategray, salmon, cornflowerblue, darkgreen"
@@ -49,13 +53,17 @@
             label="Y Axis Minor Stroke"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen">
+            drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen"
+            name="YAxisMinorStroke"
+            id ="YAxisMinorStroke">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
+    
     <div class="legend-title">
         Renewable Electricity Generated
     </div>
+    
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -63,6 +71,7 @@
         id ="Legend">
         </igc-legend>
     </div>
+    
     <div class="container fill">
         <igc-category-chart
         chart-type="Line"

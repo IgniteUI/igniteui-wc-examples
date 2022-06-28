@@ -2,12 +2,14 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
+import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
+import { defineAllComponents } from 'igniteui-webcomponents';
+import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
     IgcLegendModule,
@@ -18,6 +20,8 @@ export class Sample {
 
     private legend: IgcLegendComponent
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private yAxisMinimumValue: IgcPropertyEditorPropertyDescriptionComponent
+    private yAxisMaximumValue: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcCategoryChartComponent
 
     private _bind: () => void;
@@ -25,6 +29,8 @@ export class Sample {
     constructor() {
         var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var yAxisMinimumValue = this.yAxisMinimumValue = document.getElementById('YAxisMinimumValue') as IgcPropertyEditorPropertyDescriptionComponent;
+        var yAxisMaximumValue = this.yAxisMaximumValue = document.getElementById('YAxisMaximumValue') as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
@@ -55,7 +61,7 @@ export class Sample {
             LegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
 

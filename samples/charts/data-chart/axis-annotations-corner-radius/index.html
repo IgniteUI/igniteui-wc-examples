@@ -21,6 +21,7 @@
         Renewable Electricity Generated
     </div>
     
+    
     <div class="container fill">
         <igc-data-chart
         name="chart"
@@ -39,6 +40,7 @@
             <igc-line-series
             
             value-member-path="america"
+            title="Electricity"
             name="LineSeries1"
             id ="LineSeries1">
             </igc-line-series>
@@ -46,17 +48,30 @@
             label-member-path="label"
             x-member-path="index"
             y-member-path="value"
-            callout-corner-radius="10"
+            callout-corner-radius="5"
+            callout-padding-left="20"
+            callout-padding-top="10"
+            callout-padding-right="20"
+            callout-padding-bottom="10"
             name="CalloutLayer1"
             id ="CalloutLayer1">
             </igc-callout-layer>
             <igc-final-value-layer
-            axis-annotation-background-corner-radius="100">
+            axis-annotation-background-corner-radius="10"
+            axis-annotation-padding-left="10"
+            axis-annotation-padding-top="10"
+            axis-annotation-padding-right="10"
+            axis-annotation-padding-bottom="10"
+            name="FinalValueLayer"
+            id ="FinalValueLayer">
             </igc-final-value-layer>
             <igc-crosshair-layer
             is-axis-annotation-enabled="true"
-            x-axis-annotation-background-corner-radius="100"
-            y-axis-annotation-background-corner-radius="100">
+            x-axis-annotation-background-corner-radius="10"
+            y-axis-annotation-background-corner-radius="10"
+            y-axis-annotation-interpolated-value-precision="0"
+            name="CrosshairLayer"
+            id ="CrosshairLayer">
             </igc-crosshair-layer>
             <igc-data-tool-tip-layer
             name="Tooltips"

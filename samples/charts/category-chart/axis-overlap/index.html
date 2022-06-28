@@ -16,7 +16,7 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
+        <div class="options vertical">
         <igc-property-editor-panel
         
         description-type="CategoryChart"
@@ -32,13 +32,17 @@
             primitive-value="0"
             min="0"
             max="1"
-            step="0.1">
+            step="0.1"
+            name="XAxisOverlap"
+            id ="XAxisOverlap">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
+    
     <div class="legend-title">
         Highest Grossing Movie Franchises
     </div>
+    
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -46,6 +50,7 @@
         id ="Legend">
         </igc-legend>
     </div>
+    
     <div class="container fill">
         <igc-category-chart
         chart-type="Column"

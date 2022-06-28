@@ -1,10 +1,11 @@
-import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
+import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcStackedSplineAreaSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
 import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
+    IgcLegendModule,
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule,
     IgcDataChartCategoryCoreModule,
@@ -25,7 +26,6 @@ export class Sample {
     private s3: IgcStackedFragmentSeriesComponent
     private s4: IgcStackedFragmentSeriesComponent
     private s5: IgcStackedFragmentSeriesComponent
-    private s6: IgcStackedFragmentSeriesComponent
 
     private _bind: () => void;
 
@@ -40,7 +40,6 @@ export class Sample {
         var s3 = this.s3 = document.getElementById('s3') as IgcStackedFragmentSeriesComponent;
         var s4 = this.s4 = document.getElementById('s4') as IgcStackedFragmentSeriesComponent;
         var s5 = this.s5 = document.getElementById('s5') as IgcStackedFragmentSeriesComponent;
-        var s6 = this.s6 = document.getElementById('s6') as IgcStackedFragmentSeriesComponent;
 
         this._bind = () => {
             chart.legend = this.legend

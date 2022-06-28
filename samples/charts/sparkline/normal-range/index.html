@@ -16,7 +16,7 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
+        <div class="options vertical">
         <igc-property-editor-panel
         
         description-type="Sparkline"
@@ -31,28 +31,35 @@
             should-override-default-editor="true"
             drop-down-names="Visible, Collapsed"
             drop-down-values="Visible, Collapsed"
-            primitive-value="Visible">
+            primitive-value="Visible"
+            name="NormalRangeVisibilityEditor"
+            id ="NormalRangeVisibilityEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            drop-down-values="-7, -6, -5, -4, -3, -2, -1, 0"
-            primitive-value="-5"
+            drop-down-values="0, 10, 15, 20, 25, 30"
+            primitive-value="25"
             property-path="NormalRangeMinimum"
             label="Normal Range Minimum"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="-7, -6, -5, -4, -3, -2, -1, 0">
+            drop-down-names="0, 10, 15, 20, 25, 30"
+            name="NormalRangeMinimumEditor"
+            id ="NormalRangeMinimumEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            drop-down-values="7, 6, 5, 4, 3, 2, 1, 0"
-            primitive-value="5"
+            drop-down-values="0, 10, 15, 20, 25, 30"
+            primitive-value="25"
             property-path="NormalRangeMaximum"
             label="Normal Range Maximum"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="7, 6, 5, 4, 3, 2, 1, 0">
+            drop-down-names="0, 10, 15, 20, 25, 30"
+            name="NormalRangeMaximumEditor"
+            id ="NormalRangeMaximumEditor">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
+    
     
     
     <div class="container fill">
@@ -60,8 +67,8 @@
         normal-range-visibility="Visible"
         value-member-path="value"
         label-member-path="label"
-        normal-range-minimum="-5"
-        normal-range-maximum="5"
+        normal-range-minimum="15"
+        normal-range-maximum="25"
         display-type="Area"
         name="chart"
         id ="chart">

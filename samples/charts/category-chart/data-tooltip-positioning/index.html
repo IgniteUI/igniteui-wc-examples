@@ -16,10 +16,42 @@
     <div id="root">
 
 <div class="container sample">
+        <div class="options vertical">
+        <igc-property-editor-panel
+        
+        description-type="CategoryChart"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="PropertyEditor"
+        id ="PropertyEditor">
+            <igc-property-editor-property-description
+            property-path="DataToolTipGroupedPositionModeX"
+            label="Grouped X Position:"
+            primitive-value="PinRight"
+            name="GroupedPositionXEditor"
+            id ="GroupedPositionXEditor">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            property-path="DataToolTipGroupedPositionModeY"
+            primitive-value="PinTop"
+            label="Grouped Y Position:"
+            name="GroupedPositionYEditor"
+            id ="GroupedPositionYEditor">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            property-path="DataToolTipGroupingMode"
+            primitive-value="Grouped"
+            label="Grouping Mode:"
+            name="GroupingModeEditor"
+            id ="GroupingModeEditor">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
     
     <div class="legend-title">
         Highest Grossing Movie Franchises
     </div>
+    
     
     <div class="container fill">
         <igc-category-chart
@@ -29,6 +61,7 @@
         y-axis-title-left-margin="10"
         y-axis-title-right-margin="5"
         y-axis-title="Billions of U.S. Dollars"
+        data-tool-tip-grouping-mode="Grouped"
         data-tool-tip-grouped-position-mode-x="PinRight"
         data-tool-tip-grouped-position-mode-y="PinTop"
         tool-tip-type="Data"

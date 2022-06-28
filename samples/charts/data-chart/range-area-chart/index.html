@@ -21,6 +21,7 @@
         Monthly Temperature Range in Los Angeles
     </div>
     
+    
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="false"
@@ -34,29 +35,27 @@
             id ="xAxis">
             </igc-category-x-axis>
             <igc-numeric-y-axis
-            minimum-value="0"
-            maximum-value="50"
-            interval="10"
             title="Temperature (in Celsius)"
+            title-angle="-90"
             title-left-margin="10"
             name="yAxis"
             id ="yAxis">
             </igc-numeric-y-axis>
             <igc-range-area-series
             
-            low-member-path="nY_Low"
-            high-member-path="nY_High"
-            title="New York"
-            name="series"
-            id ="series">
+            low-member-path="lowLA"
+            high-member-path="highLA"
+            title="Los Angeles"
+            name="RangeAreaSeries1"
+            id ="RangeAreaSeries1">
             </igc-range-area-series>
             <igc-range-area-series
             
-            low-member-path="nY_Low"
-            high-member-path="nY_High"
             title="New York"
-            name="series"
-            id ="series">
+            low-member-path="lowNY"
+            high-member-path="highNY"
+            name="RangeAreaSeries2"
+            id ="RangeAreaSeries2">
             </igc-range-area-series>
         </igc-data-chart>
     </div>

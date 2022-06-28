@@ -20,6 +20,7 @@
     <div class="legend-title">
         Renewable Energy Consumption
     </div>
+    
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -27,6 +28,7 @@
         id ="Legend">
         </igc-legend>
     </div>
+    
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="false"
@@ -55,22 +57,26 @@
                 <igc-stacked-fragment-series
                 name="s1"
                 id ="s1"
+                title="Hydro"
                 value-member-path="hydro">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s2"
                 id ="s2"
-                value-member-path="wind">
+                value-member-path="wind"
+                title="Wind">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s3"
                 id ="s3"
-                value-member-path="solar">
+                value-member-path="solar"
+                title="Solar">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s4"
                 id ="s4"
-                value-member-path="other">
+                value-member-path="other"
+                title="Other">
                 </igc-stacked-fragment-series>
             </igc-stacked-100-bar-series>
         </igc-data-chart>

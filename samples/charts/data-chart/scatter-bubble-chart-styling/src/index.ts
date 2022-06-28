@@ -1,8 +1,7 @@
-import { SizeScaleItem } from './SampleData';
 import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
-import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
-import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
+import { CountryStatsAfricaItem, CountryStatsAfrica } from './CountryStatsAfrica';
+import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -38,46 +37,32 @@ export class Sample {
             chart.legend = this.legend
             bubbleSeries1.xAxis = this.xAxis
             bubbleSeries1.yAxis = this.yAxis
-            bubbleSeries1.dataSource = this.countryDemographicAfrican
+            bubbleSeries1.dataSource = this.countryStatsAfrica
             bubbleSeries2.xAxis = this.xAxis
             bubbleSeries2.yAxis = this.yAxis
-            bubbleSeries2.dataSource = this.countryDemographicEurope
+            bubbleSeries2.dataSource = this.countryStatsEurope
         }
         this._bind();
     }
 
-    private _sizeScale: SizeScaleItem = null;
-    public get sizeScale(): SizeScaleItem {
-        if (this._sizeScale == null)
+    private _countryStatsAfrica: CountryStatsAfrica = null;
+    public get countryStatsAfrica(): CountryStatsAfrica {
+        if (this._countryStatsAfrica == null)
         {
-            this._sizeScale = 
-            new SizeScaleItem(
-            {
-                type: `SizeScale`,
-                minimumValue: 10,
-                maximumValue: 50
-            })}
-            return this._sizeScale;
+            this._countryStatsAfrica = new CountryStatsAfrica();
         }
-        
-        private _countryDemographicAfrican: CountryDemographicAfrican = null;
-        public get countryDemographicAfrican(): CountryDemographicAfrican {
-            if (this._countryDemographicAfrican == null)
-            {
-                this._countryDemographicAfrican = new CountryDemographicAfrican();
-            }
-            return this._countryDemographicAfrican;
+        return this._countryStatsAfrica;
+    }
+    
+    private _countryStatsEurope: CountryStatsEurope = null;
+    public get countryStatsEurope(): CountryStatsEurope {
+        if (this._countryStatsEurope == null)
+        {
+            this._countryStatsEurope = new CountryStatsEurope();
         }
-        
-        private _countryDemographicEurope: CountryDemographicEurope = null;
-        public get countryDemographicEurope(): CountryDemographicEurope {
-            if (this._countryDemographicEurope == null)
-            {
-                this._countryDemographicEurope = new CountryDemographicEurope();
-            }
-            return this._countryDemographicEurope;
-        }
-        
+        return this._countryStatsEurope;
+    }
+    
 
 
 

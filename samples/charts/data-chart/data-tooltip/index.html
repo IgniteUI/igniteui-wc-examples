@@ -21,6 +21,7 @@
         Total Population of Selected Countries
     </div>
     
+    
     <div class="container fill">
         <igc-data-chart
         name="chart"
@@ -53,7 +54,9 @@
             id ="BubbleSeries1">
                 <igc-size-scale
                 minimum-value="10"
-                maximum-value="100">
+                maximum-value="100"
+                name="SizeScale1"
+                id ="SizeScale1">
                 </igc-size-scale>
             </igc-bubble-series>
             <igc-bubble-series
@@ -69,11 +72,14 @@
             id ="BubbleSeries2">
                 <igc-size-scale
                 minimum-value="10"
-                maximum-value="100">
+                maximum-value="100"
+                name="SizeScale2"
+                id ="SizeScale2">
                 </igc-size-scale>
             </igc-bubble-series>
             <igc-data-tool-tip-layer
-            >
+            name="DataToolTipLayer"
+            id ="DataToolTipLayer">
             </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>

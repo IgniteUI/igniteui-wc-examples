@@ -20,6 +20,7 @@
     <div class="legend-title">
         Total Population of Selected Countries
     </div>
+    
     <div class="legend">
         <igc-data-legend
         
@@ -27,6 +28,7 @@
         id ="Legend">
         </igc-data-legend>
     </div>
+    
     <div class="container fill">
         <igc-data-chart
         name="chart"
@@ -59,7 +61,9 @@
             id ="BubbleSeries1">
                 <igc-size-scale
                 minimum-value="10"
-                maximum-value="100">
+                maximum-value="100"
+                name="SizeScale1"
+                id ="SizeScale1">
                 </igc-size-scale>
             </igc-bubble-series>
             <igc-bubble-series
@@ -75,9 +79,15 @@
             id ="BubbleSeries2">
                 <igc-size-scale
                 minimum-value="10"
-                maximum-value="100">
+                maximum-value="100"
+                name="SizeScale2"
+                id ="SizeScale2">
                 </igc-size-scale>
             </igc-bubble-series>
+            <igc-crosshair-layer
+            name="CrosshairLayer"
+            id ="CrosshairLayer">
+            </igc-crosshair-layer>
         </igc-data-chart>
     </div>
 </div>

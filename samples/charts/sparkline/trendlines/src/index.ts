@@ -1,13 +1,15 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
+import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
+import { defineAllComponents } from 'igniteui-webcomponents';
+import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
     IgcSparklineModule
@@ -16,12 +18,14 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private trendLineTypeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcSparklineComponent
 
     private _bind: () => void;
 
     constructor() {
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var trendLineTypeEditor = this.trendLineTypeEditor = document.getElementById('TrendLineTypeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart = document.getElementById('chart') as IgcSparklineComponent;
 
         this._bind = () => {
@@ -50,7 +54,7 @@ export class Sample {
             PropertyEditorPanelDescriptionModule.register(context);
             SparklineDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
 

@@ -16,7 +16,7 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
+        <div class="options vertical">
         <igc-property-editor-panel
         
         description-type="CategoryChart"
@@ -31,7 +31,9 @@
             should-override-default-editor="true"
             drop-down-names="0, 45, 90, 135, 180, 225, 270"
             drop-down-values="0, 45, 90, 135, 180, 225, 270"
-            primitive-value="0">
+            primitive-value="0"
+            name="XAxisLabelAngleEditor"
+            id ="XAxisLabelAngleEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             drop-down-values="-90, -45, 0, 45, 90"
@@ -40,7 +42,9 @@
             label="Y Axis Label Angle"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="-90, -45, 0, 45, 90">
+            drop-down-names="-90, -45, 0, 45, 90"
+            name="YAxisLabelAngleEditor"
+            id ="YAxisLabelAngleEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             drop-down-values="red, green"
@@ -49,13 +53,17 @@
             label="Y Axis Label Color"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="red, green">
+            drop-down-names="red, green"
+            name="XAxisLabelTextColorEditor"
+            id ="XAxisLabelTextColorEditor">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
+    
     <div class="legend-title">
         Renewable Electricity Generated
     </div>
+    
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -63,6 +71,7 @@
         id ="Legend">
         </igc-legend>
     </div>
+    
     <div class="container fill">
         <igc-category-chart
         chart-type="Line"

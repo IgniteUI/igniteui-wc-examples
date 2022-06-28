@@ -1,8 +1,8 @@
-import { defineComponents, IgcExpansionPanelComponent, IgcButtonComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcExpansionPanelComponent, IgcButtonComponent, IgcIconComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './ExpansionPanelStyling.css';
 
-defineComponents(IgcExpansionPanelComponent, IgcButtonComponent);
+defineComponents(IgcExpansionPanelComponent, IgcButtonComponent, IgcIconComponent);
 export class ExpansionPanelStyling {
 	constructor() {
 	}

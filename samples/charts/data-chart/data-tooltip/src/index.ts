@@ -1,5 +1,5 @@
-import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 
@@ -11,7 +11,8 @@ ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartScatterModule,
     IgcDataChartScatterCoreModule,
-    IgcDataChartInteractivityModule
+    IgcDataChartInteractivityModule,
+    IgcDataChartAnnotationModule
 );
 
 export class Sample {
@@ -20,7 +21,10 @@ export class Sample {
     private xAxis: IgcNumericXAxisComponent
     private yAxis: IgcNumericYAxisComponent
     private bubbleSeries1: IgcBubbleSeriesComponent
+    private sizeScale1: IgcSizeScaleComponent
     private bubbleSeries2: IgcBubbleSeriesComponent
+    private sizeScale2: IgcSizeScaleComponent
+    private dataToolTipLayer: IgcDataToolTipLayerComponent
 
     private _bind: () => void;
 
@@ -29,7 +33,10 @@ export class Sample {
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
         var bubbleSeries1 = this.bubbleSeries1 = document.getElementById('BubbleSeries1') as IgcBubbleSeriesComponent;
+        var sizeScale1 = this.sizeScale1 = document.getElementById('SizeScale1') as IgcSizeScaleComponent;
         var bubbleSeries2 = this.bubbleSeries2 = document.getElementById('BubbleSeries2') as IgcBubbleSeriesComponent;
+        var sizeScale2 = this.sizeScale2 = document.getElementById('SizeScale2') as IgcSizeScaleComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             bubbleSeries1.xAxis = this.xAxis

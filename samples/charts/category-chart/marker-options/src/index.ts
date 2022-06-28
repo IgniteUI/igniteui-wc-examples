@@ -9,8 +9,10 @@ import { MarkerType, MarkerType_$type } from 'igniteui-webcomponents-charts';
 import { EnumUtil } from 'igniteui-webcomponents-core';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';import { ModuleManager } from 'igniteui-webcomponents-core';
+import { defineAllComponents } from 'igniteui-webcomponents';
+import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
     IgcCategoryChartModule,
@@ -61,11 +63,11 @@ export class Sample {
             CategoryChartDescriptionModule.register(context);
             DataChartInteractivityDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
     
-    public editorChangeUpdateMarkerType({ sender, args }: { sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs }): void {
+    public editorChangeUpdateMarkerType(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
         var item = sender as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart;
             

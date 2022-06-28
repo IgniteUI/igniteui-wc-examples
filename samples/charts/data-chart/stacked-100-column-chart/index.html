@@ -20,6 +20,7 @@
     <div class="legend-title">
         Distribution of Online Traffic Worldwide, by Device
     </div>
+    
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -27,6 +28,7 @@
         id ="Legend">
         </igc-legend>
     </div>
+    
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="false"
@@ -54,17 +56,20 @@
                 <igc-stacked-fragment-series
                 name="s1"
                 id ="s1"
+                title="Desktop"
                 value-member-path="desktop">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s2"
                 id ="s2"
-                value-member-path="mobile">
+                value-member-path="mobile"
+                title="Mobile">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s3"
                 id ="s3"
-                value-member-path="tablet">
+                value-member-path="tablet"
+                title="Tablet">
                 </igc-stacked-fragment-series>
             </igc-stacked-100-column-series>
         </igc-data-chart>
