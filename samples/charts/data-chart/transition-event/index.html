@@ -16,9 +16,9 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options horizontal">
+        <div class="options vertical">
         <igc-property-editor-panel
-
+        
         description-type="DataChart"
         is-horizontal="true"
         is-wrapping-enabled="false"
@@ -34,12 +34,12 @@
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
-
+    
         <div class="legend-title">
         Facebook Consolidated Statements of Income
     </div>
-
-
+    
+    
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="false"
@@ -63,7 +63,7 @@
             id ="yAxis">
             </igc-numeric-y-axis>
             <igc-waterfall-series
-
+            
             value-member-path="costs"
             is-transition-in-enabled="true"
             show-default-tooltip="true"
@@ -71,7 +71,7 @@
             id ="WaterfallSeries1">
             </igc-waterfall-series>
             <igc-waterfall-series
-
+            
             value-member-path="netIncome"
             show-default-tooltip="true"
             is-transition-in-enabled="true"
