@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
     <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
   </head>
@@ -16,11 +16,11 @@
     <div id="root">
 
 <div class="container sample">
-    
+
         <div class="legend-title">
         Roadblocks Critical to Success of the Data & Analytics Team
     </div>
-    
+
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -28,14 +28,14 @@
         id ="Legend">
         </igc-legend>
     </div>
-    
+
     <div class="container fill">
         <igc-data-chart
-        
+
         name="Chart"
         id ="Chart">
             <igc-category-y-axis
-            
+
             gap="0.25"
             label-extent="0"
             label="category"
@@ -65,7 +65,7 @@
             id ="CategoryHighlightLayer">
             </igc-category-highlight-layer>
             <igc-bar-series
-            
+
             value-member-path="topChoices"
             is-transition-in-enabled="true"
             is-highlighting-enabled="true"
@@ -75,7 +75,7 @@
             id ="BarSeries1">
             </igc-bar-series>
             <igc-bar-series
-            
+
             title="Top Choice"
             value-member-path="firstChoice"
             show-default-tooltip="true"
@@ -99,7 +99,7 @@
             id ="CalloutLayer1">
             </igc-callout-layer>
             <igc-callout-layer
-            
+
             y-member-path="index"
             x-member-path="topChoices"
             label-member-path="topChoicesLabel"
