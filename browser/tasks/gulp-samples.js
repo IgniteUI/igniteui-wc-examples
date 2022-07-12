@@ -873,17 +873,17 @@ function updateIG(cb) {
     // "@infragistics/igniteui-angular-charts" instead of "igniteui-angular-charts"
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-webcomponents-core"                     , version: "3.2.1" },
-        { name: "igniteui-webcomponents-charts"                   , version: "3.2.1" },
-        { name: "igniteui-webcomponents-excel"                    , version: "3.2.1" },
-        { name: "igniteui-webcomponents-gauges"                   , version: "3.2.1" },
-        { name: "igniteui-webcomponents-grids"                    , version: "3.2.1" },
-        { name: "igniteui-webcomponents-inputs"                   , version: "3.2.1" },
-        { name: "igniteui-webcomponents-layouts"                  , version: "3.2.1" },
-        { name: "igniteui-webcomponents-maps"                     , version: "3.2.1" },
-        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "3.2.1" },
-        { name: "igniteui-webcomponents-spreadsheet"              , version: "3.2.1" },
-        { name: "igniteui-webcomponents-datasources"              , version: "3.2.1", },
+        { name: "igniteui-webcomponents-core"                     , version: "3.2.2" },
+        { name: "igniteui-webcomponents-charts"                   , version: "3.2.2" },
+        { name: "igniteui-webcomponents-excel"                    , version: "3.2.2" },
+        { name: "igniteui-webcomponents-gauges"                   , version: "3.2.2" },
+        { name: "igniteui-webcomponents-grids"                    , version: "3.2.2" },
+        { name: "igniteui-webcomponents-inputs"                   , version: "3.2.2" },
+        { name: "igniteui-webcomponents-layouts"                  , version: "3.2.2" },
+        { name: "igniteui-webcomponents-maps"                     , version: "3.2.2" },
+        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "3.2.2" },
+        { name: "igniteui-webcomponents-spreadsheet"              , version: "3.2.2" },
+        { name: "igniteui-webcomponents-datasources"              , version: "3.2.2", },
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "^3.2.0",  },
         { name: "igniteui-dockmanager", version: "^1.8.0" },
@@ -892,17 +892,18 @@ function updateIG(cb) {
     // NOTE you can comment out strings in this array to run these function only on a subset of samples
     var packagePaths = [
         './package.json', // browser
-        '../samples/charts/**/package.json',
-        '../samples/editors/**/package.json',
-        '../samples/excel/**/package.json',
-        '../samples/gauges/**/package.json',
-        '../samples/grids/**/package.json',
-        '../samples/inputs/**/package.json',
-        '../samples/layouts/**/package.json',
-        '../samples/maps/**/package.json',
-        '../samples/menus/**/package.json',
-        '../samples/notifications/**/package.json',
-        '../samples/scheduling/**/package.json',
+        '../samples/**/package.json',
+        // '../samples/charts/**/package.json',
+        // '../samples/editors/**/package.json',
+        // '../samples/excel/**/package.json',
+        // '../samples/gauges/**/package.json',
+        // '../samples/grids/**/package.json',
+        // '../samples/inputs/**/package.json',
+        // '../samples/layouts/**/package.json',
+        // '../samples/maps/**/package.json',
+        // '../samples/menus/**/package.json',
+        // '../samples/notifications/**/package.json',
+        // '../samples/scheduling/**/package.json',
 
         // '../samples/charts/category-chart/**/package.json',
         // '../samples/maps/geo-map/type-scatter-bubble-series/package.json',
@@ -925,7 +926,7 @@ function updateIG(cb) {
     // gulp all package.json files in samples/browser
     gulp.src(packagePaths, {allowEmpty: true})
     .pipe(es.map(function(file, fileCallback) {
-        let filePath = file.dirname + "\\" + file.basename;
+        let filePath = file.dirname + "/" + file.basename;
 
         var fileContent = file.contents.toString();
         var fileLines = fileContent.split('\n');

@@ -31,7 +31,7 @@ export class Router {
 
         let pathName = window.location.pathname;
 
-        console.log("SB connect " + pathName);
+        // console.log("SB connect " + pathName);
         await this.navigateToRoute(pathName);
 
         window.onpopstate = () => {
@@ -40,7 +40,7 @@ export class Router {
     }
 
     public async navigateTo(route: string) {
-        console.log("SB navigateTo " + route);
+        console.log("SB nav " + route);
         window.history.pushState(
             {},
             this.public_url + route,
@@ -82,7 +82,7 @@ export class Router {
             this._targetEle.classList.add("with-nav-bar");
         }
 
-        console.log("SB matching " + route);
+        // console.log("SB matching " + route);
 
         if (route.indexOf("/maps/") >= 0) {
             this.displaySample(await RouterMaps.get(route));
