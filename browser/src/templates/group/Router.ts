@@ -9,7 +9,7 @@ export class RouterGroupName {
             console.log("SB sample cashed: " + route);
             return this.cachedSamples.get(route);
         } else {
-            console.log("SB sample loading: " + route);
+            // console.log("SB sample loading: " + route);
         }
 
         // auto generate conditions by script:
@@ -24,7 +24,7 @@ export class RouterGroupName {
         // }
 
         if (this.cachedSamples.has(route)) {
-            console.log("SB sample imported: " + route)
+            // console.log("SB sample imported: " + route)
             return this.cachedSamples.get(route);
         }
         // else {
