@@ -1,8 +1,8 @@
-import { defineComponents, IgcAccordionComponent, IgcSwitchComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcAccordionComponent, IgcExpansionPanelComponent, IgcSwitchComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './AccordionNestedScenario.css';
 
-defineComponents(IgcAccordionComponent, IgcSwitchComponent );
+defineComponents(IgcAccordionComponent, IgcExpansionPanelComponent, IgcSwitchComponent );
 export class AccordionNestedScenario {
 	private accordion: IgcAccordionComponent;
 	private switch: IgcSwitchComponent;
@@ -12,7 +12,7 @@ export class AccordionNestedScenario {
 		this.switch = document.getElementById("switch") as IgcSwitchComponent;
 
 		this.switch.addEventListener("igcChange", (ev: CustomEvent) => {
-			this.accordion.singleBranchExpand = ev.detail;
+			this.accordion.singleExpand = ev.detail;
 		});
 	}
 }

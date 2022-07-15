@@ -12,7 +12,7 @@ export class AccordionOverview {
 		this.switch = document.getElementById("switch") as IgcSwitchComponent;
 
 		this.switch.addEventListener("igcChange", (ev: CustomEvent) => {
-			this.accordion.singleBranchExpand = ev.detail;
+			this.accordion.singleExpand = ev.detail;
 		});
 	}
 }
