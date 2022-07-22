@@ -43,7 +43,6 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
     igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
     igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
-
     igConfig.SamplesCopyPath + '/maps/**/package.json',
 
     igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
@@ -880,17 +879,17 @@ function updateIG(cb) {
     // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "@infragistics/igniteui-webcomponents-core"                     , version: "3.2.3" },
-        { name: "@infragistics/igniteui-webcomponents-charts"                   , version: "3.2.3" },
-        { name: "@infragistics/igniteui-webcomponents-excel"                    , version: "3.2.3" },
-        { name: "@infragistics/igniteui-webcomponents-gauges"                   , version: "3.2.3" },
-        { name: "@infragistics/igniteui-webcomponents-grids"                    , version: "3.2.3" },
-        { name: "@infragistics/igniteui-webcomponents-inputs"                   , version: "3.2.3" },
-        { name: "@infragistics/igniteui-webcomponents-layouts"                  , version: "3.2.3" },
-        { name: "@infragistics/igniteui-webcomponents-maps"                     , version: "3.2.3" },
-        { name: "@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter", version: "3.2.3" },
-        { name: "@infragistics/igniteui-webcomponents-spreadsheet"              , version: "3.2.3" },
-        { name: "@infragistics/igniteui-webcomponents-datasources"              , version: "3.2.3", },
+        { name: "igniteui-webcomponents-core"                     , version: "3.2.3" },
+        { name: "igniteui-webcomponents-charts"                   , version: "3.2.3" },
+        { name: "igniteui-webcomponents-excel"                    , version: "3.2.3" },
+        { name: "igniteui-webcomponents-gauges"                   , version: "3.2.3" },
+        { name: "igniteui-webcomponents-grids"                    , version: "3.2.3" },
+        { name: "igniteui-webcomponents-inputs"                   , version: "3.2.3" },
+        { name: "igniteui-webcomponents-layouts"                  , version: "3.2.3" },
+        { name: "igniteui-webcomponents-maps"                     , version: "3.2.3" },
+        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "3.2.3" },
+        { name: "igniteui-webcomponents-spreadsheet"              , version: "3.2.3" },
+        { name: "igniteui-webcomponents-datasources"              , version: "3.2.3", },
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "3.3.0-beta.0",  },
         { name: "igniteui-dockmanager", version: "1.9.0" },
