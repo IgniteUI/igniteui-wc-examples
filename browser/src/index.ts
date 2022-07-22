@@ -17,7 +17,7 @@ Router.instance.connect(document.getElementById("router-target"));
 
 document.querySelectorAll(".nav-link").forEach(nav => {
     let anchor = nav as HTMLAnchorElement;
-    anchor.innerHTML = "&#9899;   " + anchor.innerText;
+    // anchor.innerHTML = "&#9472;   " + anchor.innerText;
     anchor.onclick = (ev) => {
         let navPath = anchor.getAttribute("data-nav") as string;
         Router.instance.navigateTo(navPath);

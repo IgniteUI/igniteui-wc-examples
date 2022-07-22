@@ -48,42 +48,38 @@ html, body, .sample-content {
     text-decoration: none;
     display: block;
     cursor: pointer;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 10px;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.65rem;
     padding-right: 0px;
-    /* color: #272727 !important; */
     color: #dbdbdb;
+    text-transform: uppercase;
 }
 #nav-bar label:hover {
-    /* background: #d8d6d6; */
     background: rgba(204, 204, 204, 0.123);
-    /* color: #ffffff !important; */
     transition: "all 0.0s";
 }
 
 #nav-bar a {
     text-decoration: none;
     display: block;
-    /* padding: 2px; */
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 25px;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.75rem;
     padding-right: 0px;
-    /* color: #272727 !important; */
-    /* color: dodgerblue; */
     color: #dbdbdb;
 }
+
 #nav-bar a:hover {
-    /* background: dodgerblue;
-    color: #ffffff !important; */
     background: rgba(204, 204, 204, 0.123);
     transition: "all 0.0s";
 }
 
+#nav-bar a > span  {
+    padding-left: 0.75rem;
+}
+
 #nav-content {
-    /* float:left; */
-    /* height: 100%; */
     display: block;
     background: rgb(255, 134, 134);
     /* overflow-y: scroll; */
