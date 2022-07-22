@@ -22,8 +22,8 @@
     "start:legacy": "npm run serve:dev:legacy"
   },
   "dependencies": {
-    "@infragistics/igniteui-webcomponents-core": "22.1.62",
-    "@infragistics/igniteui-webcomponents-charts": "22.1.62",
+    "@infragistics/igniteui-webcomponents-core": "3.2.3",
+    "@infragistics/igniteui-webcomponents-charts": "3.2.3",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
