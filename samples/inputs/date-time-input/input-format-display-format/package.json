@@ -1,7 +1,7 @@
 {
-  "name": "wc-input-overview",
+  "name": "wc-date-time-input-input-format-display-format",
   "version": "1.0.0",
-  "description": "This project provides example of input overview using IgniteUI for Web Components",
+  "description": "This project provides example of date time input input/display format using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
@@ -21,7 +21,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "^3.2.0",
+    "igniteui-webcomponents": "3.3.0-beta.0",
     "lit": "^2.0.2",
     "tslib": "^2.0.0"
   },
