@@ -84,6 +84,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/inputs/icon-button/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/input/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/linear-progress-indicator/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/mask-input/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/radio/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/ripple/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/select/**/package.json',
