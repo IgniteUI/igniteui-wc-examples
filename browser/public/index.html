@@ -13,7 +13,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
   <link href="https://static.infragistics.com/xplatform/images/browsers/wc.png" rel="shortcut icon" >
-  <link href="https://static.infragistics.com/xplatform/css/samples/shared.v6.css" rel="stylesheet" type="text/css" />
+  <link href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" rel="stylesheet" type="text/css" />
   <link href="https://static.infragistics.com/xplatform/css/samples/custom-legend.css" rel="stylesheet" type="text/css" />
 
   <!-- <link href="<%= htmlWebpackPlugin.options.publicPath %>assets/css/index.css" rel="stylesheet" /> -->
@@ -34,6 +34,11 @@
        <label id="nav-category-chart" class="nav-component">Category Chart</label> 
        <div id="nav-category-chart-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-annotations">Annotations</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-annotations-all">Annotations All</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-annotations-callouts">Annotations Callouts</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-annotations-crosshairs">Annotations Crosshairs</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-annotations-final-value">Annotations Final Value</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-annotations-highlighting">Annotations Highlighting</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-area-chart-multiple-sources">Area Chart Multiple Sources</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-area-chart-single-source">Area Chart Single Source</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart-area-chart-styling">Area Chart Styling</a> 
@@ -100,6 +105,7 @@
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-axis-sharing">Axis Sharing</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-axis-types">Axis Types</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-bar-chart-multiple-sources">Bar Chart Multiple Sources</a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-bar-chart-overlapping">Bar Chart Overlapping</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-bar-chart-single-source">Bar Chart Single Source</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-bar-chart-styling">Bar Chart Styling</a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart-callout-layer-styling">Callout Layer Styling</a> 
@@ -485,6 +491,12 @@
            <a class="nav-link" href="#" data-nav="/samples/inputs/linear-progress-indicator-styling">Styling</a> 
            <a class="nav-link" href="#" data-nav="/samples/inputs/linear-progress-indicator-types">Types</a> 
        </div>
+       <label id="nav-mask-input" class="nav-component">Mask Input</label> 
+       <div id="nav-mask-input-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/mask-input-applying-mask">Applying Mask</a> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/mask-input-overview">Overview</a> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/mask-input-value-modes">Value Modes</a> 
+       </div>
        <label id="nav-radio" class="nav-component">Radio</label> 
        <div id="nav-radio-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/inputs/radio-alignment">Alignment</a> 
@@ -494,10 +506,24 @@
            <a class="nav-link" href="#" data-nav="/samples/inputs/radio-label">Label</a> 
            <a class="nav-link" href="#" data-nav="/samples/inputs/radio-styling">Styling</a> 
        </div>
+       <label id="nav-rating" class="nav-component">Rating</label> 
+       <div id="nav-rating-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/rating-basic">Basic</a> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/rating-custom">Custom</a> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/rating-styling">Styling</a> 
+       </div>
        <label id="nav-ripple" class="nav-component">Ripple</label> 
        <div id="nav-ripple-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/inputs/ripple-button">Button</a> 
            <a class="nav-link" href="#" data-nav="/samples/inputs/ripple-color">Color</a> 
+       </div>
+       <label id="nav-select" class="nav-component">Select</label> 
+       <div id="nav-select-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/select-group">Group</a> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/select-header">Header</a> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/select-item">Item</a> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/select-overview">Overview</a> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/select-styling">Styling</a> 
        </div>
        <label id="nav-slider" class="nav-component">Slider</label> 
        <div id="nav-slider-list" class="nav-list" state="collapsed"> 
@@ -521,6 +547,12 @@
        </div>
 
        <div class="nav-group">LAYOUTS</div> 
+       <label id="nav-accordion" class="nav-component">Accordion</label> 
+       <div id="nav-accordion-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/accordion-customization">Customization</a> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/accordion-nested-scenario">Nested Scenario</a> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/accordion-overview">Overview</a> 
+       </div>
        <label id="nav-avatar" class="nav-component">Avatar</label> 
        <div id="nav-avatar-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/layouts/avatar-icon">Icon</a> 
@@ -557,6 +589,13 @@
        <div id="nav-icon-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/layouts/icon-sizing">Sizing</a> 
            <a class="nav-link" href="#" data-nav="/samples/layouts/icon-styling">Styling</a> 
+       </div>
+       <label id="nav-tabs" class="nav-component">Tabs</label> 
+       <div id="nav-tabs-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/tabs-alignment">Alignment</a> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/tabs-overview">Overview</a> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/tabs-prefix-suffix">Prefix Suffix</a> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/tabs-scrolling">Scrolling</a> 
        </div>
 
        <div class="nav-group">MAPS</div> 

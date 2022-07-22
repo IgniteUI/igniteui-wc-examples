@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Mask Input Value Modes</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample center">
+        <igc-mask-input id="mask-input">
+          <igc-icon name="file" slot="prefix"></igc-icon>
+        </igc-mask-input>
+
+        <div id="content" style="width: 100%; height: inherit;">
+          <igc-radio-group id="radio-group" alignment="horizontal" style="margin-bottom: 10px;">
+            <igc-radio name="position" value="raw" label-position="after" checked>raw</igc-radio>
+            <igc-radio name="position" value="withFormatting" label-position="after">withFormatting</igc-radio>
+          </igc-radio-group>
+
+          <span id="value-span">Value:</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

@@ -10,5 +10,7 @@ REM FOR /F "tokens=*" %%G IN ('DIR /B /AD /S node_modules') DO ECHO "%%G"
 ECHO - removing %TARGET%\**\build folders in all samples:
     FOR /F "tokens=*" %%G IN ('DIR /B /AD /S build') DO RMDIR /S /Q "%%G" 
 
+del package-lock.json /s
+
 ECHO cleanup %TARGET% completed.
 pause
