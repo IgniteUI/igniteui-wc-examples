@@ -954,6 +954,14 @@ function updateIG(cb) {
                     }
                 }
             }
+
+            // remove a comma from the last item in a list of dependencies
+            let next = i + 1 < fileLines.length ? i + 1 : i;
+            if (fileLines[next].trim().indexOf('}') === 0 &&
+                fileLines[i].indexOf(',') > 0) {
+                fileLines[i] = fileLines[i].replace(',','');
+                fileChanged = true;
+            }
         }
 
         if (fileChanged) {
