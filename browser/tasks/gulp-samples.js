@@ -79,6 +79,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/inputs/checkbox/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/chip/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/circular-progress-indicator/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/date-time-input/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/dropdown/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/icon-button/**/package.json',
