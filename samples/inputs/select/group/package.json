@@ -21,7 +21,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "file:../../../../../igniteui-webcomponents-0.0.0.tgz",
+    "igniteui-webcomponents": "^3.3.0-beta.0",
     "lit": "^2.0.2",
     "tslib": "^2.0.0",
     "@webcomponents/custom-elements": "^1.4.1",
