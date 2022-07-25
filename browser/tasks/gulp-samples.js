@@ -87,7 +87,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/inputs/mask-input/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/radio/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/ripple/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/select/**/package.json',
+    // igConfig.SamplesCopyPath + '/inputs/select/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/slider/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/switches/**/package.json',
 
