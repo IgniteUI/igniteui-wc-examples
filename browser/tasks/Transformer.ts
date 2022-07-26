@@ -762,7 +762,7 @@ class Transformer {
 
                 for (const info of component.Samples) {
                     let route = "/samples" + info.SampleRoute;
-                    sampleLinks += '           <a href="#" data-nav="' + route + '">─<span>' + info.SampleDisplayName + '</span></a> \n';
+                    sampleLinks += '           <a class="nav-link" href="#" data-nav="' + route + '">─<span>' + info.SampleDisplayName + '</span></a> \n';
                 }
                 sampleLinks += '       </div>\n';
             }
