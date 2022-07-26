@@ -31,7 +31,7 @@ export class Router {
 
         let pathName = window.location.pathname;
 
-        // console.log("SB connect " + pathName);
+        console.log("SB connect " + pathName);
         await this.navigateToRoute(pathName);
 
         window.onpopstate = () => {
