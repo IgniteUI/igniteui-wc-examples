@@ -119,7 +119,9 @@ export class Router {
         }
         else if (route !== "/" && route !== "/index") {
             console.log("SB missing router for " + route)
-            // this.navigateToRoute(""); // TODO add fallback
+             let sampleFile = await import('./core/SampleFallback');
+             let sampleView = sampleFile.SampleFallback.register(route);
+             this.displaySample(sampleView);
         }
 
         // switch (route) {

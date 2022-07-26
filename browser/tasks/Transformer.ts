@@ -793,11 +793,22 @@ class Transformer {
                 // let sampleClass = info.SampleFileName.replace('.tsx','');
                 // let samplePath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleClassName;
             }
-            routingConditions += '\n';
+            // routingConditions += '\n';
         }
-        routingConditions += "       ";
-        routingConditions += " else { console.log('SB is missing router for: ' + route) }";
-        routingConditions += '\n';
+        // routingConditions += "       ";
+        // routingConditions += " else { console.log('SB is missing router for: ' + route) }";
+        routingConditions += "        else { \n";
+        routingConditions += "             console.log('" + group.Name + " router missing path:' + route); \n";
+        routingConditions += "             let sample = await import('../../core/SampleFallback'); \n";
+        routingConditions += "             return sample.SampleFallback.register(route); \n";
+        // routingConditions += "      this.cachedSamples.set(route, sample.SampleFallback.register(route)); \n";
+        routingConditions += "        }\n";
+
+        // else {
+        //     console.log('SB is missing router for: ' + route)
+        //     let sample = await import("../../core/SampleFallback");
+        //     this.cachedSamples.set(route, sample.SampleFallback.register(route));
+        //  }
 
         fileContent = fileContent.replace('// {AutoInsertRoutingConditions}', routingConditions);
         fileContent = fileContent.replace('GroupName', Strings.toTitleCase(group.Name));
