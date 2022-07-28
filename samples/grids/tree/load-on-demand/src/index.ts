@@ -1,11 +1,11 @@
-import { defineComponents, IgcCheckboxComponent, IgcIconComponent, IgcTreeComponent, IgcTreeItemComponent, IgcCircularProgressComponent, registerIconFromText } from "igniteui-webcomponents";
+import { defineComponents, IgcTreeComponent, IgcTreeItemComponent, registerIconFromText } from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { DataService } from "./DataService";
 import { DATA, ItemData, SelectableItemData } from "./LoadOnDemandData";
 import { ICONS } from "./SvgIcons";
 import "./TreeLoadOnDemand.css";
 
-defineComponents(IgcTreeComponent, IgcTreeItemComponent, IgcCheckboxComponent, IgcIconComponent, IgcCircularProgressComponent);
+defineComponents(IgcTreeComponent);
 export class TreeLoadOnDemand {
     public data = DATA;
     private tree: IgcTreeComponent;

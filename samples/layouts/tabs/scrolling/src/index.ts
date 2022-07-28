@@ -1,7 +1,7 @@
-import { defineComponents, IgcIconButtonComponent, IgcTabComponent, IgcTabPanelComponent, IgcTabsComponent, registerIconFromText } from 'igniteui-webcomponents';
+import { defineComponents, IgcTabsComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-defineComponents(IgcIconButtonComponent, IgcTabComponent, IgcTabPanelComponent, IgcTabsComponent);
+defineComponents(IgcTabsComponent);
 
 export class TabsScrolling {
     tabs: IgcTabsComponent;

@@ -3,19 +3,16 @@ import {
     IgcAccordionComponent,
     IgcCheckboxComponent,
     IgcDateTimeInputComponent,
-    IgcExpansionPanelComponent,
-    IgcIconComponent,
     IgcRadioComponent,
     IgcRadioGroupComponent,
     IgcRangeSliderComponent,
     IgcRatingComponent,
-    IgcRatingSymbolComponent,
     registerIconFromText
 } from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./AccordionCustomization.css";
 
-defineComponents(IgcAccordionComponent, IgcExpansionPanelComponent, IgcCheckboxComponent, IgcRangeSliderComponent, IgcRadioGroupComponent, IgcRadioComponent, IgcRatingComponent, IgcRatingSymbolComponent, IgcIconComponent, IgcDateTimeInputComponent);
+defineComponents(IgcAccordionComponent, IgcCheckboxComponent, IgcRangeSliderComponent, IgcRadioGroupComponent, IgcRadioComponent, IgcRatingComponent, IgcDateTimeInputComponent);
 export class AccordionOverview {
     private categories = [
         { checked: false, type: "Bike" },
