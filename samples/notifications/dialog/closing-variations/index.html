@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <title>Dialog Closing Variations</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample center">
+      <igc-switch id="closeOnEscSwitch" label-position="before" checked>closeOnEscape</igc-switch>
+      <igc-switch id="closeOnOutsideClickSwitch" label-position="before">closeOnOutsideClick</igc-switch>
+
+      <igc-button onclick="dialog.show()" variant="contained">Show Dialog</igc-button>
+
+      <igc-dialog id="dialog" title="Title Content">
+        Are you sure you want to delete the Annual_Report_2016.pdf and Annual_Report_2017.pdf files?
+
+        <igc-button slot="footer" onclick="dialog.toggle()">OK</igc-button>
+        <igc-button slot="footer" onclick="dialog.toggle()" variant="outlined">Cancel</igc-button>
+      </igc-dialog>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
