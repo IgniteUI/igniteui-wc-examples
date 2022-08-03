@@ -1,31 +1,21 @@
 import { ExcelUtility } from './ExcelUtility';
 import { IgcExcelModule } from 'igniteui-webcomponents-excel';
-// import { IgcExcelXlsxModule } from 'igniteui-webcomponents-excel';
-// import { IgcExcelCoreModule } from 'igniteui-webcomponents-excel';
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcDataChartCoreModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { SparklineType, WorkbookFormat } from 'igniteui-webcomponents-excel';
 import { Workbook } from 'igniteui-webcomponents-excel';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
-import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts';
-import { IgcNumericYAxisComponent } from 'igniteui-webcomponents-charts';
-import { IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
-import { Visibility } from 'igniteui-webcomponents-core';
-// import { IgcAxisComponent } from 'igniteui-webcomponents-charts';
+import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
+import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
+import { SparklineDisplayType } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
-ModuleManager.register(
-    // IgcExcelXlsxModule,
-    // IgcExcelCoreModule,
+ModuleManager.register(    
     IgcExcelModule,
     IgcDataGridModule,
-    IgcDataChartCoreModule,
-    IgcDataChartCategoryModule
+    IgcSparklineModule    
 );
 
 export class ExcelLibrarySparklines {
@@ -48,42 +38,27 @@ export class ExcelLibrarySparklines {
 
     public onOrdersCellUpdating(s: IgcTemplateColumnComponent, e: IgcTemplateCellUpdatingEventArgs) {
         const content = e.content as HTMLDivElement;
-        const info = e.cellInfo as IgcTemplateCellInfo;
-        let chart: IgcDataChartComponent | null = null;
+        const info = e.cellInfo as IgcTemplateCellInfo;        
+        let sparkline: IgcSparklineComponent | null = null;
 
         if (content.childElementCount === 0) {
-            chart = new IgcDataChartComponent();
-            chart.height = '40px';
-            chart.width = '200px';
+            sparkline = new IgcSparklineComponent();
+            sparkline.height = '40px';
+            sparkline.width = '200px';
+            sparkline.displayType = SparklineDisplayType.Column;
+            sparkline.minimum = 0;
 
-            const xAxis = new IgcCategoryXAxisComponent();
-            xAxis.name = 'xAxis';
-            xAxis.labelVisibility = Visibility.Collapsed;
+            sparkline.valueMemberPath = "Freight";
 
-            const yAxis = new IgcNumericYAxisComponent();
-            yAxis.name = 'yAxis';
-            yAxis.minimumValue = 0;
-            yAxis.labelVisibility = Visibility.Collapsed;
+            content.appendChild(sparkline);
 
-            chart.axes.add(xAxis);
-            chart.axes.add(yAxis);
-
-            const series = new IgcColumnSeriesComponent();
-            series.name = 'series';
-            series.xAxis = xAxis;
-            series.yAxis = yAxis;
-            series.valueMemberPath = 'Freight';
-
-            chart.series.add(series);
-
-            content.appendChild(chart);
         }
-        else {
-            chart = content.children[0] as IgcDataChartComponent;
+        else {            
+            sparkline = content.children[0] as IgcSparklineComponent;
         }
 
-        if (chart) {
-            chart.dataSource = info.rowItem.Orders;
+        if (sparkline) {            
+            sparkline.dataSource = info.rowItem.Orders;
         }
     }
 
