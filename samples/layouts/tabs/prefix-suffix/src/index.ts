@@ -1,7 +1,7 @@
-import { defineComponents, IgcIconButtonComponent, IgcIconComponent, IgcTabComponent, IgcTabPanelComponent, IgcTabsComponent, registerIconFromText } from 'igniteui-webcomponents';
+import { defineComponents, IgcTabComponent, IgcTabPanelComponent, IgcTabsComponent, registerIconFromText } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-defineComponents(IgcIconButtonComponent, IgcIconComponent, IgcTabComponent, IgcTabPanelComponent, IgcTabsComponent);
+defineComponents(IgcTabsComponent);
 
 export class TabsPrefixSuffix {
     constructor() {

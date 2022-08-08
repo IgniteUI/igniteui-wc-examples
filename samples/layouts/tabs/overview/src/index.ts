@@ -1,7 +1,7 @@
-import { defineComponents, IgcIconComponent, IgcTabComponent, IgcTabPanelComponent, IgcTabsComponent, registerIconFromText } from 'igniteui-webcomponents';
+import { defineComponents, IgcTabsComponent, registerIconFromText } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-defineComponents(IgcIconComponent, IgcTabComponent, IgcTabPanelComponent, IgcTabsComponent);
+defineComponents(IgcTabsComponent);
 
 export class TabsOverview {
     constructor() {

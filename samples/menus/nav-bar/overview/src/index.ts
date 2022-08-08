@@ -1,5 +1,5 @@
 import { defineComponents, IgcNavbarComponent, IgcIconComponent, registerIconFromText } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';;
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 defineComponents(IgcNavbarComponent, IgcIconComponent);
 export class NavbarOverview {
