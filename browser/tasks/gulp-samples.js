@@ -57,7 +57,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
 
-    // igConfig.SamplesCopyPath + '/layouts/accordion/**/package.json',
+    igConfig.SamplesCopyPath + '/layouts/accordion/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/card/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/avatar/**/package.json',
@@ -86,6 +86,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/inputs/linear-progress-indicator/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/mask-input/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/radio/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/rating/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/ripple/**/package.json',
     // igConfig.SamplesCopyPath + '/inputs/select/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/slider/**/package.json',
