@@ -7,8 +7,10 @@ import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
 import { IgcColumnSummaryDescription } from 'igniteui-webcomponents-grids'
 import { SummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, ISummaryResult } from 'igniteui-webcomponents-core';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridColumnSummaries {
 

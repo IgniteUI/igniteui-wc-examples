@@ -7,15 +7,17 @@ import { FilterUIType } from 'igniteui-webcomponents-grids';
 import { EditorType } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { DataGridSharedData } from './DataGridSharedData';
- 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridColumnFilterOperands {
 
     private grid: IgcDataGridComponent;
 
-    constructor() {        
+    constructor() {
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.filterUIType = FilterUIType.FilterRow;
         this.grid.dataSource = DataGridSharedData.getEmployees(4000);
@@ -46,9 +48,9 @@ export class DataGridColumnFilterOperands {
         filterOperand3.displayName = "Greater Than $500k";
         filterOperand3.filterRequested = this.onFilter3;
         let column3 = this.grid.actualColumns.item(2);
-        if (column3 !== null && column3 !== undefined)    
+        if (column3 !== null && column3 !== undefined)
         column3.filterOperands.add(filterOperand3);
-    }   
+    }
 
     onFilter1(s: IgcFilterOperand, e: IgcGridCustomFilterRequestedEventArgs)
     {

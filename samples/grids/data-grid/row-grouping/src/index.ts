@@ -5,9 +5,11 @@ import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcColumnGroupingModule } from 'igniteui-webcomponents-grids'
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
-ModuleManager.register(IgcColumnGroupingModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule,
+    IgcColumnGroupingModule
+);
 
 export class DataGridRowGrouping {
 

@@ -5,7 +5,10 @@ import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { ODataVirtualDataSource } from 'igniteui-webcomponents-datasources';
 
-ModuleManager.register(IgcDataGridModule, IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridBindingRemoteData {
 

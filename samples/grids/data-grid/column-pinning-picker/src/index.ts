@@ -6,8 +6,10 @@ import { DataGridSharedData } from './DataGridSharedData';
 import { PinnedPositions } from 'igniteui-webcomponents-grids';
 import { Button } from '@material/mwc-button';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridColumnPinningPicker {
 

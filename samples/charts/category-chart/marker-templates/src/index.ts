@@ -2,8 +2,10 @@ import { IgcCategoryChartModule, IgcChartSeriesEventArgs, IgcCategoryChartCompon
          IgcColumnSeriesComponent, IgcLegendModule, IgcLegendComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager, DataTemplateMeasureInfo, DataTemplateRenderInfo } from 'igniteui-webcomponents-core';
 
-ModuleManager.register(IgcCategoryChartModule);
-ModuleManager.register(IgcLegendModule);
+ModuleManager.register(
+    IgcCategoryChartModule,
+    IgcLegendModule
+);
 
 export class CategoryChartMarkerTemplates {
 
@@ -18,7 +20,7 @@ export class CategoryChartMarkerTemplates {
         this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.chart.seriesAdded = this.onSeriesAdded;
         this.chart.dataSource = this.data;
-        
+
         this.chart.legend = document.getElementById("legend") as IgcLegendComponent;
     }
 
@@ -31,7 +33,7 @@ export class CategoryChartMarkerTemplates {
         ];
     }
 
-    public onSeriesAdded(s: IgcDomainChartComponent, e: IgcChartSeriesEventArgs){        
+    public onSeriesAdded(s: IgcDomainChartComponent, e: IgcChartSeriesEventArgs){
         let series : IgcColumnSeriesComponent = e.series as IgcColumnSeriesComponent;
         series.markerTemplate = this.getMarker();
     }

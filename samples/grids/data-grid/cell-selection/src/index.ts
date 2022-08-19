@@ -10,8 +10,10 @@ import { IgcGridSelectedKeysChangedEventArgs } from 'igniteui-webcomponents-grid
 import { IgcGridSelectedCellsChangedEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcGridSelectedCellRangesChangedEventArgs } from 'igniteui-webcomponents-grids';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridCellSelection {
 
