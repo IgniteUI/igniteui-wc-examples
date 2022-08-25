@@ -62,8 +62,8 @@ export class MapDisplayImageryHeatTiles {
         gen.useGlobalMinMax = true;
         gen.useGlobalMinMaxAdjustedForZoom = true;
         gen.useLogarithmicScale = true;
-        gen.useWebWorkers = true;
-        gen.webWorkerInstance = new Worker();
+        gen.useWebWorkers = false;
+        // gen.webWorkerInstance = new Worker();
 
         gen.scaleColors = [
             'rgba(0, 0, 255, .251)', 'rgba(0, 255, 255, .3765)',
