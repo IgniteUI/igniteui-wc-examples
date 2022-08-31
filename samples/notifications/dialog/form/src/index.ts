@@ -15,23 +15,9 @@ export class DialogForm {
         registerIconFromText("password", passwordIcon);
         const dialog = document.getElementById('dialog') as IgcDialogComponent;
         const form = document.getElementById('form') as IgcFormComponent;
-        const span = document.getElementById('formResult') as HTMLElement;
 
         dialog.addEventListener('igcOpening', function () {
             form.reset();
-        });
-
-        document.addEventListener('igcSubmit', function (event) {
-            const customEvent = event as CustomEvent<FormData>;
-            const formData = customEvent.detail;
-            const arr = [];
-
-            for (const pair of formData.entries()) {
-              arr.push(pair[0] + ': ' + pair[1]);
-            }
-            
-            span.innerHTML = arr.join("<br/>");
-            dialog.hide();
         });
     }
 }

@@ -16,12 +16,11 @@
     <div class="container sample center">
       <igc-button onclick="dialog.show()" variant="contained">Show Dialog</igc-button>
 
-      <igc-dialog id="dialog" title="Title Content">
+      <igc-dialog id="dialog" title="Confirmation">
         <h1 slot="title">Styled Title</h1>
-        Are you sure you want to delete the Annual_Report_2016.pdf and Annual_Report_2017.pdf files?
-
-        <igc-button slot="footer" onclick="dialog.toggle()">OK</igc-button>
-        <igc-button slot="footer" onclick="dialog.toggle()" variant="outlined">Cancel</igc-button>
+        <p>Are you sure you want to delete the Annual_Report_2016.pdf and Annual_Report_2017.pdf files?</p>
+        <igc-button slot="footer" onclick="dialog.toggle()" variant="flat">Cancel</igc-button>
+        <igc-button slot="footer" onclick="dialog.toggle()" variant="flat">OK</igc-button>
       </igc-dialog>
     </div>
   </div>

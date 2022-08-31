@@ -16,8 +16,6 @@
     <div class="container sample center">
       <igc-button onclick="dialog.show()" variant="contained">Show Dialog</igc-button>
 
-      <div id="formResult"></div>
-
       <igc-dialog id="dialog" title="Login">
         <igc-form id="form">
           <igc-input label="Username">
@@ -28,7 +26,8 @@
             <igc-icon name="password" slot="prefix"></igc-icon>
           </igc-input>
           <br>
-          <igc-button type="submit">Submit</igc-button>
+          <igc-button type="reset" variant="flat">Reset</igc-button>
+          <igc-button type="submit" variant="flat">Submit</igc-button>
         </igc-form>
         
       </igc-dialog>
