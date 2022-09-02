@@ -13,12 +13,6 @@ export class DialogForm {
     constructor() {
         registerIconFromText("username", userIcon);
         registerIconFromText("password", passwordIcon);
-        const dialog = document.getElementById('dialog') as IgcDialogComponent;
-        const form = document.getElementById('form') as IgcFormComponent;
-
-        dialog.addEventListener('igcOpening', function () {
-            form.reset();
-        });
     }
 }
 
