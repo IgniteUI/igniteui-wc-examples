@@ -2,7 +2,7 @@
 
 /* tslint:disable:prefer-const */
 
-import { Style } from 'igniteui-react-core';
+import { Style } from 'igniteui-webcomponents-core';
 
 export abstract class ShapeStyling {
   public defaultStroke = 'black';

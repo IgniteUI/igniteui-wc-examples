@@ -350,7 +350,6 @@ class Transformer {
 
         let sampleCodeLines = sampleSourceCode.split('\n');
         for (const line of sampleCodeLines) {
-            // if (line.indexOf(" from 'react'") > 0) continue;
             if (line.indexOf("//") >= 0) continue;
 
             if (line.indexOf("import ") >= 0) {
