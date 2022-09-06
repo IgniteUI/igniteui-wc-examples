@@ -66,7 +66,7 @@ Follow these instructions to run a single sample on your computer:
 
 [./samples/charts/category-chart/overview](./samples/charts/category-chart/overview)
 
-- type `npm install` command in terminal window
+- type `npm install --legacy-peer-deps` command in terminal window
 
 - type `npm run start` command in terminal window
 
@@ -85,7 +85,7 @@ Follow these instructions to run all samples locally in a browser application.
 
 - select **View** - **Terminal** menu item
 
-- type `npm install` command in terminal window
+- type `npm install --legacy-peer-deps` command in terminal window
 
 This will install required packages and [Ignite UI for Web Components](https://www.infragistics.com/webcomponentssite/components/general-getting-started.html) packages from npm website:
 
@@ -134,7 +134,7 @@ Next, follow these steps:
 
 - rename class to the name of .tsx file
 
-- type `npm install` command in terminal window
+- type `npm install --legacy-peer-deps` command in terminal window
 
 - type `npm run start` command in terminal window
 
