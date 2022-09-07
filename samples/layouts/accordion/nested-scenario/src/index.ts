@@ -2,7 +2,7 @@ import { defineComponents, IgcAccordionComponent, IgcExpansionPanelComponent, Ig
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./AccordionNestedScenario.css";
 
-defineComponents(IgcAccordionComponent, IgcExpansionPanelComponent, IgcSwitchComponent);
+defineComponents(IgcAccordionComponent, IgcSwitchComponent);
 export class AccordionNestedScenario {
     private accordion: IgcAccordionComponent;
     private switch: IgcSwitchComponent;

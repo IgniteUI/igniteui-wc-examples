@@ -1,7 +1,7 @@
-import { defineComponents, IgcRatingComponent, IgcRatingSymbolComponent, IgcIconComponent, registerIconFromText } from 'igniteui-webcomponents';
+import { defineComponents, IgcRatingComponent, registerIconFromText } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-defineComponents(IgcRatingComponent, IgcRatingSymbolComponent, IgcIconComponent);
+defineComponents(IgcRatingComponent);
 export class EmptyStateRating {
     constructor() {
         registerIconFromText(

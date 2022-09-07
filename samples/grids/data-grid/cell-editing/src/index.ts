@@ -8,8 +8,10 @@ import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { GridActivationMode, GridSelectionMode, EditModeType } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridCellEditing {
 
@@ -114,7 +116,7 @@ export class DataGridCellEditing {
     public editModeClickActionChanged = (event: any) => {
 
         this.grid.editModeClickAction = event.target.value;
-       
+
     }
 
     public onDeleteRowClick = (e: MouseEvent) => {

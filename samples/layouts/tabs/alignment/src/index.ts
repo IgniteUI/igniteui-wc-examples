@@ -1,7 +1,7 @@
-import { defineComponents, IgcTabComponent, IgcTabPanelComponent, IgcTabsComponent, IgcRadioGroupComponent, IgcRadioComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcTabsComponent, IgcRadioGroupComponent, IgcRadioComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-defineComponents(IgcTabComponent, IgcTabPanelComponent, IgcTabsComponent, IgcRadioComponent, IgcRadioGroupComponent);
+defineComponents(IgcTabsComponent, IgcRadioComponent, IgcRadioGroupComponent);
 
 export class TabsAlignment {
     radioGroup: IgcRadioGroupComponent;

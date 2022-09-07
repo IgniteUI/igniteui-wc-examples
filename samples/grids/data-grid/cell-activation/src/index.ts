@@ -7,8 +7,10 @@ import { EditModeType } from 'igniteui-webcomponents-grids';
 import { DataGridSharedData } from './DataGridSharedData';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridCellActivation {
 

@@ -30,7 +30,7 @@ export class CategoryChartHighlighting {
         this.chart.highlightingBehavior = SeriesHighlightingBehavior.Auto;
         this.chart.legendHighlightingMode = LegendHighlightingMode.Auto;
 
-        const highlightingTarget1 = document.getElementById('highlightingTarget') as HTMLSelectElement;;
+        const highlightingTarget1 = document.getElementById('highlightingTarget') as HTMLSelectElement;
         highlightingTarget1!.addEventListener('change', this.onHighlightingTargetChanged);
 
         const highlightingMode = document.getElementById("highlightingMode") as HTMLSelectElement;

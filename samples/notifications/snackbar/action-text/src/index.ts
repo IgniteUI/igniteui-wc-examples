@@ -1,7 +1,7 @@
-import {defineComponents, IgcSnackbarComponent, IgcButtonComponent } from 'igniteui-webcomponents';
+import {defineComponents, IgcSnackbarComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-defineComponents(IgcSnackbarComponent, IgcButtonComponent);
+defineComponents(IgcSnackbarComponent);
 export class SnackbarActionText {
     constructor() {
         const snackbar = document.querySelector('igc-snackbar') as IgcSnackbarComponent;

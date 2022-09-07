@@ -27,24 +27,24 @@ This repository contains over 300 examples on how to use [Ignite UI for Web ](ht
 [Step](https://www.infragistics.com/webcomponentssite/components/charts/types/step-chart),
 - Maps:
 [Geographic Map](https://www.infragistics.com/webcomponentssite/components/geo-map.html),
-[Treemap](https://www.infragistics.com/webcomponentssite/components/treemap-overview.html),
+[Treemap](https://www.infragistics.com/webcomponentssite/components/charts/types/treemap-chart.html),
 - Gauges:
 [Bullet Graph](https://www.infragistics.com/webcomponentssite/components/bullet-graph),
 [Linear Gauge](https://www.infragistics.com/webcomponentssite/components/linear-gauge.html),
 [Radial Gauges](https://www.infragistics.com/webcomponentssite/components/radial-gauge.html)
 - Grids:
-[Table / Grid](https://www.infragistics.com/webcomponentssite/components/data-grid.html),
+[Table / Grid](https://www.infragistics.com/webcomponentssite/components/grids/data-grid.html),
 [Excel Spreadsheet](https://www.infragistics.com/webcomponentssite/components/spreadsheet_overview.html),
 [Excel Library](https://www.infragistics.com/webcomponentssite/components/excel_library_using_workbooks.html)
 - Other:
-[Dock Manager](https://www.infragistics.com/webcomponentssite/components/dock-manager),
+[Dock Manager](https://www.infragistics.com/webcomponentssite/components/layouts/dock-manager),
 [Date Picker](https://www.infragistics.com/webcomponentssite/components/editors/date-picker),
 [Multi-Column Combobox](https://www.infragistics.com/webcomponentssite/components/editors/multi-column-combobox)
 
 
 ## Preview
 
-You can preview and browse all samples in this repository by opening our [Web Components Browser](https://www.infragistics.com/react-demos/samples/). Alternatively, you you can view these samples with detailed information in our [Web Component Documentation](https://infragistics.com/webcomponentssite/components/general-getting-started.html).
+You can preview and browse all samples in this repository by opening our [Web Components Browser](https://www.infragistics.com/webcomponents-demos/samples/index). Alternatively, you you can view these samples with detailed information in our [Web Component Documentation](https://infragistics.com/webcomponentssite/components/general-getting-started.html).
 
 In addition, you can run each sample project individually from the [./samples](./samples) folder or you can run from the [./browser](./browser) folder to browse all samples in one website (see instructions below). You can run each sample on Code Sandbox website by clicking on the **Edit Sandbox** button in a readme file of sample project, e.g.
 
@@ -66,7 +66,7 @@ Follow these instructions to run a single sample on your computer:
 
 [./samples/charts/category-chart/overview](./samples/charts/category-chart/overview)
 
-- type `npm install` command in terminal window
+- type `npm install --legacy-peer-deps` command in terminal window
 
 - type `npm run start` command in terminal window
 
@@ -85,7 +85,7 @@ Follow these instructions to run all samples locally in a browser application.
 
 - select **View** - **Terminal** menu item
 
-- type `npm install` command in terminal window
+- type `npm install --legacy-peer-deps` command in terminal window
 
 This will install required packages and [Ignite UI for Web Components](https://www.infragistics.com/webcomponentssite/components/general-getting-started.html) packages from npm website:
 
@@ -134,7 +134,7 @@ Next, follow these steps:
 
 - rename class to the name of .tsx file
 
-- type `npm install` command in terminal window
+- type `npm install --legacy-peer-deps` command in terminal window
 
 - type `npm run start` command in terminal window
 
