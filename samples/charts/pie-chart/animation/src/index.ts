@@ -16,11 +16,11 @@ export class PieChartAnimation {
 
         this.chart = document.getElementById('chart') as IgcPieChartComponent;
         this.chart.dataSource = [
-            { MarketShare: 37, Category: "Cooling" },
-            { MarketShare: 25, Category: "Residential" },
-            { MarketShare: 12, Category: "Heating" },
-            { MarketShare: 11, Category: "Lighting" },
-            { MarketShare: 15, Category: "Other" }
+            { MarketShare: 37, Company: "Cooling", Summary: "Cooling 37%" },
+            { MarketShare: 25, Company: "Residential", Summary: "Residential 25%"  },
+            { MarketShare: 12, Company: "Heating", Summary: "Heating 12%" },
+            { MarketShare: 8, Company: "Lighting", Summary: "Lighting 8%" },
+            { MarketShare: 18, Company: "Other", Summary: "Other 18%" }
         ];
         this.onChartInit();
 
