@@ -1,0 +1,175 @@
+.sample {
+    max-width: 72rem;
+}
+
+.cards-wrapper,
+.flex-form,
+.sample-row,
+.form-row,
+.success-message,
+.card-content-wrapper {
+    display: flex;
+}
+
+.flex-form,
+.form-row igc-input,
+.form-row igc-mask-input,
+.form-row igc-select {
+    flex: 1;
+}
+
+.card-content-wrapper {
+    flex-direction: column;
+}
+
+.sample-row {
+    gap: 2rem;
+}
+
+.flex-form {
+    flex-direction: column;
+}
+
+.form-row {
+    gap: 1rem;
+}
+
+.cards-wrapper {
+    gap: 1.8rem;
+    justify-content: center;
+}
+
+.card-wrapper {
+    max-width: 320px;
+    min-width: 220px;
+    position: relative;
+}
+
+.card-wrapper igc-card {
+    height: 100%;
+}
+
+igc-card {
+    padding: 1rem;
+}
+
+igc-card.card-first-step {
+    cursor: pointer;
+}
+
+igc-card-content {
+    text-align: center;
+    padding: 1.8rem;
+}
+
+igc-card-content p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.card-currency {
+    display: block;
+    font-size: 3rem;
+    color: #e41c77;
+    margin-bottom: 0.5rem;
+}
+
+.card-currency::before {
+    content: "$";
+    font-size: 2rem;
+    margin-right: 0.4rem;
+    position: relative;
+    top: -0.8rem;
+}
+
+.card-title {
+    display: block;
+    font-size: rem(14px);
+    font-weight: 500;
+    margin: 0 rem(8px);
+    color: #e41c77;
+}
+
+.selected-card igc-card {
+    border: 2px solid rgb(0, 153, 255);
+    position: relative;
+    overflow: initial;
+}
+
+igc-badge {
+    position: absolute;
+    z-index: 1;
+    top: -0.4rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.card-wrapper igc-badge {
+    display: none;
+}
+
+.card-wrapper.selected-card igc-badge {
+    display: block;
+}
+
+igc-checkbox,
+label {
+    margin-top: 0.5rem;
+}
+
+.success-message {
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.success-message igc-icon {
+    --size: 48px;
+    color: #309331;
+}
+
+.success-message p {
+    margin: 0;
+}
+
+.success-text {
+    flex-direction: column;
+}
+
+.success-text .sample-step-title {
+    margin: 0;
+}
+
+.card-horizontal igc-card {
+    height: 200px;
+    width: 600px;
+}
+
+.card-horizontal igc-card .card-content-wrapper  {
+    flex-direction: row;
+    align-items: center;
+}
+.card-horizontal igc-card .card-content-wrapper igc-card-media {
+    height: 150px;
+    width: 100%;
+}
+.card-horizontal igc-card .card-content-wrapper  igc-card-media img {
+    object-fit: contain;
+}
+
+.card-horizontal igc-card div:first-child {
+    padding-left: 1rem;
+}
+
+.required {
+    margin-left: 0.5rem;
+    color: red;
+}
+
+.terms-and-conditions {
+    margin-left: 0.5rem;
+    color: #09f;
+    text-decoration: none;
+}

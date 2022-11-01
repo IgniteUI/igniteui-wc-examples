@@ -1,0 +1,66 @@
+<html>
+
+<head>
+  <title>Stepper Label Position And Orientation Example</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample">
+      <div class="radio-groups">
+        <div class="radio-group">
+          <label>Title position</label>
+          <div class="radio-group-container">
+            <igc-radio-group id="titlePosition" alignment="horizontal">
+              <igc-radio value="top">Top</igc-radio>
+              <igc-radio value="bottom">Bottom</igc-radio>
+              <igc-radio value="start">Start</igc-radio>
+              <igc-radio value="end">End</igc-radio>
+            </igc-radio-group>
+          </div>
+        </div>
+        <div class="radio-group">
+          <label>Orientation</label>
+          <div class="radio-group-container">
+            <igc-radio-group id="orientation" alignment="horizontal">
+              <igc-radio value="horizontal">Horizontal</igc-radio>
+              <igc-radio value="vertical">Vertical</igc-radio>
+            </igc-radio-group>
+          </div>
+        </div>
+      </div>
+      <igc-stepper id="stepper">
+        <igc-step>
+          <span slot="title">Order</span>
+          </br>
+          <igc-button onclick="stepper.next()">NEXT</igc-button>
+        </igc-step>
+        <igc-step>
+          <span slot="title">Payment</span>
+          </br>
+          <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
+          <igc-button onclick="stepper.next()">NEXT</igc-button>
+        </igc-step>
+        <igc-step>
+          <span slot="title">Confirmation</span>
+          </br>
+          <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
+          <igc-button onclick="stepper.reset()">RESET</igc-button>
+        </igc-step>
+      </igc-stepper>
+    </div>
+  </div>
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+</body>
+
+</html>

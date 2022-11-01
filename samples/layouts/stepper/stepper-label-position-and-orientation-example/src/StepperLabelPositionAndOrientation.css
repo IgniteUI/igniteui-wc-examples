@@ -1,0 +1,18 @@
+.container {
+    padding: 1rem;
+}
+
+.radio-groups {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.radio-group {
+    margin-right: 2rem;
+}
+
+.radio-group-container {
+    padding: 0.5rem;
+    border: 1px solid gainsboro;
+}
