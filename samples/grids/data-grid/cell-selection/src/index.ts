@@ -3,7 +3,7 @@ import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { DataGridSharedData } from './DataGridSharedData';
-import { GridSelectionMode } from 'igniteui-webcomponents-grids';
+import { DataGridSelectionMode } from 'igniteui-webcomponents-grids';
 import { GridActivationMode } from 'igniteui-webcomponents-grids';
 import { IgcGridSelectedItemsChangedEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcGridSelectedKeysChangedEventArgs } from 'igniteui-webcomponents-grids';
@@ -30,7 +30,7 @@ export class DataGridCellSelection {
         this.grid.dataSource = DataGridSharedData.getEmployees();
 
         // this.grid.activationMode = GridActivationMode.Cell;
-        this.grid.selectionMode = GridSelectionMode.SingleRow;
+        this.grid.selectionMode = DataGridSelectionMode.SingleRow;
         this.grid.selectedItemsChanged = this.onSelectedItemsChanged;
         this.grid.selectedCellsChanged = this.onSelectedCellsChanged;
         this.grid.selectedKeysChanged = this.onSelectedKeysChanged;
@@ -65,27 +65,27 @@ export class DataGridCellSelection {
 
         switch (dropDown.value) {
             case 'None': {
-                grid.selectionMode = GridSelectionMode.None;
+                grid.selectionMode = DataGridSelectionMode.None;
                 break;
             }
             case 'SingleCell': {
-                grid.selectionMode = GridSelectionMode.SingleCell;
+                grid.selectionMode = DataGridSelectionMode.SingleCell;
                 break;
             }
             case 'SingleRow': {
-                grid.selectionMode = GridSelectionMode.SingleRow;
+                grid.selectionMode = DataGridSelectionMode.SingleRow;
                 break;
             }
             case 'MultipleCell': {
-                grid.selectionMode = GridSelectionMode.MultipleCell;
+                grid.selectionMode = DataGridSelectionMode.MultipleCell;
                 break;
             }
             case 'MultipleRow': {
-                grid.selectionMode = GridSelectionMode.MultipleRow;
+                grid.selectionMode = DataGridSelectionMode.MultipleRow;
                 break;
             }
             case 'RangeCell': {
-                grid.selectionMode = GridSelectionMode.RangeCell;
+                grid.selectionMode = DataGridSelectionMode.RangeCell;
                 break;
             }
         }

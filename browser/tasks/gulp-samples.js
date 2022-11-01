@@ -892,7 +892,7 @@ function updateIG(cb) {
         { name: "@infragistics/igniteui-webcomponents-spreadsheet"              , version: "22.2.4" },
         { name: "@infragistics/igniteui-webcomponents-datasources"              , version: "22.2.4", },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "3.4.0",  },
+        { name: "igniteui-webcomponents", version: "3.4.2",  },
         { name: "igniteui-dockmanager", version: "1.9.0" },
     ];
 
