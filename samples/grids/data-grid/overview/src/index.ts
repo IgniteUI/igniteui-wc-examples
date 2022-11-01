@@ -11,7 +11,7 @@ import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcImageColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
 import { IgcColumnSummaryDescription } from 'igniteui-webcomponents-grids'
-import { SummaryOperand } from 'igniteui-webcomponents-core';
+import { DataSourceSummaryOperand } from 'igniteui-webcomponents-core';
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { SparklineDisplayType } from 'igniteui-webcomponents-charts';
@@ -64,18 +64,18 @@ export class DataGridOverview {
 
         const peopleCount = new IgcColumnSummaryDescription();
         peopleCount.field = 'Photo';
-        peopleCount.operand = SummaryOperand.Count;
+        peopleCount.operand = DataSourceSummaryOperand.Count;
         this.grid.summaryDescriptions.add(peopleCount);
 
         const sales = new IgcColumnSummaryDescription();
         sales.field = 'Sales';
-        sales.operand = SummaryOperand.Max;
+        sales.operand = DataSourceSummaryOperand.Max;
         sales.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(sales);
 
         const salary = new IgcColumnSummaryDescription();
         salary.field = 'Salary';
-        salary.operand = SummaryOperand.Average;
+        salary.operand = DataSourceSummaryOperand.Average;
         salary.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(salary);
     }
