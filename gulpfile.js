@@ -1,6 +1,6 @@
 
 let gulp = require('gulp');
-let sb = require('./tasks/gulp-samples.js')
+let sb = require('./browser/tasks/gulp-samples.js')
 
 // NOTE run "gulp updateBrowser" before running "npm run start"
 exports.updateBrowser = updateBrowser = gulp.series(

@@ -13,7 +13,7 @@
     "url": "https://github.com/IgniteUI/igniteui-wc-examples"
   },
   "license": "ISC",
-  "main": "src/index.ts",
+  "main": "browser/src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
     "build:dev": "gulp updateBrowser && webpack --mode development --config ./webpack.config.js --progress --color --display-error-details",

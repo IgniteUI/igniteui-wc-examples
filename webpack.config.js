@@ -56,12 +56,12 @@ const presets = [
 
 var config = {
   devtool: isProd ? false : 'source-map',
-  context: path.resolve('./src'),
+  context: path.resolve('./browser/src'),
   entry: {
     app: './index.ts'
   },
   output: {
-    path: path.resolve('./dist'),
+    path: path.resolve('./browser/dist'),
     filename:  process.env.production ? '[name].[chunkhash:8].js' : '[name].[hash:8].js',
     chunkFilename:  process.env.production ? '[name].[chunkhash:8].chunk.js' : '[name].[hash:8].chunk.js',
     publicPath: isProd ? './' : '/'
