@@ -10,6 +10,7 @@ import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
 import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcDataGridColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcDefinitionBaseComponent } from 'igniteui-webcomponents-grids';
 import { ListSortDirection } from 'igniteui-webcomponents-core';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -181,7 +182,7 @@ export class DataGridTypeMarketingTable {
         window.setTimeout(() => this.tick(), 16);
     }
 
-    onPriceStyleKey(col: IgcDataGridColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    onPriceStyleKey(col: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         let row: any | null = null;
         if (this.grid && this.grid.actualDataSource) {
             row = this.grid.actualDataSource.getItemAtIndex(args.rowNumber);
@@ -276,7 +277,7 @@ export class DataGridTypeMarketingTable {
         }
     }
 
-    onPricePercentStyleKey(grid: IgcDataGridColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    onPricePercentStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = "pricePercentUp";
         } else {
@@ -359,7 +360,7 @@ export class DataGridTypeMarketingTable {
         }
     }
 
-    onPriceAmountStyleKey(grid: IgcDataGridColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    onPriceAmountStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = "priceAmountUp";
         } else {

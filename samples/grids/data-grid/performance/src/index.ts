@@ -9,6 +9,7 @@ import { IgcCellStyleRequestedEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
 import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcDataGridColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcDefinitionBaseComponent} from 'igniteui-webcomponents-grids';
 import { IgcColumnWidth } from 'igniteui-webcomponents-grids';
 import { DataGridSelectionMode } from 'igniteui-webcomponents-grids';
 import { HeaderClickAction } from 'igniteui-webcomponents-grids';
@@ -169,7 +170,7 @@ export class DataGridPerformance {
         window.setTimeout(this.tick, 16);
     }
 
-    public onPriceStyleKey(grid: IgcDataGridColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    public onPriceStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         let row: SalesPerson;
         if (this.grid) {
             row = this.grid.actualDataSource.getItemAtIndex(args.rowNumber);
@@ -226,7 +227,7 @@ export class DataGridPerformance {
         }
     }
 
-    public onPriceAmountStyleKey(grid: IgcDataGridColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    public onPriceAmountStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = 'priceAmountUp';
         } else {
@@ -268,7 +269,7 @@ export class DataGridPerformance {
         }
     }
 
-    public onPricePercentStyleKey(grid: IgcDataGridColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    public onPricePercentStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = 'pricePercentUp';
         } else {
