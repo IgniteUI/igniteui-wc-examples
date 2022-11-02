@@ -18,7 +18,7 @@ export class AutoInsertClassName extends SampleBase { // auto appended base clas
     public static htmlTagName: string = SampleBase.tag("AutoInsertClassName");
     // auto inserted code:
     public static register(): any {
-        console.log("SB register AutoInsertClassName as <" + this.htmlTagName + "/>");
+        // console.log("SB register AutoInsertClassName as <" + this.htmlTagName + "/>");
         window.customElements.define(this.htmlTagName, AutoInsertClassName);
         return this;
     }

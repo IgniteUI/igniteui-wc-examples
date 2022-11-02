@@ -9,7 +9,8 @@ import { IgcCellStyleRequestedEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
 import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcDefinitionBaseComponent } from 'igniteui-webcomponents-grids';
 import { ListSortDirection } from 'igniteui-webcomponents-core';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -93,7 +94,7 @@ export class DataGridTypeMarketingTable {
         let sortedBySales = false;
 
         let toChange = Math.round(this.state.volume / 10);
-        let toChangeIndexes = {};
+        let toChangeIndexes = {} as any;
         let stillAnimating = false;
         for (let i = 0; i < this.state.data.length; i++) {
             let item = this.state.data[i];
@@ -181,7 +182,7 @@ export class DataGridTypeMarketingTable {
         window.setTimeout(() => this.tick(), 16);
     }
 
-    onPriceStyleKey(col: IgcColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    onPriceStyleKey(col: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         let row: any | null = null;
         if (this.grid && this.grid.actualDataSource) {
             row = this.grid.actualDataSource.getItemAtIndex(args.rowNumber);
@@ -251,7 +252,7 @@ export class DataGridTypeMarketingTable {
         }
 
         let content = args.content as HTMLDivElement;
-        let sp: HTMLSpanElement = null;
+        let sp: HTMLSpanElement;
 
         if (content.childElementCount > 0) {
             sp = content.children[0] as HTMLSpanElement;
@@ -276,7 +277,7 @@ export class DataGridTypeMarketingTable {
         }
     }
 
-    onPricePercentStyleKey(grid: IgcColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    onPricePercentStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = "pricePercentUp";
         } else {
@@ -333,7 +334,7 @@ export class DataGridTypeMarketingTable {
         }
 
         let content = args.content as HTMLDivElement;
-        let sp: HTMLSpanElement = null;
+        let sp: HTMLSpanElement;
 
         if (content.childElementCount > 0) {
             sp = content.children[0] as HTMLSpanElement;
@@ -359,7 +360,7 @@ export class DataGridTypeMarketingTable {
         }
     }
 
-    onPriceAmountStyleKey(grid: IgcColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    onPriceAmountStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = "priceAmountUp";
         } else {
@@ -416,7 +417,7 @@ export class DataGridTypeMarketingTable {
         }
 
         let content = args.content as HTMLDivElement;
-        let sp: HTMLSpanElement = null;
+        let sp: HTMLSpanElement;
 
         if (content.childElementCount > 0) {
             sp = content.children[0] as HTMLSpanElement;

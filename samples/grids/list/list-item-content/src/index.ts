@@ -1,7 +1,7 @@
-import {defineComponents, IgcListComponent, IgcListHeaderComponent, IgcListItemComponent} from 'igniteui-webcomponents';
+import {defineComponents, IgcListComponent} from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-defineComponents(IgcListComponent, IgcListHeaderComponent, IgcListItemComponent);
+defineComponents(IgcListComponent,);
 export class ListItemContent {
     constructor() {
     }

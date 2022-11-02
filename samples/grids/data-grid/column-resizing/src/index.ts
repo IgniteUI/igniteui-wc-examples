@@ -6,8 +6,10 @@ import { DataGridSharedData } from './DataGridSharedData';
 import { ColumnResizingMode } from 'igniteui-webcomponents-grids';
 import { ColumnResizingAnimationMode } from 'igniteui-webcomponents-grids';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridColumnResizing {
 

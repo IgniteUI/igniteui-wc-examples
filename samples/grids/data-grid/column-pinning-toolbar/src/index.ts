@@ -6,9 +6,11 @@ import { IgcDataGridToolbarModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridToolbarComponent } from 'igniteui-webcomponents-grids';
 import { DataGridSharedData } from './DataGridSharedData';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcDataGridToolbarModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcDataGridToolbarModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridColumnPinningToolbar {
 

@@ -9,7 +9,10 @@ import { ODataVirtualDataSource } from 'igniteui-webcomponents-datasources';
 import { ListSortDirection } from 'igniteui-webcomponents-core';
 import { HeaderClickAction } from 'igniteui-webcomponents-grids';
 
-ModuleManager.register(IgcDataGridModule, IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridCellMerging {
 

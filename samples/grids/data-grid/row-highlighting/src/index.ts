@@ -4,8 +4,10 @@ import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridRowHighlighting {
 

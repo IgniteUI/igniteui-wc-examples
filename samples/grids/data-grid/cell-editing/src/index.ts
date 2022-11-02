@@ -5,11 +5,13 @@ import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { IgcGridCellValueChangingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
-import { GridActivationMode, GridSelectionMode, EditModeType } from 'igniteui-webcomponents-grids';
+import { GridActivationMode, DataGridSelectionMode, EditModeType } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridCellEditing {
 
@@ -27,7 +29,7 @@ export class DataGridCellEditing {
         if (this.grid !== null){
             this.grid.dataSource = this.data;
             this.grid.activationMode = GridActivationMode.Cell;
-            this.grid.selectionMode = GridSelectionMode.SingleCell;
+            this.grid.selectionMode = DataGridSelectionMode.SingleCell;
             this.grid.editMode = EditModeType.Cell;
             this.grid.cellValueChanging = this.onCellValueChanging;
         }
@@ -114,7 +116,7 @@ export class DataGridCellEditing {
     public editModeClickActionChanged = (event: any) => {
 
         this.grid.editModeClickAction = event.target.value;
-       
+
     }
 
     public onDeleteRowClick = (e: MouseEvent) => {

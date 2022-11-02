@@ -6,9 +6,11 @@ import { IgcTextColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcDataGridToolbarModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridToolbarComponent } from 'igniteui-webcomponents-grids';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcDataGridToolbarModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcDataGridToolbarModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridColumnChooserToolbar {
 

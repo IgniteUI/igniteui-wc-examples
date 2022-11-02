@@ -1,7 +1,7 @@
-import {defineComponents, IgcAvatarComponent, IgcButtonComponent, IgcListComponent, IgcListHeaderComponent, IgcListItemComponent, IgcRadioComponent, IgcRadioGroupComponent} from 'igniteui-webcomponents';
+import {defineComponents, IgcAvatarComponent, IgcButtonComponent, IgcListComponent, IgcRadioComponent, IgcRadioGroupComponent} from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-defineComponents(IgcAvatarComponent, IgcButtonComponent, IgcListComponent, IgcListHeaderComponent, IgcListItemComponent, IgcRadioComponent, IgcRadioGroupComponent);
+defineComponents(IgcAvatarComponent, IgcButtonComponent, IgcListComponent, IgcRadioComponent, IgcRadioGroupComponent);
 export class ListOverview {
     list: IgcListComponent;
     radioGroup: IgcRadioGroupComponent;

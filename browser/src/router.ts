@@ -40,7 +40,7 @@ export class Router {
     }
 
     public async navigateTo(route: string) {
-        console.log("SB navigateTo " + route);
+        console.log("SB nav " + route);
         window.history.pushState(
             {},
             this.public_url + route,
@@ -82,7 +82,7 @@ export class Router {
             this._targetEle.classList.add("with-nav-bar");
         }
 
-        console.log("SB matching " + route);
+        // console.log("SB matching " + route);
 
         if (route.indexOf("/maps/") >= 0) {
             this.displaySample(await RouterMaps.get(route));
@@ -119,7 +119,9 @@ export class Router {
         }
         else if (route !== "/" && route !== "/index") {
             console.log("SB missing router for " + route)
-            // this.navigateToRoute(""); // TODO add fallback
+             let sampleFile = await import('./core/SampleFallback');
+             let sampleView = sampleFile.SampleFallback.register(route);
+             this.displaySample(sampleView);
         }
 
         // switch (route) {

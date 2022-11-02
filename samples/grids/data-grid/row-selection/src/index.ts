@@ -4,8 +4,10 @@ import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { DataGridSharedData } from './DataGridSharedData';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridRowSelection {
 
@@ -30,11 +32,11 @@ export class DataGridRowSelection {
     }
 
     public onSelectAllButton = () =>{
-        this.grid.selectAllRows();        
+        this.grid.selectAllRows();
     }
 
     public onDeselectAllButton = () =>{
-        this.grid.deselectAllRows();        
+        this.grid.deselectAllRows();
     }
 
 }

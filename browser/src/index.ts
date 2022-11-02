@@ -7,14 +7,17 @@ import { Router } from './router';
 const BrowserInfo = require("./BrowserInfo.json"); // auto-generated
 // logging versions of IG packages
 for (const item of BrowserInfo) {
-    console.log('SB uses v' + item.ver + ' ' + item.name);
+    if (item.name === "igniteui-webcomponents-charts" ||
+        item.name === "igniteui-webcomponents") {
+        console.log('SB uses v' + item.ver + ' ' + item.name);
+    }
 }
 
 Router.instance.connect(document.getElementById("router-target"));
 
 document.querySelectorAll(".nav-link").forEach(nav => {
     let anchor = nav as HTMLAnchorElement;
-    anchor.innerHTML = "&#9899;   " + anchor.innerText;
+    // anchor.innerHTML = "&#9472;   " + anchor.innerText;
     anchor.onclick = (ev) => {
         let navPath = anchor.getAttribute("data-nav") as string;
         Router.instance.navigateTo(navPath);

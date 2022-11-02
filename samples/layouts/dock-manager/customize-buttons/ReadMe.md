@@ -1,4 +1,3 @@
-
 <!-- NOTE: do not change this file because it's auto re-generated from template: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/vnext/templates/browser/sample/ReadMe.md -->
 
