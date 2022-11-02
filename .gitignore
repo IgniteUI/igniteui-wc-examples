@@ -4,7 +4,7 @@
 /samples/**/build/
 /samples/**/dist/
 /samples/**/node_modules/
-/samples/**/package-lock.json
+#/samples/**/package-lock.json
 /samples/**/yarn.lock
 /tmp/
 /tests/
@@ -15,7 +15,7 @@
 /browser/build
 /browser/dist
 /browser/**/code-viewer/**
-/browser/package-lock.json
+#/browser/package-lock.json
 /browser/yarn.lock
 /browser/src/BrowserInfo.json
 
