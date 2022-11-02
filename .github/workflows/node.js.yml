@@ -26,6 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: browser/package-lock.json
     - name: npm install
       run: |
         cd browser
