@@ -20,7 +20,7 @@
   "author": "Infragistics",
   "dependencies": {
     "@igniteui/material-icons-extended": "2.11.0",
-    "igniteui-webcomponents": "3.4.0",
+    "igniteui-webcomponents": "3.4.2",
     "lit": "^2.0.2"
   },
   "devDependencies": {
