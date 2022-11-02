@@ -28,8 +28,7 @@ jobs:
         cache: 'npm'
         cache-dependency-path: browser/package-lock.json
     - name: npm install
-      run: |
-        cd browser
-        npm ci
+      run: npm ci
+      working-directory: browser
     - name: Build
       run: npm run build --if-present
