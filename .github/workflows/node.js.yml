@@ -21,7 +21,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: browser # The working directory path
+        working-directory: ./browser # The working directory path
 
     steps:
     - uses: actions/checkout@v3
