@@ -10,7 +10,6 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
 import { IgcCellStyleRequestedEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcColumnComponent } from 'igniteui-webcomponents-grids';
 import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
 import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
@@ -63,7 +62,7 @@ export class DataGridBindingLiveData {
     private chartButton: any;
     private frequencySpan: any;
     private volumeSpan: any;
-    private chart: IgcDataChartComponent;
+    private chart!: IgcDataChartComponent;
     private financialData: LiveFinancialData;
 
     private state = {
@@ -230,7 +229,7 @@ export class DataGridBindingLiveData {
         // }
 
         let toChange = Math.round(this.state.volume / 10);
-        let toChangeIndexes = {};
+        let toChangeIndexes = {} as any;
         let stillAnimating = false;
         for (let i = 0; i < this.state.data.length; i++) {
             let item = this.state.data[i];
@@ -669,7 +668,7 @@ export class DataGridBindingLiveData {
         }
     }
 
-    onChartStyleKey(grid: IgcColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    onChartStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         args.styleKey = 'chart';
     }
 
@@ -699,7 +698,7 @@ export class DataGridBindingLiveData {
         }
     }
 
-    onGridStyleKey(grid: IgcColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    onGridStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         args.styleKey = 'grid';
     }
 
