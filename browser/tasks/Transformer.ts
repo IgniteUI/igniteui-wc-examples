@@ -582,11 +582,8 @@ class Transformer {
 
     public static getRelative(path: string): string {
         if (path.indexOf(igConfig.RepositoryName) > -1) {
-            console.log('Path before split: ' + path);
-            path = path.split(igConfig.RepositoryName)[1];
-            console.log('Path before split by \\' + path);
+            path = path.split(igConfig.RepositoryName).pop() as string;
             path = path.split("\\").join("/");
-            console.log("adding getRelative " + path);
             return ".." + path;
         }
 

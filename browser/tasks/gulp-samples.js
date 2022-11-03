@@ -157,7 +157,7 @@ function findSamples(cb) {
     .pipe(es.map(function(samplePackage, sampleCallback) {
 
         let SampleFolderName = Transformer.getRelative(samplePackage.dirname);
-        log("findSamples " + SampleFolderName);
+        // log("findSamples " + SampleFolderName);
 
         let sampleFiles = [];
         gulp.src([
@@ -175,7 +175,7 @@ function findSamples(cb) {
             let fileDir = Transformer.getRelative(file.dirname);
             let filePath = fileDir + "/" + file.basename;
             sampleFiles.push(filePath);
-            log("findSamples " + filePath );
+            // log("findSamples " + filePath );
             fileCallback(null, file);
         }))
         .on("end", function() {
@@ -893,7 +893,7 @@ function updateIG(cb) {
 
     // NOTE you can comment out strings in this array to run these function only on a subset of samples
     var packagePaths = [
-        'package.json', // browser
+        './package.json', // browser
         '../samples/**/package.json',
         // '../samples/charts/**/package.json',
         // '../samples/editors/**/package.json',
