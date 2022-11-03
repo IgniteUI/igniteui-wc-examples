@@ -110,8 +110,8 @@ var config = {
           }
         ]
       },
-      { test: /\.html$/, loader: 'html-loader' },
-      { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
+      { test: /\.html$/, use: 'html-loader' },
+      { test: /\.css$/, sideEffects: true, use: ['style-loader', 'css-loader'] },
       { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
       { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
       { test: /\.xml$/, use: ['xml-loader'] }
