@@ -1,17 +1,11 @@
 let gulp = require('gulp');
-let gulpIgnore = require('gulp-ignore');
-let uglify = require('gulp-uglify');
 
 // let gSort = require('gulp-sort');
-let rename = require('gulp-rename');
 let fs = require('fs.extra');
 let path = require('path');
 let flatten = require('gulp-flatten');
 let del = require('del');
 let es = require('event-stream');
-let shell = require('gulp-shell');
-let replace = require('gulp-replace');
-let contains = require('gulp-contains');
 let through2 = require('through2');
 
 // simple callback stream used to synchronize stuff
@@ -72,6 +66,7 @@ var sampleSources = [
 
     igConfig.SamplesCopyPath + '/notifications/snackbar/**/package.json',
     igConfig.SamplesCopyPath + '/notifications/toast/**/package.json',
+    igConfig.SamplesCopyPath + '/notifications/dialog/**/package.json',
 
     igConfig.SamplesCopyPath + '/inputs/button/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/badge/**/package.json',
@@ -875,25 +870,25 @@ function logVersionTypescript(cb) {
 function updateIG(cb) {
 
     // NOTE: change this array with new version of packages and optionally use "@infragistics/" proget prefix, e.g.
-    // "@infragistics/igniteui-angular-charts" instead of "igniteui-angular-charts", e.g.
-    // { name: "@infragistics/igniteui-webcomponents-core", version: "22.1.62" }, // proget
+    // "igniteui-angular-charts" instead of "igniteui-angular-charts", e.g.
+    // { name: "igniteui-webcomponents-core", version: "22.1.62" }, // proget
     // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "@infragistics/igniteui-webcomponents-core"                     , version: "22.2.4" },
-        { name: "@infragistics/igniteui-webcomponents-charts"                   , version: "22.2.4" },
-        { name: "@infragistics/igniteui-webcomponents-excel"                    , version: "22.2.4" },
-        { name: "@infragistics/igniteui-webcomponents-gauges"                   , version: "22.2.4" },
-        { name: "@infragistics/igniteui-webcomponents-grids"                    , version: "22.2.4" },
-        { name: "@infragistics/igniteui-webcomponents-inputs"                   , version: "22.2.4" },
-        { name: "@infragistics/igniteui-webcomponents-layouts"                  , version: "22.2.4" },
-        { name: "@infragistics/igniteui-webcomponents-maps"                     , version: "22.2.4" },
-        { name: "@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter", version: "22.2.4" },
-        { name: "@infragistics/igniteui-webcomponents-spreadsheet"              , version: "22.2.4" },
-        { name: "@infragistics/igniteui-webcomponents-datasources"              , version: "22.2.4", },
+        { name: "igniteui-webcomponents-core"                     , version: "4.0.2" },
+        { name: "igniteui-webcomponents-charts"                   , version: "4.0.2" },
+        { name: "igniteui-webcomponents-excel"                    , version: "4.0.2" },
+        { name: "igniteui-webcomponents-gauges"                   , version: "4.0.2" },
+        { name: "igniteui-webcomponents-grids"                    , version: "4.0.2" },
+        { name: "igniteui-webcomponents-inputs"                   , version: "4.0.2" },
+        { name: "igniteui-webcomponents-layouts"                  , version: "4.0.2" },
+        { name: "igniteui-webcomponents-maps"                     , version: "4.0.2" },
+        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.0.2" },
+        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.0.2" },
+        { name: "igniteui-webcomponents-datasources"              , version: "4.0.2" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "3.4.2",  },
-        { name: "igniteui-dockmanager", version: "1.9.0" },
+        { name: "igniteui-webcomponents", version: "4.0.0"  },
+        { name: "igniteui-dockmanager", version: "1.11.3" },
     ];
 
     // NOTE you can comment out strings in this array to run these function only on a subset of samples

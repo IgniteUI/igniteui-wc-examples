@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <title>Dialog Form</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample center">
+      <igc-button onclick="dialog.show()" variant="contained">Show Dialog</igc-button>
+
+      <igc-dialog id="dialog" title="Login">
+        <igc-form id="form" method="dialog">
+          <igc-input label="Username">
+            <igc-icon name="username" slot="prefix"></igc-icon>
+          </igc-input>
+          <br>
+          <igc-input type="password" label="Password">
+            <igc-icon name="password" slot="prefix"></igc-icon>
+          </igc-input>
+          <br>
+          <div style="display: flex; justify-content: flex-end;">
+            <igc-button type="reset" variant="flat">Reset</igc-button>
+            <igc-button type="submit" variant="flat">Submit</igc-button>
+          </div>
+        </igc-form>
+
+        <div slot="footer">
+          <igc-button>Create an account</igc-button>
+        </div>
+      </igc-dialog>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
