@@ -125,7 +125,7 @@ var config = {
   },
   plugins: plugins,
   devServer: {
-    contentBase: path.join(__dirname, 'dist/'),
+    static: path.join(__dirname, 'browser/dist/'),
     compress: true,
     port: 4200,
     hot: true,
