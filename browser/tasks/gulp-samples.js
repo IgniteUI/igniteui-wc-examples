@@ -1,17 +1,11 @@
 let gulp = require('gulp');
-let gulpIgnore = require('gulp-ignore');
-let uglify = require('gulp-uglify');
 
 // let gSort = require('gulp-sort');
-let rename = require('gulp-rename');
 let fs = require('fs.extra');
 let path = require('path');
 let flatten = require('gulp-flatten');
 let del = require('del');
 let es = require('event-stream');
-let shell = require('gulp-shell');
-let replace = require('gulp-replace');
-let contains = require('gulp-contains');
 let through2 = require('through2');
 
 // simple callback stream used to synchronize stuff
