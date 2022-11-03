@@ -29,6 +29,8 @@ log('loaded');
 
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSources = [
+    // igConfig.SamplesCopyPath + '/maps/**/display-heat-imagery/package.json',
+
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
@@ -38,7 +40,6 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
     igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
     igConfig.SamplesCopyPath + '/maps/**/package.json',
-
     igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
     igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
 
@@ -49,6 +50,8 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
     igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/grid/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
 
     igConfig.SamplesCopyPath + '/layouts/accordion/**/package.json',
