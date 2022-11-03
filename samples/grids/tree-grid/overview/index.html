@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    
+    
+    
+    <div class="container fill">
+        <igc-tree-grid
+        auto-generate="false"
+        child-data-key="Employees"
+        id="treeGrid"
+        moving="true"
+        paging="true"
+        allow-filtering="true"
+        row-selection="Multiple"
+        name="treeGrid"
+        id ="treeGrid">
+            <igc-grid-toolbar
+            >
+                <igc-grid-toolbar-title
+                name="Employees"
+                id ="Employees">
+                </igc-grid-toolbar-title>
+                <igc-grid-toolbar-actions
+                >
+                    <igc-grid-toolbar-hiding
+                    >
+                    </igc-grid-toolbar-hiding>
+                    <igc-grid-toolbar-pinning
+                    >
+                    </igc-grid-toolbar-pinning>
+                    <igc-grid-toolbar-exporter
+                    export-csv="true"
+                    export-excel="true">
+                    </igc-grid-toolbar-exporter>
+                </igc-grid-toolbar-actions>
+            </igc-grid-toolbar>
+            <igc-column
+            field="name"
+            sortable="true"
+            editable="true"
+            resizable="true"
+            has-summary="true"
+            data-type="String">
+            </igc-column>
+            <igc-column
+            field="hireDate"
+            sortable="true"
+            editable="true"
+            resizable="true"
+            data-type="Date">
+            </igc-column>
+            <igc-column
+            field="age"
+            sortable="true"
+            editable="true"
+            resizable="true"
+            data-type="Number">
+            </igc-column>
+        </igc-tree-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
