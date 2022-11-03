@@ -2,7 +2,7 @@ import { defineComponents, IgcStepperComponent, IgcRadioGroupComponent, IgcStepC
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./StepperLinear.css";
 
-defineComponents(IgcStepperComponent, IgcRadioGroupComponent, IgcFormComponent, IgcSwitchComponent);
+defineComponents(IgcStepperComponent, IgcRadioGroupComponent, IgcFormComponent, IgcSwitchComponent, IgcInputComponent, IgcButtonComponent);
 export class StepperLinear {
     private stepper: IgcStepperComponent;
 
@@ -26,13 +26,13 @@ export class StepperLinear {
     }
 
     private linearChange() {
-        document.querySelector("igc-switch")!.addEventListener("igcChange", (e) => {
-            const customEvent = e as CustomEvent;
-            this.stepper!.linear = customEvent.detail;
+        document.querySelector("igc-switch")!.addEventListener("igcChange", (e: CustomEvent) => {
+            this.stepper!.linear = e.detail;
 
             document.querySelectorAll("igc-button.next").forEach((button) => {
-                const igcButton = button as IgcButtonComponent;
-                igcButton.disabled = this.stepper!.linear ? true : false;
+                const igcButton = button as unknown as IgcButtonComponent;
+                const step = igcButton.closest("igc-step") as IgcStepComponent;
+                igcButton.disabled = !this.stepper!.linear ? false : step.invalid ? true : false;
             });
         });
     }
@@ -41,22 +41,11 @@ export class StepperLinear {
         if (this.activeStep!.optional || !this.nextButton) {
             return;
         }
+        const formControls = this.activeStep!.querySelectorAll("igc-radio, igc-input") as NodeListOf<any>;
+        const isFormInvalid = Array.from(formControls).some((control: IgcInputComponent | IgcRadioComponent) => !control.checkValidity());
 
-        const formControls = this.activeStep!.querySelectorAll("igc-radio, igc-input");
-        const isFormInvalid =
-            formControls &&
-            Array.from(formControls).some((control) => {
-                const igcControl = control as IgcInputComponent | IgcRadioComponent;
-                return !igcControl.checkValidity();
-            });
-
-        if (isFormInvalid) {
-            this.activeStep!.invalid = true;
-            this.nextButton.disabled = this.stepper!.linear ? true : false;
-        } else {
-            this.activeStep!.invalid = false;
-            this.nextButton.disabled = false;
-        }
+        this.activeStep!.invalid = isFormInvalid;
+        this.nextButton.disabled = this.stepper!.linear ? isFormInvalid : false;
     }
 }
 

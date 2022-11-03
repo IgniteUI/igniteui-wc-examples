@@ -34,6 +34,19 @@
     gap: 1rem;
 }
 
+.first-step-content {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.sample-step-title {
+	font-size: 1.2rem;
+	letter-spacing: 0;
+	font-weight: 500;
+	line-height: normal;
+	margin-bottom: 1.5rem;
+}
+
 .cards-wrapper {
     gap: 1.8rem;
     justify-content: center;
@@ -114,6 +127,13 @@ igc-badge {
     display: block;
 }
 
+.tax-id-error-message {
+    display: none;
+    margin: 0.2rem;
+    font-size: 0.8rem;
+    color: #ff144b;
+}
+
 igc-checkbox,
 label {
     margin-top: 0.5rem;
@@ -142,21 +162,42 @@ label {
     margin: 0;
 }
 
+.card-horizontal {
+    width: fit-content;
+    max-width: none;
+}
+
 .card-horizontal igc-card {
-    height: 200px;
+    height: 230px;
     width: 600px;
+    justify-content: center;
+}
+
+.card-horizontal-small igc-card {
+    width: 500px;
 }
 
 .card-horizontal igc-card .card-content-wrapper  {
     flex-direction: row;
     align-items: center;
 }
+
 .card-horizontal igc-card .card-content-wrapper igc-card-media {
     height: 150px;
     width: 100%;
 }
+
+.card-horizontal-small igc-card .card-content-wrapper igc-card-media {
+    height: 100px;
+    width: 100%;
+}
+
 .card-horizontal igc-card .card-content-wrapper  igc-card-media img {
     object-fit: contain;
+}
+
+.card-horizontal-small igc-card .card-content-wrapper igc-card-content {
+    padding: 1rem;
 }
 
 .card-horizontal igc-card div:first-child {
@@ -165,7 +206,7 @@ label {
 
 .required {
     margin-left: 0.5rem;
-    color: red;
+    color: #ff144b;
 }
 
 .terms-and-conditions {

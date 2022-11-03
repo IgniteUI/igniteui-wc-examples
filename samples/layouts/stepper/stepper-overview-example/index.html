@@ -18,58 +18,61 @@
 
         <igc-step invalid>
           <span slot="title">Card Type</span>
-          <div class="cards-wrapper">
+          <div class="first-step-content">
+            <h2 class="sample-step-title">Choose your business credit card</h2>
+            <div class="cards-wrapper">
+              <div class="card-wrapper">
+                <igc-badge>Your current choice</igc-badge>
+                <igc-card class="card-first-step">
+                  <div class="card-content-wrapper">
+                    <igc-card-media>
+                      <img src="https://www.infragistics.com/angular-demos/assets/images/stepper/card-blue.png" />
+                    </igc-card-media>
+                    <igc-card-content>
+                      <span class="card-currency">400</span>
+                      <span class="card-title">STATEMENT CREDIT OFFER</span>
+                      <p>Business Customized Advanced</p>
+                      <p>Cash Mastercard</p>
+                    </igc-card-content>
+                </igc-card>
+              </div>
+            </div>
             <div class="card-wrapper">
               <igc-badge>Your current choice</igc-badge>
               <igc-card class="card-first-step">
                 <div class="card-content-wrapper">
                   <igc-card-media>
-                    <img src="https://www.infragistics.com/angular-demos/assets/images/stepper/card-blue.png" />
+                    <img src="https://www.infragistics.com/angular-demos/assets/images/stepper/card-red.png" />
                   </igc-card-media>
                   <igc-card-content>
-                    <span class="card-currency">400</span>
+                    <span class="card-currency">600</span>
                     <span class="card-title">STATEMENT CREDIT OFFER</span>
-                    <p>Business Customized Advanced</p>
-                    <p>Cash Mastercard</p>
+                    <p>Business Travel Advanced</p>
+                    <p>World Mastercard</p>
                   </igc-card-content>
+                </div>
+              </igc-card>
+            </div>
+            <div class="card-wrapper">
+              <igc-badge>Your current choice</igc-badge>
+              <igc-card class="card-first-step">
+                <div class="card-content-wrapper">
+                  <igc-card-media>
+                    <img src="https://www.infragistics.com/angular-demos/assets/images/stepper/card-gold.png" />
+                  </igc-card-media>
+                  <igc-card-content>
+                    <span class="card-currency">500</span>
+                    <span class="card-title">STATEMENT CREDIT OFFER</span>
+                    <p>Business Golden</p>
+                    <p>World Mastercard</p>
+                  </igc-card-content>
+                </div>
               </igc-card>
             </div>
           </div>
-          <div class="card-wrapper">
-            <igc-badge>Your current choice</igc-badge>
-            <igc-card class="card-first-step">
-              <div class="card-content-wrapper">
-                <igc-card-media>
-                  <img src="https://www.infragistics.com/angular-demos/assets/images/stepper/card-red.png" />
-                </igc-card-media>
-                <igc-card-content>
-                  <span class="card-currency">600</span>
-                  <span class="card-title">STATEMENT CREDIT OFFER</span>
-                  <p>Business Travel Advanced</p>
-                  <p>World Mastercard</p>
-                </igc-card-content>
-              </div>
-            </igc-card>
-          </div>
-          <div class="card-wrapper">
-            <igc-badge>Your current choice</igc-badge>
-            <igc-card class="card-first-step">
-              <div class="card-content-wrapper">
-                <igc-card-media>
-                  <img src="https://www.infragistics.com/angular-demos/assets/images/stepper/card-gold.png" />
-                </igc-card-media>
-                <igc-card-content>
-                  <span class="card-currency">500</span>
-                  <span class="card-title">STATEMENT CREDIT OFFER</span>
-                  <p>Business Golden</p>
-                  <p>World Mastercard</p>
-                </igc-card-content>
-              </div>
-            </igc-card>
-          </div>
     </div>
     </igc-step>
-    
+
     <igc-step invalid>
       <span slot="title">Business Information</span>
       <div class="sample-row">
@@ -85,14 +88,16 @@
               <igc-select-item value="ohio">Ohio</igc-select-item>
               <igc-select-item value="texas">Texas</igc-select-item>
             </igc-select>
-            <igc-mask-input required label="ZIP Code" type="text" name="zip">
-              </igc-input>
+            <igc-mask-input required label="ZIP Code" placeHolder="#####" type="text" name="zip" mask="00000">
+            </igc-mask-input>
           </div>
-          <igc-checkbox required>
+          <igc-checkbox>
             The mailing address is different than the business physical address
           </igc-checkbox>
-          <igc-input required label="Federal Tax Id Number" type="text" name="taxIdNumber"></igc-input>
-          <label>Does this business operate outside the United States? *</label>
+          <igc-input id="taxId" invalid label="Federal Tax Id Number" type="text" name="taxIdNumber" pattern="^9.*"
+            placeholder="9##-##-####"></igc-input>
+          <p class="tax-id-error-message">The Federal Tax ID Number should begin with 9</p>
+          <label>Does this business operate outside the United States?<span class="required">*</span></label>
           <igc-radio-group>
             <igc-radio name="nonUSBusinessActivity" required>Yes.</igc-radio>
             <igc-radio name="nonUSBusinessActivity" required>No.</igc-radio>
@@ -148,11 +153,11 @@
               <igc-select-item value="ohio">Ohio</igc-select-item>
               <igc-select-item value="texas">Texas</igc-select-item>
             </igc-select>
-            <igc-mask-input required label="ZIP Code" type="text" name="zip">
-              </igc-input>
+            <igc-mask-input required label="ZIP Code" placeHolder="#####" type="text" name="zip" mask="00000">
+            </igc-mask-input>
           </div>
         </igc-form>
-        <div class="card-wrapper selected-card-holder"></div>
+        <div class="card-wrapper selected-card-holder card-horizontal card-horizontal-small"></div>
       </div>
       <br />
       <div>
@@ -175,7 +180,7 @@
       </div>
       <div class="card-wrapper selected-card-holder card-horizontal"></div>
       <br />
-      <igc-button onclick="stepper.reset()">RESET</igc-button>
+      <igc-button id="reset">RESET</igc-button>
     </igc-step>
 
     </igc-stepper>

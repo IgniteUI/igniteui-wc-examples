@@ -26,9 +26,11 @@ defineComponents(IgcStepperComponent, IgcRadioGroupComponent, IgcFormComponent, 
 export class StepperOverview {
     private stepper: IgcStepperComponent;
     private cards: IgcCardComponent[];
+    private taxIdInput: IgcMaskInputComponent;
 
     constructor() {
         this.stepper = document.querySelector("igc-stepper") as IgcStepperComponent;
+        this.taxIdInput = document.getElementById('taxId') as unknown as IgcMaskInputComponent;
         this.cards = Array.from(document.querySelectorAll("igc-card.card-first-step"));
         registerIconFromText("check", checkIcon, "material");
         this.registerEventListeners();
@@ -47,6 +49,8 @@ export class StepperOverview {
         this.stepper.addEventListener("igcChange", this.checkValidity.bind(this));
         this.stepper.addEventListener("igcClosed", this.checkValidity.bind(this));
         this.selectCard();
+        this.checkTaxIdInputValidity();
+        this.reset();
     }
 
     private selectCard() {
@@ -68,30 +72,33 @@ export class StepperOverview {
                 });
 
                 this.activeStep!.invalid = false;
-
-                requestAnimationFrame(() => {
-                    this.stepper.next();
-                });
+                this.stepper!.navigateTo(1);
             });
         });
     }
 
     private checkValidity() {
-        const formControls = this.activeStep!.querySelectorAll("igc-radio, igc-input, igc-select, igc-mask-input, igc-checkbox");
-        const isFormInvalid =
-            formControls &&
-            Array.from(formControls).some((control) => {
-                const igcControl = control as IgcInputComponent | IgcRadioComponent | IgcSelectComponent | IgcMaskInputComponent | IgcCheckboxComponent;
-                return !igcControl.checkValidity();
-            });
+        const formControls = this.activeStep!.querySelectorAll("igc-radio, igc-input, igc-select, igc-mask-input, igc-checkbox") as NodeListOf<any>;
+        const isFormInvalid = Array.from(formControls).some((control: IgcInputComponent | IgcRadioComponent | IgcSelectComponent | IgcMaskInputComponent | IgcCheckboxComponent) => !control.checkValidity());
 
-        if (isFormInvalid) {
-            this.activeStep!.invalid = true;
-            this.nextButton!.disabled = true;
-        } else {
-            this.activeStep!.invalid = false;
-            this.nextButton!.disabled = false;
-        }
+        this.activeStep!.invalid = isFormInvalid;
+        this.nextButton!.disabled = this.stepper!.linear ? isFormInvalid : false;
+    }
+
+    private checkTaxIdInputValidity() {
+        this.taxIdInput.addEventListener('igcInput', () => {
+            const errorMessage = document.querySelector('.tax-id-error-message') as HTMLParagraphElement;
+            errorMessage.style.display = this.taxIdInput.checkValidity() ? 'none' : 'block';
+        });
+    }
+
+    private reset() {
+        document.getElementById('reset')!.addEventListener('click', () => {
+            this.stepper!.reset();
+            this.stepper!.steps.forEach(step => step.invalid = true);
+            this.cards.forEach(card => card.parentElement!.classList.remove("selected-card"));
+            document.querySelectorAll('igc-form').forEach(form => form.reset());
+        })
     }
 }
 

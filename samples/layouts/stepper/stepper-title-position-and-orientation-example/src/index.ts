@@ -1,9 +1,9 @@
-import { defineComponents, IgcStepperComponent, IgcRadioGroupComponent, IgcRadioComponent } from "igniteui-webcomponents";
+import { defineComponents, IgcStepperComponent, IgcRadioGroupComponent, IgcRadioComponent, IgcButtonComponent } from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import "./StepperLabelPositionAndOrientation.css";
+import "./StepperTitlePositionAndOrientation.css";
 
-defineComponents(IgcStepperComponent, IgcRadioGroupComponent);
-export class StepperLabelPositionAndOrientation {
+defineComponents(IgcStepperComponent, IgcRadioGroupComponent, IgcButtonComponent);
+export class StepperTitlePositionAndOrientation {
     private stepper: IgcStepperComponent;
 
     constructor() {
@@ -20,4 +20,4 @@ export class StepperLabelPositionAndOrientation {
     }
 }
 
-new StepperLabelPositionAndOrientation();
+new StepperTitlePositionAndOrientation();
