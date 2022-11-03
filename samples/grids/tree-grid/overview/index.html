@@ -23,7 +23,6 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        child-data-key="Employees"
         id="treeGrid"
         moving="true"
         paging="true"
@@ -31,19 +30,15 @@
         row-selection="Multiple"
         name="treeGrid"
         id ="treeGrid">
-            <igc-grid-toolbar
-            >
+            <igc-grid-toolbar>
                 <igc-grid-toolbar-title
                 name="Employees"
                 id ="Employees">
                 </igc-grid-toolbar-title>
-                <igc-grid-toolbar-actions
-                >
-                    <igc-grid-toolbar-hiding
-                    >
+                <igc-grid-toolbar-actions>
+                    <igc-grid-toolbar-hiding>
                     </igc-grid-toolbar-hiding>
-                    <igc-grid-toolbar-pinning
-                    >
+                    <igc-grid-toolbar-pinning>
                     </igc-grid-toolbar-pinning>
                     <igc-grid-toolbar-exporter
                     export-csv="true"
@@ -51,6 +46,7 @@
                     </igc-grid-toolbar-exporter>
                 </igc-grid-toolbar-actions>
             </igc-grid-toolbar>
+            
             <igc-column
             field="name"
             sortable="true"
@@ -59,6 +55,7 @@
             has-summary="true"
             data-type="String">
             </igc-column>
+            
             <igc-column
             field="hireDate"
             sortable="true"
@@ -66,6 +63,7 @@
             resizable="true"
             data-type="Date">
             </igc-column>
+            
             <igc-column
             field="age"
             sortable="true"
@@ -73,6 +71,7 @@
             resizable="true"
             data-type="Number">
             </igc-column>
+            
         </igc-tree-grid>
     </div>
 </div>
