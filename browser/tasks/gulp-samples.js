@@ -157,7 +157,7 @@ function findSamples(cb) {
     .pipe(es.map(function(samplePackage, sampleCallback) {
 
         let SampleFolderName = Transformer.getRelative(samplePackage.dirname);
-        // log("findSamples " + SampleFolderName);
+        log("findSamples " + SampleFolderName);
 
         let sampleFiles = [];
         gulp.src([
