@@ -43,4 +43,4 @@ jobs:
     - name: npm install
       run: npm ci
     - name: Build
-      run: export NODE_OPTIONS=--openssl-legacy-provider && npm run build
+      run: npm run build
