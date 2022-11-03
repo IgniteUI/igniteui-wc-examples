@@ -17,9 +17,11 @@ const plugins = [
       NODE_ENV: JSON.stringify(nodeEnv)
     }
   }),
-  new CopyPlugin([
-    { from: 'assets', to: 'assets' }
-  ]),
+  new CopyPlugin({
+    patterns: [
+      { from: 'assets', to: 'assets' }
+    ]
+  }),
   new HtmlWebpackPlugin({
     // inject: 'head',
     title: 'Samples | IgniteUI for Web Components | Infragistics',
@@ -35,7 +37,7 @@ const plugins = [
       }
     }
   }),
-  new ForkTsCheckerWebpackPlugin({ tsconfig: path.join(__dirname, 'tsconfig.json') })
+  new ForkTsCheckerWebpackPlugin({ typescript: { configFile: path.join(__dirname, 'tsconfig.json') } })
 ];
 
 const presets = [
@@ -62,8 +64,8 @@ var config = {
   },
   output: {
     path: path.resolve('./browser/dist'),
-    filename:  process.env.production ? '[name].[chunkhash:8].js' : '[name].[hash:8].js',
-    chunkFilename:  process.env.production ? '[name].[chunkhash:8].chunk.js' : '[name].[hash:8].chunk.js',
+    filename:  process.env.production ? '[name].[chunkhash:8].js' : '[name].[fullhash:8].js',
+    chunkFilename:  process.env.production ? '[name].[chunkhash:8].chunk.js' : '[name].[fullhash:8].chunk.js',
     publicPath: isProd ? './' : '/'
   },
   module: {
@@ -111,7 +113,7 @@ var config = {
         ]
       },
       { test: /\.html$/, loader: 'html-loader' },
-      { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
       { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
       { test: /\.xml$/, use: ['xml-loader'] }
