@@ -175,7 +175,7 @@ function findSamples(cb) {
             let fileDir = Transformer.getRelative(file.dirname);
             let filePath = fileDir + "/" + file.basename;
             sampleFiles.push(filePath);
-            // log("findSamples " + filePath );
+            log("findSamples " + filePath );
             fileCallback(null, file);
         }))
         .on("end", function() {
