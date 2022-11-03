@@ -24,7 +24,7 @@ const plugins = [
     // inject: 'head',
     title: 'Samples | IgniteUI for Web Components | Infragistics',
     // template: '!!ejs-loader!src/index.html'
-    template: '!!ejs-loader!public/index.html',
+    template: '!!ejs-loader!browser/public/index.html',
     publicPath: isProd ? './' : '/'
   }),
   new webpack.LoaderOptionsPlugin({

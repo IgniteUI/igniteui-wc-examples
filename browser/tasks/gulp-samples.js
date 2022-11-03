@@ -323,17 +323,17 @@ function copySamples(cb) {
         // console.log('copying ' + sample.SampleFolderPath + '/' + sample.SampleFileName);
 
         // let outputPath = sample.SampleFolderPath;
-        let outputPath = './browser/src' + sample.SampleFolderPath.replace('../','');
+        let outputPath = './browser/src/' + sample.SampleFolderPath.replace('./','');
         // let outputPath = './sample-test-files' + sample.SampleFolderPath.replace('.','');
         // log(outputPath);
         // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
 
         gulp.src([
             //   sample.SampleFolderPath + '/**/*.*',
-              sample.SampleFolderPath + '/browser/src/*.*',
+              sample.SampleFolderPath + '/src/*.*',
         // '!' + sample.SampleFolderPath + '/src/index.ts',
        // '!' + sample.SampleFolderPath + '/src/index.css',
-        '!' + sample.SampleFolderPath + '/browser/src/typedecls.d.ts',
+        '!' + sample.SampleFolderPath + '/src/typedecls.d.ts',
         // '!' + sample.SampleFolderPath + '/sandbox.config.json',
         // '!' + sample.SampleFolderPath + '/README.md',
         // '!' + sample.SampleFolderPath + '/ReadMe.md',
@@ -344,7 +344,6 @@ function copySamples(cb) {
         .pipe(es.map(function(file, fileCallback) {
 
             var fileName = file.basename.toLowerCase();
-            var compName = sample.ComponentID.toLowerCase();
             var isSampleFile = fileName === "index.ts";
             // var isSampleFile = fileName.indexOf(compName) >= 0 &&
             //                    fileName.indexOf(".ts") >= 0;
@@ -391,7 +390,7 @@ function copySamples(cb) {
     // if (copiedSamples == samples.length){
     //     cb();
     // }
-    // cb();
+    cb();
 
 } exports.copySamples = copySamples;
 
