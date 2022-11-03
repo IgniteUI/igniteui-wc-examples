@@ -18,7 +18,7 @@
     "build": "npm run build:prod",
     "build2": "npm run build:fast",
     "build:dev": "gulp updateBrowser && webpack --mode development --config ./webpack.config.js --progress --color",
-    "build:prod":  "gulp updateBrowser && cross-env NODE_ENV=production node --max_old_space_size=25192 node_modules/webpack/bin/webpack --mode production --config ./webpack.config.js  --progress  --color --display-error-details --bail",
+    "build:prod":  "gulp updateBrowser && cross-env NODE_ENV=production node --max_old_space_size=25192 node_modules/webpack/bin/webpack --mode production --config ./webpack.config.js  --progress  --color --bail",
     "build:fast":  "cross-env NODE_ENV=production node --max_old_space_size=25192 node_modules/webpack/bin/webpack --mode production --config ./webpack.config.js  --progress  --color --bail",
     "clean": "npm cache clear && rimraf -- dist",
     "server": "npm run server:dev",

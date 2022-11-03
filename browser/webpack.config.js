@@ -55,6 +55,10 @@ const presets = [
 ];
 
 var config = {
+  stats: {
+     errorDetails: true,
+     children: true
+  },
   devtool: isProd ? false : 'source-map',
   context: path.resolve('./src'),
   entry: {
@@ -74,7 +78,7 @@ var config = {
             enforce: 'pre',
             test: /\.worker\.ts$/,
             exclude: [/\/node_modules\//],
-            use: [ 
+            use: [
               { loader: 'worker-loader' },
               { loader: 'babel-loader', options: {
                 "compact": isProd ? true : false,
