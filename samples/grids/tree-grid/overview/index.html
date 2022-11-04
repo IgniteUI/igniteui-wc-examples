@@ -17,9 +17,9 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
+
+
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
@@ -46,32 +46,65 @@
                     </igc-grid-toolbar-exporter>
                 </igc-grid-toolbar-actions>
             </igc-grid-toolbar>
-            
+
+            <igc-column
+            field="iD"
+            header="ID"
+            sortable="true"
+            editable="true"
+            resizable="true"
+            has-summary="true"
+            data-type="Number">
+            </igc-column>
+
             <igc-column
             field="name"
+            header="Name"
             sortable="true"
             editable="true"
             resizable="true"
             has-summary="true"
             data-type="String">
             </igc-column>
-            
+
             <igc-column
             field="hireDate"
+            header="Hire Date"
             sortable="true"
             editable="true"
             resizable="true"
             data-type="Date">
             </igc-column>
-            
+
             <igc-column
             field="age"
+            header="Age"
             sortable="true"
             editable="true"
             resizable="true"
             data-type="Number">
             </igc-column>
-            
+
+            <igc-column
+            field="salary"
+            header="Salary"
+            sortable="true"
+            editable="true"
+            resizable="true"
+            has-summary="true"
+            data-type="Number">
+            </igc-column>
+
+            <igc-column
+            field="productivity"
+            header="Productivity"
+            sortable="true"
+            editable="true"
+            resizable="true"
+            has-summary="true"
+            data-type="Number">
+            </igc-column>
+
         </igc-tree-grid>
     </div>
 </div>
