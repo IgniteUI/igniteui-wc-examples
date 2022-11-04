@@ -19,8 +19,8 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
-        var employees = this.employees = document.getElementById('Employees') as IgcGridToolbarTitleComponent;
+        var treeGrid = (this.treeGrid = document.getElementById('treeGrid') as any) as IgcTreeGridComponent;
+        var employees = (this.employees = document.getElementById('Employees') as any) as IgcGridToolbarTitleComponent;
 
         this._bind = () => {
             treeGrid.childDataKey = "Employees";

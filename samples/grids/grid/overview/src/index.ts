@@ -13,7 +13,7 @@ export class Sample {
 
     constructor() {
 
-        var grid1 = this.grid1 = document.getElementById('grid1') as IgcGridComponent;
+        var grid1 = (this.grid1 = document.getElementById('grid1') as any) as IgcGridComponent;
 
         this._bind = () => {
             grid1.data = this.nwindData

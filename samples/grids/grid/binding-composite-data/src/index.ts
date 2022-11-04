@@ -14,9 +14,9 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
-        var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
+        var grid = (this.grid = document.getElementById('grid') as any) as IgcGridComponent;
+        var column1 = (this.column1 = document.getElementById('column1') as any) as IgcColumnComponent;
+        var column2 = (this.column2 = document.getElementById('column2') as any) as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.customersData
