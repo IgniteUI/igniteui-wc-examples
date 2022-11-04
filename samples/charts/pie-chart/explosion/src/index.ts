@@ -29,11 +29,11 @@ export class PieChartExplosion {
     public getData(): any[] {
 
         let data = [
-            { MarketShare: 37, Company: "Space Cooling", Summary: "Space Cooling 37%" },
-            { MarketShare: 25, Company: "Residential Appliance", Summary: "Residential Appliance 25%"  },
+            { MarketShare: 37, Company: "Cooling", Summary: "Cooling 37%" },
+            { MarketShare: 25, Company: "Residential", Summary: "Residential 25%"  },
             { MarketShare: 12, Company: "Heating", Summary: "Heating 12%" },
             { MarketShare: 8, Company: "Lighting", Summary: "Lighting 8%" },
-            { MarketShare: 18, Company: "Other Services", Summary: "Other Services 18%" }
+            { MarketShare: 18, Company: "Other", Summary: "Other 18%" }
         ];
 
         return data;

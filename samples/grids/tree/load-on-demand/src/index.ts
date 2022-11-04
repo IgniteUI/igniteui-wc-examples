@@ -1,11 +1,11 @@
-import { defineComponents, IgcCheckboxComponent, IgcIconComponent, IgcTreeComponent, IgcTreeItemComponent, IgcCircularProgressComponent, registerIconFromText } from "igniteui-webcomponents";
+import { defineComponents, IgcTreeComponent, IgcTreeItemComponent, registerIconFromText } from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { DataService } from "./DataService";
 import { DATA, ItemData, SelectableItemData } from "./LoadOnDemandData";
 import { ICONS } from "./SvgIcons";
 import "./TreeLoadOnDemand.css";
 
-defineComponents(IgcTreeComponent, IgcTreeItemComponent, IgcCheckboxComponent, IgcIconComponent, IgcCircularProgressComponent);
+defineComponents(IgcTreeComponent);
 export class TreeLoadOnDemand {
     public data = DATA;
     private tree: IgcTreeComponent;
@@ -13,7 +13,7 @@ export class TreeLoadOnDemand {
 
     constructor() {
         this.createIcons();
-        this.tree = document.getElementById("tree") as IgcTreeComponent;
+        this.tree = (document.getElementById("tree") as any) as IgcTreeComponent;
         this.renderItems(this.data);
         this.tree.items[0].expanded = true;
 
@@ -52,7 +52,7 @@ export class TreeLoadOnDemand {
         Array.from(item.children)
         .filter((c) => c.tagName === "IGC-TREE-ITEM")
         .forEach((c) => item!.removeChild(c));
-        
+
         // Restoring selection state of the parent as before
         item.selected = selecitonState;
 
@@ -82,13 +82,13 @@ export class TreeLoadOnDemand {
             this.renderItems(i.Files!, item);
         });
     }
-    
+
     private createTreeItem(itemData: SelectableItemData, parent: HTMLElement): IgcTreeItemComponent {
         const item = document.createElement("igc-tree-item") as IgcTreeItemComponent;
 
         item.value = itemData;
         item.selected = !!itemData.Selected;
-        
+
         const itemSlot = this.createLabelSlot(itemData);
         item.appendChild(itemSlot);
         parent.appendChild(item);

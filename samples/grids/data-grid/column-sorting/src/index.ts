@@ -5,8 +5,10 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 import { DataGridSharedData } from './DataGridSharedData';
 import { HeaderClickAction } from 'igniteui-webcomponents-grids';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridColumnSorting {
 

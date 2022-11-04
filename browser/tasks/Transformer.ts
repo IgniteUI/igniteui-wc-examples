@@ -350,7 +350,6 @@ class Transformer {
 
         let sampleCodeLines = sampleSourceCode.split('\n');
         for (const line of sampleCodeLines) {
-            // if (line.indexOf(" from 'react'") > 0) continue;
             if (line.indexOf("//") >= 0) continue;
 
             if (line.indexOf("import ") >= 0) {
@@ -583,7 +582,7 @@ class Transformer {
 
     public static getRelative(path: string): string {
         if (path.indexOf(igConfig.RepositoryName) > -1) {
-            path = path.split(igConfig.RepositoryName)[1];
+            path = path.split(igConfig.RepositoryName).pop() as string;
             path = path.split("\\").join("/");
             return ".." + path;
         }
@@ -762,7 +761,7 @@ class Transformer {
 
                 for (const info of component.Samples) {
                     let route = "/samples" + info.SampleRoute;
-                    sampleLinks += '           <a class="nav-link" href="#" data-nav="' + route + '">' + info.SampleDisplayName + '</a> \n';
+                    sampleLinks += '           <a class="nav-link" href="#" data-nav="' + route + '">─<span>' + info.SampleDisplayName + '</span></a> \n';
                 }
                 sampleLinks += '       </div>\n';
             }
@@ -793,11 +792,22 @@ class Transformer {
                 // let sampleClass = info.SampleFileName.replace('.tsx','');
                 // let samplePath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleClassName;
             }
-            routingConditions += '\n';
+            // routingConditions += '\n';
         }
-        routingConditions += "       ";
-        routingConditions += " else { console.log('SB is missing router for: ' + route) }";
-        routingConditions += '\n';
+        // routingConditions += "       ";
+        // routingConditions += " else { console.log('SB is missing router for: ' + route) }";
+        routingConditions += "        else { \n";
+        routingConditions += "             console.log('" + group.Name + " router missing path:' + route); \n";
+        routingConditions += "             let sample = await import('../../core/SampleFallback'); \n";
+        routingConditions += "             return sample.SampleFallback.register(route); \n";
+        // routingConditions += "      this.cachedSamples.set(route, sample.SampleFallback.register(route)); \n";
+        routingConditions += "        }\n";
+
+        // else {
+        //     console.log('SB is missing router for: ' + route)
+        //     let sample = await import("../../core/SampleFallback");
+        //     this.cachedSamples.set(route, sample.SampleFallback.register(route));
+        //  }
 
         fileContent = fileContent.replace('// {AutoInsertRoutingConditions}', routingConditions);
         fileContent = fileContent.replace('GroupName', Strings.toTitleCase(group.Name));

@@ -31,7 +31,7 @@ export class Router {
 
         let pathName = window.location.pathname;
 
-        // console.log("SB connect " + pathName);
+        console.log("SB connect " + pathName);
         await this.navigateToRoute(pathName);
 
         window.onpopstate = () => {
@@ -119,7 +119,9 @@ export class Router {
         }
         else if (route !== "/" && route !== "/index") {
             console.log("SB missing router for " + route)
-            // this.navigateToRoute(""); // TODO add fallback
+             let sampleFile = await import('./core/SampleFallback');
+             let sampleView = sampleFile.SampleFallback.register(route);
+             this.displaySample(sampleView);
         }
 
         // switch (route) {

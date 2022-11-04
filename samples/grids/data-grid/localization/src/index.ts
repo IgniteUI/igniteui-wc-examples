@@ -6,7 +6,7 @@ import { DataGridSharedData } from './DataGridSharedData';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
 import { IgcColumnSummaryDescription } from 'igniteui-webcomponents-grids';
 import { IgcComboBoxColumnComponent } from 'igniteui-webcomponents-grids';
-import { SummaryOperand } from 'igniteui-webcomponents-core';
+import { DataSourceSummaryOperand } from 'igniteui-webcomponents-core';
 import { Localization } from 'igniteui-webcomponents-core';
 import { DataGridLocalizationJa } from './DataGridLocaleJa';
 import { DataGridSummariesLocalizationJa } from './DataGridLocaleJa';
@@ -77,48 +77,48 @@ export class DataGridLocalization {
         const productCount = new IgcColumnSummaryDescription();
         productCount.field = 'ProductName';
         productCount.displayName = "商品名"
-        productCount.operand = SummaryOperand.Count;
+        productCount.operand = DataSourceSummaryOperand.Count;
         this.grid.summaryDescriptions.add(productCount);
 
         const priceMin = new IgcColumnSummaryDescription();
         priceMin.field = 'BundlePrice';
         priceMin.displayName = '価格';
-        priceMin.operand = SummaryOperand.Min;
+        priceMin.operand = DataSourceSummaryOperand.Min;
         priceMin.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMin);
 
         const priceMax = new IgcColumnSummaryDescription();
         priceMax.field = 'BundlePrice';
-        priceMax.operand = SummaryOperand.Max;
+        priceMax.operand = DataSourceSummaryOperand.Max;
         priceMax.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMax);
 
         const orderSum = new IgcColumnSummaryDescription();
         orderSum.field = 'OrderItems';
-        orderSum.operand = SummaryOperand.Sum;
+        orderSum.operand = DataSourceSummaryOperand.Sum;
         this.grid.summaryDescriptions.add(orderSum);
 
         const orderValueSum = new IgcColumnSummaryDescription();
         orderValueSum.field = 'OrderValue';
-        orderValueSum.operand = SummaryOperand.Sum;
+        orderValueSum.operand = DataSourceSummaryOperand.Sum;
         orderValueSum.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0});
         this.grid.summaryDescriptions.add(orderValueSum);
 
         const orderValueAvg = new IgcColumnSummaryDescription();
         orderValueAvg.field = 'OrderValue';
-        orderValueAvg.operand = SummaryOperand.Average;
+        orderValueAvg.operand = DataSourceSummaryOperand.Average;
         orderValueAvg.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(orderValueAvg);
 
         const sum1 = new IgcColumnSummaryDescription();
         sum1.field = 'Profit';
-        sum1.operand = SummaryOperand.Sum;
+        sum1.operand = DataSourceSummaryOperand.Sum;
         sum1.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(sum1);
 
         const avg2 = new IgcColumnSummaryDescription();
         avg2.field = 'Profit';
-        avg2.operand = SummaryOperand.Average;
+        avg2.operand = DataSourceSummaryOperand.Average;
         avg2.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(avg2);
     }

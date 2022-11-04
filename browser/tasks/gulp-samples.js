@@ -1,17 +1,11 @@
 let gulp = require('gulp');
-let gulpIgnore = require('gulp-ignore');
-let uglify = require('gulp-uglify');
 
 // let gSort = require('gulp-sort');
-let rename = require('gulp-rename');
 let fs = require('fs.extra');
 let path = require('path');
 let flatten = require('gulp-flatten');
 let del = require('del');
 let es = require('event-stream');
-let shell = require('gulp-shell');
-let replace = require('gulp-replace');
-let contains = require('gulp-contains');
 let through2 = require('through2');
 
 // simple callback stream used to synchronize stuff
@@ -35,6 +29,8 @@ log('loaded');
 
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSources = [
+    // igConfig.SamplesCopyPath + '/maps/**/display-heat-imagery/package.json',
+
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
@@ -43,9 +39,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
     igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
     igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
-
     igConfig.SamplesCopyPath + '/maps/**/package.json',
-
     igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
     igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
 
@@ -56,13 +50,17 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
     igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/grid/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
 
+    igConfig.SamplesCopyPath + '/layouts/accordion/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/card/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/avatar/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/icon/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/expansion-panel/**/package.json',
+    igConfig.SamplesCopyPath + '/layouts/tabs/**/package.json',
 
     igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
 
@@ -71,19 +69,24 @@ var sampleSources = [
 
     igConfig.SamplesCopyPath + '/notifications/snackbar/**/package.json',
     igConfig.SamplesCopyPath + '/notifications/toast/**/package.json',
+    igConfig.SamplesCopyPath + '/notifications/dialog/**/package.json',
 
     igConfig.SamplesCopyPath + '/inputs/button/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/badge/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/checkbox/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/chip/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/circular-progress-indicator/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/date-time-input/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/dropdown/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/icon-button/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/input/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/linear-progress-indicator/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/mask-input/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/radio/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/rating/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/ripple/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/select/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/slider/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/switches/**/package.json',
 
@@ -870,23 +873,25 @@ function logVersionTypescript(cb) {
 function updateIG(cb) {
 
     // NOTE: change this array with new version of packages and optionally use "@infragistics/" proget prefix, e.g.
-    // "@infragistics/igniteui-angular-charts" instead of "igniteui-angular-charts"
+    // "igniteui-angular-charts" instead of "igniteui-angular-charts", e.g.
+    // { name: "igniteui-webcomponents-core", version: "22.1.62" }, // proget
+    // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-webcomponents-core"                     , version: "3.2.2" },
-        { name: "igniteui-webcomponents-charts"                   , version: "3.2.2" },
-        { name: "igniteui-webcomponents-excel"                    , version: "3.2.2" },
-        { name: "igniteui-webcomponents-gauges"                   , version: "3.2.2" },
-        { name: "igniteui-webcomponents-grids"                    , version: "3.2.2" },
-        { name: "igniteui-webcomponents-inputs"                   , version: "3.2.2" },
-        { name: "igniteui-webcomponents-layouts"                  , version: "3.2.2" },
-        { name: "igniteui-webcomponents-maps"                     , version: "3.2.2" },
-        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "3.2.2" },
-        { name: "igniteui-webcomponents-spreadsheet"              , version: "3.2.2" },
-        { name: "igniteui-webcomponents-datasources"              , version: "3.2.2", },
+        { name: "igniteui-webcomponents-core"                     , version: "4.0.2" },
+        { name: "igniteui-webcomponents-charts"                   , version: "4.0.2" },
+        { name: "igniteui-webcomponents-excel"                    , version: "4.0.2" },
+        { name: "igniteui-webcomponents-gauges"                   , version: "4.0.2" },
+        { name: "igniteui-webcomponents-grids"                    , version: "4.0.2" },
+        { name: "igniteui-webcomponents-inputs"                   , version: "4.0.2" },
+        { name: "igniteui-webcomponents-layouts"                  , version: "4.0.2" },
+        { name: "igniteui-webcomponents-maps"                     , version: "4.0.2" },
+        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.0.2" },
+        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.0.2" },
+        { name: "igniteui-webcomponents-datasources"              , version: "4.0.2" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "^3.2.0",  },
-        { name: "igniteui-dockmanager", version: "^1.8.0" },
+        { name: "igniteui-webcomponents", version: "4.0.0"  },
+        { name: "igniteui-dockmanager", version: "1.11.3" },
     ];
 
     // NOTE you can comment out strings in this array to run these function only on a subset of samples
@@ -946,6 +951,14 @@ function updateIG(cb) {
                         fileChanged = true;
                     }
                 }
+            }
+
+            // remove a comma from the last item in a list of dependencies
+            let next = i + 1 < fileLines.length ? i + 1 : i;
+            if (fileLines[next].trim().indexOf('}') === 0 &&
+                fileLines[i].indexOf(',') > 0) {
+                fileLines[i] = fileLines[i].replace(',','');
+                fileChanged = true;
             }
         }
 

@@ -6,9 +6,11 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 import { IgcColumnChooserModule } from 'igniteui-webcomponents-grids';
 import { IgcColumnChooserComponent } from 'igniteui-webcomponents-grids';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcColumnChooserModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcColumnChooserModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridColumnChooserPicker {
 

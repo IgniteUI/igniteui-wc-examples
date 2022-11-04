@@ -6,9 +6,11 @@ import { FilterExpression } from 'igniteui-webcomponents-core';
 import { FilterFactory } from 'igniteui-webcomponents-core';
 import { DataGridSharedData } from './DataGridSharedData';
 import { FilterUIType } from 'igniteui-webcomponents-grids';
- 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridColumnFilterExpressions {
 

@@ -9,8 +9,10 @@ import { ColumnHidingAnimationMode } from 'igniteui-webcomponents-grids';
 import { ColumnPropertyUpdatingAnimationMode } from 'igniteui-webcomponents-grids';
 import { ColumnMovingAnimationMode } from 'igniteui-webcomponents-grids';
 
-ModuleManager.register(IgcDataGridModule);
-ModuleManager.register(IgcGridColumnOptionsModule);
+ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule
+);
 
 export class DataGridColumnAnimation {
 
