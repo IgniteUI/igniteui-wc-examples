@@ -20,10 +20,10 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.customersData
-            column1.bodyTemplate = this.webGridCompositeContactCellTemplate
-            column1.inlineEditorTemplate = this.webGridCompositeContactEditCellTemplate
-            column2.bodyTemplate = this.webGridCompositeAddressCellTemplate
-            column2.inlineEditorTemplate = this.webGridCompositeAddressEditCellTemplate
+            // column1.bodyTemplate = this.webGridCompositeContactCellTemplate
+            // column1.inlineEditorTemplate = this.webGridCompositeContactEditCellTemplate
+            // column2.bodyTemplate = this.webGridCompositeAddressCellTemplate
+            // column2.inlineEditorTemplate = this.webGridCompositeAddressEditCellTemplate
         }
         this._bind();
 
@@ -37,7 +37,7 @@ export class Sample {
         }
         return this._customersData;
     }
-    
+
 
 
 

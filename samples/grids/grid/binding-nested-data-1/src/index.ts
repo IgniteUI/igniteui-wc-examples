@@ -18,7 +18,7 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.employeesNestedData
-            column1.bodyTemplate = this.webGridNestedDataCellTemplate
+            // column1.bodyTemplate = this.webGridNestedDataCellTemplate
         }
         this._bind();
 
@@ -32,7 +32,7 @@ export class Sample {
         }
         return this._employeesNestedData;
     }
-    
+
 
 
 
