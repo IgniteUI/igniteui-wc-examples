@@ -57,6 +57,10 @@ const presets = [
 ];
 
 var config = {
+  stats: {
+     errorDetails: true,
+     children: true
+  },
   devtool: isProd ? false : 'source-map',
   context: path.resolve('./browser/src'),
   entry: {
@@ -76,7 +80,7 @@ var config = {
             enforce: 'pre',
             test: /\.worker\.ts$/,
             exclude: [/\/node_modules\//],
-            use: [ 
+            use: [
               { loader: 'worker-loader' },
               { loader: 'babel-loader', options: {
                 "compact": isProd ? true : false,
@@ -112,8 +116,8 @@ var config = {
           }
         ]
       },
-      { test: /\.html$/, loader: 'html-loader' },
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      { test: /\.html$/, use: 'html-loader' },
+      { test: /\.css$/, sideEffects: true, use: ['style-loader', 'css-loader'] },
       { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
       { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
       { test: /\.xml$/, use: ['xml-loader'] }
