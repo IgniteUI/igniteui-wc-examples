@@ -8,9 +8,10 @@ import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcCellStyleRequestedEventArgs } from 'igniteui-webcomponents-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
 import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcDefinitionBaseComponent} from 'igniteui-webcomponents-grids';
 import { IgcColumnWidth } from 'igniteui-webcomponents-grids';
-import { GridSelectionMode } from 'igniteui-webcomponents-grids';
+import { DataGridSelectionMode } from 'igniteui-webcomponents-grids';
 import { HeaderClickAction } from 'igniteui-webcomponents-grids';
 
 ModuleManager.register(IgcDataGridModule);
@@ -47,7 +48,7 @@ export class DataGridPerformance {
         this.data = this.generateSalesPeople(8000);
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
 
-        this.grid.selectionMode = GridSelectionMode.MultipleRow;
+        this.grid.selectionMode = DataGridSelectionMode.MultipleRow;
         this.grid.headerClickAction = HeaderClickAction.SortByMultipleColumnsTriState;
 
         const avgSaleTemplateColumn = document.getElementById('avgSaleTemplateColumn') as IgcTemplateColumnComponent;
@@ -68,7 +69,9 @@ export class DataGridPerformance {
             const column = new IgcNumericColumnComponent();
             column.field = this._kpiColumns[i];
             let width = new IgcColumnWidth();
+            width.isStarSized = false;
             width.value = 110;
+            width.minimumWidth = 110;
             column.width = width;
             this.grid.columns.add(column);
         }
@@ -84,7 +87,7 @@ export class DataGridPerformance {
         for (let i = 0; i < 43; i++) {
             (() => {
                 let currVal = i;
-                this.grid.forColumnsWithPropertyPath('KPI_' + currVal, (col: IgcColumnComponent) => {
+                this.grid.forColumnsWithPropertyPath('KPI_' + currVal, (col: IgcDataGridColumnComponent) => {
                     col.cellStyleKeyRequested = (sender: any, args: IgcCellStyleRequestedEventArgs) => {
                         let value = args.resolvedValue;
                         if (value < 20.0) {
@@ -112,7 +115,7 @@ export class DataGridPerformance {
             })();
         }
 
-        this.grid.forColumnsWithPropertyPath('AvgSale', (col: IgcColumnComponent) => {
+        this.grid.forColumnsWithPropertyPath('AvgSale', (col: IgcDataGridColumnComponent) => {
             col.dataBound = (sender: any, args: IgcDataBindingEventArgs) => {
                 let item: any = args.cellInfo.rowItem;
                 if (item !== null) {
@@ -167,7 +170,7 @@ export class DataGridPerformance {
         window.setTimeout(this.tick, 16);
     }
 
-    public onPriceStyleKey(grid: IgcColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    public onPriceStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         let row: SalesPerson;
         if (this.grid) {
             row = this.grid.actualDataSource.getItemAtIndex(args.rowNumber);
@@ -224,7 +227,7 @@ export class DataGridPerformance {
         }
     }
 
-    public onPriceAmountStyleKey(grid: IgcColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    public onPriceAmountStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = 'priceAmountUp';
         } else {
@@ -266,7 +269,7 @@ export class DataGridPerformance {
         }
     }
 
-    public onPricePercentStyleKey(grid: IgcColumnComponent, args: IgcCellStyleRequestedEventArgs) {
+    public onPricePercentStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = 'pricePercentUp';
         } else {
@@ -318,7 +321,7 @@ export class DataGridPerformance {
         // }
 
         let toChange = 200;
-        let toChangeIndexes = {};
+        let toChangeIndexes = {} as any;
         let stillAnimating = false;
         for (let i = 0; i < this.data.length; i++) {
             let item = this.data[i] as any;
@@ -565,7 +568,7 @@ export class DataGridPerformance {
             item.DateValue.setDate(item.DateValue.getDate() + Math.round(Math.random() * 500))
 
             for (let j = 0; j < 43; j++) {
-                item['KPI_' + j] = Math.round(Math.random() * 100.0);
+                (item as any)['KPI_' + j] = Math.round(Math.random() * 100.0);
             }
 
             items.push(item);
@@ -580,18 +583,18 @@ export class DataGridPerformance {
 }
 
 export class SalesPerson {
-    FirstName: string;
-    LastName: string;
-    Name: string;
-    ImageName: string;
-    Territory: string;
-    Index: number;
-    AvgSale: number;
-    AvgSaleHeat: number;
-    Change: number;
-    PercentChange: number;
-    YearToDateSales: number;
-    DateValue: Date;
-}
+    FirstName!: string;
+    LastName!: string;
+    Name!: string;
+    ImageName!: string;
+    Territory!: string;
+    Index!: number;
+    AvgSale!: number;
+    AvgSaleHeat!: number;
+    Change!: number;
+    PercentChange!: number;
+    YearToDateSales!: number;
+    DateValue!: Date;
+} 
 
 new DataGridPerformance();

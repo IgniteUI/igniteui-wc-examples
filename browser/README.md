@@ -8,39 +8,39 @@
 
 # Web Component Browser
 
-This browser application will allows you to browse all samples of the [IgniteUI for Web Components](https://www.infragistics.com/webcomponentssite/components/general-getting-started.html) in a single website.
+This browser application will allows you to browse all samples of the [IgniteUI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html) in a single website.
 
 - Charts:
-[Area](https://www.infragistics.com/webcomponentssite/components/charts/types/area-chart),
-[Bar](https://www.infragistics.com/webcomponentssite/components/charts/types/bar-chart),
-[Column](https://www.infragistics.com/webcomponentssite/components/charts/types/column-chart),
-[Composite](https://www.infragistics.com/webcomponentssite/components/charts/types/composite-chart),
-[Donut](https://www.infragistics.com/webcomponentssite/components/charts/types/donut-chart),
-[Financial/Stock](https://www.infragistics.com/webcomponentssite/components/charts/types/stock-chart),
-[Line](https://www.infragistics.com/webcomponentssite/components/charts/types/line-chart),
-[Pie](https://www.infragistics.com/webcomponentssite/components/charts/types/pie-chart),
-[Polar](https://www.infragistics.com/webcomponentssite/components/charts/types/polar-chart),
-[Radial](https://www.infragistics.com/webcomponentssite/components/charts/types/radial-chart),
-[Scatter](https://www.infragistics.com/webcomponentssite/components/charts/types/scatter-chart),
-[Shape](https://www.infragistics.com/webcomponentssite/components/charts/types/shape-chart),
-[Sparkline](https://www.infragistics.com/webcomponentssite/components/charts/types/sparkline-chart),
-[Stacked](https://www.infragistics.com/webcomponentssite/components/charts/types/stacked-chart),
-[Step](https://www.infragistics.com/webcomponentssite/components/charts/types/step-chart),
+[Area](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/area-chart),
+[Bar](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/bar-chart),
+[Column](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/column-chart),
+[Composite](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/composite-chart),
+[Donut](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/donut-chart),
+[Financial/Stock](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/stock-chart),
+[Line](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/line-chart),
+[Pie](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/pie-chart),
+[Polar](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/polar-chart),
+[Radial](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/radial-chart),
+[Scatter](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/scatter-chart),
+[Shape](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/shape-chart),
+[Sparkline](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/sparkline-chart),
+[Stacked](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/stacked-chart),
+[Step](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/step-chart),
 - Maps:
-[Geographic Map](https://www.infragistics.com/webcomponentssite/components/geo-map.html),
-[Treemap](https://www.infragistics.com/webcomponentssite/components/charts/types/treemap-chart.html),
+[Geographic Map](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/geo-map.html),
+[Treemap](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/treemap-chart.html),
 - Gauges:
-[Bullet Graph](https://www.infragistics.com/webcomponentssite/components/bullet-graph),
-[Linear Gauge](https://www.infragistics.com/webcomponentssite/components/linear-gauge.html),
-[Radial Gauges](https://www.infragistics.com/webcomponentssite/components/radial-gauge.html)
+[Bullet Graph](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/bullet-graph),
+[Linear Gauge](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/linear-gauge.html),
+[Radial Gauges](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/radial-gauge.html)
 - Grids:
-[Table / Grid](https://www.infragistics.com/webcomponentssite/components/grids/data-grid.html),
-[Excel Spreadsheet](https://www.infragistics.com/webcomponentssite/components/spreadsheet_overview.html),
-[Excel Library](https://www.infragistics.com/webcomponentssite/components/excel_library_using_workbooks.html)
+[Table / Grid](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/grids/data-grid.html),
+[Excel Spreadsheet](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/spreadsheet_overview.html),
+[Excel Library](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/excel_library_using_workbooks.html)
 - Other:
-[Dock Manager](https://www.infragistics.com/webcomponentssite/components/layouts/dock-manager),
-[Date Picker](https://www.infragistics.com/webcomponentssite/components/editors/date-picker),
-[Multi-Column Combobox](https://www.infragistics.com/webcomponentssite/components/editors/multi-column-combobox)
+[Dock Manager](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/layouts/dock-manager),
+[Date Picker](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/editors/date-picker),
+[Multi-Column Combobox](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/editors/multi-column-combobox)
 
 # Instructions
 
