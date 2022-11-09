@@ -85,7 +85,7 @@
     "html-webpack-plugin": "^5.5.0",
     "jasmine": "^3.2.0",
     "jasmine-core": "^3.2.1",
-    "karma": "^3.0.0",
+    "karma": "^6.4.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.0",
     "karma-spec-reporter": "0.0.32",
