@@ -6,9 +6,9 @@
 <!-- <div style="font-size: 2.5rem; align-self: start; justify-content: start; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem">SAMPLES</div> -->
 </div>
 
-# Web Component Samples
+# Individual Samples of Web Components
 
-In this folder, you will find stand-alone **samples** on how the [IgniteUI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html)
+In this folder, you will find individual **samples** on how to use the [IgniteUI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html)
 
 - [Bullet Graph, Linear Gauge, Radial Gauges](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/radial-gauge.html)
 - [Data Chart, Category Chart, Financial Chart, Pie Chart](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/data-chart.html)

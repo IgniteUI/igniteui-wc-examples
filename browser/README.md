@@ -6,9 +6,9 @@
 <div style="font-size: 2.5rem; align-self: start; justify-content: start; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem">BROWSER</div> -->
 </div>
 
-# Web Component Browser
+# Browser App for Web Components
 
-This browser application will allows you to browse all samples of the [IgniteUI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html) in a single website.
+This browser application allows you to browse all samples of the [IgniteUI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html) in a single website.
 
 - Charts:
 [Area](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/area-chart),
