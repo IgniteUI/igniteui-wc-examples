@@ -56,6 +56,7 @@
     max-width: 320px;
     min-width: 220px;
     position: relative;
+    z-index: 12;
 }
 
 .card-wrapper igc-card {
@@ -66,7 +67,7 @@ igc-card {
     padding: 1rem;
 }
 
-igc-card.card-first-step {
+.card-wrapper.card-first-step {
     cursor: pointer;
 }
 
@@ -80,14 +81,14 @@ igc-card-content p {
     line-height: 1.5rem;
 }
 
-.card-currency {
+.card-price {
     display: block;
     font-size: 3rem;
     color: #e41c77;
     margin-bottom: 0.5rem;
 }
 
-.card-currency::before {
+.card-price::before {
     content: "$";
     font-size: 2rem;
     margin-right: 0.4rem;
@@ -95,7 +96,7 @@ igc-card-content p {
     top: -0.8rem;
 }
 
-.card-title {
+.card-offer {
     display: block;
     font-size: rem(14px);
     font-weight: 500;
@@ -162,7 +163,7 @@ label {
     margin: 0;
 }
 
-.card-horizontal {
+.card-horizontal .card-wrapper {
     width: fit-content;
     max-width: none;
 }

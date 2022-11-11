@@ -25,14 +25,72 @@ const checkIcon =
 defineComponents(IgcStepperComponent, IgcRadioGroupComponent, IgcFormComponent, IgcSwitchComponent, IgcCardComponent, IgcBadgeComponent, IgcSelectComponent, IgcMaskInputComponent, IgcCheckboxComponent, IgcIconComponent);
 export class StepperOverview {
     private stepper: IgcStepperComponent;
-    private cards: IgcCardComponent[];
     private taxIdInput: IgcMaskInputComponent;
+    private mailingAddressCheckbox: IgcCheckboxComponent;
+    private selectedCard = null;
+    private cards: any[] = [
+        {
+            id: "card-blue",
+            img: "https://www.infragistics.com/angular-demos/assets/images/stepper/card-blue.png",
+            price: 400,
+            offer: "STATEMENT CREDIT OFFER",
+            type: "Business Customized Advanced",
+            description: "Cash Mastercard"
+        },
+        {
+            id: "card-red",
+            img: "https://www.infragistics.com/angular-demos/assets/images/stepper/card-red.png",
+            price: 600,
+            offer: "STATEMENT CREDIT OFFER",
+            type: "Business Travel Advanced",
+            description: "World Mastercard"
+        },
+        {
+            id: "card-gold",
+            img: "https://www.infragistics.com/angular-demos/assets/images/stepper/card-gold.png",
+            price: 500,
+            offer: "STATEMENT CREDIT OFFER",
+            type: "Business Golden",
+            description: "World Mastercard"
+        }
+    ];
+
+    private businessInformation: any = {
+        name: "",
+        physicalAddress: "",
+        city: "",
+        state: "",
+        zip: null,
+        taxIdNumber: null,
+        differentAddress: false,
+        nonUSBusinessActivity: null
+    };
+
+    private personalInformation: any = {
+        firstName: "",
+        lastName: "",
+        jobTitle: "",
+        phoneNumber: "",
+        email: "",
+        authorization: false,
+        agreementAccepted: false
+    };
+
+    private shippingDetails: any = {
+        firstName: "",
+        lastName: "",
+        mailingAddress: "",
+        city: "",
+        state: "",
+        zip: null
+    };
 
     constructor() {
         this.stepper = document.querySelector("igc-stepper") as IgcStepperComponent;
-        this.taxIdInput = document.getElementById('taxId') as unknown as IgcMaskInputComponent;
-        this.cards = Array.from(document.querySelectorAll("igc-card.card-first-step"));
+        this.taxIdInput = document.getElementById("tax-id") as unknown as IgcMaskInputComponent;
+        this.mailingAddressCheckbox = document.getElementById("different-mailing-address") as unknown as IgcCheckboxComponent;
         registerIconFromText("check", checkIcon, "material");
+        this.addCards();
         this.registerEventListeners();
     }
 
@@ -46,35 +104,11 @@ export class StepperOverview {
 
     private registerEventListeners() {
         this.stepper.addEventListener("igcInput", this.checkValidity.bind(this));
-        this.stepper.addEventListener("igcChange", this.checkValidity.bind(this));
+        this.stepper.addEventListener("igcChange", this.onChange.bind(this));
         this.stepper.addEventListener("igcClosed", this.checkValidity.bind(this));
-        this.selectCard();
         this.checkTaxIdInputValidity();
+        this.onDifferentMailingAddressChecked();
         this.reset();
-    }
-
-    private selectCard() {
-        this.cards.forEach((card, index, array) => {
-            card.addEventListener("click", () => {
-                card.parentElement!.classList.add("selected-card");
-
-                array.forEach((c, i) => {
-                    if (i !== index) {
-                        c.parentElement!.classList.remove("selected-card");
-                    }
-                });
-
-                // apply the selected card from the first step to the following steps
-                document.querySelectorAll(".selected-card-holder").forEach((selectedCardHolder, i, array) => {
-                    const clonedCard = card.cloneNode(true);
-                    selectedCardHolder.innerHTML = "";
-                    selectedCardHolder.append(clonedCard);
-                });
-
-                this.activeStep!.invalid = false;
-                this.stepper!.navigateTo(1);
-            });
-        });
     }
 
     private checkValidity() {
@@ -86,19 +120,69 @@ export class StepperOverview {
     }
 
     private checkTaxIdInputValidity() {
-        this.taxIdInput.addEventListener('igcInput', () => {
-            const errorMessage = document.querySelector('.tax-id-error-message') as HTMLParagraphElement;
-            errorMessage.style.display = this.taxIdInput.checkValidity() ? 'none' : 'block';
+        this.taxIdInput.addEventListener("igcInput", () => {
+            const errorMessage = document.querySelector(".tax-id-error-message") as HTMLParagraphElement;
+            errorMessage.style.display = this.taxIdInput.checkValidity() ? "none" : "block";
         });
     }
 
+    private onDifferentMailingAddressChecked() {
+        this.mailingAddressCheckbox.addEventListener("igcChange", (e: CustomEvent) => {
+            this.stepper.steps[3].invalid = e.detail;
+        });
+    }
+
+    private onChange(e: Event) {
+        this.checkValidity();
+        const that = this as any;
+        const control = e.target as any as IgcInputComponent | IgcRadioComponent | IgcSelectComponent | IgcMaskInputComponent | IgcCheckboxComponent;
+        that[this.activeStep!.id][control.id] = control.value;
+    }
+
     private reset() {
-        document.getElementById('reset')!.addEventListener('click', () => {
+        document.getElementById("reset")!.addEventListener("click", () => {
             this.stepper!.reset();
-            this.stepper!.steps.forEach(step => step.invalid = true);
-            this.cards.forEach(card => card.parentElement!.classList.remove("selected-card"));
-            document.querySelectorAll('igc-form').forEach(form => form.reset());
-        })
+            this.stepper!.steps.forEach((step) => (step.invalid = true));
+            this.cards.forEach((card) => card.parentElement!.classList.remove("selected-card"));
+            document.querySelectorAll("igc-form").forEach((form) => form.reset());
+        });
+    }
+
+    private createCard(cardData: any) {
+        const cardTemplate = document.getElementById("card") as HTMLTemplateElement;
+        const card = cardTemplate!.content!.firstElementChild!.cloneNode(true) as HTMLElement;
+
+        (card!.querySelector(".card-img")! as HTMLImageElement).src = cardData.img;
+        card!.querySelector(".card-price")!.textContent = cardData.price;
+        card!.querySelector(".card-offer")!.textContent = cardData.offer;
+        card!.querySelector(".card-type")!.textContent = cardData.type;
+        card!.querySelector(".card-description")!.textContent = cardData.description;
+
+        return card;
+    }
+
+    private addCards() {
+        this.cards.forEach((card) => {
+            const cardElement = this.createCard(card);
+            cardElement.classList.add("card-first-step");
+
+            cardElement.addEventListener("click", () => {
+                document.querySelectorAll(".selected-card").forEach((c) => {
+                    c.classList.remove("selected-card");
+                });
+
+                cardElement.classList.add("selected-card");
+
+                document.querySelectorAll(".selected-card-wrapper").forEach((holder) => {
+                    (holder as any).replaceChildren(this.createCard(card));
+                });
+
+                this.activeStep!.invalid = false;
+                this.stepper!.navigateTo(1);
+            });
+
+            document.querySelector(".cards-wrapper")!.append(cardElement);
+        });
     }
 }
 
