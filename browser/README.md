@@ -1,14 +1,10 @@
-
-<div style="display: flex; flex-flow: row;">
-<img height="70px" style="border-radius: 0.25rem" alt="ignite-ui" src="../browser/public/logo-ignite-ui.svg"/>
-<!-- <div style="font-size: 2.5rem; align-self: start; justify-content: start; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem">FOR</div>
-<img height="52px" style="border-radius: 0.25rem" alt="ignite-wc" src="../browser/public/wc.png"/>
-<div style="font-size: 2.5rem; align-self: start; justify-content: start; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem">BROWSER</div> -->
+<div style="display: flex; flex-flow: row; font-family: 'Titillium Web'">
+    <img style="border-radius: 0.25rem" alt="ignite-ui" src="https://raw.githubusercontent.com/IgniteUI/igniteui-xplat-docs/vnext/doc/en/images/readme/ig-banner.png"/>
 </div>
 
-# Web Component Browser
+# Browser App for Web Components
 
-This browser application will allows you to browse all samples of the [IgniteUI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html) in a single website.
+This browser application allows you to browse all samples of the [IgniteUI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html) in a single website.
 
 - Charts:
 [Area](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/area-chart),
