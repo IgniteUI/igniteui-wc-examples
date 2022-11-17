@@ -13,6 +13,7 @@ ModuleManager.register(IgcRadialGaugeModule);
 export class RadialGaugeAnimation {
 
     private gauge: IgcRadialGaugeComponent;
+    private shouldAnimate: boolean = false;
 
     constructor() {
 
@@ -35,6 +36,10 @@ export class RadialGaugeAnimation {
 
     // full radial gauge
     public onAnimateToGauge4 = (e: any) => {
+
+        if(this.shouldAnimate){
+            this.gauge.transitionDuration = 1000;
+        }        
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 50;
@@ -110,10 +115,16 @@ export class RadialGaugeAnimation {
             range.outerStartExtent = 0.57;
             range.outerEndExtent = 0.57;
         }
+        
+        this.shouldAnimate = true;
     }
 
     // semi radial gauge
     public onAnimateToGauge3 = (e: any) => {
+
+        if(this.shouldAnimate){
+            this.gauge.transitionDuration = 1000;
+        }        
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 80;
@@ -164,10 +175,15 @@ export class RadialGaugeAnimation {
         this.gauge.minorTickCount = 6;
 
         this.gauge.ranges.clear();
+        this.shouldAnimate = true;
     }
 
     // half radial gauge
     public onAnimateToGauge2 = (e: any) => {
+
+        if(this.shouldAnimate){
+            this.gauge.transitionDuration = 1000;
+        }        
 
         this.gauge.minimumValue = 100;
         this.gauge.maximumValue = 200;
@@ -223,10 +239,16 @@ export class RadialGaugeAnimation {
             range.outerStartExtent = 0.9;
             range.outerEndExtent = 0.9;
         }
+
+        this.shouldAnimate = true;
     }
 
     // quatre radial gauge
     public onAnimateToGauge1 = (e: any) => {
+
+        if(this.shouldAnimate){
+            this.gauge.transitionDuration = 1000;
+        }        
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 10;
@@ -282,6 +304,8 @@ export class RadialGaugeAnimation {
             range.outerStartExtent = 0.9;
             range.outerEndExtent = 0.9;
         }
+
+        this.shouldAnimate = true;
     }
 }
 

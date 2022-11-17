@@ -7,7 +7,7 @@ ModuleManager.register(IgcBulletGraphModule);
 
 export class BulletGraphAnimation {
 
-    private gauge: IgcBulletGraphComponent;
+    private gauge: IgcBulletGraphComponent;    
 
     constructor() {
 
@@ -29,6 +29,7 @@ export class BulletGraphAnimation {
 
     public onAnimateToGauge3 = (e: any) => {
 
+        this.gauge.transitionDuration = 1000;
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 120;
         this.gauge.value = 70;
@@ -99,6 +100,7 @@ export class BulletGraphAnimation {
 
     public onAnimateToGauge2 = (e: any) => {
 
+        this.gauge.transitionDuration = 1000;
         this.gauge.minimumValue = 100;
         this.gauge.maximumValue = 200;
         this.gauge.value = 120;
@@ -173,6 +175,7 @@ export class BulletGraphAnimation {
 
     public onAnimateToGauge1 = (e: any) => {
 
+        this.gauge.transitionDuration = 1000;
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 80;
         this.gauge.value = 70;
