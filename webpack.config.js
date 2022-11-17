@@ -2,6 +2,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
 const isLegacy = !!process.env.legacy && !(process.env.legacy == "false");
@@ -125,7 +126,11 @@ var config = {
   },
   resolve: {
     mainFields: ['esm2015', 'module', 'main'],
-    extensions: ['.ts', '.js', 'json']
+    extensions: ['.ts', '.js', 'json'],
+    plugins: [new TsconfigPathsPlugin({
+      configFile: './tsconfig.json',
+      extensions: ['.ts', '.js']
+    })]
   },
   plugins: plugins,
   devServer: {
