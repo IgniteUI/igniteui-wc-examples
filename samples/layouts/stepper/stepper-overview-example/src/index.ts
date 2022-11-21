@@ -103,9 +103,10 @@ export class StepperOverview {
     }
 
     private registerEventListeners() {
-        this.stepper.addEventListener("igcInput", this.checkValidity.bind(this));
         this.stepper.addEventListener("igcChange", this.onChange.bind(this));
+        this.stepper.addEventListener("igcInput", this.checkValidity.bind(this));
         this.stepper.addEventListener("igcClosed", this.checkValidity.bind(this));
+        this.stepper.addEventListener("igcActiveStepChanged", this.checkValidity.bind(this));
         this.checkTaxIdInputValidity();
         this.onDifferentMailingAddressChecked();
         this.reset();
@@ -116,7 +117,7 @@ export class StepperOverview {
         const isFormInvalid = Array.from(formControls).some((control: IgcInputComponent | IgcRadioComponent | IgcSelectComponent | IgcMaskInputComponent | IgcCheckboxComponent) => !control.checkValidity());
 
         this.activeStep!.invalid = isFormInvalid;
-        this.nextButton!.disabled = this.stepper!.linear ? isFormInvalid : false;
+        this.nextButton!.disabled = isFormInvalid && !this.activeStep!.optional;
     }
 
     private checkTaxIdInputValidity() {
@@ -128,7 +129,7 @@ export class StepperOverview {
 
     private onDifferentMailingAddressChecked() {
         this.mailingAddressCheckbox.addEventListener("igcChange", (e: CustomEvent) => {
-            this.stepper.steps[3].invalid = e.detail;
+            this.stepper.steps[3].optional = !e.detail;
         });
     }
 
