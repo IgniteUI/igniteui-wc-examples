@@ -20,7 +20,7 @@
           <span slot="title">Card Type</span>
           <div class="first-step-content">
             <h2 class="sample-step-title">Choose your business credit card</h2>
-            <div class="cards-wrapper">
+            <div class="card-wrapper">
             </div>
           </div>
         </igc-step>
@@ -49,7 +49,7 @@
               <igc-mask-input id="tax-id" value-mode="withFormatting" required label="Federal Tax Id Number" placeholder="9##-##-####" name="taxIdNumber"
                 mask="\900-00-0000">
               </igc-mask-input>
-              <p class="tax-id-error-message">The Federal Tax ID Number should begin with 9</p>
+              <p id="tax-id-error-message" class="error-message hidden">The Federal Tax ID Number should begin with 9</p>
               <label>Does this business operate outside the United States?<span class="required">*</span></label>
               <igc-radio-group>
                 <igc-radio name="nonUSBusinessActivity" required>Yes.</igc-radio>

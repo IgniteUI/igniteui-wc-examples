@@ -89,7 +89,9 @@ export class StepperOverview {
         this.stepper = document.querySelector("igc-stepper") as IgcStepperComponent;
         this.taxIdInput = document.getElementById("tax-id") as unknown as IgcMaskInputComponent;
         this.mailingAddressCheckbox = document.getElementById("different-mailing-address") as unknown as IgcCheckboxComponent;
+
         registerIconFromText("check", checkIcon, "material");
+
         this.addCards();
         this.registerEventListeners();
     }
@@ -113,6 +115,7 @@ export class StepperOverview {
     }
 
     private checkValidity() {
+        // checks validity of the input elements in the form
         const formControls = this.activeStep!.querySelectorAll("igc-radio, igc-input, igc-select, igc-mask-input, igc-checkbox") as NodeListOf<any>;
         const isFormInvalid = Array.from(formControls).some((control: IgcInputComponent | IgcRadioComponent | IgcSelectComponent | IgcMaskInputComponent | IgcCheckboxComponent) => !control.checkValidity());
 
@@ -121,13 +124,15 @@ export class StepperOverview {
     }
 
     private checkTaxIdInputValidity() {
+        // shows an error message bellow the Federal Tax Id Number's input
         this.taxIdInput.addEventListener("igcInput", () => {
-            const errorMessage = document.querySelector(".tax-id-error-message") as HTMLParagraphElement;
-            errorMessage.style.display = this.taxIdInput.checkValidity() ? "none" : "block";
+            const errorMessage = document.querySelector("#tax-id-error-message") as HTMLParagraphElement;
+            this.taxIdInput.checkValidity() ? errorMessage.classList.add("hidden") : errorMessage.classList.remove("hidden");
         });
     }
 
     private onDifferentMailingAddressChecked() {
+        // sets the optional property of the Shipping Details' step
         this.mailingAddressCheckbox.addEventListener("igcChange", (e: CustomEvent) => {
             this.stepper.steps[3].optional = !e.detail;
         });
@@ -137,16 +142,8 @@ export class StepperOverview {
         this.checkValidity();
         const that = this as any;
         const control = e.target as any as IgcInputComponent | IgcRadioComponent | IgcSelectComponent | IgcMaskInputComponent | IgcCheckboxComponent;
+        // collects the data of a form
         that[this.activeStep!.id][control.id] = control.value;
-    }
-
-    private reset() {
-        document.getElementById("reset")!.addEventListener("click", () => {
-            this.stepper!.reset();
-            this.stepper!.steps.forEach((step) => (step.invalid = true));
-            this.cards.forEach((card) => card.parentElement!.classList.remove("selected-card"));
-            document.querySelectorAll("igc-form").forEach((form) => form.reset());
-        });
     }
 
     private createCard(cardData: any) {
@@ -174,15 +171,29 @@ export class StepperOverview {
 
                 cardElement.classList.add("selected-card");
 
-                document.querySelectorAll(".selected-card-wrapper").forEach((holder) => {
-                    (holder as any).replaceChildren(this.createCard(card));
+                document.querySelectorAll(".selected-card-wrapper").forEach((cardWrapper) => {
+                    (cardWrapper as any).replaceChildren(this.createCard(card));
                 });
 
+                this.selectedCard = card;
                 this.activeStep!.invalid = false;
                 this.stepper!.navigateTo(1);
             });
 
-            document.querySelector(".cards-wrapper")!.append(cardElement);
+            document.querySelector(".card-wrapper")!.append(cardElement);
+        });
+    }
+
+    private reset() {
+        document.getElementById("reset")!.addEventListener("click", () => {
+            this.stepper!.reset();
+            this.stepper!.steps.forEach((step) => (step.invalid = true));
+            document.querySelector(".selected-card")!.classList.remove("selected-card");
+            document.querySelectorAll("igc-form").forEach((form) => form.reset());
+            this.businessInformation = {};
+            this.personalInformation = {};
+            this.shippingDetails = {};
+            this.selectedCard = null;
         });
     }
 }

@@ -2,7 +2,7 @@
     max-width: 72rem;
 }
 
-.cards-wrapper,
+.card-wrapper,
 .flex-form,
 .sample-row,
 .form-row,
@@ -47,7 +47,7 @@
 	margin-bottom: 1.5rem;
 }
 
-.cards-wrapper {
+.card-wrapper {
     gap: 1.8rem;
     justify-content: center;
 }
@@ -128,16 +128,19 @@ igc-badge {
     display: block;
 }
 
-.tax-id-error-message {
-    display: none;
+igc-checkbox,
+label {
+    margin-top: 0.5rem;
+}
+
+.error-message {
     margin: 0.2rem;
     font-size: 0.8rem;
     color: #ff144b;
 }
 
-igc-checkbox,
-label {
-    margin-top: 0.5rem;
+.hidden {
+    display: none;
 }
 
 .success-message {
@@ -178,26 +181,26 @@ label {
     width: 500px;
 }
 
-.card-horizontal igc-card .card-content-wrapper  {
+.card-horizontal .card-content-wrapper  {
     flex-direction: row;
     align-items: center;
 }
 
-.card-horizontal igc-card .card-content-wrapper igc-card-media {
+.card-horizontal igc-card-media {
     height: 150px;
     width: 100%;
 }
 
-.card-horizontal-small igc-card .card-content-wrapper igc-card-media {
+.card-horizontal-small igc-card-media {
     height: 100px;
     width: 100%;
 }
 
-.card-horizontal igc-card .card-content-wrapper  igc-card-media img {
+.card-horizontal igc-card-media img {
     object-fit: contain;
 }
 
-.card-horizontal-small igc-card .card-content-wrapper igc-card-content {
+.card-horizontal-small igc-card-content {
     padding: 1rem;
 }
 
