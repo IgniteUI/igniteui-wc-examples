@@ -120,7 +120,9 @@ export class StepperOverview {
         const isFormInvalid = Array.from(formControls).some((control: IgcInputComponent | IgcRadioComponent | IgcSelectComponent | IgcMaskInputComponent | IgcCheckboxComponent) => !control.checkValidity());
 
         this.activeStep!.invalid = isFormInvalid;
-        this.nextButton!.disabled = isFormInvalid && !this.activeStep!.optional;
+        if (this.nextButton) {
+            this.nextButton!.disabled = isFormInvalid && !this.activeStep!.optional;
+        }
     }
 
     private checkTaxIdInputValidity() {
@@ -180,7 +182,7 @@ export class StepperOverview {
                 this.stepper!.navigateTo(1);
             });
 
-            document.querySelector(".card-wrapper")!.append(cardElement);
+            document.querySelector(".cards-wrapper")!.append(cardElement);
         });
     }
 

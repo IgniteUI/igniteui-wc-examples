@@ -2,7 +2,7 @@
     max-width: 72rem;
 }
 
-.card-wrapper,
+.cards-wrapper,
 .flex-form,
 .sample-row,
 .form-row,
@@ -40,14 +40,14 @@
 }
 
 .sample-step-title {
-	font-size: 1.2rem;
-	letter-spacing: 0;
-	font-weight: 500;
-	line-height: normal;
-	margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 0;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 1.5rem;
 }
 
-.card-wrapper {
+.cards-wrapper {
     gap: 1.8rem;
     justify-content: center;
 }
@@ -181,7 +181,7 @@ label {
     width: 500px;
 }
 
-.card-horizontal .card-content-wrapper  {
+.card-horizontal .card-content-wrapper {
     flex-direction: row;
     align-items: center;
 }
