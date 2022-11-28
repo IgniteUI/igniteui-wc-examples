@@ -22,9 +22,9 @@
     "build:fast": "cross-env NODE_ENV=production node --max_old_space_size=25192 node_modules/webpack/bin/webpack --mode production --config ./webpack.config.js  --progress  --color --bail",
     "clean": "npm cache clear && rimraf -- dist",
     "server": "npm run server:dev",
-    "server:dev": "gulp updateBrowser && node --max_old_space_size=25192 node_modules/webpack/bin/webpack.js serve --mode development --config ./webpack.config.js --hot --inline --progress --open",
-    "server:prod": "gulp updateBrowser && cross-env NODE_ENV=production webpack-dev-server  --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --inline --progress  --watch --open --content-base dist/",
-    "server:fast": "node --max_old_space_size=25192 node_modules/webpack/bin/webpack.js serve --mode development --config ./webpack.config.js --hot --inline --progress --open",
+    "server:dev": "gulp updateBrowser && node --max_old_space_size=25192 node_modules/webpack/bin/webpack.js serve --mode development --config ./webpack.config.js --hot --progress --open",
+    "server:prod": "gulp updateBrowser && cross-env NODE_ENV=production webpack-dev-server  --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --progress  --watch --open --content-base dist/",
+    "server:fast": "node --max_old_space_size=25192 node_modules/webpack/bin/webpack.js serve --mode development --config ./webpack.config.js --hot --progress --open",
     "start": "npm run server:dev",
     "fast": "npm run server:fast",
     "test": "karma start"
