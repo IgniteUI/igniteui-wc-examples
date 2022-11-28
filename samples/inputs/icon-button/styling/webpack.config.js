@@ -16,7 +16,7 @@ module.exports = env => {
     ] : path.resolve(__dirname, 'src'),
     devtool: isProd ? false : 'source-map',
     output: {
-      filename: isProd ? '[chunkhash].bundle.js' : '[hash].bundle.js',
+      filename: isProd ? '[chunkhash].bundle.js' : '[fullhash].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
 
