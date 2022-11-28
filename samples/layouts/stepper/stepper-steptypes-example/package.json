@@ -1,7 +1,7 @@
 {
   "name": "wc-stepper-steptypes",
   "version": "1.0.0",
-  "description": "This project provides example of Stepper using IgniteUI for Web Components",
+  "description": "This project provides example of Stepper Step Types using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
