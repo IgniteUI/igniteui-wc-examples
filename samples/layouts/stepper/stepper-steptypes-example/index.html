@@ -1,44 +1,42 @@
 <html>
+    <head>
+        <title>Stepper Step Type Example</title>
+        <meta charset="UTF-8" />
 
-<head>
-  <title>Stepper Step Type Example</title>
-  <meta charset="UTF-8" />
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+    </head>
 
-  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
-</head>
-
-<body>
-  <div id="root">
-    <div class="container sample">
-        <label>Step type</label>
-        <div class="radio-group-container">
-          <igc-radio-group id="titlePosition" alignment="horizontal">
-            <igc-radio value="indicator">Indicator</igc-radio>
-            <igc-radio value="title">Title</igc-radio>
-            <igc-radio value="full" checked>Full</igc-radio>
-          </igc-radio-group>
+    <body>
+        <div id="root">
+            <div class="container sample">
+                <label>Step type</label>
+                <div class="radio-group-container">
+                    <igc-radio-group id="titlePosition" alignment="horizontal">
+                        <igc-radio value="indicator">Indicator</igc-radio>
+                        <igc-radio value="title">Title</igc-radio>
+                        <igc-radio value="full" checked>Full</igc-radio>
+                    </igc-radio-group>
+                </div>
+                <igc-stepper id="stepper">
+                    <igc-step>
+                        <span slot="title">Pricing Plan</span>
+                    </igc-step>
+                    <igc-step>
+                        <span slot="title">Car Details</span>
+                    </igc-step>
+                    <igc-step>
+                        <span slot="title">Payment</span>
+                    </igc-step>
+                </igc-stepper>
+            </div>
         </div>
-      <igc-stepper id="stepper">
-        <igc-step>
-          <span slot="title">Pricing Plan</span>
-        </igc-step>
-        <igc-step>
-          <span slot="title">Car Details</span>
-        </igc-step>
-        <igc-step>
-          <span slot="title">Payment</span>
-        </igc-step>
-      </igc-stepper>
-    </div>
-  </div>
-  <!-- This script is needed only for parcel and it will be excluded for webpack -->
-  <% if (false) { %>
-    <script src="src/index.ts"></script>
-    <% } %>
-</body>
-
+        <!-- This script is needed only for parcel and it will be excluded for webpack -->
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
 </html>
