@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Combo Styling</title>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+    <link href="https://static.infragistics.com/xplatform/css/samples/custom-legend.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample center">
+        <igc-combo
+          id="combo"
+          value-key="id"
+          display-key="name"
+          label="Destinations"
+        >
+        <span slot="helper-text">Choose the desired place</span>
+        <igc-icon slot="prefix" name="place" collection="material"></igc-icon>
+        </igc-combo>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

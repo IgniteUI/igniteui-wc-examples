@@ -1,0 +1,24 @@
+igc-combo::part(label),
+igc-combo::part(empty) {
+    color: #2B3A55;
+}
+
+igc-combo::part(input) {
+    background-color: #E8C4C4;
+}
+
+/* igc-combo-item[selected]
+igc-combo-item[active]
+igc-combo-item[selected][active] {
+    background: #CE7777;
+} */
+
+igc-combo::part(prefix),
+igc-combo::part(suffix){
+    color: #F2E5E5;
+    background-color: #2B3A55;
+}
+
+igc-combo::part(list-wrapper) {
+    background-color: #E8C4C4;
+}
