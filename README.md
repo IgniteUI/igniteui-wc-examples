@@ -1,6 +1,6 @@
 
 <div style="display: flex; flex-flow: row; font-family: 'Titillium Web'">
-    <img style="border-radius: 0.25rem" alt="ignite-ui" src="https://raw.githubusercontent.com/IgniteUI/igniteui-xplat-docs/vnext/doc/en/images/readme/ig-banner.png"/>
+    <img style="border-radius: 0.25rem" alt="ignite-ui" src="https://raw.githubusercontent.com/IgniteUI/igniteui-xplat-docs/vnext/doc/en/images/readme/ig-banner.png" />
 </div>
 
 # Examples of Ignite UI for Web Components
@@ -79,13 +79,11 @@ At this point, you should see a website hosted example of [Ignite UI for Web Com
 
 Follow these instructions to run all samples locally in a browser application.
 
-- open VS Code as Administrator
-
-- open the [./browser](./browser) folder
+- open VS Code
 
 - select **View** - **Terminal** menu item
 
-- type `npm install --legacy-peer-deps` command in terminal window
+- type `npm install` command in terminal window
 
 This will install required packages and [Ignite UI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html) packages from npm website:
 
@@ -99,8 +97,6 @@ This will install required packages and [Ignite UI for Web Components](https://w
 - [igniteui-webcomponents-datasources](https://www.npmjs.com/package/igniteui-webcomponents-datasources)
 
 Next, follow these steps:
-
-- type `gulp updateBrowser` command in terminal window. This will copy all source files of individually sample projects from [./samples](./samples) to the [./browser](./browser) folder.
 
 - type `npm run start` command in terminal window to start the browser application locally
 
@@ -147,12 +143,6 @@ Next, follow these steps:
 - follow instructions in the next section
 
 ## Verify New Sample
-
-- open the [./browser](./browser) folder of this repository in VS Code
-
-- type `gulp updateSamples` command in terminal window
-
-NOTE this will re-generate the Readme.md file in the new sample
 
 - type `npm run start` command in terminal window
 
