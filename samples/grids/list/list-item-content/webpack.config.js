@@ -33,7 +33,7 @@ module.exports = env => {
     ] : path.resolve(__dirname, 'src'),
     devtool: isProd ? false : 'source-map',
     output: {
-      filename: isProd ? '[hash].bundle.js' : '[hash].bundle.js',
+      filename: isProd ? '[fullhash].bundle.js' : '[fullhash].bundle.js',
 			globalObject: 'this',
       path: path.resolve(__dirname, 'dist'),
     },
