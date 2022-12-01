@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CardIntegration</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="row-layout group">
+        <div class="row-layout group_1">
+          <igc-icon-button id="drawerToggle" variant="flat" class="icon-button" name="list">
+            <igc-ripple></igc-ripple>
+          </igc-icon-button>
+          <img src="https://i.ibb.co/syrwz7h/travel-app.png" class="image" />
+        </div>
+        <div class="row-layout group_2">
+          <igc-avatar size="small" shape="circle" class="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&crop=faces&w=240&h=240&q=80"></igc-avatar>
+          <igc-icon-button onclick="snackbar.show()" variant="flat" class="icon-button_1" name="logout">
+            <igc-ripple></igc-ripple>
+          </igc-icon-button>
+          <igc-snackbar id="snackbar" display-time="6000">Logout successful.</igc-snackbar>
+        </div>
+      </div>
+
+      <igc-nav-drawer id="navDrawer" class="nav-drawer">
+        <igc-nav-drawer-item>
+          <igc-icon slot="icon" name="dashboard">
+            <igc-ripple></igc-ripple>
+          </igc-icon>
+          <span slot="content" class="card-content">Dashboard</span>
+        </igc-nav-drawer-item>
+       
+        <igc-nav-drawer-item>
+          <igc-icon slot="icon" name="imgSearch">
+            <igc-ripple></igc-ripple>
+          </igc-icon>
+          <span slot="content" class="card-content">Discover</span>
+        </igc-nav-drawer-item>
+
+        <igc-nav-drawer-item>
+          <igc-icon slot="icon" name="checkedList">
+            <igc-ripple></igc-ripple>
+          </igc-icon>
+          <span slot="content" class="card-content">Travel lists</span>
+        </igc-nav-drawer-item>
+
+        <igc-nav-drawer-item>
+          <igc-icon slot="icon" name="readerMode">
+            <igc-ripple></igc-ripple>
+          </igc-icon>
+          <span slot="content" class="card-content">Articles</span>
+        </igc-nav-drawer-item>
+
+        <igc-nav-drawer-item>
+          <igc-icon slot="icon" name="questionAnswer">
+            <igc-ripple></igc-ripple>
+          </igc-icon>
+          <span slot="content" class="card-content">FAQ</span>
+        </igc-nav-drawer-item>
+
+        <igc-nav-drawer-item>
+          <igc-icon slot="icon" name="settings">
+            <igc-ripple></igc-ripple>
+          </igc-icon>
+          <span slot="content" class="card-content">Settings</span>
+        </igc-nav-drawer-item>
+      </igc-nav-drawer>
+
+      <div class="row-layout container content_group">
+        <div class="column-layout content_group_1">
+          <div class="column-layout content_group_2">
+            <div class="column-layout content_group_3">
+              <h4 class="h4">
+                Hi, Jane!
+              </h4>
+              <p class="typography__subtitle-1 text">
+                We have some great suggestions for your next travel! We've searched the whole web to provide you with these rare findings - special for you!
+              </p>
+            </div>
+          </div>
+          <div class="column-layout content_group_4">
+            <div class="row-layout content_group_5">
+              <h3 class="h3">Latest in articles</h3>
+            </div>
+
+            <div class="row-layout content_group_6">
+              <igc-card class="card">
+                <igc-card-media class="media-content">
+                 <img src="https://images.unsplash.com/photo-1513415564515-763d91423bdd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80" class="image_1" />
+                </igc-card-media>
+                <igc-card-header>
+                  <h3 slot="title" class="card-content">
+                    Hong Kong - between the business and faith
+                  </h3>
+                  <h5 slot="subtitle" class="card-content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                  </h5>
+                </igc-card-header>
+                <igc-card-actions class="actions-content">
+                  <igc-icon-button variant="flat">
+                    <span class="material-icons">bookmark_border</span>
+                    <igc-ripple></igc-ripple>
+                  </igc-icon-button>
+                  <igc-icon-button variant="flat">
+                    <span class="material-icons">share</span>
+                    <igc-ripple></igc-ripple>
+                  </igc-icon-button>
+                  <igc-button variant="outlined" class="button_1">
+                    READ
+                    <igc-ripple></igc-ripple>
+                  </igc-button>
+                </igc-card-actions>
+              </igc-card>
+
+              <igc-card class="card">
+                <igc-card-media class="media-content">
+                 <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1993&q=80" class="image_1" />
+                </igc-card-media>
+                <igc-card-header>
+                  <h3 slot="title" class="card-content">
+                    Traveling alone? Why not!
+                  </h3>
+                  <h5 slot="subtitle" class="card-content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                  </h5>
+                </igc-card-header>
+                <igc-card-actions class="actions-content">
+                  <igc-icon-button variant="flat">
+                    <span class="material-icons">bookmark_border</span>
+                    <igc-ripple></igc-ripple>
+                  </igc-icon-button>
+                  <igc-icon-button variant="flat">
+                    <span class="material-icons">share</span>
+                    <igc-ripple></igc-ripple>
+                  </igc-icon-button>
+                  <igc-button variant="outlined" class="button_1">
+                    READ
+                    <igc-ripple></igc-ripple>
+                  </igc-button>
+                </igc-card-actions>
+              </igc-card>
+
+              <igc-card class="card">
+                <igc-card-media class="media-content">
+                 <img src="https://images.unsplash.com/photo-1465189684280-6a8fa9b19a7a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="image_1" />
+                </igc-card-media>
+                <igc-card-header>
+                  <h3 slot="title" class="card-content">
+                    10 hidden gems in Crete
+                  </h3>
+                  <h5 slot="subtitle" class="card-content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                  </h5>
+                </igc-card-header>
+                <igc-card-actions class="actions-content">
+                  <igc-icon-button variant="flat">
+                    <span class="material-icons">bookmark_border</span>
+                    <igc-ripple></igc-ripple>
+                  </igc-icon-button>
+                  <igc-icon-button variant="flat">
+                    <span class="material-icons">share</span>
+                    <igc-ripple></igc-ripple>
+                  </igc-icon-button>
+                  <igc-button variant="outlined" class="button_1">
+                    READ
+                    <igc-ripple></igc-ripple>
+                  </igc-button>
+                </igc-card-actions>
+              </igc-card>
+
+              <igc-card class="card">
+                <igc-card-media class="media-content">
+                 <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjR8fHRyYXZlbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="image_1" />
+                </igc-card-media>
+                <igc-card-header>
+                  <h3 slot="title" class="card-content">
+                    Close to the heart of Africa
+                  </h3>
+                  <h5 slot="subtitle" class="card-content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                  </h5>
+                </igc-card-header>
+                <igc-card-actions class="actions-content">
+                  <igc-icon-button variant="flat">
+                    <span class="material-icons">bookmark_border</span>
+                    <igc-ripple></igc-ripple>
+                  </igc-icon-button>
+                  <igc-icon-button variant="flat">
+                    <span class="material-icons">share</span>
+                    <igc-ripple></igc-ripple>
+                  </igc-icon-button>
+                  <igc-button variant="outlined" class="button_1">
+                    READ
+                    <igc-ripple></igc-ripple>
+                  </igc-button>
+                </igc-card-actions>
+              </igc-card>
+
+              <igc-card class="card">
+                <igc-card-media class="media-content">
+                 <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=934&q=80" class="image_1" />
+                </igc-card-media>
+                <igc-card-header>
+                  <h3 slot="title" class="card-content">
+                    The perfect summer is in Oia, Greece
+                  </h3>
+                  <h5 slot="subtitle" class="card-content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                  </h5>
+                </igc-card-header>
+                <igc-card-actions class="actions-content">
+                  <igc-icon-button variant="flat">
+                    <span class="material-icons">bookmark_border</span>
+                    <igc-ripple></igc-ripple>
+                  </igc-icon-button>
+                  <igc-icon-button variant="flat">
+                    <span class="material-icons">share</span>
+                    <igc-ripple></igc-ripple>
+                  </igc-icon-button>
+                  <igc-button variant="outlined" class="button_1">
+                    READ
+                    <igc-ripple></igc-ripple>
+                  </igc-button>
+                </igc-card-actions>
+              </igc-card>
+              
+              <div class="column-layout content_group_7">
+                <igc-button variant="outlined" class="button_1">
+                  VIEW ALL
+                  <igc-ripple></igc-ripple>
+                </igc-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
