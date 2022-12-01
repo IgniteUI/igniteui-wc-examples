@@ -1,24 +1,31 @@
 igc-combo::part(label),
-igc-combo::part(empty) {
+igc-combo::part(empty),
+igc-combo::part(group-header) {
     color: #2B3A55;
 }
 
-igc-combo::part(input) {
-    background-color: #E8C4C4;
+igc-combo::part(input),
+igc-combo::part(list-wrapper) {
+    background-color: #F2E5E5;
 }
 
-/* igc-combo-item[selected]
-igc-combo-item[active]
-igc-combo-item[selected][active] {
+igc-combo::part(item selected) {
+    background: #E8C4C4;
+}
+
+igc-combo::part(item selected active),
+igc-combo::part(item selected):hover {
     background: #CE7777;
-} */
+}
 
 igc-combo::part(prefix),
-igc-combo::part(suffix){
+igc-combo::part(suffix),
+igc-combo::part(case-icon) {
     color: #F2E5E5;
     background-color: #2B3A55;
 }
 
-igc-combo::part(list-wrapper) {
-    background-color: #E8C4C4;
+igc-combo::part(checkbox checked)::after {
+    background: #2B3A55;
+    box-shadow: none;
 }
