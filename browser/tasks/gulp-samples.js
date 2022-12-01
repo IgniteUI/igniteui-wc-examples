@@ -61,7 +61,6 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/layouts/icon/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/expansion-panel/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/tabs/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/getting-started/**/package.json',
 
     igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
 
