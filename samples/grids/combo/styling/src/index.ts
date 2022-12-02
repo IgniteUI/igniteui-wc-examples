@@ -1,8 +1,8 @@
-import {defineComponents, IgcComboComponent, IgcComboItemComponent, IgcInputComponent, IgcIconComponent, registerIconFromText} from 'igniteui-webcomponents';
+import {defineComponents, IgcComboComponent, IgcInputComponent, IgcIconComponent, registerIconFromText} from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './ComboStyling.css';
 
-defineComponents(IgcComboComponent, IgcComboItemComponent, IgcInputComponent, IgcIconComponent);
+defineComponents(IgcComboComponent, IgcInputComponent, IgcIconComponent);
 export class ComboStyling {
     private combo: IgcComboComponent<object>;
 

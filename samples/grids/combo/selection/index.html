@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Combo Selection API</title>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+    <link href="https://static.infragistics.com/xplatform/css/samples/custom-legend.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample center">
+        <igc-combo
+          id="combo"
+          value-key="id"
+          display-key="name"
+          label="Cities"
+          placeholder="Pick a city"
+          placeholder-search="Search for a city"
+        >
+        </igc-combo>
+
+        <div class="button-container" style="display: flex; margin-top: 16px; gap: 8px;">
+          <igc-button id="select">Select UK Cities</igc-button>
+          <igc-button id="deselect">Deselect UK Favorites</igc-button>
+          <igc-button id="selectAll">Select All</igc-button>
+          <igc-button id="deselectAll">Deselect All</igc-button>
+        </div>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

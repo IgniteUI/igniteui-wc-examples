@@ -1,21 +1,8 @@
-import {defineComponents, IgcComboComponent, IgcInputComponent, IgcIconComponent, registerIconFromText} from 'igniteui-webcomponents';
-import { html } from 'lit-html';
+import {defineComponents, IgcComboComponent, IgcInputComponent, IgcIconComponent, IgcButtonComponent} from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-interface City {
-    id: string;
-    name: string;
-    country: string;
-}
-
-const downIcon =
-'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>';
-
-const clearIcon =
-'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
-
-defineComponents(IgcComboComponent, IgcInputComponent, IgcIconComponent);
-export class ComboTemplates {
+defineComponents(IgcComboComponent, IgcInputComponent, IgcIconComponent, IgcButtonComponent);
+export class ComboSelection {
     private combo: IgcComboComponent<object>;
 
     public cities = [
@@ -46,31 +33,46 @@ export class ComboTemplates {
         { name: 'Florence', id: 'IT06', country: 'Italy'}
     ];
 
-    protected itemTemplate = (item: City) => {
-      return html`
-        <div>
-          <b>${item.name}</b>, <span>${item.country}</span>
-        </div>
-      `;
-    };
+    public selectCities() {
+        this.combo.select(['UK01', 'UK02', 'UK03', 'UK04', 'UK05']);
+    }
 
-    protected groupHeaderTemplate = (item: City) => {
-        return html`
-            <div>
-                <span>Custom Header for ${item.country}</span>
-            </div>
-        `;
+    public deselectCities() {
+        this.combo.deselect(['UK01', 'UK02', 'UK03', 'UK04', 'UK05']);
+    }
+
+    public selectAll() {
+        this.combo.select();
+    }
+
+    public deselectAll() {
+        this.combo.deselect();
     }
 
     constructor() {
-        registerIconFromText("clear", clearIcon);
-        registerIconFromText("down", downIcon);
-
         this.combo = document.getElementById('combo') as IgcComboComponent<object>;
         this.combo.data = this.cities;
-        this.combo.itemTemplate = this.itemTemplate;
-        this.combo.groupHeaderTemplate = this.groupHeaderTemplate;
+
+        let selectBtn = document.getElementById('select') as IgcButtonComponent;
+        selectBtn.addEventListener('click', () => {
+            this.selectCities();
+        });
+
+        let selectAllBtn = document.getElementById('selectAll') as IgcButtonComponent;
+        selectAllBtn.addEventListener('click', () => {
+            this.selectAll();
+        });
+
+        let deselectBtn = document.getElementById('deselect') as IgcButtonComponent;
+        deselectBtn.addEventListener('click', () => {
+            this.deselectCities();
+        });
+
+        let deselectAllBtn = document.getElementById('deselectAll') as IgcButtonComponent;
+        deselectAllBtn.addEventListener('click', () => {
+            this.deselectAll();
+        });
     }
 }
 
-new ComboTemplates();
+new ComboSelection();
