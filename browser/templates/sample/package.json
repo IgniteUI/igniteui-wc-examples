@@ -25,7 +25,7 @@
       "@webcomponents/template": "^1.4.2",
       "babel-runtime": "^6.26.0",
       "core-js": "^3.6.5",
-      "lit-html": "^2.0.0",
+      "lit-html": "^2.2.0",
       "tslib": "^2.0.0"
   },
   "dependenciesNote": "above dependencies are required dependencies by all samples and below dependencies are injected based on 'usage' and/or 'keywords' conditions",
@@ -61,6 +61,7 @@
       "csv-loader": "^3.0.2",
       "file-loader": "^4.2.0",
       "fork-ts-checker-webpack-plugin": "^4.1.5",
+      "tsconfig-paths-webpack-plugin": "^4.0.0",
       "html-webpack-plugin": "^4.3.0",
       "source-map": "^0.7.3",
       "style-loader": "^0.22.1",
