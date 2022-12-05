@@ -4,7 +4,7 @@ igc-combo::part(group-header) {
     color: #2B3A55;
 }
 
-igc-combo::part(input),
+igc-combo::part(native-input),
 igc-combo::part(list-wrapper) {
     background-color: #F2E5E5;
 }
