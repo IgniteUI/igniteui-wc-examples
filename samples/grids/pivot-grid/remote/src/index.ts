@@ -1,19 +1,7 @@
-import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcPivotGridComponent, IgcPivotDimensionStrategy, IgcPivotDateDimension, IgcPivotDimension, IgcPivotKeys, IgcPivotValue, IgcPivotAggregate } from '@infragistics/igniteui-webcomponents-grids/grids';
+// import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcPivotGridComponent, IgcPivotDimensionStrategy, IgcPivotDateDimension, IgcPivotDimension, IgcPivotKeys, IgcPivotValue, NoopPivotDimensionsStrategy } from '@infragistics/igniteui-webcomponents-grids/grids';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { PivotNoopData } from './PivotNoopData';
-
-// class NoopPivotDimensionsStrategy implements IgcPivotDimensionStrategy {
-//     private static _instance: NoopPivotDimensionsStrategy = null;
-
-//     public static instance() {
-//         return this._instance || (this._instance = new NoopPivotDimensionsStrategy());
-//     }
-
-//     public process(collection: any[], _: IgcPivotDimension[], __: IgcPivotValue[]): any[] {
-//         return collection;
-//     }
-// }
 
 export class Sample {
     private _pivotConfiguration: any | null = null;
@@ -72,9 +60,11 @@ export class Sample {
 
     constructor() {
         var grid = document.getElementById('grid') as IgcPivotGridComponent;
+        
         this._bind = () => {
             grid.pivotConfiguration = this.pivotConfiguration;
             grid.data = this.pivotSalesData;
+
         }
         this._bind();
 
