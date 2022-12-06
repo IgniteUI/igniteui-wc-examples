@@ -25,7 +25,7 @@
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
-    "lit-html": "^2.0.0",
+    "lit-html": "^2.2.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
@@ -51,7 +51,8 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0",
     "xml-loader": "^1.2.1",
-    "worker-loader": "^3.0.8"
+    "worker-loader": "^3.0.8",
+    "tsconfig-paths-webpack-plugin": "^4.0.0"
   },
   "license": "",
   "homepage": "."
