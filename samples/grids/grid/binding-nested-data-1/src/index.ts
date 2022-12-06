@@ -14,7 +14,7 @@ export class Sample {
 
     constructor() {
         var grid = (this.grid = document.getElementById('grid') as any) as IgcGridComponent;
-        var column1 = (this.column1 = document.getElementById('column1') as any) as IgcColumnComponent;
+        // var column1 = (this.column1 = document.getElementById('column1') as any) as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.employeesNestedData
