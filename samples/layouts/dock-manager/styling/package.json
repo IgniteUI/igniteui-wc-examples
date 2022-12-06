@@ -26,7 +26,7 @@
     "core-js": "^3.6.5",
     "igniteui-dockmanager": "^1.11.3",
     "igniteui-webcomponents": "4.0.0",
-    "igniteui-webcomponents-core": "4.0.3",
+    "@infragistics/igniteui-webcomponents-core": "22.2.0-dev.614",
     "lit-html": "^2.2.0",
     "tslib": "^2.0.0"
   },

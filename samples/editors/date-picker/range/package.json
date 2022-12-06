@@ -23,9 +23,9 @@
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents-core": "4.0.3",
-    "igniteui-webcomponents-inputs": "4.0.3",
-    "igniteui-webcomponents-layouts": "4.0.3",
+    "@infragistics/igniteui-webcomponents-core": "22.2.0-dev.614",
+    "@infragistics/igniteui-webcomponents-inputs": "22.2.0-dev.614",
+    "@infragistics/igniteui-webcomponents-layouts": "22.2.0-dev.614",
     "lit-html": "^2.2.0",
     "tslib": "^2.0.0"
   },
