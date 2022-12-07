@@ -129,7 +129,8 @@ var config = {
     extensions: ['.ts', '.js', 'json'],
     plugins: [new TsconfigPathsPlugin({
       configFile: './tsconfig.json',
-      extensions: ['.ts', '.js']
+      extensions: ['.ts', '.js'],
+      mainFields: ['esm2015', 'module', 'main']
     })]
   },
   plugins: plugins,

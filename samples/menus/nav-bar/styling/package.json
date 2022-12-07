@@ -20,7 +20,13 @@
   "author": "Infragistics",
   "dependencies": {
     "igniteui-webcomponents": "4.0.0",
-    "lit": "^2.0.2"
+    "lit": "^2.0.2",
+    "@webcomponents/custom-elements": "^1.4.1",
+    "@webcomponents/template": "^1.4.2",
+    "babel-runtime": "^6.26.0",
+    "core-js": "^3.6.5",
+    "lit-html": "^2.2.0",
+    "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
@@ -44,7 +50,9 @@
     "file-loader": "^4.2.0",
     "source-map": "^0.7.3",
     "parcel-bundler": "^1.6.1",
-    "xml-loader": "^1.2.1"
+    "xml-loader": "^1.2.1",
+    "tsconfig-paths-webpack-plugin": "^4.0.0",
+    "worker-loader": "^3.0.8"
   },
   "license": "",
   "homepage": "."
