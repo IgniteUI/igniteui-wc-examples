@@ -51,7 +51,7 @@ export class ComboFeatures {
         let switchDisable = document.getElementById("disabled") as IgcSwitchComponent;
 
         switchIcon.addEventListener("igcChange", () => {
-            this.combo.caseSensitiveIcon = switchIcon.checked ? true : false;
+            this.combo.caseSensitiveIcon = switchIcon.checked;
         });
 
         switchFilter.addEventListener("igcChange", () => {
