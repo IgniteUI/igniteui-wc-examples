@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "@igniteui/material-icons-extended": "2.11.0",
-    "@lit-labs/virtualizer": "^0.7.2",
     "@material/mwc-button": "0.9.1",
     "@material/mwc-dialog": "0.9.1",
     "@material/mwc-slider": "0.9.1",
