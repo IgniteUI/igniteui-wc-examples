@@ -1,5 +1,5 @@
-import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcPivotGridComponent, IgcPivotConfiguration, IgcPivotDataSelector, IgcPivotDateDimension } from 'igniteui-webcomponents-grids/grids';
+// import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcPivotGridComponent, IgcPivotConfiguration, IgcPivotDataSelector, IgcPivotDateDimension } from '@infragistics/igniteui-webcomponents-grids/grids';
 import { PivotSalesData } from './PivotSalesData';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -9,22 +9,21 @@ export class Sample {
     public get pivotConfiguration(): any {
         if (this._pivotConfiguration == null)
         {
-            const dateDim = new IgcPivotDateDimension();
-            (dateDim as any).inBaseDimension = {
+            const dateDim = new IgcPivotDateDimension({
                 memberName: "date",
                 enabled: true
-            };
-            (dateDim as any).inOptions = {
+            },
+            {
                 months: false
-            };
+            } );
             const pivotConfiguration: any = {
                 columns: [
                     {
-                        memberName: "product",
+                        memberName: "country",
                         enabled: true
                     },
                     {
-                        memberName: "country",
+                        memberName: "product",
                         enabled: true
                     }
                 ],
@@ -69,7 +68,7 @@ export class Sample {
 
     constructor() {
         var grid = document.getElementById('grid') as IgcPivotGridComponent;
-        var selector = document.getElementById('selector') as IgcPivotDataSelector;
+        var selector = document.getElementById('selector') as unknown as IgcPivotDataSelector;
         this._bind = () => {
             grid.pivotConfiguration = this.pivotConfiguration;
             grid.data = this.pivotSalesData;
