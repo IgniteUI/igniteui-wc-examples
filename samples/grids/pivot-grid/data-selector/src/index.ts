@@ -1,5 +1,5 @@
-// import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcPivotGridComponent, IgcPivotConfiguration, IgcPivotDataSelector, IgcPivotDateDimension } from 'igniteui-webcomponents-grids/grids';
+import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcPivotGridComponent, IgcPivotConfiguration, IgcPivotDataSelectorComponent, IgcPivotDateDimension } from 'igniteui-webcomponents-grids/grids';
 import { PivotSalesData } from './PivotSalesData';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -68,7 +68,7 @@ export class Sample {
 
     constructor() {
         var grid = document.getElementById('grid') as IgcPivotGridComponent;
-        var selector = document.getElementById('selector') as unknown as IgcPivotDataSelector;
+        var selector = document.getElementById('selector') as unknown as IgcPivotDataSelectorComponent;
         this._bind = () => {
             grid.pivotConfiguration = this.pivotConfiguration;
             grid.data = this.pivotSalesData;
