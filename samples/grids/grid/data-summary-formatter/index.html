@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    
+    
+    
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        id="grid"
+        display-density="Compact"
+        name="grid"
+        id ="grid">
+            <igc-column
+            field="ProductName"
+            header="Product Name"
+            sortable="true"
+            data-type="String">
+            </igc-column>
+            <igc-column
+            field="QuantityPerUnit"
+            header="Quantity Per Unit"
+            sortable="true"
+            data-type="String">
+            </igc-column>
+            <igc-column
+            field="UnitPrice"
+            header="Unit Price Category"
+            sortable="true"
+            data-type="String">
+            </igc-column>
+            <igc-column
+            field="OrderDate"
+            header="Order Date"
+            sortable="true"
+            data-type="Date"
+            has-summary="true"
+            name="column1"
+            id ="column1">
+            </igc-column>
+            <igc-column
+            field="Discontinued"
+            header="Discontinued"
+            sortable="true"
+            data-type="Boolean">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
