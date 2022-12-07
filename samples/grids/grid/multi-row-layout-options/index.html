@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    
+    
+    
+    <div class="container fill">
+        <igc-grid
+        
+        grouping-expressions="Infragistics.Controls.Description.CodeGenerationItemBuilder"
+        primary-key="CompanyName"
+        row-editable="true"
+        allow-filtering="true"
+        batch-editing="true"
+        name="grid"
+        id ="grid">
+            <igc-column-layout
+            header="ID"
+            pinned="true">
+                <igc-column
+                field="ID"
+                filterable="false"
+                width="150px"
+                row-end="3"
+                row-start="1"
+                col-start="1">
+                </igc-column>
+            </igc-column-layout>
+            <igc-column-layout
+            pinned="true"
+            header="Contact Details">
+                <igc-column
+                field="CompanyName"
+                row-start="1"
+                col-start="1"
+                width="350px"
+                header="Company Name"
+                col-end="3"
+                sortable="true">
+                </igc-column>
+                <igc-column
+                field="ContactName"
+                row-start="2"
+                col-start="1"
+                header="Contact Name"
+                col-end="2"
+                groupable="true">
+                </igc-column>
+                <igc-column
+                field="ContactTitle"
+                row-start="3"
+                col-start="2"
+                row-end="3"
+                header="Contact Title"
+                col-end="2"
+                groupable="true">
+                </igc-column>
+            </igc-column-layout>
+            <igc-column-layout
+            pinned="false"
+            header="Address Details">
+                <igc-column
+                field="Country"
+                row-start="1"
+                col-start="1"
+                filterable="false"
+                width="220px"
+                col-end="3"
+                groupable="true">
+                </igc-column>
+                <igc-column
+                field="Region"
+                row-start="1"
+                col-start="3"
+                filterable="false"
+                width="220px"
+                col-end="5"
+                groupable="true">
+                </igc-column>
+                <igc-column
+                field="PostalCode"
+                row-start="1"
+                col-start="5"
+                filterable="false"
+                width="220px"
+                col-end="7"
+                groupable="true">
+                </igc-column>
+                <igc-column
+                field="City"
+                row-start="2"
+                col-start="1"
+                filterable="false"
+                width="220px"
+                col-end="4"
+                groupable="true">
+                </igc-column>
+                <igc-column
+                field="Address"
+                row-start="2"
+                col-start="4"
+                filterable="false"
+                col-end="7">
+                </igc-column>
+            </igc-column-layout>
+            <igc-column-layout
+            header="Phone Details">
+                <igc-column
+                field="Phone"
+                row-start="1"
+                col-start="1"
+                filterable="false"
+                width="220px"
+                col-end="2">
+                </igc-column>
+                <igc-column
+                field="Fax"
+                row-start="2"
+                col-start="1"
+                filterable="false"
+                width="220px"
+                col-end="2">
+                </igc-column>
+            </igc-column-layout>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
