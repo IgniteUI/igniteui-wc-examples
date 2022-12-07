@@ -92,7 +92,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/inputs/switches/**/package.json',
 
     // excluding samples that are not finished:
-    '!' + igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',
 
      // excluding samples' node_modules:
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
@@ -420,7 +420,7 @@ function updateSampleReadme(cb) {
 function updateSamplePackages(cb) {
 
     // getting content of package.json file from templates
-    let templatePackageFile = fs.readFileSync("./templates/sample/package.json");
+    let templatePackageFile = fs.readFileSync("./browser/templates/sample/package.json");
     let templatePackageJson = JSON.parse(templatePackageFile.toString());
 
     // let last = samples[samples.length - 1];
@@ -545,7 +545,7 @@ function updateSampleStyles(cb) {
 function updateSampleWebpackConfigs(cb) {
 
     gulp.src([
-        './templates/sample/webpack.config.js',
+        './browser/templates/sample/webpack.config.js',
     ])
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, fileCallback) {

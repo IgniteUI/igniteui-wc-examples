@@ -19,16 +19,16 @@
   },
   "author": "Infragistics",
   "dependencies": {
-    "igniteui-webcomponents-core": "4.0.3",
-    "igniteui-webcomponents-datasources": "4.0.3",
-    "igniteui-webcomponents-grids": "4.0.3",
-    "igniteui-webcomponents-inputs": "4.0.3",
-    "igniteui-webcomponents-layouts": "4.0.3",
+    "@infragistics/igniteui-webcomponents-core": "22.2.28",
+    "@infragistics/igniteui-webcomponents-datasources": "22.2.28",
+    "@infragistics/igniteui-webcomponents-grids": "22.2.28",
+    "@infragistics/igniteui-webcomponents-inputs": "22.2.28",
+    "@infragistics/igniteui-webcomponents-layouts": "22.2.28",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "lit-html": "^2.0.0",
+    "lit-html": "^2.2.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
@@ -54,8 +54,9 @@
     "file-loader": "^4.2.0",
     "style-loader": "^0.22.1",
     "xml-loader": "^1.2.1",
-    "worker-loader": "^3.0.8"
-    },
+    "worker-loader": "^3.0.8",
+    "tsconfig-paths-webpack-plugin": "^4.0.0"
+  },
   "license": "",
   "homepage": "."
 }
