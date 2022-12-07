@@ -15,7 +15,6 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
 
 ModuleManager.register(
-    ,
     IgcPropertyEditorPanelModule
 );
 
