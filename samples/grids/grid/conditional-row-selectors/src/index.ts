@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
-import { IgcRowSelectionEventArgs } from 'igniteui-webcomponents-grid/grids';
+import { IgcRowSelectionEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -17,7 +17,7 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.customersData
-            grid.addEventListener("rowSelectionChanging", this.webGridRowSelectionConditional)
+            // grid.addEventListener("rowSelectionChanging", this.webGridRowSelectionConditional)
         }
         this._bind();
 
@@ -31,10 +31,10 @@ export class Sample {
         }
         return this._customersData;
     }
-    
 
 
-    
+
+
     public webGridRowSelectionConditional(event: IgcRowSelectionEventArgs): void {
         console.log(event);
         if (!event.added.length && event.removed.length) {
@@ -43,10 +43,10 @@ export class Sample {
         }
         var grid = this.grid;
         const originalAddedLength = event.added.length;
-    
+
         // only allow selection of items that contain 'A'
         event.newSelection = event.newSelection.filter(x => x.indexOf('A') !== -1);
-    
+
         // cleanup selection if all conditionally selectable rows are already selected
         if (event.newSelection.length
             && !event.newSelection.filter(x => event.oldSelection.indexOf(x) === -1).length
@@ -56,7 +56,7 @@ export class Sample {
         }
         grid.markForCheck();
     }
-        
+
 }
 
 new Sample();

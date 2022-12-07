@@ -5,7 +5,6 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
-import { IgcWebGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
@@ -133,8 +132,8 @@ export class Sample {
         //TODO
 
         var grid = this.grid;
-        grid.endEdit(true);
-        grid.transactions.undo();
+        // grid.endEdit(true);
+        // grid.transactions.undo();
 
     }
 
@@ -144,8 +143,8 @@ export class Sample {
 
         var grid = this.grid;
 
-    	grid.endEdit(true);
-        grid.transactions.redo();
+    	// grid.endEdit(true);
+        // grid.transactions.redo();
 
     }
 
@@ -155,10 +154,10 @@ export class Sample {
 
         var grid = this.grid;
 
-                    // grid.transactions.commit(grid.data);
+        // grid.transactions.commit(grid.data);
         //dialog.close();
 
-                    console.log("test");
+        console.log("test");
     }
 
 
