@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+        <div class="options vertical">
+        <igc-property-editor-panel
+        
+        description-type="WebGrid"
+        is-horizontal="true"
+        is-wrapping-enabled="false"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
+            <igc-property-editor-property-description
+            property-path="Pinning.Rows"
+            label="Row Pinning toggle"
+            name="rowPinningEditor"
+            id ="rowPinningEditor">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+    
+    
+    
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        primary-key="ID"
+        row-editable="true"
+        cell-selection="None"
+        name="grid"
+        id ="grid">
+            <igc-action-strip
+            name="actionStrip"
+            id ="actionStrip">
+                <igc-grid-pinning-actions
+                >
+                </igc-grid-pinning-actions>
+            </igc-action-strip>
+            <igc-pinning-config
+            rows="Top">
+            </igc-pinning-config>
+            <igc-column
+            field="CompanyName"
+            header="Company Name"
+            width="300px">
+            </igc-column>
+            <igc-column
+            field="ContactName"
+            header="Contact Name">
+            </igc-column>
+            <igc-column
+            field="ContactTitle"
+            header="Contact Title">
+            </igc-column>
+            <igc-column
+            field="Address"
+            header="Address">
+            </igc-column>
+            <igc-column
+            field="City"
+            header="City">
+            </igc-column>
+            <igc-column
+            field="PostalCode"
+            header="Postal Code">
+            </igc-column>
+            <igc-column
+            field="Phone"
+            header="Phone">
+            </igc-column>
+            <igc-column
+            field="Fax"
+            header="Fax">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
