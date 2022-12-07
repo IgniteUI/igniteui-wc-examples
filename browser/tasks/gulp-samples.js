@@ -52,6 +52,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
     igConfig.SamplesCopyPath + '/grids/grid/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/pivot-grid/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
 
     igConfig.SamplesCopyPath + '/layouts/accordion/**/package.json',
