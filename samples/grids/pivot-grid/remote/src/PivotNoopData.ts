@@ -1,5 +1,3 @@
-
-
 export class PivotNoopData extends Array<any> {
     public constructor() {
         super();
@@ -108,8 +106,8 @@ export class PivotNoopData extends Array<any> {
     }
 
     public static getData(): Promise<any> {
-        return new Promise(resolve => setTimeout(resolve => {
-            return this;
+        return new Promise(resolve => setTimeout(() => {
+            resolve(new PivotNoopData());
         }, 1000));
     }
 }
