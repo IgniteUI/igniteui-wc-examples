@@ -1,6 +1,6 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
-// import { IgcBadgeModule } from 'igniteui-webcomponents-core';
 import 'igniteui-webcomponents-grids/grids/combined';
+import { ComponentRenderer, WebGridDescriptionModule, PropertyEditorPanelDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
@@ -15,6 +15,7 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
 
 ModuleManager.register(
+    ,
     IgcPropertyEditorPanelModule
 );
 
@@ -84,7 +85,7 @@ export class Sample {
         // var column6 = this.column6 = document.getElementById('column6') as IgcColumnComponent;
 
         this._bind = () => {
-            // propertyEditorPanel1.componentRenderer = this.renderer
+            propertyEditorPanel1.componentRenderer = this.renderer
             propertyEditorPanel1.target = this.grid1
             grid1.data = this.financialDataAll
             // column1.pipeArgs = this.columnPipeArgs1
@@ -108,6 +109,16 @@ export class Sample {
     }
 
 
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            WebGridDescriptionModule.register(context);
+            PropertyEditorPanelDescriptionModule.register(context);
+        }
+        return this._componentRenderer;
+    }
 
 
     public webGridCurrencyCellTemplate = (ctx: IgcCellTemplateContext) => {
