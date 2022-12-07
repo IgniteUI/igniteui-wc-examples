@@ -32,22 +32,22 @@
   },
   "exclude": [
     "node_modules/**",
-    "dist",
-    "tasks",
-    "templates"
+    "browser/dist",
+    "browser/tasks",
+    "browser/templates"
   ],
   "linterOptions": {
     "exclude": [
-      "config/**/*.js",
+      "browser/config/**/*.js",
       "node_modules/**/*.ts",
       "node_modules/**/*.js",
       "**/odatajs-4.0.0.js",
-      "templates",
-      "tasks",
-      "src/samples/*.*",
-      "src/images/*.*",
-      "src/assets/*.*",
-      "src/utilities/WorldLocations.ts"
+      "browser/templates",
+      "browser/tasks",
+      "browser/src/samples/*.*",
+      "browser/src/images/*.*",
+      "browser/src/assets/*.*",
+      "browser/src/utilities/WorldLocations.ts"
     ]
   },
 }

@@ -16,7 +16,7 @@ let config = {
     BrowserHostUrl: "http://localhost:4200/",
     BrowserRoute: "/samples",
     BrowserRootPath: "./tmp",
-    SamplesCopyPath: "../samples",
+    SamplesCopyPath: "./samples",
     SamplesCopyFiles: [".ts", ".css", ".csv", ".html", ".png", ".svg" ],
     SamplesFileExtension: ".ts",
     SamplesFileExclusions: [

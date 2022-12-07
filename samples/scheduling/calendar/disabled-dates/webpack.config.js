@@ -1,5 +1,6 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -8,8 +9,7 @@ module.exports = env => {
   console.log(env);
   const isLegacy = !!env.legacy && !(env.legacy == "false");
   const isProd = env.NODE_ENV === 'production';
-
-	const presets = [
+  const presets = [
     ["@babel/preset-env", {
       "useBuiltIns": "usage",
       "corejs": 3,
@@ -25,7 +25,7 @@ module.exports = env => {
     "@babel/preset-typescript"
   ];
 
-	return {
+  return {
     entry: isLegacy ? [
       path.resolve(__dirname, 'node_modules/@webcomponents/custom-elements'),
       path.resolve(__dirname, 'node_modules/@webcomponents/template'),
@@ -33,14 +33,19 @@ module.exports = env => {
     ] : path.resolve(__dirname, 'src'),
     devtool: isProd ? false : 'source-map',
     output: {
-      filename: isProd ? '[hash].bundle.js' : '[hash].bundle.js',
-			globalObject: 'this',
+      filename: isProd ? '[fullhash].bundle.js' : '[fullhash].bundle.js',
+      globalObject: 'this',
       path: path.resolve(__dirname, 'dist'),
     },
 
     resolve: {
       mainFields: ['esm2015', 'module', 'main'],
-      extensions: ['.ts', '.js', '.json']
+      extensions: ['.ts', '.js', '.json'],
+      plugins: [new TsconfigPathsPlugin({
+        configFile: './tsconfig.json',
+          extensions: ['.ts', '.js'],
+          mainFields: ['esm2015', 'module', 'main']
+      })]
     },
 
     module: {
@@ -48,19 +53,19 @@ module.exports = env => {
         { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
         { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
         { test: /\.xml$/, use: ['xml-loader'] },
-        { test: /\.css$/, loaders: ['style-loader', 'css-loader' ]},
-         { test: /worker\.(ts|js)$/, 
-        use: [
-          { loader: 'worker-loader'},
-          { loader: 'babel-loader', options: {
-            "compact": isProd ? true : false,
-            "presets": presets,
-            "plugins": [
-              "@babel/plugin-proposal-class-properties",
-              "@babel/plugin-transform-runtime"
-            ] }
-          }
-        ]
+        { test: /\.css$/, sideEffects: true, use: ['style-loader', 'css-loader'] },
+        { test: /worker\.(ts|js)$/, 
+          use: [
+            { loader: 'worker-loader'},
+            { loader: 'babel-loader', options: {
+              "compact": isProd ? true : false,
+              "presets": presets,
+              "plugins": [
+                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-transform-runtime"
+              ] }
+            }
+          ]
         },
         { test: /\.(ts|js)$/, loader: 'babel-loader',
         options: {

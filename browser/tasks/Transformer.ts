@@ -584,7 +584,7 @@ class Transformer {
         if (path.indexOf(igConfig.RepositoryName) > -1) {
             path = path.split(igConfig.RepositoryName).pop() as string;
             path = path.split("\\").join("/");
-            return ".." + path;
+            return "." + path;
         }
 
         console.log("failed on getRelative " + path);
