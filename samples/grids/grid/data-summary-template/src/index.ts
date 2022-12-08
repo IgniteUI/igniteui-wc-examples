@@ -2,8 +2,9 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcGridComponent, IgcColumnComponent, IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -44,11 +45,6 @@ export class Sample {
 
     }
 
-    public webGridOrderDateSummaryTemplate = (ctx: IgcCellTemplateContext) => {
-        console.log("TODO");
-        return html``;
-    }
-
     private _nwindData: NwindData = null;
     public get nwindData(): NwindData {
         if (this._nwindData == null)
@@ -57,7 +53,7 @@ export class Sample {
         }
         return this._nwindData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -70,18 +66,24 @@ export class Sample {
         return this._componentRenderer;
     }
 
-
+    
     public webGridHasSummariesChange(args: any): void {
         let newValue = args.primitiveValue as boolean;
-
+    
         var column1 = this.grid.columns[3];
         var column2 = this.grid.columns[5];
-
+    
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
     }
-
-
+        
+    
+    public webGridOrderDateSummaryTemplate = (ctx: IgcCellTemplateContext) => {
+        console.log("TODO");
+        //TODO
+        return html``;
+    }
+    
 }
 
 new Sample();

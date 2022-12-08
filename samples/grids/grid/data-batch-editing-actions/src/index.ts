@@ -84,7 +84,7 @@ export class Sample {
         }
         return this._nwindData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -97,13 +97,13 @@ export class Sample {
         return this._componentRenderer;
     }
 
-
+    
     public webGridAddRow(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
         var grid = this.grid;
         const generateRandomInteger = (start: number, end: number) => Math.floor(Math.random() * (end - start + 1)) + start;
         const generateRandomFloat = (start: number, end: number) => Math.random() * (end - start) + start;
-
+    
         //TODO Refactor later
         if (!(grid as any).__productId) {
             (grid as any).__productId = 0;
@@ -123,50 +123,50 @@ export class Sample {
             UnitsInStock: generateRandomInteger(1, 100),
             UnitsOnOrder: generateRandomInteger(1, 20)
         });
-
+    
         console.log("test");
     }
-
-
+        
+    
     public webGridUndo(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-
+    
         var grid = this.grid;
         //grid.endEdit(true);
         //grid.transactions.undo();
-
+    
     }
-
-
+        
+    
     public webGridRedo(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-
+    
         var grid = this.grid;
-
+    
         //grid.endEdit(true);
         //grid.transactions.redo();
-
+    
     }
-
-
+        
+    
     public webGridCommit(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-
+    
         var grid = this.grid;
-
+    
         // grid.transactions.commit(grid.data);
         //dialog.close();
-
+    
         console.log("test");
     }
-
-
+        
+    
     public webGridDeleteCellTemplate = (ctx: IgcCellTemplateContext) => {
         console.log("TODO webGridDeleteCellTemplate");
         //TODO
         return html``;
     }
-
+    
 }
 
 new Sample();
