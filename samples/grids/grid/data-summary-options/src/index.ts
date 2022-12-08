@@ -20,12 +20,12 @@ export class Sample {
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         this.webGridCustomSummary = this.webGridCustomSummary.bind(this);
-        // var productID = this.productID = document.getElementById('ProductID') as IgcColumnComponent;
-        // var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
-        // var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
-        // var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
-        // var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
-        // var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
+        var productID = this.productID = document.getElementById('ProductID') as IgcColumnComponent;
+        var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
+        var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
+        var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
+        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
+        var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.nwindData
@@ -43,7 +43,7 @@ export class Sample {
         }
         return this._nwindData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -55,13 +55,13 @@ export class Sample {
         return this._componentRenderer;
     }
 
-
+    
     public webGridCustomSummary(args: any): void {
         if (args.detail.field === "UnitsInStock") {
             args.detail.summaries = 1; //TODO CUSTOM SUMMARY - NOT IMPLEMENTED YET(?)
         }
     }
-
+        
 }
 
 new Sample();

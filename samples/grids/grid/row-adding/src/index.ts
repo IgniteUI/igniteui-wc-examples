@@ -20,13 +20,13 @@ export class Sample {
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        // var iD = this.iD = document.getElementById('ID') as IgcColumnComponent;
-        // var reorderLevel = this.reorderLevel = document.getElementById('ReorderLevel') as IgcColumnComponent;
-        // var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
-        // var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
-        // var companyName = this.companyName = document.getElementById('CompanyName') as IgcColumnComponent;
-        // var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
-        // var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
+        var iD = this.iD = document.getElementById('ID') as IgcColumnComponent;
+        var reorderLevel = this.reorderLevel = document.getElementById('ReorderLevel') as IgcColumnComponent;
+        var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
+        var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
+        var companyName = this.companyName = document.getElementById('CompanyName') as IgcColumnComponent;
+        var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
+        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.nwindData
@@ -43,7 +43,7 @@ export class Sample {
         }
         return this._nwindData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

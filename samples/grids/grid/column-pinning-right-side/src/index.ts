@@ -1,4 +1,3 @@
-// import { IgcAvatarModule } from 'igniteui-webcomponents-core';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { AthletesDataExtendedItem, AthletesDataExtended } from './AthletesDataExtended';
@@ -6,12 +5,7 @@ import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-import { ModuleManager } from 'igniteui-webcomponents-core';
 
-// ModuleManager.register(
-    // ,
-    // IgcAvatarModule
-// );
 
 export class Sample {
 
@@ -22,13 +16,13 @@ export class Sample {
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        // var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
-        // var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
+        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
+        var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.athletesDataExtended
-            // column1.bodyTemplate = this.webGridImageCellTemplate
-            // column2.bodyTemplate = this.webGridAvatarCellTemplate
+            column1.bodyTemplate = this.webGridImageCellTemplate
+            column2.bodyTemplate = this.webGridAvatarCellTemplate
         }
         this._bind();
 
@@ -42,24 +36,24 @@ export class Sample {
         }
         return this._athletesDataExtended;
     }
+    
 
 
-
-
+    
     public webGridImageCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
             <img src="${ctx.cell.value}"/>
         </div>`;
     };
-
-
+    
+    
         public webGridAvatarCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
         <igc-avatar shape="circle" src="${ctx.cell.value}">
         </igc-avatar>
     </div>`;
     }
-
+    
 }
 
 new Sample();

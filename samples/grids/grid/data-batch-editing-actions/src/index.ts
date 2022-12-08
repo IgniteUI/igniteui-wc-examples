@@ -50,17 +50,17 @@ export class Sample {
         var propertyEditorPropertyDescription4 = this.propertyEditorPropertyDescription4 = document.getElementById('propertyEditorPropertyDescription4') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webGridCommit = this.webGridCommit.bind(this);
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        // var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
-        // var productID = this.productID = document.getElementById('ProductID') as IgcColumnComponent;
-        // var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
-        // var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
-        // var unitsOnOrder = this.unitsOnOrder = document.getElementById('UnitsOnOrder') as IgcColumnComponent;
-        // var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
-        // var quantityPerUnit = this.quantityPerUnit = document.getElementById('QuantityPerUnit') as IgcColumnComponent;
-        // var reorderLevel = this.reorderLevel = document.getElementById('ReorderLevel') as IgcColumnComponent;
-        // var supplierID = this.supplierID = document.getElementById('SupplierID') as IgcColumnComponent;
-        // var categoryID = this.categoryID = document.getElementById('CategoryID') as IgcColumnComponent;
-        // var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
+        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
+        var productID = this.productID = document.getElementById('ProductID') as IgcColumnComponent;
+        var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
+        var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
+        var unitsOnOrder = this.unitsOnOrder = document.getElementById('UnitsOnOrder') as IgcColumnComponent;
+        var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
+        var quantityPerUnit = this.quantityPerUnit = document.getElementById('QuantityPerUnit') as IgcColumnComponent;
+        var reorderLevel = this.reorderLevel = document.getElementById('ReorderLevel') as IgcColumnComponent;
+        var supplierID = this.supplierID = document.getElementById('SupplierID') as IgcColumnComponent;
+        var categoryID = this.categoryID = document.getElementById('CategoryID') as IgcColumnComponent;
+        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
 
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer
@@ -70,7 +70,7 @@ export class Sample {
             propertyEditorPropertyDescription3.buttonClicked = this.webGridRedo
             propertyEditorPropertyDescription4.buttonClicked = this.webGridCommit
             grid.data = this.nwindData
-            // column1.bodyTemplate = this.webGridDeleteCellTemplate
+            column1.bodyTemplate = this.webGridDeleteCellTemplate
         }
         this._bind();
 
@@ -132,8 +132,8 @@ export class Sample {
         //TODO
 
         var grid = this.grid;
-        // grid.endEdit(true);
-        // grid.transactions.undo();
+        //grid.endEdit(true);
+        //grid.transactions.undo();
 
     }
 
@@ -143,8 +143,8 @@ export class Sample {
 
         var grid = this.grid;
 
-    	// grid.endEdit(true);
-        // grid.transactions.redo();
+        //grid.endEdit(true);
+        //grid.transactions.redo();
 
     }
 
@@ -163,7 +163,8 @@ export class Sample {
 
     public webGridDeleteCellTemplate = (ctx: IgcCellTemplateContext) => {
         console.log("TODO webGridDeleteCellTemplate");
-    	//TODO
+        //TODO
+        return html``;
     }
 
 }

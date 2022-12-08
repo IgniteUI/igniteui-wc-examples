@@ -28,16 +28,16 @@ export class Sample {
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        // var productID = this.productID = document.getElementById('ProductID') as IgcColumnComponent;
-        // var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
-        // var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
-        // var unitsOnOrder = this.unitsOnOrder = document.getElementById('UnitsOnOrder') as IgcColumnComponent;
-        // var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
-        // var quantityPerUnit = this.quantityPerUnit = document.getElementById('QuantityPerUnit') as IgcColumnComponent;
-        // var reorderLevel = this.reorderLevel = document.getElementById('ReorderLevel') as IgcColumnComponent;
-        // var supplierID = this.supplierID = document.getElementById('SupplierID') as IgcColumnComponent;
-        // var categoryID = this.categoryID = document.getElementById('CategoryID') as IgcColumnComponent;
-        // var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
+        var productID = this.productID = document.getElementById('ProductID') as IgcColumnComponent;
+        var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
+        var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
+        var unitsOnOrder = this.unitsOnOrder = document.getElementById('UnitsOnOrder') as IgcColumnComponent;
+        var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
+        var quantityPerUnit = this.quantityPerUnit = document.getElementById('QuantityPerUnit') as IgcColumnComponent;
+        var reorderLevel = this.reorderLevel = document.getElementById('ReorderLevel') as IgcColumnComponent;
+        var supplierID = this.supplierID = document.getElementById('SupplierID') as IgcColumnComponent;
+        var categoryID = this.categoryID = document.getElementById('CategoryID') as IgcColumnComponent;
+        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.nwindData
@@ -54,7 +54,7 @@ export class Sample {
         }
         return this._nwindData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

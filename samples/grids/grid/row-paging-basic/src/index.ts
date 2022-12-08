@@ -1,4 +1,3 @@
-// import { IgcLinearProgressModule } from 'igniteui-webcomponents-core';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { AthletesDataItem, AthletesData } from './AthletesData';
@@ -6,7 +5,7 @@ import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-import { ModuleManager } from 'igniteui-webcomponents-core';
+
 
 export class Sample {
 
@@ -18,8 +17,8 @@ export class Sample {
         {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.1-5";
-
-
+            
+            
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -30,15 +29,15 @@ export class Sample {
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        // var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
-        // var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
-        // var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
+        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
+        var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
+        var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.athletesData
-            // column1.pipeArgs = this.columnPipeArgs1
-            // column2.bodyTemplate = this.webGridProgressCellTemplate
-            // column3.bodyTemplate = this.webGridImageCellTemplate
+            column1.pipeArgs = this.columnPipeArgs1
+            column2.bodyTemplate = this.webGridProgressCellTemplate
+            column3.bodyTemplate = this.webGridImageCellTemplate
         }
         this._bind();
 
@@ -52,23 +51,23 @@ export class Sample {
         }
         return this._athletesData;
     }
+    
 
 
-
-
+    
     public webGridProgressCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
             <igc-linear-progress value="${ctx.cell.value}"></igc-linear-progress>
         </div>`;
     };
-
-
+    
+    
     public webGridImageCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
             <img src="${ctx.cell.value}"/>
         </div>`;
     };
-
+    
 }
 
 new Sample();

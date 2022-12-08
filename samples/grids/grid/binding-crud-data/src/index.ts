@@ -23,11 +23,11 @@ export class Sample {
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        // var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
-        // var quantityPerUnit = this.quantityPerUnit = document.getElementById('QuantityPerUnit') as IgcColumnComponent;
-        // var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
-        // var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
-        // var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
+        var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
+        var quantityPerUnit = this.quantityPerUnit = document.getElementById('QuantityPerUnit') as IgcColumnComponent;
+        var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
+        var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
+        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.nwindData
@@ -44,7 +44,7 @@ export class Sample {
         }
         return this._nwindData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
