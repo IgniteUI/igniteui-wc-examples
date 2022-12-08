@@ -3,19 +3,19 @@ export class NwindDataItem {
         Object.assign(this, init);
     }
     
-    public productID: number;
-    public productName: string;
-    public supplierID: number;
-    public categoryID: number;
-    public quantityPerUnit: string;
-    public unitPrice: number;
-    public unitsInStock: number;
-    public unitsOnOrder: number;
-    public reorderLevel: number;
-    public discontinued: boolean;
-    public orderDate: string;
-    public rating: number;
-    public locations: NwindDataItem_LocationsItem[];
+    public ProductID: number;
+    public ProductName: string;
+    public SupplierID: number;
+    public CategoryID: number;
+    public QuantityPerUnit: string;
+    public UnitPrice: number;
+    public UnitsInStock: number;
+    public UnitsOnOrder: number;
+    public ReorderLevel: number;
+    public Discontinued: boolean;
+    public OrderDate: string;
+    public Rating: number;
+    public Locations: NwindDataItem_LocationsItem[];
 
 }
 export class NwindDataItem_LocationsItem {
@@ -23,8 +23,8 @@ export class NwindDataItem_LocationsItem {
         Object.assign(this, init);
     }
     
-    public shop: string;
-    public lastInventory: string;
+    public Shop: string;
+    public LastInventory: string;
 
 }
 export class NwindData extends Array<NwindDataItem> {
@@ -32,511 +32,511 @@ export class NwindData extends Array<NwindDataItem> {
         super();
         this.push(new NwindDataItem(
         {
-            productID: 1,
-            productName: `Chai`,
-            supplierID: 1,
-            categoryID: 1,
-            quantityPerUnit: `10 boxes x 20 bags`,
-            unitPrice: 18,
-            unitsInStock: 39,
-            unitsOnOrder: 30,
-            reorderLevel: 10,
-            discontinued: false,
-            orderDate: `2012-02-12`,
-            rating: 5,
-            locations: [
+            ProductID: 1,
+            ProductName: `Chai`,
+            SupplierID: 1,
+            CategoryID: 1,
+            QuantityPerUnit: `10 boxes x 20 bags`,
+            UnitPrice: 18,
+            UnitsInStock: 39,
+            UnitsOnOrder: 30,
+            ReorderLevel: 10,
+            Discontinued: false,
+            OrderDate: `2012-02-12`,
+            Rating: 5,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Fun-Tasty Co.`,
-                    lastInventory: `06/12/2018`
+                    Shop: `Fun-Tasty Co.`,
+                    LastInventory: `06/12/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Farmer Market`,
-                    lastInventory: `04/04/2018`
+                    Shop: `Farmer Market`,
+                    LastInventory: `04/04/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 2,
-            productName: `Chang`,
-            supplierID: 1,
-            categoryID: 1,
-            quantityPerUnit: `24 - 12 oz bottles`,
-            unitPrice: 19,
-            unitsInStock: 17,
-            unitsOnOrder: 40,
-            reorderLevel: 25,
-            discontinued: true,
-            orderDate: `2003-03-17`,
-            rating: 5,
-            locations: [
+            ProductID: 2,
+            ProductName: `Chang`,
+            SupplierID: 1,
+            CategoryID: 1,
+            QuantityPerUnit: `24 - 12 oz bottles`,
+            UnitPrice: 19,
+            UnitsInStock: 17,
+            UnitsOnOrder: 40,
+            ReorderLevel: 25,
+            Discontinued: true,
+            OrderDate: `2003-03-17`,
+            Rating: 5,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Super Market`,
-                    lastInventory: `09/09/2018`
+                    Shop: `Super Market`,
+                    LastInventory: `09/09/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 3,
-            productName: `Aniseed Syrup`,
-            supplierID: 1,
-            categoryID: 2,
-            quantityPerUnit: `12 - 550 ml bottles`,
-            unitPrice: 10,
-            unitsInStock: 13,
-            unitsOnOrder: 70,
-            reorderLevel: 25,
-            discontinued: false,
-            orderDate: `2006-03-17`,
-            rating: 3,
-            locations: [
+            ProductID: 3,
+            ProductName: `Aniseed Syrup`,
+            SupplierID: 1,
+            CategoryID: 2,
+            QuantityPerUnit: `12 - 550 ml bottles`,
+            UnitPrice: 10,
+            UnitsInStock: 13,
+            UnitsOnOrder: 70,
+            ReorderLevel: 25,
+            Discontinued: false,
+            OrderDate: `2006-03-17`,
+            Rating: 3,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Farmer Market`,
-                    lastInventory: `04/04/2018`
+                    Shop: `Farmer Market`,
+                    LastInventory: `04/04/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Street Market`,
-                    lastInventory: `12/12/2018`
+                    Shop: `Street Market`,
+                    LastInventory: `12/12/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `24/7 Market`,
-                    lastInventory: `11/11/2018`
+                    Shop: `24/7 Market`,
+                    LastInventory: `11/11/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 4,
-            productName: `Chef Antons Cajun Seasoning`,
-            supplierID: 2,
-            categoryID: 2,
-            quantityPerUnit: `48 - 6 oz jars`,
-            unitPrice: 22,
-            unitsInStock: 53,
-            unitsOnOrder: 30,
-            reorderLevel: 0,
-            discontinued: false,
-            orderDate: `2016-03-17`,
-            rating: 3,
-            locations: [
+            ProductID: 4,
+            ProductName: `Chef Antons Cajun Seasoning`,
+            SupplierID: 2,
+            CategoryID: 2,
+            QuantityPerUnit: `48 - 6 oz jars`,
+            UnitPrice: 22,
+            UnitsInStock: 53,
+            UnitsOnOrder: 30,
+            ReorderLevel: 0,
+            Discontinued: false,
+            OrderDate: `2016-03-17`,
+            Rating: 3,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Fun-Tasty Co.`,
-                    lastInventory: `06/12/2018`
+                    Shop: `Fun-Tasty Co.`,
+                    LastInventory: `06/12/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Farmer Market`,
-                    lastInventory: `04/04/2018`
+                    Shop: `Farmer Market`,
+                    LastInventory: `04/04/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Street Market`,
-                    lastInventory: `12/12/2018`
+                    Shop: `Street Market`,
+                    LastInventory: `12/12/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 5,
-            productName: `Chef Antons Gumbo Mix`,
-            supplierID: 2,
-            categoryID: 2,
-            quantityPerUnit: `36 boxes`,
-            unitPrice: 21.35,
-            unitsInStock: 0,
-            unitsOnOrder: 30,
-            reorderLevel: 0,
-            discontinued: true,
-            orderDate: `2011-11-11`,
-            rating: 5,
-            locations: [
+            ProductID: 5,
+            ProductName: `Chef Antons Gumbo Mix`,
+            SupplierID: 2,
+            CategoryID: 2,
+            QuantityPerUnit: `36 boxes`,
+            UnitPrice: 21.35,
+            UnitsInStock: 0,
+            UnitsOnOrder: 30,
+            ReorderLevel: 0,
+            Discontinued: true,
+            OrderDate: `2011-11-11`,
+            Rating: 5,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Super Market`,
-                    lastInventory: `09/09/2018`
+                    Shop: `Super Market`,
+                    LastInventory: `09/09/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 6,
-            productName: `Grandmas Boysenberry Spread`,
-            supplierID: 3,
-            categoryID: 2,
-            quantityPerUnit: `12 - 8 oz jars`,
-            unitPrice: 25,
-            unitsInStock: 0,
-            unitsOnOrder: 30,
-            reorderLevel: 25,
-            discontinued: false,
-            orderDate: `2017-12-17`,
-            rating: 4,
-            locations: [
+            ProductID: 6,
+            ProductName: `Grandmas Boysenberry Spread`,
+            SupplierID: 3,
+            CategoryID: 2,
+            QuantityPerUnit: `12 - 8 oz jars`,
+            UnitPrice: 25,
+            UnitsInStock: 0,
+            UnitsOnOrder: 30,
+            ReorderLevel: 25,
+            Discontinued: false,
+            OrderDate: `2017-12-17`,
+            Rating: 4,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Super Market`,
-                    lastInventory: `09/09/2018`
+                    Shop: `Super Market`,
+                    LastInventory: `09/09/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 7,
-            productName: `Uncle Bobs Organic Dried Pears`,
-            supplierID: 3,
-            categoryID: 7,
-            quantityPerUnit: `12 - 1 lb pkgs.`,
-            unitPrice: 30,
-            unitsInStock: 150,
-            unitsOnOrder: 30,
-            reorderLevel: 10,
-            discontinued: false,
-            orderDate: `2016-07-17`,
-            rating: 5,
-            locations: [
+            ProductID: 7,
+            ProductName: `Uncle Bobs Organic Dried Pears`,
+            SupplierID: 3,
+            CategoryID: 7,
+            QuantityPerUnit: `12 - 1 lb pkgs.`,
+            UnitPrice: 30,
+            UnitsInStock: 150,
+            UnitsOnOrder: 30,
+            ReorderLevel: 10,
+            Discontinued: false,
+            OrderDate: `2016-07-17`,
+            Rating: 5,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Fun-Tasty Co.`,
-                    lastInventory: `06/12/2018`
+                    Shop: `Fun-Tasty Co.`,
+                    LastInventory: `06/12/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Farmer Market`,
-                    lastInventory: `04/04/2018`
+                    Shop: `Farmer Market`,
+                    LastInventory: `04/04/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Street Market`,
-                    lastInventory: `12/12/2018`
+                    Shop: `Street Market`,
+                    LastInventory: `12/12/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 8,
-            productName: `Northwoods Cranberry Sauce`,
-            supplierID: 3,
-            categoryID: 2,
-            quantityPerUnit: `12 - 12 oz jars`,
-            unitPrice: 40,
-            unitsInStock: 6,
-            unitsOnOrder: 30,
-            reorderLevel: 0,
-            discontinued: false,
-            orderDate: `2018-01-17`,
-            rating: 4,
-            locations: [
+            ProductID: 8,
+            ProductName: `Northwoods Cranberry Sauce`,
+            SupplierID: 3,
+            CategoryID: 2,
+            QuantityPerUnit: `12 - 12 oz jars`,
+            UnitPrice: 40,
+            UnitsInStock: 6,
+            UnitsOnOrder: 30,
+            ReorderLevel: 0,
+            Discontinued: false,
+            OrderDate: `2018-01-17`,
+            Rating: 4,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Fun-Tasty Co.`,
-                    lastInventory: `06/12/2018`
+                    Shop: `Fun-Tasty Co.`,
+                    LastInventory: `06/12/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Farmer Market`,
-                    lastInventory: `04/04/2018`
+                    Shop: `Farmer Market`,
+                    LastInventory: `04/04/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 9,
-            productName: `Mishi Kobe Niku`,
-            supplierID: 4,
-            categoryID: 6,
-            quantityPerUnit: `18 - 500 g pkgs.`,
-            unitPrice: 97,
-            unitsInStock: 29,
-            unitsOnOrder: 30,
-            reorderLevel: 0,
-            discontinued: true,
-            orderDate: `2010-02-17`,
-            rating: 4,
-            locations: [
+            ProductID: 9,
+            ProductName: `Mishi Kobe Niku`,
+            SupplierID: 4,
+            CategoryID: 6,
+            QuantityPerUnit: `18 - 500 g pkgs.`,
+            UnitPrice: 97,
+            UnitsInStock: 29,
+            UnitsOnOrder: 30,
+            ReorderLevel: 0,
+            Discontinued: true,
+            OrderDate: `2010-02-17`,
+            Rating: 4,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Farmer Market`,
-                    lastInventory: `04/04/2018`
+                    Shop: `Farmer Market`,
+                    LastInventory: `04/04/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 10,
-            productName: `Ikura`,
-            supplierID: 4,
-            categoryID: 8,
-            quantityPerUnit: `12 - 200 ml jars`,
-            unitPrice: 31,
-            unitsInStock: 31,
-            unitsOnOrder: 30,
-            reorderLevel: 0,
-            discontinued: false,
-            orderDate: `2008-05-17`,
-            rating: 3,
-            locations: [
+            ProductID: 10,
+            ProductName: `Ikura`,
+            SupplierID: 4,
+            CategoryID: 8,
+            QuantityPerUnit: `12 - 200 ml jars`,
+            UnitPrice: 31,
+            UnitsInStock: 31,
+            UnitsOnOrder: 30,
+            ReorderLevel: 0,
+            Discontinued: false,
+            OrderDate: `2008-05-17`,
+            Rating: 3,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Wall Market`,
-                    lastInventory: `12/06/2018`
+                    Shop: `Wall Market`,
+                    LastInventory: `12/06/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 11,
-            productName: `Queso Cabrales`,
-            supplierID: 5,
-            categoryID: 4,
-            quantityPerUnit: `1 kg pkg.`,
-            unitPrice: 21,
-            unitsInStock: 22,
-            unitsOnOrder: 30,
-            reorderLevel: 30,
-            discontinued: false,
-            orderDate: `2009-01-17`,
-            rating: 5,
-            locations: [
+            ProductID: 11,
+            ProductName: `Queso Cabrales`,
+            SupplierID: 5,
+            CategoryID: 4,
+            QuantityPerUnit: `1 kg pkg.`,
+            UnitPrice: 21,
+            UnitsInStock: 22,
+            UnitsOnOrder: 30,
+            ReorderLevel: 30,
+            Discontinued: false,
+            OrderDate: `2009-01-17`,
+            Rating: 5,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Fun-Tasty Co.`,
-                    lastInventory: `06/12/2018`
+                    Shop: `Fun-Tasty Co.`,
+                    LastInventory: `06/12/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Farmer Market`,
-                    lastInventory: `04/04/2018`
+                    Shop: `Farmer Market`,
+                    LastInventory: `04/04/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 12,
-            productName: `Queso Manchego La Pastora`,
-            supplierID: 5,
-            categoryID: 4,
-            quantityPerUnit: `10 - 500 g pkgs.`,
-            unitPrice: 38,
-            unitsInStock: 86,
-            unitsOnOrder: 30,
-            reorderLevel: 0,
-            discontinued: false,
-            orderDate: `2015-11-17`,
-            rating: 3,
-            locations: [
+            ProductID: 12,
+            ProductName: `Queso Manchego La Pastora`,
+            SupplierID: 5,
+            CategoryID: 4,
+            QuantityPerUnit: `10 - 500 g pkgs.`,
+            UnitPrice: 38,
+            UnitsInStock: 86,
+            UnitsOnOrder: 30,
+            ReorderLevel: 0,
+            Discontinued: false,
+            OrderDate: `2015-11-17`,
+            Rating: 3,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Farmer Market`,
-                    lastInventory: `04/04/2018`
+                    Shop: `Farmer Market`,
+                    LastInventory: `04/04/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 13,
-            productName: `Konbu`,
-            supplierID: 6,
-            categoryID: 8,
-            quantityPerUnit: `2 kg box`,
-            unitPrice: 6,
-            unitsInStock: 24,
-            unitsOnOrder: 30,
-            reorderLevel: 5,
-            discontinued: false,
-            orderDate: `2015-03-17`,
-            rating: 2,
-            locations: [
+            ProductID: 13,
+            ProductName: `Konbu`,
+            SupplierID: 6,
+            CategoryID: 8,
+            QuantityPerUnit: `2 kg box`,
+            UnitPrice: 6,
+            UnitsInStock: 24,
+            UnitsOnOrder: 30,
+            ReorderLevel: 5,
+            Discontinued: false,
+            OrderDate: `2015-03-17`,
+            Rating: 2,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Super Market`,
-                    lastInventory: `09/09/2018`
+                    Shop: `Super Market`,
+                    LastInventory: `09/09/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 14,
-            productName: `Tofu`,
-            supplierID: 6,
-            categoryID: 7,
-            quantityPerUnit: `40 - 100 g pkgs.`,
-            unitPrice: 23.25,
-            unitsInStock: 35,
-            unitsOnOrder: 30,
-            reorderLevel: 0,
-            discontinued: false,
-            orderDate: `2017-06-17`,
-            rating: 4,
-            locations: [
+            ProductID: 14,
+            ProductName: `Tofu`,
+            SupplierID: 6,
+            CategoryID: 7,
+            QuantityPerUnit: `40 - 100 g pkgs.`,
+            UnitPrice: 23.25,
+            UnitsInStock: 35,
+            UnitsOnOrder: 30,
+            ReorderLevel: 0,
+            Discontinued: false,
+            OrderDate: `2017-06-17`,
+            Rating: 4,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Farmer Market`,
-                    lastInventory: `04/04/2018`
+                    Shop: `Farmer Market`,
+                    LastInventory: `04/04/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Street Market`,
-                    lastInventory: `12/12/2018`
+                    Shop: `Street Market`,
+                    LastInventory: `12/12/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 15,
-            productName: `Genen Shouyu`,
-            supplierID: 6,
-            categoryID: 2,
-            quantityPerUnit: `24 - 250 ml bottles`,
-            unitPrice: 15.5,
-            unitsInStock: 39,
-            unitsOnOrder: 30,
-            reorderLevel: 5,
-            discontinued: false,
-            orderDate: `2014-03-17`,
-            rating: 4,
-            locations: [
+            ProductID: 15,
+            ProductName: `Genen Shouyu`,
+            SupplierID: 6,
+            CategoryID: 2,
+            QuantityPerUnit: `24 - 250 ml bottles`,
+            UnitPrice: 15.5,
+            UnitsInStock: 39,
+            UnitsOnOrder: 30,
+            ReorderLevel: 5,
+            Discontinued: false,
+            OrderDate: `2014-03-17`,
+            Rating: 4,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Local Market`,
-                    lastInventory: `07/03/2018`
+                    Shop: `Local Market`,
+                    LastInventory: `07/03/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Wall Market`,
-                    lastInventory: `12/06/2018`
+                    Shop: `Wall Market`,
+                    LastInventory: `12/06/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 16,
-            productName: `Pavlova`,
-            supplierID: 7,
-            categoryID: 3,
-            quantityPerUnit: `32 - 500 g boxes`,
-            unitPrice: 17.45,
-            unitsInStock: 29,
-            unitsOnOrder: 30,
-            reorderLevel: 10,
-            discontinued: false,
-            orderDate: `2018-03-28`,
-            rating: 2,
-            locations: [
+            ProductID: 16,
+            ProductName: `Pavlova`,
+            SupplierID: 7,
+            CategoryID: 3,
+            QuantityPerUnit: `32 - 500 g boxes`,
+            UnitPrice: 17.45,
+            UnitsInStock: 29,
+            UnitsOnOrder: 30,
+            ReorderLevel: 10,
+            Discontinued: false,
+            OrderDate: `2018-03-28`,
+            Rating: 2,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Farmer Market`,
-                    lastInventory: `04/04/2018`
+                    Shop: `Farmer Market`,
+                    LastInventory: `04/04/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Street Market`,
-                    lastInventory: `12/12/2018`
+                    Shop: `Street Market`,
+                    LastInventory: `12/12/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `24/7 Market`,
-                    lastInventory: `11/11/2018`
+                    Shop: `24/7 Market`,
+                    LastInventory: `11/11/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 17,
-            productName: `Alice Mutton`,
-            supplierID: 7,
-            categoryID: 6,
-            quantityPerUnit: `20 - 1 kg tins`,
-            unitPrice: 39,
-            unitsInStock: 0,
-            unitsOnOrder: 30,
-            reorderLevel: 0,
-            discontinued: true,
-            orderDate: `2015-08-17`,
-            rating: 2,
-            locations: [
+            ProductID: 17,
+            ProductName: `Alice Mutton`,
+            SupplierID: 7,
+            CategoryID: 6,
+            QuantityPerUnit: `20 - 1 kg tins`,
+            UnitPrice: 39,
+            UnitsInStock: 0,
+            UnitsOnOrder: 30,
+            ReorderLevel: 0,
+            Discontinued: true,
+            OrderDate: `2015-08-17`,
+            Rating: 2,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Farmer Market`,
-                    lastInventory: `04/04/2018`
+                    Shop: `Farmer Market`,
+                    LastInventory: `04/04/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 18,
-            productName: `Carnarvon Tigers`,
-            supplierID: 7,
-            categoryID: 8,
-            quantityPerUnit: `16 kg pkg.`,
-            unitPrice: 62.5,
-            unitsInStock: 42,
-            unitsOnOrder: 30,
-            reorderLevel: 0,
-            discontinued: false,
-            orderDate: `2005-09-27`,
-            rating: 2,
-            locations: [
+            ProductID: 18,
+            ProductName: `Carnarvon Tigers`,
+            SupplierID: 7,
+            CategoryID: 8,
+            QuantityPerUnit: `16 kg pkg.`,
+            UnitPrice: 62.5,
+            UnitsInStock: 42,
+            UnitsOnOrder: 30,
+            ReorderLevel: 0,
+            Discontinued: false,
+            OrderDate: `2005-09-27`,
+            Rating: 2,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `24/7 Market`,
-                    lastInventory: `11/11/2018`
+                    Shop: `24/7 Market`,
+                    LastInventory: `11/11/2018`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Super Market`,
-                    lastInventory: `09/09/2018`
+                    Shop: `Super Market`,
+                    LastInventory: `09/09/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 19,
-            productName: `Teatime Chocolate Biscuits`,
-            supplierID: 8,
-            categoryID: 3,
-            quantityPerUnit: ``,
-            unitPrice: 9.2,
-            unitsInStock: 25,
-            unitsOnOrder: 30,
-            reorderLevel: 5,
-            discontinued: false,
-            orderDate: `2001-03-17`,
-            rating: 2,
-            locations: [
+            ProductID: 19,
+            ProductName: `Teatime Chocolate Biscuits`,
+            SupplierID: 8,
+            CategoryID: 3,
+            QuantityPerUnit: ``,
+            UnitPrice: 9.2,
+            UnitsInStock: 25,
+            UnitsOnOrder: 30,
+            ReorderLevel: 5,
+            Discontinued: false,
+            OrderDate: `2001-03-17`,
+            Rating: 2,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Local Market`,
-                    lastInventory: `07/03/2018`
+                    Shop: `Local Market`,
+                    LastInventory: `07/03/2018`
                 })]
             
         }));
         this.push(new NwindDataItem(
         {
-            productID: 20,
-            productName: `Sir Rodneys Marmalade`,
-            supplierID: 8,
-            categoryID: 3,
-            quantityPerUnit: `4 - 100 ml jars`,
-            unitPrice: 4.5,
-            unitsInStock: 40,
-            unitsOnOrder: 30,
-            reorderLevel: 0,
-            discontinued: false,
-            orderDate: `2005-03-17`,
-            rating: 5,
-            locations: [
+            ProductID: 20,
+            ProductName: `Sir Rodneys Marmalade`,
+            SupplierID: 8,
+            CategoryID: 3,
+            QuantityPerUnit: `4 - 100 ml jars`,
+            UnitPrice: 4.5,
+            UnitsInStock: 40,
+            UnitsOnOrder: 30,
+            ReorderLevel: 0,
+            Discontinued: false,
+            OrderDate: `2005-03-17`,
+            Rating: 5,
+            Locations: [
                 new NwindDataItem_LocationsItem(
                 {
-                    shop: `Super Market`,
-                    lastInventory: `09/09/2018`
+                    Shop: `Super Market`,
+                    LastInventory: `09/09/2018`
                 })]
             
         }));
