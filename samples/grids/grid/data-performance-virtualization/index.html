@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    
+    
+    
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        id="grid"
+        allow-filtering="true"
+        name="grid"
+        id ="grid">
+            <igc-column
+            field="Category"
+            width="120px">
+            </igc-column>
+            <igc-column
+            field="Type"
+            width="150px"
+            filterable="false">
+            </igc-column>
+            <igc-column
+            field="Open"
+            width="120px"
+            data-type="Currency">
+            </igc-column>
+            <igc-column
+            field="Price"
+            width="120px"
+            data-type="Currency">
+            </igc-column>
+            <igc-column
+            field="Change"
+            width="120px"
+            data-type="Number">
+            </igc-column>
+            <igc-column
+            field="ChangePercent"
+            width="120px"
+            data-type="Number"
+            header="Change(%)">
+            </igc-column>
+            <igc-column
+            field="AnnualChange"
+            width="150px"
+            data-type="Number"
+            header="Change On Year(%)">
+            </igc-column>
+            <igc-column
+            field="Buy"
+            width="130px"
+            data-type="Currency">
+            </igc-column>
+            <igc-column
+            field="Sell"
+            width="130px"
+            data-type="Currency">
+            </igc-column>
+            <igc-column
+            field="Spread"
+            width="130px"
+            data-type="Number">
+            </igc-column>
+            <igc-column
+            field="Volume"
+            width="130px"
+            data-type="Number">
+            </igc-column>
+            <igc-column
+            field="High"
+            width="130px"
+            data-type="Currency">
+            </igc-column>
+            <igc-column
+            field="Low"
+            width="130px"
+            data-type="Currency">
+            </igc-column>
+            <igc-column
+            field="AnnualHigh"
+            width="130px"
+            data-type="Currency"
+            header="High(Y)">
+            </igc-column>
+            <igc-column
+            field="AnnualLow"
+            width="130px"
+            data-type="Currency"
+            header="Low(Y)">
+            </igc-column>
+            <igc-column
+            field="AnnualStart"
+            width="130px"
+            data-type="Currency"
+            header="Start(Y)">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

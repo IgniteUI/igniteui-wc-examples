@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    
+    
+    
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        id="grid"
+        name="grid"
+        id ="grid">
+            <igc-column
+            field="ID"
+            header="ID"
+            name="ID"
+            id ="ID">
+            </igc-column>
+            <igc-column
+            name="CompanyName"
+            id ="CompanyName"
+            field="CompanyName"
+            header="Company Name"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            name="ContactName"
+            id ="ContactName"
+            field="ContactName"
+            header="Contact Name"
+            resizable="true"
+            min-width="60px"
+            max-width="230px">
+            </igc-column>
+            <igc-column
+            name="ContactTitle"
+            id ="ContactTitle"
+            field="ContactTitle"
+            header="Contact Title"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            name="Address"
+            id ="Address"
+            field="Address"
+            header="Address"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            name="City"
+            id ="City"
+            field="City"
+            header="City">
+            </igc-column>
+            <igc-column
+            name="Region"
+            id ="Region"
+            field="Region"
+            header="Region"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            name="PostalCode"
+            id ="PostalCode"
+            field="PostalCode"
+            header="Postal Code"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            name="Country"
+            id ="Country"
+            field="Country"
+            header="Country"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            name="Phone"
+            id ="Phone"
+            field="Phone"
+            header="Phone"
+            resizable="true">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
