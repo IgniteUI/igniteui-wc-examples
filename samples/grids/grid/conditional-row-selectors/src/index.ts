@@ -17,7 +17,7 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.customersData
-            // grid.addEventListener("rowSelectionChanging", this.webGridRowSelectionConditional)
+            grid.addEventListener("rowSelectionChanging", this.webGridRowSelectionConditional)
         }
         this._bind();
 
@@ -35,7 +35,7 @@ export class Sample {
 
 
 
-    public webGridRowSelectionConditional(event: IgcRowSelectionEventArgs): void {
+    public webGridRowSelectionConditional(event: any): void {
         console.log(event);
         if (!event.added.length && event.removed.length) {
             // ignore deselect

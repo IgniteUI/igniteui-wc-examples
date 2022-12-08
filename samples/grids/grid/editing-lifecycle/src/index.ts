@@ -25,16 +25,15 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.nwindData
-            // MT incorrect way of adding event handlers
-            // grid.cellEditEnter = this.webGridCellEditEnter
-            // grid.cellEditExit = this.webGridCellEditExit
-            // grid.cellEdit = this.webGridCellEdit
-            // grid.cellEditDone = this.webGridCellEditDone
-            // grid.rowEditEnter = this.webGridRowEditEnter
-            // grid.rowEdit = this.webGridRowEdit
-            // grid.rowEditDone = this.webGridRowEditDone
-            // grid.rowEditExit = this.webGridRowEditExit
-            // grid.rendered = this.webGridRendered
+            grid.addEventListener("cellEditEnter", this.webGridCellEditEnter)
+            grid.addEventListener("cellEditExit", this.webGridCellEditExit)
+            grid.addEventListener("cellEdit", this.webGridCellEdit)
+            grid.addEventListener("cellEditDone", this.webGridCellEditDone)
+            grid.addEventListener("rowEditEnter", this.webGridRowEditEnter)
+            grid.addEventListener("rowEdit", this.webGridRowEdit)
+            grid.addEventListener("rowEditDone", this.webGridRowEditDone)
+            grid.addEventListener("rowEditExit", this.webGridRowEditExit)
+            grid.addEventListener("rendered", this.webGridRendered)
         }
         this._bind();
 
@@ -48,74 +47,74 @@ export class Sample {
         }
         return this._nwindData;
     }
+    
 
 
-
-
+    
     public webGridCellEditEnter(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditEnter' with 'value':` + args.oldValue, args.cancel;
         container.appendChild(message);
     }
-
-
+        
+    
     public webGridCellEditExit(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditExit'`;
         container.appendChild(message);
     }
-
-
+        
+    
     public webGridCellEdit(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEdit' with 'newValue':` + args.newValue, args.cancel;
         container.appendChild(message);
     }
-
-
+        
+    
     public webGridCellEditDone(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditDone'`;
         container.appendChild(message);
     }
-
-
+        
+    
     public webGridRowEditEnter(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.rowID;
         container.appendChild(message);
     }
-
-
+        
+    
     public webGridRowEdit(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEdit'`;
         container.appendChild(message);
     }
-
-
+        
+    
     public webGridRowEditDone(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditDone'`;
         container.appendChild(message);
     }
-
-
+        
+    
     public webGridRowEditExit(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditExit'  << End of cycle >>`;
         container.appendChild(message);
     }
-
-
+        
+    
     public webGridRendered(args:any): void {
         const grid = document.getElementById("grid");
         grid.parentElement.style.display = "flex";
@@ -129,7 +128,7 @@ export class Sample {
         title.textContent = "Events execution sequence";
         container.appendChild(title);
     }
-
+        
 }
 
 new Sample();

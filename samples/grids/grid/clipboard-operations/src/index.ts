@@ -40,7 +40,7 @@ export class Sample {
             propertyEditor.target = this.grid
             propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSelection
             grid.data = this.nwindData
-            // grid.columnInit = this.webGridClipboardOperationsColumnInit MT: missing event
+            grid.addEventListener("columnInit", this.webGridClipboardOperationsColumnInit)
         }
         this._bind();
 
@@ -54,7 +54,7 @@ export class Sample {
         }
         return this._nwindData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -67,18 +67,18 @@ export class Sample {
         return this._componentRenderer;
     }
 
-
+    
     public webGridClearSelection(args: any): void {
         console.log("TODO" + args);
     	//TODO
     }
-
-
+        
+    
     public webGridClipboardOperationsColumnInit(args: any): void {
         console.log("TODO" + args);
     	//TODO
     }
-
+        
 }
 
 new Sample();
