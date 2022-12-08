@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "igniteui-webcomponents-core": "4.0.3",
-    "@infragistics/igniteui-webcomponents-grids": "22.2.28",
+    "@infragistics/igniteui-webcomponents-grids": "22.2.0-dev.625",
     "igniteui-webcomponents-inputs": "4.0.3",
     "igniteui-webcomponents-layouts": "4.0.3",
     "@webcomponents/custom-elements": "^1.4.1",
