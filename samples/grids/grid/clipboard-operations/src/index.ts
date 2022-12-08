@@ -75,8 +75,9 @@ export class Sample {
         
     
     public webGridClipboardOperationsColumnInit(args: any): void {
-        console.log("TODO" + args);
-    	//TODO
+        let column = args.detail;
+        column.formatter = (e: any) => { return "** " + e + " **" };
+        column.header = "🎉" + column.field;
     }
         
 }
