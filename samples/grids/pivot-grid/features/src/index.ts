@@ -1,6 +1,5 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcPivotGridComponent, IgcPivotConfiguration, IgcPivotDimension, SortingDirection,
-    IgcPivotDateDimension, IgcPivotDateDimensionOptions, IgcPivotValue, IgcPivotAggregator } from 'igniteui-webcomponents-grids/grids';
+import { IgcPivotGridComponent, IgcPivotConfiguration, IgcPivotDimension, SortingDirection, IgcPivotDateDimension, IgcPivotDateDimensionOptions, IgcPivotValue, IgcPivotAggregator } from 'igniteui-webcomponents-grids/grids';
 import { PivotDataFlatItem, PivotDataFlat } from './PivotDataFlat';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -14,40 +13,38 @@ export class Sample {
         if (this._pivotConfiguration1 == null)
         {
             var pivotConfiguration1: IgcPivotConfiguration = {} as IgcPivotConfiguration;
-
+            
             var pivotDimension1: IgcPivotDimension = {} as IgcPivotDimension;
             pivotDimension1.memberName = "ProductName";
             pivotDimension1.enabled = true;
             pivotDimension1.sortDirection = SortingDirection.Asc;
-
+            
             pivotConfiguration1.rows = []
             pivotConfiguration1.rows.push(pivotDimension1);
             var pivotDimension2: IgcPivotDimension = {} as IgcPivotDimension;
             pivotDimension2.memberName = "SellerCity";
             pivotDimension2.enabled = true;
             pivotDimension2.width = "400px";
-
+            
             pivotConfiguration1.rows.push(pivotDimension2);
-
-            // MT: error IgcPivotDateDimension Expected 1-2 arguments, but got 0
-            // var pivotDateDimension1 = new IgcPivotDateDimension();
-            // pivotDateDimension1.enabled = true;
-            // pivotDateDimension1.memberName = "Date";
-            // var pivotDimension3: IgcPivotDimension = {} as IgcPivotDimension;
-            // pivotDimension3.memberName = "Date";
-            // pivotDimension3.enabled = true;
-
-            // pivotDateDimension1.inBaseDimension = pivotDimension3;
-            // var pivotDateDimensionOptions1: IgcPivotDateDimensionOptions = {} as IgcPivotDateDimensionOptions;
-            // pivotDateDimensionOptions1.years = true;
-            // pivotDateDimensionOptions1.quarters = true;
-            // pivotDateDimensionOptions1.months = false;
-            // pivotDateDimensionOptions1.fullDate = false;
-
-            // pivotDateDimension1.inOptions = pivotDateDimensionOptions1;
-
+            var pivotDateDimension1 = new IgcPivotDateDimension();
+            pivotDateDimension1.enabled = true;
+            pivotDateDimension1.memberName = "Date";
+            var pivotDimension3: IgcPivotDimension = {} as IgcPivotDimension;
+            pivotDimension3.memberName = "Date";
+            pivotDimension3.enabled = true;
+            
+            pivotDateDimension1.inBaseDimension = pivotDimension3;
+            var pivotDateDimensionOptions1: IgcPivotDateDimensionOptions = {} as IgcPivotDateDimensionOptions;
+            pivotDateDimensionOptions1.years = true;
+            pivotDateDimensionOptions1.quarters = true;
+            pivotDateDimensionOptions1.months = false;
+            pivotDateDimensionOptions1.fullDate = false;
+            
+            pivotDateDimension1.inOptions = pivotDateDimensionOptions1;
+            
             pivotConfiguration1.columns = []
-            // pivotConfiguration1.columns.push(pivotDateDimension1);
+            pivotConfiguration1.columns.push(pivotDateDimension1);
             var pivotValue1: IgcPivotValue = {} as IgcPivotValue;
             pivotValue1.member = "AmountofSale";
             pivotValue1.displayName = "Amount of Sale";
@@ -57,38 +54,38 @@ export class Sample {
             pivotAggregator1.key = "SUM";
             pivotAggregator1.label = "Sum of Sale";
             pivotAggregator1.aggregator = this.pivotDataFlatAggregateSumSale;
-
+            
             pivotValue1.aggregate = pivotAggregator1;
             var pivotAggregator2: IgcPivotAggregator = {} as IgcPivotAggregator;
             pivotAggregator2.key = "SUM";
             pivotAggregator2.label = "Sum of Sale";
             pivotAggregator2.aggregator = this.pivotDataFlatAggregateSumSale;
-
+            
             pivotValue1.aggregateList = []
             pivotValue1.aggregateList.push(pivotAggregator2);
             var pivotAggregator3: IgcPivotAggregator = {} as IgcPivotAggregator;
             pivotAggregator3.key = "MIN";
             pivotAggregator3.label = "Minimum of Sale";
             pivotAggregator3.aggregator = this.pivotDataFlatAggregateMinSale;
-
+            
             pivotValue1.aggregateList.push(pivotAggregator3);
             var pivotAggregator4: IgcPivotAggregator = {} as IgcPivotAggregator;
             pivotAggregator4.key = "MAX";
             pivotAggregator4.label = "Maximum of Sale";
             pivotAggregator4.aggregator = this.pivotDataFlatAggregateMaxSale;
-
+            
             pivotValue1.aggregateList.push(pivotAggregator4);
-
+            
             pivotConfiguration1.values = []
             pivotConfiguration1.values.push(pivotValue1);
             var pivotDimension4: IgcPivotDimension = {} as IgcPivotDimension;
             pivotDimension4.memberName = "SellerName";
             pivotDimension4.enabled = true;
-
+            
             pivotConfiguration1.filters = []
             pivotConfiguration1.filters.push(pivotDimension4);
-
-
+            
+            
             this._pivotConfiguration1 = pivotConfiguration1;
         }
         return this._pivotConfiguration1;
@@ -114,15 +111,15 @@ export class Sample {
         }
         return this._pivotDataFlat;
     }
+    
 
 
-
-
+    
     public pivotDataFlatAggregateSumSale(members: any[], data: any[]): any {
         return data.reduce((accumulator, value) => accumulator + value.ProductUnitPrice * value.NumberOfUnits, 0);
     }
-
-
+        
+    
     public pivotDataFlatAggregateMinSale(members: any[], data: any[]): any {
         let min = 0;
         if (data.length === 1) {
@@ -133,8 +130,8 @@ export class Sample {
         }
         return min;
     }
-
-
+        
+    
     public pivotDataFlatAggregateMaxSale(members: any[], data: any[]): any {
         let max = 0;
         if (data.length === 1) {
@@ -145,7 +142,7 @@ export class Sample {
         }
         return max;
     }
-
+        
 }
 
 new Sample();

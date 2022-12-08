@@ -3,17 +3,17 @@ export class CustomersDataItem {
         Object.assign(this, init);
     }
     
-    public iD: string;
-    public companyName: string;
-    public contactName: string;
-    public contactTitle: string;
-    public address: string;
-    public city: string;
-    public region: string;
-    public postalCode: string;
-    public country: string;
-    public phone: string;
-    public fax: string;
+    public ID: string;
+    public CompanyName: string;
+    public ContactName: string;
+    public ContactTitle: string;
+    public Address: string;
+    public City: string;
+    public Region: string;
+    public PostalCode: string;
+    public Country: string;
+    public Phone: string;
+    public Fax: string;
 
 }
 export class CustomersData extends Array<CustomersDataItem> {
@@ -21,381 +21,381 @@ export class CustomersData extends Array<CustomersDataItem> {
         super();
         this.push(new CustomersDataItem(
         {
-            iD: `ALFKI`,
-            companyName: `Alfreds Futterkiste`,
-            contactName: `Maria Anders`,
-            contactTitle: `Sales Representative`,
-            address: `Obere Str. 57`,
-            city: `Berlin`,
-            region: `East`,
-            postalCode: `12209`,
-            country: `Germany`,
-            phone: `030-0074321`,
-            fax: `030-0076545`
+            ID: `ALFKI`,
+            CompanyName: `Alfreds Futterkiste`,
+            ContactName: `Maria Anders`,
+            ContactTitle: `Sales Representative`,
+            Address: `Obere Str. 57`,
+            City: `Berlin`,
+            Region: `East`,
+            PostalCode: `12209`,
+            Country: `Germany`,
+            Phone: `030-0074321`,
+            Fax: `030-0076545`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `ANATR`,
-            companyName: `Ana Trujillo Emparedados y helados`,
-            contactName: `Ana Trujillo`,
-            contactTitle: `Owner`,
-            address: `Avda. de la Constitución 2222`,
-            city: `México D.F.`,
-            region: `South`,
-            postalCode: `05021`,
-            country: `Mexico`,
-            phone: `(5) 555-4729`,
-            fax: `(5) 555-3745`
+            ID: `ANATR`,
+            CompanyName: `Ana Trujillo Emparedados y helados`,
+            ContactName: `Ana Trujillo`,
+            ContactTitle: `Owner`,
+            Address: `Avda. de la Constitución 2222`,
+            City: `México D.F.`,
+            Region: `South`,
+            PostalCode: `05021`,
+            Country: `Mexico`,
+            Phone: `(5) 555-4729`,
+            Fax: `(5) 555-3745`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `ANTON`,
-            companyName: `Antonio Moreno Taquería`,
-            contactName: `Antonio Moreno`,
-            contactTitle: `Owner`,
-            address: `Mataderos 2312`,
-            city: `México D.F.`,
-            region: `South`,
-            postalCode: `05023`,
-            country: `Mexico`,
-            phone: `(5) 555-3932`,
-            fax: `(5) 555-3745`
+            ID: `ANTON`,
+            CompanyName: `Antonio Moreno Taquería`,
+            ContactName: `Antonio Moreno`,
+            ContactTitle: `Owner`,
+            Address: `Mataderos 2312`,
+            City: `México D.F.`,
+            Region: `South`,
+            PostalCode: `05023`,
+            Country: `Mexico`,
+            Phone: `(5) 555-3932`,
+            Fax: `(5) 555-3745`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `AROUT`,
-            companyName: `Around the Horn`,
-            contactName: `Thomas Hardy`,
-            contactTitle: `Sales Representative`,
-            address: `120 Hanover Sq.`,
-            city: `London`,
-            region: `East`,
-            postalCode: `WA1 1DP`,
-            country: `UK`,
-            phone: `(171) 555-7788`,
-            fax: `(171) 555-6750`
+            ID: `AROUT`,
+            CompanyName: `Around the Horn`,
+            ContactName: `Thomas Hardy`,
+            ContactTitle: `Sales Representative`,
+            Address: `120 Hanover Sq.`,
+            City: `London`,
+            Region: `East`,
+            PostalCode: `WA1 1DP`,
+            Country: `UK`,
+            Phone: `(171) 555-7788`,
+            Fax: `(171) 555-6750`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `BERGS`,
-            companyName: `Berglunds snabbköp`,
-            contactName: `Christina Berglund`,
-            contactTitle: `Order Administrator`,
-            address: `Berguvsvägen 8`,
-            city: `Luleå`,
-            region: `South`,
-            postalCode: `S-958 22`,
-            country: `Sweden`,
-            phone: `0921-12 34 65`,
-            fax: `0921-12 34 67`
+            ID: `BERGS`,
+            CompanyName: `Berglunds snabbköp`,
+            ContactName: `Christina Berglund`,
+            ContactTitle: `Order Administrator`,
+            Address: `Berguvsvägen 8`,
+            City: `Luleå`,
+            Region: `South`,
+            PostalCode: `S-958 22`,
+            Country: `Sweden`,
+            Phone: `0921-12 34 65`,
+            Fax: `0921-12 34 67`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `BLAUS`,
-            companyName: `Blauer See Delikatessen`,
-            contactName: `Hanna Moos`,
-            contactTitle: `Sales Representative`,
-            address: `Forsterstr. 57`,
-            city: `Mannheim`,
-            region: `East`,
-            postalCode: `68306`,
-            country: `Germany`,
-            phone: `0621-08460`,
-            fax: `0621-08924`
+            ID: `BLAUS`,
+            CompanyName: `Blauer See Delikatessen`,
+            ContactName: `Hanna Moos`,
+            ContactTitle: `Sales Representative`,
+            Address: `Forsterstr. 57`,
+            City: `Mannheim`,
+            Region: `East`,
+            PostalCode: `68306`,
+            Country: `Germany`,
+            Phone: `0621-08460`,
+            Fax: `0621-08924`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `BLONP`,
-            companyName: `Blondesddsl père et fils`,
-            contactName: `Frédérique Citeaux`,
-            contactTitle: `Marketing Manager`,
-            address: `24, place Kléber`,
-            city: `Strasbourg`,
-            region: `East`,
-            postalCode: `67000`,
-            country: `France`,
-            phone: `88.60.15.31`,
-            fax: `88.60.15.32`
+            ID: `BLONP`,
+            CompanyName: `Blondesddsl père et fils`,
+            ContactName: `Frédérique Citeaux`,
+            ContactTitle: `Marketing Manager`,
+            Address: `24, place Kléber`,
+            City: `Strasbourg`,
+            Region: `East`,
+            PostalCode: `67000`,
+            Country: `France`,
+            Phone: `88.60.15.31`,
+            Fax: `88.60.15.32`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `BOLID`,
-            companyName: `Bólido Comidas preparadas`,
-            contactName: `Martín Sommer`,
-            contactTitle: `Owner`,
-            address: `C/ Araquil, 67`,
-            city: `Madrid`,
-            region: `East`,
-            postalCode: `28023`,
-            country: `Spain`,
-            phone: `(91) 555 22 82`,
-            fax: `(91) 555 91 99`
+            ID: `BOLID`,
+            CompanyName: `Bólido Comidas preparadas`,
+            ContactName: `Martín Sommer`,
+            ContactTitle: `Owner`,
+            Address: `C/ Araquil, 67`,
+            City: `Madrid`,
+            Region: `East`,
+            PostalCode: `28023`,
+            Country: `Spain`,
+            Phone: `(91) 555 22 82`,
+            Fax: `(91) 555 91 99`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `BONAP`,
-            companyName: `Bon app'`,
-            contactName: `Laurence Lebihan`,
-            contactTitle: `Owner`,
-            address: `12, rue des Bouchers`,
-            city: `Marseille`,
-            region: `West`,
-            postalCode: `13008`,
-            country: `France`,
-            phone: `91.24.45.40`,
-            fax: `91.24.45.41`
+            ID: `BONAP`,
+            CompanyName: `Bon app'`,
+            ContactName: `Laurence Lebihan`,
+            ContactTitle: `Owner`,
+            Address: `12, rue des Bouchers`,
+            City: `Marseille`,
+            Region: `West`,
+            PostalCode: `13008`,
+            Country: `France`,
+            Phone: `91.24.45.40`,
+            Fax: `91.24.45.41`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `BOTTM`,
-            companyName: `Bottom-Dollar Markets`,
-            contactName: `Elizabeth Lincoln`,
-            contactTitle: `Accounting Manager`,
-            address: `23 Tsawassen Blvd.`,
-            city: `Tsawassen`,
-            region: `BC`,
-            postalCode: `T2F 8M4`,
-            country: `Canada`,
-            phone: `(604) 555-4729`,
-            fax: `(604) 555-3745`
+            ID: `BOTTM`,
+            CompanyName: `Bottom-Dollar Markets`,
+            ContactName: `Elizabeth Lincoln`,
+            ContactTitle: `Accounting Manager`,
+            Address: `23 Tsawassen Blvd.`,
+            City: `Tsawassen`,
+            Region: `BC`,
+            PostalCode: `T2F 8M4`,
+            Country: `Canada`,
+            Phone: `(604) 555-4729`,
+            Fax: `(604) 555-3745`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `BSBEV`,
-            companyName: `B's Beverages`,
-            contactName: `Victoria Ashworth`,
-            contactTitle: `Sales Representative`,
-            address: `Fauntleroy Circus`,
-            city: `London`,
-            region: `South`,
-            postalCode: `EC2 5NT`,
-            country: `UK`,
-            phone: `(171) 555-1212`,
-            fax: `(5) 555-3745`
+            ID: `BSBEV`,
+            CompanyName: `B's Beverages`,
+            ContactName: `Victoria Ashworth`,
+            ContactTitle: `Sales Representative`,
+            Address: `Fauntleroy Circus`,
+            City: `London`,
+            Region: `South`,
+            PostalCode: `EC2 5NT`,
+            Country: `UK`,
+            Phone: `(171) 555-1212`,
+            Fax: `(5) 555-3745`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `CACTU`,
-            companyName: `Cactus Comidas para llevar`,
-            contactName: `Patricio Simpson`,
-            contactTitle: `Sales Agent`,
-            address: `Cerrito 333`,
-            city: `Buenos Aires`,
-            region: `East`,
-            postalCode: `1010`,
-            country: `Argentina`,
-            phone: `(1) 135-5555`,
-            fax: `(1) 135-4892`
+            ID: `CACTU`,
+            CompanyName: `Cactus Comidas para llevar`,
+            ContactName: `Patricio Simpson`,
+            ContactTitle: `Sales Agent`,
+            Address: `Cerrito 333`,
+            City: `Buenos Aires`,
+            Region: `East`,
+            PostalCode: `1010`,
+            Country: `Argentina`,
+            Phone: `(1) 135-5555`,
+            Fax: `(1) 135-4892`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `CENTC`,
-            companyName: `Centro comercial Moctezuma`,
-            contactName: `Francisco Chang`,
-            contactTitle: `Marketing Manager`,
-            address: `Sierras de Granada 9993`,
-            city: `México D.F.`,
-            region: `South`,
-            postalCode: `05022`,
-            country: `Mexico`,
-            phone: `(5) 555-3392`,
-            fax: `(5) 555-7293`
+            ID: `CENTC`,
+            CompanyName: `Centro comercial Moctezuma`,
+            ContactName: `Francisco Chang`,
+            ContactTitle: `Marketing Manager`,
+            Address: `Sierras de Granada 9993`,
+            City: `México D.F.`,
+            Region: `South`,
+            PostalCode: `05022`,
+            Country: `Mexico`,
+            Phone: `(5) 555-3392`,
+            Fax: `(5) 555-7293`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `CHOPS`,
-            companyName: `Chop-suey Chinese`,
-            contactName: `Yang Wang`,
-            contactTitle: `Owner`,
-            address: `Hauptstr. 29`,
-            city: `Bern`,
-            region: `East`,
-            postalCode: `3012`,
-            country: `Switzerland`,
-            phone: `0452-076545`,
-            fax: `(5) 555-3745`
+            ID: `CHOPS`,
+            CompanyName: `Chop-suey Chinese`,
+            ContactName: `Yang Wang`,
+            ContactTitle: `Owner`,
+            Address: `Hauptstr. 29`,
+            City: `Bern`,
+            Region: `East`,
+            PostalCode: `3012`,
+            Country: `Switzerland`,
+            Phone: `0452-076545`,
+            Fax: `(5) 555-3745`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `COMMI`,
-            companyName: `Comércio Mineiro`,
-            contactName: `Pedro Afonso`,
-            contactTitle: `Sales Associate`,
-            address: `Av. dos Lusíadas, 23`,
-            city: `Sao Paulo`,
-            region: `SP`,
-            postalCode: `05432-043`,
-            country: `Brazil`,
-            phone: `(11) 555-7647`,
-            fax: `(5) 555-3745`
+            ID: `COMMI`,
+            CompanyName: `Comércio Mineiro`,
+            ContactName: `Pedro Afonso`,
+            ContactTitle: `Sales Associate`,
+            Address: `Av. dos Lusíadas, 23`,
+            City: `Sao Paulo`,
+            Region: `SP`,
+            PostalCode: `05432-043`,
+            Country: `Brazil`,
+            Phone: `(11) 555-7647`,
+            Fax: `(5) 555-3745`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `CONSH`,
-            companyName: `Consolidated Holdings`,
-            contactName: `Elizabeth Brown`,
-            contactTitle: `Sales Representative`,
-            address: `Berkeley Gardens 12 Brewery`,
-            city: `London`,
-            region: `South`,
-            postalCode: `WX1 6LT`,
-            country: `UK`,
-            phone: `(171) 555-2282`,
-            fax: `(171) 555-9199`
+            ID: `CONSH`,
+            CompanyName: `Consolidated Holdings`,
+            ContactName: `Elizabeth Brown`,
+            ContactTitle: `Sales Representative`,
+            Address: `Berkeley Gardens 12 Brewery`,
+            City: `London`,
+            Region: `South`,
+            PostalCode: `WX1 6LT`,
+            Country: `UK`,
+            Phone: `(171) 555-2282`,
+            Fax: `(171) 555-9199`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `DRACD`,
-            companyName: `Drachenblut Delikatessen`,
-            contactName: `Sven Ottlieb`,
-            contactTitle: `Order Administrator`,
-            address: `Walserweg 21`,
-            city: `Aachen`,
-            region: `South`,
-            postalCode: `52066`,
-            country: `Germany`,
-            phone: `0241-039123`,
-            fax: `0241-059428`
+            ID: `DRACD`,
+            CompanyName: `Drachenblut Delikatessen`,
+            ContactName: `Sven Ottlieb`,
+            ContactTitle: `Order Administrator`,
+            Address: `Walserweg 21`,
+            City: `Aachen`,
+            Region: `South`,
+            PostalCode: `52066`,
+            Country: `Germany`,
+            Phone: `0241-039123`,
+            Fax: `0241-059428`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `DUMON`,
-            companyName: `Du monde entier`,
-            contactName: `Janine Labrune`,
-            contactTitle: `Owner`,
-            address: `67, rue des Cinquante Otages`,
-            city: `Nantes`,
-            region: `East`,
-            postalCode: `44000`,
-            country: `France`,
-            phone: `40.67.88.88`,
-            fax: `40.67.89.89`
+            ID: `DUMON`,
+            CompanyName: `Du monde entier`,
+            ContactName: `Janine Labrune`,
+            ContactTitle: `Owner`,
+            Address: `67, rue des Cinquante Otages`,
+            City: `Nantes`,
+            Region: `East`,
+            PostalCode: `44000`,
+            Country: `France`,
+            Phone: `40.67.88.88`,
+            Fax: `40.67.89.89`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `EASTC`,
-            companyName: `Eastern Connection`,
-            contactName: `Ann Devon`,
-            contactTitle: `Sales Agent`,
-            address: `35 King George`,
-            city: `London`,
-            region: `East`,
-            postalCode: `WX3 6FW`,
-            country: `UK`,
-            phone: `(171) 555-0297`,
-            fax: `(171) 555-3373`
+            ID: `EASTC`,
+            CompanyName: `Eastern Connection`,
+            ContactName: `Ann Devon`,
+            ContactTitle: `Sales Agent`,
+            Address: `35 King George`,
+            City: `London`,
+            Region: `East`,
+            PostalCode: `WX3 6FW`,
+            Country: `UK`,
+            Phone: `(171) 555-0297`,
+            Fax: `(171) 555-3373`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `ERNSH`,
-            companyName: `Ernst Handel`,
-            contactName: `Roland Mendel`,
-            contactTitle: `Sales Manager`,
-            address: `Kirchgasse 6`,
-            city: `Graz`,
-            region: `South`,
-            postalCode: `8010`,
-            country: `Austria`,
-            phone: `7675-3425`,
-            fax: `7675-3426`
+            ID: `ERNSH`,
+            CompanyName: `Ernst Handel`,
+            ContactName: `Roland Mendel`,
+            ContactTitle: `Sales Manager`,
+            Address: `Kirchgasse 6`,
+            City: `Graz`,
+            Region: `South`,
+            PostalCode: `8010`,
+            Country: `Austria`,
+            Phone: `7675-3425`,
+            Fax: `7675-3426`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `FAMIA`,
-            companyName: `Familia Arquibaldo`,
-            contactName: `Aria Cruz`,
-            contactTitle: `Marketing Assistant`,
-            address: `Rua Orós, 92`,
-            city: `Sao Paulo`,
-            region: `SP`,
-            postalCode: `05442-030`,
-            country: `Brazil`,
-            phone: `(11) 555-9857`,
-            fax: `(5) 555-3745`
+            ID: `FAMIA`,
+            CompanyName: `Familia Arquibaldo`,
+            ContactName: `Aria Cruz`,
+            ContactTitle: `Marketing Assistant`,
+            Address: `Rua Orós, 92`,
+            City: `Sao Paulo`,
+            Region: `SP`,
+            PostalCode: `05442-030`,
+            Country: `Brazil`,
+            Phone: `(11) 555-9857`,
+            Fax: `(5) 555-3745`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `FISSA`,
-            companyName: `FISSA Fabrica Inter. Salchichas S.A.`,
-            contactName: `Diego Roel`,
-            contactTitle: `Accounting Manager`,
-            address: `C/ Moralzarzal, 86`,
-            city: `Madrid`,
-            region: `East`,
-            postalCode: `28034`,
-            country: `Spain`,
-            phone: `(91) 555 94 44`,
-            fax: `(91) 555 55 93`
+            ID: `FISSA`,
+            CompanyName: `FISSA Fabrica Inter. Salchichas S.A.`,
+            ContactName: `Diego Roel`,
+            ContactTitle: `Accounting Manager`,
+            Address: `C/ Moralzarzal, 86`,
+            City: `Madrid`,
+            Region: `East`,
+            PostalCode: `28034`,
+            Country: `Spain`,
+            Phone: `(91) 555 94 44`,
+            Fax: `(91) 555 55 93`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `FOLIG`,
-            companyName: `Folies gourmandes`,
-            contactName: `Martine Rancé`,
-            contactTitle: `Assistant Sales Agent`,
-            address: `184, chaussée de Tournai`,
-            city: `Lille`,
-            region: `South`,
-            postalCode: `59000`,
-            country: `France`,
-            phone: `20.16.10.16`,
-            fax: `20.16.10.17`
+            ID: `FOLIG`,
+            CompanyName: `Folies gourmandes`,
+            ContactName: `Martine Rancé`,
+            ContactTitle: `Assistant Sales Agent`,
+            Address: `184, chaussée de Tournai`,
+            City: `Lille`,
+            Region: `South`,
+            PostalCode: `59000`,
+            Country: `France`,
+            Phone: `20.16.10.16`,
+            Fax: `20.16.10.17`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `FOLKO`,
-            companyName: `Folk och fä HB`,
-            contactName: `Maria Larsson`,
-            contactTitle: `Owner`,
-            address: `Åkergatan 24`,
-            city: `Bräcke`,
-            region: `East`,
-            postalCode: `S-844 67`,
-            country: `Sweden`,
-            phone: `0695-34 67 21`,
-            fax: `0695 33-4455`
+            ID: `FOLKO`,
+            CompanyName: `Folk och fä HB`,
+            ContactName: `Maria Larsson`,
+            ContactTitle: `Owner`,
+            Address: `Åkergatan 24`,
+            City: `Bräcke`,
+            Region: `East`,
+            PostalCode: `S-844 67`,
+            Country: `Sweden`,
+            Phone: `0695-34 67 21`,
+            Fax: `0695 33-4455`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `FRANK`,
-            companyName: `Frankenversand`,
-            contactName: `Peter Franken`,
-            contactTitle: `Marketing Manager`,
-            address: `Berliner Platz 43`,
-            city: `München`,
-            region: `East`,
-            postalCode: `80805`,
-            country: `Germany`,
-            phone: `089-0877310`,
-            fax: `089-0877451`
+            ID: `FRANK`,
+            CompanyName: `Frankenversand`,
+            ContactName: `Peter Franken`,
+            ContactTitle: `Marketing Manager`,
+            Address: `Berliner Platz 43`,
+            City: `München`,
+            Region: `East`,
+            PostalCode: `80805`,
+            Country: `Germany`,
+            Phone: `089-0877310`,
+            Fax: `089-0877451`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `FRANR`,
-            companyName: `France restauration`,
-            contactName: `Carine Schmitt`,
-            contactTitle: `Marketing Manager`,
-            address: `54, rue Royale`,
-            city: `Nantes`,
-            region: `South`,
-            postalCode: `44000`,
-            country: `France`,
-            phone: `40.32.21.21`,
-            fax: `40.32.21.20`
+            ID: `FRANR`,
+            CompanyName: `France restauration`,
+            ContactName: `Carine Schmitt`,
+            ContactTitle: `Marketing Manager`,
+            Address: `54, rue Royale`,
+            City: `Nantes`,
+            Region: `South`,
+            PostalCode: `44000`,
+            Country: `France`,
+            Phone: `40.32.21.21`,
+            Fax: `40.32.21.20`
         }));
         this.push(new CustomersDataItem(
         {
-            iD: `FRANS`,
-            companyName: `Franchi S.p.A.`,
-            contactName: `Paolo Accorti`,
-            contactTitle: `Sales Representative`,
-            address: `Via Monte Bianco 34`,
-            city: `Torino`,
-            region: `East`,
-            postalCode: `10100`,
-            country: `Italy`,
-            phone: `011-4988260`,
-            fax: `011-4988261`
+            ID: `FRANS`,
+            CompanyName: `Franchi S.p.A.`,
+            ContactName: `Paolo Accorti`,
+            ContactTitle: `Sales Representative`,
+            Address: `Via Monte Bianco 34`,
+            City: `Torino`,
+            Region: `East`,
+            PostalCode: `10100`,
+            Country: `Italy`,
+            Phone: `011-4988260`,
+            Fax: `011-4988261`
         }));
     }
 }
