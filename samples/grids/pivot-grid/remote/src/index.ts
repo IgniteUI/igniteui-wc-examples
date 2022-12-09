@@ -1,6 +1,6 @@
-// import 'igniteui-webcomponents-grids/grids/combined';
+import '@infragistics/igniteui-webcomponents-grids/grids/combined';
 import { IgcPivotGridComponent, NoopPivotDimensionsStrategy } from '@infragistics/igniteui-webcomponents-grids/grids';
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+import "@infragistics/igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { PivotNoopData } from './PivotNoopData';
 
 export class Sample {
