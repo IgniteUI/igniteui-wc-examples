@@ -24,16 +24,16 @@ export class Sample {
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         this.webGridColumnResized = this.webGridColumnResized.bind(this);
-        // var iD = this.iD = document.getElementById('ID') as IgcColumnComponent;
-        // var companyName = this.companyName = document.getElementById('CompanyName') as IgcColumnComponent;
-        // var contactName = this.contactName = document.getElementById('ContactName') as IgcColumnComponent;
-        // var contactTitle = this.contactTitle = document.getElementById('ContactTitle') as IgcColumnComponent;
-        // var address = this.address = document.getElementById('Address') as IgcColumnComponent;
-        // var city = this.city = document.getElementById('City') as IgcColumnComponent;
-        // var region = this.region = document.getElementById('Region') as IgcColumnComponent;
-        // var postalCode = this.postalCode = document.getElementById('PostalCode') as IgcColumnComponent;
-        // var country = this.country = document.getElementById('Country') as IgcColumnComponent;
-        // var phone = this.phone = document.getElementById('Phone') as IgcColumnComponent;
+        var iD = this.iD = document.getElementById('ID') as IgcColumnComponent;
+        var companyName = this.companyName = document.getElementById('CompanyName') as IgcColumnComponent;
+        var contactName = this.contactName = document.getElementById('ContactName') as IgcColumnComponent;
+        var contactTitle = this.contactTitle = document.getElementById('ContactTitle') as IgcColumnComponent;
+        var address = this.address = document.getElementById('Address') as IgcColumnComponent;
+        var city = this.city = document.getElementById('City') as IgcColumnComponent;
+        var region = this.region = document.getElementById('Region') as IgcColumnComponent;
+        var postalCode = this.postalCode = document.getElementById('PostalCode') as IgcColumnComponent;
+        var country = this.country = document.getElementById('Country') as IgcColumnComponent;
+        var phone = this.phone = document.getElementById('Phone') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.customersData
@@ -51,16 +51,16 @@ export class Sample {
         }
         return this._customersData;
     }
+    
 
 
-
-
+    
     public webGridColumnResized(args: CustomEvent<IgcRowSelectionEventArgs>): void {
-        // var col = args.detail.column;
-        // var pWidth = args.detail.prevWidth;
-        // var nWidth = args.detail.newWidth;
+        //var col = args.detail.column;
+        //var pWidth = args.detail.prevWidth;
+        //var nWidth = args.detail.newWidth;
     }
-
+        
 }
 
 new Sample();

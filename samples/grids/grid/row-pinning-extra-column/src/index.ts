@@ -1,5 +1,6 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 
@@ -35,6 +36,16 @@ export class Sample {
     }
     
 
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            WebGridDescriptionModule.register(context);
+        }
+        return this._componentRenderer;
+    }
 
 }
 

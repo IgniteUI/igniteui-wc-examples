@@ -35,10 +35,10 @@ export class Sample {
         var propertyEditorPropertyDescription2 = this.propertyEditorPropertyDescription2 = document.getElementById('propertyEditorPropertyDescription2') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webGridExcelDownload = this.webGridExcelDownload.bind(this);
         var grid1 = this.grid1 = document.getElementById('grid1') as IgcGridComponent;
-        // var contactName = this.contactName = document.getElementById('ContactName') as IgcColumnComponent;
-        // var contactTitle = this.contactTitle = document.getElementById('ContactTitle') as IgcColumnComponent;
-        // var phone = this.phone = document.getElementById('Phone') as IgcColumnComponent;
-        // var country = this.country = document.getElementById('Country') as IgcColumnComponent;
+        var contactName = this.contactName = document.getElementById('ContactName') as IgcColumnComponent;
+        var contactTitle = this.contactTitle = document.getElementById('ContactTitle') as IgcColumnComponent;
+        var phone = this.phone = document.getElementById('Phone') as IgcColumnComponent;
+        var country = this.country = document.getElementById('Country') as IgcColumnComponent;
 
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer
@@ -59,7 +59,7 @@ export class Sample {
         }
         return this._customersData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -72,28 +72,28 @@ export class Sample {
         return this._componentRenderer;
     }
 
-
+    
     public webGridPasteOptions(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-
+    
         //var grid = this.grid1;
         // grid.transactions.commit(grid.data);
         //dialog.close();
-
+    
         console.log("test");
     }
-
-
+        
+    
     public webGridExcelDownload(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-
+    
         //var grid = this.grid1;
         // grid.transactions.commit(grid.data);
         //dialog.close();
-
+    
         console.log("test");
     }
-
+        
 }
 
 new Sample();

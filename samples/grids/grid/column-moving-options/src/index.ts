@@ -1,18 +1,12 @@
-// import { IgcBadgeModule } from 'igniteui-webcomponents-core';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
-import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { IgcColumnTemplateContext, IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 import { IgcBadgeComponent } from 'igniteui-webcomponents';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-import { ModuleManager } from 'igniteui-webcomponents-core';
 
-// ModuleManager.register(
-//     ,
-//     IgcBadgeModule
-// );
 
 export class Sample {
 
@@ -27,8 +21,8 @@ export class Sample {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.2-2";
             columnPipeArgs1.currencyCode = "USD";
-
-
+            
+            
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -41,8 +35,8 @@ export class Sample {
             var columnPipeArgs2: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs2.currencyCode = "USD";
             columnPipeArgs2.digitsInfo = "1.2-2";
-
-
+            
+            
             this._columnPipeArgs2 = columnPipeArgs2;
         }
         return this._columnPipeArgs2;
@@ -55,8 +49,8 @@ export class Sample {
             var columnPipeArgs3: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs3.currencyCode = "USD";
             columnPipeArgs3.digitsInfo = "1.2-2";
-
-
+            
+            
             this._columnPipeArgs3 = columnPipeArgs3;
         }
         return this._columnPipeArgs3;
@@ -69,33 +63,33 @@ export class Sample {
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        // var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
-        // var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
-        // var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
-        // var column4 = this.column4 = document.getElementById('column4') as IgcColumnComponent;
-        // var column5 = this.column5 = document.getElementById('column5') as IgcColumnComponent;
-        // var column6 = this.column6 = document.getElementById('column6') as IgcColumnComponent;
-        // var column7 = this.column7 = document.getElementById('column7') as IgcColumnComponent;
-        // var column8 = this.column8 = document.getElementById('column8') as IgcColumnComponent;
-        // var column9 = this.column9 = document.getElementById('column9') as IgcColumnComponent;
+        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
+        var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
+        var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
+        var column4 = this.column4 = document.getElementById('column4') as IgcColumnComponent;
+        var column5 = this.column5 = document.getElementById('column5') as IgcColumnComponent;
+        var column6 = this.column6 = document.getElementById('column6') as IgcColumnComponent;
+        var column7 = this.column7 = document.getElementById('column7') as IgcColumnComponent;
+        var column8 = this.column8 = document.getElementById('column8') as IgcColumnComponent;
+        var column9 = this.column9 = document.getElementById('column9') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.financialDataAll
-            // column1.headerTemplate = this.webGridPinHeaderTemplate
-            // column2.headerTemplate = this.webGridPinHeaderTemplate
-            // column3.headerTemplate = this.webGridPinHeaderTemplate
-            // column3.pipeArgs = this.columnPipeArgs1
-            // column4.headerTemplate = this.webGridPinHeaderTemplate
-            // column4.pipeArgs = this.columnPipeArgs2
-            // column5.headerTemplate = this.webGridPinHeaderTemplate
-            // column5.pipeArgs = this.columnPipeArgs3
-            // column6.headerTemplate = this.webGridPinHeaderTemplate
-            // column7.headerTemplate = this.webGridPinHeaderTemplate
-            // column7.bodyTemplate = this.webGridCurrencyCellTemplate
-            // column8.headerTemplate = this.webGridPinHeaderTemplate
-            // column8.bodyTemplate = this.webGridCurrencyCellTemplate
-            // column9.headerTemplate = this.webGridPinHeaderTemplate
-            // column9.bodyTemplate = this.webGridCurrencyCellTemplate
+            column1.headerTemplate = this.webGridPinHeaderTemplate
+            column2.headerTemplate = this.webGridPinHeaderTemplate
+            column3.headerTemplate = this.webGridPinHeaderTemplate
+            column3.pipeArgs = this.columnPipeArgs1
+            column4.headerTemplate = this.webGridPinHeaderTemplate
+            column4.pipeArgs = this.columnPipeArgs2
+            column5.headerTemplate = this.webGridPinHeaderTemplate
+            column5.pipeArgs = this.columnPipeArgs3
+            column6.headerTemplate = this.webGridPinHeaderTemplate
+            column7.headerTemplate = this.webGridPinHeaderTemplate
+            column7.bodyTemplate = this.webGridCurrencyCellTemplate
+            column8.headerTemplate = this.webGridPinHeaderTemplate
+            column8.bodyTemplate = this.webGridCurrencyCellTemplate
+            column9.headerTemplate = this.webGridPinHeaderTemplate
+            column9.bodyTemplate = this.webGridCurrencyCellTemplate
         }
         this._bind();
 
@@ -109,19 +103,20 @@ export class Sample {
         }
         return this._financialDataAll;
     }
+    
 
 
-
-
-    public webGridPinHeaderTemplate = (ctx: IgcCellTemplateContext) => {
+    
+    public webGridPinHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
+    
         const column = (ctx as any).column;
         return html`<div>
             <span style="float:left">${column.field}</span>
             <span style="float:right" @onpointerdown='"${(e) => this.toggleColumnPin(column.field)}")'>📌</span>
         </div>`;
-    };
-
-
+        };
+    
+    
     public webGridCurrencyCellTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value > 0) {
             return html`<div>
@@ -135,7 +130,7 @@ export class Sample {
             </div>`;
         };
     }
-
+    
     public toggleColumnPin(field: string) {
         var grid = document.getElementsByTagName("igc-grid")[0] as IgcGridComponent;
         var col = grid.getColumnByName(field);

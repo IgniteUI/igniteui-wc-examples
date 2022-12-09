@@ -17,7 +17,7 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.customersData
-            // grid.addEventListener("rowSelectionChanging", this.webGridRowSelectionConditional)
+            grid.addEventListener("rowSelectionChanging", this.webGridRowSelectionConditional)
         }
         this._bind();
 
@@ -31,32 +31,32 @@ export class Sample {
         }
         return this._customersData;
     }
+    
 
 
-
-
-    public webGridRowSelectionConditional(event: IgcRowSelectionEventArgs): void {
+    
+    public webGridRowSelectionConditional(event: any): void {
         console.log(event);
         if (!event.added.length && event.removed.length) {
-            // ignore deselect
+            // ignore de-select
             return;
         }
         var grid = this.grid;
         const originalAddedLength = event.added.length;
-
+    
         // only allow selection of items that contain 'A'
         event.newSelection = event.newSelection.filter(x => x.indexOf('A') !== -1);
-
+    
         // cleanup selection if all conditionally selectable rows are already selected
         if (event.newSelection.length
             && !event.newSelection.filter(x => event.oldSelection.indexOf(x) === -1).length
             && originalAddedLength > 1) {
-                // all selected from header, deselect instead
+                // all selected from header, de-select instead
                 event.newSelection = [];
         }
         grid.markForCheck();
     }
-
+        
 }
 
 new Sample();
