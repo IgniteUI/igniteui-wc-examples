@@ -13,7 +13,7 @@ export class Sample {
     private reorderLevel: IgcColumnComponent
     private productName: IgcColumnComponent
     private unitsInStock: IgcColumnComponent
-    private companyName: IgcColumnComponent
+    private unitPrice: IgcColumnComponent
     private orderDate: IgcColumnComponent
     private discontinued: IgcColumnComponent
     private _bind: () => void;
@@ -24,7 +24,7 @@ export class Sample {
         var reorderLevel = this.reorderLevel = document.getElementById('ReorderLevel') as IgcColumnComponent;
         var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
         var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
-        var companyName = this.companyName = document.getElementById('CompanyName') as IgcColumnComponent;
+        var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
         var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
         var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
 

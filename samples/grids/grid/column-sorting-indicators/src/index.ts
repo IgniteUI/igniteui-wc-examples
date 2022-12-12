@@ -20,11 +20,6 @@ export class Sample {
             
             
             sortingExpression1.push(sortingExpression2)
-            var sortingExpression2: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression2.fieldName = "Settlement";
-            sortingExpression2.dir = SortingDirection.Asc;
-            sortingExpression2.ignoreCase = true;
-            
             var sortingExpression3: IgcSortingExpression = {} as IgcSortingExpression;
             sortingExpression3.dir = SortingDirection.Desc;
             sortingExpression3.fieldName = "Type";
@@ -32,16 +27,6 @@ export class Sample {
             
             
             sortingExpression1.push(sortingExpression3)
-            var sortingExpression2: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression2.fieldName = "Settlement";
-            sortingExpression2.dir = SortingDirection.Asc;
-            sortingExpression2.ignoreCase = true;
-            
-            var sortingExpression3: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression3.dir = SortingDirection.Desc;
-            sortingExpression3.fieldName = "Type";
-            sortingExpression3.ignoreCase = true;
-            
             var sortingExpression4: IgcSortingExpression = {} as IgcSortingExpression;
             sortingExpression4.dir = SortingDirection.Asc;
             sortingExpression4.fieldName = "Region";
@@ -49,21 +34,6 @@ export class Sample {
             
             
             sortingExpression1.push(sortingExpression4)
-            var sortingExpression2: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression2.fieldName = "Settlement";
-            sortingExpression2.dir = SortingDirection.Asc;
-            sortingExpression2.ignoreCase = true;
-            
-            var sortingExpression3: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression3.dir = SortingDirection.Desc;
-            sortingExpression3.fieldName = "Type";
-            sortingExpression3.ignoreCase = true;
-            
-            var sortingExpression4: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression4.dir = SortingDirection.Asc;
-            sortingExpression4.fieldName = "Region";
-            sortingExpression4.ignoreCase = true;
-            
             var sortingExpression5: IgcSortingExpression = {} as IgcSortingExpression;
             sortingExpression5.dir = SortingDirection.Asc;
             sortingExpression5.fieldName = "Country";
@@ -71,26 +41,6 @@ export class Sample {
             
             
             sortingExpression1.push(sortingExpression5)
-            var sortingExpression2: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression2.fieldName = "Settlement";
-            sortingExpression2.dir = SortingDirection.Asc;
-            sortingExpression2.ignoreCase = true;
-            
-            var sortingExpression3: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression3.dir = SortingDirection.Desc;
-            sortingExpression3.fieldName = "Type";
-            sortingExpression3.ignoreCase = true;
-            
-            var sortingExpression4: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression4.dir = SortingDirection.Asc;
-            sortingExpression4.fieldName = "Region";
-            sortingExpression4.ignoreCase = true;
-            
-            var sortingExpression5: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression5.dir = SortingDirection.Asc;
-            sortingExpression5.fieldName = "Country";
-            sortingExpression5.ignoreCase = true;
-            
             var sortingExpression6: IgcSortingExpression = {} as IgcSortingExpression;
             sortingExpression6.dir = SortingDirection.Asc;
             sortingExpression6.fieldName = "Price";
@@ -98,31 +48,6 @@ export class Sample {
             
             
             sortingExpression1.push(sortingExpression6)
-            var sortingExpression2: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression2.fieldName = "Settlement";
-            sortingExpression2.dir = SortingDirection.Asc;
-            sortingExpression2.ignoreCase = true;
-            
-            var sortingExpression3: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression3.dir = SortingDirection.Desc;
-            sortingExpression3.fieldName = "Type";
-            sortingExpression3.ignoreCase = true;
-            
-            var sortingExpression4: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression4.dir = SortingDirection.Asc;
-            sortingExpression4.fieldName = "Region";
-            sortingExpression4.ignoreCase = true;
-            
-            var sortingExpression5: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression5.dir = SortingDirection.Asc;
-            sortingExpression5.fieldName = "Country";
-            sortingExpression5.ignoreCase = true;
-            
-            var sortingExpression6: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression6.dir = SortingDirection.Asc;
-            sortingExpression6.fieldName = "Price";
-            sortingExpression6.ignoreCase = true;
-            
             var sortingExpression7: IgcSortingExpression = {} as IgcSortingExpression;
             sortingExpression7.dir = SortingDirection.Asc;
             sortingExpression7.fieldName = "Buy";

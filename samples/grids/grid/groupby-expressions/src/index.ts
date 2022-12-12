@@ -22,11 +22,6 @@ export class Sample {
             
             
             groupingExpression1.push(groupingExpression2)
-            var groupingExpression2: IgcGroupingExpression = {} as IgcGroupingExpression;
-            groupingExpression2.fieldName = "ShipCountry";
-            groupingExpression2.dir = SortingDirection.Asc;
-            groupingExpression2.ignoreCase = false;
-            
             var groupingExpression3: IgcGroupingExpression = {} as IgcGroupingExpression;
             groupingExpression3.fieldName = "ShipCity";
             groupingExpression3.ignoreCase = false;
