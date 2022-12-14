@@ -11,8 +11,7 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-
-        var grid1 = (this.grid1 = document.getElementById('grid1') as any) as IgcGridComponent;
+        var grid1 = this.grid1 = document.getElementById('grid1') as IgcGridComponent;
 
         this._bind = () => {
             grid1.data = this.nwindData
@@ -30,7 +29,6 @@ export class Sample {
         return this._nwindData;
     }
     
-
 
 
 }

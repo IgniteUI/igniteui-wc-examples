@@ -2,7 +2,7 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesDataItem, EmployeesData } from './EmployeesData';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
@@ -28,14 +28,14 @@ export class Sample {
     private email: IgcColumnComponent
     private fax: IgcColumnComponent
     private createdOn: IgcColumnComponent
-    private _columnPipeArgs1: any | null = null;
-    public get columnPipeArgs1(): any {
+    private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
+    public get columnPipeArgs1(): IgcColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: any = {};
+            var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs1.format = "longDate";
-
-
+            
+            
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -51,24 +51,24 @@ export class Sample {
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
         var rowEditableEditor = this.rowEditableEditor = document.getElementById('RowEditableEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        // var avatar = this.avatar = document.getElementById('Avatar') as IgcColumnComponent;
-        // var name = this.name = document.getElementById('Name') as IgcColumnComponent;
-        // var company = this.company = document.getElementById('Company') as IgcColumnComponent;
-        // var email = this.email = document.getElementById('Email') as IgcColumnComponent;
-        // var fax = this.fax = document.getElementById('Fax') as IgcColumnComponent;
-        // var createdOn = this.createdOn = document.getElementById('CreatedOn') as IgcColumnComponent;
-        // var lastActivity = this.lastActivity = document.getElementById('LastActivity') as IgcColumnComponent;
-        // var estimatedSales = this.estimatedSales = document.getElementById('EstimatedSales') as IgcColumnComponent;
-        // var dealsLost = this.dealsLost = document.getElementById('DealsLost') as IgcColumnComponent;
-        // var dealsWon = this.dealsWon = document.getElementById('DealsWon') as IgcColumnComponent;
-        // var dealsPending = this.dealsPending = document.getElementById('DealsPending') as IgcColumnComponent;
+        var avatar = this.avatar = document.getElementById('Avatar') as IgcColumnComponent;
+        var name = this.name = document.getElementById('Name') as IgcColumnComponent;
+        var company = this.company = document.getElementById('Company') as IgcColumnComponent;
+        var email = this.email = document.getElementById('Email') as IgcColumnComponent;
+        var fax = this.fax = document.getElementById('Fax') as IgcColumnComponent;
+        var createdOn = this.createdOn = document.getElementById('CreatedOn') as IgcColumnComponent;
+        var lastActivity = this.lastActivity = document.getElementById('LastActivity') as IgcColumnComponent;
+        var estimatedSales = this.estimatedSales = document.getElementById('EstimatedSales') as IgcColumnComponent;
+        var dealsLost = this.dealsLost = document.getElementById('DealsLost') as IgcColumnComponent;
+        var dealsWon = this.dealsWon = document.getElementById('DealsWon') as IgcColumnComponent;
+        var dealsPending = this.dealsPending = document.getElementById('DealsPending') as IgcColumnComponent;
 
         this._bind = () => {
             propertyEditor.componentRenderer = this.renderer
             propertyEditor.target = this.grid
             grid.data = this.employeesData
-            // avatar.bodyTemplate = this.webGridAvatarCellTemplate
-            // createdOn.pipeArgs = this.columnPipeArgs1
+            avatar.bodyTemplate = this.webGridAvatarCellTemplate
+            createdOn.pipeArgs = this.columnPipeArgs1
         }
         this._bind();
 
@@ -82,7 +82,7 @@ export class Sample {
         }
         return this._employeesData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -95,14 +95,14 @@ export class Sample {
         return this._componentRenderer;
     }
 
-
+    
         public webGridAvatarCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
         <igc-avatar shape="circle" src="${ctx.cell.value}">
         </igc-avatar>
     </div>`;
     }
-
+    
 }
 
 new Sample();

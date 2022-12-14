@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    
+    
+    
+    <div class="container fill">
+        <igc-grid
+        id="grid"
+        column-selection="multiple"
+        name="grid"
+        id ="grid">
+            <igc-column-group
+            header="General Information">
+                <igc-column
+                field="CompanyName"
+                header="Company">
+                </igc-column>
+                <igc-column-group
+                header="Personal Details">
+                    <igc-column
+                    field="ContactName"
+                    header="Name"
+                    hidden="true">
+                    </igc-column>
+                    <igc-column
+                    field="ContactTitle"
+                    header="Title"
+                    selectable="false">
+                    </igc-column>
+                </igc-column-group>
+            </igc-column-group>
+            <igc-column
+            field="ID">
+            </igc-column>
+            <igc-column-group
+            header="Country Information">
+                <igc-column-group
+                header="Region Information">
+                    <igc-column
+                    field="Country"
+                    selectable="false">
+                    </igc-column>
+                    <igc-column
+                    field="City">
+                    </igc-column>
+                    <igc-column
+                    field="PostalCode">
+                    </igc-column>
+                </igc-column-group>
+                <igc-column-group
+                header="City Information">
+                    <igc-column
+                    field="Fax"
+                    selectable="false">
+                    </igc-column>
+                    <igc-column
+                    field="Address"
+                    selectable="false">
+                    </igc-column>
+                </igc-column-group>
+            </igc-column-group>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

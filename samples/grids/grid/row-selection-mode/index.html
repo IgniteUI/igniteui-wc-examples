@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+        <div class="options vertical">
+        <igc-property-editor-panel
+        
+        description-type="WebGrid"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id ="propertyEditorPanel1">
+            <igc-property-editor-property-description
+            property-path="RowSelection"
+            name="selectionType"
+            id ="selectionType">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            property-path="HideRowSelectors"
+            name="hideRowSelectors"
+            id ="hideRowSelectors">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+    
+    
+    
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        id="grid1"
+        moving="true"
+        name="grid1"
+        id ="grid1">
+            <igc-column
+            field="Category">
+            </igc-column>
+            <igc-column
+            field="Type">
+            </igc-column>
+            <igc-column
+            field="Price"
+            data-type="currency"
+            name="column1"
+            id ="column1">
+            </igc-column>
+            <igc-column
+            field="Buy"
+            data-type="currency"
+            name="column2"
+            id ="column2">
+            </igc-column>
+            <igc-column
+            field="Sell"
+            data-type="currency"
+            name="column3"
+            id ="column3">
+            </igc-column>
+            <igc-column
+            field="Change"
+            name="column4"
+            id ="column4">
+            </igc-column>
+            <igc-column
+            field="ChangePercent"
+            data-type="number"
+            name="column5"
+            id ="column5">
+            </igc-column>
+            <igc-column
+            field="AnnualChange"
+            data-type="number"
+            name="column6"
+            id ="column6">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

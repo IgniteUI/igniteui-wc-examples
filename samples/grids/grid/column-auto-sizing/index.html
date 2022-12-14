@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    
+    
+    
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        primary-key="ProductID"
+        name="grid"
+        id ="grid">
+            <igc-column
+            field="ID"
+            resizable="true"
+            width="auto">
+            </igc-column>
+            <igc-column
+            field="CompanyName"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="ContactName"
+            width="auto"
+            resizable="true"
+            header="Name">
+            </igc-column>
+            <igc-column
+            field="ContactTitle"
+            width="auto"
+            resizable="true"
+            header="Title">
+            </igc-column>
+            <igc-column
+            field="Address"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="City"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="Region"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="PostalCode"
+            width="auto"
+            resizable="true"
+            header="Postal Code">
+            </igc-column>
+            <igc-column
+            field="Phone"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="Fax"
+            width="auto"
+            resizable="true">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent, IgcPaginatorComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcPaginatorComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 
@@ -20,14 +20,14 @@ export class Sample {
     private grid: IgcGridComponent
     private paginator: IgcPaginatorComponent
     private column1: IgcColumnComponent
-    private _columnPipeArgs1: any | null = null;
-    public get columnPipeArgs1(): any {
+    private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
+    public get columnPipeArgs1(): IgcColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: any = {};
+            var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.1-5";
-
-
+            
+            
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -39,13 +39,13 @@ export class Sample {
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         var paginator = this.paginator = document.getElementById('paginator') as IgcPaginatorComponent;
-        // var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
+        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
         var displayDensityEditor = this.displayDensityEditor = document.getElementById('DisplayDensityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
 
         this._bind = () => {
             grid.data = this.athletesData
-            // column1.pipeArgs = this.columnPipeArgs1
+            column1.pipeArgs = this.columnPipeArgs1
             propertyEditor.componentRenderer = this.renderer
             propertyEditor.target = this.grid
         }
@@ -61,7 +61,7 @@ export class Sample {
         }
         return this._athletesData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

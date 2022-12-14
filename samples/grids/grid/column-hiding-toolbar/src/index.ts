@@ -23,16 +23,16 @@ export class Sample {
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        // var iD = this.iD = document.getElementById('ID') as IgcColumnComponent;
-        // var contactName = this.contactName = document.getElementById('ContactName') as IgcColumnComponent;
-        // var contactTitle = this.contactTitle = document.getElementById('ContactTitle') as IgcColumnComponent;
-        // var city = this.city = document.getElementById('City') as IgcColumnComponent;
-        // var companyName = this.companyName = document.getElementById('CompanyName') as IgcColumnComponent;
-        // var fax = this.fax = document.getElementById('Fax') as IgcColumnComponent;
-        // var address = this.address = document.getElementById('Address') as IgcColumnComponent;
-        // var postalCode = this.postalCode = document.getElementById('PostalCode') as IgcColumnComponent;
-        // var country = this.country = document.getElementById('Country') as IgcColumnComponent;
-        // var phone = this.phone = document.getElementById('Phone') as IgcColumnComponent;
+        var iD = this.iD = document.getElementById('ID') as IgcColumnComponent;
+        var contactName = this.contactName = document.getElementById('ContactName') as IgcColumnComponent;
+        var contactTitle = this.contactTitle = document.getElementById('ContactTitle') as IgcColumnComponent;
+        var city = this.city = document.getElementById('City') as IgcColumnComponent;
+        var companyName = this.companyName = document.getElementById('CompanyName') as IgcColumnComponent;
+        var fax = this.fax = document.getElementById('Fax') as IgcColumnComponent;
+        var address = this.address = document.getElementById('Address') as IgcColumnComponent;
+        var postalCode = this.postalCode = document.getElementById('PostalCode') as IgcColumnComponent;
+        var country = this.country = document.getElementById('Country') as IgcColumnComponent;
+        var phone = this.phone = document.getElementById('Phone') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.customersData
@@ -49,7 +49,7 @@ export class Sample {
         }
         return this._customersData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

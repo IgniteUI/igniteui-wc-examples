@@ -28,16 +28,16 @@ export class Sample {
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        // var orderID = this.orderID = document.getElementById('OrderID') as IgcColumnComponent;
-        // var shipCountry = this.shipCountry = document.getElementById('ShipCountry') as IgcColumnComponent;
-        // var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
-        // var postalCode = this.postalCode = document.getElementById('PostalCode') as IgcColumnComponent;
-        // var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
-        // var shipName = this.shipName = document.getElementById('ShipName') as IgcColumnComponent;
-        // var shipperName = this.shipperName = document.getElementById('ShipperName') as IgcColumnComponent;
-        // var salesPerson = this.salesPerson = document.getElementById('SalesPerson') as IgcColumnComponent;
-        // var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
-        // var quantity = this.quantity = document.getElementById('Quantity') as IgcColumnComponent;
+        var orderID = this.orderID = document.getElementById('OrderID') as IgcColumnComponent;
+        var shipCountry = this.shipCountry = document.getElementById('ShipCountry') as IgcColumnComponent;
+        var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
+        var postalCode = this.postalCode = document.getElementById('PostalCode') as IgcColumnComponent;
+        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
+        var shipName = this.shipName = document.getElementById('ShipName') as IgcColumnComponent;
+        var shipperName = this.shipperName = document.getElementById('ShipperName') as IgcColumnComponent;
+        var salesPerson = this.salesPerson = document.getElementById('SalesPerson') as IgcColumnComponent;
+        var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
+        var quantity = this.quantity = document.getElementById('Quantity') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.invoicesData
@@ -54,7 +54,7 @@ export class Sample {
         }
         return this._invoicesData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
