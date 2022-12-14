@@ -1,7 +1,7 @@
 {
-  "name": "wc-stepper-linear",
+  "name": "wc-stepper-steptypes",
   "version": "1.0.0",
-  "description": "This project provides example of Stepper Linear Mode using IgniteUI for Web Components",
+  "description": "This project provides example of Stepper Step Types using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
@@ -23,7 +23,7 @@
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "3.4.0",
+    "igniteui-webcomponents": "4.0.0",
     "install": "^0.13.0",
     "lit": "^2.1.1",
     "lit-html": "^2.0.0",
