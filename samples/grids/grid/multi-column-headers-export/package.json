@@ -26,7 +26,7 @@
     "igniteui-webcomponents-grids": "4.0.4",
     "igniteui-webcomponents-inputs": "4.0.4",
     "igniteui-webcomponents-layouts": "4.0.4",
-    "igniteui-webcomponents": "4.0.0",
+    "igniteui-webcomponents": "4.1.0",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
