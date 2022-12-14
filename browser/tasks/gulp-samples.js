@@ -402,7 +402,7 @@ function copySamples(cb) {
 function updateSampleReadme(cb) {
 
     // log('updating readme files... ');
-    var template = fs.readFileSync("./templates/sample/ReadMe.md", "utf8");
+    var template = fs.readFileSync("./browser/templates/sample/ReadMe.md", "utf8");
     for (const sample of samples) {
 
         // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
