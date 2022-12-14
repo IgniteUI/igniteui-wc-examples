@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from template: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/vnext/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Form feature using [Dialog]](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
+This folder contains implementation of Web Components application with example of Form feature using [Dialog](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
 
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -28,7 +28,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/notifications/dialog/form
+cd ./samples/notifications/dialog/form
 ```
 
 open above folder in VS Code or type:

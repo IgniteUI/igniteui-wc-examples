@@ -28,7 +28,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/inputs/input/size
+cd ./samples/inputs/input/size
 ```
 
 open above folder in VS Code or type:
