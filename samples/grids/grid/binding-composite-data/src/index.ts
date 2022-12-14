@@ -72,22 +72,20 @@ export class Sample {
             }
         }
     
-        return html`<div class="contact-container--edit">
-         <div style="display:flex; margin-top:3px">
+        return html`<div class="contact-container--edit" style="display: inline-grid">         
+                 <div>
+                     <strong>Name:</strong>
+                     <input id='ContactName' @keyup=${(e: any) => keyUpHandler(e, ctx)} value="${cell.row.data.ContactName}"></input>
+                 </div>
+                 <div>
+                     <strong>Title:</strong>
+                     <input id='ContactTitle' @keyup=${(e: any) => keyUpHandler(e, ctx)} value='${cell.row.data.ContactTitle}'></input>
+                 </div>         
              <div>
-                 <strong>Name:</strong>
-                 <input id='ContactName' @keyup=${(e) => keyUpHandler(e, ctx)} value="${cell.row.data.ContactName}"></input>
+                 <strong>Company:</strong>
+                 <input id='CompanyName' @keyup=${(e: any) => keyUpHandler(e, ctx)} value='${cell.row.data.CompanyName}'></input>
              </div>
-             <div style="margin-left: 10px">
-                 <strong>Title:</strong>
-                 <input id='ContactTitle' @keyup=${(e) => keyUpHandler(e, ctx)} value='${cell.row.data.ContactTitle}'></input>
-             </div>
-         </div>
-         <div style="margin-top: 10px">
-             <strong>Company:</strong>
-             <input id='CompanyName' @keyup=${(e) => keyUpHandler(e, ctx)} value='${cell.row.data.CompanyName}'></input>
-         </div>
-     </div>`;
+         </div>`;
     }
     
     
@@ -127,23 +125,23 @@ export class Sample {
             }
          }
     
-         return html`<div class="address-container--edit">
-         <div>
-             <span><strong>Country:</strong></span>
-             <input id='Country' @keyup=${(e) => keyUpHandler(e, ctx)} value="${cell.row.data.Country}"></input>
+        return html`<div class="address-container--edit" style="display: inline-grid">
+             <div>
+                 <span><strong>Country:</strong></span>
+                 <input id='Country' @keyup=${(e: any) => keyUpHandler(e, ctx)} value="${cell.row.data.Country}"></input>
+                 <br>
+                 <span><strong>City:</strong></span>
+                 <input id='City' @keyup=${(e: any) => keyUpHandler(e, ctx)} value="${cell.row.data.City}"></input>
+             </div>
+             <div>
+                 <span><strong>Postal Code:</strong></span>
+                 <input id='PostalCode' @keyup=${(e: any) => keyUpHandler(e, ctx)} value="${cell.row.data.PostalCode}"></input>
+                 <br>
+                 <span><strong>Selected:</strong></span>
+                 <input id='Phone' @keyup=${(e: any) => keyUpHandler(e, ctx)} value="${cell.row.data.Phone}"></input>
+             </div>
              <br>
-             <span><strong>City:</strong></span>
-             <input id='City' @keyup=${(e) => keyUpHandler(e, ctx)} value="${cell.row.data.City}"></input>
-         </div>
-         <div>
-             <span><strong>Postal Code:</strong></span>
-             <input id='PostalCode' @keyup=${(e) => keyUpHandler(e, ctx)} value="${cell.row.data.PostalCode}"></input>
-             <br>
-             <span><strong>Selected:</strong></span>
-             <input id='Phone' @keyup=${(e) => keyUpHandler(e, ctx)} value="${cell.row.data.Phone}"></input>
-         </div>
-         <br>
-     </div>`;
+         </div>`;
         }
     
 }
