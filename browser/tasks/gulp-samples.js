@@ -62,6 +62,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/layouts/avatar/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/icon/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/expansion-panel/**/package.json',
+    igConfig.SamplesCopyPath + '/layouts/stepper/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/tabs/**/package.json',
 
     igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
@@ -403,7 +404,7 @@ function copySamples(cb) {
 function updateSampleReadme(cb) {
 
     // log('updating readme files... ');
-    var template = fs.readFileSync("./templates/sample/ReadMe.md", "utf8");
+    var template = fs.readFileSync("./browser/templates/sample/ReadMe.md", "utf8");
     for (const sample of samples) {
 
         // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;

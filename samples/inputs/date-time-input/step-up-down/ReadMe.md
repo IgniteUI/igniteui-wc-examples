@@ -28,7 +28,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/inputs/date-time-input/step-up-down
+cd ./samples/inputs/date-time-input/step-up-down
 ```
 
 open above folder in VS Code or type:
