@@ -28,7 +28,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/charts/data-chart/axis-sharing
+cd ./samples/charts/data-chart/axis-sharing
 ```
 
 open above folder in VS Code or type:
