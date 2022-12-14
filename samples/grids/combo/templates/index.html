@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Combo Templates</title>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+    <link href="https://static.infragistics.com/xplatform/css/samples/custom-legend.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample center">
+        <igc-combo
+          id="combo"
+          value-key="id"
+          display-key="name"
+          group-key="country"
+        >
+          <header slot="header">
+            Header content goes here
+          </header>
+          <igc-icon name="clear" slot="clear-icon"></igc-icon>
+          <igc-icon name="down" slot="toggle-icon"></igc-icon>
+          <span slot="empty">¯\_(ツ)_/¯</span>
+          <footer slot="footer">
+            Footer content goes here
+          </footer>
+        </igc-combo>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
