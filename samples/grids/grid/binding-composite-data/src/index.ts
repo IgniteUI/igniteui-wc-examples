@@ -50,10 +50,10 @@ export class Sample {
         }
     
         return html` <div class="contact-container">
-        <span><strong>ContactName:</strong> ${cell.row.data.ContactName}</span>
-        <span><strong>Job Title:</strong> ${cell.row.data.ContactTitle}</span>
+        <span><strong>Name:</strong> ${cell.row.data.ContactName}</span>
+        <span><strong>Title:</strong> ${cell.row.data.ContactTitle}</span>
         <br />
-        <span><strong>Company Name:</strong> ${cell.row.data.CompanyName}</span>
+        <span><strong>Company:</strong> ${cell.row.data.CompanyName}</span>
         <br />
     </div>`;
     }
@@ -75,16 +75,16 @@ export class Sample {
         return html`<div class="contact-container--edit">
          <div style="display:flex; margin-top:3px">
              <div>
-                 <strong>Contact Name:</strong>
+                 <strong>Name:</strong>
                  <input id='ContactName' @keyup=${(e) => keyUpHandler(e, ctx)} value="${cell.row.data.ContactName}"></input>
              </div>
              <div style="margin-left: 10px">
-                 <strong>Job Title:</strong>
+                 <strong>Title:</strong>
                  <input id='ContactTitle' @keyup=${(e) => keyUpHandler(e, ctx)} value='${cell.row.data.ContactTitle}'></input>
              </div>
          </div>
          <div style="margin-top: 10px">
-             <strong>Company Name:</strong>
+             <strong>Company:</strong>
              <input id='CompanyName' @keyup=${(e) => keyUpHandler(e, ctx)} value='${cell.row.data.CompanyName}'></input>
          </div>
      </div>`;

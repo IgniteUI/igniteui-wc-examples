@@ -24,7 +24,6 @@ export class Sample {
             var pivotDimension2: IgcPivotDimension = {} as IgcPivotDimension;
             pivotDimension2.memberName = "SellerCity";
             pivotDimension2.enabled = true;
-            pivotDimension2.width = "400px";
             
             pivotConfiguration1.rows.push(pivotDimension2);
             var pivotDateDimension1 = new IgcPivotDateDimension();
@@ -34,14 +33,14 @@ export class Sample {
             pivotDimension3.memberName = "Date";
             pivotDimension3.enabled = true;
             
-            pivotDateDimension1.inBaseDimension = pivotDimension3;
+            pivotDateDimension1.baseDimension = pivotDimension3;
             var pivotDateDimensionOptions1: IgcPivotDateDimensionOptions = {} as IgcPivotDateDimensionOptions;
             pivotDateDimensionOptions1.years = true;
             pivotDateDimensionOptions1.quarters = true;
             pivotDateDimensionOptions1.months = false;
             pivotDateDimensionOptions1.fullDate = false;
             
-            pivotDateDimension1.inOptions = pivotDateDimensionOptions1;
+            pivotDateDimension1.options = pivotDateDimensionOptions1;
             
             pivotConfiguration1.columns = []
             pivotConfiguration1.columns.push(pivotDateDimension1);
