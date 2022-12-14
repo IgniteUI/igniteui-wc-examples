@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+        <div class="options vertical">
+        <igc-property-editor-panel
+        
+        description-type="WebGrid"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="PropertyEditor"
+        id ="PropertyEditor">
+            <igc-property-editor-property-description
+            property-path="SortingOptions"
+            name="SortingOptionsEditor"
+            id ="SortingOptionsEditor">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            value-type="Button"
+            primitive-value="Clear Sorting"
+            name="propertyEditorPropertyDescription1"
+            id ="propertyEditorPropertyDescription1">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            value-type="Button"
+            primitive-value="Clear Grouped Columns"
+            name="propertyEditorPropertyDescription2"
+            id ="propertyEditorPropertyDescription2">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+    
+    
+    
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        name="grid"
+        id ="grid">
+            <igc-column
+            field="OrderID"
+            header="Order ID"
+            sortable="true"
+            groupable="true">
+            </igc-column>
+            <igc-column
+            field="CategoryName"
+            header="Category Name"
+            groupable="true"
+            sortable="true"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="CompanyName"
+            header="Company"
+            groupable="true"
+            sortable="true"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="ShipCountry"
+            header="Ship Country"
+            groupable="true"
+            sortable="true"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="SaleAmount"
+            header="Sale Amount"
+            groupable="true"
+            sortable="true"
+            data-type="currency"
+            name="column1"
+            id ="column1">
+            </igc-column>
+            <igc-column
+            field="ShippedDate"
+            header="Shipped Date"
+            sortable="true"
+            data-type="date">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

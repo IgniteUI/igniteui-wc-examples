@@ -28,7 +28,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/gauges/radial-gauge/type-full
+cd ./samples/gauges/radial-gauge/type-full
 ```
 
 open above folder in VS Code or type:

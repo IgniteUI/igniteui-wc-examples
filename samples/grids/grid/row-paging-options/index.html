@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+        <div class="options vertical">
+        <igc-property-editor-panel
+        
+        description-type="WebGrid"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="PropertyEditor"
+        id ="PropertyEditor">
+            <igc-property-editor-property-description
+            property-path="DisplayDensity"
+            name="DisplayDensityEditor"
+            id ="DisplayDensityEditor">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+    
+    
+    
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        id="grid"
+        display-density="cosy"
+        name="grid"
+        id ="grid">
+            <igc-paginator
+            per-page="15"
+            select-options="5, 15, 20, 50"
+            name="paginator"
+            id ="paginator"
+            display-density="cosy">
+                <igc-paginator-resource-strings
+                igx-_paginator-_label="Records per page">
+                </igc-paginator-resource-strings>
+            </igc-paginator>
+            <igc-column
+            field="Id"
+            header="Rank"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Name">
+            </igc-column>
+            <igc-column
+            field="BeatsPerMinute"
+            data-type="number">
+            </igc-column>
+            <igc-column
+            field="TopSpeed"
+            data-type="number"
+            name="column1"
+            id ="column1">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

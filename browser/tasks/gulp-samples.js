@@ -20,7 +20,7 @@ var igConfig = require('./gulp-config.js')
 
 eval(require('typescript')
 .transpile(require('fs')
-.readFileSync("./tasks/Transformer.ts").toString()));
+.readFileSync("./browser/tasks/Transformer.ts").toString()));
 
 function log(msg) {
     console.log('>> ' + msg);
@@ -48,10 +48,12 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
 
     igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/combo/**/package.json',
     igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
     igConfig.SamplesCopyPath + '/grids/grid/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/pivot-grid/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
 
     igConfig.SamplesCopyPath + '/layouts/accordion/**/package.json',
@@ -60,6 +62,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/layouts/avatar/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/icon/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/expansion-panel/**/package.json',
+    igConfig.SamplesCopyPath + '/layouts/stepper/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/tabs/**/package.json',
 
     igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
@@ -91,7 +94,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/inputs/switches/**/package.json',
 
     // excluding samples that are not finished:
-    '!' + igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',
 
      // excluding samples' node_modules:
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
@@ -153,7 +156,7 @@ function findSamples(cb) {
 
     samples = [];
     // del.sync("./sample-test-files/**/*.*", {force:true});
-    let sampleTemplate = fs.readFileSync("./src/templates/group/component/name/Sample.ts", "utf8");
+    let sampleTemplate = fs.readFileSync("./browser/src/templates/group/component/name/Sample.ts", "utf8");
 
     gulp.src(sampleSources)
     // .pipe(gSort( { asc: false } ))
@@ -240,10 +243,10 @@ function makeDirectoryFor(filePath) {
 // }
 
 function cleanBrowser() {
-    console.log('>> deleting samples in browser: ./src/samples/*.* ');
-    del.sync("./src/samples/**/*.*", {force:true});
-    del.sync("./src/samples/*.*", {force:true});
-    del.sync("./src/samples/*", {force:true});
+    console.log('>> deleting samples in browser: ./browser/src/samples/*.* ');
+    del.sync("./browser/src/samples/**/*.*", {force:true});
+    del.sync("./browser/src/samples/*.*", {force:true});
+    del.sync("./browser/src/samples/*", {force:true});
 }
 
 function logSamples(cb) {
@@ -289,9 +292,9 @@ function copySamples(cb) {
     let sampleGroups = Transformer.getSampleGroups(samples);
 
     console.log('>> generating router files... ');
-    let routerTemplate = fs.readFileSync("./src/templates/group/Router.ts", "utf8");
+    let routerTemplate = fs.readFileSync("./browser/src/templates/group/Router.ts", "utf8");
     for (const group of sampleGroups) {
-        let outputPath = "./src/samples/" + group.Name + "/router.ts";
+        let outputPath = "./browser/src/samples/" + group.Name + "/router.ts";
         makeDirectoryFor(outputPath);
         // log('created ' + outputPath);
 
@@ -303,9 +306,9 @@ function copySamples(cb) {
     }
 
     console.log('>> generating index file... ');
-    let indexTemplate = fs.readFileSync("./src/templates/index.html", "utf8");
+    let indexTemplate = fs.readFileSync("./browser/src/templates/index.html", "utf8");
     let indexFile = Transformer.getIndexFile(sampleGroups, indexTemplate);
-    let indexPath = "./public/index.html";
+    let indexPath = "./browser/public/index.html";
     fs.writeFileSync(indexPath, indexFile);
     console.log('>> generating index file done: ' + indexPath);
 
@@ -319,14 +322,14 @@ function copySamples(cb) {
         }
     }
 
-    let sampleTemplate = fs.readFileSync("./src/templates/group/component/name/Sample.ts", "utf8");
+    let sampleTemplate = fs.readFileSync("./browser/src/templates/group/component/name/Sample.ts", "utf8");
 
     // let copiedSamples = 0;
     for (const sample of samples) {
         // console.log('copying ' + sample.SampleFolderPath + '/' + sample.SampleFileName);
 
         // let outputPath = sample.SampleFolderPath;
-        let outputPath = './src' + sample.SampleFolderPath.replace('..','');
+        let outputPath = './browser/src/' + sample.SampleFolderPath.replace('./','');
         // let outputPath = './sample-test-files' + sample.SampleFolderPath.replace('.','');
         // log(outputPath);
         // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
@@ -347,7 +350,6 @@ function copySamples(cb) {
         .pipe(es.map(function(file, fileCallback) {
 
             var fileName = file.basename.toLowerCase();
-            var compName = sample.ComponentID.toLowerCase();
             var isSampleFile = fileName === "index.ts";
             // var isSampleFile = fileName.indexOf(compName) >= 0 &&
             //                    fileName.indexOf(".ts") >= 0;
@@ -394,7 +396,7 @@ function copySamples(cb) {
     // if (copiedSamples == samples.length){
     //     cb();
     // }
-    // cb();
+    cb();
 
 } exports.copySamples = copySamples;
 
@@ -402,7 +404,7 @@ function copySamples(cb) {
 function updateSampleReadme(cb) {
 
     // log('updating readme files... ');
-    var template = fs.readFileSync("./templates/sample/ReadMe.md", "utf8");
+    var template = fs.readFileSync("./browser/templates/sample/ReadMe.md", "utf8");
     for (const sample of samples) {
 
         // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
@@ -420,7 +422,7 @@ function updateSampleReadme(cb) {
 function updateSamplePackages(cb) {
 
     // getting content of package.json file from templates
-    let templatePackageFile = fs.readFileSync("./templates/sample/package.json");
+    let templatePackageFile = fs.readFileSync("./browser/templates/sample/package.json");
     let templatePackageJson = JSON.parse(templatePackageFile.toString());
 
     // let last = samples[samples.length - 1];
@@ -507,8 +509,8 @@ function updateSampleStyles(cb) {
     .pipe(es.map(function(file, fileCallback) {
         let sourceContent = file.contents.toString();
         let sourcePath = Transformer.getRelative(file.dirname);
-        sourcePath = sourcePath.replace('../browser/templates/sample', '');
-        sourcePath = sourcePath.replace('../browser/templates/shared', '');
+        sourcePath = sourcePath.replace('./browser/templates/sample', '');
+        sourcePath = sourcePath.replace('./browser/templates/shared', '');
 
         for (const sample of samples) {
             // if (sample.isUsingFileName(file.basename)) {
@@ -545,13 +547,13 @@ function updateSampleStyles(cb) {
 function updateSampleWebpackConfigs(cb) {
 
     gulp.src([
-        './templates/sample/webpack.config.js',
+        './browser/templates/sample/webpack.config.js',
     ])
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, fileCallback) {
         let sourceContent = file.contents.toString();
         let sourcePath = Transformer.getRelative(file.dirname);
-        sourcePath = sourcePath.replace('../browser/templates/sample', '');
+        sourcePath = sourcePath.replace('./browser/templates/sample', '');
 
         for (const sample of samples) {
             // if (sample.isUsingFileName(file.basename)) {
@@ -655,7 +657,7 @@ function simplifySamples(cb) {
 
 function updateCodeViewer(cb) {
 
-    const outputFolder = "./src/assets/code-viewer";
+    const outputFolder = "./browser/src/assets/code-viewer";
 
     del.sync(outputFolder + "/**");
 
@@ -854,7 +856,7 @@ function logVersionIgniteUI(cb) {
     }
     outputText += "]";
 
-    const outputPath = "./src/BrowserInfo.json";
+    const outputPath = "./browser/src/BrowserInfo.json";
 
     fs.writeFileSync(outputPath, outputText);
     cb();
@@ -897,7 +899,7 @@ function updateIG(cb) {
     // NOTE you can comment out strings in this array to run these function only on a subset of samples
     var packagePaths = [
         './package.json', // browser
-        '../samples/**/package.json',
+        './samples/**/package.json',
         // '../samples/charts/**/package.json',
         // '../samples/editors/**/package.json',
         // '../samples/excel/**/package.json',

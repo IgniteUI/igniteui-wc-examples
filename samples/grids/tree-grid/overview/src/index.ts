@@ -1,8 +1,7 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { IgcGridToolbarTitleComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcTreeGridComponent, IgcGridToolbarTitleComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -19,12 +18,11 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var treeGrid = (this.treeGrid = document.getElementById('treeGrid') as any) as IgcTreeGridComponent;
-        var employees = (this.employees = document.getElementById('Employees') as any) as IgcGridToolbarTitleComponent;
+        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
+        var employees = this.employees = document.getElementById('Employees') as IgcGridToolbarTitleComponent;
 
         this._bind = () => {
-            treeGrid.childDataKey = "Employees";
-            treeGrid.data = this.employeesNestedData;
+            treeGrid.data = this.employeesNestedData
         }
         this._bind();
 
@@ -38,7 +36,7 @@ export class Sample {
         }
         return this._employeesNestedData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -50,7 +48,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 
 }
 

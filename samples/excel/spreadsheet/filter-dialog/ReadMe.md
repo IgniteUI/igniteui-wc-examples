@@ -28,7 +28,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/excel/spreadsheet/filter-dialog
+cd ./samples/excel/spreadsheet/filter-dialog
 ```
 
 open above folder in VS Code or type:

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    
+    
+    
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        id="grid"
+        column-width="200px"
+        allow-filtering="true"
+        column-selection="single"
+        name="grid"
+        id ="grid">
+            <igc-grid-toolbar
+            >
+                <igc-grid-toolbar-title
+                >
+                </igc-grid-toolbar-title>
+                <igc-grid-toolbar-actions
+                >
+                    <igc-grid-toolbar-hiding
+                    >
+                    </igc-grid-toolbar-hiding>
+                </igc-grid-toolbar-actions>
+            </igc-grid-toolbar>
+            <igc-column
+            field="ID"
+            header="ID"
+            sortable="true"
+            data-type="string"
+            name="ID"
+            id ="ID">
+            </igc-column>
+            <igc-column
+            field="ContactName"
+            header="Name"
+            sortable="true"
+            data-type="string"
+            name="ContactName"
+            id ="ContactName">
+            </igc-column>
+            <igc-column
+            field="ContactTitle"
+            header="Title"
+            sortable="true"
+            data-type="string"
+            name="ContactTitle"
+            id ="ContactTitle">
+            </igc-column>
+            <igc-column
+            field="City"
+            header="City"
+            sortable="true"
+            data-type="string"
+            name="City"
+            id ="City">
+            </igc-column>
+            <igc-column
+            field="CompanyName"
+            header="Company"
+            sortable="true"
+            data-type="string"
+            name="CompanyName"
+            id ="CompanyName">
+            </igc-column>
+            <igc-column
+            field="Fax"
+            header="Fax"
+            sortable="true"
+            data-type="string"
+            name="Fax"
+            id ="Fax">
+            </igc-column>
+            <igc-column
+            field="Address"
+            header="Address"
+            sortable="true"
+            data-type="string"
+            name="Address"
+            id ="Address">
+            </igc-column>
+            <igc-column
+            field="PostalCode"
+            header="Postal Code"
+            sortable="true"
+            data-type="string"
+            name="PostalCode"
+            id ="PostalCode">
+            </igc-column>
+            <igc-column
+            field="Country"
+            header="Country"
+            sortable="true"
+            data-type="string"
+            name="Country"
+            id ="Country">
+            </igc-column>
+            <igc-column
+            field="Phone"
+            header="Phone"
+            sortable="true"
+            data-type="string"
+            name="Phone"
+            id ="Phone">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

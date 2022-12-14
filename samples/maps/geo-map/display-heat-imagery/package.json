@@ -19,9 +19,9 @@
   },
   "author": "Infragistics",
   "dependencies": {
-    "igniteui-webcomponents-core": "4.0.3",
-    "igniteui-webcomponents-maps": "4.0.3",
-    "igniteui-webcomponents-charts": "4.0.3",
+    "igniteui-webcomponents-core": "4.0.4",
+    "igniteui-webcomponents-maps": "4.0.4",
+    "igniteui-webcomponents-charts": "4.0.4",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
@@ -52,7 +52,8 @@
     "file-loader": "^4.2.0",
     "style-loader": "^0.22.1",
     "xml-loader": "^1.2.1",
-    "worker-loader": "^3.0.8"
+    "worker-loader": "^3.0.8",
+    "tsconfig-paths-webpack-plugin": "^4.0.0"
     },
   "license": "",
   "homepage": "."

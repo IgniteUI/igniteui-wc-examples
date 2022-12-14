@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <title>Stepper Overview Example</title>
+        <meta charset="UTF-8" />
+
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+    </head>
+
+    <body>
+        <div id="root">
+            <div class="container sample">
+                <igc-stepper id="stepper" linear>
+                    <igc-step invalid>
+                        <span slot="title">Card Type</span>
+                        <div class="first-step-content">
+                            <h2 class="sample-step-title">Choose your business credit card</h2>
+                            <div class="cards-wrapper"></div>
+                        </div>
+                    </igc-step>
+
+                    <igc-step id="businessInformation" invalid>
+                        <span slot="title">Business Information</span>
+                        <div class="sample-row">
+                            <igc-form class="flex-form">
+                                <igc-input required label="Name" type="text" name="name"></igc-input>
+                                <igc-input required label="Physical address" type="text" name="physicalAddress"></igc-input>
+                                <div class="form-row">
+                                    <igc-input required label="City" type="text" name="city"></igc-input>
+                                    <igc-select label="State" name="state" required>
+                                        <igc-select-item value="nevada">Nevada</igc-select-item>
+                                        <igc-select-item value="newYork">New York</igc-select-item>
+                                        <igc-select-item value="newJersey">New Jersey</igc-select-item>
+                                        <igc-select-item value="ohio">Ohio</igc-select-item>
+                                        <igc-select-item value="texas">Texas</igc-select-item>
+                                    </igc-select>
+                                    <igc-mask-input required label="ZIP Code" placeholder="#####" name="zip" mask="00000"> </igc-mask-input>
+                                </div>
+                                <igc-checkbox id="different-mailing-address"> The mailing address is different than the business physical address </igc-checkbox>
+                                <igc-mask-input id="tax-id" value-mode="withFormatting" required label="Federal Tax Id Number" placeholder="9##-##-####" name="taxIdNumber" mask="\\900-00-0000"> </igc-mask-input>
+                                <p id="tax-id-error-message" class="error-message hidden">The Federal Tax ID Number should begin with 9</p>
+                                <label>Does this business operate outside the United States?<span class="required">*</span></label>
+                                <igc-radio-group>
+                                    <igc-radio name="nonUSBusinessActivity" required>Yes.</igc-radio>
+                                    <igc-radio name="nonUSBusinessActivity" required>No.</igc-radio>
+                                </igc-radio-group>
+                            </igc-form>
+                            <div class="selected-card-wrapper"></div>
+                        </div>
+                        <br />
+                        <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
+                        <igc-button class="next" onclick="stepper.next()" disabled>NEXT</igc-button>
+                    </igc-step>
+
+                    <igc-step id="personalInformation" invalid>
+                        <span slot="title">Personal Information</span>
+                        <div class="sample-row">
+                            <igc-form class="flex-form">
+                                <igc-input required label="First Name" type="text" name="firstName"></igc-input>
+                                <igc-input required label="Last Name" type="text" name="lastName"></igc-input>
+                                <igc-input required label="Job Title" type="text" name="jobTitle"></igc-input>
+                                <igc-input required label="Phone Number" type="text" name="phoneNumber"></igc-input>
+                                <igc-input required label="Email Address" type="email" name="email"></igc-input>
+                                <igc-checkbox required> I confirm that I am authorized to borrow on behalf of this business.<span class="required">*</span> </igc-checkbox>
+                                <igc-checkbox required> I agree with the<span class="required">*</span><a class="terms-and-conditions">Terms and Conditions</a> </igc-checkbox>
+                            </igc-form>
+                            <div class="selected-card-wrapper"></div>
+                        </div>
+                        <br />
+                        <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
+                        <igc-button class="next" onclick="stepper.next()" disabled>NEXT</igc-button>
+                    </igc-step>
+
+                    <igc-step id="shippingDetails">
+                        <span slot="title">Shipping Details</span>
+                        <div class="sample-row">
+                            <igc-form class="flex-form">
+                                <igc-input required label="First Name" type="text" name="firstName"></igc-input>
+                                <igc-input required label="Last Name" type="text" name="lastName"></igc-input>
+                                <igc-input required label="Mailing Address" type="text" name="mailingAddress"></igc-input>
+                                <div class="form-row">
+                                    <igc-input required label="City" type="text" name="city"></igc-input>
+                                    <igc-select label="State" name="state" required>
+                                        <igc-select-item value="nevada">Nevada</igc-select-item>
+                                        <igc-select-item value="newYork">New York</igc-select-item>
+                                        <igc-select-item value="newJersey">New Jersey</igc-select-item>
+                                        <igc-select-item value="ohio">Ohio</igc-select-item>
+                                        <igc-select-item value="texas">Texas</igc-select-item>
+                                    </igc-select>
+                                    <igc-mask-input required label="ZIP Code" placeHolder="#####" type="text" name="zip" mask="00000"> </igc-mask-input>
+                                </div>
+                            </igc-form>
+                            <div class="selected-card-wrapper card-horizontal card-horizontal-small"></div>
+                        </div>
+                        <br />
+                        <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
+                        <igc-button class="next" onclick="stepper.next()" disabled>NEXT</igc-button>
+                    </igc-step>
+
+                    <igc-step>
+                        <span slot="title">Confirmation</span>
+                        <div class="success-message">
+                            <div class="success-marker">
+                                <igc-icon size="large" name="check" collection="material"></igc-icon>
+                            </div>
+                            <div class="success-text">
+                                <h2 class="sample-step-title">Your application for a business credit card has been sent successfully!</h2>
+                                <p>We will contact you within a few days.</p>
+                            </div>
+                        </div>
+                        <div class="selected-card-wrapper card-horizontal"></div>
+                        <br />
+                        <igc-button id="reset">RESET</igc-button>
+                    </igc-step>
+                </igc-stepper>
+            </div>
+        </div>
+
+        <template id="card">
+            <div class="card-wrapper">
+                <igc-badge>Your current choice</igc-badge>
+                <igc-card>
+                    <div class="card-content-wrapper">
+                        <igc-card-media>
+                            <img class="card-img" src="" />
+                        </igc-card-media>
+                        <igc-card-content>
+                            <span class="card-price"></span>
+                            <span class="card-offer"></span>
+                            <p class="card-type"></p>
+                            <p class="card-description"></p>
+                        </igc-card-content>
+                    </div>
+                </igc-card>
+            </div>
+        </template>
+        <!-- This script is needed only for parcel and it will be excluded for webpack -->
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
+</html>

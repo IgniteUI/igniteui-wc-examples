@@ -28,7 +28,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/charts/tree-map/events
+cd ./samples/charts/tree-map/events
 ```
 
 open above folder in VS Code or type:

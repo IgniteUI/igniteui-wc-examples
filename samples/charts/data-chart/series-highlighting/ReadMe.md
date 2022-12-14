@@ -28,7 +28,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/charts/data-chart/series-highlighting
+cd ./samples/charts/data-chart/series-highlighting
 ```
 
 open above folder in VS Code or type:
