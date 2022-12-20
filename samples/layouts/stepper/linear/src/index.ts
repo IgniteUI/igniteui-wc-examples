@@ -42,7 +42,14 @@ export class StepperLinear {
             return;
         }
         const formControls = this.activeStep!.querySelectorAll("igc-radio, igc-input") as NodeListOf<any>;
-        const isFormInvalid = Array.from(formControls).some((control: IgcInputComponent | IgcRadioComponent) => !control.checkValidity());
+        const isFormInvalid = Array.from(formControls).some((control: IgcInputComponent | IgcRadioComponent) => {
+            const oldState = control.invalid;
+            // checks whether some of the form controls is not valid
+            const isControlInvalid = !control.checkValidity();
+            // restores the invalid state of the control
+            control.invalid = oldState;
+            return isControlInvalid;
+        });
 
         this.activeStep!.invalid = isFormInvalid;
         this.nextButton.disabled = this.stepper!.linear ? isFormInvalid : false;

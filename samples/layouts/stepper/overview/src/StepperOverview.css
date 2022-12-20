@@ -64,7 +64,7 @@
 }
 
 igc-card {
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 .card-wrapper.card-first-step {
@@ -113,11 +113,12 @@ igc-card-content p {
 igc-badge {
     position: absolute;
     z-index: 1;
-    top: -0.4rem;
+    top: -0.7rem;
     left: 0;
     right: 0;
     margin: 0 auto;
     width: fit-content;
+    padding: 0 0.2rem 0.2rem 0.2rem;
 }
 
 .card-wrapper igc-badge {
