@@ -28,7 +28,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/scheduling/calendar/multiple-selection
+cd ./samples/scheduling/calendar/multiple-selection
 ```
 
 open above folder in VS Code or type:

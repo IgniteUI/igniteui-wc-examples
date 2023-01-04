@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Stepper Linear Example</title>
+        <meta charset="UTF-8" />
+
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+    </head>
+
+    <body>
+        <div id="root">
+            <div class="container sample">
+                <igc-switch>Linear</igc-switch>
+                <br />
+                <igc-stepper id="stepper">
+                    <igc-step invalid>
+                        <span slot="title">Personal Info</span>
+                        <igc-form id="personalInformation" novalidate>
+                            <igc-input required label="Full Name" type="text" name="fullName"></igc-input>
+                            <igc-input required label="Email" type="email" name="email"></igc-input>
+                            <br />
+                            <igc-button class="next" onclick="stepper.next()">NEXT</igc-button>
+                        </igc-form>
+                    </igc-step>
+                    <igc-step invalid>
+                        <span slot="title">Delivery address</span>
+                        <igc-form>
+                            <igc-input required label="City" type="text" name="city"></igc-input>
+                            <igc-input required label="Street" type="text" name="street"></igc-input>
+                            <br />
+                            <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
+                            <igc-button class="next" onclick="stepper.next()">NEXT</igc-button>
+                        </igc-form>
+                    </igc-step>
+                    <igc-step optional>
+                        <span slot="title">Billing address</span>
+                        <span slot="subtitle">(optional)</span>
+                        <igc-form>
+                            <igc-input label="City" type="text" name="bill-city"></igc-input>
+                            <igc-input label="Street" type="text" name="bill-city"></igc-input>
+                            <br />
+                            <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
+                            <igc-button onclick="stepper.next()">NEXT</igc-button>
+                        </igc-form>
+                    </igc-step>
+                    <igc-step invalid>
+                        <span slot="title">Payment</span>
+                        <igc-form novalidate id="payment">
+                            <igc-radio-group>
+                                <igc-radio required>PayPal (n@mail.com; 18/02/2021)</igc-radio>
+                                <igc-radio required>Visa (**** **** **** 1234; 12/23)</igc-radio>
+                                <igc-radio required>MasterCard (**** **** **** 5678; 12/24)</igc-radio>
+                            </igc-radio-group>
+                            <br />
+                            <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
+                            <igc-button class="next" onclick="stepper.next()">SUBMIT</igc-button>
+                        </igc-form>
+                    </igc-step>
+                    <igc-step>
+                        <span slot="title">Delivery status</span>
+                        <p>Your order is on its way. Expect delivery on 25th September 2021. Delivery address: San Jose, CA 94243.</p>
+                        <br />
+                        <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
+                        <igc-button onclick="stepper.reset()">RESET</igc-button>
+                    </igc-step>
+                </igc-stepper>
+            </div>
+        </div>
+        <!-- This script is needed only for parcel and it will be excluded for webpack -->
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
+</html>

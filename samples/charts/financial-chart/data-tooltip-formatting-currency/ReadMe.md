@@ -28,7 +28,7 @@ To set up this project locally, execute these commands:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 cd ./igniteui-wc-examples
-cd ../samples/charts/financial-chart/data-tooltip-formatting-currency
+cd ./samples/charts/financial-chart/data-tooltip-formatting-currency
 ```
 
 open above folder in VS Code or type:

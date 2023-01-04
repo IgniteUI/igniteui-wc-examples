@@ -17,28 +17,33 @@
     <div id="root">
 
 <div class="container sample">
-
-
-
+    
+    
+    
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
+        child-data-key="Employees"
         id="treeGrid"
         moving="true"
         paging="true"
         allow-filtering="true"
-        row-selection="Multiple"
+        row-selection="multiple"
         name="treeGrid"
         id ="treeGrid">
-            <igc-grid-toolbar>
+            <igc-grid-toolbar
+            >
                 <igc-grid-toolbar-title
                 name="Employees"
                 id ="Employees">
                 </igc-grid-toolbar-title>
-                <igc-grid-toolbar-actions>
-                    <igc-grid-toolbar-hiding>
+                <igc-grid-toolbar-actions
+                >
+                    <igc-grid-toolbar-hiding
+                    >
                     </igc-grid-toolbar-hiding>
-                    <igc-grid-toolbar-pinning>
+                    <igc-grid-toolbar-pinning
+                    >
                     </igc-grid-toolbar-pinning>
                     <igc-grid-toolbar-exporter
                     export-csv="true"
@@ -46,7 +51,6 @@
                     </igc-grid-toolbar-exporter>
                 </igc-grid-toolbar-actions>
             </igc-grid-toolbar>
-
             <igc-column
             field="iD"
             header="ID"
@@ -54,57 +58,49 @@
             editable="true"
             resizable="true"
             has-summary="true"
-            data-type="Number">
+            data-type="number">
             </igc-column>
-
             <igc-column
             field="name"
             header="Name"
+            data-type="string"
             sortable="true"
             editable="true"
             resizable="true"
-            has-summary="true"
-            data-type="String">
+            has-summary="true">
             </igc-column>
-
             <igc-column
             field="hireDate"
             header="Hire Date"
+            data-type="date"
             sortable="true"
             editable="true"
-            resizable="true"
-            data-type="Date">
+            resizable="true">
             </igc-column>
-
             <igc-column
             field="age"
             header="Age"
+            data-type="number"
             sortable="true"
             editable="true"
-            resizable="true"
-            data-type="Number">
+            resizable="true">
             </igc-column>
-
             <igc-column
             field="salary"
             header="Salary"
+            data-type="number"
             sortable="true"
             editable="true"
-            resizable="true"
-            has-summary="true"
-            data-type="Number">
+            resizable="true">
             </igc-column>
-
             <igc-column
             field="productivity"
             header="Productivity"
+            data-type="number"
             sortable="true"
             editable="true"
-            resizable="true"
-            has-summary="true"
-            data-type="Number">
+            resizable="true">
             </igc-column>
-
         </igc-tree-grid>
     </div>
 </div>

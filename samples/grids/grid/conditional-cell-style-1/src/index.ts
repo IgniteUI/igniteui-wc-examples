@@ -23,15 +23,15 @@ export class Sample {
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        // var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
-        // var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
-        // var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
+        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
+        var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
+        var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.athletesData
-            // column1.bodyTemplate = this.webGridBeatsPerMinuteTemplate
-            // column2.bodyTemplate = this.webGridTopSpeedTemplate
-            // column3.bodyTemplate = this.webGridImageCellTemplate
+            column1.bodyTemplate = this.webGridBeatsPerMinuteTemplate
+            column2.bodyTemplate = this.webGridTopSpeedTemplate
+            column3.bodyTemplate = this.webGridImageCellTemplate
         }
         this._bind();
 
@@ -45,7 +45,7 @@ export class Sample {
         }
         return this._athletesData;
     }
-
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -58,7 +58,7 @@ export class Sample {
         return this._componentRenderer;
     }
 
-
+    
     public webGridBeatsPerMinuteTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value > 95) {
             return html`<div><span style="color: red;">${ctx.cell.value}</span></div>`;
@@ -67,8 +67,8 @@ export class Sample {
             return html`<div><span style="color: green;">${ctx.cell.value}</span></div>`;
         }
     }
-
-
+    
+    
     public webGridTopSpeedTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value < 5) {
             return html`<div><span style="color: royalblue;">${ctx.cell.value}</span></div>`;
@@ -76,15 +76,15 @@ export class Sample {
         else {
             return html`<div><span>${ctx.cell.value}</span></div>`;
         }
-    };
-
-
+    };   
+    
+    
     public webGridImageCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
             <img src="${ctx.cell.value}"/>
         </div>`;
     };
-
+    
 }
 
 new Sample();

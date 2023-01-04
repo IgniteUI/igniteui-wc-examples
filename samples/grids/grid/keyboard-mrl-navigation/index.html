@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    
+    
+    
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        id="grid"
+        display-density="cosy"
+        name="grid"
+        id ="grid">
+            <igc-column-layout
+            header="Company"
+            name="CompanyInfo"
+            id ="CompanyInfo">
+                <igc-column
+                field="Company"
+                header="Company"
+                col-end="3"
+                row-start="1"
+                col-start="1"
+                name="Company"
+                id ="Company">
+                </igc-column>
+                <igc-column
+                name="Country"
+                id ="Country"
+                field="Country"
+                header="Country"
+                row-start="2"
+                col-start="1">
+                </igc-column>
+                <igc-column
+                name="City"
+                id ="City"
+                field="City"
+                header="City"
+                row-start="2"
+                col-start="2">
+                </igc-column>
+                <igc-column
+                name="Address"
+                id ="Address"
+                field="Address"
+                header="Address"
+                row-start="3"
+                col-start="1"
+                col-end="3">
+                </igc-column>
+            </igc-column-layout>
+            <igc-column-layout
+            name="Sales"
+            id ="Sales"
+            header="Sales">
+                <igc-column
+                name="LifetimeSales"
+                id ="LifetimeSales"
+                field="LifetimeSales"
+                header="Lifetime Sales"
+                row-start="1"
+                col-start="1"
+                col-end="3"
+                row-end="3">
+                </igc-column>
+                <igc-column
+                name="Quarterly"
+                id ="Quarterly"
+                field="QuarterlySales"
+                header="Quarterly"
+                row-start="3"
+                col-start="1">
+                </igc-column>
+                <igc-column
+                name="Yearly"
+                id ="Yearly"
+                field="YearlySales"
+                header="Yearly"
+                row-start="3"
+                col-start="2">
+                </igc-column>
+            </igc-column-layout>
+            <igc-column-layout
+            name="MarketPotentialInfo"
+            id ="MarketPotentialInfo"
+            header="Market Potential">
+                <igc-column
+                name="MarketPotential"
+                id ="MarketPotential"
+                field="MarketPotential"
+                header="Market Potential"
+                row-start="1"
+                col-start="1"
+                row-end="4">
+                </igc-column>
+            </igc-column-layout>
+            <igc-column-layout
+            name="Assets"
+            id ="Assets"
+            header="Assets">
+                <igc-column
+                name="AssetsCash"
+                id ="AssetsCash"
+                field="AssetsCash"
+                header="Assets Cash"
+                row-start="1"
+                col-start="1">
+                </igc-column>
+                <igc-column
+                name="AccountsReceivable"
+                id ="AccountsReceivable"
+                field="AccountsReceivable"
+                header="Accounts Receivable"
+                row-start="1"
+                col-start="2"
+                col-end="4">
+                </igc-column>
+                <igc-column
+                name="AssetsBooks"
+                id ="AssetsBooks"
+                field="AssetsBooks"
+                header="Assets Books"
+                row-start="2"
+                col-start="1"
+                col-end="4"
+                row-end="4">
+                </igc-column>
+            </igc-column-layout>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

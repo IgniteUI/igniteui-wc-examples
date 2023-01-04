@@ -1,6 +1,7 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
+import { IgcGridComponent, IgcGroupingExpression, SortingDirection } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -13,6 +14,22 @@ ModuleManager.register(
 export class Sample {
 
     private grid: IgcGridComponent
+    private _groupingExpression1: IgcGroupingExpression[] | null = null;
+    public get groupingExpression1(): IgcGroupingExpression[] {
+        if (this._groupingExpression1 == null)
+        {
+            let groupingExpression1: IgcGroupingExpression[] = [];
+            var groupingExpression2: IgcGroupingExpression = {} as IgcGroupingExpression;
+            groupingExpression2.fieldName = "Country";
+            groupingExpression2.dir = SortingDirection.Asc;
+            groupingExpression2.ignoreCase = false;
+            
+            
+            groupingExpression1.push(groupingExpression2)
+            this._groupingExpression1 = groupingExpression1;
+        }
+        return this._groupingExpression1;
+    }
     private _bind: () => void;
 
     constructor() {
@@ -20,6 +37,7 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.customersData
+            grid.groupingExpressions = this.groupingExpression1
         }
         this._bind();
 
@@ -35,6 +53,16 @@ export class Sample {
     }
     
 
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            WebGridDescriptionModule.register(context);
+        }
+        return this._componentRenderer;
+    }
 
 }
 
