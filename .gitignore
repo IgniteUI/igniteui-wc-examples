@@ -7,7 +7,7 @@
 /samples/**/build/
 /samples/**/dist/
 /samples/**/node_modules/
-#/samples/**/package-lock.json
+/samples/**/package-lock.json
 /samples/**/yarn.lock
 /tmp/
 /tests/
