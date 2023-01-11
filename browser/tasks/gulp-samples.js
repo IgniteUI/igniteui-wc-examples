@@ -94,7 +94,8 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/inputs/switches/**/package.json',
 
     // excluding samples that are not finished:
-    '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/remote/package.json',
+    '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/remote/package.json',      // grid has no exported member named 'NoopPivotDimensionsStrategy'
+    '!' + igConfig.SamplesCopyPath + '/layouts/dock-manager/styling/package.json', // type '"closePane"' is not assignable to parameter of type 'keyof IgcDockManagerEventMap'.
 
      // excluding samples' node_modules:
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
