@@ -34,7 +34,8 @@
     "node_modules/**",
     "browser/dist",
     "browser/tasks",
-    "browser/templates"
+    "browser/templates",
+    "samples"
   ],
   "linterOptions": {
     "exclude": [
@@ -47,7 +48,8 @@
       "browser/src/samples/*.*",
       "browser/src/images/*.*",
       "browser/src/assets/*.*",
-      "browser/src/utilities/WorldLocations.ts"
+      "browser/src/utilities/WorldLocations.ts",
+      "samples"
     ]
   },
 }
