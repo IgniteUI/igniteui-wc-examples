@@ -1,5 +1,5 @@
 {
-  "name": "wc-combo-features",
+  "name": "wc-combo-simplified",
   "version": "1.0.0",
   "description": "This project provides example of Combo Features using IgniteUI for Web Components",
   "main": "src/index.ts",
