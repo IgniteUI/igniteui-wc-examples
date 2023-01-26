@@ -95,7 +95,6 @@ var sampleSources = [
 
     // excluding samples that are not finished:
     '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/remote/package.json',      // grid has no exported member named 'NoopPivotDimensionsStrategy'
-    '!' + igConfig.SamplesCopyPath + '/layouts/dock-manager/styling/package.json', // type '"closePane"' is not assignable to parameter of type 'keyof IgcDockManagerEventMap'.
 
      // excluding samples' node_modules:
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
@@ -894,7 +893,7 @@ function updateIG(cb) {
         { name: "igniteui-webcomponents-datasources"              , version: "4.0.2" },
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "4.0.0"  },
-        { name: "igniteui-dockmanager", version: "1.11.3" },
+        { name: "igniteui-dockmanager", version: "1.12.2" },
     ];
 
     // NOTE you can comment out strings in this array to run these function only on a subset of samples
