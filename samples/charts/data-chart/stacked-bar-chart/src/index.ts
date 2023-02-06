@@ -1,5 +1,5 @@
 import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule, IgcCalloutLayerModule } from 'igniteui-webcomponents-charts';
-import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcStackedBarSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcStackedBarSeriesComponent, IgcStackedFragmentSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { EnergyRenewableConsumptionItem, EnergyRenewableConsumption } from './EnergyRenewableConsumption';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -26,7 +26,7 @@ export class Sample {
     private s2: IgcStackedFragmentSeriesComponent
     private s3: IgcStackedFragmentSeriesComponent
     private s4: IgcStackedFragmentSeriesComponent
-
+    private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -39,6 +39,7 @@ export class Sample {
         var s2 = this.s2 = document.getElementById('s2') as IgcStackedFragmentSeriesComponent;
         var s3 = this.s3 = document.getElementById('s3') as IgcStackedFragmentSeriesComponent;
         var s4 = this.s4 = document.getElementById('s4') as IgcStackedFragmentSeriesComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             chart.legend = this.legend
@@ -48,6 +49,7 @@ export class Sample {
             stackedBarSeries.dataSource = this.energyRenewableConsumption
         }
         this._bind();
+
     }
 
     private _energyRenewableConsumption: EnergyRenewableConsumption = null;
@@ -59,7 +61,6 @@ export class Sample {
         return this._energyRenewableConsumption;
     }
     
-
 
 
 }
