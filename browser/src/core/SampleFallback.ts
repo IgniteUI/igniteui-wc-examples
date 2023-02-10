@@ -23,7 +23,7 @@ export class SampleFallback extends SampleBase {
               <img style="max-height: calc(100% - 6rem); max-width: 30rem" src="/assets/images/comingSoon.svg" >
 
               <div style="background: #f2f2f2; width: 100%; padding-bottom: 1rem; margin-top: -0.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden;">
-                    <div style="font-size: 1.5rem; font-weight: bold; text-align: center;">Coming Soon...</div>
+                    <div style="font-size: 1.5rem; font-weight: bold; text-align: center;">Coming Soon</div>
                     <div style="font-size: 0.75rem; text-align: center;  ">
                         This <a href="` + sbMissing + `" title="` + SampleFallback.missingRoute + `" >example</a> is under development. We are almost done!
                     </div>
