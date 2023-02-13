@@ -39,8 +39,9 @@ stages:
         displayName: 'Register licensed npm registry in .npmrc'
         inputs:
           command: 'custom'
-          workingDir: '$(Build.Repository.Name)'
+          workingDir: '$(Build.SourcesDirectory)'
           customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
+          customEndpoint: 'public proget'
 
       - task: npmAuthenticate@0
         displayName: 'Authenticate to licensed npm registry in .npmrc'
