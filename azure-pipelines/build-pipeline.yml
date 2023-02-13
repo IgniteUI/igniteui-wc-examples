@@ -65,6 +65,8 @@ stages:
           workingDirectory: '$(Build.SourcesDirectory)'
           targetType: 'inline'
           script: |
+            Get-Content -Path .\.npmrc
+
             $packageJson = Get-Content -Raw .\package.json | ConvertFrom-Json
             $npmUninstallPackages = "npm uninstall --save "
             $npmInstallPackages = "npm install "
