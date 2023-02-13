@@ -53,7 +53,7 @@ stages:
         displayName: 'npm ci'
         inputs:
           command: custom
-          workingDir: '$(Build.Repository.Name)'
+          workingDir: '$(Build.SourcesDirectory)'
           verbose: ${{ parameters.isVerbose }}
           customCommand: ci
       
