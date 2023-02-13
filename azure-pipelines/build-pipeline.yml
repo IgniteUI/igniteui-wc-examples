@@ -43,12 +43,6 @@ stages:
           customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
           customEndpoint: 'public proget'
 
-#      - task: npmAuthenticate@0
-#        displayName: 'Authenticate to licensed npm registry in .npmrc'
-#        inputs:
-#          workingFile: '$(Build.Repository.Name)/.npmrc'
-#          customEndpoint: 'public proget'
-
       - task: Npm@1
         displayName: 'npm ci'
         inputs:
@@ -85,6 +79,14 @@ stages:
 
             Invoke-Expression -Command “$npmUninstallPackages”
             Invoke-Expression -Command “$npmInstallPackages”
+
+      - task: Npm@1
+        displayName: 'npm audit fix'
+        inputs:
+          command: custom
+          workingDir: '$(Build.SourcesDirectory)'
+          verbose: ${{ parameters.isVerbose }}
+          customCommand: 'audit fix'
 
       - task: Npm@1
         displayName: 'npm run build'
