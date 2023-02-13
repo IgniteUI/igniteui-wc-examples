@@ -69,7 +69,7 @@ stages:
 
             $packageJson = Get-Content -Raw .\package.json | ConvertFrom-Json
             $npmUninstallPackages = "npm uninstall --save "
-            $npmInstallPackages = "npm install "
+            $npmInstallPackages = "npm install --ddd "
 
             $packageJson.dependencies.PSObject.Properties | `
                 Where-Object {
