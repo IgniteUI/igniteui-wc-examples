@@ -81,14 +81,6 @@ stages:
             Invoke-Expression -Command “$npmInstallPackages”
 
       - task: Npm@1
-        displayName: 'npm audit fix'
-        inputs:
-          command: custom
-          workingDir: '$(Build.SourcesDirectory)'
-          verbose: ${{ parameters.isVerbose }}
-          customCommand: 'audit fix --dry-run'
-
-      - task: Npm@1
         displayName: 'npm run build'
         inputs:
           command: custom
