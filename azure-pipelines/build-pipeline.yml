@@ -39,20 +39,20 @@ stages:
         displayName: 'Register licensed npm registry in .npmrc'
         inputs:
           command: 'custom'
-          workingDir: '$(Build.SourcesDirectory)'
+          workingDir: '$(Build.Repository.Name)'
           customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
 
       - task: npmAuthenticate@0
         displayName: 'Authenticate to licensed npm registry in .npmrc'
         inputs:
-          workingFile: 'browser/.npmrc'
+          workingFile: '$(Build.Repository.Name)/.npmrc'
           customEndpoint: 'public proget'
 
       - task: Npm@1
         displayName: 'npm ci'
         inputs:
           command: custom
-          workingDir: '$(Build.SourcesDirectory)'
+          workingDir: '$(Build.Repository.Name)'
           verbose: ${{ parameters.isVerbose }}
           customCommand: ci
       
@@ -87,7 +87,7 @@ stages:
         displayName: 'npm run build'
         inputs:
           command: custom
-          workingDir: '$(Build.SourcesDirectory)\browser'
+          workingDir: '$(Build.SourcesDirectory)'
           verbose: ${{ parameters.isVerbose }}
           customCommand: 'run build'
 
