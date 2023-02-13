@@ -98,7 +98,7 @@ stages:
         displayName: 'Package samples browser'
         inputs:
           verbose: ${{ parameters.isVerbose }}
-          rootFolderOrFile: '$(Build.SourcesDirectory)/browser/build'
+          rootFolderOrFile: '$(Build.SourcesDirectory)/browser/dist'
           includeRootFolder: false
           archiveType: 'zip'
           archiveFile: '$(Build.ArtifactStagingDirectory)/ReactSamples.zip'
