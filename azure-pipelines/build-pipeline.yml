@@ -1,0 +1,112 @@
+trigger:
+  branches:
+    include:
+    - vnext
+    - master
+    - btraykov/azure-pipeline
+
+pr:
+  branches:
+    exclude:
+    - '*'  # must quote since "*" is a YAML reserved character; we want a string
+
+parameters:
+- name: isVerbose
+  displayName: 'Get verbose output from steps - where configurable'
+  type: boolean
+  default: false
+
+name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+
+stages:
+- stage: Build
+  pool:
+    name: BuildAgentOnPrem
+    demands: npm
+  jobs:
+  - job: BuildSamples
+    steps:
+      - checkout: 'self' 
+        path: $(Build.Repository.Name)
+
+      - task: NodeTool@0
+        displayName: 'Install Node'
+        inputs:
+          versionSource: 'spec'
+          versionSpec: '16.x'
+
+      - task: Npm@1
+        displayName: 'Register licensed npm registry in .npmrc'
+        inputs:
+          command: 'custom'
+          workingDir: '$(Build.SourcesDirectory)'
+          customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
+          customEndpoint: 'public proget'
+
+      - task: Npm@1
+        displayName: 'npm ci'
+        inputs:
+          command: custom
+          workingDir: '$(Build.SourcesDirectory)'
+          verbose: ${{ parameters.isVerbose }}
+          customCommand: ci
+      
+      - task: PowerShell@2
+        displayName: 'Uninstall all IG trial packages & re-install their licensed variations'
+        inputs:
+          failOnStderr: true
+          showWarnings: true
+          workingDirectory: '$(Build.SourcesDirectory)'
+          targetType: 'inline'
+          script: |
+            Get-Content -Path .\.npmrc
+
+            $packageJson = Get-Content -Raw .\package.json | ConvertFrom-Json
+            $npmUninstallPackages = "npm uninstall --save "
+            $npmInstallPackages = "npm install "
+
+            $packageJson.dependencies.PSObject.Properties | `
+                Where-Object {
+                    $_.Name.StartsWith("igniteui-webcomponents-") -or $_.Name.StartsWith("igniteui-dockmanager") `
+                } | `
+                ForEach-Object { `
+                    $npmUninstallPackages += $_.Name + " "
+                    $npmInstallPackages += "@infragistics/" + $_.Name + "@" + $_.Value + " "
+                }
+
+            Write-Host $npmUninstallPackages
+            Write-Host $npmInstallPackages
+
+            Invoke-Expression -Command “$npmUninstallPackages”
+            Invoke-Expression -Command “$npmInstallPackages”
+
+      - task: Npm@1
+        displayName: 'npm run build'
+        inputs:
+          command: custom
+          workingDir: '$(Build.SourcesDirectory)'
+          verbose: ${{ parameters.isVerbose }}
+          customCommand: 'run build'
+
+      - task: CopyFiles@2
+        displayName: 'Copy web.config into the dist dir'
+        inputs:
+          SourceFolder: '$(Build.SourcesDirectory)/browser'
+          Contents: 'web.config'
+          TargetFolder: '$(Build.SourcesDirectory)/browser/dist'
+
+      - task: ArchiveFiles@2
+        displayName: 'Package samples browser'
+        inputs:
+          verbose: ${{ parameters.isVerbose }}
+          rootFolderOrFile: '$(Build.SourcesDirectory)/browser/dist'
+          includeRootFolder: false
+          archiveType: 'zip'
+          archiveFile: '$(Build.ArtifactStagingDirectory)/WebComponentsSamples.zip'
+          replaceExistingArchive: true
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish pipeline artifact'
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)/WebComponentsSamples.zip'
+          artifact: 'WebComponentsSamplesBrowser'
