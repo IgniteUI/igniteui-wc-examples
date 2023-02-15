@@ -30,6 +30,7 @@ log('loaded');
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSources = [
     // igConfig.SamplesCopyPath + '/maps/**/display-heat-imagery/package.json',
+    // igConfig.SamplesCopyPath + '/maps/geo-map/binding-shp-points/package.json',
 
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
@@ -662,7 +663,7 @@ function updateCodeViewer(cb) {
     del.sync(outputFolder + "/**");
 
     for (const sample of samples) {
-        var codeViewPath = outputFolder + sample.SampleRoute + ".json";
+        var codeViewPath = outputFolder + sample.SampleRouteNew + ".json";
 
         console.log(">> generating: " + codeViewPath);
 
@@ -710,7 +711,7 @@ function updateCodeViewer(cb) {
 function logRoutes(cb) {
     let routes = [];
     for (const sample of samples) {
-        routes.push(sample.SampleRoute)
+        routes.push(sample.SampleRouteNew)
     }
     routes.sort();
     for (const route of routes) {

@@ -24,7 +24,8 @@ class SampleInfo {
     // public SampleDirOnDisk: string;    // C:\repo\igniteui-web-comp-examples\samples\maps\geo-map\binding-csv-points\
     public SampleFolderPath: string;     // /samples/maps/geo-map/binding-csv-points/
     public SampleFilePath: string;       // /samples/maps/geo-map/binding-csv-points/src/MapBindingDataCSV.ts
-    public SampleRoute: string;          //         /maps/geo-map/binding-csv-points/
+    public SampleRouteOld: string;       //         /maps/geo-map-binding-csv-points/
+    public SampleRouteNew: string;       //         /maps/geo-map/binding-csv-points/
     public SampleFolderName: string;     //                       binding-csv-points
     public SampleFileName: string;       // MapBindingDataCSV.ts
     public SampleImportName: string;     // MapBindingDataCSV
@@ -107,7 +108,7 @@ class Transformer {
     }
     public static printRoutes(samples: SampleInfo[]): void {
         for (const info of samples) {
-            console.log(info.SampleFolderPath + " => " + info.SampleRoute);
+            console.log(info.SampleFolderPath + " => " + info.SampleRouteNew);
         }
     }
     public static printUrls(samples: SampleInfo[]): void {
@@ -477,8 +478,12 @@ class Transformer {
             info.ComponentID   = Strings.replace(info.ComponentID, "-", "");
             info.ComponentID   = info.ComponentID.replace("Geographic", "");
 
-            // info.SampleFolderPath = relativePath;
-            info.SampleRoute = "/" +  info.ComponentGroup + "/" + info.ComponentFolder + "-" + info.SampleFolderName;
+            // for backward comparability:
+            // using old routing that uses "-" between ComponentFolder and sample SampleFolderName
+            // using new routing that uses "/" between ComponentFolder and sample SampleFolderName
+            // new routing path matches exactly sample path this makes it easier to use in docs since routing and github source are the same
+            info.SampleRouteOld = "/" +  (info.ComponentGroup + "/" + info.ComponentFolder + "-" + info.SampleFolderName).toLowerCase();
+            info.SampleRouteNew = "/" +  (info.ComponentGroup + "/" + info.ComponentFolder + "/" + info.SampleFolderName).toLowerCase();
 
             // console.log("Processing " + info.SampleFolderPath + " with " + info.SampleFilePaths.length + " files");
 
@@ -575,7 +580,7 @@ class Transformer {
                 // console.log("SAMPLE " + info.SampleFilePath + " => " + info.SampleDisplayName);
             }
 
-            // console.log(info.SampleFolderPath + " => " + info.SampleRoute + " => " + info.SampleDisplayName);
+            // console.log(info.SampleFolderPath + " => " + info.SampleRouteNew + " => " + info.SampleDisplayName);
 
         }
     }
@@ -660,7 +665,7 @@ class Transformer {
         // readMe = Strings.replace(readMe, "{SampleFolderPath}", sample.SampleFolderPath);
         readMe = Strings.replace(readMe, "{SampleFolderPath}", sample.SampleFolderPath);
         readMe = Strings.replace(readMe, "{SampleFolderName}", sample.SampleFolderName);
-        readMe = Strings.replace(readMe, "{SampleRoute}", sample.SampleRoute);
+        readMe = Strings.replace(readMe, "{SampleRoute}", sample.SampleRouteNew);
         readMe = Strings.replace(readMe, "{SampleDisplayName}", sample.SampleDisplayName);
         readMe = Strings.replace(readMe, "{SampleFileName}", sample.SampleFileName);
         readMe = Strings.replace(readMe, "{SampleFilePath}", sample.SampleFilePath);
@@ -760,7 +765,7 @@ class Transformer {
                 sampleLinks += '       <div id="' + idLists + '" class="nav-list" state="collapsed"> \n';
 
                 for (const info of component.Samples) {
-                    let route = "/samples" + info.SampleRoute;
+                    let route = "/samples" + info.SampleRouteNew;
                     sampleLinks += '           <a class="nav-link" href="#" data-nav="' + route + '">─<span>' + info.SampleDisplayName + '</span></a> \n';
                 }
                 sampleLinks += '       </div>\n';
@@ -817,19 +822,28 @@ class Transformer {
 
     public static getRoutingCondition(sampleInfo: SampleInfo, isFirstSample: boolean): string {
 
+        var isFirstIF = true;
         let condition = "";
         if (isFirstSample) {
             condition += 'if ';
         }
         else {
             condition += '        else if ';
+            isFirstIF = false;
         }
         // let samplePath = sampleInfo.ComponentFolder + '/' + sampleInfo.SampleFolderName + '/' + sampleInfo.SampleImportName;
         let samplePath = sampleInfo.ComponentFolder + '/' + sampleInfo.SampleFolderName + '/index';
-        let routingPath = sampleInfo.SampleRoute.replace('/' + sampleInfo.ComponentGroup.toLowerCase(), "");
-        //condition += '(route.indexOf("' + routingPath + '") >= 0) {\n';
-        routingPath = "/" + sampleInfo.ComponentGroup.toLowerCase() + routingPath
-        condition += '(route === "' + routingPath + '") {\n';
+        // let routingPath = sampleInfo.SampleRouteNew.replace('/' + sampleInfo.ComponentGroup.toLowerCase(), "");
+        // routingPath = "/" + sampleInfo.ComponentGroup.toLowerCase() + routingPath
+
+        // for backward comparability:
+        // using old routing that uses "-" between ComponentFolder and sample SampleFolderName
+        // using new routing that uses "/" between ComponentFolder and sample SampleFolderName
+        // new routing path matches exactly sample path this makes it easier to use in docs since routing and github source are the same
+        // var routingOld = "/" + sampleInfo.ComponentGroup + '/' + sampleInfo.ComponentFolder + '-' + sampleInfo.SampleFolderName;
+        // var routingNew = "/" + sampleInfo.ComponentGroup + '/' + sampleInfo.ComponentFolder + '/' + sampleInfo.SampleFolderName;
+        condition += '(route === "' + sampleInfo.SampleRouteOld + '" ||\n           ' + (isFirstIF ? "" : "     ");
+        condition += ' route === "' + sampleInfo.SampleRouteNew + '") {\n';
         condition += '            let sample = await import("./' + samplePath + '");\n';
         condition += '            this.cachedSamples.set(route, sample.' + sampleInfo.SampleImportName + '.register());\n';
         condition += '        }\n';

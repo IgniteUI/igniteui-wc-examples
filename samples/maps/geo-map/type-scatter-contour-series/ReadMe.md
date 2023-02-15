@@ -12,7 +12,7 @@ This folder contains implementation of Web Components application with example o
         <a target="_blank" href="./src/index.ts" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="View Code" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-code.png"/>
         </a>
-        <a target="_blank" href="https://www.infragistics.com/webcomponents-demos/samples/maps/geo-map-type-scatter-contour-series" rel="noopener noreferrer">
+        <a target="_blank" href="https://www.infragistics.com/webcomponents-demos/samples/maps/geo-map/type-scatter-contour-series" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-run.png"/>
         </a>
         <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-wc-examples/tree/master/samples/maps/geo-map/type-scatter-contour-series?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/{SampleFile}" rel="noopener noreferrer">
