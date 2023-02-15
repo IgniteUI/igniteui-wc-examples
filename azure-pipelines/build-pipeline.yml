@@ -88,6 +88,13 @@ stages:
           verbose: ${{ parameters.isVerbose }}
           customCommand: 'run build'
 
+      - task: CopyFiles@2
+        displayName: 'Copy web.config into the dist dir'
+        inputs:
+          SourceFolder: '$(Build.SourcesDirectory)/browser'
+          Contents: 'web.config'
+          TargetFolder: '$(Build.SourcesDirectory)/browser/dist'
+
       - task: ArchiveFiles@2
         displayName: 'Package samples browser'
         inputs:
