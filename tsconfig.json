@@ -47,10 +47,10 @@
       "**/odatajs-4.0.0.js",
       "browser/templates",
       "browser/tasks",
-      "browser/src/samples/*.*",
-      "browser/src/images/*.*",
-      "browser/src/assets/*.*",
-      "browser/src/utilities/WorldLocations.ts",
+      "browser/src/samples/**/*.*",
+      "browser/src/assets/**/*.*",
+      "browser/src/templates/**/*.*",
+      "browser/src/utilities/*.ts",
       "samples"
     ]
   },
