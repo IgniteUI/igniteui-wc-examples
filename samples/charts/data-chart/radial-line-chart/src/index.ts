@@ -1,5 +1,5 @@
-import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartRadialModule, IgcDataChartRadialCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcRadialLineSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartRadialModule, IgcDataChartRadialCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
+import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcRadialLineSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { FootballPlayerStatsItem, FootballPlayerStats } from './FootballPlayerStats';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -9,7 +9,8 @@ ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartRadialModule,
     IgcDataChartRadialCoreModule,
-    IgcDataChartInteractivityModule
+    IgcDataChartInteractivityModule,
+    IgcDataChartAnnotationModule
 );
 
 export class Sample {
@@ -20,7 +21,7 @@ export class Sample {
     private radiusAxis: IgcNumericRadiusAxisComponent
     private radialLineSeries1: IgcRadialLineSeriesComponent
     private radialLineSeries2: IgcRadialLineSeriesComponent
-
+    private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -30,6 +31,7 @@ export class Sample {
         var radiusAxis = this.radiusAxis = document.getElementById('radiusAxis') as IgcNumericRadiusAxisComponent;
         var radialLineSeries1 = this.radialLineSeries1 = document.getElementById('RadialLineSeries1') as IgcRadialLineSeriesComponent;
         var radialLineSeries2 = this.radialLineSeries2 = document.getElementById('RadialLineSeries2') as IgcRadialLineSeriesComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             chart.legend = this.legend
@@ -42,6 +44,7 @@ export class Sample {
             radialLineSeries2.valueAxis = this.radiusAxis
         }
         this._bind();
+
     }
 
     private _footballPlayerStats: FootballPlayerStats = null;
@@ -53,7 +56,6 @@ export class Sample {
         return this._footballPlayerStats;
     }
     
-
 
 
 }

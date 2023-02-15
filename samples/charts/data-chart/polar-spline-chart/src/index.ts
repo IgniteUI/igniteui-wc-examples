@@ -1,6 +1,5 @@
-import { IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDataChartPolarCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcNumericAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcPolarSplineSeriesComponent } from 'igniteui-webcomponents-charts';
-import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
+import { IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDataChartPolarCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcNumericAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcPolarSplineSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -8,7 +7,8 @@ ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartPolarModule,
     IgcDataChartPolarCoreModule,
-    IgcDataChartInteractivityModule
+    IgcDataChartInteractivityModule,
+    IgcDataChartAnnotationModule
 );
 
 export class Sample {
@@ -18,7 +18,7 @@ export class Sample {
     private radiusAxis: IgcNumericRadiusAxisComponent
     private polarSplineSeries1: IgcPolarSplineSeriesComponent
     private polarSplineSeries2: IgcPolarSplineSeriesComponent
-
+    private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -27,6 +27,7 @@ export class Sample {
         var radiusAxis = this.radiusAxis = document.getElementById('radiusAxis') as IgcNumericRadiusAxisComponent;
         var polarSplineSeries1 = this.polarSplineSeries1 = document.getElementById('PolarSplineSeries1') as IgcPolarSplineSeriesComponent;
         var polarSplineSeries2 = this.polarSplineSeries2 = document.getElementById('PolarSplineSeries2') as IgcPolarSplineSeriesComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             polarSplineSeries1.angleAxis = this.angleAxis
@@ -37,17 +38,8 @@ export class Sample {
             polarSplineSeries2.radiusAxis = this.radiusAxis
         }
         this._bind();
-    }
 
-    private _boatSailingData: BoatSailingData = null;
-    public get boatSailingData(): BoatSailingData {
-        if (this._boatSailingData == null)
-        {
-            this._boatSailingData = new BoatSailingData();
-        }
-        return this._boatSailingData;
     }
-    
 
 
 

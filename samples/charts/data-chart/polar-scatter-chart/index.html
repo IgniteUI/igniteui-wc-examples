@@ -50,7 +50,7 @@
             angle-member-path="direction"
             radius-member-path="windSpeed"
             marker-type="Circle"
-            show-default-tooltip="true"
+            show-default-tooltip="false"
             title="Wind Speed"
             name="PolarScatterSeries1"
             id ="PolarScatterSeries1">
@@ -59,12 +59,16 @@
             
             angle-member-path="direction"
             radius-member-path="boatSpeed"
-            show-default-tooltip="true"
+            show-default-tooltip="false"
             title="Boat Speed"
             marker-type="Circle"
             name="PolarScatterSeries2"
             id ="PolarScatterSeries2">
             </igc-polar-scatter-series>
+            <igc-data-tool-tip-layer
+            name="DataToolTipLayer"
+            id ="DataToolTipLayer">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>

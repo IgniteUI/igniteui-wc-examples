@@ -52,7 +52,7 @@
             marker-type="Circle"
             thickness="1"
             area-fill-opacity="0.8"
-            show-default-tooltip="true"
+            show-default-tooltip="false"
             title="Wind Speed"
             name="PolarSplineAreaSeries1"
             id ="PolarSplineAreaSeries1">
@@ -61,7 +61,7 @@
             
             angle-member-path="direction"
             radius-member-path="boatSpeed"
-            show-default-tooltip="true"
+            show-default-tooltip="false"
             area-fill-opacity="0.8"
             thickness="1"
             title="Boat Speed"
@@ -69,6 +69,10 @@
             name="PolarSplineAreaSeries2"
             id ="PolarSplineAreaSeries2">
             </igc-polar-spline-area-series>
+            <igc-data-tool-tip-layer
+            name="DataToolTipLayer"
+            id ="DataToolTipLayer">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>

@@ -1,12 +1,14 @@
-import { IgcDataChartCoreModule, IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcRangeAreaSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcRangeAreaSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { TemperatureRangeDataItem, TemperatureRangeData } from './TemperatureRangeData';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
     IgcDataChartCoreModule,
-    IgcDataChartCategoryModule
+    IgcDataChartCategoryModule,
+    IgcDataChartInteractivityModule,
+    IgcDataChartAnnotationModule
 );
 
 export class Sample {
@@ -16,7 +18,7 @@ export class Sample {
     private yAxis: IgcNumericYAxisComponent
     private rangeAreaSeries1: IgcRangeAreaSeriesComponent
     private rangeAreaSeries2: IgcRangeAreaSeriesComponent
-
+    private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -25,6 +27,7 @@ export class Sample {
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
         var rangeAreaSeries1 = this.rangeAreaSeries1 = document.getElementById('RangeAreaSeries1') as IgcRangeAreaSeriesComponent;
         var rangeAreaSeries2 = this.rangeAreaSeries2 = document.getElementById('RangeAreaSeries2') as IgcRangeAreaSeriesComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             xAxis.dataSource = this.temperatureRangeData
@@ -36,6 +39,7 @@ export class Sample {
             rangeAreaSeries2.dataSource = this.temperatureRangeData
         }
         this._bind();
+
     }
 
     private _temperatureRangeData: TemperatureRangeData = null;
@@ -47,7 +51,6 @@ export class Sample {
         return this._temperatureRangeData;
     }
     
-
 
 
 }
