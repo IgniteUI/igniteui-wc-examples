@@ -95,11 +95,11 @@ stages:
           rootFolderOrFile: '$(Build.SourcesDirectory)/browser/dist'
           includeRootFolder: false
           archiveType: 'zip'
-          archiveFile: '$(Build.ArtifactStagingDirectory)/ReactSamples.zip'
+          archiveFile: '$(Build.ArtifactStagingDirectory)/WebComponentsSamples.zip'
           replaceExistingArchive: true
 
       - task: PublishPipelineArtifact@1
         displayName: 'Publish pipeline artifact'
         inputs:
-          targetPath: '$(Build.ArtifactStagingDirectory)/ReactSamples.zip'
-          artifact: 'ReactSamplesBrowser'
+          targetPath: '$(Build.ArtifactStagingDirectory)/WebComponentsSamples.zip'
+          artifact: 'WebComponentsSamplesBrowser'
