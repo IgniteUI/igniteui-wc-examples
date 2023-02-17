@@ -43,9 +43,9 @@ export class MapDisplayImageryEsriTiles {
     createMap2(map: IgcGeographicMapComponent) {
         map.zoomable = true;
         const tileSource = new IgcArcGISOnlineMapImagery();
-        tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldOceansMap);
+        tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldOceansBaseMap);
         // or
-        // tileSource.mapServerUri = 'https://services.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer';
+        // tileSource.mapServerUri = 'https://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer';
         map.backgroundContent = tileSource;
 
         MapUtils.navigateTo(map, MapRegion.Caribbean);
