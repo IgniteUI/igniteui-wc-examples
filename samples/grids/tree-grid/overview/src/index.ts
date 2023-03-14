@@ -36,7 +36,6 @@ export class Sample {
         }
         return this._employeesNestedData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
