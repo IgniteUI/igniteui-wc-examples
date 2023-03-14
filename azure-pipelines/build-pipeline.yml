@@ -44,7 +44,7 @@ stages:
           customEndpoint: 'public proget'
 
       - task: Npm@1
-        displayName: 'npm ci'
+        displayName: 'npm ci --legacy-peer-deps'
         inputs:
           command: custom
           workingDir: '$(Build.SourcesDirectory)'
