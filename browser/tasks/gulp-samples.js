@@ -27,11 +27,22 @@ function log(msg) {
 }
 log('loaded');
 
-// NOTE you can comment out strings in this array to run subset of samples
+// NOTE you can comment out paths in this array to run subset of samples
 var sampleSources = [
-    // igConfig.SamplesCopyPath + '/maps/**/display-heat-imagery/package.json',
-    // igConfig.SamplesCopyPath + '/maps/geo-map/binding-shp-points/package.json',
+    // including one sample for each component:
+    // igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',
+    // igConfig.SamplesCopyPath + '/charts/pie-chart/overview/package.json',
+    // igConfig.SamplesCopyPath + '/gauges/radial-gauge/labels/package.json',
+    // igConfig.SamplesCopyPath + '/grids/list/overview/package.json',
+    // igConfig.SamplesCopyPath + '/layouts/card/overview/package.json',
+    // igConfig.SamplesCopyPath + '/scheduling/calendar/overview/package.json',
+    // igConfig.SamplesCopyPath + '/menus/nav-bar/overview/package.json',
+    // igConfig.SamplesCopyPath + '/inputs/button/overview/package.json',
+    // igConfig.SamplesCopyPath + '/editors/date-picker/overview/package.json',
+    // igConfig.SamplesCopyPath + '/notifications/toast/overview/package.json',
+    // igConfig.SamplesCopyPath + '/excel/excel-library/overview/package.json',
 
+    // including all samples for all components:
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
