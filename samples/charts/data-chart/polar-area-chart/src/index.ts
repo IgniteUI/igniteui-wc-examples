@@ -38,9 +38,9 @@ export class Sample {
             polarAreaSeries1.angleAxis = this.angleAxis
             polarAreaSeries1.radiusAxis = this.radiusAxis
             polarAreaSeries1.dataSource = this.boatSailingData
-            polarAreaSeries2.dataSource = this.boatSailingData
             polarAreaSeries2.angleAxis = this.angleAxis
             polarAreaSeries2.radiusAxis = this.radiusAxis
+            polarAreaSeries2.dataSource = this.boatSailingData
         }
         this._bind();
 
@@ -54,8 +54,6 @@ export class Sample {
         }
         return this._boatSailingData;
     }
-    
-
 
 }
 

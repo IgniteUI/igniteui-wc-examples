@@ -25,7 +25,6 @@ export class Sample {
     private xAxis: IgcCategoryXAxisComponent
     private yAxis: IgcNumericYAxisComponent
     private colSeries1: IgcColumnSeriesComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -46,6 +45,7 @@ export class Sample {
             colSeries1.dataSource = this.temperatureAverageDataLongLabels
         }
         this._bind();
+
     }
 
     private _temperatureAverageDataLongLabels: TemperatureAverageDataLongLabels = null;
@@ -56,7 +56,6 @@ export class Sample {
         }
         return this._temperatureAverageDataLongLabels;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -69,7 +68,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 
 }
 

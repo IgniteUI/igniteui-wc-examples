@@ -18,8 +18,8 @@ export class Sample {
     private chart: IgcDataChartComponent
     private xAxis: IgcCategoryXAxisComponent
     private yAxis: IgcNumericYAxisComponent
-    private series1: IgcRangeColumnSeriesComponent
-    private series2: IgcRangeColumnSeriesComponent
+    private rangeColumnSeries1: IgcRangeColumnSeriesComponent
+    private rangeColumnSeries2: IgcRangeColumnSeriesComponent
     private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
@@ -28,19 +28,19 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
-        var series1 = this.series1 = document.getElementById('series1') as IgcRangeColumnSeriesComponent;
-        var series2 = this.series2 = document.getElementById('series2') as IgcRangeColumnSeriesComponent;
+        var rangeColumnSeries1 = this.rangeColumnSeries1 = document.getElementById('RangeColumnSeries1') as IgcRangeColumnSeriesComponent;
+        var rangeColumnSeries2 = this.rangeColumnSeries2 = document.getElementById('RangeColumnSeries2') as IgcRangeColumnSeriesComponent;
         var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             chart.legend = this.legend
             xAxis.dataSource = this.temperatureRangeData
-            series1.xAxis = this.xAxis
-            series1.yAxis = this.yAxis
-            series1.dataSource = this.temperatureRangeData
-            series2.xAxis = this.xAxis
-            series2.yAxis = this.yAxis
-            series2.dataSource = this.temperatureRangeData
+            rangeColumnSeries1.xAxis = this.xAxis
+            rangeColumnSeries1.yAxis = this.yAxis
+            rangeColumnSeries1.dataSource = this.temperatureRangeData
+            rangeColumnSeries2.xAxis = this.xAxis
+            rangeColumnSeries2.yAxis = this.yAxis
+            rangeColumnSeries2.dataSource = this.temperatureRangeData
         }
         this._bind();
 
@@ -54,8 +54,6 @@ export class Sample {
         }
         return this._temperatureRangeData;
     }
-    
-
 
 }
 

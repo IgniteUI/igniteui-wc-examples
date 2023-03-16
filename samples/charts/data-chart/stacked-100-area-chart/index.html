@@ -17,11 +17,11 @@
     <div id="root">
 
 <div class="container sample">
-    
+
         <div class="legend-title">
         Annual Birth Rates by World Region
     </div>
-    
+
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -29,7 +29,7 @@
         id ="Legend">
         </igc-legend>
     </div>
-    
+
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="false"
@@ -37,7 +37,7 @@
         name="chart"
         id ="chart">
             <igc-category-x-axis
-            
+
             label="year"
             name="xAxis"
             id ="xAxis">
@@ -51,7 +51,7 @@
             id ="yAxis">
             </igc-numeric-y-axis>
             <igc-stacked-100-area-series
-            
+
             marker-type="Circle"
             show-default-tooltip="false"
             name="Stacked100AreaSeries"
@@ -65,26 +65,26 @@
                 <igc-stacked-fragment-series
                 name="s2"
                 id ="s2"
-                value-member-path="africa"
-                title="Africa">
+                title="Africa"
+                value-member-path="africa">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s3"
                 id ="s3"
-                value-member-path="europe"
-                title="Europe">
+                title="Europe"
+                value-member-path="europe">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s4"
                 id ="s4"
-                value-member-path="northAmerica"
-                title="North America">
+                title="North America"
+                value-member-path="northAmerica">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s5"
                 id ="s5"
-                value-member-path="southAmerica"
-                title="South America">
+                title="South America"
+                value-member-path="southAmerica">
                 </igc-stacked-fragment-series>
             </igc-stacked-100-area-series>
             <igc-data-tool-tip-layer

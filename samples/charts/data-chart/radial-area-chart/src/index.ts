@@ -1,5 +1,6 @@
 import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartRadialModule, IgcDataChartRadialCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcRadialAreaSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { FootballPlayerStatsItem, FootballPlayerStats } from './FootballPlayerStats';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -46,7 +47,14 @@ export class Sample {
 
     }
 
-
+    private _footballPlayerStats: FootballPlayerStats = null;
+    public get footballPlayerStats(): FootballPlayerStats {
+        if (this._footballPlayerStats == null)
+        {
+            this._footballPlayerStats = new FootballPlayerStats();
+        }
+        return this._footballPlayerStats;
+    }
 
 }
 

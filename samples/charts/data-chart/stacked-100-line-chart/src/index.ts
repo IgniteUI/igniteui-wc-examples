@@ -62,8 +62,6 @@ export class Sample {
         }
         return this._continentsBirthRate;
     }
-    
-
 
 }
 

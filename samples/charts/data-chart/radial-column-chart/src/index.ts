@@ -39,9 +39,9 @@ export class Sample {
             radialColumnSeries1.angleAxis = this.angleAxis
             radialColumnSeries1.valueAxis = this.radiusAxis
             radialColumnSeries1.dataSource = this.footballPlayerStats
-            radialColumnSeries2.valueAxis = this.radiusAxis
             radialColumnSeries2.dataSource = this.footballPlayerStats
             radialColumnSeries2.angleAxis = this.angleAxis
+            radialColumnSeries2.valueAxis = this.radiusAxis
         }
         this._bind();
 
@@ -55,8 +55,6 @@ export class Sample {
         }
         return this._footballPlayerStats;
     }
-    
-
 
 }
 

@@ -50,8 +50,6 @@ export class Sample {
         }
         return this._boatSailingData;
     }
-    
-
 
 }
 

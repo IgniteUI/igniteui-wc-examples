@@ -1,6 +1,7 @@
-import { BoatSailingData } from './BoatSailingData';
 import { IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDataChartPolarCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcNumericAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcPolarSplineSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
+
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(

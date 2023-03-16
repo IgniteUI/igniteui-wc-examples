@@ -18,7 +18,6 @@ export class Sample {
     private categoryHighlightLayer: IgcCategoryHighlightLayerComponent
     private columnSeries1: IgcColumnSeriesComponent
     private tooltips: IgcDataToolTipLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -36,6 +35,7 @@ export class Sample {
             columnSeries1.dataSource = this.temperatureAverageData
         }
         this._bind();
+
     }
 
     private _temperatureAverageData: TemperatureAverageData = null;
@@ -46,9 +46,6 @@ export class Sample {
         }
         return this._temperatureAverageData;
     }
-    
-
-
 
 }
 

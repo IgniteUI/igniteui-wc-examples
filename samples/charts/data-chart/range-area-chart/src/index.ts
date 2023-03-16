@@ -1,5 +1,5 @@
-import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcRangeAreaSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcLegendModule } from 'igniteui-webcomponents-charts';
+import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcRangeAreaSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { TemperatureRangeDataItem, TemperatureRangeData } from './TemperatureRangeData';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -8,11 +8,13 @@ ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule,
     IgcDataChartInteractivityModule,
-    IgcDataChartAnnotationModule
+    IgcDataChartAnnotationModule,
+    IgcLegendModule
 );
 
 export class Sample {
 
+    private legend: IgcLegendComponent
     private chart: IgcDataChartComponent
     private xAxis: IgcCategoryXAxisComponent
     private yAxis: IgcNumericYAxisComponent
@@ -22,6 +24,7 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
+        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
@@ -30,6 +33,7 @@ export class Sample {
         var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
+            chart.legend = this.legend
             xAxis.dataSource = this.temperatureRangeData
             rangeAreaSeries1.xAxis = this.xAxis
             rangeAreaSeries1.yAxis = this.yAxis
@@ -50,8 +54,6 @@ export class Sample {
         }
         return this._temperatureRangeData;
     }
-    
-
 
 }
 
