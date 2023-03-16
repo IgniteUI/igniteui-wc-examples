@@ -17,11 +17,11 @@
     <div id="root">
 
 <div class="container sample">
-    
+
         <div class="legend-title">
         Highest Grossing Movie Franchises
     </div>
-    
+
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -29,14 +29,14 @@
         id ="Legend">
         </igc-legend>
     </div>
-    
+
     <div class="container fill">
         <igc-data-chart
-        
+
         name="Chart"
         id ="Chart">
             <igc-category-y-axis
-            
+
             gap="0.5"
             overlap="-0.1"
             is-inverted="true"
@@ -56,7 +56,7 @@
             id ="CategoryHighlightLayer">
             </igc-category-highlight-layer>
             <igc-bar-series
-            
+
             value-member-path="totalRevenue"
             is-transition-in-enabled="true"
             is-highlighting-enabled="true"
@@ -66,12 +66,12 @@
             id ="BarSeries1">
             </igc-bar-series>
             <igc-bar-series
-            
-            title="Highest Grossing Movie in Series"
+
             value-member-path="highestGrossing"
-            show-default-tooltip="true"
             is-transition-in-enabled="true"
             is-highlighting-enabled="true"
+            show-default-tooltip="true"
+            title="Highest Grossing Movie in Series"
             name="BarSeries2"
             id ="BarSeries2">
             </igc-bar-series>

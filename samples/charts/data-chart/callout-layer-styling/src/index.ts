@@ -20,7 +20,6 @@ export class Sample {
     private yAxis: IgcNumericYAxisComponent
     private lineSeries1: IgcLineSeriesComponent
     private calloutLayer1: IgcCalloutLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -38,6 +37,7 @@ export class Sample {
             calloutLayer1.dataSource = this.countryRenewableCallouts
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;
@@ -48,7 +48,7 @@ export class Sample {
         }
         return this._countryRenewableElectricity;
     }
-    
+
     private _countryRenewableCallouts: CountryRenewableCallouts = null;
     public get countryRenewableCallouts(): CountryRenewableCallouts {
         if (this._countryRenewableCallouts == null)
@@ -57,9 +57,6 @@ export class Sample {
         }
         return this._countryRenewableCallouts;
     }
-    
-
-
 
 }
 

@@ -17,11 +17,11 @@
     <div id="root">
 
 <div class="container sample">
-    
+
         <div class="legend-title">
         Monthly Temperature Range in LA and NYC
     </div>
-    
+
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -29,7 +29,7 @@
         id ="Legend">
         </igc-legend>
     </div>
-    
+
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="false"
@@ -50,21 +50,27 @@
             id ="yAxis">
             </igc-numeric-y-axis>
             <igc-range-column-series
-            
+
             low-member-path="lowLA"
             high-member-path="highLA"
+            show-default-tooltip="false"
             title="Los Angeles"
-            name="series1"
-            id ="series1">
+            name="RangeColumnSeries1"
+            id ="RangeColumnSeries1">
             </igc-range-column-series>
             <igc-range-column-series
-            
-            title="New York City"
+
+            title="New York"
             low-member-path="lowNY"
             high-member-path="highNY"
-            name="series2"
-            id ="series2">
+            show-default-tooltip="false"
+            name="RangeColumnSeries2"
+            id ="RangeColumnSeries2">
             </igc-range-column-series>
+            <igc-data-tool-tip-layer
+            name="DataToolTipLayer"
+            id ="DataToolTipLayer">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>

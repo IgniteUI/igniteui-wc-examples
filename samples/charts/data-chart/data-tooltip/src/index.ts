@@ -25,7 +25,6 @@ export class Sample {
     private bubbleSeries2: IgcBubbleSeriesComponent
     private sizeScale2: IgcSizeScaleComponent
     private dataToolTipLayer: IgcDataToolTipLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -47,6 +46,7 @@ export class Sample {
             bubbleSeries2.dataSource = this.countryDemographicEurope
         }
         this._bind();
+
     }
 
     private _countryDemographicAfrican: CountryDemographicAfrican = null;
@@ -57,7 +57,7 @@ export class Sample {
         }
         return this._countryDemographicAfrican;
     }
-    
+
     private _countryDemographicEurope: CountryDemographicEurope = null;
     public get countryDemographicEurope(): CountryDemographicEurope {
         if (this._countryDemographicEurope == null)
@@ -66,9 +66,6 @@ export class Sample {
         }
         return this._countryDemographicEurope;
     }
-    
-
-
 
 }
 

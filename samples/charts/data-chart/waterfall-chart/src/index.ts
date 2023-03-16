@@ -16,7 +16,6 @@ export class Sample {
     private yAxis: IgcNumericYAxisComponent
     private waterfallSeries1: IgcWaterfallSeriesComponent
     private waterfallSeries2: IgcWaterfallSeriesComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -36,6 +35,7 @@ export class Sample {
             waterfallSeries2.dataSource = this.companyIncomeData
         }
         this._bind();
+
     }
 
     private _companyIncomeData: CompanyIncomeData = null;
@@ -46,9 +46,6 @@ export class Sample {
         }
         return this._companyIncomeData;
     }
-    
-
-
 
 }
 

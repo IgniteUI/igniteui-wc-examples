@@ -26,7 +26,6 @@ export class Sample {
     private yAxis: IgcNumericYAxisComponent
     private waterfallSeries1: IgcWaterfallSeriesComponent
     private waterfallSeries2: IgcWaterfallSeriesComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -52,6 +51,7 @@ export class Sample {
             waterfallSeries2.dataSource = this.companyIncomeData
         }
         this._bind();
+
     }
 
     private _companyIncomeData: CompanyIncomeData = null;
@@ -62,7 +62,6 @@ export class Sample {
         }
         return this._companyIncomeData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -76,14 +75,12 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public editorButtonReplayTransitionIn(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         var series = this.chart.actualSeries;
         for (var i = 0; i < series.length; i++) {
             series[i].replayTransitionIn();
         }
     }
-        
 
 }
 

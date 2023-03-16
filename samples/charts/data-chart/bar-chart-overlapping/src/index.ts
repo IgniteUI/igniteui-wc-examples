@@ -28,7 +28,6 @@ export class Sample {
     private calloutLayer1: IgcCalloutLayerComponent
     private calloutLayer2: IgcCalloutLayerComponent
     private tooltips: IgcDataToolTipLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -58,6 +57,7 @@ export class Sample {
             calloutLayer2.dataSource = this.roadblocksToSuccess
         }
         this._bind();
+
     }
 
     private _roadblocksToSuccess: RoadblocksToSuccess = null;
@@ -68,9 +68,6 @@ export class Sample {
         }
         return this._roadblocksToSuccess;
     }
-    
-
-
 
 }
 

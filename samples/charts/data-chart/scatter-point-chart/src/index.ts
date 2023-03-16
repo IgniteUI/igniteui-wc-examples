@@ -1,4 +1,4 @@
-import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
+import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcScatterSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
@@ -11,7 +11,7 @@ ModuleManager.register(
     IgcDataChartScatterModule,
     IgcDataChartScatterCoreModule,
     IgcDataChartInteractivityModule,
-    IgcDataChartInteractivityModule
+    IgcDataChartAnnotationModule
 );
 
 export class Sample {
@@ -22,7 +22,6 @@ export class Sample {
     private yAxis: IgcNumericYAxisComponent
     private scatterSeries1: IgcScatterSeriesComponent
     private scatterSeries2: IgcScatterSeriesComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -43,6 +42,7 @@ export class Sample {
             scatterSeries2.dataSource = this.countryDemographicAfrican
         }
         this._bind();
+
     }
 
     private _countryDemographicEurope: CountryDemographicEurope = null;
@@ -53,7 +53,7 @@ export class Sample {
         }
         return this._countryDemographicEurope;
     }
-    
+
     private _countryDemographicAfrican: CountryDemographicAfrican = null;
     public get countryDemographicAfrican(): CountryDemographicAfrican {
         if (this._countryDemographicAfrican == null)
@@ -62,9 +62,6 @@ export class Sample {
         }
         return this._countryDemographicAfrican;
     }
-    
-
-
 
 }
 

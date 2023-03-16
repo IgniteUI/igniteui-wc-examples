@@ -24,7 +24,6 @@ export class Sample {
     private barSeries1: IgcBarSeriesComponent
     private calloutLayer1: IgcCalloutLayerComponent
     private tooltips: IgcDataToolTipLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -44,6 +43,7 @@ export class Sample {
             calloutLayer1.dataSource = this.onlineShoppingSearches
         }
         this._bind();
+
     }
 
     private _onlineShoppingSearches: OnlineShoppingSearches = null;
@@ -54,9 +54,6 @@ export class Sample {
         }
         return this._onlineShoppingSearches;
     }
-    
-
-
 
 }
 

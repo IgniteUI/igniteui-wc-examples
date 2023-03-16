@@ -1,4 +1,4 @@
-import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
+import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcStackedAreaSeriesComponent, IgcStackedFragmentSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 
@@ -10,6 +10,7 @@ ModuleManager.register(
     IgcDataChartCategoryModule,
     IgcDataChartCategoryCoreModule,
     IgcDataChartInteractivityModule,
+    IgcDataChartAnnotationModule,
     IgcDataChartStackedModule,
     IgcStackedFragmentSeriesModule
 );
@@ -61,8 +62,6 @@ export class Sample {
         }
         return this._continentsBirthRate;
     }
-    
-
 
 }
 
