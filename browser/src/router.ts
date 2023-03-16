@@ -31,11 +31,15 @@ export class Router {
 
         let pathName = window.location.pathname;
 
-        console.log("SB connect " + pathName);
-        await this.navigateToRoute(pathName);
+        if (pathName.indexOf("/assets/") > 0 || pathName.indexOf("/code-viewer/") > 0) {
+            console.log("SB asset " + pathName);
+        } else {
+            console.log("SB connect " + pathName);
+            await this.navigateToRoute(pathName);
 
-        window.onpopstate = () => {
-            this.navigateToRoute(window.location.pathname);
+            window.onpopstate = () => {
+                this.navigateToRoute(window.location.pathname);
+            }
         }
     }
 
