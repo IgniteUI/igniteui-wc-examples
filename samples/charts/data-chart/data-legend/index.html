@@ -17,19 +17,19 @@
     <div id="root">
 
 <div class="container sample">
-    
+
         <div class="legend-title">
         Total Population of Selected Countries
     </div>
-    
+
     <div class="legend">
         <igc-data-legend
-        
+
         name="Legend"
         id ="Legend">
         </igc-data-legend>
     </div>
-    
+
     <div class="container fill">
         <igc-data-chart
         name="chart"
@@ -52,11 +52,11 @@
             </igc-numeric-y-axis>
             <igc-bubble-series
             radius-member-path="population"
-            radius-member-as-legend-label="Population:"
+            radius-member-as-legend-label="Population: "
             x-member-path="deathRate"
             y-member-path="birthRate"
-            x-member-as-legend-label="Death Rate:"
-            y-member-as-legend-label="Birth Rate:"
+            x-member-as-legend-label="Death Rate: "
+            y-member-as-legend-label="Birth Rate: "
             title="Africa"
             name="BubbleSeries1"
             id ="BubbleSeries1">
@@ -68,14 +68,14 @@
                 </igc-size-scale>
             </igc-bubble-series>
             <igc-bubble-series
-            
+
             x-member-path="deathRate"
             y-member-path="birthRate"
             radius-member-path="population"
             title="Europe"
-            radius-member-as-legend-label="Population:"
-            x-member-as-legend-label="Death Rate:"
-            y-member-as-legend-label="Birth Rate:"
+            radius-member-as-legend-label="Population: "
+            x-member-as-legend-label="Death Rate: "
+            y-member-as-legend-label="Birth Rate: "
             name="BubbleSeries2"
             id ="BubbleSeries2">
                 <igc-size-scale

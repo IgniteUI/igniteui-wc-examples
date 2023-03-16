@@ -24,7 +24,6 @@ export class Sample {
     private barSeries1: IgcBarSeriesComponent
     private barSeries2: IgcBarSeriesComponent
     private tooltips: IgcDataToolTipLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -48,6 +47,7 @@ export class Sample {
             barSeries2.dataSource = this.highestGrossingMovies
         }
         this._bind();
+
     }
 
     private _highestGrossingMovies: HighestGrossingMovies = null;
@@ -58,9 +58,6 @@ export class Sample {
         }
         return this._highestGrossingMovies;
     }
-    
-
-
 
 }
 

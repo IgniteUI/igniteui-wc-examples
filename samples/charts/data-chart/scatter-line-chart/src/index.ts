@@ -1,4 +1,4 @@
-import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
+import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcScatterLineSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { HealthDataForGermanyItem, HealthDataForGermany } from './HealthDataForGermany';
 import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFrance';
@@ -12,7 +12,7 @@ ModuleManager.register(
     IgcDataChartScatterModule,
     IgcDataChartScatterCoreModule,
     IgcDataChartInteractivityModule,
-    IgcDataChartInteractivityModule
+    IgcDataChartAnnotationModule
 );
 
 export class Sample {
@@ -56,7 +56,7 @@ export class Sample {
         }
         return this._healthDataForGermany;
     }
-    
+
     private _healthDataForFrance: HealthDataForFrance = null;
     public get healthDataForFrance(): HealthDataForFrance {
         if (this._healthDataForFrance == null)
@@ -65,8 +65,6 @@ export class Sample {
         }
         return this._healthDataForFrance;
     }
-    
-
 
 }
 

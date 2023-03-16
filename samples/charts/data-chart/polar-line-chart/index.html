@@ -17,11 +17,11 @@
     <div id="root">
 
 <div class="container sample">
-    
+
         <div class="legend-title">
         Wind Speed vs Boat Speed
     </div>
-    
+
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -29,7 +29,7 @@
         id ="Legend">
         </igc-legend>
     </div>
-    
+
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="false"
@@ -58,22 +58,26 @@
             radius-member-path="windSpeed"
             marker-type="Circle"
             thickness="1"
-            show-default-tooltip="true"
+            show-default-tooltip="false"
             title="Wind Speed"
             name="PolarLineSeries1"
             id ="PolarLineSeries1">
             </igc-polar-line-series>
             <igc-polar-line-series
-            
+
             angle-member-path="direction"
             radius-member-path="boatSpeed"
-            show-default-tooltip="true"
+            show-default-tooltip="false"
             thickness="1"
             title="Boat Speed"
             marker-type="Circle"
             name="PolarLineSeries2"
             id ="PolarLineSeries2">
             </igc-polar-line-series>
+            <igc-data-tool-tip-layer
+            name="DataToolTipLayer"
+            id ="DataToolTipLayer">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>

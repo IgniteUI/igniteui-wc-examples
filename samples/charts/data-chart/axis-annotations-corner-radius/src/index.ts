@@ -23,7 +23,6 @@ export class Sample {
     private finalValueLayer: IgcFinalValueLayerComponent
     private crosshairLayer: IgcCrosshairLayerComponent
     private tooltips: IgcDataToolTipLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -44,6 +43,7 @@ export class Sample {
             calloutLayer1.dataSource = this.countryRenewableCallouts
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;
@@ -54,7 +54,7 @@ export class Sample {
         }
         return this._countryRenewableElectricity;
     }
-    
+
     private _countryRenewableCallouts: CountryRenewableCallouts = null;
     public get countryRenewableCallouts(): CountryRenewableCallouts {
         if (this._countryRenewableCallouts == null)
@@ -63,9 +63,6 @@ export class Sample {
         }
         return this._countryRenewableCallouts;
     }
-    
-
-
 
 }
 

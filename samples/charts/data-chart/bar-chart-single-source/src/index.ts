@@ -21,7 +21,6 @@ export class Sample {
     private categoryHighlightLayer: IgcCategoryHighlightLayerComponent
     private barSeries1: IgcBarSeriesComponent
     private tooltips: IgcDataToolTipLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -39,6 +38,7 @@ export class Sample {
             barSeries1.dataSource = this.onlineShoppingSearches
         }
         this._bind();
+
     }
 
     private _onlineShoppingSearches: OnlineShoppingSearches = null;
@@ -49,9 +49,6 @@ export class Sample {
         }
         return this._onlineShoppingSearches;
     }
-    
-
-
 
 }
 
