@@ -26,7 +26,7 @@ export class Sample {
             pivotDimension2.enabled = true;
             
             pivotConfiguration1.rows.push(pivotDimension2);
-            var pivotDateDimension1 = new IgcPivotDateDimension();
+            var pivotDateDimension1 = new IgcPivotDateDimension(null, null);
             pivotDateDimension1.enabled = true;
             pivotDateDimension1.memberName = "Date";
             var pivotDimension3: IgcPivotDimension = {} as IgcPivotDimension;

@@ -4,7 +4,6 @@ import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private treeGrid: IgcTreeGridComponent
@@ -28,8 +27,6 @@ export class Sample {
         }
         return this._employeesFlatData;
     }
-    
-
 
 }
 

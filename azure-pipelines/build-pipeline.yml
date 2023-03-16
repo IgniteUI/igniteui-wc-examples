@@ -44,12 +44,12 @@ stages:
           customEndpoint: 'public proget'
 
       - task: Npm@1
-        displayName: 'npm ci'
+        displayName: 'npm ci --legacy-peer-deps'
         inputs:
           command: custom
           workingDir: '$(Build.SourcesDirectory)'
           verbose: ${{ parameters.isVerbose }}
-          customCommand: ci
+          customCommand: ci --legacy-peer-deps
       
       - task: PowerShell@2
         displayName: 'Uninstall all IG trial packages & re-install their licensed variations'
