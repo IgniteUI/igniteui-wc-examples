@@ -15,27 +15,22 @@
   <body>
     <div id="root">
 
-<div class="container sample" style="background: white">
+<div class="container sample" >
     <igc-geographic-map id="geoMap" width="100%" height="100%" >
         <igc-geographic-shape-series
             id="polygonSeries"
             shape-memberPath="points"
-            shape-fill="rgb(150, 150, 150)"
+            shape-fill="rgba(146, 146, 146, 0.4)"
             shape-stroke="Black"
             shape-stroke-thickness="1.0">
         </igc-geographic-shape-series>
-        <igc-geographic-polyline-series
-            id="lineSeries"
-            shape-member-path="points"
-            shape-stroke="rgba(147, 15, 180, 0.5)"
-            thickness="3.0" >
-        </igc-geographic-polyline-series>
         <igc-geographic-symbol-series
             id="symbolSeries"
             longitude-member-path="longitude"
             latitude-member-path="latitude"
+            marker-thickness="1"
             marker-type="Circle"
-            marker-outline="rgb(2, 102, 196)"
+            marker-outline="rgba(135, 5, 255, 1.0)"
             marker-brush="White">
         </igc-geographic-symbol-series>
     </igc-geographic-map>

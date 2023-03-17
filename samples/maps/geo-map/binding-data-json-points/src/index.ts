@@ -17,8 +17,6 @@ export class MapBindingDataJsonPoints {
     constructor() {
 
         const url = 'https://static.infragistics.com/xplatform/data/WorldCities.json';
-        // console.log('SB loading ' + url);
-
         fetch(url)
             .then((response) => response.json())
             .then(data => this.onDataLoaded(data));
@@ -26,28 +24,23 @@ export class MapBindingDataJsonPoints {
 
     public onDataLoaded(jsonData: any[]) {
         const geoLocations: any[] = [];
-        for (const jsonItem of jsonData) {
-            const location = {
-                latitude: jsonItem.lat,
-                longitude: jsonItem.lon,
-                population: jsonItem.pop,
-                city: jsonItem.name,
-                country: jsonItem.country
-            };
-            geoLocations.push(location);
+        for (const item of jsonData) {
+            // using only capital cities
+            if (!item.cap) continue;
+            geoLocations.push(item);
         }
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         let geoSeries: IgcGeographicSymbolSeriesComponent = new IgcGeographicSymbolSeriesComponent();
         geoSeries.dataSource = geoLocations;
+        geoSeries.latitudeMemberPath  = 'lat';
+        geoSeries.longitudeMemberPath = 'lon';
+        geoSeries.markerBrush = 'rgba(255, 255, 255, 1.0)';
+        geoSeries.markerOutline = 'rgba(135, 5, 255, 1.0)';
+        geoSeries.markerThickness = 1;
         geoSeries.markerType = MarkerType.Circle;
-        geoSeries.latitudeMemberPath  = 'latitude';
-        geoSeries.longitudeMemberPath = 'longitude';
-        geoSeries.markerBrush = 'LightGray';
-        geoSeries.markerOutline = 'Black';
 
         this.geoMap.series.add(geoSeries);
-        //geoSeries.tooltipTemplate = this.createTooltip;
     }
 }
 

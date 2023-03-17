@@ -20,8 +20,6 @@ export class MapBindingDataCSV {
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
 
         const url = 'https://static.infragistics.com/xplatform/data/UsaCitiesPopulation.csv';
-        console.log('SB loading ' + url);
-
         fetch(url)
             .then((response) => response.text())
             .then(data => this.onDataLoaded(data));
@@ -37,12 +35,12 @@ export class MapBindingDataCSV {
 
         // parsing CSV data and creating geographic locations
         const geoLocations: any[] = [];
-        for (let i = 1; i < csvLines.length; i++) {
-            const columns = csvLines[i].split(',');
-            const location = {
+        for (let i: number = 1; i < csvLines.length; i++) {
+            const columns: string[] = csvLines[i].split(',');
+            const location: any = {
+                name:  columns[0],
                 latitude:  Number(columns[1]),
                 longitude: Number(columns[2]),
-                name:  columns[0],
                 population: Number(columns[3])
             };
             geoLocations.push(location);
