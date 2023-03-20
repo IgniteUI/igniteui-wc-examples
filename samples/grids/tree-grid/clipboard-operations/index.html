@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+        <div class="options vertical">
+        <igc-property-editor-panel
+        
+        description-type="WebTreeGrid"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="PropertyEditor"
+        id ="PropertyEditor">
+            <igc-property-editor-property-description
+            property-path="ClipboardOptions.Separator"
+            label="Change Copy Separator"
+            value-type="StringValue">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            value-type="Boolean1"
+            label="Grid Copy Behavior"
+            property-path="ClipboardOptions.Enabled"
+            primitive-value="True"
+            name="ClipboardEnabledEditor"
+            id ="ClipboardEnabledEditor">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            value-type="Boolean1"
+            label="Copying of Header Labels"
+            property-path="ClipboardOptions.CopyHeaders"
+            primitive-value="True"
+            name="ClipboardHeadersEditor"
+            id ="ClipboardHeadersEditor">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            value-type="Boolean1"
+            label="Copying Column Formatters"
+            property-path="ClipboardOptions.CopyFormatters"
+            primitive-value="True"
+            name="ClipboardFormattersEditor"
+            id ="ClipboardFormattersEditor">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            value-type="Button"
+            primitive-value="Clear Selection"
+            name="propertyEditorPropertyDescription1"
+            id ="propertyEditorPropertyDescription1">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+    
+    
+    
+    <div class="container fill">
+        <igc-tree-grid
+        auto-generate="false"
+        primary-key="SupplierID"
+        row-editable="true"
+        name="grid"
+        id ="grid">
+            <igc-column
+            field="ProductID">
+            </igc-column>
+            <igc-column
+            field="ProductName">
+            </igc-column>
+            <igc-column
+            field="SupplierID">
+            </igc-column>
+            <igc-column
+            field="CategoryID">
+            </igc-column>
+            <igc-column
+            field="QuantityPerUnit">
+            </igc-column>
+            <igc-column
+            field="UnitPrice">
+            </igc-column>
+            <igc-column
+            field="UnitsInStock">
+            </igc-column>
+        </igc-tree-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

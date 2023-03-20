@@ -2,13 +2,13 @@ export class FoodsDataItem {
     public constructor(init: Partial<FoodsDataItem>) {
         Object.assign(this, init);
     }
-
-    public iD: number;
-    public parentID: number;
-    public name: string;
-    public unitPrice: number;
-    public addedDate: string;
-    public discontinued: boolean;
+    
+    public ID: number;
+    public ParentID: number;
+    public Name: string;
+    public UnitPrice: number;
+    public AddedDate: string;
+    public Discontinued: boolean;
 
 }
 export class FoodsData extends Array<FoodsDataItem> {
@@ -16,210 +16,210 @@ export class FoodsData extends Array<FoodsDataItem> {
         super();
         this.push(new FoodsDataItem(
         {
-            iD: 1,
-            parentID: -1,
-            name: `Foods`,
-            unitPrice: 0,
-            addedDate: `2009-06-19`,
-            discontinued: false
+            ID: 1,
+            ParentID: -1,
+            Name: `Foods`,
+            UnitPrice: 0,
+            AddedDate: `2009-06-19`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 101,
-            parentID: 1,
-            name: `Chef Antons Gumbo Mix`,
-            unitPrice: 21.35,
-            addedDate: `2011-11-11`,
-            discontinued: true
+            ID: 101,
+            ParentID: 1,
+            Name: `Chef Antons Gumbo Mix`,
+            UnitPrice: 21.35,
+            AddedDate: `2011-11-11`,
+            Discontinued: true
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 102,
-            parentID: 1,
-            name: `Grandmas Boysenberry Spread`,
-            unitPrice: 25,
-            addedDate: `2017-12-17`,
-            discontinued: false
+            ID: 102,
+            ParentID: 1,
+            Name: `Grandmas Boysenberry Spread`,
+            UnitPrice: 25,
+            AddedDate: `2017-12-17`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 103,
-            parentID: 1,
-            name: `Uncle Bobs Organic Dried Pears`,
-            unitPrice: 30,
-            addedDate: `2016-07-17`,
-            discontinued: false
+            ID: 103,
+            ParentID: 1,
+            Name: `Uncle Bobs Organic Dried Pears`,
+            UnitPrice: 30,
+            AddedDate: `2016-07-17`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 104,
-            parentID: 1,
-            name: `Mishi Kobe Niku`,
-            unitPrice: 97,
-            addedDate: `2010-02-17`,
-            discontinued: true
+            ID: 104,
+            ParentID: 1,
+            Name: `Mishi Kobe Niku`,
+            UnitPrice: 97,
+            AddedDate: `2010-02-17`,
+            Discontinued: true
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 105,
-            parentID: 1,
-            name: `Queso Cabrales`,
-            unitPrice: 21,
-            addedDate: `2009-11-17`,
-            discontinued: false
+            ID: 105,
+            ParentID: 1,
+            Name: `Queso Cabrales`,
+            UnitPrice: 21,
+            AddedDate: `2009-11-17`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 106,
-            parentID: 1,
-            name: `Queso Manchego La Pastora`,
-            unitPrice: 38,
-            addedDate: `2015-11-17`,
-            discontinued: false
+            ID: 106,
+            ParentID: 1,
+            Name: `Queso Manchego La Pastora`,
+            UnitPrice: 38,
+            AddedDate: `2015-11-17`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 107,
-            parentID: 1,
-            name: `Konbu`,
-            unitPrice: 6,
-            addedDate: `2025-03-17`,
-            discontinued: false
+            ID: 107,
+            ParentID: 1,
+            Name: `Konbu`,
+            UnitPrice: 6,
+            AddedDate: `2025-03-17`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 108,
-            parentID: 1,
-            name: `Tofu`,
-            unitPrice: 23.25,
-            addedDate: `2019-06-17`,
-            discontinued: false
+            ID: 108,
+            ParentID: 1,
+            Name: `Tofu`,
+            UnitPrice: 23.25,
+            AddedDate: `2019-06-17`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 109,
-            parentID: 1,
-            name: `Ikura`,
-            unitPrice: 31,
-            addedDate: `2010-05-17`,
-            discontinued: false
+            ID: 109,
+            ParentID: 1,
+            Name: `Ikura`,
+            UnitPrice: 31,
+            AddedDate: `2010-05-17`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 110,
-            parentID: 1,
-            name: `Pavlova`,
-            unitPrice: 17.45,
-            addedDate: `2018-03-28`,
-            discontinued: false
+            ID: 110,
+            ParentID: 1,
+            Name: `Pavlova`,
+            UnitPrice: 17.45,
+            AddedDate: `2018-03-28`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 111,
-            parentID: 1,
-            name: `Alice Mutton`,
-            unitPrice: 39,
-            addedDate: `2015-08-17`,
-            discontinued: true
+            ID: 111,
+            ParentID: 1,
+            Name: `Alice Mutton`,
+            UnitPrice: 39,
+            AddedDate: `2015-08-17`,
+            Discontinued: true
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 112,
-            parentID: 1,
-            name: `Carnarvon Tigers`,
-            unitPrice: 62.5,
-            addedDate: `2015-09-27`,
-            discontinued: false
+            ID: 112,
+            ParentID: 1,
+            Name: `Carnarvon Tigers`,
+            UnitPrice: 62.5,
+            AddedDate: `2015-09-27`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 113,
-            parentID: 1,
-            name: `Teatime Chocolate Biscuits`,
-            unitPrice: 9.2,
-            addedDate: `2011-03-17`,
-            discontinued: false
+            ID: 113,
+            ParentID: 1,
+            Name: `Teatime Chocolate Biscuits`,
+            UnitPrice: 9.2,
+            AddedDate: `2011-03-17`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 2,
-            parentID: -1,
-            name: `Beverages`,
-            unitPrice: 0,
-            addedDate: `2009-06-19`,
-            discontinued: false
+            ID: 2,
+            ParentID: -1,
+            Name: `Beverages`,
+            UnitPrice: 0,
+            AddedDate: `2009-06-19`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 201,
-            parentID: 2,
-            name: `Chai`,
-            unitPrice: 18,
-            addedDate: `2012-02-12`,
-            discontinued: false
+            ID: 201,
+            ParentID: 2,
+            Name: `Chai`,
+            UnitPrice: 18,
+            AddedDate: `2012-02-12`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 202,
-            parentID: 2,
-            name: `Chang`,
-            unitPrice: 19,
-            addedDate: `2013-03-17`,
-            discontinued: false
+            ID: 202,
+            ParentID: 2,
+            Name: `Chang`,
+            UnitPrice: 19,
+            AddedDate: `2013-03-17`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 3,
-            parentID: -1,
-            name: `Sauces`,
-            unitPrice: 0,
-            addedDate: `2009-06-19`,
-            discontinued: false
+            ID: 3,
+            ParentID: -1,
+            Name: `Sauces`,
+            UnitPrice: 0,
+            AddedDate: `2009-06-19`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 301,
-            parentID: 3,
-            name: `Aniseed Syrup`,
-            unitPrice: 10,
-            addedDate: `2016-03-17`,
-            discontinued: false
+            ID: 301,
+            ParentID: 3,
+            Name: `Aniseed Syrup`,
+            UnitPrice: 10,
+            AddedDate: `2016-03-17`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 302,
-            parentID: 3,
-            name: `Chef Antons Cajun Seasoning`,
-            unitPrice: 22,
-            addedDate: `2012-03-17`,
-            discontinued: true
+            ID: 302,
+            ParentID: 3,
+            Name: `Chef Antons Cajun Seasoning`,
+            UnitPrice: 22,
+            AddedDate: `2012-03-17`,
+            Discontinued: true
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 303,
-            parentID: 3,
-            name: `Northwoods Cranberry Sauce`,
-            unitPrice: 40,
-            addedDate: `2012-01-17`,
-            discontinued: false
+            ID: 303,
+            ParentID: 3,
+            Name: `Northwoods Cranberry Sauce`,
+            UnitPrice: 40,
+            AddedDate: `2012-01-17`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 304,
-            parentID: 3,
-            name: `Genen Shouyu`,
-            unitPrice: 15.5,
-            addedDate: `2010-03-17`,
-            discontinued: false
+            ID: 304,
+            ParentID: 3,
+            Name: `Genen Shouyu`,
+            UnitPrice: 15.5,
+            AddedDate: `2010-03-17`,
+            Discontinued: false
         }));
         this.push(new FoodsDataItem(
         {
-            iD: 305,
-            parentID: 3,
-            name: `Sir Rodneys Marmalade`,
-            unitPrice: 18,
-            addedDate: `2015-03-17`,
-            discontinued: false
+            ID: 305,
+            ParentID: 3,
+            Name: `Sir Rodneys Marmalade`,
+            UnitPrice: 18,
+            AddedDate: `2015-03-17`,
+            Discontinued: false
         }));
     }
 }
