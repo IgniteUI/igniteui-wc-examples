@@ -17,33 +17,25 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="parentID"
+        foreign-key="ParentID"
         id="treeGrid"
         primary-key="ID"
         row-editable="true"
         allow-filtering="true"
-        batch-editing="false"
-        name="treeGrid">
+        batch-editing="true"
+        name="treeGrid"
+        id ="treeGrid">
             <igc-action-strip
             name="actionStrip"
             id ="actionStrip">
-                <igc-grid-pinning-actions
-                >
-                </igc-grid-pinning-actions>
                 <igc-grid-editing-actions
-                edit-row="true"
-                delete-row="false">
+                >
                 </igc-grid-editing-actions>
             </igc-action-strip>
-            <igc-pinning-config
-            rows="Top">
-            </igc-pinning-config>
             <igc-column
             field="name"
             sortable="true"
