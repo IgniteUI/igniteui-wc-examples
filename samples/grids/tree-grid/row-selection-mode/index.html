@@ -42,41 +42,42 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="parentID"
+        foreign-key="ParentID"
         id="treeGrid"
         primary-key="ID"
         hide-row-selectors="false"
         allow-filtering="true"
         cell-selection="none"
-        name="treeGrid">
+        name="treeGrid"
+        id ="treeGrid">
             <igc-column
-            field="name"
+            field="Name"
             sortable="true"
             data-type="string">
             </igc-column>
             <igc-column
-            field="title"
+            field="Title"
             data-type="string"
             sortable="true"
             header="Job Title">
             </igc-column>
             <igc-column
-            field="hireDate"
+            field="HireDate"
             data-type="date"
             sortable="true">
             </igc-column>
             <igc-column
-            field="iD"
+            field="ID"
             data-type="number"
             sortable="true">
             </igc-column>
             <igc-column
-            field="age"
+            field="Age"
             data-type="number"
             sortable="true">
             </igc-column>
             <igc-column
-            field="onPTO"
+            field="OnPTO"
             data-type="boolean"
             sortable="true">
             </igc-column>
