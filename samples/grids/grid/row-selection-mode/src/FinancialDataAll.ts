@@ -2,7 +2,7 @@ export class FinancialDataAllItem {
     public constructor(init: Partial<FinancialDataAllItem>) {
         Object.assign(this, init);
     }
-    
+
     public Category: string;
     public Type: string;
     public Spread: number;

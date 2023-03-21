@@ -53,7 +53,6 @@ export class Sample {
         }
         return this._nwindData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -66,24 +65,22 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridHasSummariesChange(args: any): void {
         let newValue = args.primitiveValue as boolean;
-    
+
         var column1 = this.grid.columns[3];
         var column2 = this.grid.columns[5];
-    
+
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
     }
-        
-    
+
     public webGridOrderDateSummaryTemplate = (ctx: IgcCellTemplateContext) => {
         console.log("TODO");
         //TODO
         return html``;
     }
-    
+
 }
 
 new Sample();

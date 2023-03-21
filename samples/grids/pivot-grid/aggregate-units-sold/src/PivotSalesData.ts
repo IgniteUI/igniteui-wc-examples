@@ -2,7 +2,7 @@ export class PivotSalesDataItem {
     public constructor(init: Partial<PivotSalesDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public Country: string;
     public Product: string;
     public UnitsSold: number;

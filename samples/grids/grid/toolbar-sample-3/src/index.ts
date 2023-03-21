@@ -5,7 +5,6 @@ import { AthletesDataItem, AthletesData } from './AthletesData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid1: IgcGridComponent
@@ -29,7 +28,6 @@ export class Sample {
         }
         return this._athletesData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

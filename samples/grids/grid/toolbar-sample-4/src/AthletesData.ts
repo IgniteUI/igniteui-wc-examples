@@ -2,7 +2,7 @@ export class AthletesDataItem {
     public constructor(init: Partial<AthletesDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public Id: number;
     public Avatar: string;
     public Position: string;

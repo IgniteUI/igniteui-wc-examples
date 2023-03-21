@@ -80,7 +80,6 @@ export class Sample {
         }
         return this._customersData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -94,11 +93,10 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridExportEventMultiColumnHeaders(args: any): void {
         args.options.ignoreMultiColumnHeaders = false;
     }
-        
+
 }
 
 new Sample();

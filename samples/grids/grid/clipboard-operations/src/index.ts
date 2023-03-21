@@ -54,7 +54,6 @@ export class Sample {
         }
         return this._nwindData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -67,19 +66,17 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridClearSelection(args: any): void {
         console.log("TODO" + args);
     	//TODO
     }
-        
-    
+
     public webGridClipboardOperationsColumnInit(args: any): void {
         let column = args.detail;
         column.formatter = (e: any) => { return "** " + e + " **" };
         column.header = "🎉" + column.field;
     }
-        
+
 }
 
 new Sample();

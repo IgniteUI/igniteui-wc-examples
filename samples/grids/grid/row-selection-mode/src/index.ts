@@ -1,3 +1,4 @@
+import { IgcBadgeModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule, PropertyEditorPanelDescriptionModule } from 'igniteui-webcomponents-core';
@@ -15,6 +16,7 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
 
 ModuleManager.register(
+    IgcBadgeModule,
     IgcPropertyEditorPanelModule
 );
 
@@ -32,8 +34,7 @@ export class Sample {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.2-2";
             columnPipeArgs1.currencyCode = "USD";
-            
-            
+
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -46,8 +47,7 @@ export class Sample {
             var columnPipeArgs2: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs2.currencyCode = "USD";
             columnPipeArgs2.digitsInfo = "1.2-2";
-            
-            
+
             this._columnPipeArgs2 = columnPipeArgs2;
         }
         return this._columnPipeArgs2;
@@ -60,8 +60,7 @@ export class Sample {
             var columnPipeArgs3: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs3.currencyCode = "USD";
             columnPipeArgs3.digitsInfo = "1.2-2";
-            
-            
+
             this._columnPipeArgs3 = columnPipeArgs3;
         }
         return this._columnPipeArgs3;
@@ -106,7 +105,6 @@ export class Sample {
         }
         return this._financialDataAll;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -119,7 +117,6 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridCurrencyCellTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value > 0) {
             return html`<div>
@@ -133,7 +130,7 @@ export class Sample {
             </div>`;
         };
     }
-    
+
 }
 
 new Sample();

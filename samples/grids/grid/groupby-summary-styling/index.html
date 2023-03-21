@@ -19,7 +19,7 @@
 <div class="container sample">
         <div class="options vertical">
         <igc-property-editor-panel
-        
+
         description-type="WebGrid"
         is-horizontal="true"
         is-wrapping-enabled="true"
@@ -37,9 +37,7 @@
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
-    
-    
-    
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
@@ -52,28 +50,28 @@
             width="200px">
             </igc-column>
             <igc-column
-            width="250px"
-            groupable="true"
             field="ShipCity"
-            header="Ship City">
+            header="Ship City"
+            groupable="true"
+            width="250px">
             </igc-column>
             <igc-column
-            width="150px"
-            groupable="true"
             field="UnitPrice"
             header="Unit Price"
-            data-type="currency"
+            groupable="true"
             has-summary="true"
+            width="150px"
+            data-type="currency"
             name="column1"
             id ="column1">
             </igc-column>
             <igc-column
-            width="150px"
-            groupable="true"
             field="Quantity"
             header="Quantity"
-            data-type="number"
-            has-summary="true">
+            groupable="true"
+            has-summary="true"
+            width="150px"
+            data-type="number">
             </igc-column>
         </igc-grid>
     </div>

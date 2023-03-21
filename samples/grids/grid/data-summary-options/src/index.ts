@@ -2,9 +2,9 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { IgcSummaryResult } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 
 export class Sample {
 
@@ -43,7 +43,6 @@ export class Sample {
         }
         return this._nwindData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -55,13 +54,15 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridCustomSummary(args: any): void {
-        if (args.detail.field === "UnitsInStock") {
-            args.detail.summaries = 1; //TODO CUSTOM SUMMARY - NOT IMPLEMENTED YET(?)
-        }
+        //if (args.detail.field === "UnitsInStock") {
+        //    args.detail.summaries = 1; //TODO CUSTOM SUMMARY - NOT IMPLEMENTED YET(?)
+        //}
+
+        //Units in Stock needs to have above "CustomSummary" class assigned to it in constructor. Not sure if this will be possible
+        //with current implementation of xplat examples?
     }
-        
+
 }
 
 new Sample();

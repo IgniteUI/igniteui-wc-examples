@@ -84,7 +84,6 @@ export class Sample {
         }
         return this._nwindData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -97,76 +96,72 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridAddRow(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
         var grid = this.grid;
-        const generateRandomInteger = (start: number, end: number) => Math.floor(Math.random() * (end - start + 1)) + start;
-        const generateRandomFloat = (start: number, end: number) => Math.random() * (end - start) + start;
-    
+        const randomInteger = (start: number, end: number) => Math.floor(Math.random() * (end - start + 1)) + start;
+        const randomFloat = (start: number, end: number) => Math.random() * (end - start) + start;
+
         //TODO Refactor later
         if (!(grid as any).__productId) {
             (grid as any).__productId = 0;
         }
+        var year = randomInteger(2000, 2050);
+        var month = randomInteger(0, 11);
+        var day = randomInteger(1, 25);
         grid.addRow({
-            CategoryID: generateRandomInteger(1, 10),
-            Discontinued: generateRandomInteger(1, 10) % 2 === 0,
-            OrderDate: new Date(generateRandomInteger(2000, 2050),
-            generateRandomInteger(0, 11), generateRandomInteger(1, 25))
-            .toISOString().slice(0, 10),
+            CategoryID: randomInteger(1, 10),
+            Discontinued: randomInteger(1, 10) % 2 === 0,
+            OrderDate: new Date(year, month, day).toISOString().slice(0, 10),
             ProductID: (grid as any).__productId++,
-            ProductName: 'Product with index ' + generateRandomInteger(0, 20),
-            QuantityPerUnit: (generateRandomInteger(1, 10) * 10).toString() + ' pcs.',
-            ReorderLevel: generateRandomInteger(10, 20),
-            SupplierID: generateRandomInteger(1, 20),
-            UnitPrice: generateRandomInteger(10, 1000),
-            UnitsInStock: generateRandomInteger(1, 100),
-            UnitsOnOrder: generateRandomInteger(1, 20)
+            ProductName: 'Product with index ' + randomInteger(0, 20),
+            QuantityPerUnit: (randomInteger(1, 10) * 10).toString() + ' pcs.',
+            ReorderLevel: randomInteger(10, 20),
+            SupplierID: randomInteger(1, 20),
+            UnitPrice: randomInteger(10, 1000),
+            UnitsInStock: randomInteger(1, 100),
+            UnitsOnOrder: randomInteger(1, 20)
         });
-    
+
         console.log("test");
     }
-        
-    
+
     public webGridUndo(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-    
+
         var grid = this.grid;
         //grid.endEdit(true);
         //grid.transactions.undo();
-    
+
     }
-        
-    
+
     public webGridRedo(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-    
+
         var grid = this.grid;
-    
+
         //grid.endEdit(true);
         //grid.transactions.redo();
-    
+
     }
-        
-    
+
     public webGridCommit(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-    
+
         var grid = this.grid;
-    
+
         // grid.transactions.commit(grid.data);
         //dialog.close();
-    
+
         console.log("test");
     }
-        
-    
+
     public webGridDeleteCellTemplate = (ctx: IgcCellTemplateContext) => {
         console.log("TODO webGridDeleteCellTemplate");
         //TODO
         return html``;
     }
-    
+
 }
 
 new Sample();

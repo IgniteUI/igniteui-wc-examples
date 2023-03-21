@@ -4,7 +4,6 @@ import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindDa
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid1: IgcGridComponent
@@ -28,8 +27,6 @@ export class Sample {
         }
         return this._nwindData;
     }
-    
-
 
 }
 

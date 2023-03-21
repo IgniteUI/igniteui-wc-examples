@@ -30,8 +30,7 @@ export class Sample {
             groupingExpression2.fieldName = "ShipCountry";
             groupingExpression2.dir = SortingDirection.Asc;
             groupingExpression2.ignoreCase = false;
-            
-            
+
             groupingExpression1.push(groupingExpression2)
             this._groupingExpression1 = groupingExpression1;
         }
@@ -45,8 +44,7 @@ export class Sample {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.2-2";
             columnPipeArgs1.currencyCode = "USD";
-            
-            
+
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -79,7 +77,6 @@ export class Sample {
         }
         return this._invoicesData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

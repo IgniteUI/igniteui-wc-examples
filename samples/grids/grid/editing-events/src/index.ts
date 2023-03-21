@@ -5,7 +5,6 @@ import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindDa
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid1: IgcGridComponent
@@ -35,7 +34,6 @@ export class Sample {
         }
         return this._nwindData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -47,10 +45,9 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridEditingEventsCellEdit(args: any): void {
         var d = args.detail;
-    
+
         if (d.column != null && d.column.field == "UnitsOnOrder") {
             if (d.newValue > d.rowData.UnitsInStock) {
                 d.cancel = true;
@@ -58,7 +55,7 @@ export class Sample {
             }
         }
     }
-        
+
 }
 
 new Sample();

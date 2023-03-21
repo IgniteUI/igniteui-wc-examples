@@ -32,8 +32,7 @@ export class Sample {
             sortingExpression2.fieldName = "CategoryName";
             sortingExpression2.dir = SortingDirection.Asc;
             sortingExpression2.ignoreCase = true;
-            
-            
+
             sortingExpression1.push(sortingExpression2)
             this._sortingExpression1 = sortingExpression1;
         }
@@ -47,8 +46,7 @@ export class Sample {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.2-2";
             columnPipeArgs1.currencyCode = "USD";
-            
-            
+
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -86,7 +84,6 @@ export class Sample {
         }
         return this._productSales;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -99,18 +96,16 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridClearSort(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         var grid = this.grid;
         grid.clearSort("");
     }
-        
-    
+
     public webGridClearGrouping(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         var grid = this.grid;
         grid.clearGrouping("");
     }
-        
+
 }
 
 new Sample();

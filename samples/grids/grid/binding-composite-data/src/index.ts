@@ -7,7 +7,6 @@ import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -39,16 +38,14 @@ export class Sample {
         }
         return this._customersData;
     }
-    
 
 
-    
     public webGridCompositeContactCellTemplate = (ctx: IgcCellTemplateContext) => {
         var cell = ctx.cell as any;
         if (cell === undefined || cell.row === undefined || cell.row.data === undefined) {
             return html``
         }
-    
+
         return html` <div class="contact-container">
         <span><strong>Name:</strong> ${cell.row.data.ContactName}</span>
         <span><strong>Title:</strong> ${cell.row.data.ContactTitle}</span>
@@ -57,22 +54,21 @@ export class Sample {
         <br />
     </div>`;
     }
-    
-    
+
     public webGridCompositeContactEditCellTemplate = (ctx: IgcCellTemplateContext) => {
         var cell = ctx.cell as any;
         if (cell === undefined || cell.row === undefined || cell.row.data === undefined) {
             return html``
         }
-    
+
         function keyUpHandler(event: any, ctx: IgcCellTemplateContext) {
             var cell = ctx.cell as any;
             if (cell !== undefined && cell.row !== undefined && cell.row.data !== undefined) {
                 cell.row.data[event.target.id] = event.target.value;
             }
         }
-    
-        return html`<div class="contact-container--edit" style="display: inline-grid">         
+
+        return html`<div class="contact-container--edit" style="display: inline-grid">
                  <div>
                      <strong>Name:</strong>
                      <input id='ContactName' @keyup=${(e: any) => keyUpHandler(e, ctx)} value="${cell.row.data.ContactName}"></input>
@@ -80,21 +76,20 @@ export class Sample {
                  <div>
                      <strong>Title:</strong>
                      <input id='ContactTitle' @keyup=${(e: any) => keyUpHandler(e, ctx)} value='${cell.row.data.ContactTitle}'></input>
-                 </div>         
+                 </div>
              <div>
                  <strong>Company:</strong>
                  <input id='CompanyName' @keyup=${(e: any) => keyUpHandler(e, ctx)} value='${cell.row.data.CompanyName}'></input>
              </div>
          </div>`;
     }
-    
-    
+
     public webGridCompositeAddressCellTemplate = (ctx: IgcCellTemplateContext) => {
         var cell = ctx.cell as any;
         if (cell === undefined || cell.row === undefined || cell.row.data === undefined) {
             return html``
         }
-    
+
         return html`<div class="address-container">
         <div class="country-city">
             <span><strong>Country:</strong> ${cell.row.data.Country}</span>
@@ -109,22 +104,21 @@ export class Sample {
         <br />
     </div>`;
     }
-    
-    
+
     public webGridCompositeAddressEditCellTemplate = (ctx: IgcCellTemplateContext) => {
-    
+
         var cell = ctx.cell as any;
         if (cell === undefined || cell.row === undefined || cell.row.data === undefined) {
             return html``
         }
-    
+
         function keyUpHandler(event: any, ctx: IgcCellTemplateContext) {
             var cell = ctx.cell as any;
             if (cell !== undefined && cell.row !== undefined && cell.row.data !== undefined) {
                 cell.row.data[event.target.id] = event.target.value;
             }
          }
-    
+
         return html`<div class="address-container--edit" style="display: inline-grid">
              <div>
                  <span><strong>Country:</strong></span>
@@ -143,7 +137,7 @@ export class Sample {
              <br>
          </div>`;
         }
-    
+
 }
 
 new Sample();

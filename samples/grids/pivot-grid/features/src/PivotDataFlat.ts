@@ -2,7 +2,7 @@ export class PivotDataFlatItem {
     public constructor(init: Partial<PivotDataFlatItem>) {
         Object.assign(this, init);
     }
-    
+
     public ProductName: string;
     public ProductUnitPrice: number;
     public SellerName: string;
