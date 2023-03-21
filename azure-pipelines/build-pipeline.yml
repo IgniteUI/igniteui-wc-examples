@@ -42,13 +42,14 @@ stages:
           customCommand: 'config -L project set @infragistics:registry=$(IG_LICENSED_NPM_FEED)'
           customEndpoint: 'internal proget'
 
+      # Until further notice we will use 'npm install' in order to avoid mixups when relying on latest dev versions of our packages
       - task: Npm@1
-        displayName: 'npm ci --legacy-peer-deps'
+        displayName: 'npm install --legacy-peer-deps'
         inputs:
           command: custom
           workingDir: '$(Build.SourcesDirectory)'
           verbose: ${{ parameters.isVerbose }}
-          customCommand: ci --legacy-peer-deps
+          customCommand: install --legacy-peer-deps
       
       - task: PowerShell@2
         displayName: 'Uninstall all IG trial packages & re-install their licensed variations'
