@@ -32,8 +32,8 @@
 
     <div class="container fill">
         <igc-data-chart
-        is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
+        is-horizontal-zoom-enabled="false"
         brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
         outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
         marker-brushes="white"
@@ -70,13 +70,14 @@
             id ="PolarAreaSeries1">
             </igc-polar-area-series>
             <igc-polar-area-series
+
             angle-member-path="direction"
             radius-member-path="boatSpeed"
-            marker-type="Circle"
-            thickness="1"
-            area-fill-opacity="0.3"
             show-default-tooltip="true"
+            area-fill-opacity="0.3"
+            thickness="1"
             title="Boat Speed"
+            marker-type="Circle"
             name="PolarAreaSeries2"
             id ="PolarAreaSeries2">
             </igc-polar-area-series>

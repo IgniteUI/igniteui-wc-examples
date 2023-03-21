@@ -21,7 +21,6 @@ export class Sample {
     private xAxisInvertedEditor: IgcPropertyEditorPropertyDescriptionComponent
     private yAxisInvertedEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcCategoryChartComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -36,6 +35,7 @@ export class Sample {
             chart.dataSource = this.countryRenewableElectricity
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;
@@ -46,7 +46,6 @@ export class Sample {
         }
         return this._countryRenewableElectricity;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -58,7 +57,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 
 }
 

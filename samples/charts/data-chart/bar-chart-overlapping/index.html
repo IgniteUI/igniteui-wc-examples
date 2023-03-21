@@ -77,11 +77,11 @@
             </igc-bar-series>
             <igc-bar-series
 
+            title="Top Choice"
             value-member-path="firstChoice"
+            show-default-tooltip="true"
             is-transition-in-enabled="true"
             is-highlighting-enabled="true"
-            show-default-tooltip="true"
-            title="Top Choice"
             name="BarSeries2"
             id ="BarSeries2">
             </igc-bar-series>
@@ -100,16 +100,17 @@
             id ="CalloutLayer1">
             </igc-callout-layer>
             <igc-callout-layer
-            label-member-path="topChoicesLabel"
-            x-member-path="topChoices"
+
             y-member-path="index"
-            callout-text-color="black"
-            callout-background="rgba(0, 0, 0, 0)"
-            callout-outline="rgba(0, 0, 0, 0)"
+            x-member-path="topChoices"
+            label-member-path="topChoicesLabel"
             callout-leader-brush="rgba(0, 0, 0, 0)"
+            callout-outline="rgba(0, 0, 0, 0)"
+            callout-background="rgba(0, 0, 0, 0)"
+            callout-text-color="black"
+            callout-stroke-thickness="2"
             callout-padding-top="0"
             callout-position-padding="0"
-            callout-stroke-thickness="2"
             name="CalloutLayer2"
             id ="CalloutLayer2">
             </igc-callout-layer>

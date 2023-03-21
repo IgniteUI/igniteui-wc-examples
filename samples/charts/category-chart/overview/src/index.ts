@@ -14,7 +14,6 @@ export class Sample {
 
     private legend: IgcLegendComponent
     private chart: IgcCategoryChartComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -26,6 +25,7 @@ export class Sample {
             chart.legend = this.legend
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;
@@ -36,9 +36,6 @@ export class Sample {
         }
         return this._countryRenewableElectricity;
     }
-    
-
-
 
 }
 

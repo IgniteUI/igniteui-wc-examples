@@ -12,7 +12,6 @@ ModuleManager.register(
 export class Sample {
 
     private chart: IgcCategoryChartComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -22,6 +21,7 @@ export class Sample {
             chart.dataSource = this.highestGrossingMovies
         }
         this._bind();
+
     }
 
     private _highestGrossingMovies: HighestGrossingMovies = null;
@@ -32,9 +32,6 @@ export class Sample {
         }
         return this._highestGrossingMovies;
     }
-    
-
-
 
 }
 

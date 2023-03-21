@@ -14,7 +14,6 @@ ModuleManager.register(
 export class Sample {
 
     private chart: IgcSparklineComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -24,6 +23,7 @@ export class Sample {
             chart.dataSource = this.sparklineMixedData
         }
         this._bind();
+
     }
 
     private _sparklineMixedData: SparklineMixedData = null;
@@ -34,7 +34,6 @@ export class Sample {
         }
         return this._sparklineMixedData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -46,7 +45,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 
 }
 

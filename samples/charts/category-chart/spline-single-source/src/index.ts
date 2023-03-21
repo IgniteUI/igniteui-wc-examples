@@ -11,7 +11,6 @@ ModuleManager.register(
 export class Sample {
 
     private chart: IgcCategoryChartComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -21,6 +20,7 @@ export class Sample {
             chart.dataSource = this.countryRenewableElectricity
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;
@@ -31,9 +31,6 @@ export class Sample {
         }
         return this._countryRenewableElectricity;
     }
-    
-
-
 
 }
 
