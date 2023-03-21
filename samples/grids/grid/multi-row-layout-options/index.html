@@ -17,20 +17,19 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-grid
-        
+
         primary-key="CompanyName"
         row-editable="true"
         allow-filtering="true"
+        filter-mode="excelStyleFilter"
         name="grid"
         id ="grid">
             <igc-column-layout
             header="ID"
-            pinned="true">
+            hidden="true">
                 <igc-column
                 field="ID"
                 filterable="false"
@@ -41,8 +40,8 @@
                 </igc-column>
             </igc-column-layout>
             <igc-column-layout
-            pinned="true"
-            header="Contact Details">
+            header="Contact Details"
+            pinned="true">
                 <igc-column
                 field="CompanyName"
                 row-start="1"
@@ -62,17 +61,16 @@
                 </igc-column>
                 <igc-column
                 field="ContactTitle"
-                row-start="3"
+                row-start="2"
                 col-start="2"
-                row-end="3"
                 header="Title"
-                col-end="2"
+                col-end="3"
                 groupable="true">
                 </igc-column>
             </igc-column-layout>
             <igc-column-layout
-            pinned="false"
-            header="Address Details">
+            header="Address Details"
+            pinned="false">
                 <igc-column
                 field="Country"
                 row-start="1"

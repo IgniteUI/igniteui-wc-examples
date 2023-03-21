@@ -50,7 +50,6 @@ export class Sample {
         }
         return this._customersData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -64,18 +63,16 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridPinFirstGroupToggle(args: any): void {
         console.log("TODO" + args);
     	//TODO
     }
-        
-    
+
     public webGridHideFirstGroupToggle(args: any): void {
         console.log("TODO" + args);
     	//TODO
     }
-        
+
 }
 
 new Sample();

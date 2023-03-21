@@ -4,7 +4,6 @@ import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -28,8 +27,6 @@ export class Sample {
         }
         return this._invoicesData;
     }
-    
-
 
 }
 

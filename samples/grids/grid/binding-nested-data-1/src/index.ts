@@ -6,7 +6,6 @@ import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -33,10 +32,8 @@ export class Sample {
         }
         return this._employeesNestedData;
     }
-    
 
 
-    
     public webGridNestedDataCellTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value != null) {
             if (ctx.cell.value.length === 0) return html``;
@@ -59,7 +56,7 @@ export class Sample {
             `;
         }
     };
-    
+
 }
 
 new Sample();

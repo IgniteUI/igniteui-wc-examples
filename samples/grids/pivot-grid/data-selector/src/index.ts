@@ -10,7 +10,7 @@ export class Sample {
         if (this._pivotConfiguration == null)
         {
             const dateDim = new IgcPivotDateDimension({
-                memberName: "date",
+                memberName: "Date",
                 enabled: true
             },
             {
@@ -19,11 +19,11 @@ export class Sample {
             const pivotConfiguration: any = {
                 columns: [
                     {
-                        memberName: "country",
+                        memberName: "Country",
                         enabled: true
                     },
                     {
-                        memberName: "product",
+                        memberName: "Product",
                         enabled: true
                     }
                 ],
@@ -32,13 +32,13 @@ export class Sample {
                 ],
                 filters:[
                     {
-                        memberName: "monthName",
+                        memberName: "MonthName",
                         enabled: false
                     }
                 ],
                 values: [
                     {
-                        member: "salePrice",
+                        member: "SalePrice",
                         enabled:false,
                         dataType: 'currency',
                         aggregate: {
@@ -48,7 +48,7 @@ export class Sample {
                         }
                     },
                     {
-                        member: "profit",
+                        member: "Profit",
                         enabled:true,
                         dataType: 'currency',
                         aggregate: {

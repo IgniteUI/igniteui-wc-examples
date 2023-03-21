@@ -2,7 +2,7 @@ export class ProductSalesItem {
     public constructor(init: Partial<ProductSalesItem>) {
         Object.assign(this, init);
     }
-    
+
     public OrderID: number;
     public SaleAmount: number;
     public CategoryName: string;

@@ -1,3 +1,4 @@
+import { IgcAvatarModule } from 'igniteui-webcomponents-core';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { AthletesDataExtendedItem, AthletesDataExtended } from './AthletesDataExtended';
@@ -5,7 +6,11 @@ import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+import { ModuleManager } from 'igniteui-webcomponents-core';
 
+ModuleManager.register(
+    IgcAvatarModule
+);
 
 export class Sample {
 
@@ -36,24 +41,21 @@ export class Sample {
         }
         return this._athletesDataExtended;
     }
-    
 
 
-    
     public webGridImageCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
             <img src="${ctx.cell.value}"/>
         </div>`;
     };
-    
-    
+
         public webGridAvatarCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
         <igc-avatar shape="circle" src="${ctx.cell.value}">
         </igc-avatar>
     </div>`;
     }
-    
+
 }
 
 new Sample();

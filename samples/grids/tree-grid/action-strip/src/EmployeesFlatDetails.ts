@@ -3,18 +3,18 @@ export class EmployeesFlatDetailsItem {
         Object.assign(this, init);
     }
 
-    public address: string;
-    public age: number;
-    public city: string;
-    public country: string;
-    public fax: string;
-    public hireDate: string;
-    public iD: number;
-    public name: string;
-    public parentID: number;
-    public phone: string;
-    public postalCode: string;
-    public title: string;
+    public Address: string;
+    public Age: number;
+    public City: string;
+    public Country: string;
+    public Fax: string;
+    public HireDate: string;
+    public ID: number;
+    public Name: string;
+    public ParentID: number;
+    public Phone: string;
+    public PostalCode: string;
+    public Title: string;
 
 }
 export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
@@ -22,273 +22,273 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
         super();
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `Obere Str. 57`,
-            age: 55,
-            city: `Berlin`,
-            country: `Germany`,
-            fax: `030-0076545`,
-            hireDate: `2008, 3, 20`,
-            iD: 1,
-            name: `Johnathan Winchester`,
-            parentID: -1,
-            phone: `030-0074321`,
-            postalCode: `12209`,
-            title: `Development Manager`
+            Address: `Obere Str. 57`,
+            Age: 55,
+            City: `Berlin`,
+            Country: `Germany`,
+            Fax: `030-0076545`,
+            HireDate: `2008, 3, 20`,
+            ID: 1,
+            Name: `Johnathan Winchester`,
+            ParentID: -1,
+            Phone: `030-0074321`,
+            PostalCode: `12209`,
+            Title: `Development Manager`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `Avda. de la Constitución 2222`,
-            age: 42,
-            city: `México D.F.`,
-            country: `Mexico`,
-            fax: `(5) 555-3745`,
-            hireDate: `2014, 1, 22`,
-            iD: 4,
-            name: `Ana Sanders`,
-            parentID: -1,
-            phone: `(5) 555-4729`,
-            postalCode: `05021`,
-            title: `CEO`
+            Address: `Avda. de la Constitución 2222`,
+            Age: 42,
+            City: `México D.F.`,
+            Country: `Mexico`,
+            Fax: `(5) 555-3745`,
+            HireDate: `2014, 1, 22`,
+            ID: 4,
+            Name: `Ana Sanders`,
+            ParentID: -1,
+            Phone: `(5) 555-4729`,
+            PostalCode: `05021`,
+            Title: `CEO`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `Mataderos 2312`,
-            age: 49,
-            city: `México D.F.`,
-            country: `Mexico`,
-            fax: `(5) 555-3995`,
-            hireDate: `2014, 1, 22`,
-            iD: 18,
-            name: `Victoria Lincoln`,
-            parentID: -1,
-            phone: `(5) 555-3932`,
-            postalCode: `05023`,
-            title: `Accounting Manager`
+            Address: `Mataderos 2312`,
+            Age: 49,
+            City: `México D.F.`,
+            Country: `Mexico`,
+            Fax: `(5) 555-3995`,
+            HireDate: `2014, 1, 22`,
+            ID: 18,
+            Name: `Victoria Lincoln`,
+            ParentID: -1,
+            Phone: `(5) 555-3932`,
+            PostalCode: `05023`,
+            Title: `Accounting Manager`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `120 Hanover Sq.`,
-            age: 61,
-            city: `London`,
-            country: `UK`,
-            fax: `(171) 555-6750`,
-            hireDate: `2010, 1, 1`,
-            iD: 10,
-            name: `Yang Wang`,
-            parentID: -1,
-            phone: `(171) 555-7788`,
-            postalCode: `WA1 1DP`,
-            title: `Localization Manager`
+            Address: `120 Hanover Sq.`,
+            Age: 61,
+            City: `London`,
+            Country: `UK`,
+            Fax: `(171) 555-6750`,
+            HireDate: `2010, 1, 1`,
+            ID: 10,
+            Name: `Yang Wang`,
+            ParentID: -1,
+            Phone: `(171) 555-7788`,
+            PostalCode: `WA1 1DP`,
+            Title: `Localization Manager`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `Berguvsvägen 8`,
-            age: 43,
-            city: `Luleå`,
-            country: `Sweden`,
-            fax: `0921-12 34 67`,
-            hireDate: `2011, 6, 3`,
-            iD: 3,
-            name: `Michael Burke`,
-            parentID: 1,
-            phone: `0921-12 34 65`,
-            postalCode: `S-958 22`,
-            title: `Senior Software Developer`
+            Address: `Berguvsvägen 8`,
+            Age: 43,
+            City: `Luleå`,
+            Country: `Sweden`,
+            Fax: `0921-12 34 67`,
+            HireDate: `2011, 6, 3`,
+            ID: 3,
+            Name: `Michael Burke`,
+            ParentID: 1,
+            Phone: `0921-12 34 65`,
+            PostalCode: `S-958 22`,
+            Title: `Senior Software Developer`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `Forsterstr. 57`,
-            age: 29,
-            city: `Mannheim`,
-            country: `Germany`,
-            fax: `0621-08924`,
-            hireDate: `2009, 6, 19`,
-            iD: 2,
-            name: `Thomas Anderson`,
-            parentID: 1,
-            phone: `0621-08460`,
-            postalCode: `68306`,
-            title: `Senior Software Developer`
+            Address: `Forsterstr. 57`,
+            Age: 29,
+            City: `Mannheim`,
+            Country: `Germany`,
+            Fax: `0621-08924`,
+            HireDate: `2009, 6, 19`,
+            ID: 2,
+            Name: `Thomas Anderson`,
+            ParentID: 1,
+            Phone: `0621-08460`,
+            PostalCode: `68306`,
+            Title: `Senior Software Developer`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `24, place Kléber`,
-            age: 31,
-            city: `Strasbourg`,
-            country: `France`,
-            fax: `88.60.15.32`,
-            hireDate: `2014, 8, 18`,
-            iD: 11,
-            name: `Monica Reyes`,
-            parentID: 1,
-            phone: `88.60.15.31`,
-            postalCode: `67000`,
-            title: `Software Development Team Lead`
+            Address: `24, place Kléber`,
+            Age: 31,
+            City: `Strasbourg`,
+            Country: `France`,
+            Fax: `88.60.15.32`,
+            HireDate: `2014, 8, 18`,
+            ID: 11,
+            Name: `Monica Reyes`,
+            ParentID: 1,
+            Phone: `88.60.15.31`,
+            PostalCode: `67000`,
+            Title: `Software Development Team Lead`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `C/ Araquil, 67`,
-            age: 35,
-            city: `Madrid`,
-            country: `Spain`,
-            fax: `(91) 555 91 99`,
-            hireDate: `2015, 9, 17`,
-            iD: 6,
-            name: `Roland Mendel`,
-            parentID: 11,
-            phone: `(91) 555 22 82`,
-            postalCode: `28023`,
-            title: `Senior Software Developer`
+            Address: `C/ Araquil, 67`,
+            Age: 35,
+            City: `Madrid`,
+            Country: `Spain`,
+            Fax: `(91) 555 91 99`,
+            HireDate: `2015, 9, 17`,
+            ID: 6,
+            Name: `Roland Mendel`,
+            ParentID: 11,
+            Phone: `(91) 555 22 82`,
+            PostalCode: `28023`,
+            Title: `Senior Software Developer`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `12, rue des Bouchers`,
-            age: 44,
-            city: `Marseille`,
-            country: `France`,
-            fax: `91.24.45.41`,
-            hireDate: `2009, 10, 11`,
-            iD: 12,
-            name: `Sven Cooper`,
-            parentID: 11,
-            phone: `91.24.45.40`,
-            postalCode: `13008`,
-            title: `Senior Software Developer`
+            Address: `12, rue des Bouchers`,
+            Age: 44,
+            City: `Marseille`,
+            Country: `France`,
+            Fax: `91.24.45.41`,
+            HireDate: `2009, 10, 11`,
+            ID: 12,
+            Name: `Sven Cooper`,
+            ParentID: 11,
+            Phone: `91.24.45.40`,
+            PostalCode: `13008`,
+            Title: `Senior Software Developer`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `23 Tsawassen Blvd.`,
-            age: 44,
-            city: `Tsawassen`,
-            country: `Canada`,
-            fax: `(604) 555-3745`,
-            hireDate: `2014, 4, 4`,
-            iD: 14,
-            name: `Laurence Johnson`,
-            parentID: 4,
-            phone: `(604) 555-4729`,
-            postalCode: `T2F 8M4`,
-            title: `Director`
+            Address: `23 Tsawassen Blvd.`,
+            Age: 44,
+            City: `Tsawassen`,
+            Country: `Canada`,
+            Fax: `(604) 555-3745`,
+            HireDate: `2014, 4, 4`,
+            ID: 14,
+            Name: `Laurence Johnson`,
+            ParentID: 4,
+            Phone: `(604) 555-4729`,
+            PostalCode: `T2F 8M4`,
+            Title: `Director`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `Fauntleroy Circus`,
-            age: 25,
-            city: `London`,
-            country: `UK`,
-            fax: `(5) 555-3798`,
-            hireDate: `2017, 11, 9`,
-            iD: 5,
-            name: `Elizabeth Richards`,
-            parentID: 4,
-            phone: `(171) 555-1212`,
-            postalCode: `EC2 5NT`,
-            title: `Vice President`
+            Address: `Fauntleroy Circus`,
+            Age: 25,
+            City: `London`,
+            Country: `UK`,
+            Fax: `(5) 555-3798`,
+            HireDate: `2017, 11, 9`,
+            ID: 5,
+            Name: `Elizabeth Richards`,
+            ParentID: 4,
+            Phone: `(171) 555-1212`,
+            PostalCode: `EC2 5NT`,
+            Title: `Vice President`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `Cerrito 333`,
-            age: 39,
-            city: `Buenos Aires`,
-            country: `Argentina`,
-            fax: `(1) 135-4892`,
-            hireDate: `2010, 3, 22`,
-            iD: 13,
-            name: `Trevor Ashworth`,
-            parentID: 5,
-            phone: `(1) 135-5555`,
-            postalCode: `1010`,
-            title: `Director`
+            Address: `Cerrito 333`,
+            Age: 39,
+            City: `Buenos Aires`,
+            Country: `Argentina`,
+            Fax: `(1) 135-4892`,
+            HireDate: `2010, 3, 22`,
+            ID: 13,
+            Name: `Trevor Ashworth`,
+            ParentID: 5,
+            Phone: `(1) 135-5555`,
+            PostalCode: `1010`,
+            Title: `Director`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `Sierras de Granada 9993`,
-            age: 44,
-            city: `México D.F.`,
-            country: `Mexico`,
-            fax: `(5) 555-7293`,
-            hireDate: `2014, 4, 4`,
-            iD: 17,
-            name: `Antonio Moreno`,
-            parentID: 18,
-            phone: `(5) 555-3392`,
-            postalCode: `05022`,
-            title: `Senior Accountant`
+            Address: `Sierras de Granada 9993`,
+            Age: 44,
+            City: `México D.F.`,
+            Country: `Mexico`,
+            Fax: `(5) 555-7293`,
+            HireDate: `2014, 4, 4`,
+            ID: 17,
+            Name: `Antonio Moreno`,
+            ParentID: 18,
+            Phone: `(5) 555-3392`,
+            PostalCode: `05022`,
+            Title: `Senior Accountant`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `Hauptstr. 29`,
-            age: 50,
-            city: `Sao Paulo`,
-            country: `Brazil`,
-            fax: `(5) 555-6691`,
-            hireDate: `2007, 11, 18`,
-            iD: 7,
-            name: `Pedro Rodriguez`,
-            parentID: 10,
-            phone: `0452-076545`,
-            postalCode: `3012`,
-            title: `Senior Localization Developer`
+            Address: `Hauptstr. 29`,
+            Age: 50,
+            City: `Sao Paulo`,
+            Country: `Brazil`,
+            Fax: `(5) 555-6691`,
+            HireDate: `2007, 11, 18`,
+            ID: 7,
+            Name: `Pedro Rodriguez`,
+            ParentID: 10,
+            Phone: `0452-076545`,
+            PostalCode: `3012`,
+            Title: `Senior Localization Developer`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `Av. dos Lusíadas, 23`,
-            age: 27,
-            city: `Bern`,
-            country: `Switzerland`,
-            fax: ``,
-            hireDate: `2016, 2, 19`,
-            iD: 8,
-            name: `Casey Harper`,
-            parentID: 10,
-            phone: `(11) 555-7647`,
-            postalCode: `05432-043`,
-            title: `Senior Localization`
+            Address: `Av. dos Lusíadas, 23`,
+            Age: 27,
+            City: `Bern`,
+            Country: `Switzerland`,
+            Fax: ``,
+            HireDate: `2016, 2, 19`,
+            ID: 8,
+            Name: `Casey Harper`,
+            ParentID: 10,
+            Phone: `(11) 555-7647`,
+            PostalCode: `05432-043`,
+            Title: `Senior Localization`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `Berkeley Gardens 12`,
-            age: 25,
-            city: `London`,
-            country: `UK`,
-            fax: `(171) 555-9199`,
-            hireDate: `2017, 11, 9`,
-            iD: 15,
-            name: `Patricia Simpson`,
-            parentID: 7,
-            phone: `(171) 555-2282`,
-            postalCode: `WX1 6LT`,
-            title: `Localization Intern`
+            Address: `Berkeley Gardens 12`,
+            Age: 25,
+            City: `London`,
+            Country: `UK`,
+            Fax: `(171) 555-9199`,
+            HireDate: `2017, 11, 9`,
+            ID: 15,
+            Name: `Patricia Simpson`,
+            ParentID: 7,
+            Phone: `(171) 555-2282`,
+            PostalCode: `WX1 6LT`,
+            Title: `Localization Intern`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `Walserweg 21`,
-            age: 39,
-            city: `Aachen`,
-            country: `Germany`,
-            fax: `0241-059428`,
-            hireDate: `2010, 3, 22`,
-            iD: 9,
-            name: `Francisco Chang`,
-            parentID: 7,
-            phone: `0241-039123`,
-            postalCode: `52066`,
-            title: `Localization Intern`
+            Address: `Walserweg 21`,
+            Age: 39,
+            City: `Aachen`,
+            Country: `Germany`,
+            Fax: `0241-059428`,
+            HireDate: `2010, 3, 22`,
+            ID: 9,
+            Name: `Francisco Chang`,
+            ParentID: 7,
+            Phone: `0241-039123`,
+            PostalCode: `52066`,
+            Title: `Localization Intern`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
-            address: `35 King George`,
-            age: 25,
-            city: `London`,
-            country: `UK`,
-            fax: `(171) 555-3373`,
-            hireDate: `2018, 3, 18`,
-            iD: 16,
-            name: `Peter Lewis`,
-            parentID: 7,
-            phone: `(171) 555-0297`,
-            postalCode: `WX3 6FW`,
-            title: `Localization Intern`
+            Address: `35 King George`,
+            Age: 25,
+            City: `London`,
+            Country: `UK`,
+            Fax: `(171) 555-3373`,
+            HireDate: `2018, 3, 18`,
+            ID: 16,
+            Name: `Peter Lewis`,
+            ParentID: 7,
+            Phone: `(171) 555-0297`,
+            PostalCode: `WX3 6FW`,
+            Title: `Localization Intern`
         }));
     }
 }

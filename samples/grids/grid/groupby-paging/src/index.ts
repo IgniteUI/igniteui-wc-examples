@@ -6,7 +6,6 @@ import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -19,8 +18,7 @@ export class Sample {
             groupingExpression2.fieldName = "ShipCountry";
             groupingExpression2.dir = SortingDirection.Asc;
             groupingExpression2.ignoreCase = false;
-            
-            
+
             groupingExpression1.push(groupingExpression2)
             this._groupingExpression1 = groupingExpression1;
         }
@@ -48,28 +46,26 @@ export class Sample {
         }
         return this._invoicesData;
     }
-    
 
 
-    
         public webGridGroupByRowTemplate = (ctx: IgcGroupByRowTemplateContext) => {
-    
+
             const groupRow: any = ctx["$implicit"];
             const values = groupRow.records;
-    
+
             const startDate = new Date('1/1/2022');
             const endDate = new Date('12/31/2022');
             var calc2022 = values.filter((x) => new Date(x.orderDate) >= startDate && new Date(x.orderDate) <= endDate).length;
-    
+
             return html`<div>
     <span style="color:#09f;">${groupRow.expression.fieldName} :</span>
     <span>${groupRow.value}</span>
     <igc-badge>${groupRow.records.length}</igc-badge>
     <span style="color:#09f;"> Ordered in 2022:</span><span>${calc2022}</span>
     </div>`;
-    
+
         };
-        
+
 }
 
 new Sample();

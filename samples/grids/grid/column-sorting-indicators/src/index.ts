@@ -4,7 +4,6 @@ import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -17,43 +16,37 @@ export class Sample {
             sortingExpression2.fieldName = "Settlement";
             sortingExpression2.dir = SortingDirection.Asc;
             sortingExpression2.ignoreCase = true;
-            
-            
+
             sortingExpression1.push(sortingExpression2)
             var sortingExpression3: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression3.fieldName = "Type";
             sortingExpression3.dir = SortingDirection.Desc;
+            sortingExpression3.fieldName = "Type";
             sortingExpression3.ignoreCase = true;
-            
-            
+
             sortingExpression1.push(sortingExpression3)
             var sortingExpression4: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression4.fieldName = "Region";
             sortingExpression4.dir = SortingDirection.Asc;
+            sortingExpression4.fieldName = "Region";
             sortingExpression4.ignoreCase = true;
-            
-            
+
             sortingExpression1.push(sortingExpression4)
             var sortingExpression5: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression5.fieldName = "Country";
             sortingExpression5.dir = SortingDirection.Asc;
+            sortingExpression5.fieldName = "Country";
             sortingExpression5.ignoreCase = true;
-            
-            
+
             sortingExpression1.push(sortingExpression5)
             var sortingExpression6: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression6.fieldName = "Price";
             sortingExpression6.dir = SortingDirection.Asc;
+            sortingExpression6.fieldName = "Price";
             sortingExpression6.ignoreCase = true;
-            
-            
+
             sortingExpression1.push(sortingExpression6)
             var sortingExpression7: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression7.fieldName = "Buy";
             sortingExpression7.dir = SortingDirection.Asc;
+            sortingExpression7.fieldName = "Buy";
             sortingExpression7.ignoreCase = true;
-            
-            
+
             sortingExpression1.push(sortingExpression7)
             this._sortingExpression1 = sortingExpression1;
         }
@@ -80,8 +73,6 @@ export class Sample {
         }
         return this._financialDataAll;
     }
-    
-
 
 }
 

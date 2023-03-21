@@ -5,7 +5,6 @@ import { CompanyDataItem, CompanyData } from './CompanyData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -61,7 +60,6 @@ export class Sample {
         }
         return this._companyData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -74,7 +72,6 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridMRLCustomNavigationEvent(args: any): void {
         //const target = args.target;
         //if (args.event.key.toLowerCase() === 'enter') {
@@ -87,7 +84,7 @@ export class Sample {
         //        });
         //}
     }
-        
+
 }
 
 new Sample();

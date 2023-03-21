@@ -17,90 +17,82 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="parentID"
+        foreign-key="ParentID"
         id="treeGrid"
         primary-key="ID"
         row-editable="true"
         allow-filtering="true"
-        batch-editing="false"
-        name="treeGrid">
+        batch-editing="true"
+        name="treeGrid"
+        id ="treeGrid">
             <igc-action-strip
             name="actionStrip"
             id ="actionStrip">
-                <igc-grid-pinning-actions
-                >
-                </igc-grid-pinning-actions>
                 <igc-grid-editing-actions
-                edit-row="true"
-                delete-row="false">
+                >
                 </igc-grid-editing-actions>
             </igc-action-strip>
-            <igc-pinning-config
-            rows="Top">
-            </igc-pinning-config>
             <igc-column
-            field="name"
+            field="Name"
             sortable="true"
             disable-hiding="true"
             data-type="string">
             </igc-column>
             <igc-column
-            field="iD"
+            field="ID"
             data-type="number"
             sortable="true">
             </igc-column>
             <igc-column
-            field="title"
+            field="Title"
             data-type="string"
             sortable="true"
             disable-hiding="true">
             </igc-column>
             <igc-column
-            field="hireDate"
+            field="HireDate"
             data-type="date"
             sortable="true"
             hidden="true">
             </igc-column>
             <igc-column
-            field="age"
+            field="Age"
             data-type="number"
             sortable="true"
             hidden="true">
             </igc-column>
             <igc-column
-            field="address"
+            field="Address"
             data-type="string"
             sortable="true">
             </igc-column>
             <igc-column
-            field="city"
+            field="City"
             data-type="string"
             sortable="true">
             </igc-column>
             <igc-column
-            field="country"
+            field="Country"
             data-type="string"
             sortable="true">
             </igc-column>
             <igc-column
-            field="fax"
+            field="Fax"
             data-type="string"
             sortable="true">
             </igc-column>
             <igc-column
-            field="postalCode"
+            field="PostalCode"
             data-type="string"
             sortable="true"
             header="Postal Code">
             </igc-column>
             <igc-column
-            field="phone"
+            field="Phone"
             data-type="string"
             sortable="true">
             </igc-column>

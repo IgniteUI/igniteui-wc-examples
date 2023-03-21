@@ -4,7 +4,6 @@ import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindDa
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -15,8 +14,7 @@ export class Sample {
         {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs1.format = "mediumDate";
-            
-            
+
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -43,8 +41,6 @@ export class Sample {
         }
         return this._nwindData;
     }
-    
-
 
 }
 

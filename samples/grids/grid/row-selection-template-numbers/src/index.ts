@@ -7,7 +7,6 @@ import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -33,7 +32,6 @@ export class Sample {
         }
         return this._customersData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -45,14 +43,12 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridHeaderRowSelectorTemplate = (ctx: any) => {
         return html`<div style="width: 70px;height: 60px;display: flex;">
     <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/avatars/igLogo.png" class="header-image">
     </div>`;
     };
-        
-    
+
     public webGridRowSelectorTemplate = (ctx: IgcCellTemplateContext) => {
         const implicit: any = ctx["$implicit"];
         if (implicit.selected) {
@@ -67,7 +63,7 @@ export class Sample {
     </div>`;
     };
     }
-    
+
 }
 
 new Sample();

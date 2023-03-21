@@ -1,3 +1,4 @@
+import { IgcLinearProgressModule } from 'igniteui-webcomponents-core';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { AthletesDataItem, AthletesData } from './AthletesData';
@@ -5,7 +6,11 @@ import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+import { ModuleManager } from 'igniteui-webcomponents-core';
 
+ModuleManager.register(
+    IgcLinearProgressModule
+);
 
 export class Sample {
 
@@ -17,8 +22,7 @@ export class Sample {
         {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.1-5";
-            
-            
+
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -51,23 +55,20 @@ export class Sample {
         }
         return this._athletesData;
     }
-    
 
 
-    
     public webGridProgressCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
             <igc-linear-progress value="${ctx.cell.value}"></igc-linear-progress>
         </div>`;
     };
-    
-    
+
     public webGridImageCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
             <img src="${ctx.cell.value}"/>
         </div>`;
     };
-    
+
 }
 
 new Sample();

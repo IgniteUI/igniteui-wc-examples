@@ -54,7 +54,6 @@ export class Sample {
         }
         return this._invoicesData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

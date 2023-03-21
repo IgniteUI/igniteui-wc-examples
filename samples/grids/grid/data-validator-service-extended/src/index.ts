@@ -75,7 +75,6 @@ export class Sample {
         }
         return this._nwindData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -88,39 +87,36 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridUndo(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-    
+
         var grid = this.grid;
         //grid.endEdit(true);
         //grid.transactions.undo();
-    
+
     }
-        
-    
+
     public webGridRedo(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-    
+
         var grid = this.grid;
-    
+
         //grid.endEdit(true);
         //grid.transactions.redo();
-    
+
     }
-        
-    
+
     public webGridCommit(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-    
+
         var grid = this.grid;
-    
+
         // grid.transactions.commit(grid.data);
         //dialog.close();
-    
+
         console.log("test");
     }
-        
+
 }
 
 new Sample();

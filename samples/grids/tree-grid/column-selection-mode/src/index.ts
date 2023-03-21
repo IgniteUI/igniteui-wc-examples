@@ -44,7 +44,6 @@ export class Sample {
         }
         return this._foodsData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

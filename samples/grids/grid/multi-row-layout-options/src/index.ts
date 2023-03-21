@@ -23,8 +23,7 @@ export class Sample {
             groupingExpression2.fieldName = "Country";
             groupingExpression2.dir = SortingDirection.Asc;
             groupingExpression2.ignoreCase = false;
-            
-            
+
             groupingExpression1.push(groupingExpression2)
             this._groupingExpression1 = groupingExpression1;
         }
@@ -51,7 +50,6 @@ export class Sample {
         }
         return this._customersData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
