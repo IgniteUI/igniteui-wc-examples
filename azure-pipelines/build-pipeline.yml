@@ -3,7 +3,6 @@ trigger:
     include:
     - vnext
     - master
-    - btraykov/azure-pipeline
 
 pr:
   branches:
@@ -40,8 +39,8 @@ stages:
         inputs:
           command: 'custom'
           workingDir: '$(Build.SourcesDirectory)'
-          customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
-          customEndpoint: 'public proget'
+          customCommand: 'config -L project set @infragistics:registry=$(IG_LICENSED_NPM_FEED)'
+          customEndpoint: 'internal proget'
 
       - task: Npm@1
         displayName: 'npm ci --legacy-peer-deps'
