@@ -2,7 +2,7 @@ export class FoodsDataItem {
     public constructor(init: Partial<FoodsDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public ID: number;
     public ParentID: number;
     public Name: string;

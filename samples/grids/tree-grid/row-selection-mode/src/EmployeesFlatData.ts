@@ -3,14 +3,14 @@ export class EmployeesFlatDataItem {
         Object.assign(this, init);
     }
 
-    public age: number;
-    public hireDate: string;
-    public iD: number;
-    public name: string;
-    public phone: string;
-    public onPTO: boolean;
-    public parentID: number;
-    public title: string;
+    public Age: number;
+    public HireDate: string;
+    public ID: number;
+    public Name: string;
+    public Phone: string;
+    public OnPTO: boolean;
+    public ParentID: number;
+    public Title: string;
 
 }
 export class EmployeesFlatData extends Array<EmployeesFlatDataItem> {
@@ -18,201 +18,201 @@ export class EmployeesFlatData extends Array<EmployeesFlatDataItem> {
         super();
         this.push(new EmployeesFlatDataItem(
         {
-            age: 55,
-            hireDate: `2008, 3, 20`,
-            iD: 1,
-            name: `Johnathan Winchester`,
-            phone: `0251-031259`,
-            onPTO: false,
-            parentID: -1,
-            title: `Development Manager`
+            Age: 55,
+            HireDate: `2008, 3, 20`,
+            ID: 1,
+            Name: `Johnathan Winchester`,
+            Phone: `0251-031259`,
+            OnPTO: false,
+            ParentID: -1,
+            Title: `Development Manager`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 42,
-            hireDate: `2014, 1, 22`,
-            iD: 4,
-            name: `Ana Sanders`,
-            phone: `(21) 555-0091`,
-            onPTO: true,
-            parentID: -1,
-            title: `CEO`
+            Age: 42,
+            HireDate: `2014, 1, 22`,
+            ID: 4,
+            Name: `Ana Sanders`,
+            Phone: `(21) 555-0091`,
+            OnPTO: true,
+            ParentID: -1,
+            Title: `CEO`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 49,
-            hireDate: `2014, 1, 22`,
-            iD: 18,
-            name: `Victoria Lincoln`,
-            phone: `(071) 23 67 22 20`,
-            onPTO: true,
-            parentID: -1,
-            title: `Accounting Manager`
+            Age: 49,
+            HireDate: `2014, 1, 22`,
+            ID: 18,
+            Name: `Victoria Lincoln`,
+            Phone: `(071) 23 67 22 20`,
+            OnPTO: true,
+            ParentID: -1,
+            Title: `Accounting Manager`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 61,
-            hireDate: `2010, 1, 1`,
-            iD: 10,
-            name: `Yang Wang`,
-            phone: `(21) 555-0091`,
-            onPTO: false,
-            parentID: -1,
-            title: `Localization Manager`
+            Age: 61,
+            HireDate: `2010, 1, 1`,
+            ID: 10,
+            Name: `Yang Wang`,
+            Phone: `(21) 555-0091`,
+            OnPTO: false,
+            ParentID: -1,
+            Title: `Localization Manager`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 43,
-            hireDate: `2011, 6, 3`,
-            iD: 3,
-            name: `Michael Burke`,
-            phone: `0452-076545`,
-            onPTO: true,
-            parentID: 1,
-            title: `Senior Software Developer`
+            Age: 43,
+            HireDate: `2011, 6, 3`,
+            ID: 3,
+            Name: `Michael Burke`,
+            Phone: `0452-076545`,
+            OnPTO: true,
+            ParentID: 1,
+            Title: `Senior Software Developer`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 29,
-            hireDate: `2009, 6, 19`,
-            iD: 2,
-            name: `Thomas Anderson`,
-            phone: `(14) 555-8122`,
-            onPTO: false,
-            parentID: 1,
-            title: `Senior Software Developer`
+            Age: 29,
+            HireDate: `2009, 6, 19`,
+            ID: 2,
+            Name: `Thomas Anderson`,
+            Phone: `(14) 555-8122`,
+            OnPTO: false,
+            ParentID: 1,
+            Title: `Senior Software Developer`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 31,
-            hireDate: `2014, 8, 18`,
-            iD: 11,
-            name: `Monica Reyes`,
-            phone: `7675-3425`,
-            onPTO: false,
-            parentID: 1,
-            title: `Software Development Team Lead`
+            Age: 31,
+            HireDate: `2014, 8, 18`,
+            ID: 11,
+            Name: `Monica Reyes`,
+            Phone: `7675-3425`,
+            OnPTO: false,
+            ParentID: 1,
+            Title: `Software Development Team Lead`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 35,
-            hireDate: `2015, 9, 17`,
-            iD: 6,
-            name: `Roland Mendel`,
-            phone: `(505) 555-5939`,
-            onPTO: false,
-            parentID: 11,
-            title: `Senior Software Developer`
+            Age: 35,
+            HireDate: `2015, 9, 17`,
+            ID: 6,
+            Name: `Roland Mendel`,
+            Phone: `(505) 555-5939`,
+            OnPTO: false,
+            ParentID: 11,
+            Title: `Senior Software Developer`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 44,
-            hireDate: `2009, 10, 11`,
-            iD: 12,
-            name: `Sven Cooper`,
-            phone: `0695-34 67 21`,
-            onPTO: true,
-            parentID: 11,
-            title: `Senior Software Developer`
+            Age: 44,
+            HireDate: `2009, 10, 11`,
+            ID: 12,
+            Name: `Sven Cooper`,
+            Phone: `0695-34 67 21`,
+            OnPTO: true,
+            ParentID: 11,
+            Title: `Senior Software Developer`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 44,
-            hireDate: `2014, 4, 4`,
-            iD: 14,
-            name: `Laurence Johnson`,
-            phone: `981-443655`,
-            onPTO: false,
-            parentID: 4,
-            title: `Director`
+            Age: 44,
+            HireDate: `2014, 4, 4`,
+            ID: 14,
+            Name: `Laurence Johnson`,
+            Phone: `981-443655`,
+            OnPTO: false,
+            ParentID: 4,
+            Title: `Director`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 25,
-            hireDate: `2017, 11, 9`,
-            iD: 5,
-            name: `Elizabeth Richards`,
-            phone: `(2) 283-2951`,
-            onPTO: true,
-            parentID: 4,
-            title: `Vice President`
+            Age: 25,
+            HireDate: `2017, 11, 9`,
+            ID: 5,
+            Name: `Elizabeth Richards`,
+            Phone: `(2) 283-2951`,
+            OnPTO: true,
+            ParentID: 4,
+            Title: `Vice President`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 39,
-            hireDate: `2010, 3, 22`,
-            iD: 13,
-            name: `Trevor Ashworth`,
-            phone: `981-443655`,
-            onPTO: true,
-            parentID: 5,
-            title: `Director`
+            Age: 39,
+            HireDate: `2010, 3, 22`,
+            ID: 13,
+            Name: `Trevor Ashworth`,
+            Phone: `981-443655`,
+            OnPTO: true,
+            ParentID: 5,
+            Title: `Director`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 44,
-            hireDate: `2014, 4, 4`,
-            iD: 17,
-            name: `Antonio Moreno`,
-            phone: `(505) 555-5939`,
-            onPTO: false,
-            parentID: 18,
-            title: `Senior Accountant`
+            Age: 44,
+            HireDate: `2014, 4, 4`,
+            ID: 17,
+            Name: `Antonio Moreno`,
+            Phone: `(505) 555-5939`,
+            OnPTO: false,
+            ParentID: 18,
+            Title: `Senior Accountant`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 50,
-            hireDate: `2007, 11, 18`,
-            iD: 7,
-            name: `Pedro Rodriguez`,
-            phone: `035-640230`,
-            onPTO: false,
-            parentID: 10,
-            title: `Senior Localization Developer`
+            Age: 50,
+            HireDate: `2007, 11, 18`,
+            ID: 7,
+            Name: `Pedro Rodriguez`,
+            Phone: `035-640230`,
+            OnPTO: false,
+            ParentID: 10,
+            Title: `Senior Localization Developer`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 27,
-            hireDate: `2016, 2, 19`,
-            iD: 8,
-            name: `Casey Harper`,
-            phone: `0342-023176`,
-            onPTO: true,
-            parentID: 10,
-            title: `Senior Localization`
+            Age: 27,
+            HireDate: `2016, 2, 19`,
+            ID: 8,
+            Name: `Casey Harper`,
+            Phone: `0342-023176`,
+            OnPTO: true,
+            ParentID: 10,
+            Title: `Senior Localization`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 25,
-            hireDate: `2017, 11, 9`,
-            iD: 15,
-            name: `Patricia Simpson`,
-            phone: `069-0245984`,
-            onPTO: false,
-            parentID: 7,
-            title: `Localization Intern`
+            Age: 25,
+            HireDate: `2017, 11, 9`,
+            ID: 15,
+            Name: `Patricia Simpson`,
+            Phone: `069-0245984`,
+            OnPTO: false,
+            ParentID: 7,
+            Title: `Localization Intern`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 39,
-            hireDate: `2010, 3, 22`,
-            iD: 9,
-            name: `Francisco Chang`,
-            phone: `(91) 745 6200`,
-            onPTO: false,
-            parentID: 7,
-            title: `Localization Intern`
+            Age: 39,
+            HireDate: `2010, 3, 22`,
+            ID: 9,
+            Name: `Francisco Chang`,
+            Phone: `(91) 745 6200`,
+            OnPTO: false,
+            ParentID: 7,
+            Title: `Localization Intern`
         }));
         this.push(new EmployeesFlatDataItem(
         {
-            age: 25,
-            hireDate: `2018, 3, 18`,
-            iD: 16,
-            name: `Peter Lewis`,
-            phone: `069-0245984`,
-            onPTO: true,
-            parentID: 7,
-            title: `Localization Intern`
+            Age: 25,
+            HireDate: `2018, 3, 18`,
+            ID: 16,
+            Name: `Peter Lewis`,
+            Phone: `069-0245984`,
+            OnPTO: true,
+            ParentID: 7,
+            Title: `Localization Intern`
         }));
     }
 }

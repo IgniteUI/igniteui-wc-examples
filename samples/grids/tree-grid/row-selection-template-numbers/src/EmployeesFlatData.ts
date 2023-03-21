@@ -2,7 +2,7 @@ export class EmployeesFlatDataItem {
     public constructor(init: Partial<EmployeesFlatDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public Age: number;
     public HireDate: string;
     public ID: number;

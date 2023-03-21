@@ -2,7 +2,7 @@ export class NwindDataItem {
     public constructor(init: Partial<NwindDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public ProductID: number;
     public ProductName: string;
     public SupplierID: number;
@@ -22,7 +22,7 @@ export class NwindDataItem_LocationsItem {
     public constructor(init: Partial<NwindDataItem_LocationsItem>) {
         Object.assign(this, init);
     }
-    
+
     public Shop: string;
     public LastInventory: string;
 
@@ -55,7 +55,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Farmer Market`,
                     LastInventory: `04/04/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -77,7 +77,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Super Market`,
                     LastInventory: `09/09/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -109,7 +109,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `24/7 Market`,
                     LastInventory: `11/11/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -141,7 +141,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Street Market`,
                     LastInventory: `12/12/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -163,7 +163,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Super Market`,
                     LastInventory: `09/09/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -185,7 +185,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Super Market`,
                     LastInventory: `09/09/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -217,7 +217,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Street Market`,
                     LastInventory: `12/12/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -244,7 +244,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Farmer Market`,
                     LastInventory: `04/04/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -266,7 +266,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Farmer Market`,
                     LastInventory: `04/04/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -288,7 +288,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Wall Market`,
                     LastInventory: `12/06/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -315,7 +315,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Farmer Market`,
                     LastInventory: `04/04/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -337,7 +337,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Farmer Market`,
                     LastInventory: `04/04/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -359,7 +359,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Super Market`,
                     LastInventory: `09/09/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -386,7 +386,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Street Market`,
                     LastInventory: `12/12/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -413,7 +413,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Wall Market`,
                     LastInventory: `12/06/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -445,7 +445,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `24/7 Market`,
                     LastInventory: `11/11/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -467,7 +467,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Farmer Market`,
                     LastInventory: `04/04/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -494,7 +494,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Super Market`,
                     LastInventory: `09/09/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -516,7 +516,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Local Market`,
                     LastInventory: `07/03/2018`
                 })]
-            
+
         }));
         this.push(new NwindDataItem(
         {
@@ -538,7 +538,7 @@ export class NwindData extends Array<NwindDataItem> {
                     Shop: `Super Market`,
                     LastInventory: `09/09/2018`
                 })]
-            
+
         }));
     }
 }
