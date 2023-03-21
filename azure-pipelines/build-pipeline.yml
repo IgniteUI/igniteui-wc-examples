@@ -41,6 +41,7 @@ stages:
           workingDir: '$(Build.SourcesDirectory)'
           customCommand: 'config -L project set @infragistics:registry=$(IG licensed npm feed)'
           customEndpoint: 'IG registry'
+          verbose: ${{ parameters.isVerbose }}
 
       # Until further notice we will use 'npm install' in order to avoid mixups when relying on latest dev versions of our packages
       - task: Npm@1
