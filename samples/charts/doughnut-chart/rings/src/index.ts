@@ -15,7 +15,6 @@ export class Sample {
     private chart: IgcDoughnutChartComponent
     private series1: IgcRingSeriesComponent
     private series2: IgcRingSeriesComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -28,6 +27,7 @@ export class Sample {
             series2.dataSource = this.calendarMonths
         }
         this._bind();
+
     }
 
     private _calendarSeasons: CalendarSeasons = null;
@@ -38,7 +38,7 @@ export class Sample {
         }
         return this._calendarSeasons;
     }
-    
+
     private _calendarMonths: CalendarMonths = null;
     public get calendarMonths(): CalendarMonths {
         if (this._calendarMonths == null)
@@ -47,9 +47,6 @@ export class Sample {
         }
         return this._calendarMonths;
     }
-    
-
-
 
 }
 

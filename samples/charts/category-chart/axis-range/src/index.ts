@@ -23,7 +23,6 @@ export class Sample {
     private yAxisMinimumValue: IgcPropertyEditorPropertyDescriptionComponent
     private yAxisMaximumValue: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcCategoryChartComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -40,6 +39,7 @@ export class Sample {
             chart.legend = this.legend
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;
@@ -50,7 +50,6 @@ export class Sample {
         }
         return this._countryRenewableElectricity;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -63,7 +62,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 
 }
 

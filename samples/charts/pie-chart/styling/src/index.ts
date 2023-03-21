@@ -13,7 +13,6 @@ export class Sample {
 
     private legend: IgcItemLegendComponent
     private chart: IgcPieChartComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -25,6 +24,7 @@ export class Sample {
             chart.legend = this.legend
         }
         this._bind();
+
     }
 
     private _energyGlobalDemand: EnergyGlobalDemand = null;
@@ -35,9 +35,6 @@ export class Sample {
         }
         return this._energyGlobalDemand;
     }
-    
-
-
 
 }
 

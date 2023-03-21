@@ -2,10 +2,10 @@ export class TemperatureAnnotatedDataItem {
     public constructor(init: Partial<TemperatureAnnotatedDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public index: number;
-    public temperature: number;
     public tempInfo: string;
+    public temperature: number;
     public month: string;
 
 }
@@ -15,85 +15,85 @@ export class TemperatureAnnotatedData extends Array<TemperatureAnnotatedDataItem
         this.push(new TemperatureAnnotatedDataItem(
         {
             index: 0,
-            temperature: 27,
             tempInfo: `27°C`,
+            temperature: 27,
             month: `Jan`
         }));
         this.push(new TemperatureAnnotatedDataItem(
         {
             index: 1,
-            temperature: 25,
             tempInfo: `25°C`,
+            temperature: 25,
             month: `Feb`
         }));
         this.push(new TemperatureAnnotatedDataItem(
         {
             index: 2,
-            temperature: 21,
             tempInfo: `21°C`,
+            temperature: 21,
             month: `Mar`
         }));
         this.push(new TemperatureAnnotatedDataItem(
         {
             index: 3,
-            temperature: 19,
             tempInfo: `19°C`,
+            temperature: 19,
             month: `Apr`
         }));
         this.push(new TemperatureAnnotatedDataItem(
         {
             index: 4,
-            temperature: 16,
             tempInfo: `16°C`,
+            temperature: 16,
             month: `May`
         }));
         this.push(new TemperatureAnnotatedDataItem(
         {
             index: 5,
-            temperature: 13,
             tempInfo: `13°C`,
+            temperature: 13,
             month: `Jun`
         }));
         this.push(new TemperatureAnnotatedDataItem(
         {
             index: 6,
-            temperature: 14,
             tempInfo: `14°C`,
+            temperature: 14,
             month: `Jul`
         }));
         this.push(new TemperatureAnnotatedDataItem(
         {
             index: 7,
-            temperature: 15,
             tempInfo: `15°C`,
+            temperature: 15,
             month: `Aug`
         }));
         this.push(new TemperatureAnnotatedDataItem(
         {
             index: 8,
-            temperature: 19,
             tempInfo: `19°C`,
+            temperature: 19,
             month: `Sep`
         }));
         this.push(new TemperatureAnnotatedDataItem(
         {
             index: 9,
-            temperature: 22,
             tempInfo: `22°C`,
+            temperature: 22,
             month: `Oct`
         }));
         this.push(new TemperatureAnnotatedDataItem(
         {
             index: 10,
-            temperature: 26,
             tempInfo: `26°C`,
+            temperature: 26,
             month: `Nov`
         }));
         this.push(new TemperatureAnnotatedDataItem(
         {
             index: 11,
-            temperature: 30,
             tempInfo: `30°C`,
+            temperature: 30,
             month: `Dec`
         }));
     }

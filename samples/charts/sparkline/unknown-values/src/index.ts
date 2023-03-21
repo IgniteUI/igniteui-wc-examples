@@ -20,7 +20,6 @@ export class Sample {
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
     private unknownValuePlottingEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcSparklineComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -34,6 +33,7 @@ export class Sample {
             chart.dataSource = this.sparklineUnknownData
         }
         this._bind();
+
     }
 
     private _sparklineUnknownData: SparklineUnknownData = null;
@@ -44,7 +44,6 @@ export class Sample {
         }
         return this._sparklineUnknownData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -56,7 +55,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 
 }
 

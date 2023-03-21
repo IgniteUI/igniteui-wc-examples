@@ -25,7 +25,6 @@ export class Sample {
     private lastMarkerVisibilityEditor: IgcPropertyEditorPropertyDescriptionComponent
     private markerVisibilityEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcSparklineComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -44,6 +43,7 @@ export class Sample {
             chart.dataSource = this.sparklineProfitData
         }
         this._bind();
+
     }
 
     private _sparklineProfitData: SparklineProfitData = null;
@@ -54,7 +54,6 @@ export class Sample {
         }
         return this._sparklineProfitData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -66,7 +65,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 
 }
 

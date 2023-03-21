@@ -13,7 +13,6 @@ export class Sample {
 
     private legend: IgcDataLegendComponent
     private chart: IgcCategoryChartComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -25,6 +24,7 @@ export class Sample {
             chart.dataSource = this.highestGrossingMovies
         }
         this._bind();
+
     }
 
     private _highestGrossingMovies: HighestGrossingMovies = null;
@@ -35,9 +35,6 @@ export class Sample {
         }
         return this._highestGrossingMovies;
     }
-    
-
-
 
 }
 
