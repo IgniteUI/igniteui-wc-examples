@@ -42,8 +42,6 @@ stages:
           customCommand: 'config -L project set @infragistics:registry=$(IG licensed npm feed)'
           customEndpoint: 'internal licensed proget'
 
-'
-
       # Until further notice we will use 'npm install' in order to avoid mixups when relying on latest dev versions of our packages
       - task: Npm@1
         displayName: 'npm install --legacy-peer-deps'
