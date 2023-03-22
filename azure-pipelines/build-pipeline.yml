@@ -59,7 +59,7 @@ stages:
           command: custom
           workingDir: '$(Build.SourcesDirectory)\browser'
           verbose: ${{ parameters.isVerbose }}
-          customCommand: 'uninstall igniteui-dockmanager --no-save'
+          customCommand: 'uninstall igniteui-dockmanager --save'
 
       - task: PowerShell@2
         displayName: 'Uninstall all IG trial packages & re-install their licensed variations'
