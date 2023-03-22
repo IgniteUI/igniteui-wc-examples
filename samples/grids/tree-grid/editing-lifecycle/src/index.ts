@@ -23,16 +23,16 @@ export class Sample {
         this.webGridCellEditExit = this.webGridCellEditExit.bind(this);
 
         this._bind = () => {
-            grid.data = this.nwindData
-            grid.addEventListener("rendered", this.webTreeGridRendered)
-            grid.addEventListener("rowEditEnter", this.webGridRowEditEnter)
-            grid.addEventListener("rowEdit", this.webGridRowEdit)
-            grid.addEventListener("rowEditDone", this.webGridRowEditDone)
-            grid.addEventListener("rowEditExit", this.webGridRowEditExit)
-            grid.addEventListener("cellEditEnter", this.webGridCellEditEnter)
-            grid.addEventListener("cellEdit", this.webGridCellEdit)
-            grid.addEventListener("cellEditDone", this.webGridCellEditDone)
-            grid.addEventListener("cellEditExit", this.webGridCellEditExit)
+            grid.data = this.nwindData;
+            grid.addEventListener("rendered", this.webTreeGridRendered);
+            grid.addEventListener("rowEditEnter", this.webGridRowEditEnter);
+            grid.addEventListener("rowEdit", this.webGridRowEdit);
+            grid.addEventListener("rowEditDone", this.webGridRowEditDone);
+            grid.addEventListener("rowEditExit", this.webGridRowEditExit);
+            grid.addEventListener("cellEditEnter", this.webGridCellEditEnter);
+            grid.addEventListener("cellEdit", this.webGridCellEdit);
+            grid.addEventListener("cellEditDone", this.webGridCellEditDone);
+            grid.addEventListener("cellEditExit", this.webGridCellEditExit);
         }
         this._bind();
 
