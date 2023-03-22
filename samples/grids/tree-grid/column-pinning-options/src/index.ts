@@ -28,13 +28,13 @@ export class Sample {
         var column6 = this.column6 = document.getElementById('column6') as IgcColumnComponent;
 
         this._bind = () => {
-            treeGrid.data = this.employeesFlatData
-            column1.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column2.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column3.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column4.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column5.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column6.headerTemplate = this.webTreeGridPinHeaderTemplate
+            treeGrid.data = this.employeesFlatData;
+            column1.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column2.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column3.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column4.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column5.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column6.headerTemplate = this.webTreeGridPinHeaderTemplate;
         }
         this._bind();
 

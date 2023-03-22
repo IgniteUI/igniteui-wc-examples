@@ -20,8 +20,8 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            legend.target = this.chart
-            chart.dataSource = this.highestGrossingMovies
+            legend.target = this.chart;
+            chart.dataSource = this.highestGrossingMovies;
         }
         this._bind();
 

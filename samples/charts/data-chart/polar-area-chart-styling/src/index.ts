@@ -32,13 +32,13 @@ export class Sample {
         var polarAreaSeries2 = this.polarAreaSeries2 = document.getElementById('PolarAreaSeries2') as IgcPolarAreaSeriesComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            polarAreaSeries1.dataSource = this.boatSailingData
-            polarAreaSeries1.angleAxis = this.angleAxis
-            polarAreaSeries1.radiusAxis = this.radiusAxis
-            polarAreaSeries2.dataSource = this.boatSailingData
-            polarAreaSeries2.angleAxis = this.angleAxis
-            polarAreaSeries2.radiusAxis = this.radiusAxis
+            chart.legend = this.legend;
+            polarAreaSeries1.dataSource = this.boatSailingData;
+            polarAreaSeries1.angleAxis = this.angleAxis;
+            polarAreaSeries1.radiusAxis = this.radiusAxis;
+            polarAreaSeries2.dataSource = this.boatSailingData;
+            polarAreaSeries2.angleAxis = this.angleAxis;
+            polarAreaSeries2.radiusAxis = this.radiusAxis;
         }
         this._bind();
 

@@ -28,8 +28,8 @@ export class Sample {
         var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.nwindData
-            grid.addEventListener("columnInit", this.webGridCustomSummary)
+            grid.data = this.nwindData;
+            grid.addEventListener("columnInit", this.webGridCustomSummary);
         }
         this._bind();
 

@@ -37,11 +37,11 @@ export class Sample {
         this.webGridClipboardOperationsColumnInit = this.webGridClipboardOperationsColumnInit.bind(this);
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.grid
-            propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSelection
-            grid.data = this.nwindData
-            grid.addEventListener("columnInit", this.webGridClipboardOperationsColumnInit)
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.grid;
+            propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSelection;
+            grid.data = this.nwindData;
+            grid.addEventListener("columnInit", this.webGridClipboardOperationsColumnInit);
         }
         this._bind();
 

@@ -33,13 +33,13 @@ export class Sample {
         var scatterSeries2 = this.scatterSeries2 = document.getElementById('ScatterSeries2') as IgcScatterSeriesComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            scatterSeries1.xAxis = this.xAxis
-            scatterSeries1.yAxis = this.yAxis
-            scatterSeries1.dataSource = this.countryDemographicEurope
-            scatterSeries2.xAxis = this.xAxis
-            scatterSeries2.yAxis = this.yAxis
-            scatterSeries2.dataSource = this.countryDemographicAfrican
+            chart.legend = this.legend;
+            scatterSeries1.xAxis = this.xAxis;
+            scatterSeries1.yAxis = this.yAxis;
+            scatterSeries1.dataSource = this.countryDemographicEurope;
+            scatterSeries2.xAxis = this.xAxis;
+            scatterSeries2.yAxis = this.yAxis;
+            scatterSeries2.dataSource = this.countryDemographicAfrican;
         }
         this._bind();
 

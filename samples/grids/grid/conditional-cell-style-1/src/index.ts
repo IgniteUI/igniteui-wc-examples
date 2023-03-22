@@ -27,10 +27,10 @@ export class Sample {
         var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.athletesData
-            column1.bodyTemplate = this.webGridBeatsPerMinuteTemplate
-            column2.bodyTemplate = this.webGridTopSpeedTemplate
-            column3.bodyTemplate = this.webGridImageCellTemplate
+            grid.data = this.athletesData;
+            column1.bodyTemplate = this.webGridBeatsPerMinuteTemplate;
+            column2.bodyTemplate = this.webGridTopSpeedTemplate;
+            column3.bodyTemplate = this.webGridImageCellTemplate;
         }
         this._bind();
 

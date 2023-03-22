@@ -25,9 +25,9 @@ export class Sample {
         var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.athletesDataExtended
-            column1.bodyTemplate = this.webGridImageCellTemplate
-            column2.bodyTemplate = this.webGridAvatarCellTemplate
+            grid.data = this.athletesDataExtended;
+            column1.bodyTemplate = this.webGridImageCellTemplate;
+            column2.bodyTemplate = this.webGridAvatarCellTemplate;
         }
         this._bind();
 

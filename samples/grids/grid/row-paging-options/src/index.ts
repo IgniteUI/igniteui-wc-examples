@@ -43,10 +43,10 @@ export class Sample {
         var displayDensityEditor = this.displayDensityEditor = document.getElementById('DisplayDensityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
 
         this._bind = () => {
-            grid.data = this.athletesData
-            column1.pipeArgs = this.columnPipeArgs1
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.grid
+            grid.data = this.athletesData;
+            column1.pipeArgs = this.columnPipeArgs1;
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.grid;
         }
         this._bind();
 

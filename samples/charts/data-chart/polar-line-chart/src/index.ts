@@ -34,13 +34,13 @@ export class Sample {
         var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            polarLineSeries1.dataSource = this.boatSailingData
-            polarLineSeries1.angleAxis = this.angleAxis
-            polarLineSeries1.radiusAxis = this.radiusAxis
-            polarLineSeries2.dataSource = this.boatSailingData
-            polarLineSeries2.angleAxis = this.angleAxis
-            polarLineSeries2.radiusAxis = this.radiusAxis
+            chart.legend = this.legend;
+            polarLineSeries1.dataSource = this.boatSailingData;
+            polarLineSeries1.angleAxis = this.angleAxis;
+            polarLineSeries1.radiusAxis = this.radiusAxis;
+            polarLineSeries2.dataSource = this.boatSailingData;
+            polarLineSeries2.angleAxis = this.angleAxis;
+            polarLineSeries2.radiusAxis = this.radiusAxis;
         }
         this._bind();
 

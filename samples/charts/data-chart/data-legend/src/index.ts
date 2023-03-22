@@ -41,13 +41,13 @@ export class Sample {
         var crosshairLayer = this.crosshairLayer = document.getElementById('CrosshairLayer') as IgcCrosshairLayerComponent;
 
         this._bind = () => {
-            legend.target = this.chart
-            bubbleSeries1.xAxis = this.xAxis
-            bubbleSeries1.yAxis = this.yAxis
-            bubbleSeries1.dataSource = this.countryDemographicAfrican
-            bubbleSeries2.xAxis = this.xAxis
-            bubbleSeries2.yAxis = this.yAxis
-            bubbleSeries2.dataSource = this.countryDemographicEurope
+            legend.target = this.chart;
+            bubbleSeries1.xAxis = this.xAxis;
+            bubbleSeries1.yAxis = this.yAxis;
+            bubbleSeries1.dataSource = this.countryDemographicAfrican;
+            bubbleSeries2.xAxis = this.xAxis;
+            bubbleSeries2.yAxis = this.yAxis;
+            bubbleSeries2.dataSource = this.countryDemographicEurope;
         }
         this._bind();
 

@@ -17,8 +17,8 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.employeesNestedData
-            column1.bodyTemplate = this.webGridNestedDataCellTemplate
+            grid.data = this.employeesNestedData;
+            column1.bodyTemplate = this.webGridNestedDataCellTemplate;
         }
         this._bind();
 

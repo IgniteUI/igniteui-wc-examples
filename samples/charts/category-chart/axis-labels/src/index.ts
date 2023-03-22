@@ -35,10 +35,10 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
-            propertyEditorPanel1.target = this.chart
-            chart.dataSource = this.countryRenewableElectricity
-            chart.legend = this.legend
+            propertyEditorPanel1.componentRenderer = this.renderer;
+            propertyEditorPanel1.target = this.chart;
+            chart.dataSource = this.countryRenewableElectricity;
+            chart.legend = this.legend;
         }
         this._bind();
 

@@ -22,8 +22,8 @@ export class Sample {
         var series = this.series = document.getElementById('series') as IgcRingSeriesComponent;
 
         this._bind = () => {
-            series.dataSource = this.energyGlobalDemand
-            series.legend = this.legend
+            series.dataSource = this.energyGlobalDemand;
+            series.legend = this.legend;
         }
         this._bind();
 

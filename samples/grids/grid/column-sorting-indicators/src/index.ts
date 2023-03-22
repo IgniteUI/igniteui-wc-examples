@@ -58,8 +58,8 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
         this._bind = () => {
-            grid.data = this.financialDataAll
-            grid.sortingExpressions = this.sortingExpression1
+            grid.data = this.financialDataAll;
+            grid.sortingExpressions = this.sortingExpression1;
         }
         this._bind();
 

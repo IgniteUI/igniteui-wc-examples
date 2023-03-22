@@ -30,9 +30,9 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
         this._bind = () => {
-            grid.data = this.invoicesData
-            grid.groupingExpressions = this.groupingExpression1
-            grid.groupRowTemplate = this.webGridGroupByRowTemplate
+            grid.data = this.invoicesData;
+            grid.groupingExpressions = this.groupingExpression1;
+            grid.groupRowTemplate = this.webGridGroupByRowTemplate;
         }
         this._bind();
 

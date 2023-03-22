@@ -36,11 +36,11 @@ export class Sample {
         var tooltips = this.tooltips = document.getElementById('Tooltips') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            xAxis.dataSource = this.countryRenewableElectricity
-            lineSeries1.xAxis = this.xAxis
-            lineSeries1.yAxis = this.yAxis
-            lineSeries1.dataSource = this.countryRenewableElectricity
-            calloutLayer1.dataSource = this.countryRenewableCallouts
+            xAxis.dataSource = this.countryRenewableElectricity;
+            lineSeries1.xAxis = this.xAxis;
+            lineSeries1.yAxis = this.yAxis;
+            lineSeries1.dataSource = this.countryRenewableElectricity;
+            calloutLayer1.dataSource = this.countryRenewableCallouts;
         }
         this._bind();
 

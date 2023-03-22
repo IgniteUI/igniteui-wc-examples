@@ -20,8 +20,8 @@ export class Sample {
         var unitsOnOrder = this.unitsOnOrder = document.getElementById('UnitsOnOrder') as IgcColumnComponent;
 
         this._bind = () => {
-            treeGrid1.data = this.nwindData
-            treeGrid1.addEventListener("cellEdit", this.webGridEditingEventsCellEdit)
+            treeGrid1.data = this.nwindData;
+            treeGrid1.addEventListener("cellEdit", this.webGridEditingEventsCellEdit);
         }
         this._bind();
 

@@ -38,12 +38,12 @@ export class Sample {
         var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            bubbleSeries1.xAxis = this.xAxis
-            bubbleSeries1.yAxis = this.yAxis
-            bubbleSeries1.dataSource = this.countryDemographicAfrican
-            bubbleSeries2.xAxis = this.xAxis
-            bubbleSeries2.yAxis = this.yAxis
-            bubbleSeries2.dataSource = this.countryDemographicEurope
+            bubbleSeries1.xAxis = this.xAxis;
+            bubbleSeries1.yAxis = this.yAxis;
+            bubbleSeries1.dataSource = this.countryDemographicAfrican;
+            bubbleSeries2.xAxis = this.xAxis;
+            bubbleSeries2.yAxis = this.yAxis;
+            bubbleSeries2.dataSource = this.countryDemographicEurope;
         }
         this._bind();
 

@@ -63,11 +63,11 @@ export class Sample {
         var dealsPending = this.dealsPending = document.getElementById('DealsPending') as IgcColumnComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.grid
-            grid.data = this.employeesData
-            avatar.bodyTemplate = this.webGridAvatarCellTemplate
-            createdOn.pipeArgs = this.columnPipeArgs1
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.grid;
+            grid.data = this.employeesData;
+            avatar.bodyTemplate = this.webGridAvatarCellTemplate;
+            createdOn.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
 

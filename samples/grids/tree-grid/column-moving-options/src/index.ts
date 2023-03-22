@@ -38,18 +38,18 @@ export class Sample {
         var column11 = this.column11 = document.getElementById('column11') as IgcColumnComponent;
 
         this._bind = () => {
-            treeGrid.data = this.employeesFlatDetails
-            column1.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column2.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column3.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column4.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column5.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column6.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column7.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column8.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column9.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column10.headerTemplate = this.webTreeGridPinHeaderTemplate
-            column11.headerTemplate = this.webTreeGridPinHeaderTemplate
+            treeGrid.data = this.employeesFlatDetails;
+            column1.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column2.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column3.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column4.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column5.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column6.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column7.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column8.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column9.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column10.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column11.headerTemplate = this.webTreeGridPinHeaderTemplate;
         }
         this._bind();
 

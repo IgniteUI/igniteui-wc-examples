@@ -20,8 +20,8 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcPieChartComponent;
 
         this._bind = () => {
-            chart.dataSource = this.energyGlobalDemand
-            chart.legend = this.legend
+            chart.dataSource = this.energyGlobalDemand;
+            chart.legend = this.legend;
         }
         this._bind();
 

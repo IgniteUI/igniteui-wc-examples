@@ -20,8 +20,8 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            chart.dataSource = this.countryRenewableElectricity
-            chart.legend = this.legend
+            chart.dataSource = this.countryRenewableElectricity;
+            chart.legend = this.legend;
         }
         this._bind();
 

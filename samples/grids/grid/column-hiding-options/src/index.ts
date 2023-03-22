@@ -34,7 +34,7 @@ export class Sample {
         var phone = this.phone = document.getElementById('Phone') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.customersData
+            grid.data = this.customersData;
         }
         this._bind();
 

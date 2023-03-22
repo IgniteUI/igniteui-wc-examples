@@ -38,10 +38,10 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.invoicesData
-            grid.groupingExpressions = this.groupingExpression1
-            grid.groupRowTemplate = this.webGridGroupByRowTemplate
-            column1.bodyTemplate = this.webGridBooleanCellTemplate
+            grid.data = this.invoicesData;
+            grid.groupingExpressions = this.groupingExpression1;
+            grid.groupRowTemplate = this.webGridGroupByRowTemplate;
+            column1.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
 

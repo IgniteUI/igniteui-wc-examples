@@ -20,11 +20,11 @@ export class Sample {
         var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.customersData
-            column1.bodyTemplate = this.webGridCompositeContactCellTemplate
-            column1.inlineEditorTemplate = this.webGridCompositeContactEditCellTemplate
-            column2.bodyTemplate = this.webGridCompositeAddressCellTemplate
-            column2.inlineEditorTemplate = this.webGridCompositeAddressEditCellTemplate
+            grid.data = this.customersData;
+            column1.bodyTemplate = this.webGridCompositeContactCellTemplate;
+            column1.inlineEditorTemplate = this.webGridCompositeContactEditCellTemplate;
+            column2.bodyTemplate = this.webGridCompositeAddressCellTemplate;
+            column2.inlineEditorTemplate = this.webGridCompositeAddressEditCellTemplate;
         }
         this._bind();
 

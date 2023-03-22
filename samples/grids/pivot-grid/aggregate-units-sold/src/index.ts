@@ -48,8 +48,8 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcPivotGridComponent;
 
         this._bind = () => {
-            grid.data = this.pivotSalesData
-            grid.pivotConfiguration = this.pivotConfiguration1
+            grid.data = this.pivotSalesData;
+            grid.pivotConfiguration = this.pivotConfiguration1;
         }
         this._bind();
 

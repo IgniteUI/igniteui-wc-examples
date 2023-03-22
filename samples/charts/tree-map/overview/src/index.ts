@@ -17,7 +17,7 @@ export class Sample {
         var treemap = this.treemap = document.getElementById('treemap') as IgcTreemapComponent;
 
         this._bind = () => {
-            treemap.dataSource = this.countyHierarchicalData
+            treemap.dataSource = this.countyHierarchicalData;
         }
         this._bind();
 

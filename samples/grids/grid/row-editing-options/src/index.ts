@@ -26,8 +26,8 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.nwindData
-            column1.pipeArgs = this.columnPipeArgs1
+            grid.data = this.nwindData;
+            column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
 

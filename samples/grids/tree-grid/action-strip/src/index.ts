@@ -15,7 +15,7 @@ export class Sample {
         var actionStrip = this.actionStrip = document.getElementById('actionStrip') as IgcActionStripComponent;
 
         this._bind = () => {
-            treeGrid.data = this.employeesFlatDetails
+            treeGrid.data = this.employeesFlatDetails;
         }
         this._bind();
 

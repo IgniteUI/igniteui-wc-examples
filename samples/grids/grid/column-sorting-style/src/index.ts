@@ -42,10 +42,10 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.grid
-            grid.data = this.productSales
-            column1.pipeArgs = this.columnPipeArgs1
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.grid;
+            grid.data = this.productSales;
+            column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
 

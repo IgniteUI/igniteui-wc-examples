@@ -16,9 +16,9 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
         this._bind = () => {
-            grid.data = this.customersData
-            grid.rowSelectorTemplate = this.webGridRowSelectorTemplate
-            grid.headSelectorTemplate = this.webGridHeaderRowSelectorTemplate
+            grid.data = this.customersData;
+            grid.rowSelectorTemplate = this.webGridRowSelectorTemplate;
+            grid.headSelectorTemplate = this.webGridHeaderRowSelectorTemplate;
         }
         this._bind();
 

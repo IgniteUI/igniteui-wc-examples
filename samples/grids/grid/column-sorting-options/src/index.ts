@@ -64,13 +64,13 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.grid
-            propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSort
-            propertyEditorPropertyDescription2.buttonClicked = this.webGridClearGrouping
-            grid.data = this.productSales
-            grid.sortingExpressions = this.sortingExpression1
-            column1.pipeArgs = this.columnPipeArgs1
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.grid;
+            propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSort;
+            propertyEditorPropertyDescription2.buttonClicked = this.webGridClearGrouping;
+            grid.data = this.productSales;
+            grid.sortingExpressions = this.sortingExpression1;
+            column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
 

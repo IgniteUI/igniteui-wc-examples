@@ -36,13 +36,13 @@ export class Sample {
         var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            scatterSplineSeries1.xAxis = this.xAxis
-            scatterSplineSeries1.yAxis = this.yAxis
-            scatterSplineSeries1.dataSource = this.healthDataForGermany
-            scatterSplineSeries2.xAxis = this.xAxis
-            scatterSplineSeries2.yAxis = this.yAxis
-            scatterSplineSeries2.dataSource = this.healthDataForFrance
+            chart.legend = this.legend;
+            scatterSplineSeries1.xAxis = this.xAxis;
+            scatterSplineSeries1.yAxis = this.yAxis;
+            scatterSplineSeries1.dataSource = this.healthDataForGermany;
+            scatterSplineSeries2.xAxis = this.xAxis;
+            scatterSplineSeries2.yAxis = this.yAxis;
+            scatterSplineSeries2.dataSource = this.healthDataForFrance;
         }
         this._bind();
 

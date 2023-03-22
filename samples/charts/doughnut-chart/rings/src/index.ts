@@ -23,8 +23,8 @@ export class Sample {
         var series2 = this.series2 = document.getElementById('series2') as IgcRingSeriesComponent;
 
         this._bind = () => {
-            series1.dataSource = this.calendarSeasons
-            series2.dataSource = this.calendarMonths
+            series1.dataSource = this.calendarSeasons;
+            series2.dataSource = this.calendarMonths;
         }
         this._bind();
 

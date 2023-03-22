@@ -33,9 +33,9 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
-            propertyEditorPanel1.target = this.chart
-            chart.dataSource = this.salesData
+            propertyEditorPanel1.componentRenderer = this.renderer;
+            propertyEditorPanel1.target = this.chart;
+            chart.dataSource = this.salesData;
         }
         this._bind();
 
