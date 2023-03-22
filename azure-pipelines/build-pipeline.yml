@@ -43,14 +43,6 @@ stages:
           customEndpoint: 'IG registry'
           verbose: ${{ parameters.isVerbose }}
 
-      - task: Npm@1
-        displayName: 'npm uninstall igniteui-dockmanager (trial)'
-        inputs:
-          command: custom
-          workingDir: '$(Build.SourcesDirectory)\browser'
-          verbose: ${{ parameters.isVerbose }}
-          customCommand: 'uninstall igniteui-dockmanager --no-save'
-
       # Until further notice we will use 'npm install' in order to avoid mixups when relying on latest dev versions of our packages
       - task: Npm@1
         displayName: 'npm install --legacy-peer-deps'
@@ -60,7 +52,15 @@ stages:
           verbose: ${{ parameters.isVerbose }}
           customCommand: install --legacy-peer-deps
           customEndpoint: 'IG registry'
-      
+
+      - task: Npm@1
+        displayName: 'npm uninstall igniteui-dockmanager (trial)'
+        inputs:
+          command: custom
+          workingDir: '$(Build.SourcesDirectory)\browser'
+          verbose: ${{ parameters.isVerbose }}
+          customCommand: 'uninstall igniteui-dockmanager --no-save'
+
       - task: PowerShell@2
         displayName: 'Uninstall all IG trial packages & re-install their licensed variations'
         inputs:
