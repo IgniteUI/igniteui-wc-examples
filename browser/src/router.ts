@@ -1,4 +1,4 @@
-// AutoInsertRouterImportsStart
+// AutoRouterImportStart
 import { RouterCharts } from "./samples/charts/router";
 import { RouterGauges } from "./samples/gauges/router";
 import { RouterGrids } from "./samples/grids/router";
@@ -10,7 +10,7 @@ import { RouterMenus } from "./samples/menus/router";
 import { RouterInputs } from "./samples/inputs/router";
 import { RouterScheduling } from "./samples/scheduling/router";
 import { RouterNotifications } from "./samples/notifications/router";
-// AutoInsertRouterImportsEnd
+// AutoRouterImportEnd
 
 export class Router {
 
@@ -90,7 +90,7 @@ export class Router {
 
         // console.log("SB matching " + route);
 
-        // AutoInsertRouterMappingStart
+        // AutoRouterConditionStart
         if (route.indexOf("/maps/") >= 0) {
             this.displaySample(await RouterMaps.get(route));
         }
@@ -124,7 +124,7 @@ export class Router {
         else if (route.indexOf("/notifications/") >= 0) {
             this.displaySample(await RouterNotifications.get(route));
         }
-        // AutoInsertRouterMappingEnd
+        // AutoRouterConditionEnd
         else if (route !== "/" && route !== "/index") {
             console.log("SB missing router for " + route)
              let sampleFile = await import('./core/SampleFallback');
