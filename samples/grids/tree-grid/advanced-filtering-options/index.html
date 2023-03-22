@@ -21,13 +21,13 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
-        id="treeGrid"
-        moving="true"
-        primary-key="ID"
-        allow-advanced-filtering="true"
         name="treeGrid"
-        id ="treeGrid">
+        id="treeGrid"
+        id="treeGrid"
+        primary-key="ID"
+        foreign-key="ParentID"
+        allow-advanced-filtering="true"
+        moving="true">
             <igc-grid-toolbar
             >
                 <igc-grid-toolbar-actions
@@ -39,8 +39,8 @@
             </igc-grid-toolbar>
             <igc-column
             field="Name"
-            sortable="true"
-            data-type="string">
+            data-type="string"
+            sortable="true">
             </igc-column>
             <igc-column
             field="Title"

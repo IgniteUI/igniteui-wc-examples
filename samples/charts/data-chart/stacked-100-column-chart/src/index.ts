@@ -40,11 +40,11 @@ export class Sample {
         var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            xAxis.dataSource = this.onlineTrafficByDevice
-            stacked100ColumnSeries.xAxis = this.xAxis
-            stacked100ColumnSeries.yAxis = this.yAxis
-            stacked100ColumnSeries.dataSource = this.onlineTrafficByDevice
+            chart.legend = this.legend;
+            xAxis.dataSource = this.onlineTrafficByDevice;
+            stacked100ColumnSeries.dataSource = this.onlineTrafficByDevice;
+            stacked100ColumnSeries.xAxis = this.xAxis;
+            stacked100ColumnSeries.yAxis = this.yAxis;
         }
         this._bind();
 

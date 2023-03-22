@@ -33,7 +33,7 @@ export class Sample {
         var styling8 = this.styling8 = document.getElementById('styling8') as IgcTreemapNodeStyleMappingComponent;
 
         this._bind = () => {
-            treemap.dataSource = this.countyHierarchicalData
+            treemap.dataSource = this.countyHierarchicalData;
         }
         this._bind();
 

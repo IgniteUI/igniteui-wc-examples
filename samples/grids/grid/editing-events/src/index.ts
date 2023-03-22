@@ -19,8 +19,8 @@ export class Sample {
         var unitsOnOrder = this.unitsOnOrder = document.getElementById('UnitsOnOrder') as IgcColumnComponent;
 
         this._bind = () => {
-            grid1.data = this.nwindData
-            grid1.addEventListener("cellEdit", this.webGridEditingEventsCellEdit)
+            grid1.data = this.nwindData;
+            grid1.addEventListener("cellEdit", this.webGridEditingEventsCellEdit);
         }
         this._bind();
 

@@ -15,8 +15,8 @@ export class Sample {
         this.webGridEditingExcelStyle = this.webGridEditingExcelStyle.bind(this);
 
         this._bind = () => {
-            grid1.data = this.nwindData
-            grid1.addEventListener("gridKeydown", this.webGridEditingExcelStyle)
+            grid1.data = this.nwindData;
+            grid1.addEventListener("gridKeydown", this.webGridEditingExcelStyle);
         }
         this._bind();
 

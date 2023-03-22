@@ -35,8 +35,8 @@ export class Sample {
         var phone = this.phone = document.getElementById('Phone') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.customersData
-            grid.addEventListener("columnResized", this.webGridColumnResized)
+            grid.data = this.customersData;
+            grid.addEventListener("columnResized", this.webGridColumnResized);
         }
         this._bind();
 

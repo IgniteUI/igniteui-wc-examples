@@ -24,8 +24,8 @@ export class Sample {
         if (this._columnPipeArgs1 == null)
         {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs1.digitsInfo = "1.2-2";
             columnPipeArgs1.currencyCode = "USD";
+            columnPipeArgs1.digitsInfo = "1.2-2";
 
             this._columnPipeArgs1 = columnPipeArgs1;
         }
@@ -76,22 +76,22 @@ export class Sample {
         var column9 = this.column9 = document.getElementById('column9') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.financialDataAll
-            column1.headerTemplate = this.webGridPinHeaderTemplate
-            column2.headerTemplate = this.webGridPinHeaderTemplate
-            column3.headerTemplate = this.webGridPinHeaderTemplate
-            column3.pipeArgs = this.columnPipeArgs1
-            column4.headerTemplate = this.webGridPinHeaderTemplate
-            column4.pipeArgs = this.columnPipeArgs2
-            column5.headerTemplate = this.webGridPinHeaderTemplate
-            column5.pipeArgs = this.columnPipeArgs3
-            column6.headerTemplate = this.webGridPinHeaderTemplate
-            column7.headerTemplate = this.webGridPinHeaderTemplate
-            column7.bodyTemplate = this.webGridCurrencyCellTemplate
-            column8.headerTemplate = this.webGridPinHeaderTemplate
-            column8.bodyTemplate = this.webGridCurrencyCellTemplate
-            column9.headerTemplate = this.webGridPinHeaderTemplate
-            column9.bodyTemplate = this.webGridCurrencyCellTemplate
+            grid.data = this.financialDataAll;
+            column1.headerTemplate = this.webGridPinHeaderTemplate;
+            column2.headerTemplate = this.webGridPinHeaderTemplate;
+            column3.pipeArgs = this.columnPipeArgs1;
+            column3.headerTemplate = this.webGridPinHeaderTemplate;
+            column4.pipeArgs = this.columnPipeArgs2;
+            column4.headerTemplate = this.webGridPinHeaderTemplate;
+            column5.pipeArgs = this.columnPipeArgs3;
+            column5.headerTemplate = this.webGridPinHeaderTemplate;
+            column6.headerTemplate = this.webGridPinHeaderTemplate;
+            column7.bodyTemplate = this.webGridCurrencyCellTemplate;
+            column7.headerTemplate = this.webGridPinHeaderTemplate;
+            column8.bodyTemplate = this.webGridCurrencyCellTemplate;
+            column8.headerTemplate = this.webGridPinHeaderTemplate;
+            column9.bodyTemplate = this.webGridCurrencyCellTemplate;
+            column9.headerTemplate = this.webGridPinHeaderTemplate;
         }
         this._bind();
 

@@ -18,72 +18,69 @@
 
 <div class="container sample">
 
-        <div class="legend-title">
+    <div class="legend-title">
         Renewable Energy Consumption
     </div>
 
     <div class="legend">
         <igc-legend
-        orientation="Horizontal"
         name="Legend"
-        id ="Legend">
+        id="Legend"
+        orientation="Horizontal">
         </igc-legend>
     </div>
 
     <div class="container fill">
         <igc-data-chart
-
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
         name="chart"
-        id ="chart">
+        id="chart"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false">
             <igc-category-y-axis
-
-            is-inverted="true"
-            label="location"
             name="yAxis"
-            id ="yAxis">
+            id="yAxis"
+            label="location"
+            is-inverted="true">
             </igc-category-y-axis>
             <igc-numeric-x-axis
-            minimum-value="0"
-            title="TWh"
             name="xAxis"
-            id ="xAxis">
+            id="xAxis"
+            minimum-value="0"
+            title="TWh">
             </igc-numeric-x-axis>
             <igc-stacked-100-bar-series
-
-            area-fill-opacity="1"
-            show-default-tooltip="true"
             name="Stacked100BarSeries"
-            id ="Stacked100BarSeries">
+            id="Stacked100BarSeries"
+            show-default-tooltip="true"
+            area-fill-opacity="1">
                 <igc-stacked-fragment-series
                 name="s1"
-                id ="s1"
+                id="s1"
                 value-member-path="hydro"
                 title="Hydro">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s2"
-                id ="s2"
+                id="s2"
                 value-member-path="wind"
                 title="Wind">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s3"
-                id ="s3"
+                id="s3"
                 value-member-path="solar"
                 title="Solar">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s4"
-                id ="s4"
+                id="s4"
                 value-member-path="other"
                 title="Other">
                 </igc-stacked-fragment-series>
             </igc-stacked-100-bar-series>
             <igc-data-tool-tip-layer
             name="DataToolTipLayer"
-            id ="DataToolTipLayer">
+            id="DataToolTipLayer">
             </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>

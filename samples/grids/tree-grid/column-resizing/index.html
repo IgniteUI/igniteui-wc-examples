@@ -21,18 +21,18 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
+        name="treeGrid"
+        id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        name="treeGrid"
-        id ="treeGrid">
+        foreign-key="ParentID">
             <igc-column
             field="Name"
-            resizable="true"
-            width="220"
-            max-width="250"
             data-type="string"
-            min-width="60">
+            resizable="true"
+            min-width="60"
+            max-width="250"
+            width="220">
             </igc-column>
             <igc-column
             field="Title"
@@ -41,9 +41,9 @@
             </igc-column>
             <igc-column
             field="HireDate"
+            header="Hire Date"
             data-type="date"
-            resizable="true"
-            header="Hire Date">
+            resizable="true">
             </igc-column>
             <igc-column
             field="Age"
@@ -72,9 +72,9 @@
             </igc-column>
             <igc-column
             field="PostalCode"
+            header="Postal Code"
             data-type="string"
-            resizable="true"
-            header="Postal Code">
+            resizable="true">
             </igc-column>
             <igc-column
             field="Phone"

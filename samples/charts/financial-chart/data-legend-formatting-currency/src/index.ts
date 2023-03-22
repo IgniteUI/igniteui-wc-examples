@@ -21,8 +21,8 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
 
         this._bind = () => {
-            legend.target = this.chart
-            chart.dataSource = this.multipleStocks
+            legend.target = this.chart;
+            chart.dataSource = this.multipleStocks;
         }
         this._bind();
 

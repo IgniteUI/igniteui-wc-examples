@@ -17,18 +17,17 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-
+        name="PropertyEditor"
+        id="PropertyEditor"
         description-type="WebGrid"
         is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="PropertyEditor"
-        id ="PropertyEditor">
+        is-wrapping-enabled="true">
             <igc-property-editor-property-description
             property-path="DisplayDensity"
             name="DisplayDensityEditor"
-            id ="DisplayDensityEditor">
+            id="DisplayDensityEditor">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
@@ -36,15 +35,15 @@
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        allow-filtering="true"
         name="grid"
-        id ="grid">
+        id="grid"
+        allow-filtering="true">
             <igc-column
             field="CustomerName"
             header="Customer Name"
+            data-type="string"
             sortable="true"
-            has-summary="true"
-            data-type="string">
+            has-summary="true">
             </igc-column>
             <igc-column
             field="Country"

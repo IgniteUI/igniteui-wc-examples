@@ -2,7 +2,7 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
-import { IgcGridComponent, IgcColumnTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { IgcColumnTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -28,13 +28,13 @@ export class Sample {
         var column6 = this.column6 = document.getElementById('column6') as IgcColumnComponent;
 
         this._bind = () => {
-            treeGrid.data = this.employeesFlatData
-            column1.headerTemplate = this.webGridPinHeaderTemplate
-            column2.headerTemplate = this.webGridPinHeaderTemplate
-            column3.headerTemplate = this.webGridPinHeaderTemplate
-            column4.headerTemplate = this.webGridPinHeaderTemplate
-            column5.headerTemplate = this.webGridPinHeaderTemplate
-            column6.headerTemplate = this.webGridPinHeaderTemplate
+            treeGrid.data = this.employeesFlatData;
+            column1.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column2.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column3.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column4.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column5.headerTemplate = this.webTreeGridPinHeaderTemplate;
+            column6.headerTemplate = this.webTreeGridPinHeaderTemplate;
         }
         this._bind();
 
@@ -59,7 +59,7 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridPinHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
+    public webTreeGridPinHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
 
         const column = (ctx as any).column;
         return html`<div>
@@ -69,7 +69,7 @@ export class Sample {
         };
 
     public toggleColumnPin(field: string) {
-        var grid = document.getElementsByTagName("igc-grid")[0] as IgcGridComponent;
+        var grid = document.getElementsByTagName("igc-tree-grid")[0] as IgcTreeGridComponent;
         var col = grid.getColumnByName(field);
         col.pinned = !col.pinned;
         grid.markForCheck();

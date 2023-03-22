@@ -17,7 +17,7 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcSparklineComponent;
 
         this._bind = () => {
-            chart.dataSource = this.sparklineMixedData
+            chart.dataSource = this.sparklineMixedData;
         }
         this._bind();
 

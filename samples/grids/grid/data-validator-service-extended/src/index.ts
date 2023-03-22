@@ -56,12 +56,12 @@ export class Sample {
         var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
-            propertyEditorPanel1.target = this.grid
-            propertyEditorPropertyDescription1.buttonClicked = this.webGridUndo
-            propertyEditorPropertyDescription2.buttonClicked = this.webGridRedo
-            propertyEditorPropertyDescription3.buttonClicked = this.webGridCommit
-            grid.data = this.nwindData
+            propertyEditorPanel1.componentRenderer = this.renderer;
+            propertyEditorPanel1.target = this.grid;
+            propertyEditorPropertyDescription1.buttonClicked = this.webGridUndo;
+            propertyEditorPropertyDescription2.buttonClicked = this.webGridRedo;
+            propertyEditorPropertyDescription3.buttonClicked = this.webGridCommit;
+            grid.data = this.nwindData;
         }
         this._bind();
 

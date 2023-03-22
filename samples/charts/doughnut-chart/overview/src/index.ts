@@ -20,7 +20,7 @@ export class Sample {
         var series = this.series = document.getElementById('series') as IgcRingSeriesComponent;
 
         this._bind = () => {
-            series.dataSource = this.companyMarketShares
+            series.dataSource = this.companyMarketShares;
         }
         this._bind();
 

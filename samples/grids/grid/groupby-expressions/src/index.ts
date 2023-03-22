@@ -16,8 +16,8 @@ export class Sample {
             let groupingExpression1: IgcGroupingExpression[] = [];
             var groupingExpression2: IgcGroupingExpression = {} as IgcGroupingExpression;
             groupingExpression2.fieldName = "ShipCountry";
-            groupingExpression2.dir = SortingDirection.Asc;
             groupingExpression2.ignoreCase = false;
+            groupingExpression2.dir = SortingDirection.Asc;
 
             groupingExpression1.push(groupingExpression2)
             var groupingExpression3: IgcGroupingExpression = {} as IgcGroupingExpression;
@@ -38,10 +38,10 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.invoicesData
-            grid.groupingExpressions = this.groupingExpression1
-            grid.groupRowTemplate = this.webGridGroupByRowTemplate
-            column1.bodyTemplate = this.webGridBooleanCellTemplate
+            grid.data = this.invoicesData;
+            grid.groupingExpressions = this.groupingExpression1;
+            grid.groupRowTemplate = this.webGridGroupByRowTemplate;
+            column1.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
 

@@ -30,11 +30,11 @@ export class Sample {
         var calloutLayer1 = this.calloutLayer1 = document.getElementById('CalloutLayer1') as IgcCalloutLayerComponent;
 
         this._bind = () => {
-            xAxis.dataSource = this.countryRenewableElectricity
-            lineSeries1.xAxis = this.xAxis
-            lineSeries1.yAxis = this.yAxis
-            lineSeries1.dataSource = this.countryRenewableElectricity
-            calloutLayer1.dataSource = this.countryRenewableCallouts
+            xAxis.dataSource = this.countryRenewableElectricity;
+            lineSeries1.xAxis = this.xAxis;
+            lineSeries1.yAxis = this.yAxis;
+            lineSeries1.dataSource = this.countryRenewableElectricity;
+            calloutLayer1.dataSource = this.countryRenewableCallouts;
         }
         this._bind();
 

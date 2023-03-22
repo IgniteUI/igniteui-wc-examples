@@ -26,13 +26,13 @@ export class Sample {
         var waterfallSeries2 = this.waterfallSeries2 = document.getElementById('WaterfallSeries2') as IgcWaterfallSeriesComponent;
 
         this._bind = () => {
-            xAxis.dataSource = this.companyIncomeData
-            waterfallSeries1.xAxis = this.xAxis
-            waterfallSeries1.yAxis = this.yAxis
-            waterfallSeries1.dataSource = this.companyIncomeData
-            waterfallSeries2.xAxis = this.xAxis
-            waterfallSeries2.yAxis = this.yAxis
-            waterfallSeries2.dataSource = this.companyIncomeData
+            xAxis.dataSource = this.companyIncomeData;
+            waterfallSeries1.xAxis = this.xAxis;
+            waterfallSeries1.yAxis = this.yAxis;
+            waterfallSeries1.dataSource = this.companyIncomeData;
+            waterfallSeries2.xAxis = this.xAxis;
+            waterfallSeries2.yAxis = this.yAxis;
+            waterfallSeries2.dataSource = this.companyIncomeData;
         }
         this._bind();
 

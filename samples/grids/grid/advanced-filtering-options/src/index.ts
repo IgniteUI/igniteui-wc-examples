@@ -18,8 +18,8 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.nwindData
-            column1.bodyTemplate = this.webGridDiscontinuedCellTemplate
+            grid.data = this.nwindData;
+            column1.bodyTemplate = this.webGridDiscontinuedCellTemplate;
         }
         this._bind();
 

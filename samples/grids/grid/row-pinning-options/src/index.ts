@@ -30,9 +30,9 @@ export class Sample {
         var actionStrip = this.actionStrip = document.getElementById('actionStrip') as IgcActionStripComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
-            propertyEditorPanel1.target = this.grid
-            grid.data = this.customersData
+            propertyEditorPanel1.componentRenderer = this.renderer;
+            propertyEditorPanel1.target = this.grid;
+            grid.data = this.customersData;
         }
         this._bind();
 

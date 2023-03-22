@@ -14,17 +14,17 @@ export class Sample {
             var pivotConfiguration1: IgcPivotConfiguration = {} as IgcPivotConfiguration;
 
             var pivotDimension1: IgcPivotDimension = {} as IgcPivotDimension;
-            pivotDimension1.memberName = "Product";
+            pivotDimension1.memberName = "Country";
             pivotDimension1.enabled = true;
 
-            pivotConfiguration1.rows = []
-            pivotConfiguration1.rows.push(pivotDimension1);
+            pivotConfiguration1.columns = []
+            pivotConfiguration1.columns.push(pivotDimension1);
             var pivotDimension2: IgcPivotDimension = {} as IgcPivotDimension;
-            pivotDimension2.memberName = "Country";
+            pivotDimension2.memberName = "Product";
             pivotDimension2.enabled = true;
 
-            pivotConfiguration1.columns = []
-            pivotConfiguration1.columns.push(pivotDimension2);
+            pivotConfiguration1.rows = []
+            pivotConfiguration1.rows.push(pivotDimension2);
             var pivotValue1: IgcPivotValue = {} as IgcPivotValue;
             pivotValue1.member = "Sales";
             pivotValue1.enabled = true;
@@ -48,8 +48,8 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcPivotGridComponent;
 
         this._bind = () => {
-            grid.pivotConfiguration = this.pivotConfiguration1
-            grid.data = this.pivotSalesData
+            grid.data = this.pivotSalesData;
+            grid.pivotConfiguration = this.pivotConfiguration1;
         }
         this._bind();
 

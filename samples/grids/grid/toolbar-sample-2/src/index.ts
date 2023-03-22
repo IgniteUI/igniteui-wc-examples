@@ -14,7 +14,7 @@ export class Sample {
         var grid1 = this.grid1 = document.getElementById('grid1') as IgcGridComponent;
 
         this._bind = () => {
-            grid1.data = this.athletesData
+            grid1.data = this.athletesData;
         }
         this._bind();
 

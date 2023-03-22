@@ -21,19 +21,19 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        child-data-key="Employees"
-        id="treeGrid"
-        moving="true"
-        paging="true"
-        allow-filtering="true"
-        row-selection="multiple"
         name="treeGrid"
-        id ="treeGrid">
+        id="treeGrid"
+        id="treeGrid"
+        child-data-key="Employees"
+        row-selection="multiple"
+        moving="true"
+        allow-filtering="true"
+        paging="true">
             <igc-grid-toolbar
             >
                 <igc-grid-toolbar-title
                 name="Employees"
-                id ="Employees">
+                id="Employees">
                 </igc-grid-toolbar-title>
                 <igc-grid-toolbar-actions
                 >
@@ -52,11 +52,11 @@
             <igc-column
             field="iD"
             header="ID"
+            data-type="number"
             sortable="true"
             editable="true"
             resizable="true"
-            has-summary="true"
-            data-type="number">
+            has-summary="true">
             </igc-column>
             <igc-column
             field="Name"

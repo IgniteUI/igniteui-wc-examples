@@ -13,8 +13,8 @@ export class Sample {
         {
             let sortingExpression1: IgcSortingExpression[] = [];
             var sortingExpression2: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression2.fieldName = "Settlement";
             sortingExpression2.dir = SortingDirection.Asc;
+            sortingExpression2.fieldName = "Settlement";
             sortingExpression2.ignoreCase = true;
 
             sortingExpression1.push(sortingExpression2)
@@ -58,8 +58,8 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
         this._bind = () => {
-            grid.data = this.financialDataAll
-            grid.sortingExpressions = this.sortingExpression1
+            grid.data = this.financialDataAll;
+            grid.sortingExpressions = this.sortingExpression1;
         }
         this._bind();
 

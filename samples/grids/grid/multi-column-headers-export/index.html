@@ -17,21 +17,20 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-
+        name="PropertyEditor"
+        id="PropertyEditor"
         description-type="WebGrid"
         is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="PropertyEditor"
-        id ="PropertyEditor">
+        is-wrapping-enabled="true">
             <igc-property-editor-property-description
-            label="Export Multi-Column Headers"
             value-type="Boolean1"
             should-override-default-editor="true"
+            label="Export Multi-Column Headers"
             primitive-value="True"
             name="exportHeaders"
-            id ="exportHeaders">
+            id="exportHeaders">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
@@ -39,11 +38,11 @@
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        moving="true"
-        allow-filtering="true"
-        display-density="compact"
         name="grid"
-        id ="grid">
+        id="grid"
+        moving="true"
+        display-density="compact"
+        allow-filtering="true">
             <igc-grid-toolbar
             >
                 <igc-grid-toolbar-actions
@@ -58,83 +57,83 @@
                     export-csv="false"
                     export-excel="true"
                     name="gridToolbarExporter1"
-                    id ="gridToolbarExporter1">
+                    id="gridToolbarExporter1">
                     </igc-grid-toolbar-exporter>
                 </igc-grid-toolbar-actions>
             </igc-grid-toolbar>
             <igc-column
+            name="ID"
+            id="ID"
             field="ID"
             header="ID"
-            filterable="false"
             resizable="true"
-            name="ID"
-            id ="ID">
+            filterable="false">
             </igc-column>
             <igc-column-group
+            name="GeneralInformation"
+            id="GeneralInformation"
             header="General Information"
             collapsible="true"
-            expanded="true"
-            name="GeneralInformation"
-            id ="GeneralInformation">
+            expanded="true">
                 <igc-column
                 name="CompanyName"
-                id ="CompanyName"
+                id="CompanyName"
                 visible-when-collapsed="true">
                 </igc-column>
                 <igc-column-group
                 name="PersonalDetails"
-                id ="PersonalDetails"
+                id="PersonalDetails"
                 header="Personal Details"
                 collapsible="true"
                 expanded="true"
                 visible-when-collapsed="true">
                     <igc-column
                     name="ContactName"
-                    id ="ContactName"
+                    id="ContactName"
                     field="ContactName">
                     </igc-column>
                     <igc-column
                     name="ContactTitle"
-                    id ="ContactTitle"
+                    id="ContactTitle"
                     field="ContactTitle">
                     </igc-column>
                 </igc-column-group>
             </igc-column-group>
             <igc-column-group
             name="AddressInformation"
-            id ="AddressInformation"
+            id="AddressInformation"
             header="Address Information">
                 <igc-column-group
                 name="Location"
-                id ="Location"
+                id="Location"
                 header="Location"
                 collapsible="true"
                 expanded="false"
                 visible-when-collapsed="true">
                     <igc-column
                     name="Country"
-                    id ="Country"
+                    id="Country"
                     field="Country"
                     visible-when-collapsed="true"
                     hidden="true">
                     </igc-column>
                     <igc-column
                     name="Region"
-                    id ="Region"
+                    id="Region"
                     field="Region"
                     visible-when-collapsed="false"
                     hidden="true">
                     </igc-column>
                     <igc-column
                     name="City"
-                    id ="City"
+                    id="City"
                     field="City"
                     visible-when-collapsed="false"
                     hidden="true">
                     </igc-column>
                     <igc-column
                     name="Address"
-                    id ="Address"
+                    id="Address"
                     field="Address"
                     visible-when-collapsed="false"
                     hidden="true">
@@ -142,21 +141,21 @@
                 </igc-column-group>
                 <igc-column-group
                 name="ContactInformation"
-                id ="ContactInformation"
+                id="ContactInformation"
                 header="Contact Information">
                     <igc-column
                     name="Phone"
-                    id ="Phone"
+                    id="Phone"
                     field="Phone">
                     </igc-column>
                     <igc-column
                     name="Fax"
-                    id ="Fax"
+                    id="Fax"
                     field="Fax">
                     </igc-column>
                     <igc-column
                     name="PostalCode"
-                    id ="PostalCode"
+                    id="PostalCode"
                     field="PostalCode">
                     </igc-column>
                 </igc-column-group>

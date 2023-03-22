@@ -35,11 +35,11 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
-            propertyEditorPanel1.target = this.grid
-            propertyEditorPropertyDescription1.changed = this.webGridHasSummariesChange
-            grid.data = this.nwindData
-            column1.summaryTemplate = this.webGridOrderDateSummaryTemplate
+            propertyEditorPanel1.componentRenderer = this.renderer;
+            propertyEditorPanel1.target = this.grid;
+            propertyEditorPropertyDescription1.changed = this.webGridHasSummariesChange;
+            grid.data = this.nwindData;
+            column1.summaryTemplate = this.webGridOrderDateSummaryTemplate;
         }
         this._bind();
 

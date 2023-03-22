@@ -17,62 +17,60 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
 
         description-type="DataChart"
         is-horizontal="true"
         is-wrapping-enabled="true"
         name="propertyEditorPanel1"
-        id ="propertyEditorPanel1">
+        id="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="ShouldConsiderAutoRotationForInitialLabels"
+            name="ShouldConsiderAutoRotationForInitialLabels"
+            id="ShouldConsiderAutoRotationForInitialLabels"
             label="Rotate Labels?"
             should-override-default-editor="true"
-            primitive-value="True"
-            name="ShouldConsiderAutoRotationForInitialLabels"
-            id ="ShouldConsiderAutoRotationForInitialLabels">
+            primitive-value="True">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            drop-down-values="None, SizeChanging, SizeChangingAndZoom"
-            primitive-value="SizeChangingAndZoom"
             property-path="AutoMarginAndAngleUpdateMode"
-            label="AutoMarginAndAngleUpdateMode: "
-            value-type="EnumValue"
-            should-override-default-editor="true"
-            drop-down-names="None, SizeChanging, SizeChangingAndZoom"
             name="AutoMarginAndAngleUpdateMode"
-            id ="AutoMarginAndAngleUpdateMode">
+            id="AutoMarginAndAngleUpdateMode"
+            label="AutoMarginAndAngleUpdateMode: "
+            should-override-default-editor="true"
+            value-type="EnumValue"
+            drop-down-names="None, SizeChanging, SizeChangingAndZoom"
+            drop-down-values="None, SizeChanging, SizeChangingAndZoom"
+            primitive-value="SizeChangingAndZoom">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
 
     <div class="container fill">
         <igc-data-chart
+        name="chart"
+        id="chart"
         is-horizontal-zoom-enabled="true"
         is-vertical-zoom-enabled="true"
-        should-auto-expand-margin-for-initial-labels="true"
-        should-consider-auto-rotation-for-initial-labels="true"
         auto-margin-and-angle-update-mode="SizeChangingAndZoom"
-        name="chart"
-        id ="chart">
+        should-consider-auto-rotation-for-initial-labels="true"
+        should-auto-expand-margin-for-initial-labels="true">
             <igc-category-x-axis
-
-            use-enhanced-interval-management="true"
-            enhanced-interval-prefer-more-category-labels="true"
-            label="month"
             name="xAxis"
-            id ="xAxis">
+            id="xAxis"
+            enhanced-interval-prefer-more-category-labels="true"
+            use-enhanced-interval-management="true"
+            label="month">
             </igc-category-x-axis>
             <igc-numeric-y-axis
             name="yAxis"
-            id ="yAxis">
+            id="yAxis">
             </igc-numeric-y-axis>
             <igc-column-series
-
-            value-member-path="temperature"
             name="colSeries1"
-            id ="colSeries1">
+            id="colSeries1"
+            value-member-path="temperature">
             </igc-column-series>
         </igc-data-chart>
     </div>

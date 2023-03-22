@@ -16,9 +16,9 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
         this._bind = () => {
-            grid.data = this.customersData
-            grid.headSelectorTemplate = this.webGridHeaderRowSelectorTemplate
-            grid.rowSelectorTemplate = this.webGridRowSelectorTemplate
+            grid.data = this.customersData;
+            grid.rowSelectorTemplate = this.webGridRowSelectorTemplate;
+            grid.headSelectorTemplate = this.webGridHeaderRowSelectorTemplate;
         }
         this._bind();
 
@@ -43,12 +43,6 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridHeaderRowSelectorTemplate = (ctx: any) => {
-        return html`<div style="width: 70px;height: 60px;display: flex;">
-    <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/avatars/igLogo.png" class="header-image">
-    </div>`;
-    };
-
     public webGridRowSelectorTemplate = (ctx: IgcCellTemplateContext) => {
         const implicit: any = ctx["$implicit"];
         if (implicit.selected) {
@@ -63,6 +57,12 @@ export class Sample {
     </div>`;
     };
     }
+
+    public webGridHeaderRowSelectorTemplate = (ctx: any) => {
+        return html`<div style="width: 70px;height: 60px;display: flex;">
+    <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/avatars/igLogo.png" class="header-image">
+    </div>`;
+    };
 
 }
 

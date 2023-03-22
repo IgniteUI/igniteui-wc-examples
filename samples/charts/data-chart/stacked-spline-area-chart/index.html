@@ -18,81 +18,79 @@
 
 <div class="container sample">
 
-        <div class="legend-title">
+    <div class="legend-title">
         Annual Birth Rates by World Region
     </div>
 
     <div class="legend">
         <igc-legend
-        orientation="Horizontal"
         name="Legend"
-        id ="Legend">
+        id="Legend"
+        orientation="Horizontal">
         </igc-legend>
     </div>
 
     <div class="container fill">
         <igc-data-chart
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
         name="chart"
-        id ="chart">
+        id="chart"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false">
             <igc-category-x-axis
-
-            gap="0.75"
-            label="year"
             name="xAxis"
-            id ="xAxis">
+            id="xAxis"
+            label="year"
+            gap="0.75">
             </igc-category-x-axis>
             <igc-numeric-y-axis
+            name="yAxis"
+            id="yAxis"
             minimum-value="0"
             maximum-value="140"
             interval="20"
             title="Millions of Births"
             title-angle="-90"
-            label-format="{0} m"
-            name="yAxis"
-            id ="yAxis">
+            label-format="{0} m">
             </igc-numeric-y-axis>
             <igc-stacked-spline-area-series
-
-            marker-type="Circle"
-            show-default-tooltip="false"
             name="StackedSplineAreaSeries"
-            id ="StackedSplineAreaSeries">
+            id="StackedSplineAreaSeries"
+            show-default-tooltip="false"
+            marker-type="Circle">
                 <igc-stacked-fragment-series
                 name="s1"
-                id ="s1"
-                title="Asia"
-                value-member-path="asia">
+                id="s1"
+                value-member-path="asia"
+                title="Asia">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s2"
-                id ="s2"
+                id="s2"
                 value-member-path="africa"
                 title="Africa">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s3"
-                id ="s3"
+                id="s3"
                 value-member-path="europe"
                 title="Europe">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s4"
-                id ="s4"
+                id="s4"
                 value-member-path="northAmerica"
                 title="North America">
                 </igc-stacked-fragment-series>
                 <igc-stacked-fragment-series
                 name="s5"
-                id ="s5"
+                id="s5"
                 value-member-path="southAmerica"
                 title="South America">
                 </igc-stacked-fragment-series>
             </igc-stacked-spline-area-series>
             <igc-data-tool-tip-layer
             name="DataToolTipLayer"
-            id ="DataToolTipLayer">
+            id="DataToolTipLayer">
             </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>

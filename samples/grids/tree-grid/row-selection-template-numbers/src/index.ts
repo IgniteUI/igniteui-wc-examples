@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
-import { IgcGridComponent, IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { IgcCellTemplateContext, IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -15,9 +15,9 @@ export class Sample {
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
 
         this._bind = () => {
-            treeGrid.data = this.employeesFlatData
-            treeGrid.headSelectorTemplate = this.webGridHeaderRowSelectorTemplate
-            treeGrid.rowSelectorTemplate = this.webGridRowSelectorTemplate
+            treeGrid.data = this.employeesFlatData;
+            treeGrid.rowSelectorTemplate = this.webGridRowSelectorTemplate;
+            treeGrid.headSelectorTemplate = this.webGridHeaderRowSelectorTemplate;
         }
         this._bind();
 
@@ -33,12 +33,6 @@ export class Sample {
     }
 
 
-    public webGridHeaderRowSelectorTemplate = (ctx: any) => {
-        return html`<div style="width: 70px;height: 60px;display: flex;">
-    <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/avatars/igLogo.png" class="header-image">
-    </div>`;
-    };
-
     public webGridRowSelectorTemplate = (ctx: IgcCellTemplateContext) => {
         const implicit: any = ctx["$implicit"];
         if (implicit.selected) {
@@ -53,6 +47,12 @@ export class Sample {
     </div>`;
     };
     }
+
+    public webGridHeaderRowSelectorTemplate = (ctx: any) => {
+        return html`<div style="width: 70px;height: 60px;display: flex;">
+    <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/avatars/igLogo.png" class="header-image">
+    </div>`;
+    };
 
 }
 

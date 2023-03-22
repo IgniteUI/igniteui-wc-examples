@@ -33,16 +33,16 @@ export class Sample {
         var column9 = this.column9 = document.getElementById('column9') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.customersData
-            column1.headerTemplate = this.webGridPinHeaderTemplate
-            column2.headerTemplate = this.webGridPinHeaderTemplate
-            column3.headerTemplate = this.webGridPinHeaderTemplate
-            column4.headerTemplate = this.webGridPinHeaderTemplate
-            column5.headerTemplate = this.webGridPinHeaderTemplate
-            column6.headerTemplate = this.webGridPinHeaderTemplate
-            column7.headerTemplate = this.webGridPinHeaderTemplate
-            column8.headerTemplate = this.webGridPinHeaderTemplate
-            column9.headerTemplate = this.webGridPinHeaderTemplate
+            grid.data = this.customersData;
+            column1.headerTemplate = this.webGridPinHeaderTemplate;
+            column2.headerTemplate = this.webGridPinHeaderTemplate;
+            column3.headerTemplate = this.webGridPinHeaderTemplate;
+            column4.headerTemplate = this.webGridPinHeaderTemplate;
+            column5.headerTemplate = this.webGridPinHeaderTemplate;
+            column6.headerTemplate = this.webGridPinHeaderTemplate;
+            column7.headerTemplate = this.webGridPinHeaderTemplate;
+            column8.headerTemplate = this.webGridPinHeaderTemplate;
+            column9.headerTemplate = this.webGridPinHeaderTemplate;
         }
         this._bind();
 

@@ -19,7 +19,7 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
 
         this._bind = () => {
-            chart.dataSource = this.stockGoogle
+            chart.dataSource = this.stockGoogle;
         }
         this._bind();
 

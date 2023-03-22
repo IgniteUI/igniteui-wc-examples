@@ -30,9 +30,9 @@ export class Sample {
         var selectionType = this.selectionType = document.getElementById('selectionType') as IgcPropertyEditorPropertyDescriptionComponent;
 
         this._bind = () => {
-            grid.data = this.customersData
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.grid
+            grid.data = this.customersData;
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.grid;
         }
         this._bind();
 

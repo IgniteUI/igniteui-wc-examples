@@ -63,14 +63,14 @@ export class Sample {
         var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
-            propertyEditorPanel1.target = this.grid
-            propertyEditorPropertyDescription1.buttonClicked = this.webGridAddRow
-            propertyEditorPropertyDescription2.buttonClicked = this.webGridUndo
-            propertyEditorPropertyDescription3.buttonClicked = this.webGridRedo
-            propertyEditorPropertyDescription4.buttonClicked = this.webGridCommit
-            grid.data = this.nwindData
-            column1.bodyTemplate = this.webGridDeleteCellTemplate
+            propertyEditorPanel1.componentRenderer = this.renderer;
+            propertyEditorPanel1.target = this.grid;
+            propertyEditorPropertyDescription1.buttonClicked = this.webGridAddRow;
+            propertyEditorPropertyDescription2.buttonClicked = this.webGridUndo;
+            propertyEditorPropertyDescription3.buttonClicked = this.webGridRedo;
+            propertyEditorPropertyDescription4.buttonClicked = this.webGridCommit;
+            grid.data = this.nwindData;
+            column1.bodyTemplate = this.webGridDeleteCellTemplate;
         }
         this._bind();
 

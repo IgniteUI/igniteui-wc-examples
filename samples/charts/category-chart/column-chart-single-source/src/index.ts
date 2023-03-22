@@ -17,7 +17,7 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            chart.dataSource = this.temperatureAverageData
+            chart.dataSource = this.temperatureAverageData;
         }
         this._bind();
 

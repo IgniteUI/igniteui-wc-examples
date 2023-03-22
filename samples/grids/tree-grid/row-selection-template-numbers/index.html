@@ -21,13 +21,13 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
+        name="treeGrid"
+        id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        cell-selection="none"
+        foreign-key="ParentID"
         row-selection="multiple"
-        name="treeGrid"
-        id ="treeGrid">
+        cell-selection="none">
             <igc-column
             field="Name"
             data-type="string">

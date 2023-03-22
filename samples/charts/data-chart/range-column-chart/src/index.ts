@@ -33,14 +33,14 @@ export class Sample {
         var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            xAxis.dataSource = this.temperatureRangeData
-            rangeColumnSeries1.xAxis = this.xAxis
-            rangeColumnSeries1.yAxis = this.yAxis
-            rangeColumnSeries1.dataSource = this.temperatureRangeData
-            rangeColumnSeries2.xAxis = this.xAxis
-            rangeColumnSeries2.yAxis = this.yAxis
-            rangeColumnSeries2.dataSource = this.temperatureRangeData
+            chart.legend = this.legend;
+            xAxis.dataSource = this.temperatureRangeData;
+            rangeColumnSeries1.xAxis = this.xAxis;
+            rangeColumnSeries1.yAxis = this.yAxis;
+            rangeColumnSeries1.dataSource = this.temperatureRangeData;
+            rangeColumnSeries2.xAxis = this.xAxis;
+            rangeColumnSeries2.yAxis = this.yAxis;
+            rangeColumnSeries2.dataSource = this.temperatureRangeData;
         }
         this._bind();
 

@@ -16,8 +16,8 @@ export class Sample {
         this.webGridRowSelectionConditional = this.webGridRowSelectionConditional.bind(this);
 
         this._bind = () => {
-            grid.data = this.customersData
-            grid.addEventListener("rowSelectionChanging", this.webGridRowSelectionConditional)
+            grid.data = this.customersData;
+            grid.addEventListener("rowSelectionChanging", this.webGridRowSelectionConditional);
         }
         this._bind();
 

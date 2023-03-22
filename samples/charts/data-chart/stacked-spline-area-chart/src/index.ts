@@ -44,11 +44,11 @@ export class Sample {
         var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            xAxis.dataSource = this.continentsBirthRate
-            stackedSplineAreaSeries.xAxis = this.xAxis
-            stackedSplineAreaSeries.yAxis = this.yAxis
-            stackedSplineAreaSeries.dataSource = this.continentsBirthRate
+            chart.legend = this.legend;
+            xAxis.dataSource = this.continentsBirthRate;
+            stackedSplineAreaSeries.dataSource = this.continentsBirthRate;
+            stackedSplineAreaSeries.xAxis = this.xAxis;
+            stackedSplineAreaSeries.yAxis = this.yAxis;
         }
         this._bind();
 

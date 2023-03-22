@@ -31,10 +31,10 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.chart
-            chart.dataSource = this.highestGrossingMovies
-            chart.legend = this.legend
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.chart;
+            chart.legend = this.legend;
+            chart.dataSource = this.highestGrossingMovies;
         }
         this._bind();
 

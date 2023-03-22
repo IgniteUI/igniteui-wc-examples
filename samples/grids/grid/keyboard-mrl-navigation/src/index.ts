@@ -45,8 +45,8 @@ export class Sample {
         var assetsBooks = this.assetsBooks = document.getElementById('AssetsBooks') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.companyData
-            grid.addEventListener("gridKeydown", this.webGridMRLCustomNavigationEvent)
+            grid.data = this.companyData;
+            grid.addEventListener("gridKeydown", this.webGridMRLCustomNavigationEvent);
         }
         this._bind();
 

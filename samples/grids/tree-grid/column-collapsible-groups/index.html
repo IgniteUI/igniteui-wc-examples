@@ -21,26 +21,26 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
-        id="treeGrid"
-        moving="true"
-        primary-key="ID"
-        row-selection="none"
-        display-density="compact"
         name="treeGrid"
-        id ="treeGrid">
+        id="treeGrid"
+        id="treeGrid"
+        primary-key="ID"
+        foreign-key="ParentID"
+        moving="true"
+        display-density="compact"
+        row-selection="none">
             <igc-column-group
             header="General Information"
-            pinned="false"
             collapsible="true"
-            expanded="false">
+            expanded="false"
+            pinned="false">
                 <igc-column
                 field="Name"
                 header="Full Name"
+                data-type="string"
                 sortable="true"
                 resizable="true"
                 width="200"
-                data-type="string"
                 visible-when-collapsed="false">
                 </igc-column>
                 <igc-column
@@ -54,17 +54,17 @@
                 </igc-column>
                 <igc-column
                 field="Title"
+                width="250"
                 data-type="string"
                 sortable="true"
-                resizable="true"
-                width="250">
+                resizable="true">
                 </igc-column>
                 <igc-column
                 field="ID"
                 data-type="number"
                 resizable="true"
-                visible-when-collapsed="false"
-                filterable="false">
+                filterable="false"
+                visible-when-collapsed="false">
                 </igc-column>
                 <igc-column
                 field="HireDate"
@@ -88,10 +88,10 @@
                 collapsible="true">
                     <igc-column
                     field="FullAddress"
+                    width="300"
                     data-type="string"
                     sortable="true"
                     resizable="true"
-                    width="300"
                     visible-when-collapsed="true">
                     </igc-column>
                     <igc-column

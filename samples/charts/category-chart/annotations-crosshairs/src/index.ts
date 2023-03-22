@@ -30,9 +30,9 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.chart
-            chart.dataSource = this.temperatureAnnotatedData
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.chart;
+            chart.dataSource = this.temperatureAnnotatedData;
         }
         this._bind();
 

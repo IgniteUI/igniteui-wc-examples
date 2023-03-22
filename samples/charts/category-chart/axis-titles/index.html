@@ -18,36 +18,36 @@
 
 <div class="container sample">
 
-        <div class="legend-title">
+    <div class="legend-title">
         Renewable Electricity Generated
     </div>
 
     <div class="legend">
         <igc-legend
-        orientation="Horizontal"
         name="Legend"
-        id ="Legend">
+        id="Legend"
+        orientation="Horizontal">
         </igc-legend>
     </div>
 
     <div class="container fill">
         <igc-category-chart
-        chart-type="Line"
-        y-axis-title-left-margin="5"
-        x-axis-title-text-color="gray"
-        y-axis-title-text-color="gray"
-        x-axis-title-text-style="10pt 'Titillium Web'"
-        y-axis-title-text-style="10pt 'Titillium Web'"
-        x-axis-title="Year"
-        y-axis-title="Trillions of Watt-hours (Twh)"
-        x-axis-title-angle="0"
-        y-axis-title-angle="90"
+        name="chart"
+        id="chart"
         included-properties="year, europe, china, america"
+        chart-type="Line"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
         computed-plot-area-margin-mode="Series"
-        name="chart"
-        id ="chart">
+        x-axis-title="Year"
+        x-axis-title-text-color="gray"
+        x-axis-title-text-style="10pt 'Titillium Web'"
+        x-axis-title-angle="0"
+        y-axis-title="Trillions of Watt-hours (Twh)"
+        y-axis-title-text-color="gray"
+        y-axis-title-text-style="10pt 'Titillium Web'"
+        y-axis-title-angle="90"
+        y-axis-title-left-margin="5">
         </igc-category-chart>
     </div>
 </div>

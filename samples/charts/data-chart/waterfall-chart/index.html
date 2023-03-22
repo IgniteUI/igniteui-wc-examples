@@ -18,50 +18,49 @@
 
 <div class="container sample">
 
-        <div class="legend-title">
+    <div class="legend-title">
         Facebook Consolidated Statements of Income
     </div>
 
     <div class="container fill">
         <igc-data-chart
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
         name="chart"
-        id ="chart">
+        id="chart"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false">
             <igc-category-x-axis
-            interval="1"
-            overlap="1"
-            label="category"
             name="xAxis"
-            id ="xAxis">
+            id="xAxis"
+            label="category"
+            interval="1"
+            overlap="1">
             </igc-category-x-axis>
             <igc-numeric-y-axis
-            minimum-value="0"
-            maximum-value="60"
+            name="yAxis"
+            id="yAxis"
             title="Millions of Dollars"
             title-angle="90"
             title-left-margin="10"
-            name="yAxis"
-            id ="yAxis">
+            minimum-value="0"
+            maximum-value="60">
             </igc-numeric-y-axis>
             <igc-waterfall-series
-
-            value-member-path="costs"
-            is-transition-in-enabled="true"
-            show-default-tooltip="true"
-            title="Value"
             name="WaterfallSeries1"
-            id ="WaterfallSeries1">
+            id="WaterfallSeries1"
+            title="Value"
+            value-member-path="costs"
+            show-default-tooltip="true"
+            is-transition-in-enabled="true">
             </igc-waterfall-series>
             <igc-waterfall-series
+            name="WaterfallSeries2"
+            id="WaterfallSeries2"
             title="Value"
-            value-member-path="netIncome"
-            show-default-tooltip="true"
-            is-transition-in-enabled="true"
             brush="rgba(116, 70, 185, 1)"
             outline="rgba(116, 70, 185, 1)"
-            name="WaterfallSeries2"
-            id ="WaterfallSeries2">
+            value-member-path="netIncome"
+            show-default-tooltip="true"
+            is-transition-in-enabled="true">
             </igc-waterfall-series>
         </igc-data-chart>
     </div>

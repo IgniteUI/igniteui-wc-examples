@@ -18,33 +18,32 @@
 
 <div class="container sample">
 
-        <div class="legend-title">
+    <div class="legend-title">
         Global Electricity Demand by Energy Use
     </div>
 
     <div class="legend">
         <igc-item-legend
-        orientation="Horizontal"
         name="Legend"
-        id ="Legend">
+        id="Legend"
+        orientation="Horizontal">
         </igc-item-legend>
     </div>
 
     <div class="container fill">
         <igc-pie-chart
-
-        value-member-path="value"
+        name="chart"
+        id="chart"
         label-member-path="summary"
-        legend-label-member-path="category"
         labels-position="OutsideEnd"
+        label-extent="30"
+        value-member-path="value"
+        outlines="white"
         others-category-threshold="10"
         others-category-type="Number"
         others-category-text="Others"
         radius-factor="0.7"
-        label-extent="30"
-        outlines="white"
-        name="chart"
-        id ="chart">
+        legend-label-member-path="category">
         </igc-pie-chart>
     </div>
 </div>

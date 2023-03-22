@@ -13,7 +13,7 @@ export class Sample {
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
 
         this._bind = () => {
-            treeGrid.data = this.employeesFlatData
+            treeGrid.data = this.employeesFlatData;
         }
         this._bind();
 
