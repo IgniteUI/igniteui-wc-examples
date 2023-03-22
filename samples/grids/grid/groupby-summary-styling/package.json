@@ -22,10 +22,10 @@
     "start:legacy": "npm run serve:dev:legacy"
   },
   "dependencies": {
-    "@infragistics/igniteui-webcomponents-core": "22.2.52",
-    "@infragistics/igniteui-webcomponents-grids": "22.2.52",
-    "@infragistics/igniteui-webcomponents-inputs": "22.2.52",
-    "@infragistics/igniteui-webcomponents-layouts": "22.2.52",
+    "igniteui-webcomponents-core": "4.2.3-alpha",
+    "igniteui-webcomponents-grids": "4.2.3-alpha",
+    "igniteui-webcomponents-inputs": "4.2.3-alpha",
+    "igniteui-webcomponents-layouts": "4.2.3-alpha",
     "igniteui-webcomponents": "4.2.2",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
