@@ -30,8 +30,8 @@ export class Sample {
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
             propertyEditorPanel1.target = this.treeGrid
+            propertyEditorPanel1.componentRenderer = this.renderer
             treeGrid.data = this.employeesFlatData
         }
         this._bind();

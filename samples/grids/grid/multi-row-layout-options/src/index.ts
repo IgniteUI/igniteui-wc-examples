@@ -21,8 +21,8 @@ export class Sample {
             let groupingExpression1: IgcGroupingExpression[] = [];
             var groupingExpression2: IgcGroupingExpression = {} as IgcGroupingExpression;
             groupingExpression2.fieldName = "Country";
-            groupingExpression2.dir = SortingDirection.Asc;
             groupingExpression2.ignoreCase = false;
+            groupingExpression2.dir = SortingDirection.Asc;
 
             groupingExpression1.push(groupingExpression2)
             this._groupingExpression1 = groupingExpression1;

@@ -29,8 +29,8 @@ export class Sample {
             let groupingExpression1: IgcGroupingExpression[] = [];
             var groupingExpression2: IgcGroupingExpression = {} as IgcGroupingExpression;
             groupingExpression2.fieldName = "ShipCountry";
-            groupingExpression2.dir = SortingDirection.Asc;
             groupingExpression2.ignoreCase = false;
+            groupingExpression2.dir = SortingDirection.Asc;
 
             groupingExpression1.push(groupingExpression2)
             this._groupingExpression1 = groupingExpression1;
@@ -43,8 +43,8 @@ export class Sample {
         if (this._columnPipeArgs1 == null)
         {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs1.digitsInfo = "1.2-2";
             columnPipeArgs1.currencyCode = "USD";
+            columnPipeArgs1.digitsInfo = "1.2-2";
 
             this._columnPipeArgs1 = columnPipeArgs1;
         }

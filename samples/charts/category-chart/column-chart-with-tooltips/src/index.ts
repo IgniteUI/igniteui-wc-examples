@@ -33,8 +33,8 @@ export class Sample {
         this._bind = () => {
             propertyEditor.componentRenderer = this.renderer
             propertyEditor.target = this.chart
-            chart.dataSource = this.highestGrossingMovies
             chart.legend = this.legend
+            chart.dataSource = this.highestGrossingMovies
         }
         this._bind();
 

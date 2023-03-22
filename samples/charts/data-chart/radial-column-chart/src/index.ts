@@ -36,9 +36,9 @@ export class Sample {
         this._bind = () => {
             chart.legend = this.legend
             angleAxis.dataSource = this.footballPlayerStats
+            radialColumnSeries1.dataSource = this.footballPlayerStats
             radialColumnSeries1.angleAxis = this.angleAxis
             radialColumnSeries1.valueAxis = this.radiusAxis
-            radialColumnSeries1.dataSource = this.footballPlayerStats
             radialColumnSeries2.dataSource = this.footballPlayerStats
             radialColumnSeries2.angleAxis = this.angleAxis
             radialColumnSeries2.valueAxis = this.radiusAxis

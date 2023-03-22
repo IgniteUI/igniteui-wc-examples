@@ -21,41 +21,41 @@
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        name="grid"
+        id="grid"
         moving="true"
         primary-key="ProductID"
-        paging-mode="Remote"
-        row-editable="true"
         is-loading="true"
         allow-filtering="false"
-        name="grid"
-        id ="grid">
+        paging-mode="Remote"
+        row-editable="true">
             <igc-column
-            field="ProductName"
-            header="Product Name"
             name="ProductName"
-            id ="ProductName">
+            id="ProductName"
+            field="ProductName"
+            header="Product Name">
             </igc-column>
             <igc-column
             name="QuantityPerUnit"
-            id ="QuantityPerUnit"
+            id="QuantityPerUnit"
             field="QuantityPerUnit"
             header="Quantity Per Unit">
             </igc-column>
             <igc-column
             name="UnitPrice"
-            id ="UnitPrice"
+            id="UnitPrice"
             field="UnitPrice"
             header="Unit Price">
             </igc-column>
             <igc-column
             name="OrderDate"
-            id ="OrderDate"
+            id="OrderDate"
             field="OrderDate"
             header="Order Date">
             </igc-column>
             <igc-column
             name="Discontinued"
-            id ="Discontinued"
+            id="Discontinued"
             field="Discontinued"
             header="Discontinued">
             </igc-column>

@@ -18,7 +18,7 @@
 
 <div class="container sample">
 
-        <div class="legend-title">
+    <div class="legend-title">
         Renewable Electricity Generated
     </div>
 
@@ -27,36 +27,34 @@
         should-auto-expand-margin-for-initial-labels="true"
         computed-plot-area-margin-mode="Series"
         name="chart"
-        id ="chart">
+        id="chart">
             <igc-category-x-axis
-
-            label="year"
             name="xAxis"
-            id ="xAxis">
+            id="xAxis"
+            label="year">
             </igc-category-x-axis>
             <igc-numeric-y-axis
-            title="TWh"
-            label-location="OutsideRight"
             name="yAxis"
-            id ="yAxis">
+            id="yAxis"
+            title="TWh"
+            label-location="OutsideRight">
             </igc-numeric-y-axis>
             <igc-line-series
-
-            value-member-path="america"
             name="LineSeries1"
-            id ="LineSeries1">
+            id="LineSeries1"
+            value-member-path="america">
             </igc-line-series>
             <igc-callout-layer
-            label-member-path="label"
+            name="CalloutLayer1"
+            id="CalloutLayer1"
             x-member-path="index"
             y-member-path="value"
-            callout-text-color="black"
-            callout-background="orange"
-            callout-outline="black"
+            label-member-path="label"
             callout-leader-brush="black"
-            callout-stroke-thickness="2"
-            name="CalloutLayer1"
-            id ="CalloutLayer1">
+            callout-outline="black"
+            callout-background="orange"
+            callout-text-color="black"
+            callout-stroke-thickness="2">
             </igc-callout-layer>
         </igc-data-chart>
     </div>

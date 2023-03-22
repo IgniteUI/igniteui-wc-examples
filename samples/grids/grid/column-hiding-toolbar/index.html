@@ -21,12 +21,12 @@
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        name="grid"
+        id="grid"
         id="grid"
         column-width="200px"
         allow-filtering="true"
-        column-selection="single"
-        name="grid"
-        id ="grid">
+        column-selection="single">
             <igc-grid-toolbar
             >
                 <igc-grid-toolbar-title
@@ -40,16 +40,16 @@
                 </igc-grid-toolbar-actions>
             </igc-grid-toolbar>
             <igc-column
+            name="ID"
+            id="ID"
             field="ID"
             header="ID"
-            sortable="true"
             data-type="string"
-            name="ID"
-            id ="ID">
+            sortable="true">
             </igc-column>
             <igc-column
             name="ContactName"
-            id ="ContactName"
+            id="ContactName"
             field="ContactName"
             header="Name"
             data-type="string"
@@ -57,7 +57,7 @@
             </igc-column>
             <igc-column
             name="ContactTitle"
-            id ="ContactTitle"
+            id="ContactTitle"
             field="ContactTitle"
             header="Title"
             data-type="string"
@@ -65,7 +65,7 @@
             </igc-column>
             <igc-column
             name="City"
-            id ="City"
+            id="City"
             field="City"
             header="City"
             data-type="string"
@@ -73,7 +73,7 @@
             </igc-column>
             <igc-column
             name="CompanyName"
-            id ="CompanyName"
+            id="CompanyName"
             field="CompanyName"
             header="Company"
             data-type="string"
@@ -81,7 +81,7 @@
             </igc-column>
             <igc-column
             name="Fax"
-            id ="Fax"
+            id="Fax"
             field="Fax"
             header="Fax"
             data-type="string"
@@ -89,7 +89,7 @@
             </igc-column>
             <igc-column
             name="Address"
-            id ="Address"
+            id="Address"
             field="Address"
             header="Address"
             data-type="string"
@@ -97,7 +97,7 @@
             </igc-column>
             <igc-column
             name="PostalCode"
-            id ="PostalCode"
+            id="PostalCode"
             field="PostalCode"
             header="Postal Code"
             data-type="string"
@@ -105,7 +105,7 @@
             </igc-column>
             <igc-column
             name="Country"
-            id ="Country"
+            id="Country"
             field="Country"
             header="Country"
             data-type="string"
@@ -113,7 +113,7 @@
             </igc-column>
             <igc-column
             name="Phone"
-            id ="Phone"
+            id="Phone"
             field="Phone"
             header="Phone"
             data-type="string"

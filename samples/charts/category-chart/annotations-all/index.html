@@ -17,76 +17,75 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-
+        name="PropertyEditor"
+        id="PropertyEditor"
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="PropertyEditor"
-        id ="PropertyEditor">
+        is-wrapping-enabled="true">
             <igc-property-editor-property-description
             property-path="CrosshairsDisplayMode"
-            label="Crosshairs: "
-            primitive-value="Both"
             name="CrosshairsDisplayModeEditor"
-            id ="CrosshairsDisplayModeEditor">
+            id="CrosshairsDisplayModeEditor"
+            label="Crosshairs: "
+            primitive-value="Both">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="HighlightingMode"
-            label="Highlighting: "
-            primitive-value="BrightenSpecific"
             name="HighlightingModeEditor"
-            id ="HighlightingModeEditor">
+            id="HighlightingModeEditor"
+            label="Highlighting: "
+            primitive-value="BrightenSpecific">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="CalloutsVisible"
-            label="Callouts: "
-            primitive-value="True"
-            should-override-default-editor="true"
             name="CalloutsVisibleEditor"
-            id ="CalloutsVisibleEditor">
+            id="CalloutsVisibleEditor"
+            label="Callouts: "
+            should-override-default-editor="true"
+            primitive-value="True">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="FinalValueAnnotationsVisible"
-            label="Final Value: "
-            primitive-value="True"
-            should-override-default-editor="true"
             name="FinalValueAnnotationsEditor"
-            id ="FinalValueAnnotationsEditor">
+            id="FinalValueAnnotationsEditor"
+            label="Final Value: "
+            should-override-default-editor="true"
+            primitive-value="True">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
 
-        <div class="legend-title">
+    <div class="legend-title">
         Average Temperature in Sedney
     </div>
 
     <div class="container fill">
         <igc-category-chart
+        name="chart"
+        id="chart"
         chart-type="Column"
-        y-axis-maximum-value="35"
-        is-category-highlighting-enabled="true"
-        y-axis-label-location="OutsideRight"
-        included-properties="month, temperature"
+        computed-plot-area-margin-mode="Series"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
-        computed-plot-area-margin-mode="Series"
-        highlighting-mode="BrightenSpecific"
-        highlighting-behavior="NearestItemsAndSeries"
-        crosshairs-display-mode="Both"
-        crosshairs-annotation-x-axis-background="black"
-        crosshairs-annotation-y-axis-precision="0"
-        final-value-annotations-visible="true"
-        final-value-annotations-background="dodgerblue"
-        final-value-annotations-text-color="white"
-        final-value-annotations-precision="0"
+        included-properties="month, temperature"
         callouts-visible="true"
         callouts-x-member-path="index"
         callouts-y-member-path="temperature"
         callouts-label-member-path="tempInfo"
-        name="chart"
-        id ="chart">
+        is-category-highlighting-enabled="true"
+        highlighting-mode="BrightenSpecific"
+        highlighting-behavior="NearestItemsAndSeries"
+        crosshairs-display-mode="Both"
+        crosshairs-annotation-y-axis-precision="0"
+        crosshairs-annotation-x-axis-background="black"
+        final-value-annotations-visible="true"
+        final-value-annotations-background="dodgerblue"
+        final-value-annotations-text-color="white"
+        final-value-annotations-precision="0"
+        y-axis-maximum-value="35"
+        y-axis-label-location="OutsideRight">
         </igc-category-chart>
     </div>
 </div>

@@ -17,18 +17,17 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-
+        name="PropertyEditor"
+        id="PropertyEditor"
         description-type="WebTreeGrid"
         is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="PropertyEditor"
-        id ="PropertyEditor">
+        is-wrapping-enabled="true">
             <igc-property-editor-property-description
             property-path="DisplayDensity"
             name="DisplayDensityEditor"
-            id ="DisplayDensityEditor">
+            id="DisplayDensityEditor">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
@@ -36,18 +35,18 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
+        name="treeGrid"
+        id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        allow-filtering="true"
-        name="treeGrid"
-        id ="treeGrid">
+        foreign-key="ParentID"
+        allow-filtering="true">
             <igc-column
             field="Name"
+            data-type="string"
             sortable="true"
             has-summary="true"
-            width="200"
-            data-type="string">
+            width="200">
             </igc-column>
             <igc-column-group
             header="General Information">

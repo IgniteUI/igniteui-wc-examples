@@ -21,9 +21,9 @@
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        id="grid"
         name="grid"
-        id ="grid">
+        id="grid"
+        id="grid">
             <igc-column
             field="OrderID"
             hidden="true">
@@ -37,9 +37,9 @@
             <igc-column
             field="OrderDate"
             header="Order Date"
+            data-type="date"
             width="200px"
-            groupable="true"
-            data-type="date">
+            groupable="true">
             </igc-column>
             <igc-column
             field="PostalCode"
@@ -50,10 +50,10 @@
             <igc-column
             field="Discontinued"
             width="200px"
-            groupable="true"
             data-type="boolean"
+            groupable="true"
             name="column1"
-            id ="column1">
+            id="column1">
             </igc-column>
             <igc-column
             field="ShipName"

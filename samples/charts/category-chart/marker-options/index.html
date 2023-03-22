@@ -17,46 +17,45 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-
+        name="PropertyEditor"
+        id="PropertyEditor"
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="PropertyEditor"
-        id ="PropertyEditor">
+        is-wrapping-enabled="true">
             <igc-property-editor-property-description
             property-path="ChartType"
-            label="Chart Type"
-            primitive-value="Line"
             name="ChartTypeEditor"
-            id ="ChartTypeEditor">
+            id="ChartTypeEditor"
+            label="Chart Type"
+            primitive-value="Line">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            drop-down-names="Circle, Automatic, Triangle, Pyramid, Square, Diamond, Pentagon, Hexagon, Tetragram, Pentagram, Hexagram, None"
-            primitive-value="Circle"
             property-path="MarkerTypeHandler"
-            label="Marker Type"
-            value-type="EnumValue"
-            should-override-default-editor="true"
-            drop-down-values="Circle, Automatic, Triangle, Pyramid, Square, Diamond, Pentagon, Hexagon, Tetragram, Pentagram, Hexagram, None"
             name="MarkerTypeEditor"
-            id ="MarkerTypeEditor">
+            id="MarkerTypeEditor"
+            label="Marker Type"
+            should-override-default-editor="true"
+            value-type="EnumValue"
+            drop-down-values="Circle, Automatic, Triangle, Pyramid, Square, Diamond, Pentagon, Hexagon, Tetragram, Pentagram, Hexagram, None"
+            drop-down-names="Circle, Automatic, Triangle, Pyramid, Square, Diamond, Pentagon, Hexagon, Tetragram, Pentagram, Hexagram, None"
+            primitive-value="Circle">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
 
-        <div class="legend-title">
+    <div class="legend-title">
         Renewable Electricity Generated
     </div>
 
     <div class="container fill">
         <igc-category-chart
-        chart-type="Line"
-        is-series-highlighting-enabled="true"
-        computed-plot-area-margin-mode="Series"
         name="chart"
-        id ="chart">
+        id="chart"
+        is-series-highlighting-enabled="true"
+        chart-type="Line"
+        computed-plot-area-margin-mode="Series">
         </igc-category-chart>
     </div>
 </div>

@@ -31,9 +31,9 @@ export class Sample {
         var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
+            polarSplineSeries1.dataSource = this.boatSailingData
             polarSplineSeries1.angleAxis = this.angleAxis
             polarSplineSeries1.radiusAxis = this.radiusAxis
-            polarSplineSeries1.dataSource = this.boatSailingData
             polarSplineSeries2.dataSource = this.boatSailingData
             polarSplineSeries2.angleAxis = this.angleAxis
             polarSplineSeries2.radiusAxis = this.radiusAxis

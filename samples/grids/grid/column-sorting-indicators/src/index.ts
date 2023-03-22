@@ -13,8 +13,8 @@ export class Sample {
         {
             let sortingExpression1: IgcSortingExpression[] = [];
             var sortingExpression2: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression2.fieldName = "Settlement";
             sortingExpression2.dir = SortingDirection.Asc;
+            sortingExpression2.fieldName = "Settlement";
             sortingExpression2.ignoreCase = true;
 
             sortingExpression1.push(sortingExpression2)

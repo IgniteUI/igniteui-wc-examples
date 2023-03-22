@@ -46,9 +46,9 @@ export class Sample {
         this._bind = () => {
             chart.legend = this.legend
             xAxis.dataSource = this.continentsBirthRate
+            stackedLineSeries.dataSource = this.continentsBirthRate
             stackedLineSeries.xAxis = this.xAxis
             stackedLineSeries.yAxis = this.yAxis
-            stackedLineSeries.dataSource = this.continentsBirthRate
         }
         this._bind();
 

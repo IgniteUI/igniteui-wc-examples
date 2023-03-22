@@ -21,18 +21,18 @@
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        id="grid"
-        allow-filtering="true"
         name="grid"
-        id ="grid">
+        id="grid"
+        id="grid"
+        allow-filtering="true">
             <igc-column
             field="Category"
             width="120px">
             </igc-column>
             <igc-column
             field="Type"
-            width="150px"
-            filterable="false">
+            filterable="false"
+            width="150px">
             </igc-column>
             <igc-column
             field="Open"
@@ -51,15 +51,15 @@
             </igc-column>
             <igc-column
             field="ChangePercent"
+            header="Change(%)"
             width="120px"
-            data-type="number"
-            header="Change(%)">
+            data-type="number">
             </igc-column>
             <igc-column
             field="AnnualChange"
+            header="Change On Year(%)"
             width="150px"
-            data-type="number"
-            header="Change On Year(%)">
+            data-type="number">
             </igc-column>
             <igc-column
             field="Buy"
@@ -93,21 +93,21 @@
             </igc-column>
             <igc-column
             field="AnnualHigh"
+            header="High(Y)"
             width="130px"
-            data-type="currency"
-            header="High(Y)">
+            data-type="currency">
             </igc-column>
             <igc-column
             field="AnnualLow"
+            header="Low(Y)"
             width="130px"
-            data-type="currency"
-            header="Low(Y)">
+            data-type="currency">
             </igc-column>
             <igc-column
             field="AnnualStart"
+            header="Start(Y)"
             width="130px"
-            data-type="currency"
-            header="Start(Y)">
+            data-type="currency">
             </igc-column>
         </igc-grid>
     </div>

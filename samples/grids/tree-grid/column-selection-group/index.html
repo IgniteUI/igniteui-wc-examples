@@ -21,12 +21,12 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
+        name="treeGrid"
+        id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        column-selection="multiple"
-        name="treeGrid"
-        id ="treeGrid">
+        foreign-key="ParentID"
+        column-selection="multiple">
             <igc-column
             field="Name"
             data-type="string">
@@ -35,8 +35,8 @@
             header="General Information">
                 <igc-column
                 field="HireDate"
-                data-type="date"
-                header="Hire Date">
+                header="Hire Date"
+                data-type="date">
                 </igc-column>
                 <igc-column-group
                 header="Personal Details">
@@ -87,8 +87,8 @@
                     </igc-column>
                     <igc-column
                     field="PostalCode"
-                    data-type="string"
-                    header="Postal Code">
+                    header="Postal Code"
+                    data-type="string">
                     </igc-column>
                 </igc-column-group>
             </igc-column-group>

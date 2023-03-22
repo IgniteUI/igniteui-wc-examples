@@ -18,34 +18,35 @@
 
 <div class="container sample">
 
-        <div class="legend-title">
+    <div class="legend-title">
         Renewable Electricity Generated
     </div>
 
     <div class="legend">
         <igc-legend
-        orientation="Horizontal"
         name="Legend"
-        id ="Legend">
+        id="Legend"
+        orientation="Horizontal">
         </igc-legend>
     </div>
 
     <div class="container fill">
         <igc-category-chart
-        y-axis-title="TWh"
-        is-transition-in-enabled="true"
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
+
+        name="chart"
+        id="chart"
         chart-type="StepArea"
-        is-category-highlighting-enabled="true"
+        title-alignment="Left"
         title-left-margin="25"
         title-top-margin="10"
         title-bottom-margin="10"
+        is-category-highlighting-enabled="true"
         is-series-highlighting-enabled="true"
-        title-alignment="Left"
-        crosshairs-snap-to-data="true"
-        name="chart"
-        id ="chart">
+        is-transition-in-enabled="true"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
+        y-axis-title="TWh"
+        crosshairs-snap-to-data="true">
         </igc-category-chart>
     </div>
 </div>

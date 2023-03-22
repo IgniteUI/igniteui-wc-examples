@@ -45,9 +45,9 @@ export class Sample {
         this._bind = () => {
             chart.legend = this.legend
             yAxis.dataSource = this.energyRenewableConsumption
+            stackedBarSeries.dataSource = this.energyRenewableConsumption
             stackedBarSeries.xAxis = this.xAxis
             stackedBarSeries.yAxis = this.yAxis
-            stackedBarSeries.dataSource = this.energyRenewableConsumption
         }
         this._bind();
 

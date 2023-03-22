@@ -17,24 +17,24 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
 
         description-type="WebTreeGrid"
-        is-horizontal="true"
         is-wrapping-enabled="true"
+        is-horizontal="true"
         name="propertyEditorPanel1"
-        id ="propertyEditorPanel1">
+        id="propertyEditorPanel1">
             <igc-property-editor-property-description
-            property-path="RowSelection"
             name="selectionType"
-            id ="selectionType">
+            id="selectionType"
+            property-path="RowSelection">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            property-path="HideRowSelectors"
-            label="Hide Row Selectors"
             name="hideRowSelectors"
-            id ="hideRowSelectors">
+            id="hideRowSelectors"
+            property-path="HideRowSelectors"
+            label="Hide Row Selectors">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
@@ -42,24 +42,24 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
+        name="treeGrid"
+        id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        hide-row-selectors="false"
-        allow-filtering="true"
+        foreign-key="ParentID"
         cell-selection="none"
-        name="treeGrid"
-        id ="treeGrid">
+        allow-filtering="true"
+        hide-row-selectors="false">
             <igc-column
             field="Name"
-            sortable="true"
-            data-type="string">
+            data-type="string"
+            sortable="true">
             </igc-column>
             <igc-column
             field="Title"
+            header="Job Title"
             data-type="string"
-            sortable="true"
-            header="Job Title">
+            sortable="true">
             </igc-column>
             <igc-column
             field="HireDate"

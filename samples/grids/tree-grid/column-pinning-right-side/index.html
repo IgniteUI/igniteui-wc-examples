@@ -21,11 +21,14 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
+        name="treeGrid"
+        id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        name="treeGrid"
-        id ="treeGrid">
+        foreign-key="ParentID">
+            <igc-pinning-config
+            columns="End">
+            </igc-pinning-config>
             <igc-grid-toolbar
             >
                 <igc-grid-toolbar-actions
@@ -35,13 +38,10 @@
                     </igc-grid-toolbar-pinning>
                 </igc-grid-toolbar-actions>
             </igc-grid-toolbar>
-            <igc-pinning-config
-            columns="End">
-            </igc-pinning-config>
             <igc-column
             field="Name"
-            width="250"
-            data-type="string">
+            data-type="string"
+            width="250">
             </igc-column>
             <igc-column
             field="Title"
@@ -51,9 +51,9 @@
             </igc-column>
             <igc-column
             field="HireDate"
+            header="Hire Date"
             data-type="date"
-            width="200"
-            header="Hire Date">
+            width="200">
             </igc-column>
             <igc-column
             field="Age"
@@ -82,9 +82,9 @@
             </igc-column>
             <igc-column
             field="PostalCode"
+            header="Postal Code"
             data-type="string"
-            width="200"
-            header="Postal Code">
+            width="200">
             </igc-column>
             <igc-column
             field="Phone"

@@ -17,19 +17,18 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-
+        name="PropertyEditor"
+        id="PropertyEditor"
         description-type="WebTreeGrid"
         is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="PropertyEditor"
-        id ="PropertyEditor">
+        is-wrapping-enabled="true">
             <igc-property-editor-property-description
             property-path="ColumnSelection"
-            label="Column Selection"
             name="columnSelectionEditor"
-            id ="columnSelectionEditor">
+            id="columnSelectionEditor"
+            label="Column Selection">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
@@ -37,11 +36,11 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
+        name="treeGrid"
+        id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        name="treeGrid"
-        id ="treeGrid">
+        foreign-key="ParentID">
             <igc-column
             field="ID">
             </igc-column>

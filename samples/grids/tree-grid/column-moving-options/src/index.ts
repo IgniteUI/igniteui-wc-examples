@@ -2,7 +2,7 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
-import { IgcGridComponent, IgcColumnTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { IgcColumnTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -39,17 +39,17 @@ export class Sample {
 
         this._bind = () => {
             treeGrid.data = this.employeesFlatDetails
-            column1.headerTemplate = this.webGridPinHeaderTemplate
-            column2.headerTemplate = this.webGridPinHeaderTemplate
-            column3.headerTemplate = this.webGridPinHeaderTemplate
-            column4.headerTemplate = this.webGridPinHeaderTemplate
-            column5.headerTemplate = this.webGridPinHeaderTemplate
-            column6.headerTemplate = this.webGridPinHeaderTemplate
-            column7.headerTemplate = this.webGridPinHeaderTemplate
-            column8.headerTemplate = this.webGridPinHeaderTemplate
-            column9.headerTemplate = this.webGridPinHeaderTemplate
-            column10.headerTemplate = this.webGridPinHeaderTemplate
-            column11.headerTemplate = this.webGridPinHeaderTemplate
+            column1.headerTemplate = this.webTreeGridPinHeaderTemplate
+            column2.headerTemplate = this.webTreeGridPinHeaderTemplate
+            column3.headerTemplate = this.webTreeGridPinHeaderTemplate
+            column4.headerTemplate = this.webTreeGridPinHeaderTemplate
+            column5.headerTemplate = this.webTreeGridPinHeaderTemplate
+            column6.headerTemplate = this.webTreeGridPinHeaderTemplate
+            column7.headerTemplate = this.webTreeGridPinHeaderTemplate
+            column8.headerTemplate = this.webTreeGridPinHeaderTemplate
+            column9.headerTemplate = this.webTreeGridPinHeaderTemplate
+            column10.headerTemplate = this.webTreeGridPinHeaderTemplate
+            column11.headerTemplate = this.webTreeGridPinHeaderTemplate
         }
         this._bind();
 
@@ -74,7 +74,7 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridPinHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
+    public webTreeGridPinHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
 
         const column = (ctx as any).column;
         return html`<div>
@@ -84,7 +84,7 @@ export class Sample {
         };
 
     public toggleColumnPin(field: string) {
-        var grid = document.getElementsByTagName("igc-grid")[0] as IgcGridComponent;
+        var grid = document.getElementsByTagName("igc-tree-grid")[0] as IgcTreeGridComponent;
         var col = grid.getColumnByName(field);
         col.pinned = !col.pinned;
         grid.markForCheck();

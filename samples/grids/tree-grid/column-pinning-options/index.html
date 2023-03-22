@@ -21,48 +21,48 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
+        name="treeGrid"
+        id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        name="treeGrid"
-        id ="treeGrid">
+        foreign-key="ParentID">
             <igc-column
             field="Name"
             data-type="string"
             pinned="true"
             name="column1"
-            id ="column1">
+            id="column1">
             </igc-column>
             <igc-column
             field="Title"
             data-type="string"
             pinned="true"
             name="column2"
-            id ="column2">
+            id="column2">
             </igc-column>
             <igc-column
             field="Phone"
             data-type="string"
             name="column3"
-            id ="column3">
+            id="column3">
             </igc-column>
             <igc-column
             field="Age"
             data-type="number"
             name="column4"
-            id ="column4">
+            id="column4">
             </igc-column>
             <igc-column
             field="HireDate"
             data-type="date"
             name="column5"
-            id ="column5">
+            id="column5">
             </igc-column>
             <igc-column
             field="OnPTO"
             data-type="boolean"
             name="column6"
-            id ="column6">
+            id="column6">
             </igc-column>
         </igc-tree-grid>
     </div>
