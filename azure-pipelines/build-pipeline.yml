@@ -73,7 +73,7 @@ stages:
             $npmUninstallPackages = "npm uninstall --save "
             $npmInstallPackages = "npm install "
 
-            $packageJson.dependencies.PSObject.Properties | `
+            $igTrialPackages = $packageJson.dependencies.PSObject.Properties | `
                 Where-Object {
                     $_.Name.StartsWith("igniteui-webcomponents-") -or $_.Name.StartsWith("igniteui-dockmanager") `
                 } | `
@@ -82,11 +82,16 @@ stages:
                     $npmInstallPackages += "@infragistics/" + $_.Name + "@" + $_.Value + " "
                 }
 
-            Write-Host $npmUninstallPackages
-            Write-Host $npmInstallPackages
+            if ($igTrialPackages -ne $null) {
+                Write-Host $npmUninstallPackages
+                Write-Host $npmInstallPackages
 
-            Invoke-Expression -Command “$npmUninstallPackages”
-            Invoke-Expression -Command “$npmInstallPackages”
+                Invoke-Expression -Command “$npmUninstallPackages”
+                Invoke-Expression -Command “$npmInstallPackages”
+                }
+            else {
+                Write-Host "No IG packages were identified to be converted trial -> licensed"
+            }
 
       - task: Npm@1
         displayName: 'npm run build'
