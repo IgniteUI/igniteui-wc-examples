@@ -718,6 +718,9 @@ class Transformer {
             } else {
                 let group = new SampleGroup();
                 group.Name = component.Group;
+                group.RouterClass = 'Router' + Strings.toTitleCase(group.Name);
+                group.RouterFile = './samples/' + group.Name + '/router';
+                group.RouterImport = 'import { ' + group.RouterClass + ' } from "' + group.RouterFile + '";';
                 group.Components.push(component);
                 groupMap.set(component.Group, group);
             }
@@ -924,6 +927,10 @@ class Transformer {
 class SampleGroup {
 
     public Name: string;
+    public RouterClass: string;
+    public RouterFile: string;
+    public RouterImport: string;
+
     public Components: SampleComponent[];
 
     constructor() {

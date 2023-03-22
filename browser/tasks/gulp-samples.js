@@ -304,6 +304,8 @@ function copySamples(cb) {
     let sampleGroups = Transformer.getSampleGroups(samples);
 
     console.log('>> generating router files... ');
+    let routerImports = [];
+    let routerConditions = [];
     let routerTemplate = fs.readFileSync("./browser/src/templates/group/Router.ts", "utf8");
     for (const group of sampleGroups) {
         let outputPath = "./browser/src/samples/" + group.Name + "/router.ts";
@@ -315,7 +317,29 @@ function copySamples(cb) {
         fs.writeFileSync(outputPath, routingFile);
         console.log('>> generating routes done: ' + outputPath);
 
+        if (routerConditions.length === 0)
+            routerConditions.push('        if (route.indexOf("/' + group.Name + '/") >= 0) {');
+        else
+            routerConditions.push('        else if (route.indexOf("/' + group.Name + '/") >= 0) {');
+
+        routerConditions.push('            this.displaySample(await ' + group.RouterClass + '.get(route));');
+        routerConditions.push('        }');
+
+        routerImports.push(group.RouterImport);
     }
+
+    let routerPath = "./browser/src/router.ts";
+    console.log('>> updating ' + routerPath + ' ... ');
+    let routerFile = fs.readFileSync(routerPath, "utf8").toString();
+    let routerImportLines = routerImports.join('\n');
+    var routerImportEx = /(\/\/\sAutoRouterImportStart)([\S\s]*?)(\/\/\sAutoRouterImportEnd)/gm;
+    routerFile = routerFile.replace(routerImportEx, '$1\n' + routerImportLines + '\n$3');
+
+    let routerConditionLines = routerConditions.join('\n');
+    var routerConditionEx = /(\/\/\sAutoRouterConditionStart)([\S\s]*?)(\/\/\sAutoRouterConditionEnd)/gm;
+    routerFile = routerFile.replace(routerConditionEx, '$1\n' + routerConditionLines + '\n$3');
+    fs.writeFileSync(routerPath, routerFile);
+    console.log('>> updating ' + routerPath + ' with ' + routerImports.length + ' routers' );
 
     console.log('>> generating index file... ');
     let indexTemplate = fs.readFileSync("./browser/src/templates/index.html", "utf8");
