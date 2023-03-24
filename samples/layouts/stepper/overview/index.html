@@ -44,15 +44,15 @@
                                 <p id="tax-id-error-message" class="error-message hidden">The Federal Tax ID Number should begin with 9</p>
                                 <label>Does this business operate outside the United States?<span class="required">*</span></label>
                                 <igc-radio-group>
-                                    <igc-radio name="nonUSBusinessActivity" required>Yes.</igc-radio>
-                                    <igc-radio name="nonUSBusinessActivity" required>No.</igc-radio>
+                                    <igc-radio name="nonUSBusinessActivity" required value="true">Yes.</igc-radio>
+                                    <igc-radio name="nonUSBusinessActivity" required value="false">No.</igc-radio>
                                 </igc-radio-group>
                             </igc-form>
                             <div class="selected-card-wrapper"></div>
                         </div>
                         <br />
                         <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
-                        <igc-button class="next" onclick="stepper.next()" disabled>NEXT</igc-button>
+                        <igc-button class="next" disabled>NEXT</igc-button>
                     </igc-step>
 
                     <igc-step id="personalInformation" invalid>
@@ -64,17 +64,17 @@
                                 <igc-input required label="Job Title" type="text" name="jobTitle"></igc-input>
                                 <igc-input required label="Phone Number" type="text" name="phoneNumber"></igc-input>
                                 <igc-input required label="Email Address" type="email" name="email"></igc-input>
-                                <igc-checkbox required> I confirm that I am authorized to borrow on behalf of this business.<span class="required">*</span> </igc-checkbox>
-                                <igc-checkbox required> I agree with the<span class="required">*</span><a class="terms-and-conditions">Terms and Conditions</a> </igc-checkbox>
+                                <igc-checkbox required name="authorization"> I confirm that I am authorized to borrow on behalf of this business.<span class="required">*</span> </igc-checkbox>
+                                <igc-checkbox required name="agreementAccepted"> I agree with the<span class="required">*</span><a class="terms-and-conditions">Terms and Conditions</a> </igc-checkbox>
                             </igc-form>
                             <div class="selected-card-wrapper"></div>
                         </div>
                         <br />
                         <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
-                        <igc-button class="next" onclick="stepper.next()" disabled>NEXT</igc-button>
+                        <igc-button class="next" disabled>NEXT</igc-button>
                     </igc-step>
 
-                    <igc-step id="shippingDetails">
+                    <igc-step id="shippingDetails" optional disabled>
                         <span slot="title">Shipping Details</span>
                         <div class="sample-row">
                             <igc-form class="flex-form">
@@ -97,7 +97,7 @@
                         </div>
                         <br />
                         <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
-                        <igc-button class="next" onclick="stepper.next()" disabled>NEXT</igc-button>
+                        <igc-button class="next" disabled>NEXT</igc-button>
                     </igc-step>
 
                     <igc-step>
