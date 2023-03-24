@@ -1,11 +1,11 @@
-import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
+import { IgcDataLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcDataLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
-    IgcLegendModule,
+    IgcDataLegendModule,
     IgcCategoryChartModule
 );
 
