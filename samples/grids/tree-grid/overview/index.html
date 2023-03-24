@@ -17,23 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
+    
+    
+    
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        name="treeGrid"
-        id="treeGrid"
-        id="treeGrid"
         child-data-key="Employees"
-        row-selection="multiple"
+        id="treeGrid"
         moving="true"
+        paging="true"
         allow-filtering="true"
-        paging="true">
+        filter-mode="excelStyleFilter"
+        row-selection="multiple"
+        name="treeGrid"
+        id ="treeGrid">
             <igc-grid-toolbar
             >
                 <igc-grid-toolbar-title
                 name="Employees"
-                id="Employees">
+                id ="Employees">
                 </igc-grid-toolbar-title>
                 <igc-grid-toolbar-actions
                 >
@@ -52,11 +55,11 @@
             <igc-column
             field="iD"
             header="ID"
-            data-type="number"
             sortable="true"
             editable="true"
             resizable="true"
-            has-summary="true">
+            has-summary="true"
+            data-type="number">
             </igc-column>
             <igc-column
             field="Name"
