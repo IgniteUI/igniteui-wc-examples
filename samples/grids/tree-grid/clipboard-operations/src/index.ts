@@ -3,7 +3,7 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -23,7 +23,7 @@ export class Sample {
     private clipboardHeadersEditor: IgcPropertyEditorPropertyDescriptionComponent
     private clipboardFormattersEditor: IgcPropertyEditorPropertyDescriptionComponent
     private propertyEditorPropertyDescription1: IgcPropertyEditorPropertyDescriptionComponent
-    private grid: IgcTreeGridComponent
+    private treeGrid: IgcTreeGridComponent
     private _bind: () => void;
 
     constructor() {
@@ -33,28 +33,29 @@ export class Sample {
         var clipboardFormattersEditor = this.clipboardFormattersEditor = document.getElementById('ClipboardFormattersEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var propertyEditorPropertyDescription1 = this.propertyEditorPropertyDescription1 = document.getElementById('propertyEditorPropertyDescription1') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webGridClearSelection = this.webGridClearSelection.bind(this);
-        var grid = this.grid = document.getElementById('grid') as IgcTreeGridComponent;
+        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
         this.webGridClipboardOperationsColumnInit = this.webGridClipboardOperationsColumnInit.bind(this);
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer;
-            propertyEditor.target = this.grid;
-            propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSelection;
-            grid.data = this.nwindData;
-            grid.addEventListener("columnInit", this.webGridClipboardOperationsColumnInit);
+            propertyEditor.componentRenderer = this.renderer
+            propertyEditor.target = this.treeGrid
+            propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSelection
+            treeGrid.data = this.employeesFlatDetails
+            treeGrid.addEventListener("columnInit", this.webGridClipboardOperationsColumnInit)
         }
         this._bind();
 
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
+    private _employeesFlatDetails: EmployeesFlatDetails = null;
+    public get employeesFlatDetails(): EmployeesFlatDetails {
+        if (this._employeesFlatDetails == null)
         {
-            this._nwindData = new NwindData();
+            this._employeesFlatDetails = new EmployeesFlatDetails();
         }
-        return this._nwindData;
+        return this._employeesFlatDetails;
     }
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -67,17 +68,19 @@ export class Sample {
         return this._componentRenderer;
     }
 
+    
     public webGridClearSelection(args: any): void {
         console.log("TODO" + args);
     	//TODO
     }
-
+        
+    
     public webGridClipboardOperationsColumnInit(args: any): void {
         let column = args.detail;
         column.formatter = (e: any) => { return "** " + e + " **" };
         column.header = "🎉" + column.field;
     }
-
+        
 }
 
 new Sample();

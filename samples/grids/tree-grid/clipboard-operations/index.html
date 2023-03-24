@@ -17,78 +17,121 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
+        <div class="options vertical">
         <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
+        
         description-type="WebTreeGrid"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="PropertyEditor"
+        id ="PropertyEditor">
             <igc-property-editor-property-description
-            value-type="StringValue"
+            property-path="ClipboardOptions.Separator"
             label="Change Copy Separator"
-            property-path="ClipboardOptions.Separator">
+            value-type="StringValue">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            property-path="ClipboardOptions.Enabled"
-            name="ClipboardEnabledEditor"
-            id="ClipboardEnabledEditor"
+            value-type="Boolean1"
             label="Grid Copy Behavior"
-            value-type="Boolean1"
-            primitive-value="True">
+            property-path="ClipboardOptions.Enabled"
+            primitive-value="True"
+            name="ClipboardEnabledEditor"
+            id ="ClipboardEnabledEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            property-path="ClipboardOptions.CopyHeaders"
-            name="ClipboardHeadersEditor"
-            id="ClipboardHeadersEditor"
+            value-type="Boolean1"
             label="Copying of Header Labels"
-            value-type="Boolean1"
-            primitive-value="True">
+            property-path="ClipboardOptions.CopyHeaders"
+            primitive-value="True"
+            name="ClipboardHeadersEditor"
+            id ="ClipboardHeadersEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            property-path="ClipboardOptions.CopyFormatters"
-            name="ClipboardFormattersEditor"
-            id="ClipboardFormattersEditor"
-            label="Copying Column Formatters"
             value-type="Boolean1"
-            primitive-value="True">
+            label="Copying Column Formatters"
+            property-path="ClipboardOptions.CopyFormatters"
+            primitive-value="True"
+            name="ClipboardFormattersEditor"
+            id ="ClipboardFormattersEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             value-type="Button"
             primitive-value="Clear Selection"
             name="propertyEditorPropertyDescription1"
-            id="propertyEditorPropertyDescription1">
+            id ="propertyEditorPropertyDescription1">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
-
+    
+    
+    
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        name="grid"
-        id="grid"
-        row-editable="true"
-        primary-key="SupplierID">
+        foreign-key="ParentID"
+        id="treeGrid"
+        primary-key="ID"
+        name="treeGrid"
+        id ="treeGrid">
             <igc-column
-            field="ProductID">
+            field="ID"
+            sortable="true"
+            data-type="number">
             </igc-column>
             <igc-column
-            field="ProductName">
+            field="Name"
+            data-type="string"
+            sortable="true"
+            disable-hiding="true">
             </igc-column>
             <igc-column
-            field="SupplierID">
+            field="Title"
+            data-type="string"
+            sortable="true"
+            disable-hiding="true">
             </igc-column>
             <igc-column
-            field="CategoryID">
+            field="HireDate"
+            data-type="date"
+            sortable="true"
+            hidden="true">
             </igc-column>
             <igc-column
-            field="QuantityPerUnit">
+            field="Age"
+            data-type="number"
+            sortable="true"
+            hidden="true">
             </igc-column>
             <igc-column
-            field="UnitPrice">
+            field="Address"
+            data-type="string"
+            sortable="true">
             </igc-column>
             <igc-column
-            field="UnitsInStock">
+            field="City"
+            data-type="string"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Country"
+            data-type="string"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Fax"
+            data-type="string"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="PostalCode"
+            data-type="string"
+            sortable="true"
+            header="Postal Code">
+            </igc-column>
+            <igc-column
+            field="Phone"
+            data-type="string"
+            sortable="true">
             </igc-column>
         </igc-tree-grid>
     </div>
