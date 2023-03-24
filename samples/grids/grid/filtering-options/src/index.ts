@@ -30,7 +30,7 @@ export class Sample {
         var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.nwindData;
+            grid.data = this.nwindData
         }
         this._bind();
 
@@ -44,6 +44,7 @@ export class Sample {
         }
         return this._nwindData;
     }
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
