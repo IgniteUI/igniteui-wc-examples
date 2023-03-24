@@ -1,4 +1,3 @@
-import { IgcBadgeModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule, PropertyEditorPanelDescriptionModule } from 'igniteui-webcomponents-core';
@@ -16,7 +15,6 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
 
 ModuleManager.register(
-    IgcBadgeModule,
     IgcPropertyEditorPanelModule
 );
 

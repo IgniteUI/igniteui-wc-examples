@@ -916,43 +916,39 @@ function updateIG(cb) {
     // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "@infragistics/igniteui-webcomponents-core"                     , version: "22.2.52" },
-        { name: "@infragistics/igniteui-webcomponents-charts"                   , version: "22.2.52" },
-        { name: "@infragistics/igniteui-webcomponents-excel"                    , version: "22.2.52" },
-        { name: "@infragistics/igniteui-webcomponents-gauges"                   , version: "22.2.52" },
-        { name: "@infragistics/igniteui-webcomponents-grids"                    , version: "22.2.52" },
-        { name: "@infragistics/igniteui-webcomponents-inputs"                   , version: "22.2.52" },
-        { name: "@infragistics/igniteui-webcomponents-layouts"                  , version: "22.2.52" },
-        { name: "@infragistics/igniteui-webcomponents-maps"                     , version: "22.2.52" },
-        { name: "@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter", version: "22.2.52" },
-        { name: "@infragistics/igniteui-webcomponents-spreadsheet"              , version: "22.2.52" },
-        { name: "@infragistics/igniteui-webcomponents-datasources"              , version: "22.2.52" },
+        { name: "igniteui-webcomponents-core"                     , version: "4.2.4-alpha" },
+        { name: "igniteui-webcomponents-charts"                   , version: "4.2.4-alpha" },
+        { name: "igniteui-webcomponents-excel"                    , version: "4.2.4-alpha" },
+        { name: "igniteui-webcomponents-gauges"                   , version: "4.2.4-alpha" },
+        { name: "igniteui-webcomponents-grids"                    , version: "4.2.4-alpha" },
+        { name: "igniteui-webcomponents-inputs"                   , version: "4.2.4-alpha" },
+        { name: "igniteui-webcomponents-layouts"                  , version: "4.2.4-alpha" },
+        { name: "igniteui-webcomponents-maps"                     , version: "4.2.4-alpha" },
+        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.2.4-alpha" },
+        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.2.4-alpha" },
+        { name: "igniteui-webcomponents-datasources"              , version: "4.2.4-alpha" },
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "4.2.2"  },
         { name: "igniteui-dockmanager", version: "1.12.3" },
     ];
 
-    // NOTE you can comment out strings in this array to run these function only on a subset of samples
     var packagePaths = [
         './package.json', // browser
         './samples/**/package.json',
-        // '../samples/charts/**/package.json',
-        // '../samples/editors/**/package.json',
-        // '../samples/excel/**/package.json',
-        // '../samples/gauges/**/package.json',
-        // '../samples/grids/**/package.json',
-        // '../samples/inputs/**/package.json',
-        // '../samples/layouts/**/package.json',
-        // '../samples/maps/**/package.json',
-        // '../samples/menus/**/package.json',
-        // '../samples/notifications/**/package.json',
-        // '../samples/scheduling/**/package.json',
-
-        // '../samples/charts/category-chart/**/package.json',
-        // '../samples/maps/geo-map/type-scatter-bubble-series/package.json',
-        '!../samples/**/node_modules/**/package.json',
-        '!../samples/**/node_modules/**',
-        '!../samples/**/node_modules',
+        // './samples/charts/**/package.json',
+        // './samples/editors/**/package.json',
+        // './samples/excel/**/package.json',
+        // './samples/gauges/**/package.json',
+        // './samples/grids/**/package.json',
+        // './samples/inputs/**/package.json',
+        // './samples/layouts/**/package.json',
+        // './samples/maps/**/package.json',
+        // './samples/menus/**/package.json',
+        // './samples/notifications/**/package.json',
+        // './samples/scheduling/**/package.json',
+        // './samples/charts/category-chart/**/package.json',
+        // './samples/maps/geo-map/type-scatter-bubble-series/package.json',
+        '!./samples/**/node_modules/**/package.json',
     ];
 
     // creating package mapping without proget prefix so we can upgrade to/from proget packages

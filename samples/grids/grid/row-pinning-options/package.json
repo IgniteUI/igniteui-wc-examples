@@ -22,10 +22,10 @@
     "start:legacy": "npm run serve:dev:legacy"
   },
   "dependencies": {
-    "igniteui-webcomponents-core": "4.2.3-alpha",
-    "igniteui-webcomponents-grids": "4.2.3-alpha",
-    "igniteui-webcomponents-inputs": "4.2.3-alpha",
-    "igniteui-webcomponents-layouts": "4.2.3-alpha",
+    "igniteui-webcomponents-core": "4.2.4-alpha",
+    "igniteui-webcomponents-grids": "4.2.4-alpha",
+    "igniteui-webcomponents-inputs": "4.2.4-alpha",
+    "igniteui-webcomponents-layouts": "4.2.4-alpha",
     "igniteui-webcomponents": "4.2.2",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
