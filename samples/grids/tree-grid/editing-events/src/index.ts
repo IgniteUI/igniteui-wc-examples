@@ -1,40 +1,38 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
+import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
+
 export class Sample {
 
-    private treeGrid1: IgcTreeGridComponent
-    private unitsInStock: IgcColumnComponent
-    private unitsOnOrder: IgcColumnComponent
+    private treeGrid: IgcTreeGridComponent
     private _bind: () => void;
 
     constructor() {
-        var treeGrid1 = this.treeGrid1 = document.getElementById('treeGrid1') as IgcTreeGridComponent;
-        this.webGridEditingEventsCellEdit = this.webGridEditingEventsCellEdit.bind(this);
-        var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
-        var unitsOnOrder = this.unitsOnOrder = document.getElementById('UnitsOnOrder') as IgcColumnComponent;
+        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
+        this.webTreeGridEditingEventsCellEdit = this.webTreeGridEditingEventsCellEdit.bind(this);
 
         this._bind = () => {
-            treeGrid1.data = this.nwindData;
-            treeGrid1.addEventListener("cellEdit", this.webGridEditingEventsCellEdit);
+            treeGrid.data = this.employeesFlatDetails
+            treeGrid.addEventListener("cellEdit", this.webTreeGridEditingEventsCellEdit)
         }
         this._bind();
 
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
+    private _employeesFlatDetails: EmployeesFlatDetails = null;
+    public get employeesFlatDetails(): EmployeesFlatDetails {
+        if (this._employeesFlatDetails == null)
         {
-            this._nwindData = new NwindData();
+            this._employeesFlatDetails = new EmployeesFlatDetails();
         }
-        return this._nwindData;
+        return this._employeesFlatDetails;
     }
+    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -46,17 +44,18 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridEditingEventsCellEdit(args: any): void {
+    
+    public webTreeGridEditingEventsCellEdit(args: any): void {
         var d = args.detail;
-
-        if (d.column != null && d.column.field == "UnitsOnOrder") {
-            if (d.newValue > d.rowData.UnitsInStock) {
+    
+        if (d.column != null && d.column.field == "Name") {
+            if (d.newValue != d.rowData.Name) {
                 d.cancel = true;
-                alert("You cannot order more than the units in stock!")
+                alert("You cannot change the 'Name' field for this record!")
             }
         }
     }
-
+        
 }
 
 new Sample();
