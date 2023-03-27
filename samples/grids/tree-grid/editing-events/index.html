@@ -17,21 +17,19 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
+        name="treeGrid"
+        id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        name="treeGrid"
-        id ="treeGrid">
+        foreign-key="ParentID">
             <igc-column
             field="ID"
-            sortable="true"
-            data-type="number">
+            data-type="number"
+            sortable="true">
             </igc-column>
             <igc-column
             field="Name"

@@ -22,7 +22,7 @@ export class Sample {
         var employees = this.employees = document.getElementById('Employees') as IgcGridToolbarTitleComponent;
 
         this._bind = () => {
-            treeGrid.data = this.employeesNestedData
+            treeGrid.data = this.employeesNestedData;
         }
         this._bind();
 
@@ -36,7 +36,6 @@ export class Sample {
         }
         return this._employeesNestedData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
