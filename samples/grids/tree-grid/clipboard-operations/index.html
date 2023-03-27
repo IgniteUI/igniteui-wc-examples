@@ -17,66 +17,63 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-        
+        name="PropertyEditor"
+        id="PropertyEditor"
         description-type="WebTreeGrid"
         is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="PropertyEditor"
-        id ="PropertyEditor">
+        is-wrapping-enabled="true">
             <igc-property-editor-property-description
-            property-path="ClipboardOptions.Separator"
+            value-type="StringValue"
             label="Change Copy Separator"
-            value-type="StringValue">
+            property-path="ClipboardOptions.Separator">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            value-type="Boolean1"
-            label="Grid Copy Behavior"
             property-path="ClipboardOptions.Enabled"
-            primitive-value="True"
             name="ClipboardEnabledEditor"
-            id ="ClipboardEnabledEditor">
+            id="ClipboardEnabledEditor"
+            label="Grid Copy Behavior"
+            value-type="Boolean1"
+            primitive-value="True">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            value-type="Boolean1"
-            label="Copying of Header Labels"
             property-path="ClipboardOptions.CopyHeaders"
-            primitive-value="True"
             name="ClipboardHeadersEditor"
-            id ="ClipboardHeadersEditor">
+            id="ClipboardHeadersEditor"
+            label="Copying of Header Labels"
+            value-type="Boolean1"
+            primitive-value="True">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            value-type="Boolean1"
-            label="Copying Column Formatters"
             property-path="ClipboardOptions.CopyFormatters"
-            primitive-value="True"
             name="ClipboardFormattersEditor"
-            id ="ClipboardFormattersEditor">
+            id="ClipboardFormattersEditor"
+            label="Copying Column Formatters"
+            value-type="Boolean1"
+            primitive-value="True">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             value-type="Button"
             primitive-value="Clear Selection"
             name="propertyEditorPropertyDescription1"
-            id ="propertyEditorPropertyDescription1">
+            id="propertyEditorPropertyDescription1">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
-    
-    
-    
+
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
+        name="treeGrid"
+        id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        name="treeGrid"
-        id ="treeGrid">
+        foreign-key="ParentID">
             <igc-column
             field="ID"
-            sortable="true"
-            data-type="number">
+            data-type="number"
+            sortable="true">
             </igc-column>
             <igc-column
             field="Name"
@@ -124,9 +121,9 @@
             </igc-column>
             <igc-column
             field="PostalCode"
+            header="Postal Code"
             data-type="string"
-            sortable="true"
-            header="Postal Code">
+            sortable="true">
             </igc-column>
             <igc-column
             field="Phone"
