@@ -42,7 +42,11 @@ export class Sample {
 
     public webGridImageCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
-            <img src="${ctx.cell.value}"/>
+            <img src="${ctx.cell.value}"
+            style="border: 1px solid black;
+            object-fit: fill;
+            height: 2rem;
+            width: 3rem;"/>
         </div>`;
     };
 
