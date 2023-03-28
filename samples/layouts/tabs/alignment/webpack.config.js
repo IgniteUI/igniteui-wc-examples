@@ -8,7 +8,7 @@ module.exports = env => {
   console.log("env:");
   console.log(env);
   const isLegacy = !!env.legacy && !(env.legacy == "false");
-  const isProd = env.NODE_ENV === 'production';
+  const isProd = env.NODE_ENV || 'development';
   const presets = [
     ["@babel/preset-env", {
       "useBuiltIns": "usage",
@@ -87,9 +87,7 @@ module.exports = env => {
 
     plugins: [
       new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: env.NODE_ENV
-        }
+        'process.env.NODE_ENV' : JSON.stringify(isProd)
       }),
       new HtmlWebpackPlugin({
         title: 'for-cs',
