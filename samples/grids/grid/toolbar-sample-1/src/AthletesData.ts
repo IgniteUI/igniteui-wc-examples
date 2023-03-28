@@ -29,7 +29,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 105,
             TopSpeed: 5.1,
             Registered: `2017-10-05T05:54:31-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/af.png`,
             CountryName: `Afghanistan`
         }));
@@ -43,7 +43,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 94,
             TopSpeed: 4.8,
             Registered: `2017-01-09T05:46:07-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/al.png`,
             CountryName: `Albania`
         }));
@@ -57,7 +57,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 92,
             TopSpeed: 4.8,
             Registered: `2017-01-23T06:14:22-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/dz.png`,
             CountryName: `Algeria`
         }));
@@ -71,7 +71,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 107,
             TopSpeed: 6,
             Registered: `2017-06-13T12:54:56-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ad.png`,
             CountryName: `Andorra`
         }));
@@ -85,7 +85,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 90,
             TopSpeed: 5.7,
             Registered: `2017-09-07T11:17:40-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ao.png`,
             CountryName: `Angola`
         }));
@@ -99,7 +99,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 93,
             TopSpeed: 4.6,
             Registered: `2017-02-02T03:50:21-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ag.png`,
             CountryName: `Antigua and Barbuda`
         }));
@@ -113,7 +113,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 94,
             TopSpeed: 5.6,
             Registered: `2017-03-19T01:10:55-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ar.png`,
             CountryName: `Argentina`
         }));
@@ -127,7 +127,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 95,
             TopSpeed: 5.9,
             Registered: `2017-01-11T01:41:31-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/am.png`,
             CountryName: `Armenia`
         }));
@@ -141,7 +141,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 97,
             TopSpeed: 5.6,
             Registered: `2017-09-28T04:37:56-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/au.png`,
             CountryName: `Australia`
         }));
@@ -155,7 +155,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 94,
             TopSpeed: 4.5,
             Registered: `2017-11-07T09:58:42-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/at.png`,
             CountryName: `Austria`
         }));
@@ -169,7 +169,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 106,
             TopSpeed: 5.5,
             Registered: `2017-06-29T04:58:27-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/az.png`,
             CountryName: `Azerbaijan`
         }));
@@ -183,7 +183,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 92,
             TopSpeed: 4.9,
             Registered: `2017-07-07T03:51:26-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/bs.png`,
             CountryName: `Bahamas`
         }));
@@ -197,7 +197,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 105,
             TopSpeed: 5.3,
             Registered: `2017-04-05T05:27:13-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/bh.png`,
             CountryName: `Bahrain`
         }));
@@ -211,7 +211,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 96,
             TopSpeed: 5.6,
             Registered: `2017-06-05T08:19:32-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/bd.png`,
             CountryName: `Bangladesh`
         }));
@@ -225,7 +225,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 95,
             TopSpeed: 4.4,
             Registered: `2017-06-30T11:23:25-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/bb.png`,
             CountryName: `Barbados`
         }));
@@ -239,7 +239,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 97,
             TopSpeed: 5.6,
             Registered: `2017-08-16T09:46:35-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/by.png`,
             CountryName: `Belarus`
         }));
@@ -253,7 +253,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 96,
             TopSpeed: 5.7,
             Registered: `2017-09-30T01:01:04-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/be.png`,
             CountryName: `Belgium`
         }));
@@ -267,7 +267,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 107,
             TopSpeed: 4.6,
             Registered: `2017-01-01T07:40:19-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/bz.png`,
             CountryName: `Belize`
         }));
@@ -281,7 +281,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 5.5,
             Registered: `2017-03-26T10:04:29-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/bj.png`,
             CountryName: `Benin`
         }));
@@ -295,7 +295,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 108,
             TopSpeed: 5.6,
             Registered: `2017-03-29T11:54:15-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/bt.png`,
             CountryName: `Bhutan`
         }));
@@ -309,7 +309,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 91,
             TopSpeed: 5.4,
             Registered: `2017-07-03T06:19:47-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/bo.png`,
             CountryName: `Bolivia`
         }));
@@ -323,7 +323,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 98,
             TopSpeed: 4.9,
             Registered: `2017-06-09T08:07:19-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ba.png`,
             CountryName: `Bosnia and Herzegovina`
         }));
@@ -337,7 +337,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 90,
             TopSpeed: 4.6,
             Registered: `2017-10-07T06:08:00-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/bw.png`,
             CountryName: `Botswana`
         }));
@@ -351,7 +351,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 98,
             TopSpeed: 5.8,
             Registered: `2017-09-01T04:39:52-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/br.png`,
             CountryName: `Brazil`
         }));
@@ -365,7 +365,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 108,
             TopSpeed: 5.7,
             Registered: `2017-04-18T08:03:01-03:00`,
-            TrackProgress: 5,
+            TrackProgress: 75,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/bg.png`,
             CountryName: `Bulgaria`
         }));
@@ -379,7 +379,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 4.1,
             Registered: `2017-11-01T10:34:07-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/bf.png`,
             CountryName: `Burkina Faso`
         }));
@@ -393,7 +393,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 90,
             TopSpeed: 4.8,
             Registered: `2017-04-22T04:20:39-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/bi.png`,
             CountryName: `Burundi`
         }));
@@ -407,7 +407,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 105,
             TopSpeed: 4.1,
             Registered: `2017-02-07T10:23:13-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/kh.png`,
             CountryName: `Cambodia`
         }));
@@ -421,7 +421,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 4.3,
             Registered: `2017-11-09T08:50:06-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/cm.png`,
             CountryName: `Cameroon`
         }));
@@ -435,7 +435,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 108,
             TopSpeed: 4,
             Registered: `2017-01-08T02:13:29-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ca.png`,
             CountryName: `Canada`
         }));
@@ -449,7 +449,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 5.5,
             Registered: `2017-01-26T11:50:00-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/cv.png`,
             CountryName: `Cape Verde`
         }));
@@ -463,7 +463,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 4.8,
             Registered: `2017-10-03T08:01:40-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/cf.png`,
             CountryName: `Central African Republic`
         }));
@@ -477,7 +477,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 102,
             TopSpeed: 5.3,
             Registered: `2017-09-12T09:14:14-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/td.png`,
             CountryName: `Chad`
         }));
@@ -491,7 +491,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 107,
             TopSpeed: 4.2,
             Registered: `2017-01-02T01:04:04-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/cl.png`,
             CountryName: `Chile`
         }));
@@ -505,7 +505,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 4.1,
             Registered: `2017-06-04T09:04:31-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/cn.png`,
             CountryName: `China`
         }));
@@ -519,7 +519,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 90,
             TopSpeed: 5,
             Registered: `2017-06-04T12:52:03-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/co.png`,
             CountryName: `Colombia`
         }));
@@ -533,7 +533,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 106,
             TopSpeed: 5.1,
             Registered: `2017-11-09T02:43:54-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/km.png`,
             CountryName: `Comoros`
         }));
@@ -547,7 +547,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 4.6,
             Registered: `2017-10-19T10:38:35-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ck.png`,
             CountryName: `Cook Islands`
         }));
@@ -561,7 +561,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 101,
             TopSpeed: 4.7,
             Registered: `2017-06-30T04:13:42-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/cr.png`,
             CountryName: `Costa Rica`
         }));
@@ -575,7 +575,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 5.6,
             Registered: `2017-06-23T01:21:21-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ci.png`,
             CountryName: `Cote DIvoire`
         }));
@@ -589,7 +589,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 106,
             TopSpeed: 4.4,
             Registered: `2017-02-08T04:03:22-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/hr.png`,
             CountryName: `Croatia`
         }));
@@ -603,7 +603,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 109,
             TopSpeed: 4.3,
             Registered: `2017-06-19T10:57:42-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/cu.png`,
             CountryName: `Cuba`
         }));
@@ -617,7 +617,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 94,
             TopSpeed: 4.5,
             Registered: `2017-03-13T10:51:36-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/cy.png`,
             CountryName: `Cyprus`
         }));
@@ -631,7 +631,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 104,
             TopSpeed: 5.2,
             Registered: `2017-06-02T12:21:59-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/cz.png`,
             CountryName: `Czech Republic`
         }));
@@ -645,7 +645,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 101,
             TopSpeed: 5.3,
             Registered: `2017-04-02T03:33:57-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/dk.png`,
             CountryName: `Denmark`
         }));
@@ -659,7 +659,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 109,
             TopSpeed: 5.6,
             Registered: `2017-06-20T06:02:49-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/dj.png`,
             CountryName: `Djibouti`
         }));
@@ -673,7 +673,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 4.9,
             Registered: `2017-07-13T09:06:04-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/dm.png`,
             CountryName: `Dominica`
         }));
@@ -687,7 +687,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 5,
             Registered: `2017-08-17T01:35:09-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/do.png`,
             CountryName: `Dominican Republic`
         }));
@@ -701,7 +701,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 107,
             TopSpeed: 5.7,
             Registered: `2017-05-15T09:25:03-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ec.png`,
             CountryName: `Ecuador`
         }));
@@ -715,7 +715,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 96,
             TopSpeed: 4.2,
             Registered: `2017-10-28T04:06:33-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/eg.png`,
             CountryName: `Egypt`
         }));
@@ -729,7 +729,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 104,
             TopSpeed: 4.6,
             Registered: `2017-10-04T03:02:35-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/sv.png`,
             CountryName: `El Salvador`
         }));
@@ -743,7 +743,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 103,
             TopSpeed: 5.4,
             Registered: `2017-07-04T03:01:47-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/gq.png`,
             CountryName: `Equatorial Guinea`
         }));
@@ -757,7 +757,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 101,
             TopSpeed: 6,
             Registered: `2017-11-06T02:14:31-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/er.png`,
             CountryName: `Eritrea`
         }));
@@ -771,7 +771,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 102,
             TopSpeed: 5.1,
             Registered: `2017-09-04T07:03:19-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ee.png`,
             CountryName: `Estonia`
         }));
@@ -785,7 +785,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 104,
             TopSpeed: 4.5,
             Registered: `2017-04-26T01:26:36-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/et.png`,
             CountryName: `Ethiopia`
         }));
@@ -799,7 +799,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 93,
             TopSpeed: 5.2,
             Registered: `2017-04-10T09:57:13-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/fj.png`,
             CountryName: `Fiji`
         }));
@@ -813,7 +813,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 106,
             TopSpeed: 5.2,
             Registered: `2017-01-06T09:58:02-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/fi.png`,
             CountryName: `Finland`
         }));
@@ -827,7 +827,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 101,
             TopSpeed: 4.2,
             Registered: `2017-09-27T01:17:14-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/fr.png`,
             CountryName: `France`
         }));
@@ -841,7 +841,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 106,
             TopSpeed: 4.9,
             Registered: `2017-06-14T05:12:04-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ga.png`,
             CountryName: `Gabon`
         }));
@@ -855,7 +855,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 97,
             TopSpeed: 4,
             Registered: `2017-07-15T12:32:30-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/gm.png`,
             CountryName: `Gambia`
         }));
@@ -869,7 +869,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 102,
             TopSpeed: 5.8,
             Registered: `2017-02-20T11:53:08-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ge.png`,
             CountryName: `Georgia`
         }));
@@ -883,7 +883,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 94,
             TopSpeed: 4.3,
             Registered: `2017-10-09T02:01:16-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/de.png`,
             CountryName: `Germany`
         }));
@@ -897,7 +897,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 103,
             TopSpeed: 5.8,
             Registered: `2017-08-07T10:35:06-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/gh.png`,
             CountryName: `Ghana`
         }));
@@ -911,7 +911,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 100,
             TopSpeed: 5.2,
             Registered: `2017-09-15T02:11:43-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/gr.png`,
             CountryName: `Greece`
         }));
@@ -925,7 +925,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 91,
             TopSpeed: 5.2,
             Registered: `2017-04-21T08:08:33-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/gd.png`,
             CountryName: `Grenada`
         }));
@@ -939,7 +939,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 104,
             TopSpeed: 5.3,
             Registered: `2017-09-08T08:29:08-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/gt.png`,
             CountryName: `Guatemala`
         }));
@@ -953,7 +953,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 100,
             TopSpeed: 5.9,
             Registered: `2017-02-08T07:50:59-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/gn.png`,
             CountryName: `Guinea`
         }));
@@ -967,7 +967,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 107,
             TopSpeed: 5.5,
             Registered: `2017-10-21T05:57:02-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/gw.png`,
             CountryName: `Guinea-Bissau`
         }));
@@ -981,7 +981,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 103,
             TopSpeed: 4.5,
             Registered: `2017-08-31T11:55:25-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/gy.png`,
             CountryName: `Guyana`
         }));
@@ -995,7 +995,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 103,
             TopSpeed: 5,
             Registered: `2017-08-24T11:58:56-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ht.png`,
             CountryName: `Haiti`
         }));
@@ -1009,7 +1009,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 98,
             TopSpeed: 5.5,
             Registered: `2017-05-17T12:51:47-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/va.png`,
             CountryName: `Holy See (Vatican City State)`
         }));
@@ -1023,7 +1023,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 103,
             TopSpeed: 5.7,
             Registered: `2017-02-26T07:28:02-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/hn.png`,
             CountryName: `Honduras`
         }));
@@ -1037,7 +1037,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 92,
             TopSpeed: 4.1,
             Registered: `2017-08-22T10:36:38-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/hu.png`,
             CountryName: `Hungary`
         }));
@@ -1051,7 +1051,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 5.4,
             Registered: `2017-07-20T09:00:22-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/is.png`,
             CountryName: `Iceland`
         }));
@@ -1065,7 +1065,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 109,
             TopSpeed: 5.5,
             Registered: `2017-06-14T11:10:20-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/in.png`,
             CountryName: `India`
         }));
@@ -1079,7 +1079,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 95,
             TopSpeed: 4.2,
             Registered: `2017-08-23T09:37:40-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/id.png`,
             CountryName: `Indonesia`
         }));
@@ -1093,7 +1093,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 91,
             TopSpeed: 5,
             Registered: `2017-10-24T08:25:40-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ir.png`,
             CountryName: `Iran, Islamic Republic Of`
         }));
@@ -1107,7 +1107,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 100,
             TopSpeed: 4.7,
             Registered: `2017-10-28T10:39:22-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/iq.png`,
             CountryName: `Iraq`
         }));
@@ -1121,7 +1121,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 102,
             TopSpeed: 4.4,
             Registered: `2017-07-28T09:10:43-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ie.png`,
             CountryName: `Ireland`
         }));
@@ -1135,7 +1135,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 103,
             TopSpeed: 4.3,
             Registered: `2017-08-10T08:27:45-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/il.png`,
             CountryName: `Israel`
         }));
@@ -1149,7 +1149,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 96,
             TopSpeed: 4.5,
             Registered: `2017-03-22T03:23:12-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/it.png`,
             CountryName: `Italy`
         }));
@@ -1163,7 +1163,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 105,
             TopSpeed: 5,
             Registered: `2017-01-21T10:19:56-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/jm.png`,
             CountryName: `Jamaica`
         }));
@@ -1177,7 +1177,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 105,
             TopSpeed: 5.4,
             Registered: `2017-03-31T06:14:26-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/jp.png`,
             CountryName: `Japan`
         }));
@@ -1191,7 +1191,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 105,
             TopSpeed: 5,
             Registered: `2017-01-24T07:30:43-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/jo.png`,
             CountryName: `Jordan`
         }));
@@ -1205,7 +1205,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 101,
             TopSpeed: 4.3,
             Registered: `2017-01-08T02:41:56-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/kz.png`,
             CountryName: `Kazakhstan`
         }));
@@ -1219,7 +1219,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 98,
             TopSpeed: 4.2,
             Registered: `2017-03-23T12:54:35-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ke.png`,
             CountryName: `Kenya`
         }));
@@ -1233,7 +1233,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 106,
             TopSpeed: 6,
             Registered: `2017-01-30T09:22:52-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ki.png`,
             CountryName: `Kiribati`
         }));
@@ -1247,7 +1247,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 105,
             TopSpeed: 5.3,
             Registered: `2017-11-11T02:04:19-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/kp.png`,
             CountryName: `Korea, Democratic PeopleS Republic of`
         }));
@@ -1261,7 +1261,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 92,
             TopSpeed: 5.6,
             Registered: `2017-10-22T02:15:39-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/kr.png`,
             CountryName: `Korea, Republic of`
         }));
@@ -1275,7 +1275,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 93,
             TopSpeed: 5.7,
             Registered: `2017-03-25T11:25:30-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/kw.png`,
             CountryName: `Kuwait`
         }));
@@ -1289,7 +1289,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 98,
             TopSpeed: 4.9,
             Registered: `2017-02-01T04:18:19-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/kg.png`,
             CountryName: `Kyrgyzstan`
         }));
@@ -1303,7 +1303,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 5,
             Registered: `2017-10-19T11:01:10-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/la.png`,
             CountryName: `Lao PeopleS Democratic Republic`
         }));
@@ -1317,7 +1317,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 106,
             TopSpeed: 4.2,
             Registered: `2017-01-19T11:34:13-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/lv.png`,
             CountryName: `Latvia`
         }));
@@ -1331,7 +1331,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 90,
             TopSpeed: 4.5,
             Registered: `2017-07-21T06:42:59-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/lb.png`,
             CountryName: `Lebanon`
         }));
@@ -1345,7 +1345,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 104,
             TopSpeed: 5,
             Registered: `2017-08-22T09:11:37-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ls.png`,
             CountryName: `Lesotho`
         }));
@@ -1359,7 +1359,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 98,
             TopSpeed: 5.4,
             Registered: `2017-03-19T08:12:23-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/lr.png`,
             CountryName: `Liberia`
         }));
@@ -1373,7 +1373,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 4.9,
             Registered: `2017-10-20T03:40:24-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ly.png`,
             CountryName: `Libyan Arab Jamahiriya`
         }));
@@ -1387,7 +1387,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 108,
             TopSpeed: 4,
             Registered: `2017-06-11T12:20:41-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/li.png`,
             CountryName: `Liechtenstein`
         }));
@@ -1401,7 +1401,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 4.6,
             Registered: `2017-09-29T03:54:57-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/lt.png`,
             CountryName: `Lithuania`
         }));
@@ -1415,7 +1415,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 100,
             TopSpeed: 5.3,
             Registered: `2017-07-23T02:43:07-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/lu.png`,
             CountryName: `Luxembourg`
         }));
@@ -1429,7 +1429,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 4.6,
             Registered: `2017-08-13T01:05:52-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mk.png`,
             CountryName: `Macedonia, The Former Yugoslav Republic of`
         }));
@@ -1443,7 +1443,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 92,
             TopSpeed: 5.3,
             Registered: `2017-05-10T04:33:10-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mg.png`,
             CountryName: `Madagascar`
         }));
@@ -1457,7 +1457,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 97,
             TopSpeed: 5.4,
             Registered: `2017-11-11T05:14:31-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mw.png`,
             CountryName: `Malawi`
         }));
@@ -1471,7 +1471,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 5.4,
             Registered: `2017-09-11T12:20:19-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/my.png`,
             CountryName: `Malaysia`
         }));
@@ -1485,7 +1485,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 104,
             TopSpeed: 5.7,
             Registered: `2017-03-16T02:00:35-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mv.png`,
             CountryName: `Maldives`
         }));
@@ -1499,7 +1499,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 5.5,
             Registered: `2017-02-13T11:53:15-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ml.png`,
             CountryName: `Mali`
         }));
@@ -1513,7 +1513,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 93,
             TopSpeed: 5.6,
             Registered: `2017-08-20T09:26:51-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mt.png`,
             CountryName: `Malta`
         }));
@@ -1527,7 +1527,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 91,
             TopSpeed: 5.2,
             Registered: `2017-01-07T06:47:56-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mh.png`,
             CountryName: `Marshall Islands`
         }));
@@ -1541,7 +1541,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 5.7,
             Registered: `2017-11-10T11:31:44-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mr.png`,
             CountryName: `Mauritania`
         }));
@@ -1555,7 +1555,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 5.9,
             Registered: `2017-02-02T11:42:41-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mu.png`,
             CountryName: `Mauritius`
         }));
@@ -1569,7 +1569,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 94,
             TopSpeed: 5.9,
             Registered: `2017-10-03T09:42:15-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mx.png`,
             CountryName: `Mexico`
         }));
@@ -1583,7 +1583,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 90,
             TopSpeed: 4.5,
             Registered: `2017-05-10T12:45:12-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/fm.png`,
             CountryName: `Micronesia, Federated States of`
         }));
@@ -1597,7 +1597,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 94,
             TopSpeed: 4.3,
             Registered: `2017-08-04T07:05:34-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/md.png`,
             CountryName: `Moldova, Republic of`
         }));
@@ -1611,7 +1611,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 106,
             TopSpeed: 4.4,
             Registered: `2017-02-20T09:42:07-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mc.png`,
             CountryName: `Monaco`
         }));
@@ -1625,7 +1625,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 104,
             TopSpeed: 5.5,
             Registered: `2017-02-08T12:45:46-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mn.png`,
             CountryName: `Mongolia`
         }));
@@ -1639,7 +1639,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 109,
             TopSpeed: 4.7,
             Registered: `2017-04-15T10:25:21-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ma.png`,
             CountryName: `Morocco`
         }));
@@ -1653,7 +1653,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 101,
             TopSpeed: 4.3,
             Registered: `2017-09-17T09:41:01-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mz.png`,
             CountryName: `Mozambique`
         }));
@@ -1667,7 +1667,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 104,
             TopSpeed: 4.2,
             Registered: `2017-09-28T11:13:00-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/mm.png`,
             CountryName: `Myanmar`
         }));
@@ -1681,7 +1681,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 5.7,
             Registered: `2017-05-31T02:56:58-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/na.png`,
             CountryName: `Namibia`
         }));
@@ -1695,7 +1695,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 96,
             TopSpeed: 5.1,
             Registered: `2017-07-03T05:39:45-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/nr.png`,
             CountryName: `Nauru`
         }));
@@ -1709,7 +1709,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 90,
             TopSpeed: 4.1,
             Registered: `2017-09-08T01:22:14-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/np.png`,
             CountryName: `Nepal`
         }));
@@ -1723,7 +1723,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 104,
             TopSpeed: 5.3,
             Registered: `2017-01-10T07:12:44-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/nl.png`,
             CountryName: `Netherlands`
         }));
@@ -1737,7 +1737,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 106,
             TopSpeed: 5.1,
             Registered: `2017-09-16T07:05:43-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/nz.png`,
             CountryName: `New Zealand`
         }));
@@ -1751,7 +1751,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 5.4,
             Registered: `2017-05-08T09:30:14-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ni.png`,
             CountryName: `Nicaragua`
         }));
@@ -1765,7 +1765,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 103,
             TopSpeed: 4.7,
             Registered: `2017-04-20T09:33:53-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ne.png`,
             CountryName: `Niger`
         }));
@@ -1779,7 +1779,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 97,
             TopSpeed: 4.6,
             Registered: `2017-06-11T03:50:43-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ng.png`,
             CountryName: `Nigeria`
         }));
@@ -1793,7 +1793,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 109,
             TopSpeed: 4.4,
             Registered: `2017-04-16T01:10:37-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/nu.png`,
             CountryName: `Niue`
         }));
@@ -1807,7 +1807,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 93,
             TopSpeed: 5.6,
             Registered: `2017-03-22T08:55:46-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/no.png`,
             CountryName: `Norway`
         }));
@@ -1821,7 +1821,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 105,
             TopSpeed: 5.3,
             Registered: `2017-02-03T04:36:54-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/om.png`,
             CountryName: `Oman`
         }));
@@ -1835,7 +1835,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 103,
             TopSpeed: 4.2,
             Registered: `2017-04-30T02:34:29-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/pk.png`,
             CountryName: `Pakistan`
         }));
@@ -1849,7 +1849,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 93,
             TopSpeed: 5.2,
             Registered: `2017-03-02T05:01:02-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/pw.png`,
             CountryName: `Palau`
         }));
@@ -1863,7 +1863,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 97,
             TopSpeed: 5.6,
             Registered: `2017-04-21T04:06:34-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/pa.png`,
             CountryName: `Panama`
         }));
@@ -1877,7 +1877,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 93,
             TopSpeed: 5.7,
             Registered: `2017-03-01T12:21:24-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/pg.png`,
             CountryName: `Papua New Guinea`
         }));
@@ -1891,7 +1891,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 107,
             TopSpeed: 4.1,
             Registered: `2017-08-05T10:54:56-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/py.png`,
             CountryName: `Paraguay`
         }));
@@ -1905,7 +1905,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 106,
             TopSpeed: 5.7,
             Registered: `2017-01-24T01:00:15-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/pe.png`,
             CountryName: `Peru`
         }));
@@ -1919,7 +1919,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 4.2,
             Registered: `2017-06-17T12:34:29-03:00`,
-            TrackProgress: 5,
+            TrackProgress: 75,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ph.png`,
             CountryName: `Philippines`
         }));
@@ -1933,7 +1933,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 102,
             TopSpeed: 5.8,
             Registered: `2017-04-12T04:16:56-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/pl.png`,
             CountryName: `Poland`
         }));
@@ -1947,7 +1947,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 101,
             TopSpeed: 4.4,
             Registered: `2017-07-25T09:23:24-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/pt.png`,
             CountryName: `Portugal`
         }));
@@ -1961,7 +1961,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 107,
             TopSpeed: 5.1,
             Registered: `2017-08-26T08:21:22-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ro.png`,
             CountryName: `Romania`
         }));
@@ -1975,7 +1975,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 92,
             TopSpeed: 5.5,
             Registered: `2017-05-14T12:30:08-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ru.png`,
             CountryName: `Russian Federation`
         }));
@@ -1989,7 +1989,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 100,
             TopSpeed: 5,
             Registered: `2017-04-24T01:20:34-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/rw.png`,
             CountryName: `RWANDA`
         }));
@@ -2003,7 +2003,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 102,
             TopSpeed: 4.5,
             Registered: `2017-01-20T02:38:39-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/kn.png`,
             CountryName: `Saint Kitts and Nevis`
         }));
@@ -2017,7 +2017,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 104,
             TopSpeed: 5.3,
             Registered: `2017-03-31T07:15:46-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/lc.png`,
             CountryName: `Saint Lucia`
         }));
@@ -2031,7 +2031,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 90,
             TopSpeed: 4.7,
             Registered: `2017-03-30T12:34:24-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/vc.png`,
             CountryName: `Saint Vincent and the Grenadines`
         }));
@@ -2045,7 +2045,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 101,
             TopSpeed: 4.1,
             Registered: `2017-03-01T07:51:17-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ws.png`,
             CountryName: `Samoa`
         }));
@@ -2059,7 +2059,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 5.8,
             Registered: `2017-05-10T02:18:02-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/sm.png`,
             CountryName: `San Marino`
         }));
@@ -2073,7 +2073,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 103,
             TopSpeed: 5.7,
             Registered: `2017-03-04T01:58:52-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/st.png`,
             CountryName: `Sao Tome and Principe`
         }));
@@ -2087,7 +2087,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 97,
             TopSpeed: 4.5,
             Registered: `2017-04-14T11:48:28-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/sa.png`,
             CountryName: `Saudi Arabia`
         }));
@@ -2101,7 +2101,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 100,
             TopSpeed: 4.7,
             Registered: `2017-01-30T03:23:36-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/sn.png`,
             CountryName: `Senegal`
         }));
@@ -2115,7 +2115,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 4.7,
             Registered: `2017-01-04T03:04:05-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/sc.png`,
             CountryName: `Seychelles`
         }));
@@ -2129,7 +2129,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 99,
             TopSpeed: 5.8,
             Registered: `2017-05-23T05:24:38-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/sl.png`,
             CountryName: `Sierra Leone`
         }));
@@ -2143,7 +2143,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 6,
             Registered: `2017-11-02T02:17:43-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/sg.png`,
             CountryName: `Singapore`
         }));
@@ -2157,7 +2157,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 97,
             TopSpeed: 5.4,
             Registered: `2017-04-19T11:43:38-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/si.png`,
             CountryName: `Slovenia`
         }));
@@ -2171,7 +2171,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 4.8,
             Registered: `2017-04-07T09:53:13-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/sb.png`,
             CountryName: `Solomon Islands`
         }));
@@ -2185,7 +2185,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 93,
             TopSpeed: 4.1,
             Registered: `2017-05-03T02:40:05-03:00`,
-            TrackProgress: 5,
+            TrackProgress: 75,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/so.png`,
             CountryName: `Somalia`
         }));
@@ -2199,7 +2199,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 105,
             TopSpeed: 5,
             Registered: `2017-02-13T05:39:15-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/za.png`,
             CountryName: `South Africa`
         }));
@@ -2213,7 +2213,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 107,
             TopSpeed: 5.4,
             Registered: `2017-01-31T12:07:48-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/es.png`,
             CountryName: `Spain`
         }));
@@ -2227,7 +2227,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 101,
             TopSpeed: 5.1,
             Registered: `2017-01-05T10:12:42-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/lk.png`,
             CountryName: `Sri Lanka`
         }));
@@ -2241,7 +2241,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 94,
             TopSpeed: 4.3,
             Registered: `2017-03-10T07:36:56-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/sd.png`,
             CountryName: `Sudan`
         }));
@@ -2255,7 +2255,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 109,
             TopSpeed: 5.9,
             Registered: `2017-07-12T09:01:11-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/sz.png`,
             CountryName: `Swaziland`
         }));
@@ -2269,7 +2269,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 98,
             TopSpeed: 4.1,
             Registered: `2017-04-10T11:39:46-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/se.png`,
             CountryName: `Sweden`
         }));
@@ -2283,7 +2283,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 100,
             TopSpeed: 5.9,
             Registered: `2017-01-04T02:54:53-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ch.png`,
             CountryName: `Switzerland`
         }));
@@ -2297,7 +2297,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 94,
             TopSpeed: 4.2,
             Registered: `2017-03-19T10:20:51-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/sy.png`,
             CountryName: `Syrian Arab Republic`
         }));
@@ -2311,7 +2311,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 106,
             TopSpeed: 5.3,
             Registered: `2017-11-04T11:09:26-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/tw.png`,
             CountryName: `Taiwan, Province of China`
         }));
@@ -2325,7 +2325,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 101,
             TopSpeed: 5.5,
             Registered: `2017-03-06T09:21:58-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/tj.png`,
             CountryName: `Tajikistan`
         }));
@@ -2339,7 +2339,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 110,
             TopSpeed: 5.7,
             Registered: `2017-07-30T01:33:14-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/tz.png`,
             CountryName: `Tanzania, United Republic of`
         }));
@@ -2353,7 +2353,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 105,
             TopSpeed: 5.5,
             Registered: `2017-01-11T12:52:28-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/th.png`,
             CountryName: `Thailand`
         }));
@@ -2367,7 +2367,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 102,
             TopSpeed: 4.2,
             Registered: `2017-10-09T11:32:13-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/tl.png`,
             CountryName: `Timor-Leste`
         }));
@@ -2381,7 +2381,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 104,
             TopSpeed: 5.2,
             Registered: `2017-06-10T04:11:01-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/tg.png`,
             CountryName: `Togo`
         }));
@@ -2395,7 +2395,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 103,
             TopSpeed: 5.2,
             Registered: `2017-07-13T02:23:56-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/to.png`,
             CountryName: `Tonga`
         }));
@@ -2409,7 +2409,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 108,
             TopSpeed: 6,
             Registered: `2017-03-18T06:35:44-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/tt.png`,
             CountryName: `Trinidad and Tobago`
         }));
@@ -2423,7 +2423,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 108,
             TopSpeed: 5.2,
             Registered: `2017-09-19T05:47:21-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/tn.png`,
             CountryName: `Tunisia`
         }));
@@ -2437,7 +2437,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 96,
             TopSpeed: 4.6,
             Registered: `2017-07-20T11:45:52-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/tr.png`,
             CountryName: `Turkey`
         }));
@@ -2451,7 +2451,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 90,
             TopSpeed: 5.5,
             Registered: `2017-02-16T07:11:52-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/tm.png`,
             CountryName: `Turkmenistan`
         }));
@@ -2465,7 +2465,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 104,
             TopSpeed: 4.5,
             Registered: `2017-02-18T05:32:55-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/tv.png`,
             CountryName: `Tuvalu`
         }));
@@ -2479,7 +2479,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 102,
             TopSpeed: 5.4,
             Registered: `2017-02-13T05:23:49-02:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ug.png`,
             CountryName: `Uganda`
         }));
@@ -2493,7 +2493,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 94,
             TopSpeed: 4.1,
             Registered: `2017-02-13T05:03:04-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ua.png`,
             CountryName: `Ukraine`
         }));
@@ -2507,7 +2507,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 94,
             TopSpeed: 5.1,
             Registered: `2017-07-21T04:22:18-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ae.png`,
             CountryName: `United Arab Emirates`
         }));
@@ -2521,7 +2521,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 98,
             TopSpeed: 4,
             Registered: `2017-04-03T02:18:46-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/gb.png`,
             CountryName: `United Kingdom`
         }));
@@ -2535,7 +2535,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 102,
             TopSpeed: 5.1,
             Registered: `2017-06-21T06:45:54-03:00`,
-            TrackProgress: 3,
+            TrackProgress: 60,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/uz.png`,
             CountryName: `Uruguay`
         }));
@@ -2549,7 +2549,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 101,
             TopSpeed: 5.2,
             Registered: `2017-01-05T07:28:11-02:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/uz.png`,
             CountryName: `Uzbekistan`
         }));
@@ -2563,7 +2563,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 91,
             TopSpeed: 6,
             Registered: `2017-10-04T02:46:46-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/vu.png`,
             CountryName: `Vanuatu`
         }));
@@ -2577,7 +2577,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 91,
             TopSpeed: 4.5,
             Registered: `2017-08-19T03:02:33-03:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ve.png`,
             CountryName: `Venezuela`
         }));
@@ -2591,7 +2591,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 96,
             TopSpeed: 4.7,
             Registered: `2017-09-22T11:49:02-03:00`,
-            TrackProgress: 4,
+            TrackProgress: 45,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/eh.png`,
             CountryName: `Western Sahara`
         }));
@@ -2605,7 +2605,7 @@ export class AthletesData extends Array<AthletesDataItem> {
             BeatsPerMinute: 107,
             TopSpeed: 5.1,
             Registered: `2017-01-05T11:41:20-02:00`,
-            TrackProgress: 2,
+            TrackProgress: 25,
             CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/ye.png`,
             CountryName: `Yemen`
         }));
