@@ -6,8 +6,7 @@ const webpack = require('webpack');
 const nodeEnv = process.env.NODE_ENV || 'development';
 
 module.exports = env => {
-  console.log("env:");
-  console.log(env);
+
   const isLegacy = !!env.legacy && !(env.legacy == "false");
   const isProd = env.NODE_ENV === 'production';
   return {

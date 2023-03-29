@@ -5,8 +5,7 @@ const webpack = require('webpack');
 
 
 module.exports = env => {
-  console.log("env:");
-  console.log(env);
+
   const isLegacy = !!env.legacy && !(env.legacy == "false");
   const isProd = env.NODE_ENV === 'production';
   const presets = [
@@ -49,7 +48,7 @@ module.exports = env => {
         { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
         { test: /\.xml$/, use: ['xml-loader'] },
         { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
-        { test: /worker\.(ts|js)$/, 
+        { test: /worker\.(ts|js)$/,
         use: [
           { loader: 'worker-loader'},
           { loader: 'babel-loader', options: {
