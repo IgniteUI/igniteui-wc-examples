@@ -862,51 +862,55 @@ function logUniqueFiles(cb) {
 
 } exports.logUniqueFiles = logUniqueFiles;
 
-function logVersionIgniteUI(cb) {
-    let packageFile = fs.readFileSync("./package.json");
-    let packageJson = JSON.parse(packageFile.toString());
-    let packageData = JSON.stringify(packageJson.dependencies, null, ' ');
-
-    let igPackages = [];
-    for (const line of packageData.split('\n')) {
-        if (line.indexOf('igniteui-') > 0) {
-            let packageLine = Strings.replace(line, ',', '')
-            packageLine = Strings.replace(packageLine, '"', '');
-            packageLine = Strings.replace(packageLine, '@infragistics/', '');
-            let packagePair = packageLine.split(':');
-            let packageVersion = packagePair[1].trim();
-            let packageName = packagePair[0].trim();
-
-            console.log('>> using package: ' + packageVersion + ' ' + packageName);
-            let package = { ver: packageVersion, name: packageName };
-            igPackages.push(package);
+// logs currently installed packages in console and in ./browser/src/BrowserInfo.json
+function logPackages(cb) {
+    let fileNames = [];
+    gulp.src([
+        './node_modules/igniteui*/package.json',
+        './node_modules/@infragistics/igniteui*/package.json',
+        './node_modules/lit*/package.json',
+        './node_modules/typescript/package.json',
+        './node_modules/webpack/package.json',
+        './node_modules/worker-loader/package.json',
+        './node_modules/@webcomponents/**/package.json',
+       '!./node_modules/**/node_modules/**/package.json',
+    ])
+    .pipe(es.map(function(file, cbFile) {
+        // console.log("logPackages " + filePath);
+        var fileContent = file.contents.toString();
+        var fileLines = fileContent.split('\n');
+        let v = false;
+        let n = false;
+        for (const line of fileLines) {
+            // console.log(line);
+            if (line.indexOf('"name":') >= 0) {
+                n = line.replace('"name":', '').replace(',', '').trim();
+                n = n.split('"').join('');
+            }
+            if (line.indexOf('"version":') >= 0) {
+                v = line.replace('"version":', '').replace(',', '').trim();
+                v = v.split('"').join('');
+                v = '"' + v + '",';
+                v = v.padEnd(Math.max(14, v.length), ' ');
+            }
+            if (n && v) {
+                fileNames.push('{ "version": ' + v + ' "name": "' + n + '" }');
+                break;
+            }
         }
-    }
 
-    let outputText = '[\r\n';
-    for (let i = 0; i < igPackages.length; i++) {
-        outputText += JSON.stringify(igPackages[i]);
-        if (i < igPackages.length - 1)
-            outputText += ',';
-        outputText += '\r\n';
-    }
-    outputText += "]";
-
-    const outputPath = "./browser/src/BrowserInfo.json";
-
-    fs.writeFileSync(outputPath, outputText);
-    cb();
-} exports.logVersionIgniteUI = logVersionIgniteUI;
-
-function logVersionTypescript(cb) {
-    var packageFile = fs.readFileSync("./node_modules/typescript/package.json", "utf8");
-    let packageJson = JSON.parse(packageFile.toString());
-    let packageData = JSON.stringify(packageJson.version, null, ' ');
-    console.log(">> using package: " + packageData + ' typescript' );
-    cb();
-} exports.logVersionTypescript = logVersionTypescript;
-
-
+        cbFile(null, file);
+    }))
+    .on("end", function() {
+        const outputPath = "./browser/src/BrowserInfo.json";
+        // let outputContent = JSON.stringify(fileNames, null, ' ');
+        let outputContent = '[\n' + fileNames.join(',\n') + '\n]';
+        fs.writeFileSync(outputPath, outputContent);
+        console.log(">> using packages: ");
+        console.log(outputContent);
+        cb();
+    });
+} exports.logPackages = logPackages;
 
 function updateIG(cb) {
 
