@@ -9,7 +9,7 @@ const BrowserInfo = require("./BrowserInfo.json"); // auto-generated
 for (const item of BrowserInfo) {
     if (item.name === "igniteui-webcomponents-charts" ||
         item.name === "igniteui-webcomponents") {
-        console.log('SB uses v' + item.ver + ' ' + item.name);
+        console.log('SB uses v' + item.version + ' ' + item.name);
     }
 }
 
