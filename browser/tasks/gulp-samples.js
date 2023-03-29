@@ -920,20 +920,20 @@ function updateIG(cb) {
     // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-webcomponents-core"                     , version: "4.2.4-alpha" },
-        { name: "igniteui-webcomponents-charts"                   , version: "4.2.4-alpha" },
-        { name: "igniteui-webcomponents-excel"                    , version: "4.2.4-alpha" },
-        { name: "igniteui-webcomponents-gauges"                   , version: "4.2.4-alpha" },
-        { name: "igniteui-webcomponents-grids"                    , version: "4.2.4-alpha" },
-        { name: "igniteui-webcomponents-inputs"                   , version: "4.2.4-alpha" },
-        { name: "igniteui-webcomponents-layouts"                  , version: "4.2.4-alpha" },
-        { name: "igniteui-webcomponents-maps"                     , version: "4.2.4-alpha" },
-        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.2.4-alpha" },
-        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.2.4-alpha" },
-        { name: "igniteui-webcomponents-datasources"              , version: "4.2.4-alpha" },
+        { name: "igniteui-webcomponents-core"                     , version: "4.2.5" },
+        { name: "igniteui-webcomponents-charts"                   , version: "4.2.5" },
+        { name: "igniteui-webcomponents-excel"                    , version: "4.2.5" },
+        { name: "igniteui-webcomponents-gauges"                   , version: "4.2.5" },
+        { name: "igniteui-webcomponents-grids"                    , version: "4.2.5" },
+        { name: "igniteui-webcomponents-inputs"                   , version: "4.2.5" },
+        { name: "igniteui-webcomponents-layouts"                  , version: "4.2.5" },
+        { name: "igniteui-webcomponents-maps"                     , version: "4.2.5" },
+        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.2.5" },
+        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.2.5" },
+        { name: "igniteui-webcomponents-datasources"              , version: "4.2.5" },
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "4.2.2"  },
-        { name: "igniteui-dockmanager", version: "1.12.3" },
+        { name: "igniteui-dockmanager", version: "1.12.4" },
     ];
 
     var packagePaths = [
