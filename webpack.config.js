@@ -1,3 +1,4 @@
+console.log(">> webpack config ...");
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
@@ -6,6 +7,9 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
 const isLegacy = !!process.env.legacy && !(process.env.legacy == "false");
+console.log(">> webpack nodeEnv=" + nodeEnv);
+console.log(">> webpack isProd=" + isProd);
+console.log(">> webpack isLegacy=" + isLegacy);
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
