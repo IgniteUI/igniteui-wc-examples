@@ -6,7 +6,6 @@ import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private treeGrid: IgcTreeGridComponent
@@ -17,8 +16,8 @@ export class Sample {
         this.webTreeGridEditingEventsCellEdit = this.webTreeGridEditingEventsCellEdit.bind(this);
 
         this._bind = () => {
-            treeGrid.data = this.employeesFlatDetails
-            treeGrid.addEventListener("cellEdit", this.webTreeGridEditingEventsCellEdit)
+            treeGrid.data = this.employeesFlatDetails;
+            treeGrid.addEventListener("cellEdit", this.webTreeGridEditingEventsCellEdit);
         }
         this._bind();
 
@@ -32,7 +31,6 @@ export class Sample {
         }
         return this._employeesFlatDetails;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -44,18 +42,17 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
-    public webTreeGridEditingEventsCellEdit(args: any): void {
+    public webGridEditingEventsCellEdit(args: any): void {
         var d = args.detail;
-    
+
         if (d.column != null && d.column.field == "Name") {
-            if (d.newValue != d.rowData.Name) {
+            if (d.newValue > d.rowData.Name) {
                 d.cancel = true;
                 alert("You cannot change the 'Name' field for this record!")
             }
         }
     }
-        
+
 }
 
 new Sample();

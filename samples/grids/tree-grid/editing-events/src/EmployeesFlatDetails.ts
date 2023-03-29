@@ -2,7 +2,7 @@ export class EmployeesFlatDetailsItem {
     public constructor(init: Partial<EmployeesFlatDetailsItem>) {
         Object.assign(this, init);
     }
-    
+
     public Address: string;
     public Age: number;
     public City: string;

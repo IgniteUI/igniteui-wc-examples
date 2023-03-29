@@ -37,11 +37,11 @@ export class Sample {
         this.webGridClipboardOperationsColumnInit = this.webGridClipboardOperationsColumnInit.bind(this);
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.treeGrid
-            propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSelection
-            treeGrid.data = this.employeesFlatDetails
-            treeGrid.addEventListener("columnInit", this.webGridClipboardOperationsColumnInit)
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.treeGrid;
+            propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSelection;
+            treeGrid.data = this.employeesFlatDetails;
+            treeGrid.addEventListener("columnInit", this.webGridClipboardOperationsColumnInit);
         }
         this._bind();
 
@@ -55,7 +55,6 @@ export class Sample {
         }
         return this._employeesFlatDetails;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -68,19 +67,17 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridClearSelection(args: any): void {
         console.log("TODO" + args);
     	//TODO
     }
-        
-    
+
     public webGridClipboardOperationsColumnInit(args: any): void {
         let column = args.detail;
         column.formatter = (e: any) => { return "** " + e + " **" };
         column.header = "🎉" + column.field;
     }
-        
+
 }
 
 new Sample();
