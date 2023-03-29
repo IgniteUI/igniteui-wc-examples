@@ -95,3 +95,8 @@ exports.simplifySamples = simplifySamples = gulp.series(
 );
 
 exports.updateIG = sb.updateIG;
+
+exports.updateWebpackConfigs = updateWebpackConfigs = gulp.series(
+    sb.findSamples,
+    sb.updateSampleWebpackConfigs,
+);
