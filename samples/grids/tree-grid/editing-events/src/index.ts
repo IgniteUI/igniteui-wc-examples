@@ -42,7 +42,7 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public WebTreeGridEditingEventsCellEdit(args: any): void {
+    public webTreeGridEditingEventsCellEdit(args: any): void {
         var d = args.detail;
 
         if (d.column != null && d.column.field == "Name") {
