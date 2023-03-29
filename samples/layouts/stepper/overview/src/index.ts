@@ -165,6 +165,9 @@ export class StepperOverview {
         const ev = e as CustomEvent<any>
         const that = this as any;
         const control = ev.target as any as IgcInputComponent | IgcRadioComponent | IgcSelectComponent | IgcMaskInputComponent | IgcCheckboxComponent;
+        if (control.name === undefined) {
+            return;
+        }
         // collects the data of a form
         if (ev.target instanceof IgcSelectComponent) {
             that[this.activeStep!.id][control.name] = (ev.detail as IgcSelectItemComponent).value;
