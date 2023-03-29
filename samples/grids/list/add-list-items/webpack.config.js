@@ -5,10 +5,12 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = env => {
-  console.log("env:");
-  console.log(env);
-  const isLegacy = !!env.legacy && !(env.legacy == "false");
-  const isProd = env.NODE_ENV === 'production';
+  const nodeEnv = process.env.NODE_ENV || 'development';
+  const isProd = nodeEnv === 'production';
+  const isLegacy = !!process.env.legacy && !(process.env.legacy == "false");
+  console.log(">> webpack nodeEnv=" + nodeEnv);
+  console.log(">> webpack isProd=" + isProd);
+  console.log(">> webpack isLegacy=" + isLegacy);
   const presets = [
     ["@babel/preset-env", {
       "useBuiltIns": "usage",
@@ -54,7 +56,7 @@ module.exports = env => {
         { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
         { test: /\.xml$/, use: ['xml-loader'] },
         { test: /\.css$/, sideEffects: true, use: ['style-loader', 'css-loader'] },
-        { test: /worker\.(ts|js)$/, 
+        { test: /worker\.(ts|js)$/,
           use: [
             { loader: 'worker-loader'},
             { loader: 'babel-loader', options: {
@@ -87,9 +89,7 @@ module.exports = env => {
 
     plugins: [
       new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: env.NODE_ENV
-        }
+        'process.env.NODE_ENV' : JSON.stringify(nodeEnv)
       }),
       new HtmlWebpackPlugin({
         title: 'for-cs',
