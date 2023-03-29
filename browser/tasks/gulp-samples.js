@@ -934,6 +934,10 @@ function updateIG(cb) {
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "4.2.2"  },
         { name: "igniteui-dockmanager", version: "1.12.4" },
+        // other packages:
+        { name: "webpack", version: "^5.74.0"  },
+        { name: "webpack-cli", version: "^4.10.0"  },
+        { name: "webpack-dev-server", version: "^4.11.1"  },
     ];
 
     var packagePaths = [
