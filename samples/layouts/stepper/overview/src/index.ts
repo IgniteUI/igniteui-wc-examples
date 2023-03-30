@@ -14,7 +14,8 @@ import {
     IgcCheckboxComponent,
     IgcIconComponent,
     registerIconFromText,
-    IgcSelectComponent
+    IgcSelectComponent,
+    IgcSelectItemComponent
 } from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./StepperOverview.css";
@@ -111,25 +112,37 @@ export class StepperOverview {
         this.stepper.addEventListener("igcActiveStepChanged", this.checkValidity.bind(this));
         this.checkTaxIdInputValidity();
         this.onDifferentMailingAddressChecked();
+        this.setupNextButtons();
         this.reset();
     }
 
     private checkValidity() {
         // checks validity of the input elements in the form
         const formControls = this.activeStep!.querySelectorAll("igc-radio, igc-input, igc-select, igc-mask-input, igc-checkbox") as NodeListOf<any>;
-        const isFormInvalid = Array.from(formControls).some((control: IgcInputComponent | IgcRadioComponent | IgcSelectComponent | IgcMaskInputComponent | IgcCheckboxComponent) => {
+        const isFormInvalid = this.checkFormInvalid(formControls);
+
+        this.activeStep!.invalid = isFormInvalid;
+        this.activeStep!.complete = !isFormInvalid;
+
+        this.setShippingDetailsComplete();
+
+        if (this.nextButton) {
+            this.nextButton!.disabled = isFormInvalid && !this.activeStep!.optional;
+        }
+    }
+
+    private checkFormInvalid(formControls: NodeListOf<any>) {
+        return Array.from(formControls).some((control: IgcInputComponent | IgcRadioComponent | IgcSelectComponent | IgcMaskInputComponent | IgcCheckboxComponent) => {
             const oldState = control.invalid;
             // checks whether some of the form controls is not valid
-            const isControlInvalid = !control.checkValidity();
+            let isControlInvalid = !control.checkValidity();
+            if (control instanceof IgcRadioComponent) {
+                isControlInvalid = this.businessInformation.nonUSBusinessActivity === null;
+            }
             // restores the invalid state of the control
             control.invalid = oldState;
             return isControlInvalid;
         });
-
-        this.activeStep!.invalid = isFormInvalid;
-        if (this.nextButton) {
-            this.nextButton!.disabled = isFormInvalid && !this.activeStep!.optional;
-        }
     }
 
     private checkTaxIdInputValidity() {
@@ -141,18 +154,30 @@ export class StepperOverview {
     }
 
     private onDifferentMailingAddressChecked() {
-        // sets the optional property of the Shipping Details' step
-        this.mailingAddressCheckbox.addEventListener("igcChange", (e: CustomEvent) => {
+        // sets the optional and disabled properties of the Shipping Details step
+        this.mailingAddressCheckbox.addEventListener("igcChange", (e: CustomEvent) => {            
             this.stepper.steps[3].optional = !e.detail;
+            this.stepper.steps[3].disabled = !e.detail;
         });
     }
 
     private onChange(e: Event) {
-        this.checkValidity();
+        const ev = e as CustomEvent<any>
         const that = this as any;
-        const control = e.target as any as IgcInputComponent | IgcRadioComponent | IgcSelectComponent | IgcMaskInputComponent | IgcCheckboxComponent;
+        const control = ev.target as any as IgcInputComponent | IgcRadioComponent | IgcSelectComponent | IgcMaskInputComponent | IgcCheckboxComponent;
+        if (control.name === undefined) {
+            return;
+        }
         // collects the data of a form
-        that[this.activeStep!.id][control.id] = control.value;
+        if (ev.target instanceof IgcSelectComponent) {
+            that[this.activeStep!.id][control.name] = (ev.detail as IgcSelectItemComponent).value;
+        } else if (ev.target instanceof IgcCheckboxComponent) {
+            that[this.activeStep!.id][control.name] = ev.detail;
+        }
+        else {
+            that[this.activeStep!.id][control.name] = control.value;
+        }
+        this.checkValidity();
     }
 
     private createCard(cardData: any) {
@@ -186,6 +211,7 @@ export class StepperOverview {
 
                 this.selectedCard = card;
                 this.activeStep!.invalid = false;
+                this.checkValidity();
                 this.stepper!.navigateTo(1);
             });
 
@@ -193,10 +219,31 @@ export class StepperOverview {
         });
     }
 
+    private setupNextButtons() {
+        const nextButtons = document.querySelectorAll(".next") as NodeListOf<any>;
+        nextButtons.forEach(btn => btn.addEventListener('click', this.nextStep.bind(this)));
+    }
+
+    private nextStep() {
+        this.stepper.next();
+        this.setShippingDetailsComplete();
+    }
+
+    private setShippingDetailsComplete() {
+        if (this.activeStep!.index === 4 && this.stepper.steps[1].complete && !this.mailingAddressCheckbox.checked) {
+            this.stepper.steps[3].complete = true;
+        }
+    }
+
     private reset() {
         document.getElementById("reset")!.addEventListener("click", () => {
             this.stepper!.reset();
-            this.stepper!.steps.forEach((step) => (step.invalid = true));
+            this.stepper!.steps.forEach((step) => {
+                step.invalid = true;
+                step.complete = false;
+            });
+            this.stepper!.steps[3].optional = true;
+            this.stepper!.steps[3].disabled = true;
             document.querySelector(".selected-card")!.classList.remove("selected-card");
             document.querySelectorAll("igc-form").forEach((form) => form.reset());
 
