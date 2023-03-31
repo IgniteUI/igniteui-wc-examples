@@ -862,6 +862,22 @@ function logUniqueFiles(cb) {
 
 } exports.logUniqueFiles = logUniqueFiles;
 
+function logSampleNames(cb) {
+    gulp.src([
+      './samples/**/package.json',
+     '!./samples/**/node_modules/**/package.json',
+     '!./samples/**/node_modules/**',
+     '!./samples/**/node_modules',
+    ])
+    .pipe(es.map(function(file, cbFile) {
+        console.log(file.dirname.split('samples')[1]);
+        cbFile(null, file);
+    })
+    .on("end", function() { cb();
+    }));
+
+} exports.logSampleNames = logSampleNames;
+
 // logs currently installed packages in console and in ./browser/src/BrowserInfo.json
 function logPackages(cb) {
     let fileNames = [];

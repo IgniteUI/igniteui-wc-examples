@@ -73,6 +73,7 @@ exports.logSamples = logSamples = gulp.series(
 // exports.lintSamples    = sb.lintSamples;
 
 exports.logPackages   = sb.logPackages;
+exports.logSampleNames   = sb.logSampleNames;
 
 exports.logRoutes = logRoutes = gulp.series(
     sb.findSamples,
@@ -100,3 +101,4 @@ exports.updateWebpackConfigs = updateWebpackConfigs = gulp.series(
     sb.findSamples,
     sb.updateSampleWebpackConfigs,
 );
+
