@@ -65,7 +65,6 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
     igConfig.SamplesCopyPath + '/grids/grid/**/package.json',
     igConfig.SamplesCopyPath + '/grids/pivot-grid/**/package.json',
-    igConfig.SamplesCopyPath + '/editors/**/package.json',
 
     igConfig.SamplesCopyPath + '/layouts/accordion/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
@@ -92,6 +91,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/inputs/circular-progress-indicator/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/combo/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/date-time-input/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/date-picker/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/dropdown/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/icon-button/**/package.json',
