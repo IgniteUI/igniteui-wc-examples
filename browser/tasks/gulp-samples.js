@@ -98,14 +98,12 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/inputs/input/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/linear-progress-indicator/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/mask-input/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/multi-column-combobox/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/radio/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/rating/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/ripple/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/select/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/slider/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/switches/**/package.json',
-
 
     // excluding samples that are not finished:
     '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/remote/package.json',      // grid has no exported member named 'NoopPivotDimensionsStrategy'
