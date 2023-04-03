@@ -60,7 +60,6 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
 
     igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
-    igConfig.SamplesCopyPath + '/grids/combo/**/package.json',
     igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
@@ -91,6 +90,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/inputs/checkbox/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/chip/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/circular-progress-indicator/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/combo/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/date-time-input/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/dropdown/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
