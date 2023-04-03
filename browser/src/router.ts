@@ -1,5 +1,6 @@
 // AutoRouterImportStart
 import { RouterCharts } from "./samples/charts/router";
+import { RouterEditors } from "./samples/editors/router";
 import { RouterExcel } from "./samples/excel/router";
 import { RouterGauges } from "./samples/gauges/router";
 import { RouterGrids } from "./samples/grids/router";
@@ -92,6 +93,9 @@ export class Router {
 // AutoRouterConditionStart
         if (route.indexOf("/charts/") >= 0) {
             this.displaySample(await RouterCharts.get(route));
+        }
+        else if (route.indexOf("/editors/") >= 0) {
+            this.displaySample(await RouterEditors.get(route));
         }
         else if (route.indexOf("/excel/") >= 0) {
             this.displaySample(await RouterExcel.get(route));
