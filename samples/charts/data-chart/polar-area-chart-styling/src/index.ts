@@ -1,4 +1,4 @@
-import { IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDataChartPolarCoreModule, IgcDataChartInteractivityModule, IgcLegendModule } from 'igniteui-webcomponents-charts';
+import { IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDataChartPolarCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcLegendModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcPolarAreaSeriesComponent } from 'igniteui-webcomponents-charts';
 import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
@@ -9,6 +9,7 @@ ModuleManager.register(
     IgcDataChartPolarModule,
     IgcDataChartPolarCoreModule,
     IgcDataChartInteractivityModule,
+    IgcDataChartAnnotationModule,
     IgcLegendModule
 );
 
@@ -20,7 +21,6 @@ export class Sample {
     private radiusAxis: IgcNumericRadiusAxisComponent
     private polarAreaSeries1: IgcPolarAreaSeriesComponent
     private polarAreaSeries2: IgcPolarAreaSeriesComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -32,15 +32,16 @@ export class Sample {
         var polarAreaSeries2 = this.polarAreaSeries2 = document.getElementById('PolarAreaSeries2') as IgcPolarAreaSeriesComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            polarAreaSeries1.angleAxis = this.angleAxis
-            polarAreaSeries1.radiusAxis = this.radiusAxis
-            polarAreaSeries1.dataSource = this.boatSailingData
-            polarAreaSeries2.dataSource = this.boatSailingData
-            polarAreaSeries2.angleAxis = this.angleAxis
-            polarAreaSeries2.radiusAxis = this.radiusAxis
+            chart.legend = this.legend;
+            polarAreaSeries1.dataSource = this.boatSailingData;
+            polarAreaSeries1.angleAxis = this.angleAxis;
+            polarAreaSeries1.radiusAxis = this.radiusAxis;
+            polarAreaSeries2.dataSource = this.boatSailingData;
+            polarAreaSeries2.angleAxis = this.angleAxis;
+            polarAreaSeries2.radiusAxis = this.radiusAxis;
         }
         this._bind();
+
     }
 
     private _boatSailingData: BoatSailingData = null;
@@ -51,9 +52,6 @@ export class Sample {
         }
         return this._boatSailingData;
     }
-    
-
-
 
 }
 

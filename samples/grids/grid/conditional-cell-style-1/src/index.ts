@@ -1,6 +1,5 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
@@ -28,10 +27,10 @@ export class Sample {
         var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.athletesData
-            column1.bodyTemplate = this.webGridBeatsPerMinuteTemplate
-            column2.bodyTemplate = this.webGridTopSpeedTemplate
-            column3.bodyTemplate = this.webGridImageCellTemplate
+            grid.data = this.athletesData;
+            column1.bodyTemplate = this.webGridBeatsPerMinuteTemplate;
+            column2.bodyTemplate = this.webGridTopSpeedTemplate;
+            column3.bodyTemplate = this.webGridImageCellTemplate;
         }
         this._bind();
 
@@ -45,20 +44,8 @@ export class Sample {
         }
         return this._athletesData;
     }
-    
 
-    private _componentRenderer: ComponentRenderer = null;
-    public get renderer(): ComponentRenderer {
-        if (this._componentRenderer == null) {
-            this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
-            PropertyEditorPanelDescriptionModule.register(context);
-            WebGridDescriptionModule.register(context);
-        }
-        return this._componentRenderer;
-    }
 
-    
     public webGridBeatsPerMinuteTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value > 95) {
             return html`<div><span style="color: red;">${ctx.cell.value}</span></div>`;
@@ -67,8 +54,7 @@ export class Sample {
             return html`<div><span style="color: green;">${ctx.cell.value}</span></div>`;
         }
     }
-    
-    
+
     public webGridTopSpeedTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value < 5) {
             return html`<div><span style="color: royalblue;">${ctx.cell.value}</span></div>`;
@@ -76,15 +62,18 @@ export class Sample {
         else {
             return html`<div><span>${ctx.cell.value}</span></div>`;
         }
-    };   
-    
-    
+    };
+
     public webGridImageCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
-            <img src="${ctx.cell.value}"/>
+            <img src="${ctx.cell.value}"
+            style="border: 1px solid black;
+            object-fit: fill;
+            height: 2rem;
+            width: 3rem;"/>
         </div>`;
     };
-    
+
 }
 
 new Sample();

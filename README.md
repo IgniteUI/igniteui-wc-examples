@@ -83,7 +83,7 @@ Follow these instructions to run all samples locally in a browser application.
 
 - select **View** - **Terminal** menu item
 
-- type `npm install` command in terminal window
+- type `npm install --legacy-peer-deps` command in terminal window
 
 This will install required packages and [Ignite UI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html) packages from npm website:
 

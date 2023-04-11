@@ -4,7 +4,6 @@ import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -14,7 +13,7 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
         this._bind = () => {
-            grid.data = this.financialDataAll
+            grid.data = this.financialDataAll;
         }
         this._bind();
 
@@ -28,8 +27,6 @@ export class Sample {
         }
         return this._financialDataAll;
     }
-    
-
 
 }
 

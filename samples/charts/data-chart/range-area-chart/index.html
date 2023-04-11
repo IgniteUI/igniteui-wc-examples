@@ -17,47 +17,58 @@
     <div id="root">
 
 <div class="container sample">
-    
-        <div class="legend-title">
-        Monthly Temperature Range in Los Angeles
+
+    <div class="legend-title">
+        Monthly Temperature Range in LA and NYC
     </div>
-    
-    
+
+    <div class="legend">
+        <igc-legend
+        name="Legend"
+        id="Legend"
+        orientation="Horizontal">
+        </igc-legend>
+    </div>
+
     <div class="container fill">
         <igc-data-chart
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
         name="chart"
-        id ="chart">
+        id="chart"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false">
             <igc-category-x-axis
-            interval="1"
-            label="month"
             name="xAxis"
-            id ="xAxis">
+            id="xAxis"
+            label="month"
+            interval="1">
             </igc-category-x-axis>
             <igc-numeric-y-axis
-            title="Temperature (in Celsius)"
-            title-angle="-90"
-            title-left-margin="10"
             name="yAxis"
-            id ="yAxis">
+            id="yAxis"
+            title="Temperature (in Celsius)"
+            title-angle="90"
+            title-left-margin="10">
             </igc-numeric-y-axis>
             <igc-range-area-series
-            
+            name="RangeAreaSeries1"
+            id="RangeAreaSeries1"
+            title="Los Angeles"
             low-member-path="lowLA"
             high-member-path="highLA"
-            title="Los Angeles"
-            name="RangeAreaSeries1"
-            id ="RangeAreaSeries1">
+            show-default-tooltip="false">
             </igc-range-area-series>
             <igc-range-area-series
-            
+            name="RangeAreaSeries2"
+            id="RangeAreaSeries2"
             title="New York"
             low-member-path="lowNY"
             high-member-path="highNY"
-            name="RangeAreaSeries2"
-            id ="RangeAreaSeries2">
+            show-default-tooltip="false">
             </igc-range-area-series>
+            <igc-data-tool-tip-layer
+            name="DataToolTipLayer"
+            id="DataToolTipLayer">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>

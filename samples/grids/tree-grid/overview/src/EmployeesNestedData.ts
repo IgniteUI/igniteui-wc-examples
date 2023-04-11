@@ -2,35 +2,35 @@ export class EmployeesNestedDataItem {
     public constructor(init: Partial<EmployeesNestedDataItem>) {
         Object.assign(this, init);
     }
-    
-    public iD: number;
-    public age: number;
-    public salary: number;
-    public productivity: number;
-    public city: string;
-    public country: string;
-    public phone: string;
-    public hireDate: string;
-    public name: string;
-    public title: string;
-    public employees: EmployeesNestedDataItem_EmployeesItem[];
+
+    public ID: number;
+    public Age: number;
+    public Salary: number;
+    public Productivity: number;
+    public City: string;
+    public Country: string;
+    public Phone: string;
+    public HireDate: string;
+    public Name: string;
+    public Title: string;
+    public Employees: EmployeesNestedDataItem_EmployeesItem[];
 
 }
 export class EmployeesNestedDataItem_EmployeesItem {
     public constructor(init: Partial<EmployeesNestedDataItem_EmployeesItem>) {
         Object.assign(this, init);
     }
-    
-    public age: number;
-    public salary: number;
-    public productivity: number;
-    public city: string;
-    public country: string;
-    public phone: string;
-    public hireDate: string;
-    public iD: number;
-    public name: string;
-    public title: string;
+
+    public Age: number;
+    public Salary: number;
+    public Productivity: number;
+    public City: string;
+    public Country: string;
+    public Phone: string;
+    public HireDate: string;
+    public ID: number;
+    public Name: string;
+    public Title: string;
 
 }
 export class EmployeesNestedData extends Array<EmployeesNestedDataItem> {
@@ -38,314 +38,314 @@ export class EmployeesNestedData extends Array<EmployeesNestedDataItem> {
         super();
         this.push(new EmployeesNestedDataItem(
         {
-            iD: 1,
-            age: 55,
-            salary: 80000,
-            productivity: 90,
-            city: `Berlin`,
-            country: `Germany`,
-            phone: `609-202-505`,
-            hireDate: `2008, 3, 20`,
-            name: `John Winchester`,
-            title: `Development Manager`,
-            employees: [
+            ID: 1,
+            Age: 55,
+            Salary: 80000,
+            Productivity: 90,
+            City: `Berlin`,
+            Country: `Germany`,
+            Phone: `609-202-505`,
+            HireDate: `2008, 3, 20`,
+            Name: `John Winchester`,
+            Title: `Development Manager`,
+            Employees: [
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 43,
-                    salary: 70000,
-                    productivity: 80,
-                    city: `Hamburg`,
-                    country: `Germany`,
-                    phone: `609-444-555`,
-                    hireDate: `2011, 6, 3`,
-                    iD: 3,
-                    name: `Michael Burke`,
-                    title: `Senior Software Developer`
+                    Age: 43,
+                    Salary: 70000,
+                    Productivity: 80,
+                    City: `Hamburg`,
+                    Country: `Germany`,
+                    Phone: `609-444-555`,
+                    HireDate: `2011, 6, 3`,
+                    ID: 3,
+                    Name: `Michael Burke`,
+                    Title: `Senior Software Developer`
                 }),
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 29,
-                    salary: 60000,
-                    productivity: 80,
-                    city: `Munich`,
-                    country: `Germany`,
-                    phone: `609-333-444`,
-                    hireDate: `2009, 6, 19`,
-                    iD: 2,
-                    name: `Thomas Anderson`,
-                    title: `Senior Software Developer`
+                    Age: 29,
+                    Salary: 60000,
+                    Productivity: 80,
+                    City: `Munich`,
+                    Country: `Germany`,
+                    Phone: `609-333-444`,
+                    HireDate: `2009, 6, 19`,
+                    ID: 2,
+                    Name: `Thomas Anderson`,
+                    Title: `Senior Software Developer`
                 }),
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 31,
-                    salary: 90000,
-                    productivity: 80,
-                    city: `Warasw`,
-                    country: `Poland`,
-                    phone: `609-222-205`,
-                    hireDate: `2014, 8, 18`,
-                    iD: 11,
-                    name: `Monica Reyes`,
-                    title: `Software Development Team Lead`
+                    Age: 31,
+                    Salary: 90000,
+                    Productivity: 80,
+                    City: `Warasw`,
+                    Country: `Poland`,
+                    Phone: `609-222-205`,
+                    HireDate: `2014, 8, 18`,
+                    ID: 11,
+                    Name: `Monica Reyes`,
+                    Title: `Software Development Team Lead`
                 }),
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 35,
-                    salary: 70000,
-                    productivity: 70,
-                    city: `Koln`,
-                    country: `Germany`,
-                    phone: `609-502-525`,
-                    hireDate: `2015, 9, 17`,
-                    iD: 6,
-                    name: `Roland Mendel`,
-                    title: `Senior Software Developer`
+                    Age: 35,
+                    Salary: 70000,
+                    Productivity: 70,
+                    City: `Koln`,
+                    Country: `Germany`,
+                    Phone: `609-502-525`,
+                    HireDate: `2015, 9, 17`,
+                    ID: 6,
+                    Name: `Roland Mendel`,
+                    Title: `Senior Software Developer`
                 })]
-            
+
         }));
         this.push(new EmployeesNestedDataItem(
         {
-            iD: 4,
-            age: 42,
-            salary: 90000,
-            productivity: 80,
-            city: `Kielce`,
-            country: `Poland`,
-            phone: `609-202-505`,
-            hireDate: `2014, 1, 22`,
-            name: `Ana Sanders`,
-            title: `CEO`,
-            employees: [
+            ID: 4,
+            Age: 42,
+            Salary: 90000,
+            Productivity: 80,
+            City: `Kielce`,
+            Country: `Poland`,
+            Phone: `609-202-505`,
+            HireDate: `2014, 1, 22`,
+            Name: `Ana Sanders`,
+            Title: `CEO`,
+            Employees: [
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 44,
-                    salary: 80000,
-                    productivity: 80,
-                    city: `Warasw`,
-                    country: `Poland`,
-                    phone: `609-202-505`,
-                    hireDate: `2014, 4, 4`,
-                    iD: 14,
-                    name: `Laurence Johnson`,
-                    title: `Director`
+                    Age: 44,
+                    Salary: 80000,
+                    Productivity: 80,
+                    City: `Warasw`,
+                    Country: `Poland`,
+                    Phone: `609-202-505`,
+                    HireDate: `2014, 4, 4`,
+                    ID: 14,
+                    Name: `Laurence Johnson`,
+                    Title: `Director`
                 }),
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 25,
-                    salary: 85000,
-                    productivity: 55,
-                    city: `Paris`,
-                    country: `France`,
-                    phone: `609-202-505`,
-                    hireDate: `2017, 11, 9`,
-                    iD: 5,
-                    name: `Elizabeth Richards`,
-                    title: `Vice President`
+                    Age: 25,
+                    Salary: 85000,
+                    Productivity: 55,
+                    City: `Paris`,
+                    Country: `France`,
+                    Phone: `609-202-505`,
+                    HireDate: `2017, 11, 9`,
+                    ID: 5,
+                    Name: `Elizabeth Richards`,
+                    Title: `Vice President`
                 }),
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 39,
-                    salary: 88000,
-                    productivity: 88,
-                    city: `London`,
-                    country: `UK`,
-                    phone: `609-202-505`,
-                    hireDate: `2010, 3, 22`,
-                    iD: 13,
-                    name: `Trevor Ashworth`,
-                    title: `Director`
+                    Age: 39,
+                    Salary: 88000,
+                    Productivity: 88,
+                    City: `London`,
+                    Country: `UK`,
+                    Phone: `609-202-505`,
+                    HireDate: `2010, 3, 22`,
+                    ID: 13,
+                    Name: `Trevor Ashworth`,
+                    Title: `Director`
                 })]
-            
+
         }));
         this.push(new EmployeesNestedDataItem(
         {
-            iD: 18,
-            age: 49,
-            salary: 77000,
-            productivity: 70,
-            city: `Manchester`,
-            country: `UK`,
-            phone: `222-555-577`,
-            hireDate: `2014, 1, 22`,
-            name: `Victoria Lincoln`,
-            title: `Senior Accountant`,
-            employees: [
+            ID: 18,
+            Age: 49,
+            Salary: 77000,
+            Productivity: 70,
+            City: `Manchester`,
+            Country: `UK`,
+            Phone: `222-555-577`,
+            HireDate: `2014, 1, 22`,
+            Name: `Victoria Lincoln`,
+            Title: `Senior Accountant`,
+            Employees: [
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 43,
-                    salary: 70000,
-                    productivity: 80,
-                    city: `Hamburg`,
-                    country: `Germany`,
-                    phone: `609-444-555`,
-                    hireDate: `2011, 6, 3`,
-                    iD: 23,
-                    name: `Thomas Burke`,
-                    title: `Senior Accountant`
+                    Age: 43,
+                    Salary: 70000,
+                    Productivity: 80,
+                    City: `Hamburg`,
+                    Country: `Germany`,
+                    Phone: `609-444-555`,
+                    HireDate: `2011, 6, 3`,
+                    ID: 23,
+                    Name: `Thomas Burke`,
+                    Title: `Senior Accountant`
                 }),
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 29,
-                    salary: 60000,
-                    productivity: 80,
-                    city: `Munich`,
-                    country: `Germany`,
-                    phone: `609-333-444`,
-                    hireDate: `2009, 6, 19`,
-                    iD: 22,
-                    name: `Michael Anderson`,
-                    title: `Junior Accountant`
+                    Age: 29,
+                    Salary: 60000,
+                    Productivity: 80,
+                    City: `Munich`,
+                    Country: `Germany`,
+                    Phone: `609-333-444`,
+                    HireDate: `2009, 6, 19`,
+                    ID: 22,
+                    Name: `Michael Anderson`,
+                    Title: `Junior Accountant`
                 }),
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 31,
-                    salary: 90000,
-                    productivity: 80,
-                    city: `Warasw`,
-                    country: `Poland`,
-                    phone: `609-222-205`,
-                    hireDate: `2014, 8, 18`,
-                    iD: 21,
-                    name: `Roland Reyes`,
-                    title: `Accountant Team Lead`
+                    Age: 31,
+                    Salary: 90000,
+                    Productivity: 80,
+                    City: `Warasw`,
+                    Country: `Poland`,
+                    Phone: `609-222-205`,
+                    HireDate: `2014, 8, 18`,
+                    ID: 21,
+                    Name: `Roland Reyes`,
+                    Title: `Accountant Team Lead`
                 }),
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 35,
-                    salary: 70000,
-                    productivity: 70,
-                    city: `Koln`,
-                    country: `Germany`,
-                    phone: `609-502-525`,
-                    hireDate: `2015, 9, 17`,
-                    iD: 24,
-                    name: `Monica Mendel`,
-                    title: `Senior Software Developer`
+                    Age: 35,
+                    Salary: 70000,
+                    Productivity: 70,
+                    City: `Koln`,
+                    Country: `Germany`,
+                    Phone: `609-502-525`,
+                    HireDate: `2015, 9, 17`,
+                    ID: 24,
+                    Name: `Monica Mendel`,
+                    Title: `Senior Software Developer`
                 })]
-            
+
         }));
         this.push(new EmployeesNestedDataItem(
         {
-            iD: 10,
-            age: 61,
-            salary: 85000,
-            productivity: 890,
-            city: `Lyon`,
-            country: `France`,
-            phone: `259-266-887`,
-            hireDate: `2010, 1, 1`,
-            name: `Yang Wang`,
-            title: `Localization Developer`,
-            employees: [
+            ID: 10,
+            Age: 61,
+            Salary: 85000,
+            Productivity: 890,
+            City: `Lyon`,
+            Country: `France`,
+            Phone: `259-266-887`,
+            HireDate: `2010, 1, 1`,
+            Name: `Yang Wang`,
+            Title: `Localization Developer`,
+            Employees: [
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 31,
-                    salary: 90000,
-                    productivity: 80,
-                    city: `Warasw`,
-                    country: `Poland`,
-                    phone: `609-222-205`,
-                    hireDate: `2014, 8, 18`,
-                    iD: 11,
-                    name: `Monica Reyes`,
-                    title: `Software Development Team Lead`
+                    Age: 31,
+                    Salary: 90000,
+                    Productivity: 80,
+                    City: `Warasw`,
+                    Country: `Poland`,
+                    Phone: `609-222-205`,
+                    HireDate: `2014, 8, 18`,
+                    ID: 11,
+                    Name: `Monica Reyes`,
+                    Title: `Software Development Team Lead`
                 }),
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 35,
-                    salary: 70000,
-                    productivity: 70,
-                    city: `Koln`,
-                    country: `Germany`,
-                    phone: `609-502-525`,
-                    hireDate: `2015, 9, 17`,
-                    iD: 6,
-                    name: `Roland Mendel`,
-                    title: `Senior Software Developer`
+                    Age: 35,
+                    Salary: 70000,
+                    Productivity: 70,
+                    City: `Koln`,
+                    Country: `Germany`,
+                    Phone: `609-502-525`,
+                    HireDate: `2015, 9, 17`,
+                    ID: 6,
+                    Name: `Roland Mendel`,
+                    Title: `Senior Software Developer`
                 })]
-            
+
         }));
         this.push(new EmployeesNestedDataItem(
         {
-            iD: 35,
-            age: 35,
-            salary: 75000,
-            productivity: 75,
-            city: `Warasw`,
-            country: `Poland`,
-            phone: `688-244-844`,
-            hireDate: `2014, 1, 22`,
-            name: `Janine Munoz`,
-            title: `HR`,
-            employees: [
+            ID: 35,
+            Age: 35,
+            Salary: 75000,
+            Productivity: 75,
+            City: `Warasw`,
+            Country: `Poland`,
+            Phone: `688-244-844`,
+            HireDate: `2014, 1, 22`,
+            Name: `Janine Munoz`,
+            Title: `HR`,
+            Employees: [
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 43,
-                    salary: 70000,
-                    productivity: 80,
-                    city: `Hamburg`,
-                    country: `Germany`,
-                    phone: `609-444-555`,
-                    hireDate: `2011, 6, 3`,
-                    iD: 3,
-                    name: `Michael Burke`,
-                    title: `Senior Software Developer`
+                    Age: 43,
+                    Salary: 70000,
+                    Productivity: 80,
+                    City: `Hamburg`,
+                    Country: `Germany`,
+                    Phone: `609-444-555`,
+                    HireDate: `2011, 6, 3`,
+                    ID: 3,
+                    Name: `Michael Burke`,
+                    Title: `Senior Software Developer`
                 }),
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 31,
-                    salary: 90000,
-                    productivity: 80,
-                    city: `Warasw`,
-                    country: `Poland`,
-                    phone: `609-222-205`,
-                    hireDate: `2014, 8, 18`,
-                    iD: 11,
-                    name: `Monica Reyes`,
-                    title: `Software Development Team Lead`
+                    Age: 31,
+                    Salary: 90000,
+                    Productivity: 80,
+                    City: `Warasw`,
+                    Country: `Poland`,
+                    Phone: `609-222-205`,
+                    HireDate: `2014, 8, 18`,
+                    ID: 11,
+                    Name: `Monica Reyes`,
+                    Title: `Software Development Team Lead`
                 })]
-            
+
         }));
         this.push(new EmployeesNestedDataItem(
         {
-            iD: 10,
-            age: 49,
-            salary: 95000,
-            productivity: 80,
-            city: `Krakow`,
-            country: `Poland`,
-            phone: `677-266-555`,
-            hireDate: `2010, 1, 1`,
-            name: `Yang Wang`,
-            title: `Sales Manager`,
-            employees: [
+            ID: 10,
+            Age: 49,
+            Salary: 95000,
+            Productivity: 80,
+            City: `Krakow`,
+            Country: `Poland`,
+            Phone: `677-266-555`,
+            HireDate: `2010, 1, 1`,
+            Name: `Yang Wang`,
+            Title: `Sales Manager`,
+            Employees: [
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 29,
-                    salary: 60000,
-                    productivity: 80,
-                    city: `Munich`,
-                    country: `Germany`,
-                    phone: `609-333-444`,
-                    hireDate: `2009, 6, 19`,
-                    iD: 2,
-                    name: `Thomas Anderson`,
-                    title: `Senior Software Developer`
+                    Age: 29,
+                    Salary: 60000,
+                    Productivity: 80,
+                    City: `Munich`,
+                    Country: `Germany`,
+                    Phone: `609-333-444`,
+                    HireDate: `2009, 6, 19`,
+                    ID: 2,
+                    Name: `Thomas Anderson`,
+                    Title: `Senior Software Developer`
                 }),
                 new EmployeesNestedDataItem_EmployeesItem(
                 {
-                    age: 35,
-                    salary: 70000,
-                    productivity: 70,
-                    city: `Koln`,
-                    country: `Germany`,
-                    phone: `609-502-525`,
-                    hireDate: `2015, 9, 17`,
-                    iD: 6,
-                    name: `Roland Mendel`,
-                    title: `Senior Software Developer`
+                    Age: 35,
+                    Salary: 70000,
+                    Productivity: 70,
+                    City: `Koln`,
+                    Country: `Germany`,
+                    Phone: `609-502-525`,
+                    HireDate: `2015, 9, 17`,
+                    ID: 6,
+                    Name: `Roland Mendel`,
+                    Title: `Senior Software Developer`
                 })]
-            
+
         }));
     }
 }

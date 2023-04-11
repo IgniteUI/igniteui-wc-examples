@@ -17,62 +17,62 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-        
+
         description-type="CategoryChart"
         is-horizontal="true"
         is-wrapping-enabled="true"
         name="propertyEditorPanel1"
-        id ="propertyEditorPanel1">
+        id="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="YAxisMinimumValue"
+            name="YAxisMinimumValue"
+            id="YAxisMinimumValue"
             label="Y Axis Minimum Value"
-            value-type="EnumValue"
             should-override-default-editor="true"
+            value-type="EnumValue"
             drop-down-names="0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100"
             drop-down-values="0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100"
-            primitive-value="0"
-            name="YAxisMinimumValue"
-            id ="YAxisMinimumValue">
+            primitive-value="0">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            drop-down-values="100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200"
-            primitive-value="150"
             property-path="YAxisMaximumValue"
-            label="Y Axis Maximum Value"
-            value-type="EnumValue"
-            should-override-default-editor="true"
-            drop-down-names="100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200"
             name="YAxisMaximumValue"
-            id ="YAxisMaximumValue">
+            id="YAxisMaximumValue"
+            label="Y Axis Maximum Value"
+            should-override-default-editor="true"
+            value-type="EnumValue"
+            drop-down-names="100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200"
+            drop-down-values="100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200"
+            primitive-value="150">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
-    
-        <div class="legend-title">
+
+    <div class="legend-title">
         Highest Grossing Movie Franchises
     </div>
-    
+
     <div class="legend">
         <igc-legend
-        orientation="Horizontal"
         name="Legend"
-        id ="Legend">
+        id="Legend"
+        orientation="Horizontal">
         </igc-legend>
     </div>
-    
+
     <div class="container fill">
         <igc-category-chart
-        chart-type="Line"
-        y-axis-minimum-value="0"
-        y-axis-maximum-value="150"
+        name="chart"
+        id="chart"
         included-properties="year, europe, china, america"
+        chart-type="Line"
+        computed-plot-area-margin-mode="Series"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
-        computed-plot-area-margin-mode="Series"
-        name="chart"
-        id ="chart">
+        y-axis-minimum-value="0"
+        y-axis-maximum-value="150">
         </igc-category-chart>
     </div>
 </div>

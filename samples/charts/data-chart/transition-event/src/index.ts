@@ -26,7 +26,6 @@ export class Sample {
     private yAxis: IgcNumericYAxisComponent
     private waterfallSeries1: IgcWaterfallSeriesComponent
     private waterfallSeries2: IgcWaterfallSeriesComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -40,18 +39,19 @@ export class Sample {
         var waterfallSeries2 = this.waterfallSeries2 = document.getElementById('WaterfallSeries2') as IgcWaterfallSeriesComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
-            propertyEditorPanel1.target = this.chart
-            propertyEditorPropertyDescription1.buttonClicked = this.editorButtonReplayTransitionIn
-            xAxis.dataSource = this.companyIncomeData
-            waterfallSeries1.xAxis = this.xAxis
-            waterfallSeries1.yAxis = this.yAxis
-            waterfallSeries1.dataSource = this.companyIncomeData
-            waterfallSeries2.xAxis = this.xAxis
-            waterfallSeries2.yAxis = this.yAxis
-            waterfallSeries2.dataSource = this.companyIncomeData
+            propertyEditorPanel1.componentRenderer = this.renderer;
+            propertyEditorPanel1.target = this.chart;
+            propertyEditorPropertyDescription1.buttonClicked = this.editorButtonReplayTransitionIn;
+            xAxis.dataSource = this.companyIncomeData;
+            waterfallSeries1.xAxis = this.xAxis;
+            waterfallSeries1.yAxis = this.yAxis;
+            waterfallSeries1.dataSource = this.companyIncomeData;
+            waterfallSeries2.xAxis = this.xAxis;
+            waterfallSeries2.yAxis = this.yAxis;
+            waterfallSeries2.dataSource = this.companyIncomeData;
         }
         this._bind();
+
     }
 
     private _companyIncomeData: CompanyIncomeData = null;
@@ -62,7 +62,6 @@ export class Sample {
         }
         return this._companyIncomeData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -76,14 +75,12 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public editorButtonReplayTransitionIn(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         var series = this.chart.actualSeries;
         for (var i = 0; i < series.length; i++) {
             series[i].replayTransitionIn();
         }
     }
-        
 
 }
 

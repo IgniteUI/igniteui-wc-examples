@@ -35,11 +35,11 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
-            propertyEditorPanel1.target = this.grid
-            propertyEditorPropertyDescription1.changed = this.webGridHasSummariesChange
-            grid.data = this.nwindData
-            column1.summaryTemplate = this.webGridOrderDateSummaryTemplate
+            propertyEditorPanel1.componentRenderer = this.renderer;
+            propertyEditorPanel1.target = this.grid;
+            propertyEditorPropertyDescription1.changed = this.webGridHasSummariesChange;
+            grid.data = this.nwindData;
+            column1.summaryTemplate = this.webGridOrderDateSummaryTemplate;
         }
         this._bind();
 
@@ -53,7 +53,6 @@ export class Sample {
         }
         return this._nwindData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -66,24 +65,22 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridHasSummariesChange(args: any): void {
         let newValue = args.primitiveValue as boolean;
-    
+
         var column1 = this.grid.columns[3];
         var column2 = this.grid.columns[5];
-    
+
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
     }
-        
-    
+
     public webGridOrderDateSummaryTemplate = (ctx: IgcCellTemplateContext) => {
         console.log("TODO");
         //TODO
         return html``;
     }
-    
+
 }
 
 new Sample();

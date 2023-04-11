@@ -28,9 +28,9 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.grid
-            grid.data = this.invoicesData
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.grid;
+            grid.data = this.invoicesData;
         }
         this._bind();
 
@@ -44,7 +44,6 @@ export class Sample {
         }
         return this._invoicesData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

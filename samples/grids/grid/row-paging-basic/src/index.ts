@@ -5,7 +5,9 @@ import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
 
 export class Sample {
 
@@ -17,8 +19,7 @@ export class Sample {
         {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.1-5";
-            
-            
+
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -34,10 +35,10 @@ export class Sample {
         var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.athletesData
-            column1.pipeArgs = this.columnPipeArgs1
-            column2.bodyTemplate = this.webGridProgressCellTemplate
-            column3.bodyTemplate = this.webGridImageCellTemplate
+            grid.data = this.athletesData;
+            column1.pipeArgs = this.columnPipeArgs1;
+            column2.bodyTemplate = this.webGridProgressCellTemplate;
+            column3.bodyTemplate = this.webGridImageCellTemplate;
         }
         this._bind();
 
@@ -51,23 +52,24 @@ export class Sample {
         }
         return this._athletesData;
     }
-    
 
 
-    
     public webGridProgressCellTemplate = (ctx: IgcCellTemplateContext) => {
-        return html`<div>
+        return html`<div style="width: 4rem">
             <igc-linear-progress value="${ctx.cell.value}"></igc-linear-progress>
         </div>`;
     };
-    
-    
+
     public webGridImageCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
-            <img src="${ctx.cell.value}"/>
+            <img src="${ctx.cell.value}"
+            style="border: 1px solid black;
+            object-fit: fill;
+            height: 2rem;
+            width: 3rem;"/>
         </div>`;
     };
-    
+
 }
 
 new Sample();

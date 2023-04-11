@@ -25,7 +25,6 @@ export class Sample {
     private xAxis: IgcCategoryXAxisComponent
     private yAxis: IgcNumericYAxisComponent
     private colSeries1: IgcColumnSeriesComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -38,14 +37,15 @@ export class Sample {
         var colSeries1 = this.colSeries1 = document.getElementById('colSeries1') as IgcColumnSeriesComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
-            propertyEditorPanel1.target = this.chart
-            xAxis.dataSource = this.temperatureAverageDataLongLabels
-            colSeries1.xAxis = this.xAxis
-            colSeries1.yAxis = this.yAxis
-            colSeries1.dataSource = this.temperatureAverageDataLongLabels
+            propertyEditorPanel1.componentRenderer = this.renderer;
+            propertyEditorPanel1.target = this.chart;
+            xAxis.dataSource = this.temperatureAverageDataLongLabels;
+            colSeries1.xAxis = this.xAxis;
+            colSeries1.yAxis = this.yAxis;
+            colSeries1.dataSource = this.temperatureAverageDataLongLabels;
         }
         this._bind();
+
     }
 
     private _temperatureAverageDataLongLabels: TemperatureAverageDataLongLabels = null;
@@ -56,7 +56,6 @@ export class Sample {
         }
         return this._temperatureAverageDataLongLabels;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -69,7 +68,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 
 }
 

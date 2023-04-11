@@ -18,7 +18,6 @@ export class Sample {
     private categoryHighlightLayer: IgcCategoryHighlightLayerComponent
     private columnSeries1: IgcColumnSeriesComponent
     private tooltips: IgcDataToolTipLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -30,12 +29,13 @@ export class Sample {
         var tooltips = this.tooltips = document.getElementById('Tooltips') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            xAxis.dataSource = this.temperatureAverageData
-            columnSeries1.xAxis = this.xAxis
-            columnSeries1.yAxis = this.yAxis
-            columnSeries1.dataSource = this.temperatureAverageData
+            xAxis.dataSource = this.temperatureAverageData;
+            columnSeries1.xAxis = this.xAxis;
+            columnSeries1.yAxis = this.yAxis;
+            columnSeries1.dataSource = this.temperatureAverageData;
         }
         this._bind();
+
     }
 
     private _temperatureAverageData: TemperatureAverageData = null;
@@ -46,9 +46,6 @@ export class Sample {
         }
         return this._temperatureAverageData;
     }
-    
-
-
 
 }
 

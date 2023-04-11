@@ -32,8 +32,7 @@ export class Sample {
             sortingExpression2.fieldName = "CategoryName";
             sortingExpression2.dir = SortingDirection.Asc;
             sortingExpression2.ignoreCase = true;
-            
-            
+
             sortingExpression1.push(sortingExpression2)
             this._sortingExpression1 = sortingExpression1;
         }
@@ -45,10 +44,9 @@ export class Sample {
         if (this._columnPipeArgs1 == null)
         {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs1.digitsInfo = "1.2-2";
             columnPipeArgs1.currencyCode = "USD";
-            
-            
+            columnPipeArgs1.digitsInfo = "1.2-2";
+
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -66,13 +64,13 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.grid
-            propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSort
-            propertyEditorPropertyDescription2.buttonClicked = this.webGridClearGrouping
-            grid.data = this.productSales
-            grid.sortingExpressions = this.sortingExpression1
-            column1.pipeArgs = this.columnPipeArgs1
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.grid;
+            propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSort;
+            propertyEditorPropertyDescription2.buttonClicked = this.webGridClearGrouping;
+            grid.data = this.productSales;
+            grid.sortingExpressions = this.sortingExpression1;
+            column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
 
@@ -86,7 +84,6 @@ export class Sample {
         }
         return this._productSales;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -99,18 +96,16 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridClearSort(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         var grid = this.grid;
         grid.clearSort("");
     }
-        
-    
+
     public webGridClearGrouping(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         var grid = this.grid;
         grid.clearGrouping("");
     }
-        
+
 }
 
 new Sample();

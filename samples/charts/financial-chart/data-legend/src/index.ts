@@ -14,7 +14,6 @@ export class Sample {
 
     private legend: IgcDataLegendComponent
     private chart: IgcFinancialChartComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -22,10 +21,11 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
 
         this._bind = () => {
-            legend.target = this.chart
-            chart.dataSource = this.multipleStocks
+            legend.target = this.chart;
+            chart.dataSource = this.multipleStocks;
         }
         this._bind();
+
     }
 
     private _multipleStocks: MultipleStocks = null;
@@ -38,9 +38,6 @@ export class Sample {
         }
         return this._multipleStocks;
     }
-    
-
-
 
 }
 

@@ -17,21 +17,21 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        primary-key="ProductID"
+        name="grid"
+        id="grid"
         row-editable="true"
         allow-filtering="true"
-        batch-editing="true"
-        name="grid"
-        id ="grid">
+        primary-key="ProductID">
+            <igc-pinning-config
+            rows="Top">
+            </igc-pinning-config>
             <igc-action-strip
             name="actionStrip"
-            id ="actionStrip">
+            id="actionStrip">
                 <igc-grid-pinning-actions
                 >
                 </igc-grid-pinning-actions>
@@ -40,48 +40,45 @@
                 delete-row="false">
                 </igc-grid-editing-actions>
             </igc-action-strip>
-            <igc-pinning-config
-            rows="Top">
-            </igc-pinning-config>
             <igc-column
-            field="ProductName"
-            header="Product Name"
             name="ProductName"
-            id ="ProductName">
+            id="ProductName"
+            field="ProductName"
+            header="Product Name">
             </igc-column>
             <igc-column
             name="UnitPrice"
-            id ="UnitPrice"
+            id="UnitPrice"
             field="UnitPrice"
             header="Unit Price">
             </igc-column>
             <igc-column
             name="UnitsOnOrder"
-            id ="UnitsOnOrder"
+            id="UnitsOnOrder"
             field="UnitsOnOrder"
             header="Units On Order">
             </igc-column>
             <igc-column
             name="UnitsInStock"
-            id ="UnitsInStock"
+            id="UnitsInStock"
             field="UnitsInStock"
             header="Units In Stock">
             </igc-column>
             <igc-column
             name="QuantityPerUnit"
-            id ="QuantityPerUnit"
+            id="QuantityPerUnit"
             field="QuantityPerUnit"
             header="Quantity Per Unit">
             </igc-column>
             <igc-column
             name="ReorderLevel"
-            id ="ReorderLevel"
+            id="ReorderLevel"
             field="ReorderLevel"
             header="Reorder Level">
             </igc-column>
             <igc-column
             name="Discontinued"
-            id ="Discontinued"
+            id="Discontinued"
             field="Discontinued"
             header="Discontinued">
             </igc-column>

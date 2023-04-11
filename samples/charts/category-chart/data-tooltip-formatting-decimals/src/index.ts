@@ -12,16 +12,16 @@ ModuleManager.register(
 export class Sample {
 
     private chart: IgcCategoryChartComponent
-
     private _bind: () => void;
 
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            chart.dataSource = this.highestGrossingMovies
+            chart.dataSource = this.highestGrossingMovies;
         }
         this._bind();
+
     }
 
     private _highestGrossingMovies: HighestGrossingMovies = null;
@@ -32,9 +32,6 @@ export class Sample {
         }
         return this._highestGrossingMovies;
     }
-    
-
-
 
 }
 

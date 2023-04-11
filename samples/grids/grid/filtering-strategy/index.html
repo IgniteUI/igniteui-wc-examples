@@ -17,17 +17,15 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        name="grid"
+        id="grid"
         id="grid"
         allow-filtering="true"
-        filter-mode="excelStyleFilter"
-        name="grid"
-        id ="grid">
+        filter-mode="excelStyleFilter">
             <igc-column
             field="ProductName"
             header="Product Name"
@@ -63,7 +61,7 @@
             disable-hiding="true"
             data-type="boolean"
             name="column1"
-            id ="column1">
+            id="column1">
             </igc-column>
         </igc-grid>
     </div>

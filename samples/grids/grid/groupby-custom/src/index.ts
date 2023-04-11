@@ -40,7 +40,7 @@ export class Sample {
         var quantity = this.quantity = document.getElementById('Quantity') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.invoicesData
+            grid.data = this.invoicesData;
         }
         this._bind();
 
@@ -54,7 +54,6 @@ export class Sample {
         }
         return this._invoicesData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

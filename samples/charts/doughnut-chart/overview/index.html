@@ -17,24 +17,22 @@
     <div id="root">
 
 <div class="container sample">
-    
-        <div class="legend-title">
+
+    <div class="legend-title">
         Market Share of Tech Companies
     </div>
-    
-    
+
     <div class="container fill">
         <igc-doughnut-chart
         name="chart"
-        id ="chart">
+        id="chart">
             <igc-ring-series
-            
-            value-member-path="value"
-            label-member-path="summary"
-            legend-label-member-path="category"
-            outlines="white"
             name="series"
-            id ="series">
+            id="series"
+            label-member-path="summary"
+            value-member-path="value"
+            legend-label-member-path="category"
+            outlines="white">
             </igc-ring-series>
         </igc-doughnut-chart>
     </div>

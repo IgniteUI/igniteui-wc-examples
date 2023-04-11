@@ -17,38 +17,36 @@
     <div id="root">
 
 <div class="container sample">
-    
-        <div class="legend-title">
+
+    <div class="legend-title">
         Hierarchical Chart
     </div>
-    
-    
+
     <div class="container fill">
         <igc-doughnut-chart
-        allow-slice-selection="false"
-        allow-slice-explosion="false"
         name="chart"
-        id ="chart">
+        id="chart"
+        allow-slice-explosion="false"
+        allow-slice-selection="false">
             <igc-ring-series
-            
-            value-member-path="value"
-            label-member-path="label"
-            labels-position="Center"
-            brushes="rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1)"
-            outlines="white"
-            radius-factor="0.9"
             name="series1"
-            id ="series1">
+            id="series1"
+            label-member-path="label"
+            value-member-path="value"
+            labels-position="Center"
+            radius-factor="0.9"
+            outlines="white"
+            brushes="rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1)">
             </igc-ring-series>
             <igc-ring-series
-            brushes="rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1)"
-            value-member-path="value"
-            label-member-path="label"
-            labels-position="Center"
-            outlines="white"
-            radius-factor="0.9"
             name="series2"
-            id ="series2">
+            id="series2"
+            label-member-path="label"
+            value-member-path="value"
+            labels-position="Center"
+            radius-factor="0.9"
+            outlines="white"
+            brushes="rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1)">
             </igc-ring-series>
         </igc-doughnut-chart>
     </div>

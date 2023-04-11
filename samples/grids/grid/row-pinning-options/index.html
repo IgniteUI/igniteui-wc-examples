@@ -17,40 +17,31 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-        
+
         description-type="WebGrid"
         is-horizontal="true"
         is-wrapping-enabled="false"
         name="propertyEditorPanel1"
-        id ="propertyEditorPanel1">
+        id="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="Pinning.Rows"
-            label="Row Pinning toggle"
             name="rowPinningEditor"
-            id ="rowPinningEditor">
+            id="rowPinningEditor"
+            label="Row Pinning toggle">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
-    
-    
-    
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        primary-key="ID"
-        row-editable="true"
-        cell-selection="none"
         name="grid"
-        id ="grid">
-            <igc-action-strip
-            name="actionStrip"
-            id ="actionStrip">
-                <igc-grid-pinning-actions
-                >
-                </igc-grid-pinning-actions>
-            </igc-action-strip>
+        id="grid"
+        primary-key="ID"
+        cell-selection="none"
+        row-editable="true">
             <igc-pinning-config
             rows="Top">
             </igc-pinning-config>
@@ -87,6 +78,13 @@
             field="Fax"
             header="Fax">
             </igc-column>
+            <igc-action-strip
+            name="actionStrip"
+            id="actionStrip">
+                <igc-grid-pinning-actions
+                >
+                </igc-grid-pinning-actions>
+            </igc-action-strip>
         </igc-grid>
     </div>
 </div>

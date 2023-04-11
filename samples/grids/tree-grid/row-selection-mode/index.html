@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor-panel
+
+        description-type="WebTreeGrid"
+        is-wrapping-enabled="true"
+        is-horizontal="true"
+        name="propertyEditorPanel1"
+        id="propertyEditorPanel1">
+            <igc-property-editor-property-description
+            name="selectionType"
+            id="selectionType"
+            property-path="RowSelection">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            name="hideRowSelectors"
+            id="hideRowSelectors"
+            property-path="HideRowSelectors"
+            label="Hide Row Selectors">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+
+    <div class="container fill">
+        <igc-tree-grid
+        auto-generate="false"
+        name="treeGrid"
+        id="treeGrid"
+        id="treeGrid"
+        primary-key="ID"
+        foreign-key="ParentID"
+        cell-selection="none"
+        allow-filtering="true"
+        hide-row-selectors="false">
+            <igc-column
+            field="Name"
+            data-type="string"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Title"
+            header="Job Title"
+            data-type="string"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="HireDate"
+            data-type="date"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="ID"
+            data-type="number"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Age"
+            data-type="number"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="OnPTO"
+            data-type="boolean"
+            sortable="true">
+            </igc-column>
+        </igc-tree-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

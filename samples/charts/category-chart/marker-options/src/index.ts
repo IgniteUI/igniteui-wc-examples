@@ -25,7 +25,6 @@ export class Sample {
     private chartTypeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private markerTypeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcCategoryChartComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -36,12 +35,13 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.chart
-            markerTypeEditor.changed = this.editorChangeUpdateMarkerType
-            chart.dataSource = this.countryRenewableElectricity
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.chart;
+            markerTypeEditor.changed = this.editorChangeUpdateMarkerType;
+            chart.dataSource = this.countryRenewableElectricity;
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;
@@ -52,7 +52,6 @@ export class Sample {
         }
         return this._countryRenewableElectricity;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -66,15 +65,13 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public editorChangeUpdateMarkerType(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
         var item = sender as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart;
-            
+
         var markerVal = item.primitiveValue;
-        chart.markerTypes = markerVal;   
+        chart.markerTypes = markerVal;
     }
-        
 
 }
 

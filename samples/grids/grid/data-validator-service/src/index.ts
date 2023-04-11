@@ -34,8 +34,7 @@ export class Sample {
         {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs1.format = "longDate";
-            
-            
+
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -64,11 +63,11 @@ export class Sample {
         var dealsPending = this.dealsPending = document.getElementById('DealsPending') as IgcColumnComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.grid
-            grid.data = this.employeesData
-            avatar.bodyTemplate = this.webGridAvatarCellTemplate
-            createdOn.pipeArgs = this.columnPipeArgs1
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.grid;
+            grid.data = this.employeesData;
+            avatar.bodyTemplate = this.webGridAvatarCellTemplate;
+            createdOn.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
 
@@ -82,7 +81,6 @@ export class Sample {
         }
         return this._employeesData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -95,14 +93,13 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
         public webGridAvatarCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
         <igc-avatar shape="circle" src="${ctx.cell.value}">
         </igc-avatar>
     </div>`;
     }
-    
+
 }
 
 new Sample();

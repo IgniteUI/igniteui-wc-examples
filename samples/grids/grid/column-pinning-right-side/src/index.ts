@@ -5,7 +5,9 @@ import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
 
 export class Sample {
 
@@ -20,9 +22,9 @@ export class Sample {
         var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.athletesDataExtended
-            column1.bodyTemplate = this.webGridImageCellTemplate
-            column2.bodyTemplate = this.webGridAvatarCellTemplate
+            grid.data = this.athletesDataExtended;
+            column1.bodyTemplate = this.webGridImageCellTemplate;
+            column2.bodyTemplate = this.webGridAvatarCellTemplate;
         }
         this._bind();
 
@@ -36,24 +38,25 @@ export class Sample {
         }
         return this._athletesDataExtended;
     }
-    
 
 
-    
     public webGridImageCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
-            <img src="${ctx.cell.value}"/>
+            <img src="${ctx.cell.value}"
+            style="border: 1px solid black;
+            object-fit: fill;
+            height: 2rem;
+            width: 3rem;"/>
         </div>`;
     };
-    
-    
+
         public webGridAvatarCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
         <igc-avatar shape="circle" src="${ctx.cell.value}">
         </igc-avatar>
     </div>`;
     }
-    
+
 }
 
 new Sample();

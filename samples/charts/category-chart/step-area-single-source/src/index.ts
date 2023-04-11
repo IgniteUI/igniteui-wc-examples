@@ -12,16 +12,16 @@ ModuleManager.register(
 export class Sample {
 
     private chart: IgcCategoryChartComponent
-
     private _bind: () => void;
 
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            chart.dataSource = this.countryRenewableElectricity
+            chart.dataSource = this.countryRenewableElectricity;
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;
@@ -32,9 +32,6 @@ export class Sample {
         }
         return this._countryRenewableElectricity;
     }
-    
-
-
 
 }
 

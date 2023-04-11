@@ -22,7 +22,6 @@ export class Sample {
     private yAxis: IgcNumericYAxisComponent
     private series1: IgcFinancialPriceSeriesComponent
     private tooltip: IgcDataToolTipLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -33,12 +32,13 @@ export class Sample {
         var tooltip = this.tooltip = document.getElementById('Tooltip') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            xAxis.dataSource = this.stock2Years
-            series1.xAxis = this.xAxis
-            series1.yAxis = this.yAxis
-            series1.dataSource = this.stock2Years
+            xAxis.dataSource = this.stock2Years;
+            series1.xAxis = this.xAxis;
+            series1.yAxis = this.yAxis;
+            series1.dataSource = this.stock2Years;
         }
         this._bind();
+
     }
 
     private _stock2Years: Stock2Years = null;
@@ -49,9 +49,6 @@ export class Sample {
         }
         return this._stock2Years;
     }
-    
-
-
 
 }
 

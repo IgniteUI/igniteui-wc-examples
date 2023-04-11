@@ -23,7 +23,6 @@ export class Sample {
     private headerDisplayModeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private labelVerticalAlignmentEditor: IgcPropertyEditorPropertyDescriptionComponent
     private treemap: IgcTreemapComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -35,11 +34,12 @@ export class Sample {
         var treemap = this.treemap = document.getElementById('treemap') as IgcTreemapComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
-            propertyEditorPanel1.target = this.treemap
-            treemap.dataSource = this.countyHierarchicalData
+            propertyEditorPanel1.componentRenderer = this.renderer;
+            propertyEditorPanel1.target = this.treemap;
+            treemap.dataSource = this.countyHierarchicalData;
         }
         this._bind();
+
     }
 
     private _countyHierarchicalData: CountyHierarchicalData = null;
@@ -50,7 +50,6 @@ export class Sample {
         }
         return this._countyHierarchicalData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -62,7 +61,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 
 }
 

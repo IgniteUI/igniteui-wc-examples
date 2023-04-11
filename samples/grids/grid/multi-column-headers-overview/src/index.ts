@@ -32,11 +32,11 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.grid
-            propertyEditorPropertyDescription1.buttonClicked = this.webGridPinFirstGroupToggle
-            propertyEditorPropertyDescription2.buttonClicked = this.webGridHideFirstGroupToggle
-            grid.data = this.customersData
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.grid;
+            propertyEditorPropertyDescription1.buttonClicked = this.webGridPinFirstGroupToggle;
+            propertyEditorPropertyDescription2.buttonClicked = this.webGridHideFirstGroupToggle;
+            grid.data = this.customersData;
         }
         this._bind();
 
@@ -50,7 +50,6 @@ export class Sample {
         }
         return this._customersData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -64,18 +63,16 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridPinFirstGroupToggle(args: any): void {
         console.log("TODO" + args);
     	//TODO
     }
-        
-    
+
     public webGridHideFirstGroupToggle(args: any): void {
         console.log("TODO" + args);
     	//TODO
     }
-        
+
 }
 
 new Sample();

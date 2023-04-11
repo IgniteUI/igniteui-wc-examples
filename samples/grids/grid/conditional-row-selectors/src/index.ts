@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
+import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgcRowSelectionEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 
 export class Sample {
 
@@ -16,8 +16,8 @@ export class Sample {
         this.webGridRowSelectionConditional = this.webGridRowSelectionConditional.bind(this);
 
         this._bind = () => {
-            grid.data = this.customersData
-            grid.addEventListener("rowSelectionChanging", this.webGridRowSelectionConditional)
+            grid.data = this.customersData;
+            grid.addEventListener("rowSelectionChanging", this.webGridRowSelectionConditional);
         }
         this._bind();
 
@@ -31,10 +31,17 @@ export class Sample {
         }
         return this._customersData;
     }
-    
 
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            WebGridDescriptionModule.register(context);
+        }
+        return this._componentRenderer;
+    }
 
-    
     public webGridRowSelectionConditional(event: any): void {
         console.log(event);
         if (!event.added.length && event.removed.length) {
@@ -43,10 +50,10 @@ export class Sample {
         }
         var grid = this.grid;
         const originalAddedLength = event.added.length;
-    
+
         // only allow selection of items that contain 'A'
         event.newSelection = event.newSelection.filter(x => x.indexOf('A') !== -1);
-    
+
         // cleanup selection if all conditionally selectable rows are already selected
         if (event.newSelection.length
             && !event.newSelection.filter(x => event.oldSelection.indexOf(x) === -1).length
@@ -56,7 +63,7 @@ export class Sample {
         }
         grid.markForCheck();
     }
-        
+
 }
 
 new Sample();

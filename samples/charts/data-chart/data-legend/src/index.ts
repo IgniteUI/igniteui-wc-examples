@@ -27,7 +27,6 @@ export class Sample {
     private bubbleSeries2: IgcBubbleSeriesComponent
     private sizeScale2: IgcSizeScaleComponent
     private crosshairLayer: IgcCrosshairLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -42,15 +41,16 @@ export class Sample {
         var crosshairLayer = this.crosshairLayer = document.getElementById('CrosshairLayer') as IgcCrosshairLayerComponent;
 
         this._bind = () => {
-            legend.target = this.chart
-            bubbleSeries1.xAxis = this.xAxis
-            bubbleSeries1.yAxis = this.yAxis
-            bubbleSeries1.dataSource = this.countryDemographicAfrican
-            bubbleSeries2.xAxis = this.xAxis
-            bubbleSeries2.yAxis = this.yAxis
-            bubbleSeries2.dataSource = this.countryDemographicEurope
+            legend.target = this.chart;
+            bubbleSeries1.xAxis = this.xAxis;
+            bubbleSeries1.yAxis = this.yAxis;
+            bubbleSeries1.dataSource = this.countryDemographicAfrican;
+            bubbleSeries2.xAxis = this.xAxis;
+            bubbleSeries2.yAxis = this.yAxis;
+            bubbleSeries2.dataSource = this.countryDemographicEurope;
         }
         this._bind();
+
     }
 
     private _countryDemographicAfrican: CountryDemographicAfrican = null;
@@ -61,7 +61,7 @@ export class Sample {
         }
         return this._countryDemographicAfrican;
     }
-    
+
     private _countryDemographicEurope: CountryDemographicEurope = null;
     public get countryDemographicEurope(): CountryDemographicEurope {
         if (this._countryDemographicEurope == null)
@@ -70,9 +70,6 @@ export class Sample {
         }
         return this._countryDemographicEurope;
     }
-    
-
-
 
 }
 

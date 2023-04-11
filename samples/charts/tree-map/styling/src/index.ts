@@ -19,7 +19,6 @@ export class Sample {
     private styling6: IgcTreemapNodeStyleMappingComponent
     private styling7: IgcTreemapNodeStyleMappingComponent
     private styling8: IgcTreemapNodeStyleMappingComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -34,9 +33,10 @@ export class Sample {
         var styling8 = this.styling8 = document.getElementById('styling8') as IgcTreemapNodeStyleMappingComponent;
 
         this._bind = () => {
-            treemap.dataSource = this.countyHierarchicalData
+            treemap.dataSource = this.countyHierarchicalData;
         }
         this._bind();
+
     }
 
     private _countyHierarchicalData: CountyHierarchicalData = null;
@@ -47,9 +47,6 @@ export class Sample {
         }
         return this._countyHierarchicalData;
     }
-    
-
-
 
 }
 

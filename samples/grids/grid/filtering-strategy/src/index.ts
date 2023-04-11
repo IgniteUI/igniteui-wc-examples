@@ -6,7 +6,6 @@ import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -18,8 +17,8 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.nwindData
-            column1.bodyTemplate = this.webGridBooleanCellTemplate
+            grid.data = this.nwindData;
+            column1.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
 
@@ -33,10 +32,8 @@ export class Sample {
         }
         return this._nwindData;
     }
-    
 
 
-    
         public webGridBooleanCellTemplate = (ctx: IgcCellTemplateContext) => {
             if (ctx.cell.value) {
                 return html`<img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/active.png" title="Continued" alt="Continued" />`
@@ -44,7 +41,7 @@ export class Sample {
                 return html`<img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/expired.png" title="Discontinued" alt="Discontinued" />`;
             }
     }
-    
+
 }
 
 new Sample();

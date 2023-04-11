@@ -17,60 +17,62 @@
     <div id="root">
 
 <div class="container sample">
-    
-        <div class="legend-title">
+
+    <div class="legend-title">
         Ronaldo vs Messi Player Stats
     </div>
-    
+
     <div class="legend">
         <igc-legend
-        orientation="Horizontal"
         name="Legend"
-        id ="Legend">
+        id="Legend"
+        orientation="Horizontal">
         </igc-legend>
     </div>
-    
+
     <div class="container fill">
         <igc-data-chart
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
         name="chart"
-        id ="chart">
+        id="chart"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false">
             <igc-category-angle-axis
-            
-            label="attribute"
             name="angleAxis"
-            id ="angleAxis">
+            id="angleAxis"
+            label="attribute">
             </igc-category-angle-axis>
             <igc-numeric-radius-axis
-            inner-radius-extent-scale="0.1"
-            minimum-value="0"
-            maximum-value="10"
-            interval="2"
             name="radiusAxis"
-            id ="radiusAxis">
+            id="radiusAxis"
+            inner-radius-extent-scale="0.1"
+            interval="2"
+            minimum-value="0"
+            maximum-value="10">
             </igc-numeric-radius-axis>
             <igc-radial-line-series
-            value-member-path="ronaldo"
-            marker-type="Circle"
-            thickness="3"
-            area-fill-opacity="0.8"
-            show-default-tooltip="true"
-            title="Ronaldo"
             name="RadialLineSeries1"
-            id ="RadialLineSeries1">
+            id="RadialLineSeries1"
+            value-member-path="ronaldo"
+            show-default-tooltip="false"
+            area-fill-opacity="0.8"
+            thickness="3"
+            title="Ronaldo"
+            marker-type="Circle">
             </igc-radial-line-series>
             <igc-radial-line-series
-            
+            name="RadialLineSeries2"
+            id="RadialLineSeries2"
             value-member-path="messi"
-            show-default-tooltip="true"
+            show-default-tooltip="false"
             area-fill-opacity="0.8"
             thickness="3"
             title="Messi"
-            marker-type="Circle"
-            name="RadialLineSeries2"
-            id ="RadialLineSeries2">
+            marker-type="Circle">
             </igc-radial-line-series>
+            <igc-data-tool-tip-layer
+            name="DataToolTipLayer"
+            id="DataToolTipLayer">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>

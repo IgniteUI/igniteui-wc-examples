@@ -6,7 +6,6 @@ import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -34,16 +33,16 @@ export class Sample {
         var column9 = this.column9 = document.getElementById('column9') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.customersData
-            column1.headerTemplate = this.webGridPinHeaderTemplate
-            column2.headerTemplate = this.webGridPinHeaderTemplate
-            column3.headerTemplate = this.webGridPinHeaderTemplate
-            column4.headerTemplate = this.webGridPinHeaderTemplate
-            column5.headerTemplate = this.webGridPinHeaderTemplate
-            column6.headerTemplate = this.webGridPinHeaderTemplate
-            column7.headerTemplate = this.webGridPinHeaderTemplate
-            column8.headerTemplate = this.webGridPinHeaderTemplate
-            column9.headerTemplate = this.webGridPinHeaderTemplate
+            grid.data = this.customersData;
+            column1.headerTemplate = this.webGridPinHeaderTemplate;
+            column2.headerTemplate = this.webGridPinHeaderTemplate;
+            column3.headerTemplate = this.webGridPinHeaderTemplate;
+            column4.headerTemplate = this.webGridPinHeaderTemplate;
+            column5.headerTemplate = this.webGridPinHeaderTemplate;
+            column6.headerTemplate = this.webGridPinHeaderTemplate;
+            column7.headerTemplate = this.webGridPinHeaderTemplate;
+            column8.headerTemplate = this.webGridPinHeaderTemplate;
+            column9.headerTemplate = this.webGridPinHeaderTemplate;
         }
         this._bind();
 
@@ -57,19 +56,17 @@ export class Sample {
         }
         return this._customersData;
     }
-    
 
 
-    
     public webGridPinHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
-    
+
         const column = (ctx as any).column;
         return html`<div>
                      <span style="float:left">${column.field}</span>
                      <span style="float:right" @pointerdown=${(e: any) => this.toggleColumnPin(column.field)}>📌</span>
                    </div>`;
         };
-    
+
     public toggleColumnPin(field: string) {
         var grid = document.getElementsByTagName("igc-grid")[0] as IgcGridComponent;
         var col = grid.getColumnByName(field);

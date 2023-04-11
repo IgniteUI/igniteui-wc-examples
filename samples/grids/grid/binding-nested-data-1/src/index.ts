@@ -6,7 +6,6 @@ import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -18,8 +17,8 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.employeesNestedData
-            column1.bodyTemplate = this.webGridNestedDataCellTemplate
+            grid.data = this.employeesNestedData;
+            column1.bodyTemplate = this.webGridNestedDataCellTemplate;
         }
         this._bind();
 
@@ -33,10 +32,8 @@ export class Sample {
         }
         return this._employeesNestedData;
     }
-    
 
 
-    
     public webGridNestedDataCellTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value != null) {
             if (ctx.cell.value.length === 0) return html``;
@@ -47,11 +44,11 @@ export class Sample {
             </div>
             <div class="description">
                 <div style="display: flex; align-items: center;">
-                    <div for="title" style="min-width: 30px">Title</div>
+                    <div for="title" style="width: 2rem; margin: 0rem;">Title</div>
                     <input id='Title' type="text" name="title" value="${ctx.cell.value[0].Title}" style="text-overflow: ellipsis;" />
                 </div>
                 <div style="display: flex; align-items: center;">
-                    <div for="age" style="min-width: 30px">Age</div>
+                    <div for="age" style="width: 2rem; margin: 0rem;">Age</div>
                     <input id='Age' type="text" name="title" value="${ctx.cell.value[0].Age}" style="text-overflow: ellipsis;" />
                 </div>
             </div>
@@ -59,7 +56,7 @@ export class Sample {
             `;
         }
     };
-    
+
 }
 
 new Sample();

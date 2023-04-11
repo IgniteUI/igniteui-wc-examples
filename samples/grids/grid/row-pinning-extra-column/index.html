@@ -17,30 +17,27 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-grid
-        
-        primary-key="ID"
-        cell-selection="none"
         name="grid"
-        id ="grid">
+        id="grid"
+        primary-key="ID"
+        cell-selection="none">
             <igc-column
-            filterable="false"
             width="70px"
+            filterable="false"
             pinned="true">
             </igc-column>
             <igc-column
-            width="150px"
             field="ID"
+            width="150px"
             hidden="true">
             </igc-column>
             <igc-column
-            width="350px"
             field="CompanyName"
-            header="Company">
+            header="Company"
+            width="350px">
             </igc-column>
             <igc-column
             field="ContactName"

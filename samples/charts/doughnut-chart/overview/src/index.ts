@@ -13,7 +13,6 @@ export class Sample {
 
     private chart: IgcDoughnutChartComponent
     private series: IgcRingSeriesComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -21,9 +20,10 @@ export class Sample {
         var series = this.series = document.getElementById('series') as IgcRingSeriesComponent;
 
         this._bind = () => {
-            series.dataSource = this.companyMarketShares
+            series.dataSource = this.companyMarketShares;
         }
         this._bind();
+
     }
 
     private _companyMarketShares: CompanyMarketShares = null;
@@ -34,9 +34,6 @@ export class Sample {
         }
         return this._companyMarketShares;
     }
-    
-
-
 
 }
 

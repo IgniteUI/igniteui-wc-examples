@@ -13,16 +13,16 @@ ModuleManager.register(
 export class Sample {
 
     private chart: IgcFinancialChartComponent
-
     private _bind: () => void;
 
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
 
         this._bind = () => {
-            chart.dataSource = this.multipleStocks
+            chart.dataSource = this.multipleStocks;
         }
         this._bind();
+
     }
 
     private _multipleStocks: MultipleStocks = null;
@@ -35,9 +35,6 @@ export class Sample {
         }
         return this._multipleStocks;
     }
-    
-
-
 
 }
 

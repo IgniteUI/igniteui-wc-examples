@@ -20,7 +20,6 @@ export class Sample {
     private propertyEditor: IgcPropertyEditorPanelComponent
     private calloutsVisibleEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcCategoryChartComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -29,12 +28,13 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.chart
-            chart.dataSource = this.temperatureAnnotatedData
-            chart.calloutsDataSource = this.temperatureAnnotatedData
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.chart;
+            chart.dataSource = this.temperatureAnnotatedData;
+            chart.calloutsDataSource = this.temperatureAnnotatedData;
         }
         this._bind();
+
     }
 
     private _temperatureAnnotatedData: TemperatureAnnotatedData = null;
@@ -45,7 +45,6 @@ export class Sample {
         }
         return this._temperatureAnnotatedData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -57,7 +56,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 
 }
 

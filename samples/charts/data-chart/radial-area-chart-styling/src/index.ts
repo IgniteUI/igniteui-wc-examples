@@ -1,4 +1,4 @@
-import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartRadialModule, IgcDataChartRadialCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
+import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartRadialModule, IgcDataChartRadialCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcRadialAreaSeriesComponent } from 'igniteui-webcomponents-charts';
 import { FootballPlayerStatsItem, FootballPlayerStats } from './FootballPlayerStats';
 
@@ -9,7 +9,8 @@ ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartRadialModule,
     IgcDataChartRadialCoreModule,
-    IgcDataChartInteractivityModule
+    IgcDataChartInteractivityModule,
+    IgcDataChartAnnotationModule
 );
 
 export class Sample {
@@ -20,7 +21,6 @@ export class Sample {
     private radiusAxis: IgcNumericRadiusAxisComponent
     private radialAreaSeries1: IgcRadialAreaSeriesComponent
     private radialAreaSeries2: IgcRadialAreaSeriesComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -32,16 +32,17 @@ export class Sample {
         var radialAreaSeries2 = this.radialAreaSeries2 = document.getElementById('RadialAreaSeries2') as IgcRadialAreaSeriesComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            angleAxis.dataSource = this.footballPlayerStats
-            radialAreaSeries1.angleAxis = this.angleAxis
-            radialAreaSeries1.valueAxis = this.radiusAxis
-            radialAreaSeries1.dataSource = this.footballPlayerStats
-            radialAreaSeries2.dataSource = this.footballPlayerStats
-            radialAreaSeries2.angleAxis = this.angleAxis
-            radialAreaSeries2.valueAxis = this.radiusAxis
+            chart.legend = this.legend;
+            angleAxis.dataSource = this.footballPlayerStats;
+            radialAreaSeries1.dataSource = this.footballPlayerStats;
+            radialAreaSeries1.angleAxis = this.angleAxis;
+            radialAreaSeries1.valueAxis = this.radiusAxis;
+            radialAreaSeries2.dataSource = this.footballPlayerStats;
+            radialAreaSeries2.angleAxis = this.angleAxis;
+            radialAreaSeries2.valueAxis = this.radiusAxis;
         }
         this._bind();
+
     }
 
     private _footballPlayerStats: FootballPlayerStats = null;
@@ -52,9 +53,6 @@ export class Sample {
         }
         return this._footballPlayerStats;
     }
-    
-
-
 
 }
 

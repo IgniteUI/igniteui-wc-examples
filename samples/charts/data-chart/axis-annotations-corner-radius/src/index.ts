@@ -23,7 +23,6 @@ export class Sample {
     private finalValueLayer: IgcFinalValueLayerComponent
     private crosshairLayer: IgcCrosshairLayerComponent
     private tooltips: IgcDataToolTipLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -37,13 +36,14 @@ export class Sample {
         var tooltips = this.tooltips = document.getElementById('Tooltips') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            xAxis.dataSource = this.countryRenewableElectricity
-            lineSeries1.xAxis = this.xAxis
-            lineSeries1.yAxis = this.yAxis
-            lineSeries1.dataSource = this.countryRenewableElectricity
-            calloutLayer1.dataSource = this.countryRenewableCallouts
+            xAxis.dataSource = this.countryRenewableElectricity;
+            lineSeries1.xAxis = this.xAxis;
+            lineSeries1.yAxis = this.yAxis;
+            lineSeries1.dataSource = this.countryRenewableElectricity;
+            calloutLayer1.dataSource = this.countryRenewableCallouts;
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;
@@ -54,7 +54,7 @@ export class Sample {
         }
         return this._countryRenewableElectricity;
     }
-    
+
     private _countryRenewableCallouts: CountryRenewableCallouts = null;
     public get countryRenewableCallouts(): CountryRenewableCallouts {
         if (this._countryRenewableCallouts == null)
@@ -63,9 +63,6 @@ export class Sample {
         }
         return this._countryRenewableCallouts;
     }
-    
-
-
 
 }
 

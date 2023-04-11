@@ -27,10 +27,22 @@ function log(msg) {
 }
 log('loaded');
 
-// NOTE you can comment out strings in this array to run subset of samples
+// NOTE you can comment out paths in this array to run subset of samples
 var sampleSources = [
-    // igConfig.SamplesCopyPath + '/maps/**/display-heat-imagery/package.json',
+    // including one sample for each component:
+    // igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',
+    // igConfig.SamplesCopyPath + '/charts/pie-chart/overview/package.json',
+    // igConfig.SamplesCopyPath + '/gauges/radial-gauge/labels/package.json',
+    // igConfig.SamplesCopyPath + '/grids/list/overview/package.json',
+    // igConfig.SamplesCopyPath + '/layouts/card/overview/package.json',
+    // igConfig.SamplesCopyPath + '/scheduling/calendar/overview/package.json',
+    // igConfig.SamplesCopyPath + '/menus/nav-bar/overview/package.json',
+    // igConfig.SamplesCopyPath + '/inputs/button/overview/package.json',
+    // igConfig.SamplesCopyPath + '/editors/date-picker/overview/package.json',
+    // igConfig.SamplesCopyPath + '/notifications/toast/overview/package.json',
+    // igConfig.SamplesCopyPath + '/excel/excel-library/overview/package.json',
 
+    // including all samples for all components:
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
@@ -48,7 +60,6 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
 
     igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
-    igConfig.SamplesCopyPath + '/grids/combo/**/package.json',
     igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
@@ -79,6 +90,7 @@ var sampleSources = [
     igConfig.SamplesCopyPath + '/inputs/checkbox/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/chip/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/circular-progress-indicator/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/combo/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/date-time-input/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/dropdown/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
@@ -95,7 +107,6 @@ var sampleSources = [
 
     // excluding samples that are not finished:
     '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/remote/package.json',      // grid has no exported member named 'NoopPivotDimensionsStrategy'
-    '!' + igConfig.SamplesCopyPath + '/layouts/dock-manager/styling/package.json', // type '"closePane"' is not assignable to parameter of type 'keyof IgcDockManagerEventMap'.
 
      // excluding samples' node_modules:
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
@@ -293,6 +304,8 @@ function copySamples(cb) {
     let sampleGroups = Transformer.getSampleGroups(samples);
 
     console.log('>> generating router files... ');
+    let routerImports = [];
+    let routerConditions = [];
     let routerTemplate = fs.readFileSync("./browser/src/templates/group/Router.ts", "utf8");
     for (const group of sampleGroups) {
         let outputPath = "./browser/src/samples/" + group.Name + "/router.ts";
@@ -304,7 +317,29 @@ function copySamples(cb) {
         fs.writeFileSync(outputPath, routingFile);
         console.log('>> generating routes done: ' + outputPath);
 
+        if (routerConditions.length === 0)
+            routerConditions.push('        if (route.indexOf("/' + group.Name + '/") >= 0) {');
+        else
+            routerConditions.push('        else if (route.indexOf("/' + group.Name + '/") >= 0) {');
+
+        routerConditions.push('            this.displaySample(await ' + group.RouterClass + '.get(route));');
+        routerConditions.push('        }');
+
+        routerImports.push(group.RouterImport);
     }
+
+    let routerPath = "./browser/src/router.ts";
+    console.log('>> updating ' + routerPath + ' ... ');
+    let routerFile = fs.readFileSync(routerPath, "utf8").toString();
+    let routerImportLines = routerImports.join('\n');
+    var routerImportEx = /(\/\/\sAutoRouterImportStart)([\S\s]*?)(\/\/\sAutoRouterImportEnd)/gm;
+    routerFile = routerFile.replace(routerImportEx, '$1\n' + routerImportLines + '\n$3');
+
+    let routerConditionLines = routerConditions.join('\n');
+    var routerConditionEx = /(\/\/\sAutoRouterConditionStart)([\S\s]*?)(\/\/\sAutoRouterConditionEnd)/gm;
+    routerFile = routerFile.replace(routerConditionEx, '$1\n' + routerConditionLines + '\n$3');
+    fs.writeFileSync(routerPath, routerFile);
+    console.log('>> updating ' + routerPath + ' with ' + routerImports.length + ' routers' );
 
     console.log('>> generating index file... ');
     let indexTemplate = fs.readFileSync("./browser/src/templates/index.html", "utf8");
@@ -663,7 +698,7 @@ function updateCodeViewer(cb) {
     del.sync(outputFolder + "/**");
 
     for (const sample of samples) {
-        var codeViewPath = outputFolder + sample.SampleRoute + ".json";
+        var codeViewPath = outputFolder + sample.SampleRouteNew + ".json";
 
         console.log(">> generating: " + codeViewPath);
 
@@ -711,7 +746,7 @@ function updateCodeViewer(cb) {
 function logRoutes(cb) {
     let routes = [];
     for (const sample of samples) {
-        routes.push(sample.SampleRoute)
+        routes.push(sample.SampleRouteNew)
     }
     routes.sort();
     for (const route of routes) {
@@ -827,51 +862,71 @@ function logUniqueFiles(cb) {
 
 } exports.logUniqueFiles = logUniqueFiles;
 
-function logVersionIgniteUI(cb) {
-    let packageFile = fs.readFileSync("./package.json");
-    let packageJson = JSON.parse(packageFile.toString());
-    let packageData = JSON.stringify(packageJson.dependencies, null, ' ');
+function logSampleNames(cb) {
+    gulp.src([
+      './samples/**/package.json',
+     '!./samples/**/node_modules/**/package.json',
+     '!./samples/**/node_modules/**',
+     '!./samples/**/node_modules',
+    ])
+    .pipe(es.map(function(file, cbFile) {
+        console.log(file.dirname.split('samples')[1]);
+        cbFile(null, file);
+    })
+    .on("end", function() { cb();
+    }));
 
-    let igPackages = [];
-    for (const line of packageData.split('\n')) {
-        if (line.indexOf('igniteui-') > 0) {
-            let packageLine = Strings.replace(line, ',', '')
-            packageLine = Strings.replace(packageLine, '"', '');
-            packageLine = Strings.replace(packageLine, '@infragistics/', '');
-            let packagePair = packageLine.split(':');
-            let packageVersion = packagePair[1].trim();
-            let packageName = packagePair[0].trim();
+} exports.logSampleNames = logSampleNames;
 
-            console.log('>> using package: ' + packageVersion + ' ' + packageName);
-            let package = { ver: packageVersion, name: packageName };
-            igPackages.push(package);
+// logs currently installed packages in console and in ./browser/src/BrowserInfo.json
+function logPackages(cb) {
+    let fileNames = [];
+    gulp.src([
+        './node_modules/igniteui*/package.json',
+        './node_modules/@infragistics/igniteui*/package.json',
+        './node_modules/lit*/package.json',
+        './node_modules/typescript/package.json',
+        './node_modules/webpack/package.json',
+        './node_modules/worker-loader/package.json',
+        './node_modules/@webcomponents/**/package.json',
+       '!./node_modules/**/node_modules/**/package.json',
+    ])
+    .pipe(es.map(function(file, cbFile) {
+        // console.log("logPackages " + filePath);
+        var fileContent = file.contents.toString();
+        var fileLines = fileContent.split('\n');
+        let v = false;
+        let n = false;
+        for (const line of fileLines) {
+            // console.log(line);
+            if (line.indexOf('"name":') >= 0) {
+                n = line.replace('"name":', '').replace(',', '').trim();
+                n = n.split('"').join('');
+            }
+            if (line.indexOf('"version":') >= 0) {
+                v = line.replace('"version":', '').replace(',', '').trim();
+                v = v.split('"').join('');
+                v = '"' + v + '",';
+                v = v.padEnd(Math.max(14, v.length), ' ');
+            }
+            if (n && v) {
+                fileNames.push('{ "version": ' + v + ' "name": "' + n + '" }');
+                break;
+            }
         }
-    }
 
-    let outputText = '[\r\n';
-    for (let i = 0; i < igPackages.length; i++) {
-        outputText += JSON.stringify(igPackages[i]);
-        if (i < igPackages.length - 1)
-            outputText += ',';
-        outputText += '\r\n';
-    }
-    outputText += "]";
-
-    const outputPath = "./browser/src/BrowserInfo.json";
-
-    fs.writeFileSync(outputPath, outputText);
-    cb();
-} exports.logVersionIgniteUI = logVersionIgniteUI;
-
-function logVersionTypescript(cb) {
-    var packageFile = fs.readFileSync("./node_modules/typescript/package.json", "utf8");
-    let packageJson = JSON.parse(packageFile.toString());
-    let packageData = JSON.stringify(packageJson.version, null, ' ');
-    console.log(">> using package: " + packageData + ' typescript' );
-    cb();
-} exports.logVersionTypescript = logVersionTypescript;
-
-
+        cbFile(null, file);
+    }))
+    .on("end", function() {
+        const outputPath = "./browser/src/BrowserInfo.json";
+        // let outputContent = JSON.stringify(fileNames, null, ' ');
+        let outputContent = '[\n' + fileNames.join(',\n') + '\n]';
+        fs.writeFileSync(outputPath, outputContent);
+        console.log(">> using packages: ");
+        console.log(outputContent);
+        cb();
+    });
+} exports.logPackages = logPackages;
 
 function updateIG(cb) {
 
@@ -881,43 +936,43 @@ function updateIG(cb) {
     // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-webcomponents-core"                     , version: "4.0.2" },
-        { name: "igniteui-webcomponents-charts"                   , version: "4.0.2" },
-        { name: "igniteui-webcomponents-excel"                    , version: "4.0.2" },
-        { name: "igniteui-webcomponents-gauges"                   , version: "4.0.2" },
-        { name: "igniteui-webcomponents-grids"                    , version: "4.0.2" },
-        { name: "igniteui-webcomponents-inputs"                   , version: "4.0.2" },
-        { name: "igniteui-webcomponents-layouts"                  , version: "4.0.2" },
-        { name: "igniteui-webcomponents-maps"                     , version: "4.0.2" },
-        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.0.2" },
-        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.0.2" },
-        { name: "igniteui-webcomponents-datasources"              , version: "4.0.2" },
+        { name: "igniteui-webcomponents-core"                     , version: "4.2.5" },
+        { name: "igniteui-webcomponents-charts"                   , version: "4.2.5" },
+        { name: "igniteui-webcomponents-excel"                    , version: "4.2.5" },
+        { name: "igniteui-webcomponents-gauges"                   , version: "4.2.5" },
+        { name: "igniteui-webcomponents-grids"                    , version: "4.2.5" },
+        { name: "igniteui-webcomponents-inputs"                   , version: "4.2.5" },
+        { name: "igniteui-webcomponents-layouts"                  , version: "4.2.5" },
+        { name: "igniteui-webcomponents-maps"                     , version: "4.2.5" },
+        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.2.5" },
+        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.2.5" },
+        { name: "igniteui-webcomponents-datasources"              , version: "4.2.5" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "4.0.0"  },
-        { name: "igniteui-dockmanager", version: "1.11.3" },
+        { name: "igniteui-webcomponents", version: "4.2.2"  },
+        { name: "igniteui-dockmanager", version: "1.12.4" },
+        // other packages:
+        { name: "webpack", version: "^5.74.0"  },
+        { name: "webpack-cli", version: "^4.10.0"  },
+        { name: "webpack-dev-server", version: "^4.11.1"  },
     ];
 
-    // NOTE you can comment out strings in this array to run these function only on a subset of samples
     var packagePaths = [
         './package.json', // browser
         './samples/**/package.json',
-        // '../samples/charts/**/package.json',
-        // '../samples/editors/**/package.json',
-        // '../samples/excel/**/package.json',
-        // '../samples/gauges/**/package.json',
-        // '../samples/grids/**/package.json',
-        // '../samples/inputs/**/package.json',
-        // '../samples/layouts/**/package.json',
-        // '../samples/maps/**/package.json',
-        // '../samples/menus/**/package.json',
-        // '../samples/notifications/**/package.json',
-        // '../samples/scheduling/**/package.json',
-
-        // '../samples/charts/category-chart/**/package.json',
-        // '../samples/maps/geo-map/type-scatter-bubble-series/package.json',
-        '!../samples/**/node_modules/**/package.json',
-        '!../samples/**/node_modules/**',
-        '!../samples/**/node_modules',
+        // './samples/charts/**/package.json',
+        // './samples/editors/**/package.json',
+        // './samples/excel/**/package.json',
+        // './samples/gauges/**/package.json',
+        // './samples/grids/**/package.json',
+        // './samples/inputs/**/package.json',
+        // './samples/layouts/**/package.json',
+        // './samples/maps/**/package.json',
+        // './samples/menus/**/package.json',
+        // './samples/notifications/**/package.json',
+        // './samples/scheduling/**/package.json',
+        // './samples/charts/category-chart/**/package.json',
+        // './samples/maps/geo-map/type-scatter-bubble-series/package.json',
+        '!./samples/**/node_modules/**/package.json',
     ];
 
     // creating package mapping without proget prefix so we can upgrade to/from proget packages

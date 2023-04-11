@@ -6,7 +6,9 @@ import { html, nothing } from 'lit-html';
 import { IgcBadgeComponent } from 'igniteui-webcomponents';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
 
 export class Sample {
 
@@ -19,10 +21,9 @@ export class Sample {
         if (this._columnPipeArgs1 == null)
         {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs1.digitsInfo = "1.2-2";
             columnPipeArgs1.currencyCode = "USD";
-            
-            
+            columnPipeArgs1.digitsInfo = "1.2-2";
+
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -35,8 +36,7 @@ export class Sample {
             var columnPipeArgs2: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs2.currencyCode = "USD";
             columnPipeArgs2.digitsInfo = "1.2-2";
-            
-            
+
             this._columnPipeArgs2 = columnPipeArgs2;
         }
         return this._columnPipeArgs2;
@@ -49,8 +49,7 @@ export class Sample {
             var columnPipeArgs3: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs3.currencyCode = "USD";
             columnPipeArgs3.digitsInfo = "1.2-2";
-            
-            
+
             this._columnPipeArgs3 = columnPipeArgs3;
         }
         return this._columnPipeArgs3;
@@ -74,22 +73,22 @@ export class Sample {
         var column9 = this.column9 = document.getElementById('column9') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.financialDataAll
-            column1.headerTemplate = this.webGridPinHeaderTemplate
-            column2.headerTemplate = this.webGridPinHeaderTemplate
-            column3.headerTemplate = this.webGridPinHeaderTemplate
-            column3.pipeArgs = this.columnPipeArgs1
-            column4.headerTemplate = this.webGridPinHeaderTemplate
-            column4.pipeArgs = this.columnPipeArgs2
-            column5.headerTemplate = this.webGridPinHeaderTemplate
-            column5.pipeArgs = this.columnPipeArgs3
-            column6.headerTemplate = this.webGridPinHeaderTemplate
-            column7.headerTemplate = this.webGridPinHeaderTemplate
-            column7.bodyTemplate = this.webGridCurrencyCellTemplate
-            column8.headerTemplate = this.webGridPinHeaderTemplate
-            column8.bodyTemplate = this.webGridCurrencyCellTemplate
-            column9.headerTemplate = this.webGridPinHeaderTemplate
-            column9.bodyTemplate = this.webGridCurrencyCellTemplate
+            grid.data = this.financialDataAll;
+            column1.headerTemplate = this.webGridPinHeaderTemplate;
+            column2.headerTemplate = this.webGridPinHeaderTemplate;
+            column3.pipeArgs = this.columnPipeArgs1;
+            column3.headerTemplate = this.webGridPinHeaderTemplate;
+            column4.pipeArgs = this.columnPipeArgs2;
+            column4.headerTemplate = this.webGridPinHeaderTemplate;
+            column5.pipeArgs = this.columnPipeArgs3;
+            column5.headerTemplate = this.webGridPinHeaderTemplate;
+            column6.headerTemplate = this.webGridPinHeaderTemplate;
+            column7.bodyTemplate = this.webGridCurrencyCellTemplate;
+            column7.headerTemplate = this.webGridPinHeaderTemplate;
+            column8.bodyTemplate = this.webGridCurrencyCellTemplate;
+            column8.headerTemplate = this.webGridPinHeaderTemplate;
+            column9.bodyTemplate = this.webGridCurrencyCellTemplate;
+            column9.headerTemplate = this.webGridPinHeaderTemplate;
         }
         this._bind();
 
@@ -103,20 +102,17 @@ export class Sample {
         }
         return this._financialDataAll;
     }
-    
 
 
-    
     public webGridPinHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
-    
+
         const column = (ctx as any).column;
         return html`<div>
                      <span style="float:left">${column.field}</span>
                      <span style="float:right" @pointerdown=${(e: any) => this.toggleColumnPin(column.field)}>📌</span>
                    </div>`;
         };
-    
-    
+
     public webGridCurrencyCellTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value > 0) {
             return html`<div>
@@ -130,7 +126,7 @@ export class Sample {
             </div>`;
         };
     }
-    
+
     public toggleColumnPin(field: string) {
         var grid = document.getElementsByTagName("igc-grid")[0] as IgcGridComponent;
         var col = grid.getColumnByName(field);

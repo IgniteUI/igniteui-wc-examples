@@ -11,16 +11,16 @@ ModuleManager.register(
 export class Sample {
 
     private chart: IgcSparklineComponent
-
     private _bind: () => void;
 
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcSparklineComponent;
 
         this._bind = () => {
-            chart.dataSource = this.sparklineMixedData
+            chart.dataSource = this.sparklineMixedData;
         }
         this._bind();
+
     }
 
     private _sparklineMixedData: SparklineMixedData = null;
@@ -31,9 +31,6 @@ export class Sample {
         }
         return this._sparklineMixedData;
     }
-    
-
-
 
 }
 

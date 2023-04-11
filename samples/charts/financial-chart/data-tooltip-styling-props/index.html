@@ -17,27 +17,25 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-financial-chart
-        is-horizontal-zoom-enabled="true"
-        zoom-slider-type="None"
+        name="chart"
+        id="chart"
         is-vertical-zoom-enabled="true"
-        y-axis-title="Thousands of Dollars ($)"
+        is-horizontal-zoom-enabled="true"
+        tool-tip-type="Data"
         data-tool-tip-included-columns="Open, Close, High, Low, Change"
+        data-tool-tip-label-text-color="rgba(74, 74, 74, 1)"
+        data-tool-tip-units-text="K"
+        data-tool-tip-units-text-color="rgba(0, 173, 3, 1)"
+        data-tool-tip-units-text-style="normal bold 14px Verdana"
         data-tool-tip-value-format-mode="Currency"
         data-tool-tip-value-text-color="rgba(0, 173, 3, 1)"
         data-tool-tip-value-text-style="normal bold 14px Verdana"
         data-tool-tip-header-format-time="None"
-        data-tool-tip-units-text="K"
-        data-tool-tip-units-text-color="rgba(0, 173, 3, 1)"
-        data-tool-tip-units-text-style="normal bold 14px Verdana"
-        data-tool-tip-label-text-color="rgba(74, 74, 74, 1)"
-        tool-tip-type="Data"
-        name="chart"
-        id ="chart">
+        y-axis-title="Thousands of Dollars ($)"
+        zoom-slider-type="None">
         </igc-financial-chart>
     </div>
 </div>

@@ -1,5 +1,5 @@
-import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
-import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcStackedSplineSeriesComponent, IgcStackedFragmentSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcDataChartStackedModule, IgcStackedFragmentSeriesModule } from 'igniteui-webcomponents-charts';
+import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcStackedSplineSeriesComponent, IgcStackedFragmentSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -10,6 +10,7 @@ ModuleManager.register(
     IgcDataChartCategoryModule,
     IgcDataChartCategoryCoreModule,
     IgcDataChartInteractivityModule,
+    IgcDataChartAnnotationModule,
     IgcDataChartStackedModule,
     IgcStackedFragmentSeriesModule
 );
@@ -26,7 +27,7 @@ export class Sample {
     private s3: IgcStackedFragmentSeriesComponent
     private s4: IgcStackedFragmentSeriesComponent
     private s5: IgcStackedFragmentSeriesComponent
-
+    private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -40,15 +41,17 @@ export class Sample {
         var s3 = this.s3 = document.getElementById('s3') as IgcStackedFragmentSeriesComponent;
         var s4 = this.s4 = document.getElementById('s4') as IgcStackedFragmentSeriesComponent;
         var s5 = this.s5 = document.getElementById('s5') as IgcStackedFragmentSeriesComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            xAxis.dataSource = this.continentsBirthRate
-            stackedSplineSeries.xAxis = this.xAxis
-            stackedSplineSeries.yAxis = this.yAxis
-            stackedSplineSeries.dataSource = this.continentsBirthRate
+            chart.legend = this.legend;
+            xAxis.dataSource = this.continentsBirthRate;
+            stackedSplineSeries.dataSource = this.continentsBirthRate;
+            stackedSplineSeries.xAxis = this.xAxis;
+            stackedSplineSeries.yAxis = this.yAxis;
         }
         this._bind();
+
     }
 
     private _continentsBirthRate: ContinentsBirthRate = null;
@@ -59,9 +62,6 @@ export class Sample {
         }
         return this._continentsBirthRate;
     }
-    
-
-
 
 }
 

@@ -17,50 +17,47 @@
     <div id="root">
 
 <div class="container sample">
-    
-        <div class="legend-title">
+
+    <div class="legend-title">
         Where Online Shoppers Start Their Search
     </div>
-    
-    
+
     <div class="container fill">
         <igc-data-chart
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
         name="Chart"
-        id ="Chart">
+        id="Chart"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false">
             <igc-category-y-axis
-            
-            gap="0.5"
-            overlap="-0.1"
-            is-inverted="true"
+            name="yAxis"
+            id="yAxis"
+            label="shop"
             use-enhanced-interval-management="true"
             enhanced-interval-prefer-more-category-labels="true"
-            label="shop"
-            name="yAxis"
-            id ="yAxis">
+            is-inverted="true"
+            gap="0.5"
+            overlap="-0.1">
             </igc-category-y-axis>
             <igc-numeric-x-axis
-            label-format="{0}%"
             name="xAxis"
-            id ="xAxis">
+            id="xAxis"
+            label-format="{0}%">
             </igc-numeric-x-axis>
             <igc-category-highlight-layer
             name="CategoryHighlightLayer"
-            id ="CategoryHighlightLayer">
+            id="CategoryHighlightLayer">
             </igc-category-highlight-layer>
             <igc-bar-series
-            
-            value-member-path="percent"
-            is-transition-in-enabled="true"
-            is-highlighting-enabled="true"
-            show-default-tooltip="true"
             name="BarSeries1"
-            id ="BarSeries1">
+            id="BarSeries1"
+            value-member-path="percent"
+            show-default-tooltip="true"
+            is-transition-in-enabled="true"
+            is-highlighting-enabled="true">
             </igc-bar-series>
             <igc-data-tool-tip-layer
             name="Tooltips"
-            id ="Tooltips">
+            id="Tooltips">
             </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>

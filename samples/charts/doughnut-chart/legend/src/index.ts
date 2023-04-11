@@ -14,7 +14,6 @@ export class Sample {
     private legend: IgcItemLegendComponent
     private chart: IgcDoughnutChartComponent
     private series: IgcRingSeriesComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -23,10 +22,11 @@ export class Sample {
         var series = this.series = document.getElementById('series') as IgcRingSeriesComponent;
 
         this._bind = () => {
-            series.dataSource = this.energyGlobalDemand
-            series.legend = this.legend
+            series.dataSource = this.energyGlobalDemand;
+            series.legend = this.legend;
         }
         this._bind();
+
     }
 
     private _energyGlobalDemand: EnergyGlobalDemand = null;
@@ -37,9 +37,6 @@ export class Sample {
         }
         return this._energyGlobalDemand;
     }
-    
-
-
 
 }
 

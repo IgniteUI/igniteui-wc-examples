@@ -2,7 +2,7 @@ export class EmployeesNestedDataItem {
     public constructor(init: Partial<EmployeesNestedDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public ID: number;
     public Age: number;
     public Salary: number;
@@ -20,7 +20,7 @@ export class EmployeesNestedDataItem_EmployeesItem {
     public constructor(init: Partial<EmployeesNestedDataItem_EmployeesItem>) {
         Object.assign(this, init);
     }
-    
+
     public Age: number;
     public Salary: number;
     public Productivity: number;
@@ -101,7 +101,7 @@ export class EmployeesNestedData extends Array<EmployeesNestedDataItem> {
                     Name: `Roland Mendel`,
                     Title: `Senior Software Developer`
                 })]
-            
+
         }));
         this.push(new EmployeesNestedDataItem(
         {
@@ -155,7 +155,7 @@ export class EmployeesNestedData extends Array<EmployeesNestedDataItem> {
                     Name: `Trevor Ashworth`,
                     Title: `Director`
                 })]
-            
+
         }));
         this.push(new EmployeesNestedDataItem(
         {
@@ -222,7 +222,7 @@ export class EmployeesNestedData extends Array<EmployeesNestedDataItem> {
                     Name: `Monica Mendel`,
                     Title: `Senior Software Developer`
                 })]
-            
+
         }));
         this.push(new EmployeesNestedDataItem(
         {
@@ -263,7 +263,7 @@ export class EmployeesNestedData extends Array<EmployeesNestedDataItem> {
                     Name: `Roland Mendel`,
                     Title: `Senior Software Developer`
                 })]
-            
+
         }));
         this.push(new EmployeesNestedDataItem(
         {
@@ -304,7 +304,7 @@ export class EmployeesNestedData extends Array<EmployeesNestedDataItem> {
                     Name: `Monica Reyes`,
                     Title: `Software Development Team Lead`
                 })]
-            
+
         }));
         this.push(new EmployeesNestedDataItem(
         {
@@ -345,7 +345,7 @@ export class EmployeesNestedData extends Array<EmployeesNestedDataItem> {
                     Name: `Roland Mendel`,
                     Title: `Senior Software Developer`
                 })]
-            
+
         }));
     }
 }

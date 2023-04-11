@@ -17,23 +17,22 @@
     <div id="root">
 
 <div class="container sample">
-    
-        <div class="legend-title">
+
+    <div class="legend-title">
         Renewable Electricity Generated
     </div>
-    
-    
+
     <div class="container fill">
         <igc-category-chart
+        name="chart"
+        id="chart"
         chart-type="StepLine"
-        is-category-highlighting-enabled="true"
-        y-axis-title="TWh"
         included-properties="year, europe"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
-        crosshairs-snap-to-data="true"
-        name="chart"
-        id ="chart">
+        y-axis-title="TWh"
+        is-category-highlighting-enabled="true"
+        crosshairs-snap-to-data="true">
         </igc-category-chart>
     </div>
 </div>

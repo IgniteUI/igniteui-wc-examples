@@ -17,15 +17,13 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
         primary-key="ProductID"
         name="grid1"
-        id ="grid1">
+        id="grid1">
             <igc-column
             field="ProductName"
             header="Product Name"
@@ -38,20 +36,20 @@
             editable="true">
             </igc-column>
             <igc-column
+            name="UnitsInStock"
+            id="UnitsInStock"
             field="UnitsInStock"
             header="Units In Stock"
             data-type="number"
-            editable="true"
-            name="UnitsInStock"
-            id ="UnitsInStock">
+            editable="true">
             </igc-column>
             <igc-column
+            name="UnitsOnOrder"
+            id="UnitsOnOrder"
             field="UnitsOnOrder"
             header="Units on Order"
             data-type="number"
-            editable="true"
-            name="UnitsOnOrder"
-            id ="UnitsOnOrder">
+            editable="true">
             </igc-column>
         </igc-grid>
     </div>

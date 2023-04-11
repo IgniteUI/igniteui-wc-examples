@@ -17,57 +17,55 @@
     <div id="root">
 
 <div class="container sample">
-    
-        <div class="legend-title">
+
+    <div class="legend-title">
         Population Statistics for Selected Continents
     </div>
-    
+
     <div class="legend">
         <igc-legend
-        orientation="Horizontal"
         name="Legend"
-        id ="Legend">
+        id="Legend"
+        orientation="Horizontal">
         </igc-legend>
     </div>
-    
+
     <div class="container fill">
         <igc-data-chart
-        
         name="chart"
-        id ="chart">
+        id="chart">
             <igc-numeric-x-axis
-            minimum-value="5"
-            maximum-value="15"
-            title="Death Rate (per 1,000 people)"
             name="xAxis"
-            id ="xAxis">
+            id="xAxis"
+            title="Death Rate (per 1,000 people)"
+            minimum-value="5"
+            maximum-value="15">
             </igc-numeric-x-axis>
             <igc-numeric-y-axis
+            name="yAxis"
+            id="yAxis"
+            title="Birth Rate (per 1,000 people)"
             minimum-value="0"
             maximum-value="50"
-            interval="10"
-            title="Birth Rate (per 1,000 people)"
-            name="yAxis"
-            id ="yAxis">
+            interval="10">
             </igc-numeric-y-axis>
             <igc-scatter-series
-            
+            name="ScatterSeries1"
+            id="ScatterSeries1"
+            title="Europe"
             x-member-path="deathRate"
             y-member-path="birthRate"
             marker-type="Circle"
-            show-default-tooltip="true"
-            title="Europe"
-            name="ScatterSeries1"
-            id ="ScatterSeries1">
+            show-default-tooltip="true">
             </igc-scatter-series>
             <igc-scatter-series
+            name="ScatterSeries2"
+            id="ScatterSeries2"
             title="Africa"
             x-member-path="deathRate"
             y-member-path="birthRate"
             marker-type="Circle"
-            show-default-tooltip="true"
-            name="ScatterSeries2"
-            id ="ScatterSeries2">
+            show-default-tooltip="true">
             </igc-scatter-series>
         </igc-data-chart>
     </div>

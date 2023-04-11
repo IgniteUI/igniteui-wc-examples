@@ -22,7 +22,6 @@ export class Sample {
     private normalRangeMinimumEditor: IgcPropertyEditorPropertyDescriptionComponent
     private normalRangeMaximumEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcSparklineComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -33,11 +32,12 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcSparklineComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
-            propertyEditorPanel1.target = this.chart
-            chart.dataSource = this.sparklineMixedData
+            propertyEditorPanel1.componentRenderer = this.renderer;
+            propertyEditorPanel1.target = this.chart;
+            chart.dataSource = this.sparklineMixedData;
         }
         this._bind();
+
     }
 
     private _sparklineMixedData: SparklineMixedData = null;
@@ -48,7 +48,6 @@ export class Sample {
         }
         return this._sparklineMixedData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -60,7 +59,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 
 }
 

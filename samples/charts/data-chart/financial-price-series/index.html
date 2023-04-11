@@ -17,45 +17,43 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-data-chart
-        is-horizontal-zoom-enabled="true"
-        is-vertical-zoom-enabled="true"
+        name="chart"
+        id="chart"
         should-auto-expand-margin-for-initial-labels="true"
         computed-plot-area-margin-mode="Series"
-        name="chart"
-        id ="chart">
+        is-vertical-zoom-enabled="true"
+        is-horizontal-zoom-enabled="true">
             <igc-category-x-axis
-            interval="1"
-            label-location="OutsideBottom"
-            label-extent="30"
-            label="month"
             name="xAxis"
-            id ="xAxis">
+            id="xAxis"
+            label-location="OutsideBottom"
+            label="month"
+            interval="1"
+            label-extent="30">
             </igc-category-x-axis>
             <igc-numeric-y-axis
-            label-location="OutsideRight"
             name="yAxis"
-            id ="yAxis">
+            id="yAxis"
+            label-location="OutsideRight">
             </igc-numeric-y-axis>
             <igc-financial-price-series
+            name="Series1"
+            id="Series1"
+            title="Stock Price"
             display-type="Candlestick"
             open-member-path="open"
             high-member-path="high"
             low-member-path="low"
             close-member-path="close"
             volume-member-path="volume"
-            show-default-tooltip="true"
-            title="Stock Price"
-            name="Series1"
-            id ="Series1">
+            show-default-tooltip="true">
             </igc-financial-price-series>
             <igc-data-tool-tip-layer
             name="Tooltip"
-            id ="Tooltip">
+            id="Tooltip">
             </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>

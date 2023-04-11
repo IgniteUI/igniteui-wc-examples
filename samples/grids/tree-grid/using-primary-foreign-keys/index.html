@@ -17,37 +17,35 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        foreign-key="ParentID"
-        id="treeGrid"
-        moving="true"
-        primary-key="ID"
-        allow-filtering="true"
-        row-selection="multiple"
         name="treeGrid"
-        id ="treeGrid">
+        id="treeGrid"
+        id="treeGrid"
+        primary-key="ID"
+        foreign-key="ParentID"
+        allow-filtering="true"
+        moving="true"
+        row-selection="multiple">
             <igc-column
-            field="name"
-            sortable="true"
-            editable="true"
-            resizable="true"
-            data-type="string">
-            </igc-column>
-            <igc-column
-            field="title"
+            field="Name"
             data-type="string"
             sortable="true"
             editable="true"
-            resizable="true"
-            header="Job Title">
+            resizable="true">
             </igc-column>
             <igc-column
-            field="age"
+            field="Title"
+            header="Job Title"
+            data-type="string"
+            sortable="true"
+            editable="true"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="Age"
             data-type="number"
             sortable="true"
             editable="true"

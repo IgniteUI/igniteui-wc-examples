@@ -17,35 +17,35 @@
     <div id="root">
 
 <div class="container sample">
-    
-        <div class="legend-title">
+
+    <div class="legend-title">
         Renewable Electricity Generated
     </div>
-    
+
     <div class="legend">
         <igc-legend
-        orientation="Horizontal"
         name="Legend"
-        id ="Legend">
+        id="Legend"
+        orientation="Horizontal">
         </igc-legend>
     </div>
-    
+
     <div class="container fill">
         <igc-category-chart
+        name="chart"
+        id="chart"
         chart-type="SplineArea"
-        is-transition-in-enabled="true"
         y-axis-title="TWh"
-        brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
-        outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
-        is-horizontal-zoom-enabled="false"
+        is-transition-in-enabled="true"
         is-vertical-zoom-enabled="false"
+        is-horizontal-zoom-enabled="false"
         marker-brushes="white"
         marker-outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
+        brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
+        outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
         computed-plot-area-margin-mode="Series"
         highlighting-mode="FadeOthersSpecific"
-        highlighting-behavior="NearestItemsAndSeries"
-        name="chart"
-        id ="chart">
+        highlighting-behavior="NearestItemsAndSeries">
         </igc-category-chart>
     </div>
 </div>

@@ -28,7 +28,6 @@ export class Sample {
     private calloutLayer1: IgcCalloutLayerComponent
     private calloutLayer2: IgcCalloutLayerComponent
     private tooltips: IgcDataToolTipLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -45,19 +44,20 @@ export class Sample {
         var tooltips = this.tooltips = document.getElementById('Tooltips') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            yAxis1.dataSource = this.roadblocksToSuccess
-            yAxis2.dataSource = this.roadblocksToSuccess
-            barSeries1.xAxis = this.xAxis
-            barSeries1.yAxis = this.yAxis1
-            barSeries1.dataSource = this.roadblocksToSuccess
-            barSeries2.xAxis = this.xAxis
-            barSeries2.yAxis = this.yAxis2
-            barSeries2.dataSource = this.roadblocksToSuccess
-            calloutLayer1.dataSource = this.roadblocksToSuccess
-            calloutLayer2.dataSource = this.roadblocksToSuccess
+            chart.legend = this.legend;
+            yAxis1.dataSource = this.roadblocksToSuccess;
+            yAxis2.dataSource = this.roadblocksToSuccess;
+            barSeries1.xAxis = this.xAxis;
+            barSeries1.yAxis = this.yAxis1;
+            barSeries1.dataSource = this.roadblocksToSuccess;
+            barSeries2.xAxis = this.xAxis;
+            barSeries2.yAxis = this.yAxis2;
+            barSeries2.dataSource = this.roadblocksToSuccess;
+            calloutLayer1.dataSource = this.roadblocksToSuccess;
+            calloutLayer2.dataSource = this.roadblocksToSuccess;
         }
         this._bind();
+
     }
 
     private _roadblocksToSuccess: RoadblocksToSuccess = null;
@@ -68,9 +68,6 @@ export class Sample {
         }
         return this._roadblocksToSuccess;
     }
-    
-
-
 
 }
 

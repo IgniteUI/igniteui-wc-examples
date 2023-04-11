@@ -22,7 +22,6 @@ export class Sample {
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
     private xAxisOverlap: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcCategoryChartComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -32,11 +31,12 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer
-            propertyEditorPanel1.target = this.chart
-            chart.dataSource = this.highestGrossingMovies
+            propertyEditorPanel1.componentRenderer = this.renderer;
+            propertyEditorPanel1.target = this.chart;
+            chart.dataSource = this.highestGrossingMovies;
         }
         this._bind();
+
     }
 
     private _highestGrossingMovies: HighestGrossingMovies = null;
@@ -47,7 +47,6 @@ export class Sample {
         }
         return this._highestGrossingMovies;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -60,7 +59,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 
 }
 

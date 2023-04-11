@@ -11,16 +11,16 @@ ModuleManager.register(
 export class Sample {
 
     private chart: IgcCategoryChartComponent
-
     private _bind: () => void;
 
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
-            chart.dataSource = this.temperatureAverageData
+            chart.dataSource = this.temperatureAverageData;
         }
         this._bind();
+
     }
 
     private _temperatureAverageData: TemperatureAverageData = null;
@@ -31,9 +31,6 @@ export class Sample {
         }
         return this._temperatureAverageData;
     }
-    
-
-
 
 }
 

@@ -17,93 +17,89 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-        
+        name="PropertyEditor"
+        id="PropertyEditor"
         description-type="WebGrid"
         is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="PropertyEditor"
-        id ="PropertyEditor">
+        is-wrapping-enabled="true">
             <igc-property-editor-property-description
             property-path="RowEditable"
-            value-type="Boolean1"
-            primitive-value="True"
             name="RowEditableEditor"
-            id ="RowEditableEditor">
+            id="RowEditableEditor"
+            value-type="Boolean1"
+            primitive-value="True">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
-    
-    
-    
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        primary-key="ID"
-        row-editable="true"
-        batch-editing="true"
         name="grid"
-        id ="grid">
+        id="grid"
+        row-editable="true"
+        primary-key="ID">
             <igc-column
+            name="Avatar"
+            id="Avatar"
             field="Avatar"
             header="Avatar"
-            editable="false"
-            width="80px"
             data-type="string"
-            name="Avatar"
-            id ="Avatar">
+            editable="false"
+            width="80px">
             </igc-column>
             <igc-column
             name="Name"
-            id ="Name"
+            id="Name"
             field="Name"
             header="Name"
             editable="true">
             </igc-column>
             <igc-column
             name="Company"
-            id ="Company"
+            id="Company"
             field="Company"
             header="Company"
             editable="true">
             </igc-column>
             <igc-column
             name="Email"
-            id ="Email"
+            id="Email"
             field="Email"
             header="Email"
-            editable="true"
-            width="190px">
+            width="190px"
+            editable="true">
             </igc-column>
             <igc-column
             name="Fax"
-            id ="Fax"
+            id="Fax"
             field="Fax"
             header="Phone"
             editable="true">
             </igc-column>
             <igc-column
             name="CreatedOn"
-            id ="CreatedOn"
+            id="CreatedOn"
             field="CreatedOn"
             header="Date of Registration"
+            width="170px"
             data-type="date"
-            editable="true"
-            width="170px">
+            editable="true">
             </igc-column>
             <igc-column
             name="LastActivity"
-            id ="LastActivity"
+            id="LastActivity"
             field="LastActivity"
             header="Last Active"
+            width="170px"
             data-type="date"
-            editable="true"
-            width="170px">
+            editable="true">
             </igc-column>
             <igc-column
             name="EstimatedSales"
-            id ="EstimatedSales"
+            id="EstimatedSales"
             field="EstimatedSales"
             header="Estimated Sales"
             data-type="number"
@@ -111,7 +107,7 @@
             </igc-column>
             <igc-column
             name="DealsLost"
-            id ="DealsLost"
+            id="DealsLost"
             field="DealsLost"
             header="Deals Lost"
             data-type="number"
@@ -119,7 +115,7 @@
             </igc-column>
             <igc-column
             name="DealsWon"
-            id ="DealsWon"
+            id="DealsWon"
             field="DealsWon"
             header="Deals Won"
             data-type="number"
@@ -127,7 +123,7 @@
             </igc-column>
             <igc-column
             name="DealsPending"
-            id ="DealsPending"
+            id="DealsPending"
             field="DealsPending"
             header="Deals Pending"
             data-type="number"

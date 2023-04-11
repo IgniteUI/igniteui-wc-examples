@@ -24,7 +24,6 @@ export class Sample {
     private barSeries1: IgcBarSeriesComponent
     private barSeries2: IgcBarSeriesComponent
     private tooltips: IgcDataToolTipLayerComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -38,16 +37,17 @@ export class Sample {
         var tooltips = this.tooltips = document.getElementById('Tooltips') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            yAxis.dataSource = this.highestGrossingMovies
-            barSeries1.xAxis = this.xAxis
-            barSeries1.yAxis = this.yAxis
-            barSeries1.dataSource = this.highestGrossingMovies
-            barSeries2.xAxis = this.xAxis
-            barSeries2.yAxis = this.yAxis
-            barSeries2.dataSource = this.highestGrossingMovies
+            chart.legend = this.legend;
+            yAxis.dataSource = this.highestGrossingMovies;
+            barSeries1.xAxis = this.xAxis;
+            barSeries1.yAxis = this.yAxis;
+            barSeries1.dataSource = this.highestGrossingMovies;
+            barSeries2.xAxis = this.xAxis;
+            barSeries2.yAxis = this.yAxis;
+            barSeries2.dataSource = this.highestGrossingMovies;
         }
         this._bind();
+
     }
 
     private _highestGrossingMovies: HighestGrossingMovies = null;
@@ -58,9 +58,6 @@ export class Sample {
         }
         return this._highestGrossingMovies;
     }
-    
-
-
 
 }
 

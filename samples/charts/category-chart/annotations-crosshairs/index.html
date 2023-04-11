@@ -17,56 +17,54 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-        
+        name="PropertyEditor"
+        id="PropertyEditor"
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="PropertyEditor"
-        id ="PropertyEditor">
+        is-wrapping-enabled="true">
             <igc-property-editor-property-description
             property-path="CrosshairsDisplayMode"
-            label="Crosshairs Display Mode:"
-            primitive-value="Both"
             name="CrosshairsDisplayModeEditor"
-            id ="CrosshairsDisplayModeEditor">
+            id="CrosshairsDisplayModeEditor"
+            label="Crosshairs Display Mode: "
+            primitive-value="Both">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="CrosshairsSnapToData"
-            label="Crosshairs Snap to Data"
-            primitive-value="True"
-            should-override-default-editor="true"
             name="CrosshairsSnapToDataEditor"
-            id ="CrosshairsSnapToDataEditor">
+            id="CrosshairsSnapToDataEditor"
+            label="Crosshairs Snap to Data"
+            should-override-default-editor="true"
+            primitive-value="True">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
-    
-        <div class="legend-title">
-        Average Temperature in Sedney
+
+    <div class="legend-title">
+        Average Temperature in Sydney
     </div>
-    
-    
+
     <div class="container fill">
         <igc-category-chart
+        name="chart"
+        id="chart"
         chart-type="Column"
-        y-axis-maximum-value="35"
-        y-axis-label-location="OutsideRight"
-        included-properties="month, temperature"
+        computed-plot-area-margin-mode="Series"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
-        computed-plot-area-margin-mode="Series"
+        included-properties="month, temperature"
         crosshairs-display-mode="Both"
-        crosshairs-snap-to-data="true"
-        crosshairs-line-vertical-stroke="black"
-        crosshairs-line-thickness="2"
-        crosshairs-line-horizontal-stroke="dodgerblue"
+        crosshairs-annotation-y-axis-precision="0"
         crosshairs-annotation-x-axis-background="black"
         crosshairs-annotation-y-axis-background="dodgerblue"
-        crosshairs-annotation-y-axis-precision="0"
-        name="chart"
-        id ="chart">
+        crosshairs-line-horizontal-stroke="dodgerblue"
+        crosshairs-line-vertical-stroke="black"
+        crosshairs-line-thickness="2"
+        crosshairs-snap-to-data="true"
+        y-axis-maximum-value="35"
+        y-axis-label-location="OutsideRight">
         </igc-category-chart>
     </div>
 </div>

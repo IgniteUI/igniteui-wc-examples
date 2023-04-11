@@ -17,37 +17,34 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-        
+        name="PropertyEditor"
+        id="PropertyEditor"
         description-type="WebGrid"
         is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="PropertyEditor"
-        id ="PropertyEditor">
+        is-wrapping-enabled="true">
             <igc-property-editor-property-description
             value-type="Button"
             primitive-value="Toggle First Group Pinned"
             name="propertyEditorPropertyDescription1"
-            id ="propertyEditorPropertyDescription1">
+            id="propertyEditorPropertyDescription1">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             value-type="Button"
             primitive-value="Toggle First Group Hidden"
             name="propertyEditorPropertyDescription2"
-            id ="propertyEditorPropertyDescription2">
+            id="propertyEditorPropertyDescription2">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
-    
-    
-    
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        id="grid"
         name="grid"
-        id ="grid">
+        id="grid"
+        id="grid">
             <igc-column
             field="ID"
             resizable="true">
@@ -56,20 +53,20 @@
             header="General Information">
                 <igc-column
                 field="CompanyName"
-                resizable="true"
-                sortable="true">
+                sortable="true"
+                resizable="true">
                 </igc-column>
                 <igc-column-group
                 header="Personal Details">
                     <igc-column
                     field="ContactName"
-                    resizable="true"
-                    sortable="true">
+                    sortable="true"
+                    resizable="true">
                     </igc-column>
                     <igc-column
                     field="ContactTitle"
-                    resizable="true"
-                    sortable="true">
+                    sortable="true"
+                    resizable="true">
                     </igc-column>
                 </igc-column-group>
             </igc-column-group>
@@ -79,41 +76,41 @@
                 header="Location">
                     <igc-column
                     field="Country"
-                    resizable="true"
-                    sortable="true">
+                    sortable="true"
+                    resizable="true">
                     </igc-column>
                     <igc-column
                     field="Region"
-                    resizable="true"
-                    sortable="true">
+                    sortable="true"
+                    resizable="true">
                     </igc-column>
                     <igc-column
                     field="City"
-                    resizable="true"
-                    sortable="true">
+                    sortable="true"
+                    resizable="true">
                     </igc-column>
                     <igc-column
                     field="Address"
-                    resizable="true"
-                    sortable="true">
+                    sortable="true"
+                    resizable="true">
                     </igc-column>
                 </igc-column-group>
                 <igc-column-group
                 header="Contact Information">
                     <igc-column
                     field="Phone"
-                    resizable="true"
-                    sortable="true">
+                    sortable="true"
+                    resizable="true">
                     </igc-column>
                     <igc-column
                     field="Fax"
-                    resizable="true"
-                    sortable="true">
+                    sortable="true"
+                    resizable="true">
                     </igc-column>
                     <igc-column
                     field="PostalCode"
-                    resizable="true"
-                    sortable="true">
+                    sortable="true"
+                    resizable="true">
                     </igc-column>
                 </igc-column-group>
             </igc-column-group>

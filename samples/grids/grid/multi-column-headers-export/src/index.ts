@@ -63,10 +63,10 @@ export class Sample {
         var postalCode = this.postalCode = document.getElementById('PostalCode') as IgcColumnComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer
-            propertyEditor.target = this.grid
-            grid.data = this.customersData
-            gridToolbarExporter1.addEventListener("exportStarted", this.webGridExportEventMultiColumnHeaders)
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.grid;
+            grid.data = this.customersData;
+            gridToolbarExporter1.addEventListener("exportStarted", this.webGridExportEventMultiColumnHeaders);
         }
         this._bind();
 
@@ -80,7 +80,6 @@ export class Sample {
         }
         return this._customersData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -94,11 +93,10 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridExportEventMultiColumnHeaders(args: any): void {
         args.options.ignoreMultiColumnHeaders = false;
     }
-        
+
 }
 
 new Sample();

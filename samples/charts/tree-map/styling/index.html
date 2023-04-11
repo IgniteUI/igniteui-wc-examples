@@ -17,87 +17,86 @@
     <div id="root">
 
 <div class="container sample">
-    
-        <div class="legend-title">
+
+    <div class="legend-title">
         Comparing Population of Countries
     </div>
-    
-    
+
     <div class="container fill">
         <igc-treemap
-        value-member-path="population"
-        root-title="Countries"
+        name="treemap"
+        id="treemap"
         parent-id-member-path="parent"
-        label-member-path="name"
         custom-value-member-path="parent"
         id-member-path="name"
+        label-member-path="name"
+        value-member-path="population"
+        root-title="Countries"
+        header-display-mode="Overlay"
+        overlay-header-background="rgba(63, 64, 63, 1)"
         header-hover-background="rgba(63, 64, 63, 1)"
         header-background="rgba(63, 64, 63, 1)"
-        overlay-header-background="rgba(63, 64, 63, 1)"
-        header-display-mode="Overlay"
-        parent-node-left-padding="0"
-        parent-node-top-padding="0"
-        parent-node-right-padding="0"
         parent-node-bottom-padding="0"
+        parent-node-left-padding="0"
+        parent-node-right-padding="0"
+        parent-node-top-padding="0"
         outline="black"
-        stroke-thickness="1"
-        name="treemap"
-        id ="treemap">
+        stroke-thickness="1">
             <igc-treemap-node-style-mapping
-            value="Africa"
-            mapping-mode="CustomValue"
-            fill="rgba(115, 86, 86, 1)"
             name="styling1"
-            id ="styling1">
+            id="styling1"
+            value="Africa"
+            fill="rgba(115, 86, 86, 1)"
+            mapping-mode="CustomValue">
             </igc-treemap-node-style-mapping>
             <igc-treemap-node-style-mapping
+            name="styling2"
+            id="styling2"
             value="Europe"
             fill="rgba(97, 171, 55, 1)"
-            mapping-mode="CustomValue"
-            name="styling2"
-            id ="styling2">
+            mapping-mode="CustomValue">
             </igc-treemap-node-style-mapping>
             <igc-treemap-node-style-mapping
+            name="styling3"
+            id="styling3"
             value="Asia"
             fill="rgba(139, 91, 177, 1)"
-            mapping-mode="CustomValue"
-            name="styling3"
-            id ="styling3">
+            mapping-mode="CustomValue">
             </igc-treemap-node-style-mapping>
             <igc-treemap-node-style-mapping
+            name="styling4"
+            id="styling4"
             value="North America"
             fill="rgba(95, 186, 172, 1)"
-            mapping-mode="CustomValue"
-            name="styling4"
-            id ="styling4">
+            mapping-mode="CustomValue">
             </igc-treemap-node-style-mapping>
             <igc-treemap-node-style-mapping
+            name="styling5"
+            id="styling5"
             value="South America"
             fill="rgba(238, 88, 121, 1)"
-            mapping-mode="CustomValue"
-            name="styling5"
-            id ="styling5">
+            mapping-mode="CustomValue">
             </igc-treemap-node-style-mapping>
             <igc-treemap-node-style-mapping
+            name="styling6"
+            id="styling6"
             value="Middle East"
             fill="rgba(109, 177, 255, 1)"
-            mapping-mode="CustomValue"
-            name="styling6"
-            id ="styling6">
+            mapping-mode="CustomValue">
             </igc-treemap-node-style-mapping>
             <igc-treemap-node-style-mapping
+            name="styling7"
+            id="styling7"
             value="Central America"
             fill="rgba(247, 210, 98, 1)"
-            mapping-mode="CustomValue"
-            name="styling7"
-            id ="styling7">
+            mapping-mode="CustomValue">
             </igc-treemap-node-style-mapping>
             <igc-treemap-node-style-mapping
+            name="styling8"
+            id="styling8"
             value="Oceania"
             fill="rgba(168, 168, 183, 1)"
-            mapping-mode="CustomValue"
-            name="styling8"
-            id ="styling8">
+            mapping-mode="CustomValue">
             </igc-treemap-node-style-mapping>
         </igc-treemap>
     </div>

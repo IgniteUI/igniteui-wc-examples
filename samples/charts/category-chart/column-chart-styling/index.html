@@ -17,35 +17,35 @@
     <div id="root">
 
 <div class="container sample">
-    
-        <div class="legend-title">
+
+    <div class="legend-title">
         Percentage Change in Energy Generation
     </div>
-    
+
     <div class="legend">
         <igc-legend
-        orientation="Horizontal"
         name="Legend"
-        id ="Legend">
+        id="Legend"
+        orientation="Horizontal">
         </igc-legend>
     </div>
-    
+
     <div class="container fill">
         <igc-category-chart
+        name="chart"
+        id="chart"
         chart-type="Column"
-        x-axis-gap="0.5"
-        is-category-highlighting-enabled="true"
-        x-axis-major-stroke="lightgray"
-        brushes="rgba(157, 231, 114, 1) rgba(139, 91, 177, 1) rgba(109, 177, 255, 1) rgba(238, 88, 121, 1) rgba(248, 161, 95, 1)"
-        outlines="white"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
         is-series-highlighting-enabled="true"
-        highlighting-mode="FadeOthersSpecific"
-        highlighting-behavior="NearestItemsAndSeries"
+        brushes="rgba(157, 231, 114, 1) rgba(139, 91, 177, 1) rgba(109, 177, 255, 1) rgba(238, 88, 121, 1) rgba(248, 161, 95, 1)"
+        outlines="white"
+        x-axis-major-stroke="lightgray"
+        x-axis-gap="0.5"
         crosshairs-display-mode="None"
-        name="chart"
-        id ="chart">
+        is-category-highlighting-enabled="true"
+        highlighting-mode="FadeOthersSpecific"
+        highlighting-behavior="NearestItemsAndSeries">
         </igc-category-chart>
     </div>
 </div>

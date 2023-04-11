@@ -17,101 +17,99 @@
     <div id="root">
 
 <div class="container sample">
-        <div class="options vertical">
+    <div class="options vertical">
         <igc-property-editor-panel
-        
+
         description-type="Sparkline"
         is-horizontal="true"
         is-wrapping-enabled="true"
         name="propertyEditorPanel1"
-        id ="propertyEditorPanel1">
+        id="propertyEditorPanel1">
             <igc-property-editor-property-description
             property-path="FirstMarkerVisibility"
+            name="FirstMarkerVisibilityEditor"
+            id="FirstMarkerVisibilityEditor"
             label="First Markers"
-            value-type="EnumValue"
             should-override-default-editor="true"
+            value-type="EnumValue"
             drop-down-names="Visible, Collapsed"
             drop-down-values="Visible, Collapsed"
-            primitive-value="Visible"
-            name="FirstMarkerVisibilityEditor"
-            id ="FirstMarkerVisibilityEditor">
+            primitive-value="Visible">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            drop-down-values="Visible, Collapsed"
-            primitive-value="Visible"
             property-path="HighMarkerVisibility"
+            name="HighMarkerVisibilityEditor"
+            id="HighMarkerVisibilityEditor"
             label="High Markers"
             value-type="EnumValue"
             drop-down-names="Visible, Collapsed"
-            name="HighMarkerVisibilityEditor"
-            id ="HighMarkerVisibilityEditor">
+            drop-down-values="Visible, Collapsed"
+            primitive-value="Visible">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            drop-down-values="Visible, Collapsed"
-            primitive-value="Visible"
             property-path="LowMarkerVisibility"
+            name="LowMarkerVisibilityEditor"
+            id="LowMarkerVisibilityEditor"
             label="Low Markers"
             value-type="EnumValue"
             drop-down-names="Visible, Collapsed"
-            name="LowMarkerVisibilityEditor"
-            id ="LowMarkerVisibilityEditor">
+            drop-down-values="Visible, Collapsed"
+            primitive-value="Visible">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            drop-down-values="Visible, Collapsed"
-            primitive-value="Visible"
             property-path="NegativeMarkerVisibility"
+            name="NegativeMarkerVisibilityEditor"
+            id="NegativeMarkerVisibilityEditor"
             label="Negative Markers"
             value-type="EnumValue"
             drop-down-names="Visible, Collapsed"
-            name="NegativeMarkerVisibilityEditor"
-            id ="NegativeMarkerVisibilityEditor">
+            drop-down-values="Visible, Collapsed"
+            primitive-value="Visible">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            drop-down-values="Visible, Collapsed"
-            primitive-value="Visible"
             property-path="LastMarkerVisibility"
+            name="LastMarkerVisibilityEditor"
+            id="LastMarkerVisibilityEditor"
             label="Last Markers"
             value-type="EnumValue"
             drop-down-names="Visible, Collapsed"
-            name="LastMarkerVisibilityEditor"
-            id ="LastMarkerVisibilityEditor">
+            drop-down-values="Visible, Collapsed"
+            primitive-value="Visible">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            drop-down-values="Visible, Collapsed"
-            primitive-value="Visible"
             property-path="MarkerVisibility"
+            name="MarkerVisibilityEditor"
+            id="MarkerVisibilityEditor"
             label="All Markers"
             value-type="EnumValue"
             drop-down-names="Visible, Collapsed"
-            name="MarkerVisibilityEditor"
-            id ="MarkerVisibilityEditor">
+            drop-down-values="Visible, Collapsed"
+            primitive-value="Visible">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
-    
-    
-    
+
     <div class="container fill">
         <igc-sparkline
+        name="chart"
+        id="chart"
+        display-type="Line"
+        label-member-path="label"
+        value-member-path="value"
         marker-visibility="Visible"
-        negative-marker-visibility="Visible"
+        high-marker-visibility="Visible"
+        low-marker-visibility="Visible"
         first-marker-visibility="Visible"
         last-marker-visibility="Visible"
-        low-marker-visibility="Visible"
-        high-marker-visibility="Visible"
+        negative-marker-visibility="Visible"
         marker-size="10"
         first-marker-size="10"
         last-marker-size="10"
-        high-marker-size="10"
         low-marker-size="10"
+        high-marker-size="10"
         negative-marker-size="10"
         minimum="0"
-        maximum="60"
-        value-member-path="value"
-        label-member-path="label"
-        display-type="Line"
-        name="chart"
-        id ="chart">
+        maximum="60">
         </igc-sparkline>
     </div>
 </div>

@@ -17,11 +17,11 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend-title">
+    
+        <div class="legend-title">
         Total Population of Selected Countries
     </div>
-
+    
     <div class="legend">
         <igc-legend
         orientation="Horizontal"
@@ -29,10 +29,10 @@
         id ="Legend">
         </igc-legend>
     </div>
-
+    
     <div class="container fill">
         <igc-data-chart
-
+        
         name="chart"
         id ="chart">
             <igc-numeric-x-axis
@@ -77,6 +77,10 @@
             name="BubbleSeries2"
             id ="BubbleSeries2">
             </igc-bubble-series>
+            <igc-data-tool-tip-layer
+            name="DataToolTipLayer"
+            id ="DataToolTipLayer">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>

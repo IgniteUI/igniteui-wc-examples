@@ -17,28 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
         primary-key="ProductID"
-        allow-filtering="true"
         display-density="cosy"
+        allow-filtering="true"
         name="grid1"
-        id ="grid1">
+        id="grid1">
             <igc-paginator
             per-page="10">
             </igc-paginator>
             <igc-column
             field="ProductName"
             header="Product Name"
+            data-type="string"
             sortable="true"
-            editable="true"
-            resizable="true"
             has-summary="true"
-            data-type="string">
+            editable="true"
+            resizable="true">
             </igc-column>
             <igc-column
             field="UnitsInStock"

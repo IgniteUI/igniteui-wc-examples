@@ -1,5 +1,5 @@
-import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDataChartPolarCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { IgcLegendComponent, IgcDataChartComponent, IgcNumericAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcPolarAreaSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartPolarModule, IgcDataChartPolarCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
+import { IgcLegendComponent, IgcDataChartComponent, IgcNumericAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcPolarAreaSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -9,7 +9,8 @@ ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartPolarModule,
     IgcDataChartPolarCoreModule,
-    IgcDataChartInteractivityModule
+    IgcDataChartInteractivityModule,
+    IgcDataChartAnnotationModule
 );
 
 export class Sample {
@@ -20,7 +21,7 @@ export class Sample {
     private radiusAxis: IgcNumericRadiusAxisComponent
     private polarAreaSeries1: IgcPolarAreaSeriesComponent
     private polarAreaSeries2: IgcPolarAreaSeriesComponent
-
+    private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -30,17 +31,19 @@ export class Sample {
         var radiusAxis = this.radiusAxis = document.getElementById('radiusAxis') as IgcNumericRadiusAxisComponent;
         var polarAreaSeries1 = this.polarAreaSeries1 = document.getElementById('PolarAreaSeries1') as IgcPolarAreaSeriesComponent;
         var polarAreaSeries2 = this.polarAreaSeries2 = document.getElementById('PolarAreaSeries2') as IgcPolarAreaSeriesComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            polarAreaSeries1.angleAxis = this.angleAxis
-            polarAreaSeries1.radiusAxis = this.radiusAxis
-            polarAreaSeries1.dataSource = this.boatSailingData
-            polarAreaSeries2.dataSource = this.boatSailingData
-            polarAreaSeries2.angleAxis = this.angleAxis
-            polarAreaSeries2.radiusAxis = this.radiusAxis
+            chart.legend = this.legend;
+            polarAreaSeries1.dataSource = this.boatSailingData;
+            polarAreaSeries1.angleAxis = this.angleAxis;
+            polarAreaSeries1.radiusAxis = this.radiusAxis;
+            polarAreaSeries2.dataSource = this.boatSailingData;
+            polarAreaSeries2.angleAxis = this.angleAxis;
+            polarAreaSeries2.radiusAxis = this.radiusAxis;
         }
         this._bind();
+
     }
 
     private _boatSailingData: BoatSailingData = null;
@@ -51,9 +54,6 @@ export class Sample {
         }
         return this._boatSailingData;
     }
-    
-
-
 
 }
 

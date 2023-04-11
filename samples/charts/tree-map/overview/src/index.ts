@@ -11,16 +11,16 @@ ModuleManager.register(
 export class Sample {
 
     private treemap: IgcTreemapComponent
-
     private _bind: () => void;
 
     constructor() {
         var treemap = this.treemap = document.getElementById('treemap') as IgcTreemapComponent;
 
         this._bind = () => {
-            treemap.dataSource = this.countyHierarchicalData
+            treemap.dataSource = this.countyHierarchicalData;
         }
         this._bind();
+
     }
 
     private _countyHierarchicalData: CountyHierarchicalData = null;
@@ -31,9 +31,6 @@ export class Sample {
         }
         return this._countyHierarchicalData;
     }
-    
-
-
 
 }
 

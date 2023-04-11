@@ -17,54 +17,56 @@
     <div id="root">
 
 <div class="container sample">
-    
-        <div class="legend-title">
+
+    <div class="legend-title">
         Wind Speed vs Boat Speed
     </div>
-    
-    
+
     <div class="container fill">
         <igc-data-chart
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
         name="chart"
-        id ="chart">
+        id="chart"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false">
             <igc-numeric-angle-axis
-            start-angle-offset="-90"
-            minimum-value="0"
-            maximum-value="360"
-            interval="30"
             name="angleAxis"
-            id ="angleAxis">
+            id="angleAxis"
+            start-angle-offset="-90"
+            interval="30"
+            minimum-value="0"
+            maximum-value="360">
             </igc-numeric-angle-axis>
             <igc-numeric-radius-axis
+            name="radiusAxis"
+            id="radiusAxis"
             radius-extent-scale="0.9"
             inner-radius-extent-scale="0.1"
-            minimum-value="0"
-            maximum-value="100"
             interval="25"
-            name="radiusAxis"
-            id ="radiusAxis">
+            minimum-value="0"
+            maximum-value="100">
             </igc-numeric-radius-axis>
             <igc-polar-scatter-series
+            name="PolarScatterSeries1"
+            id="PolarScatterSeries1"
             angle-member-path="direction"
             radius-member-path="windSpeed"
-            marker-type="Circle"
-            show-default-tooltip="true"
+            show-default-tooltip="false"
             title="Wind Speed"
-            name="PolarScatterSeries1"
-            id ="PolarScatterSeries1">
+            marker-type="Circle">
             </igc-polar-scatter-series>
             <igc-polar-scatter-series
-            
+            name="PolarScatterSeries2"
+            id="PolarScatterSeries2"
             angle-member-path="direction"
             radius-member-path="boatSpeed"
-            show-default-tooltip="true"
+            show-default-tooltip="false"
             title="Boat Speed"
-            marker-type="Circle"
-            name="PolarScatterSeries2"
-            id ="PolarScatterSeries2">
+            marker-type="Circle">
             </igc-polar-scatter-series>
+            <igc-data-tool-tip-layer
+            name="DataToolTipLayer"
+            id="DataToolTipLayer">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>

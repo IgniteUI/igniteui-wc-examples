@@ -2,7 +2,7 @@ export class CompanyDataItem {
     public constructor(init: Partial<CompanyDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public ID: string;
     public Company: string;
     public Address: string;

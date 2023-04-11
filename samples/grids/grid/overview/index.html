@@ -17,28 +17,27 @@
     <div id="root">
 
 <div class="container sample">
-    
-    
-    
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
         primary-key="ProductID"
-        allow-filtering="true"
         display-density="cosy"
+        allow-filtering="true"
+        filter-mode="excelStyleFilter"
         name="grid1"
-        id ="grid1">
+        id="grid1">
             <igc-paginator
             per-page="10">
             </igc-paginator>
             <igc-column
             field="ProductID"
             header="Product ID"
+            data-type="number"
             sortable="true"
-            editable="true"
-            resizable="true"
             has-summary="true"
-            data-type="number">
+            editable="true"
+            resizable="true">
             </igc-column>
             <igc-column
             field="ProductName"

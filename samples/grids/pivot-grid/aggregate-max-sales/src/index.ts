@@ -4,7 +4,6 @@ import { PivotSalesDataItem, PivotSalesData } from './PivotSalesData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
 
     private grid: IgcPivotGridComponent
@@ -13,32 +12,31 @@ export class Sample {
         if (this._pivotConfiguration1 == null)
         {
             var pivotConfiguration1: IgcPivotConfiguration = {} as IgcPivotConfiguration;
-            
+
             var pivotDimension1: IgcPivotDimension = {} as IgcPivotDimension;
-            pivotDimension1.memberName = "Product";
+            pivotDimension1.memberName = "Country";
             pivotDimension1.enabled = true;
-            
-            pivotConfiguration1.rows = []
-            pivotConfiguration1.rows.push(pivotDimension1);
-            var pivotDimension2: IgcPivotDimension = {} as IgcPivotDimension;
-            pivotDimension2.memberName = "Country";
-            pivotDimension2.enabled = true;
-            
+
             pivotConfiguration1.columns = []
-            pivotConfiguration1.columns.push(pivotDimension2);
+            pivotConfiguration1.columns.push(pivotDimension1);
+            var pivotDimension2: IgcPivotDimension = {} as IgcPivotDimension;
+            pivotDimension2.memberName = "Product";
+            pivotDimension2.enabled = true;
+
+            pivotConfiguration1.rows = []
+            pivotConfiguration1.rows.push(pivotDimension2);
             var pivotValue1: IgcPivotValue = {} as IgcPivotValue;
             pivotValue1.member = "Sales";
             pivotValue1.enabled = true;
             var pivotAggregator1: IgcPivotAggregator = {} as IgcPivotAggregator;
             pivotAggregator1.key = "MAX";
             pivotAggregator1.aggregator = this.pivotSalesDataAggregateMaxSales;
-            
+
             pivotValue1.aggregate = pivotAggregator1;
-            
+
             pivotConfiguration1.values = []
             pivotConfiguration1.values.push(pivotValue1);
-            
-            
+
             this._pivotConfiguration1 = pivotConfiguration1;
         }
         return this._pivotConfiguration1;
@@ -49,8 +47,8 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcPivotGridComponent;
 
         this._bind = () => {
-            grid.pivotConfiguration = this.pivotConfiguration1
-            grid.data = this.pivotSalesData
+            grid.data = this.pivotSalesData;
+            grid.pivotConfiguration = this.pivotConfiguration1;
         }
         this._bind();
 
@@ -64,17 +62,15 @@ export class Sample {
         }
         return this._pivotSalesData;
     }
-    
 
 
-    
     public pivotSalesDataAggregateMaxSales(members: any[], data: any[]): any[] {
         if (!data) {
             return [];
         }
         return data.map(x => x.Sales).reduce((a, b) => Math.max(a, b));
     }
-        
+
 }
 
 new Sample();

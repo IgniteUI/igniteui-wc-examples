@@ -1,5 +1,5 @@
-import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -9,7 +9,8 @@ ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartScatterModule,
     IgcDataChartScatterCoreModule,
-    IgcDataChartInteractivityModule
+    IgcDataChartInteractivityModule,
+    IgcDataChartAnnotationModule
 );
 
 export class Sample {
@@ -18,7 +19,7 @@ export class Sample {
     private xAxis: IgcNumericXAxisComponent
     private yAxis: IgcNumericYAxisComponent
     private bubbleSeries1: IgcBubbleSeriesComponent
-
+    private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -26,6 +27,7 @@ export class Sample {
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
         var bubbleSeries1 = this.bubbleSeries1 = document.getElementById('BubbleSeries1') as IgcBubbleSeriesComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             bubbleSeries1.xAxis = this.xAxis
@@ -33,6 +35,7 @@ export class Sample {
             bubbleSeries1.dataSource = this.countryStatsEurope
         }
         this._bind();
+
     }
 
     private _countryStatsEurope: CountryStatsEurope = null;
@@ -44,7 +47,6 @@ export class Sample {
         return this._countryStatsEurope;
     }
     
-
 
 
 }
