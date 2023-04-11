@@ -18,96 +18,98 @@
 
 <div class="container sample">
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        id="grid"
+        allow-filtering="true"
         name="grid"
-        id="grid"
-        id="grid"
-        allow-filtering="true">
+        id ="grid">
             <igc-column
             field="Category"
             width="120px">
             </igc-column>
             <igc-column
             field="Type"
-            filterable="false"
-            width="150px">
+            width="150px"
+            filterable="false">
             </igc-column>
             <igc-column
             field="Open"
             width="120px"
-            data-type="currency">
+            data-type="Currency">
             </igc-column>
             <igc-column
             field="Price"
             width="120px"
-            data-type="currency">
+            data-type="Currency">
             </igc-column>
             <igc-column
             field="Change"
             width="120px"
-            data-type="number">
+            data-type="Number">
             </igc-column>
             <igc-column
             field="ChangePercent"
-            header="Change(%)"
             width="120px"
-            data-type="number">
+            data-type="Number"
+            header="Change(%)">
             </igc-column>
             <igc-column
             field="AnnualChange"
-            header="Change On Year(%)"
             width="150px"
-            data-type="number">
+            data-type="Number"
+            header="Change On Year(%)">
             </igc-column>
             <igc-column
             field="Buy"
             width="130px"
-            data-type="currency">
+            data-type="Currency">
             </igc-column>
             <igc-column
             field="Sell"
             width="130px"
-            data-type="currency">
+            data-type="Currency">
             </igc-column>
             <igc-column
             field="Spread"
             width="130px"
-            data-type="number">
+            data-type="Number">
             </igc-column>
             <igc-column
             field="Volume"
             width="130px"
-            data-type="number">
+            data-type="Number">
             </igc-column>
             <igc-column
             field="High"
             width="130px"
-            data-type="currency">
+            data-type="Currency">
             </igc-column>
             <igc-column
             field="Low"
             width="130px"
-            data-type="currency">
+            data-type="Currency">
             </igc-column>
             <igc-column
             field="AnnualHigh"
-            header="High(Y)"
             width="130px"
-            data-type="currency">
+            data-type="Currency"
+            header="High(Y)">
             </igc-column>
             <igc-column
             field="AnnualLow"
-            header="Low(Y)"
             width="130px"
-            data-type="currency">
+            data-type="Currency"
+            header="Low(Y)">
             </igc-column>
             <igc-column
             field="AnnualStart"
-            header="Start(Y)"
             width="130px"
-            data-type="currency">
+            data-type="Currency"
+            header="Start(Y)">
             </igc-column>
         </igc-grid>
     </div>

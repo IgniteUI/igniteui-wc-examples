@@ -18,50 +18,54 @@
 
 <div class="container sample">
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        primary-key="ProductID"
         name="grid"
-        id="grid"
-        primary-key="ProductID">
+        id ="grid">
             <igc-column
+            field="ProductID"
             name="ProductID"
-            id="ProductID"
-            field="ProductID">
+            id ="ProductID">
             </igc-column>
             <igc-column
             name="ProductName"
-            id="ProductName"
+            id ="ProductName"
             field="ProductName"
-            header="Product Name">
+            header="Product Name"
+            has-summary="true">
             </igc-column>
             <igc-column
             name="UnitPrice"
-            id="UnitPrice"
+            id ="UnitPrice"
             field="UnitPrice"
-            header="Unit Price">
+            header="Unit Price"
+            has-summary="true">
             </igc-column>
             <igc-column
             name="UnitsInStock"
-            id="UnitsInStock"
+            id ="UnitsInStock"
             field="UnitsInStock"
             header="Units In Stock"
             has-summary="true"
-            data-type="number">
+            data-type="Number">
             </igc-column>
             <igc-column
             name="Discontinued"
-            id="Discontinued"
+            id ="Discontinued"
             field="Discontinued"
             header="Discontinued">
             </igc-column>
             <igc-column
             name="OrderDate"
-            id="OrderDate"
+            id ="OrderDate"
             field="OrderDate"
             header="Order Date"
             has-summary="true"
-            data-type="date">
+            data-type="Date">
             </igc-column>
         </igc-grid>
     </div>

@@ -18,21 +18,24 @@
 
 <div class="container sample">
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        id="grid"
+        grouping-expressions="Infragistics.Controls.Description.CodeGenerationItemBuilder"
+        row-selection="Multiple"
         name="grid"
-        id="grid"
-        id="grid"
-        row-selection="multiple">
+        id ="grid">
             <igc-paginator
             per-page="10">
             </igc-paginator>
             <igc-column
             field="ShipCountry"
             header="Ship Country"
-            width="200px"
-            groupable="true">
+            groupable="true"
+            width="200px">
             </igc-column>
             <igc-column
             field="ShipCity"
@@ -44,8 +47,8 @@
             field="UnitPrice"
             header="Unit Price"
             width="150px"
-            data-type="number"
-            groupable="true">
+            groupable="true"
+            data-type="Number">
             </igc-column>
         </igc-grid>
     </div>

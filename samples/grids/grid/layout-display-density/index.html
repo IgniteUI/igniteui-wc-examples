@@ -19,99 +19,102 @@
 <div class="container sample">
     <div class="options vertical">
         <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
+        
         description-type="WebGrid"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="PropertyEditor"
+        id ="PropertyEditor">
             <igc-property-editor-property-description
             property-path="DisplayDensity"
             name="DisplayDensityEditor"
-            id="DisplayDensityEditor">
+            id ="DisplayDensityEditor">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        allow-filtering="true"
         name="grid"
-        id="grid"
-        allow-filtering="true">
+        id ="grid">
             <igc-column
             field="CustomerName"
             header="Customer Name"
-            data-type="string"
             sortable="true"
-            has-summary="true">
+            has-summary="true"
+            data-type="String">
             </igc-column>
             <igc-column
             field="Country"
             header="Country"
-            data-type="string"
+            data-type="String"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="City"
             header="City"
-            data-type="string"
+            data-type="String"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="Address"
             header="Address"
-            data-type="string"
+            data-type="String"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="PostalCode"
             header="Postal Code"
-            data-type="string"
+            data-type="String"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="Salesperson"
             header="Sales Person"
-            data-type="string"
+            data-type="String"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="ShipperName"
             header="Shipper Name"
-            data-type="string"
+            data-type="String"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="OrderDate"
             header="Order Date"
-            data-type="date"
+            data-type="Date"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="ProductID"
             header="ID"
-            data-type="string"
+            data-type="String"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="ProductName"
             header="Name"
-            data-type="string"
+            data-type="String"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="UnitPrice"
             header="Unit Price"
-            data-type="number"
+            data-type="Number"
             sortable="true"
             has-summary="true"
             filterable="false">
@@ -119,7 +122,7 @@
             <igc-column
             field="Quantity"
             header="Quantity"
-            data-type="number"
+            data-type="Number"
             sortable="true"
             has-summary="true"
             filterable="false">
@@ -127,42 +130,42 @@
             <igc-column
             field="Discontinued"
             header="Discontinued"
-            data-type="boolean"
+            data-type="Boolean"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="Discontinued"
             header="Discontinued"
-            data-type="boolean"
+            data-type="Boolean"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="ShipName"
             header="Name"
-            data-type="string"
+            data-type="String"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="ShipCountry"
             header="Country"
-            data-type="string"
+            data-type="String"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="ShipCity"
             header="City"
-            data-type="string"
+            data-type="String"
             sortable="true"
             has-summary="true">
             </igc-column>
             <igc-column
             field="ShipPostalCode"
             header="Postal Code"
-            data-type="string"
+            data-type="String"
             sortable="true"
             has-summary="true">
             </igc-column>

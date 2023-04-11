@@ -19,75 +19,85 @@
 <div class="container sample">
     <div class="options vertical">
         <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
+        
         description-type="WebGrid"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="PropertyEditor"
+        id ="PropertyEditor">
             <igc-property-editor-property-description
-            value-type="StringValue"
+            property-path="ClipboardOptions.Separator"
             label="Change Copy Separator"
-            property-path="ClipboardOptions.Separator">
+            value-type="StringValue">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            property-path="ClipboardOptions.Enabled"
-            name="ClipboardEnabledEditor"
-            id="ClipboardEnabledEditor"
+            value-type="Boolean1"
             label="Grid Copy Behavior"
-            value-type="Boolean1"
-            primitive-value="True">
+            property-path="ClipboardOptions.Enabled"
+            primitive-value="True"
+            name="ClipboardEnabledEditor"
+            id ="ClipboardEnabledEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            property-path="ClipboardOptions.CopyHeaders"
-            name="ClipboardHeadersEditor"
-            id="ClipboardHeadersEditor"
+            value-type="Boolean1"
             label="Copying of Header Labels"
-            value-type="Boolean1"
-            primitive-value="True">
+            property-path="ClipboardOptions.CopyHeaders"
+            primitive-value="True"
+            name="ClipboardHeadersEditor"
+            id ="ClipboardHeadersEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
-            property-path="ClipboardOptions.CopyFormatters"
-            name="ClipboardFormattersEditor"
-            id="ClipboardFormattersEditor"
-            label="Copying Column Formatters"
             value-type="Boolean1"
-            primitive-value="True">
+            label="Copying Column Formatters"
+            property-path="ClipboardOptions.CopyFormatters"
+            primitive-value="True"
+            name="ClipboardFormattersEditor"
+            id ="ClipboardFormattersEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             value-type="Button"
             primitive-value="Clear Selection"
             name="propertyEditorPropertyDescription1"
-            id="propertyEditorPropertyDescription1">
+            id ="propertyEditorPropertyDescription1">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        row-editable="true"
         name="grid"
-        id="grid"
-        row-editable="true">
+        id ="grid">
             <igc-column
-            field="ProductID">
+            field="ProductID"
+            header="Product ID">
             </igc-column>
             <igc-column
-            field="ProductName">
+            field="ProductName"
+            header="Product Name">
             </igc-column>
             <igc-column
-            field="SupplierID">
+            field="SupplierID"
+            header="Supplier ID">
             </igc-column>
             <igc-column
-            field="CategoryID">
+            field="CategoryID"
+            header="Category ID">
             </igc-column>
             <igc-column
-            field="QuantityPerUnit">
+            field="QuantityPerUnit"
+            header="Quantity Per Unit">
             </igc-column>
             <igc-column
-            field="UnitPrice">
+            field="UnitPrice"
+            header="Unit Price">
             </igc-column>
             <igc-column
-            field="UnitsInStock">
+            field="UnitsInStock"
+            header="Units In Stock">
             </igc-column>
         </igc-grid>
     </div>

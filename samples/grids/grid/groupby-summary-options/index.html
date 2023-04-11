@@ -19,40 +19,44 @@
 <div class="container sample">
     <div class="options vertical">
         <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
+        
         description-type="WebGrid"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="PropertyEditor"
+        id ="PropertyEditor">
             <igc-property-editor-property-description
             property-path="SummaryCalculationMode"
             name="SummaryCalcModeEditor"
-            id="SummaryCalcModeEditor">
+            id ="SummaryCalcModeEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="SummaryPosition"
             name="SummaryPositionEditor"
-            id="SummaryPositionEditor">
+            id ="SummaryPositionEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="ShowSummaryOnCollapse"
+            label="Show Summary Row when Group Row is Collapsed"
             name="ShowOnCollapseEditor"
-            id="ShowOnCollapseEditor"
-            label="Show Summary Row when Group Row is Collapsed">
+            id ="ShowOnCollapseEditor">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        grouping-expressions="Infragistics.Controls.Description.CodeGenerationItemBuilder"
         name="grid"
-        id="grid">
+        id ="grid">
             <igc-column
             field="ShipCountry"
             header="Ship Country"
-            width="200px"
-            groupable="true">
+            groupable="true"
+            width="200px">
             </igc-column>
             <igc-column
             field="ShipCity"
@@ -64,18 +68,18 @@
             field="UnitPrice"
             header="Unit Price"
             width="150px"
-            data-type="currency"
             groupable="true"
+            data-type="Currency"
             has-summary="true"
             name="column1"
-            id="column1">
+            id ="column1">
             </igc-column>
             <igc-column
             field="Quantity"
             header="Quantity"
             width="150px"
-            data-type="number"
             groupable="true"
+            data-type="Number"
             has-summary="true">
             </igc-column>
         </igc-grid>

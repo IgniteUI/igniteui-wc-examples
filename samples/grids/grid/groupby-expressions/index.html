@@ -18,12 +18,15 @@
 
 <div class="container sample">
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        name="grid"
         id="grid"
-        id="grid">
+        grouping-expressions="Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder"
+        name="grid"
+        id ="grid">
             <igc-column
             field="OrderID"
             hidden="true">
@@ -37,9 +40,9 @@
             <igc-column
             field="OrderDate"
             header="Order Date"
-            data-type="date"
             width="200px"
-            groupable="true">
+            groupable="true"
+            data-type="Date">
             </igc-column>
             <igc-column
             field="PostalCode"
@@ -50,10 +53,10 @@
             <igc-column
             field="Discontinued"
             width="200px"
-            data-type="boolean"
             groupable="true"
+            data-type="Boolean"
             name="column1"
-            id="column1">
+            id ="column1">
             </igc-column>
             <igc-column
             field="ShipName"

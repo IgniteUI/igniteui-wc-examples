@@ -19,114 +19,117 @@
 <div class="container sample">
     <div class="options vertical">
         <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
+        
         description-type="WebGrid"
         is-horizontal="true"
-        is-wrapping-enabled="true">
+        is-wrapping-enabled="true"
+        name="PropertyEditor"
+        id ="PropertyEditor">
             <igc-property-editor-property-description
             property-path="RowEditable"
-            name="RowEditableEditor"
-            id="RowEditableEditor"
             value-type="Boolean1"
-            primitive-value="True">
+            primitive-value="True"
+            name="RowEditableEditor"
+            id ="RowEditableEditor">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        name="grid"
-        id="grid"
+        primary-key="ID"
         row-editable="true"
-        primary-key="ID">
+        name="grid"
+        id ="grid">
             <igc-column
-            name="Avatar"
-            id="Avatar"
             field="Avatar"
             header="Avatar"
-            data-type="string"
             editable="false"
-            width="80px">
+            width="80px"
+            data-type="String"
+            name="Avatar"
+            id ="Avatar">
             </igc-column>
             <igc-column
             name="Name"
-            id="Name"
+            id ="Name"
             field="Name"
             header="Name"
             editable="true">
             </igc-column>
             <igc-column
             name="Company"
-            id="Company"
+            id ="Company"
             field="Company"
             header="Company"
             editable="true">
             </igc-column>
             <igc-column
             name="Email"
-            id="Email"
+            id ="Email"
             field="Email"
             header="Email"
-            width="190px"
-            editable="true">
+            editable="true"
+            width="190px">
             </igc-column>
             <igc-column
             name="Fax"
-            id="Fax"
+            id ="Fax"
             field="Fax"
             header="Phone"
             editable="true">
             </igc-column>
             <igc-column
             name="CreatedOn"
-            id="CreatedOn"
+            id ="CreatedOn"
             field="CreatedOn"
             header="Date of Registration"
-            width="170px"
-            data-type="date"
-            editable="true">
+            data-type="Date"
+            editable="true"
+            width="170px">
             </igc-column>
             <igc-column
             name="LastActivity"
-            id="LastActivity"
+            id ="LastActivity"
             field="LastActivity"
             header="Last Active"
-            width="170px"
-            data-type="date"
-            editable="true">
+            data-type="Date"
+            editable="true"
+            width="170px">
             </igc-column>
             <igc-column
             name="EstimatedSales"
-            id="EstimatedSales"
+            id ="EstimatedSales"
             field="EstimatedSales"
             header="Estimated Sales"
-            data-type="number"
+            data-type="Number"
             editable="true">
             </igc-column>
             <igc-column
             name="DealsLost"
-            id="DealsLost"
+            id ="DealsLost"
             field="DealsLost"
             header="Deals Lost"
-            data-type="number"
+            data-type="Number"
             editable="true">
             </igc-column>
             <igc-column
             name="DealsWon"
-            id="DealsWon"
+            id ="DealsWon"
             field="DealsWon"
             header="Deals Won"
-            data-type="number"
+            data-type="Number"
             editable="true">
             </igc-column>
             <igc-column
             name="DealsPending"
-            id="DealsPending"
+            id ="DealsPending"
             field="DealsPending"
             header="Deals Pending"
-            data-type="number"
+            data-type="Number"
             editable="true">
             </igc-column>
         </igc-grid>

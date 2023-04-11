@@ -18,46 +18,52 @@
 
 <div class="container sample">
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        name="grid"
         id="grid"
-        id="grid">
-            <igc-pinning-config
+        name="grid"
+        id ="grid">
+            <any
             columns="End">
             </igc-pinning-config>
             <igc-column
             field="CountryFlag"
             header="Team"
             name="column1"
-            id="column1">
+            id ="column1">
             </igc-column>
             <igc-column
             field="Avatar"
             name="column2"
-            id="column2">
+            id ="column2">
             </igc-column>
             <igc-column
             field="Name">
             </igc-column>
             <igc-column
             field="AthleteNumber"
-            data-type="number">
+            header="Athlete Number"
+            data-type="Number">
             </igc-column>
             <igc-column
-            field="BeatsPerMinute">
+            field="BeatsPerMinute"
+            header="Beats Per Minute">
             </igc-column>
             <igc-column
-            field="TopSpeed">
+            field="TopSpeed"
+            header="Top Speed">
             </igc-column>
             <igc-column
             field="RegistrationDate"
-            data-type="date">
+            header="Registration Date"
+            data-type="Date">
             </igc-column>
             <igc-column
             field="Birthday"
-            data-type="date">
+            data-type="Date">
             </igc-column>
             <igc-column
             field="Sponsor">
@@ -66,10 +72,12 @@
             field="Agent">
             </igc-column>
             <igc-column
-            field="AgentContact">
+            field="AgentContact"
+            header="Agent Contact">
             </igc-column>
             <igc-column
-            field="AgentPhone">
+            field="AgentPhone"
+            header="Agent Phone">
             </igc-column>
             <igc-column
             field="FirstPlaces"

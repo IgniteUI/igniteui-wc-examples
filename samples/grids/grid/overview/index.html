@@ -18,80 +18,82 @@
 
 <div class="container sample">
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
         primary-key="ProductID"
-        display-density="cosy"
         allow-filtering="true"
-        filter-mode="excelStyleFilter"
+        filter-mode="ExcelStyleFilter"
+        display-density="Cosy"
         name="grid1"
-        id="grid1">
-            <igc-paginator
-            per-page="10">
-            </igc-paginator>
+        id ="grid1">
             <igc-column
             field="ProductID"
             header="Product ID"
-            data-type="number"
             sortable="true"
-            has-summary="true"
             editable="true"
-            resizable="true">
+            resizable="true"
+            has-summary="true"
+            data-type="Number">
             </igc-column>
             <igc-column
             field="ProductName"
             header="Product Name"
-            data-type="string"
             sortable="true"
-            has-summary="true"
             editable="true"
-            resizable="true">
+            resizable="true"
+            has-summary="true"
+            data-type="String">
             </igc-column>
             <igc-column
             field="UnitPrice"
             header="Unit Price"
-            data-type="number"
             sortable="true"
-            has-summary="true"
             editable="true"
-            resizable="true">
+            resizable="true"
+            has-summary="true"
+            data-type="Number">
             </igc-column>
             <igc-column
             field="UnitsInStock"
             header="Units in Stock"
-            data-type="number"
             sortable="true"
-            has-summary="true"
             editable="true"
-            resizable="true">
+            resizable="true"
+            has-summary="true"
+            data-type="Number">
             </igc-column>
             <igc-column
             field="OrderDate"
             header="Order Date"
-            data-type="date"
             sortable="true"
-            has-summary="true"
             editable="true"
-            resizable="true">
+            resizable="true"
+            has-summary="true"
+            data-type="Date">
             </igc-column>
             <igc-column
             field="Discontinued"
             header="Discontinued"
-            data-type="boolean"
             sortable="true"
+            editable="true"
             has-summary="true"
-            editable="true">
+            data-type="Boolean">
             </igc-column>
             <igc-column
             field="ReorderLevel"
+            filterable="true"
             header="Reorder Level"
-            data-type="number"
             sortable="true"
-            has-summary="true"
             editable="true"
-            filterable="true">
+            has-summary="true"
+            data-type="Number">
             </igc-column>
+            <igc-paginator
+            per-page="10">
+            </igc-paginator>
         </igc-grid>
     </div>
 </div>

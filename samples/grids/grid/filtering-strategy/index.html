@@ -18,50 +18,52 @@
 
 <div class="container sample">
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        name="grid"
-        id="grid"
         id="grid"
         allow-filtering="true"
-        filter-mode="excelStyleFilter">
+        filter-mode="ExcelStyleFilter"
+        name="grid"
+        id ="grid">
             <igc-column
             field="ProductName"
             header="Product Name"
             sortable="true"
             disable-hiding="true"
-            data-type="string">
+            data-type="String">
             </igc-column>
             <igc-column
             field="QuantityPerUnit"
             header="Quantity Per Unit"
             sortable="true"
             disable-hiding="true"
-            data-type="string">
+            data-type="String">
             </igc-column>
             <igc-column
             field="UnitPrice"
             header="Unit Price Category"
             sortable="true"
             disable-hiding="true"
-            data-type="string">
+            data-type="String">
             </igc-column>
             <igc-column
             field="OrderDate"
             header="Order Date"
             sortable="true"
             disable-hiding="true"
-            data-type="date">
+            data-type="Date">
             </igc-column>
             <igc-column
             field="Discontinued"
             header="Discontinued"
             sortable="true"
             disable-hiding="true"
-            data-type="boolean"
+            data-type="Boolean"
             name="column1"
-            id="column1">
+            id ="column1">
             </igc-column>
         </igc-grid>
     </div>

@@ -18,30 +18,32 @@
 
 <div class="container sample">
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
         primary-key="ProductID"
-        display-density="cosy"
         allow-filtering="true"
+        display-density="Cosy"
         name="grid1"
-        id="grid1">
+        id ="grid1">
             <igc-paginator
             per-page="10">
             </igc-paginator>
             <igc-column
             field="ProductName"
             header="Product Name"
-            data-type="string"
             sortable="true"
-            has-summary="true"
             editable="true"
-            resizable="true">
+            resizable="true"
+            has-summary="true"
+            data-type="String">
             </igc-column>
             <igc-column
             field="UnitsInStock"
             header="Units in Stock"
-            data-type="number"
+            data-type="Number"
             sortable="true"
             has-summary="true"
             editable="true"
@@ -50,7 +52,7 @@
             <igc-column
             field="OrderDate"
             header="Order Date"
-            data-type="date"
+            data-type="Date"
             sortable="true"
             has-summary="true"
             editable="true"
@@ -59,7 +61,7 @@
             <igc-column
             field="Discontinued"
             header="Discontinued"
-            data-type="boolean"
+            data-type="Boolean"
             sortable="true"
             has-summary="true"
             editable="true">
@@ -67,7 +69,7 @@
             <igc-column
             field="ReorderLevel"
             header="Reorder Level"
-            data-type="number"
+            data-type="Number"
             sortable="true"
             has-summary="true"
             editable="true"

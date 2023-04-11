@@ -18,46 +18,48 @@
 
 <div class="container sample">
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
-        name="grid"
         id="grid"
-        id="grid"
-        display-density="compact"
         primary-key="ProductID"
-        row-editable="true">
+        row-editable="true"
+        display-density="Compact"
+        name="grid"
+        id ="grid">
             <igc-column
             field="ProductID"
             header="Product ID"
-            data-type="number">
+            data-type="Number">
             </igc-column>
             <igc-column
             field="ReorderLevel"
             header="Reorder Level"
-            data-type="number">
+            data-type="Number">
             </igc-column>
             <igc-column
             field="ProductName"
             header="Prod. Name"
-            data-type="string">
+            data-type="String">
             </igc-column>
             <igc-column
             field="UnitsInStock"
             header="Units In Stock"
-            data-type="number">
+            data-type="Number">
             </igc-column>
             <igc-column
             field="OrderDate"
             header="Order Date"
-            data-type="date"
+            data-type="Date"
             name="column1"
-            id="column1">
+            id ="column1">
             </igc-column>
             <igc-column
             field="Discontinued"
             header="Discontinued"
-            data-type="boolean">
+            data-type="Boolean">
             </igc-column>
         </igc-grid>
     </div>

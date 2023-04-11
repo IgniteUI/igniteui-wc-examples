@@ -18,11 +18,13 @@
 
 <div class="container sample">
 
+
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
         name="grid"
-        id="grid">
+        id ="grid">
             <igc-column
             field="Id"
             header="Rank"
@@ -37,32 +39,32 @@
             <igc-column
             field="BeatsPerMinute"
             header="Beats per Minute"
-            data-type="number"
-            editable="true"
             sortable="true"
+            editable="true"
+            data-type="Number"
             name="column1"
-            id="column1">
+            id ="column1">
             </igc-column>
             <igc-column
             field="TopSpeed"
             header="Top Speed"
-            data-type="number"
-            editable="true"
             sortable="true"
+            editable="true"
+            data-type="Number"
             name="column2"
-            id="column2">
+            id ="column2">
             </igc-column>
             <igc-column
             field="TrackProgress"
             header="Track Progress"
-            editable="true"
-            sortable="true">
+            sortable="true"
+            editable="true">
             </igc-column>
             <igc-column
             field="CountryFlag"
             header="Country"
             name="column3"
-            id="column3">
+            id ="column3">
             </igc-column>
         </igc-grid>
     </div>
