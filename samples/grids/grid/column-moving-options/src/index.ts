@@ -1,6 +1,5 @@
-import { IgcBadgeModule } from 'igniteui-webcomponents-webinputs';
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 import { IgcColumnTemplateContext, IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
@@ -9,12 +8,7 @@ import { IgcBadgeComponent } from 'igniteui-webcomponents';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
-import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
-
-ModuleManager.register(
-    IgcBadgeModule
-);
 
 export class Sample {
 
