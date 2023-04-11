@@ -4,9 +4,6 @@ import { ComponentRenderer, WebGridDescriptionModule, PropertyEditorPanelDescrip
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
-import { IgcBadgeComponent } from 'igniteui-webcomponents';
-import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
-import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -115,20 +112,19 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridCurrencyCellTemplate = (ctx: IgcCellTemplateContext) => {
-        if (ctx.cell.value > 0) {
-            return html`<div>
-            <igc-badge variant="success"><span>▲</span></igc-badge>
-            <span style='color:green;'>${ctx.cell.value.toFixed(2)}</span>
-            </div>`;
-        } else {
-            return html`<div>
-            <igc-badge variant="danger"><span>▼</span></igc-badge>
-            <span style='color:red;'>${ctx.cell.value.toFixed(2)}</span>
-            </div>`;
-        };
-    }
+        public webGridCurrencyCellTemplate = (ctx: IgcCellTemplateContext) => {
+            return html`
+            <div class="currency-badge-container">
+                ${ ctx.cell.value > 0 ? html`<igc-badge type="success" position="bottom-right" icon="arrow_upward" class="badge-left"></igx-badge>` : nothing }
+                ${ ctx.cell.value < 0 ? html`<igc-badge type="error" position="bottom-right" icon="arrow_downward" class="error badge-left"></igx-badge>` : nothing }
+                <span class="cellAlignSyle" class="${ ctx.cell.value > 0 ? "up" : "down"}">${this.formatNumber(ctx.cell.value)}</span>
+            </div>
+    `;
+        }
 
+        public formatNumber(value: number) {
+            return value.toFixed(2);
+        }
 }
 
 new Sample();

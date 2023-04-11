@@ -1,9 +1,8 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
-import { IgcColumnTemplateContext, IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { IgcColumnTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-import { IgcBadgeComponent } from 'igniteui-webcomponents';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -108,24 +107,20 @@ export class Sample {
 
         const column = (ctx as any).column;
         return html`<div>
-                     <span style="float:left">${column.field}</span>
+                     <span style="float:left">${column.header}</span>
                      <span style="float:right" @pointerdown=${(e: any) => this.toggleColumnPin(column.field)}>📌</span>
                    </div>`;
         };
 
-    public webGridCurrencyCellTemplate = (ctx: IgcCellTemplateContext) => {
-        if (ctx.cell.value > 0) {
-            return html`<div>
-            <igc-badge variant="success"><span>▲</span></igc-badge>
-            <span style='color:green;'>${ctx.cell.value.toFixed(2)}</span>
-            </div>`;
-        } else {
-            return html`<div>
-            <igc-badge variant="danger"><span>▼</span></igc-badge>
-            <span style='color:red;'>${ctx.cell.value.toFixed(2)}</span>
-            </div>`;
-        };
-    }
+        public webGridCurrencyCellTemplate = (ctx: IgcCellTemplateContext) => {
+            return html`
+            <div class="currency-badge-container">
+                ${ ctx.cell.value > 0 ? html`<igc-badge type="success" position="bottom-right" icon="arrow_upward" class="badge-left"></igx-badge>` : nothing }
+                ${ ctx.cell.value < 0 ? html`<igc-badge type="error" position="bottom-right" icon="arrow_downward" class="error badge-left"></igx-badge>` : nothing }
+                <span class="cellAlignSyle" class="${ ctx.cell.value > 0 ? "up" : "down"}">${this.formatNumber(ctx.cell.value)}</span>
+            </div>
+    `;
+        }
 
     public toggleColumnPin(field: string) {
         var grid = document.getElementsByTagName("igc-grid")[0] as IgcGridComponent;
@@ -133,6 +128,9 @@ export class Sample {
         col.pinned = !col.pinned;
         grid.markForCheck();
     }
+        public formatNumber(value: number) {
+            return value.toFixed(2);
+        }
 }
 
 new Sample();
