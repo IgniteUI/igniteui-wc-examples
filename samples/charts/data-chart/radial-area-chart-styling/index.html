@@ -17,63 +17,29 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend-title">
+    
+        <div class="legend-title">
         Ronaldo vs Messi Player Stats
     </div>
-
-    <div class="legend">
-        <igc-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-legend>
-    </div>
-
+    
+    
     <div class="container fill">
-        <igc-data-chart
-        name="chart"
-        id="chart"
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
-        marker-brushes="white"
-        marker-outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
-        brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
-        outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)">
-            <igc-category-angle-axis
-            name="angleAxis"
-            id="angleAxis"
-            label="attribute">
-            </igc-category-angle-axis>
-            <igc-numeric-radius-axis
-            name="radiusAxis"
-            id="radiusAxis"
-            inner-radius-extent-scale="0.1"
-            interval="2"
-            minimum-value="0"
-            maximum-value="10">
-            </igc-numeric-radius-axis>
-            <igc-radial-area-series
-            name="RadialAreaSeries1"
-            id="RadialAreaSeries1"
-            value-member-path="ronaldo"
-            show-default-tooltip="true"
-            area-fill-opacity="0.5"
-            thickness="3"
-            title="Ronaldo"
-            marker-type="Circle">
-            </igc-radial-area-series>
-            <igc-radial-area-series
-            name="RadialAreaSeries2"
-            id="RadialAreaSeries2"
-            value-member-path="messi"
-            show-default-tooltip="true"
-            area-fill-opacity="0.5"
-            thickness="3"
-            title="Messi"
-            marker-type="Circle">
-            </igc-radial-area-series>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
         </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

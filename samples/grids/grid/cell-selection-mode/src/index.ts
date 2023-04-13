@@ -1,49 +1,28 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
-import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcWebGridModule } from 'igniteui-webcomponents-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+//insert bindingImports
+//end bindingImports
 
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-defineAllComponents();
 
 ModuleManager.register(
-    IgcPropertyEditorPanelModule
+    IgcPropertyEditorPanelModule,
+    IgcWebGridModule
 );
 
 export class Sample {
 
-    private propertyEditor: IgcPropertyEditorPanelComponent
-    private cellSelectionEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private grid: IgcGridComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var cellSelectionEditor = this.cellSelectionEditor = document.getElementById('CellSelectionEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer;
-            propertyEditor.target = this.grid;
-            grid.data = this.nwindData;
-        }
-        this._bind();
 
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
-        return this._nwindData;
-    }
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

@@ -17,46 +17,29 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend-title">
+    
+        <div class="legend-title">
         Renewable Electricity Generated
     </div>
-
+    
+    
     <div class="container fill">
-        <igc-data-chart
-        should-auto-expand-margin-for-initial-labels="true"
-        computed-plot-area-margin-mode="Series"
-        name="chart"
-        id="chart">
-            <igc-category-x-axis
-            name="xAxis"
-            id="xAxis"
-            label="year">
-            </igc-category-x-axis>
-            <igc-numeric-y-axis
-            name="yAxis"
-            id="yAxis"
-            title="TWh"
-            label-location="OutsideRight">
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
             </igc-numeric-y-axis>
-            <igc-line-series
-            name="LineSeries1"
-            id="LineSeries1"
-            value-member-path="america">
-            </igc-line-series>
-            <igc-callout-layer
-            name="CalloutLayer1"
-            id="CalloutLayer1"
-            x-member-path="index"
-            y-member-path="value"
-            label-member-path="label"
-            callout-leader-brush="black"
-            callout-outline="black"
-            callout-background="orange"
-            callout-text-color="black"
-            callout-stroke-thickness="2">
-            </igc-callout-layer>
         </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

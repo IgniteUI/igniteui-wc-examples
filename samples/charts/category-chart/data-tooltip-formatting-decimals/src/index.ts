@@ -1,6 +1,6 @@
 import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
-import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
+//insert bindingImports
+//end bindingImports
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -11,27 +11,17 @@ ModuleManager.register(
 
 export class Sample {
 
-    private chart: IgcCategoryChartComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            chart.dataSource = this.highestGrossingMovies;
-        }
-        this._bind();
 
     }
 
-    private _highestGrossingMovies: HighestGrossingMovies = null;
-    public get highestGrossingMovies(): HighestGrossingMovies {
-        if (this._highestGrossingMovies == null)
-        {
-            this._highestGrossingMovies = new HighestGrossingMovies();
-        }
-        return this._highestGrossingMovies;
-    }
+
 
 }
 

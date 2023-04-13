@@ -17,78 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
+    
+    
+    
     <div class="container fill">
-        <igc-tree-grid
-        auto-generate="false"
-        name="treeGrid"
-        id="treeGrid"
-        id="treeGrid"
-        primary-key="ID"
-        foreign-key="ParentID">
-            <igc-grid-toolbar
-            >
-                <igc-grid-toolbar-actions
-                >
-                    <igc-grid-toolbar-pinning
-                    >
-                    </igc-grid-toolbar-pinning>
-                </igc-grid-toolbar-actions>
-            </igc-grid-toolbar>
-            <igc-column
-            field="Name"
-            data-type="string"
-            width="250">
-            </igc-column>
-            <igc-column
-            field="Title"
-            data-type="string"
-            width="300"
-            pinned="true">
-            </igc-column>
-            <igc-column
-            field="HireDate"
-            header="Hire Date"
-            data-type="date"
-            width="200">
-            </igc-column>
-            <igc-column
-            field="Age"
-            data-type="number"
-            width="100">
-            </igc-column>
-            <igc-column
-            field="Address"
-            data-type="string"
-            width="200">
-            </igc-column>
-            <igc-column
-            field="City"
-            data-type="string"
-            width="200">
-            </igc-column>
-            <igc-column
-            field="Country"
-            data-type="string"
-            width="200">
-            </igc-column>
-            <igc-column
-            field="Fax"
-            data-type="string"
-            width="200">
-            </igc-column>
-            <igc-column
-            field="PostalCode"
-            header="Postal Code"
-            data-type="string"
-            width="200">
-            </igc-column>
-            <igc-column
-            field="Phone"
-            data-type="string"
-            width="200">
-            </igc-column>
-        </igc-tree-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

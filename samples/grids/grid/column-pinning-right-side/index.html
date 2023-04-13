@@ -17,82 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
+    
+    
+    
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        name="grid"
-        id="grid"
-        id="grid">
-            <igc-pinning-config
-            columns="End">
-            </igc-pinning-config>
-            <igc-column
-            field="CountryFlag"
-            header="Team"
-            name="column1"
-            id="column1">
-            </igc-column>
-            <igc-column
-            field="Avatar"
-            name="column2"
-            id="column2">
-            </igc-column>
-            <igc-column
-            field="Name">
-            </igc-column>
-            <igc-column
-            field="AthleteNumber"
-            header="Athlete Number"
-            data-type="number">
-            </igc-column>
-            <igc-column
-            field="BeatsPerMinute"
-            header="Beats Per Minute">
-            </igc-column>
-            <igc-column
-            field="TopSpeed"
-            header="Top Speed">
-            </igc-column>
-            <igc-column
-            field="RegistrationDate"
-            header="Registration Date"
-            data-type="date">
-            </igc-column>
-            <igc-column
-            field="Birthday"
-            data-type="date">
-            </igc-column>
-            <igc-column
-            field="Sponsor">
-            </igc-column>
-            <igc-column
-            field="Agent">
-            </igc-column>
-            <igc-column
-            field="AgentContact"
-            header="Agent Contact">
-            </igc-column>
-            <igc-column
-            field="AgentPhone"
-            header="Agent Phone">
-            </igc-column>
-            <igc-column
-            field="FirstPlaces"
-            header="Gold"
-            pinned="true">
-            </igc-column>
-            <igc-column
-            field="SecondPlaces"
-            header="Silver"
-            pinned="true">
-            </igc-column>
-            <igc-column
-            field="ThirdPlaces"
-            header="Bronze"
-            pinned="true">
-            </igc-column>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

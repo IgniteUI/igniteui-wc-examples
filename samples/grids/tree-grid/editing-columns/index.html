@@ -17,63 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
+    
+    
+    
     <div class="container fill">
-        <igc-tree-grid
-        auto-generate="false"
-        primary-key="ProductID"
-        display-density="cosy"
-        allow-filtering="true"
-        name="treeGrid1"
-        id="treeGrid1">
-            <igc-paginator
-            per-page="10">
-            </igc-paginator>
-            <igc-column
-            field="ProductName"
-            header="Product Name"
-            data-type="string"
-            sortable="true"
-            has-summary="true"
-            editable="true"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="UnitsInStock"
-            header="Units in Stock"
-            data-type="number"
-            sortable="true"
-            has-summary="true"
-            editable="true"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="OrderDate"
-            header="Order Date"
-            data-type="date"
-            sortable="true"
-            has-summary="true"
-            editable="true"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="Discontinued"
-            header="Discontinued"
-            data-type="boolean"
-            sortable="true"
-            has-summary="true"
-            editable="true">
-            </igc-column>
-            <igc-column
-            field="ReorderLevel"
-            header="Reorder Level"
-            data-type="number"
-            sortable="true"
-            has-summary="true"
-            editable="true"
-            filterable="false">
-            </igc-column>
-        </igc-tree-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

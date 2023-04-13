@@ -17,90 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
+    
+    
+    
     <div class="container fill">
-        <igc-tree-grid
-        auto-generate="false"
-        name="treeGrid"
-        id="treeGrid"
-        id="treeGrid"
-        child-data-key="Employees"
-        row-selection="multiple"
-        moving="true"
-        allow-filtering="true"
-        filter-mode="excelStyleFilter"
-        paging="true">
-            <igc-grid-toolbar
-            >
-                <igc-grid-toolbar-title
-                name="Employees"
-                id="Employees">
-                </igc-grid-toolbar-title>
-                <igc-grid-toolbar-actions
-                >
-                    <igc-grid-toolbar-hiding
-                    >
-                    </igc-grid-toolbar-hiding>
-                    <igc-grid-toolbar-pinning
-                    >
-                    </igc-grid-toolbar-pinning>
-                    <igc-grid-toolbar-exporter
-                    export-csv="true"
-                    export-excel="true">
-                    </igc-grid-toolbar-exporter>
-                </igc-grid-toolbar-actions>
-            </igc-grid-toolbar>
-            <igc-column
-            field="iD"
-            header="ID"
-            data-type="number"
-            sortable="true"
-            editable="true"
-            resizable="true"
-            has-summary="true">
-            </igc-column>
-            <igc-column
-            field="Name"
-            header="Name"
-            data-type="string"
-            sortable="true"
-            editable="true"
-            resizable="true"
-            has-summary="true">
-            </igc-column>
-            <igc-column
-            field="HireDate"
-            header="Hire Date"
-            data-type="date"
-            sortable="true"
-            editable="true"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="Age"
-            header="Age"
-            data-type="number"
-            sortable="true"
-            editable="true"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="salary"
-            header="Salary"
-            data-type="number"
-            sortable="true"
-            editable="true"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="productivity"
-            header="Productivity"
-            data-type="number"
-            sortable="true"
-            editable="true"
-            resizable="true">
-            </igc-column>
-        </igc-tree-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

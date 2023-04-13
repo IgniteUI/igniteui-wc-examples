@@ -17,82 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
+    
+    
+    
     <div class="container fill">
-        <igc-tree-grid
-        auto-generate="false"
-        name="treeGrid"
-        id="treeGrid"
-        id="treeGrid"
-        primary-key="ID"
-        foreign-key="ParentID"
-        column-selection="multiple">
-            <igc-column
-            field="Name"
-            data-type="string">
-            </igc-column>
-            <igc-column-group
-            header="General Information">
-                <igc-column
-                field="HireDate"
-                header="Hire Date"
-                data-type="date">
-                </igc-column>
-                <igc-column-group
-                header="Personal Details">
-                    <igc-column
-                    field="ID"
-                    data-type="number">
-                    </igc-column>
-                    <igc-column
-                    field="Title"
-                    data-type="string">
-                    </igc-column>
-                    <igc-column
-                    field="Age"
-                    data-type="number"
-                    selectable="false">
-                    </igc-column>
-                </igc-column-group>
-            </igc-column-group>
-            <igc-column-group
-            header="Address Information">
-                <igc-column-group
-                header="Location">
-                    <igc-column
-                    field="Country"
-                    data-type="string"
-                    selectable="false">
-                    </igc-column>
-                    <igc-column
-                    field="City"
-                    data-type="string">
-                    </igc-column>
-                    <igc-column
-                    field="Address"
-                    data-type="string">
-                    </igc-column>
-                </igc-column-group>
-                <igc-column-group
-                header="Contact Information">
-                    <igc-column
-                    field="Phone"
-                    data-type="string"
-                    selectable="false">
-                    </igc-column>
-                    <igc-column
-                    field="Fax"
-                    data-type="string"
-                    selectable="false">
-                    </igc-column>
-                    <igc-column
-                    field="PostalCode"
-                    header="Postal Code"
-                    data-type="string">
-                    </igc-column>
-                </igc-column-group>
-            </igc-column-group>
-        </igc-tree-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

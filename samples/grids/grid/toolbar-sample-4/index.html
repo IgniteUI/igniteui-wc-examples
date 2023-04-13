@@ -17,51 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
+    
+    
+    
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        name="grid1"
-        id="grid1">
-            <igc-grid-toolbar
-            >
-                <igc-grid-toolbar-actions
-                >
-                    <igc-grid-toolbar-hiding
-                    >
-                    </igc-grid-toolbar-hiding>
-                    <igc-grid-toolbar-pinning
-                    >
-                    </igc-grid-toolbar-pinning>
-                </igc-grid-toolbar-actions>
-            </igc-grid-toolbar>
-            <igc-column
-            field="Name"
-            header="Athlete"
-            width="200px">
-            </igc-column>
-            <igc-column
-            field="CountryName"
-            header="Country"
-            width="200px">
-            </igc-column>
-            <igc-column
-            field="BeatsPerMinute"
-            header="Beats Per Minute">
-            </igc-column>
-            <igc-column
-            field="TopSpeed"
-            header="Top Speed">
-            </igc-column>
-            <igc-column
-            field="AthleteNumber"
-            header="ID">
-            </igc-column>
-            <igc-column
-            field="TrackProgress"
-            header="Progress">
-            </igc-column>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

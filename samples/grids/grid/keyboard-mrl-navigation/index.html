@@ -17,131 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
+    
+    
+    
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        name="grid"
-        id="grid"
-        id="grid"
-        display-density="cosy">
-            <igc-column-layout
-            name="CompanyInfo"
-            id="CompanyInfo"
-            header="Company">
-                <igc-column
-                name="Company"
-                id="Company"
-                field="Company"
-                header="Company"
-                row-start="1"
-                col-start="1"
-                col-end="3">
-                </igc-column>
-                <igc-column
-                name="Country"
-                id="Country"
-                field="Country"
-                header="Country"
-                row-start="2"
-                col-start="1">
-                </igc-column>
-                <igc-column
-                name="City"
-                id="City"
-                field="City"
-                header="City"
-                row-start="2"
-                col-start="2">
-                </igc-column>
-                <igc-column
-                name="Address"
-                id="Address"
-                field="Address"
-                header="Address"
-                row-start="3"
-                col-start="1"
-                col-end="3">
-                </igc-column>
-            </igc-column-layout>
-            <igc-column-layout
-            name="Sales"
-            id="Sales"
-            header="Sales">
-                <igc-column
-                name="LifetimeSales"
-                id="LifetimeSales"
-                field="LifetimeSales"
-                header="Lifetime Sales"
-                row-start="1"
-                row-end="3"
-                col-start="1"
-                col-end="3">
-                </igc-column>
-                <igc-column
-                name="Quarterly"
-                id="Quarterly"
-                field="QuarterlySales"
-                header="Quarterly"
-                row-start="3"
-                col-start="1">
-                </igc-column>
-                <igc-column
-                name="Yearly"
-                id="Yearly"
-                field="YearlySales"
-                header="Yearly"
-                row-start="3"
-                col-start="2">
-                </igc-column>
-            </igc-column-layout>
-            <igc-column-layout
-            name="MarketPotentialInfo"
-            id="MarketPotentialInfo"
-            header="Market Potential">
-                <igc-column
-                name="MarketPotential"
-                id="MarketPotential"
-                field="MarketPotential"
-                header="Market Potential"
-                row-start="1"
-                row-end="4"
-                col-start="1">
-                </igc-column>
-            </igc-column-layout>
-            <igc-column-layout
-            name="Assets"
-            id="Assets"
-            header="Assets">
-                <igc-column
-                name="AssetsCash"
-                id="AssetsCash"
-                field="AssetsCash"
-                header="Assets Cash"
-                row-start="1"
-                col-start="1">
-                </igc-column>
-                <igc-column
-                name="AccountsReceivable"
-                id="AccountsReceivable"
-                field="AccountsReceivable"
-                header="Accounts Receivable"
-                row-start="1"
-                col-start="2"
-                col-end="4">
-                </igc-column>
-                <igc-column
-                name="AssetsBooks"
-                id="AssetsBooks"
-                field="AssetsBooks"
-                header="Assets Books"
-                row-start="2"
-                row-end="4"
-                col-start="1"
-                col-end="4">
-                </igc-column>
-            </igc-column-layout>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

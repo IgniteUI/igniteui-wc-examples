@@ -17,34 +17,29 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend-title">
+    
+        <div class="legend-title">
         Global Electricity Demand by Energy Use
     </div>
-
-    <div class="legend">
-        <igc-item-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-item-legend>
-    </div>
-
+    
+    
     <div class="container fill">
-        <igc-pie-chart
-        name="chart"
-        id="chart"
-        label-member-path="summary"
-        labels-position="OutsideEnd"
-        label-extent="30"
-        value-member-path="value"
-        outlines="white"
-        others-category-threshold="10"
-        others-category-type="Number"
-        others-category-text="Others"
-        radius-factor="0.7"
-        legend-label-member-path="category">
-        </igc-pie-chart>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

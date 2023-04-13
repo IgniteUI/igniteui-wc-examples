@@ -17,75 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <igc-property-editor-panel
-
-        description-type="WebGrid"
-        is-horizontal="true"
-        is-wrapping-enabled="false"
-        name="propertyEditorPanel1"
-        id="propertyEditorPanel1">
-            <igc-property-editor-property-description
-            property-path="Pinning.Rows"
-            name="rowPinningEditor"
-            id="rowPinningEditor"
-            label="Row Pinning toggle">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
-
+    
+    
+    
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        name="grid"
-        id="grid"
-        primary-key="ID"
-        cell-selection="none"
-        row-editable="true">
-            <igc-pinning-config
-            rows="Top">
-            </igc-pinning-config>
-            <igc-column
-            field="CompanyName"
-            header="Company"
-            width="300px">
-            </igc-column>
-            <igc-column
-            field="ContactName"
-            header="Name">
-            </igc-column>
-            <igc-column
-            field="ContactTitle"
-            header="Title">
-            </igc-column>
-            <igc-column
-            field="Address"
-            header="Address">
-            </igc-column>
-            <igc-column
-            field="City"
-            header="City">
-            </igc-column>
-            <igc-column
-            field="PostalCode"
-            header="Postal Code">
-            </igc-column>
-            <igc-column
-            field="Phone"
-            header="Phone">
-            </igc-column>
-            <igc-column
-            field="Fax"
-            header="Fax">
-            </igc-column>
-            <igc-action-strip
-            name="actionStrip"
-            id="actionStrip">
-                <igc-grid-pinning-actions
-                >
-                </igc-grid-pinning-actions>
-            </igc-action-strip>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

@@ -17,71 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
+    
+    
+    
     <div class="container fill">
-        <igc-tree-grid
-        auto-generate="false"
-        name="treeGrid"
-        id="treeGrid"
-        id="treeGrid"
-        primary-key="ID"
-        foreign-key="ParentID">
-            <igc-column
-            field="Name"
-            data-type="string"
-            resizable="true"
-            min-width="60"
-            max-width="250"
-            width="220">
-            </igc-column>
-            <igc-column
-            field="Title"
-            data-type="string"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="HireDate"
-            header="Hire Date"
-            data-type="date"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="Age"
-            data-type="number"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="Address"
-            data-type="string"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="City"
-            data-type="string"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="Country"
-            data-type="string"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="Fax"
-            data-type="string"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="PostalCode"
-            header="Postal Code"
-            data-type="string"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="Phone"
-            data-type="string"
-            resizable="true">
-            </igc-column>
-        </igc-tree-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

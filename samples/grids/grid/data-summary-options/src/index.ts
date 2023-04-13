@@ -1,48 +1,26 @@
-import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcWebGridModule } from 'igniteui-webcomponents-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-import { IgcSummaryResult } from 'igniteui-webcomponents-grids/grids';
+//insert bindingImports
+//end bindingImports
 
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+ModuleManager.register(
+    IgcWebGridModule
+);
 
 export class Sample {
 
-    private grid: IgcGridComponent
-    private productID: IgcColumnComponent
-    private productName: IgcColumnComponent
-    private unitPrice: IgcColumnComponent
-    private unitsInStock: IgcColumnComponent
-    private discontinued: IgcColumnComponent
-    private orderDate: IgcColumnComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        this.webGridCustomSummary = this.webGridCustomSummary.bind(this);
-        var productID = this.productID = document.getElementById('ProductID') as IgcColumnComponent;
-        var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
-        var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
-        var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
-        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
-        var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            grid.data = this.nwindData;
-            grid.addEventListener("columnInit", this.webGridCustomSummary);
-        }
-        this._bind();
 
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
-        return this._nwindData;
-    }
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -52,15 +30,6 @@ export class Sample {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
-    }
-
-    public webGridCustomSummary(args: any): void {
-        //if (args.detail.field === "UnitsInStock") {
-        //    args.detail.summaries = 1; //TODO CUSTOM SUMMARY - NOT IMPLEMENTED YET(?)
-        //}
-
-        //Units in Stock needs to have above "CustomSummary" class assigned to it in constructor. Not sure if this will be possible
-        //with current implementation of xplat examples?
     }
 
 }

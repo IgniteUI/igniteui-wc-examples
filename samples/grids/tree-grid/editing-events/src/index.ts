@@ -1,36 +1,26 @@
-import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcWebTreeGridModule } from 'igniteui-webcomponents-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
-import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
+//insert bindingImports
+//end bindingImports
 
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+ModuleManager.register(
+    IgcWebTreeGridModule
+);
 
 export class Sample {
 
-    private treeGrid: IgcTreeGridComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
-        this.webTreeGridEditingEventsCellEdit = this.webTreeGridEditingEventsCellEdit.bind(this);
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            treeGrid.data = this.employeesFlatDetails;
-            treeGrid.addEventListener("cellEdit", this.webTreeGridEditingEventsCellEdit);
-        }
-        this._bind();
 
     }
 
-    private _employeesFlatDetails: EmployeesFlatDetails = null;
-    public get employeesFlatDetails(): EmployeesFlatDetails {
-        if (this._employeesFlatDetails == null)
-        {
-            this._employeesFlatDetails = new EmployeesFlatDetails();
-        }
-        return this._employeesFlatDetails;
-    }
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -40,17 +30,6 @@ export class Sample {
             WebTreeGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
-    }
-
-    public webTreeGridEditingEventsCellEdit(args: any): void {
-        var d = args.detail;
-
-        if (d.column != null && d.column.field == "Name") {
-            if (d.newValue > d.rowData.Name) {
-                d.cancel = true;
-                alert("You cannot change the 'Name' field for this record!")
-            }
-        }
     }
 
 }

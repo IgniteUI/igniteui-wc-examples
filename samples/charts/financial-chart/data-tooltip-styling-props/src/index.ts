@@ -1,6 +1,6 @@
 import { IgcFinancialChartModule, IgcDataChartInteractivityModule, IgcDataLegendModule } from 'igniteui-webcomponents-charts';
-import { IgcFinancialChartComponent } from 'igniteui-webcomponents-charts';
-import { StockGoogleItem, StockGoogle } from './StockGoogle';
+//insert bindingImports
+//end bindingImports
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -12,27 +12,17 @@ ModuleManager.register(
 
 export class Sample {
 
-    private chart: IgcFinancialChartComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var chart = this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            chart.dataSource = this.stockGoogle;
-        }
-        this._bind();
 
     }
 
-    private _stockGoogle: StockGoogle = null;
-    public get stockGoogle(): StockGoogle {
-        if (this._stockGoogle == null)
-        {
-            this._stockGoogle = new StockGoogle();
-        }
-        return this._stockGoogle;
-    }
+
 
 }
 

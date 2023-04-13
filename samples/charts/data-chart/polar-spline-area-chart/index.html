@@ -17,61 +17,29 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend-title">
+    
+        <div class="legend-title">
         Wind Speed vs Boat Speed
     </div>
-
+    
+    
     <div class="container fill">
-        <igc-data-chart
-        name="chart"
-        id="chart"
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false">
-            <igc-numeric-angle-axis
-            name="angleAxis"
-            id="angleAxis"
-            start-angle-offset="-90"
-            interval="30"
-            minimum-value="0"
-            maximum-value="360">
-            </igc-numeric-angle-axis>
-            <igc-numeric-radius-axis
-            name="radiusAxis"
-            id="radiusAxis"
-            radius-extent-scale="0.9"
-            inner-radius-extent-scale="0.1"
-            interval="25"
-            minimum-value="0"
-            maximum-value="100">
-            </igc-numeric-radius-axis>
-            <igc-polar-spline-area-series
-            name="PolarSplineAreaSeries1"
-            id="PolarSplineAreaSeries1"
-            angle-member-path="direction"
-            radius-member-path="windSpeed"
-            show-default-tooltip="false"
-            area-fill-opacity="0.8"
-            thickness="1"
-            title="Wind Speed"
-            marker-type="Circle">
-            </igc-polar-spline-area-series>
-            <igc-polar-spline-area-series
-            name="PolarSplineAreaSeries2"
-            id="PolarSplineAreaSeries2"
-            angle-member-path="direction"
-            radius-member-path="boatSpeed"
-            show-default-tooltip="false"
-            area-fill-opacity="0.8"
-            thickness="1"
-            title="Boat Speed"
-            marker-type="Circle">
-            </igc-polar-spline-area-series>
-            <igc-data-tool-tip-layer
-            name="DataToolTipLayer"
-            id="DataToolTipLayer">
-            </igc-data-tool-tip-layer>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
         </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

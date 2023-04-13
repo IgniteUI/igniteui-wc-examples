@@ -17,76 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <igc-property-editor-panel
-
-        description-type="WebGrid"
-        is-wrapping-enabled="true"
-        is-horizontal="true"
-        name="propertyEditorPanel1"
-        id="propertyEditorPanel1">
-            <igc-property-editor-property-description
-            name="selectionType"
-            id="selectionType"
-            property-path="RowSelection">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            name="hideRowSelectors"
-            id="hideRowSelectors"
-            property-path="HideRowSelectors">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
-
+    
+    
+    
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        moving="true"
-        id="grid1"
-        name="grid1"
-        id="grid1">
-            <igc-column
-            field="Category">
-            </igc-column>
-            <igc-column
-            field="Type">
-            </igc-column>
-            <igc-column
-            field="Price"
-            data-type="currency"
-            name="column1"
-            id="column1">
-            </igc-column>
-            <igc-column
-            field="Buy"
-            data-type="currency"
-            name="column2"
-            id="column2">
-            </igc-column>
-            <igc-column
-            field="Sell"
-            data-type="currency"
-            name="column3"
-            id="column3">
-            </igc-column>
-            <igc-column
-            field="Change"
-            name="column4"
-            id="column4">
-            </igc-column>
-            <igc-column
-            field="ChangePercent"
-            data-type="number"
-            name="column5"
-            id="column5">
-            </igc-column>
-            <igc-column
-            field="AnnualChange"
-            data-type="number"
-            name="column6"
-            id="column6">
-            </igc-column>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

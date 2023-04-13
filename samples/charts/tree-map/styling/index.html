@@ -17,88 +17,29 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend-title">
+    
+        <div class="legend-title">
         Comparing Population of Countries
     </div>
-
+    
+    
     <div class="container fill">
-        <igc-treemap
-        name="treemap"
-        id="treemap"
-        parent-id-member-path="parent"
-        custom-value-member-path="parent"
-        id-member-path="name"
-        label-member-path="name"
-        value-member-path="population"
-        root-title="Countries"
-        header-display-mode="Overlay"
-        overlay-header-background="rgba(63, 64, 63, 1)"
-        header-hover-background="rgba(63, 64, 63, 1)"
-        header-background="rgba(63, 64, 63, 1)"
-        parent-node-bottom-padding="0"
-        parent-node-left-padding="0"
-        parent-node-right-padding="0"
-        parent-node-top-padding="0"
-        outline="black"
-        stroke-thickness="1">
-            <igc-treemap-node-style-mapping
-            name="styling1"
-            id="styling1"
-            value="Africa"
-            fill="rgba(115, 86, 86, 1)"
-            mapping-mode="CustomValue">
-            </igc-treemap-node-style-mapping>
-            <igc-treemap-node-style-mapping
-            name="styling2"
-            id="styling2"
-            value="Europe"
-            fill="rgba(97, 171, 55, 1)"
-            mapping-mode="CustomValue">
-            </igc-treemap-node-style-mapping>
-            <igc-treemap-node-style-mapping
-            name="styling3"
-            id="styling3"
-            value="Asia"
-            fill="rgba(139, 91, 177, 1)"
-            mapping-mode="CustomValue">
-            </igc-treemap-node-style-mapping>
-            <igc-treemap-node-style-mapping
-            name="styling4"
-            id="styling4"
-            value="North America"
-            fill="rgba(95, 186, 172, 1)"
-            mapping-mode="CustomValue">
-            </igc-treemap-node-style-mapping>
-            <igc-treemap-node-style-mapping
-            name="styling5"
-            id="styling5"
-            value="South America"
-            fill="rgba(238, 88, 121, 1)"
-            mapping-mode="CustomValue">
-            </igc-treemap-node-style-mapping>
-            <igc-treemap-node-style-mapping
-            name="styling6"
-            id="styling6"
-            value="Middle East"
-            fill="rgba(109, 177, 255, 1)"
-            mapping-mode="CustomValue">
-            </igc-treemap-node-style-mapping>
-            <igc-treemap-node-style-mapping
-            name="styling7"
-            id="styling7"
-            value="Central America"
-            fill="rgba(247, 210, 98, 1)"
-            mapping-mode="CustomValue">
-            </igc-treemap-node-style-mapping>
-            <igc-treemap-node-style-mapping
-            name="styling8"
-            id="styling8"
-            value="Oceania"
-            fill="rgba(168, 168, 183, 1)"
-            mapping-mode="CustomValue">
-            </igc-treemap-node-style-mapping>
-        </igc-treemap>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

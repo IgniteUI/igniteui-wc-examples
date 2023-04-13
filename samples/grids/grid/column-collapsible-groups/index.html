@@ -17,102 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
+    
+    
+    
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        name="grid"
-        id="grid"
-        id="grid">
-            <igc-column-group
-            header="Customer Information"
-            collapsible="true">
-                <igc-column
-                field="CustomerName"
-                header="Customer Name"
-                visible-when-collapsed="true">
-                </igc-column>
-                <igc-column
-                field="CustomerID"
-                header="Customer ID"
-                visible-when-collapsed="false">
-                </igc-column>
-                <igc-column
-                field="CustomerFirstName"
-                header="First Name"
-                visible-when-collapsed="false">
-                </igc-column>
-                <igc-column
-                field="CustomerLastName"
-                header="Last Name"
-                visible-when-collapsed="false">
-                </igc-column>
-                <igc-column-group
-                header="Customer Address"
-                expanded="false"
-                collapsible="true">
-                    <igc-column
-                    field="CustomerAddress"
-                    header="Full Address"
-                    width="250px"
-                    visible-when-collapsed="true">
-                    </igc-column>
-                    <igc-column
-                    field="Address"
-                    visible-when-collapsed="false">
-                    </igc-column>
-                    <igc-column
-                    field="City"
-                    visible-when-collapsed="false">
-                    </igc-column>
-                    <igc-column
-                    field="Country"
-                    visible-when-collapsed="false">
-                    </igc-column>
-                    <igc-column
-                    field="PostalCode"
-                    header="Postal Code"
-                    visible-when-collapsed="false">
-                    </igc-column>
-                </igc-column-group>
-            </igc-column-group>
-            <igc-column
-            field="ShipperName"
-            header="Shipper Name">
-            </igc-column>
-            <igc-column
-            field="OrderDate"
-            header="Order Date">
-            </igc-column>
-            <igc-column-group
-            header="Product Details"
-            collapsible="true"
-            expanded="false">
-                <igc-column
-                field="ProductName"
-                header="Name"
-                visible-when-collapsed="true">
-                </igc-column>
-                <igc-column
-                field="UnitPrice"
-                header="Unit Price"
-                visible-when-collapsed="true">
-                </igc-column>
-                <igc-column
-                field="ProductID"
-                header="ID"
-                visible-when-collapsed="true">
-                </igc-column>
-                <igc-column
-                field="Quantity"
-                visible-when-collapsed="false">
-                </igc-column>
-                <igc-column
-                field="Quantity"
-                visible-when-collapsed="false">
-                </igc-column>
-            </igc-column-group>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

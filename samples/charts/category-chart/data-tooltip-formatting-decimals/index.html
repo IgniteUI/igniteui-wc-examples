@@ -17,30 +17,29 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend-title">
+    
+        <div class="legend-title">
         Highest Grossing Movie Franchises
     </div>
-
+    
+    
     <div class="container fill">
-        <igc-category-chart
-        name="chart"
-        id="chart"
-        chart-type="Column"
-        tool-tip-type="Data"
-        data-tool-tip-units-text="B"
-        data-tool-tip-value-format-mode="Decimal"
-        data-tool-tip-value-format-min-fractions="2"
-        x-axis-interval="1"
-        y-axis-title="Billions of U.S. Dollars"
-        y-axis-title-left-margin="10"
-        y-axis-title-right-margin="5"
-        y-axis-label-left-margin="0"
-        is-category-highlighting-enabled="true"
-        crosshairs-display-mode="None"
-        highlighting-mode="FadeOthersSpecific"
-        highlighting-behavior="NearestItemsAndSeries">
-        </igc-category-chart>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

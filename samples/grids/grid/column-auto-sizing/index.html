@@ -17,68 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
+    
+    
+    
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        primary-key="ProductID"
-        name="grid"
-        id="grid">
-            <igc-column
-            field="ID"
-            width="auto"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="CompanyName"
-            header="Company Name"
-            width="auto"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="ContactName"
-            header="Name"
-            width="auto"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="ContactTitle"
-            header="Title"
-            width="auto"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="Address"
-            width="auto"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="City"
-            width="auto"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="Region"
-            width="auto"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="PostalCode"
-            header="Postal Code"
-            width="auto"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="Phone"
-            width="auto"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="Fax"
-            width="auto"
-            resizable="true">
-            </igc-column>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

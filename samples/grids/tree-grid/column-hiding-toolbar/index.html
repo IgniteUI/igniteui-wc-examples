@@ -17,82 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
+    
+    
+    
     <div class="container fill">
-        <igc-tree-grid
-        auto-generate="false"
-        name="treeGrid"
-        id="treeGrid"
-        id="treeGrid"
-        primary-key="ID"
-        foreign-key="ParentID"
-        column-width="200"
-        allow-filtering="true">
-            <igc-grid-toolbar
-            >
-                <igc-grid-toolbar-actions
-                >
-                    <igc-grid-toolbar-hiding
-                    >
-                    </igc-grid-toolbar-hiding>
-                </igc-grid-toolbar-actions>
-            </igc-grid-toolbar>
-            <igc-column
-            field="Name"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="ID"
-            data-type="number"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Title"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="HireDate"
-            data-type="date"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Age"
-            data-type="number"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Address"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="City"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Country"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Fax"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="PostalCode"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Phone"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-        </igc-tree-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

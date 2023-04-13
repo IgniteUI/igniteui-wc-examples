@@ -17,70 +17,29 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend-title">
+    
+        <div class="legend-title">
         Total Population of Selected Countries
     </div>
-
+    
+    
     <div class="container fill">
-        <igc-data-chart
-        name="chart"
-        id="chart">
-            <igc-numeric-x-axis
-            name="xAxis"
-            id="xAxis"
-            title="Death Rate"
-            interval="1"
-            minimum-value="4"
-            maximum-value="16">
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
             </igc-numeric-x-axis>
-            <igc-numeric-y-axis
-            name="yAxis"
-            id="yAxis"
-            title="Birth Rate"
-            interval="10"
-            minimum-value="0"
-            maximum-value="60">
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
             </igc-numeric-y-axis>
-            <igc-bubble-series
-            name="BubbleSeries1"
-            id="BubbleSeries1"
-            x-member-path="deathRate"
-            y-member-path="birthRate"
-            radius-member-path="population"
-            title="Africa"
-            radius-member-as-legend-label="Population: "
-            x-member-as-legend-label="Death Rate: "
-            y-member-as-legend-label="Birth Rate: ">
-                <igc-size-scale
-                name="SizeScale1"
-                id="SizeScale1"
-                minimum-value="10"
-                maximum-value="100">
-                </igc-size-scale>
-            </igc-bubble-series>
-            <igc-bubble-series
-            name="BubbleSeries2"
-            id="BubbleSeries2"
-            x-member-path="deathRate"
-            y-member-path="birthRate"
-            radius-member-path="population"
-            title="Europe"
-            radius-member-as-legend-label="Population: "
-            x-member-as-legend-label="Death Rate: "
-            y-member-as-legend-label="Birth Rate: ">
-                <igc-size-scale
-                name="SizeScale2"
-                id="SizeScale2"
-                minimum-value="10"
-                maximum-value="100">
-                </igc-size-scale>
-            </igc-bubble-series>
-            <igc-data-tool-tip-layer
-            name="DataToolTipLayer"
-            id="DataToolTipLayer">
-            </igc-data-tool-tip-layer>
         </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

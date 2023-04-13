@@ -17,86 +17,29 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <igc-property-editor-panel
-
-        description-type="CategoryChart"
-        is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="propertyEditorPanel1"
-        id="propertyEditorPanel1">
-            <igc-property-editor-property-description
-            property-path="YAxisStroke"
-            name="YAxisStroke"
-            id="YAxisStroke"
-            label="Y Axis Stroke"
-            should-override-default-editor="true"
-            value-type="EnumValue"
-            drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen"
-            drop-down-values="gray, darkslategray, salmon, cornflowerblue, darkgreen"
-            primitive-value="gray">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="YAxisMajorStroke"
-            name="YAxisMajorStroke"
-            id="YAxisMajorStroke"
-            label="Y Axis Major Stroke"
-            should-override-default-editor="true"
-            value-type="EnumValue"
-            drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen"
-            drop-down-values="gray, darkslategray, salmon, cornflowerblue, darkgreen"
-            primitive-value="darkslategray">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="YAxisMinorStroke"
-            name="YAxisMinorStroke"
-            id="YAxisMinorStroke"
-            label="Y Axis Minor Stroke"
-            should-override-default-editor="true"
-            value-type="EnumValue"
-            drop-down-names="gray, darkslategray, salmon, cornflowerblue, darkgreen"
-            drop-down-values="gray, darkslategray, salmon, cornflowerblue, darkgreen"
-            primitive-value="gray">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
-
-    <div class="legend-title">
+    
+        <div class="legend-title">
         Renewable Electricity Generated
     </div>
-
-    <div class="legend">
-        <igc-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-legend>
-    </div>
-
+    
+    
     <div class="container fill">
-        <igc-category-chart
-        name="chart"
-        id="chart"
-        computed-plot-area-margin-mode="Series"
-        included-properties="year, europe, china, america"
-        chart-type="Line"
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
-        x-axis-stroke="rgba(145, 145, 145, 1)"
-        x-axis-stroke-thickness="2"
-        x-axis-interval="1"
-        x-axis-major-stroke="rgba(71, 71, 71, 1)"
-        x-axis-major-stroke-thickness="0.5"
-        y-axis-stroke="gray"
-        y-axis-stroke-thickness="2"
-        y-axis-interval="20"
-        y-axis-major-stroke="darkslategray"
-        y-axis-major-stroke-thickness="1"
-        y-axis-minor-interval="5"
-        y-axis-minor-stroke="gray"
-        y-axis-minor-stroke-thickness="0.5"
-        thickness="2">
-        </igc-category-chart>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

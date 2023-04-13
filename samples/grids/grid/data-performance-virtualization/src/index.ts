@@ -1,32 +1,26 @@
-import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
+import { IgcWebGridModule } from 'igniteui-webcomponents-grids';
+//insert bindingImports
+//end bindingImports
 
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+ModuleManager.register(
+    IgcWebGridModule
+);
 
 export class Sample {
 
-    private grid: IgcGridComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            grid.data = this.financialDataAll;
-        }
-        this._bind();
 
     }
 
-    private _financialDataAll: FinancialDataAll = null;
-    public get financialDataAll(): FinancialDataAll {
-        if (this._financialDataAll == null)
-        {
-            this._financialDataAll = new FinancialDataAll();
-        }
-        return this._financialDataAll;
-    }
+
 
 }
 

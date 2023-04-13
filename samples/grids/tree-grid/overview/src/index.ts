@@ -1,41 +1,28 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
-import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcWebTreeGridModule } from 'igniteui-webcomponents-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcTreeGridComponent, IgcGridToolbarTitleComponent } from 'igniteui-webcomponents-grids/grids';
-import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
+//insert bindingImports
+//end bindingImports
 
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
-    IgcPropertyEditorPanelModule
+    IgcPropertyEditorPanelModule,
+    IgcWebTreeGridModule
 );
 
 export class Sample {
 
-    private treeGrid: IgcTreeGridComponent
-    private employees: IgcGridToolbarTitleComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
-        var employees = this.employees = document.getElementById('Employees') as IgcGridToolbarTitleComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            treeGrid.data = this.employeesNestedData;
-        }
-        this._bind();
 
     }
 
-    private _employeesNestedData: EmployeesNestedData = null;
-    public get employeesNestedData(): EmployeesNestedData {
-        if (this._employeesNestedData == null)
-        {
-            this._employeesNestedData = new EmployeesNestedData();
-        }
-        return this._employeesNestedData;
-    }
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

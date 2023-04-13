@@ -17,36 +17,29 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend-title">
+    
+        <div class="legend-title">
         Percentage Change in Energy Generation
     </div>
-
-    <div class="legend">
-        <igc-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-legend>
-    </div>
-
+    
+    
     <div class="container fill">
-        <igc-category-chart
-        name="chart"
-        id="chart"
-        chart-type="Column"
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
-        is-series-highlighting-enabled="true"
-        brushes="rgba(157, 231, 114, 1) rgba(139, 91, 177, 1) rgba(109, 177, 255, 1) rgba(238, 88, 121, 1) rgba(248, 161, 95, 1)"
-        outlines="white"
-        x-axis-major-stroke="lightgray"
-        x-axis-gap="0.5"
-        crosshairs-display-mode="None"
-        is-category-highlighting-enabled="true"
-        highlighting-mode="FadeOthersSpecific"
-        highlighting-behavior="NearestItemsAndSeries">
-        </igc-category-chart>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

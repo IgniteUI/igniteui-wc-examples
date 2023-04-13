@@ -17,63 +17,29 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend-title">
+    
+        <div class="legend-title">
         Life Expectancy vs Health Expenditure
     </div>
-
-    <div class="legend">
-        <igc-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-legend>
-    </div>
-
+    
+    
     <div class="container fill">
-        <igc-data-chart
-        name="chart"
-        id="chart">
-            <igc-numeric-x-axis
-            name="xAxis"
-            id="xAxis"
-            title="Life Expectancy (in years)"
-            minimum-value="72"
-            maximum-value="84"
-            interval="2">
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
             </igc-numeric-x-axis>
-            <igc-numeric-y-axis
-            name="yAxis"
-            id="yAxis"
-            title="Health Expenditure per Capita"
-            abbreviate-large-numbers="true"
-            minimum-value="1000"
-            maximum-value="6000"
-            interval="1000">
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
             </igc-numeric-y-axis>
-            <igc-scatter-spline-series
-            name="ScatterSplineSeries1"
-            id="ScatterSplineSeries1"
-            title="Germany"
-            x-member-path="lifeExpectancy"
-            y-member-path="healthExpense"
-            marker-type="Circle"
-            show-default-tooltip="true">
-            </igc-scatter-spline-series>
-            <igc-scatter-spline-series
-            name="ScatterSplineSeries2"
-            id="ScatterSplineSeries2"
-            title="France"
-            x-member-path="lifeExpectancy"
-            y-member-path="healthExpense"
-            marker-type="Circle"
-            show-default-tooltip="true">
-            </igc-scatter-spline-series>
-            <igc-data-tool-tip-layer
-            name="DataToolTipLayer"
-            id="DataToolTipLayer">
-            </igc-data-tool-tip-layer>
         </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

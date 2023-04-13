@@ -17,32 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend">
-        <igc-data-legend
-        name="Legend"
-        id="Legend"
-        included-columns="Open, Close, High, Low, Change"
-        label-text-color="rgba(74, 74, 74, 1)"
-        units-text="K"
-        units-text-color="rgba(0, 173, 3, 1)"
-        units-text-style="normal bold 14px Verdana"
-        value-format-mode="Currency"
-        value-text-color="rgba(0, 173, 3, 1)"
-        value-text-style="normal bold 14px Verdana">
-        </igc-data-legend>
-    </div>
-
+    
+    
+    
     <div class="container fill">
-        <igc-financial-chart
-        name="chart"
-        id="chart"
-        is-vertical-zoom-enabled="true"
-        is-horizontal-zoom-enabled="true"
-        tool-tip-type="None"
-        y-axis-title="Thousands of Dollars ($)"
-        zoom-slider-type="None">
-        </igc-financial-chart>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

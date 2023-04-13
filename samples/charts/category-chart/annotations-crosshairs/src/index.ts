@@ -1,14 +1,10 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-import { TemperatureAnnotatedDataItem, TemperatureAnnotatedData } from './TemperatureAnnotatedData';
+//insert bindingImports
+//end bindingImports
 
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-defineAllComponents();
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
@@ -17,35 +13,16 @@ ModuleManager.register(
 
 export class Sample {
 
-    private propertyEditor: IgcPropertyEditorPanelComponent
-    private crosshairsDisplayModeEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private crosshairsSnapToDataEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private chart: IgcCategoryChartComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var crosshairsDisplayModeEditor = this.crosshairsDisplayModeEditor = document.getElementById('CrosshairsDisplayModeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var crosshairsSnapToDataEditor = this.crosshairsSnapToDataEditor = document.getElementById('CrosshairsSnapToDataEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer;
-            propertyEditor.target = this.chart;
-            chart.dataSource = this.temperatureAnnotatedData;
-        }
-        this._bind();
 
     }
 
-    private _temperatureAnnotatedData: TemperatureAnnotatedData = null;
-    public get temperatureAnnotatedData(): TemperatureAnnotatedData {
-        if (this._temperatureAnnotatedData == null)
-        {
-            this._temperatureAnnotatedData = new TemperatureAnnotatedData();
-        }
-        return this._temperatureAnnotatedData;
-    }
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

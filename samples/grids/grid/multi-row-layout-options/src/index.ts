@@ -1,55 +1,28 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
-import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcWebGridModule } from 'igniteui-webcomponents-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent, IgcGroupingExpression, SortingDirection } from 'igniteui-webcomponents-grids/grids';
-import { CustomersDataItem, CustomersData } from './CustomersData';
+//insert bindingImports
+//end bindingImports
 
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
-    IgcPropertyEditorPanelModule
+    IgcPropertyEditorPanelModule,
+    IgcWebGridModule
 );
 
 export class Sample {
 
-    private grid: IgcGridComponent
-    private _groupingExpression1: IgcGroupingExpression[] | null = null;
-    public get groupingExpression1(): IgcGroupingExpression[] {
-        if (this._groupingExpression1 == null)
-        {
-            let groupingExpression1: IgcGroupingExpression[] = [];
-            var groupingExpression2: IgcGroupingExpression = {} as IgcGroupingExpression;
-            groupingExpression2.fieldName = "Country";
-            groupingExpression2.ignoreCase = false;
-            groupingExpression2.dir = SortingDirection.Asc;
-
-            groupingExpression1.push(groupingExpression2)
-            this._groupingExpression1 = groupingExpression1;
-        }
-        return this._groupingExpression1;
-    }
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            grid.data = this.customersData;
-            grid.groupingExpressions = this.groupingExpression1;
-        }
-        this._bind();
 
     }
 
-    private _customersData: CustomersData = null;
-    public get customersData(): CustomersData {
-        if (this._customersData == null)
-        {
-            this._customersData = new CustomersData();
-        }
-        return this._customersData;
-    }
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {

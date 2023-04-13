@@ -17,103 +17,29 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend-title">
+    
+        <div class="legend-title">
         Roadblocks Critical to Success of the Data & Analytics Team
     </div>
-
-    <div class="legend">
-        <igc-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-legend>
-    </div>
-
+    
+    
     <div class="container fill">
-        <igc-data-chart
-        name="Chart"
-        id="Chart">
-            <igc-category-y-axis
-            name="yAxis1"
-            id="yAxis1"
-            label="category"
-            gap="0.25"
-            label-extent="0">
-            </igc-category-y-axis>
-            <igc-category-y-axis
-            name="yAxis2"
-            id="yAxis2"
-            label="category"
-            gap="1"
-            label-horizontal-alignment="Right">
-            </igc-category-y-axis>
-            <igc-numeric-x-axis
-            name="xAxis"
-            id="xAxis"
-            minimum-value="0"
-            maximum-value="50"
-            use-enhanced-interval-management="true"
-            label-format="{0}%"
-            stroke-thickness="2"
-            stroke="gray"
-            tick-length="5">
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
             </igc-numeric-x-axis>
-            <igc-category-highlight-layer
-            name="CategoryHighlightLayer"
-            id="CategoryHighlightLayer">
-            </igc-category-highlight-layer>
-            <igc-bar-series
-            name="BarSeries1"
-            id="BarSeries1"
-            title="Sum of Top 3 Choices"
-            value-member-path="topChoices"
-            show-default-tooltip="true"
-            is-transition-in-enabled="true"
-            is-highlighting-enabled="true">
-            </igc-bar-series>
-            <igc-bar-series
-            name="BarSeries2"
-            id="BarSeries2"
-            title="Top Choice"
-            value-member-path="firstChoice"
-            show-default-tooltip="true"
-            is-transition-in-enabled="true"
-            is-highlighting-enabled="true">
-            </igc-bar-series>
-            <igc-callout-layer
-            name="CalloutLayer1"
-            id="CalloutLayer1"
-            y-member-path="index"
-            x-member-path="firstChoice"
-            label-member-path="firstChoiceLabel"
-            callout-leader-brush="rgba(0, 0, 0, 0)"
-            callout-outline="rgba(0, 0, 0, 0)"
-            callout-background="rgba(0, 0, 0, 0)"
-            callout-text-color="black"
-            callout-stroke-thickness="2"
-            callout-padding-top="0"
-            callout-position-padding="0">
-            </igc-callout-layer>
-            <igc-callout-layer
-            name="CalloutLayer2"
-            id="CalloutLayer2"
-            y-member-path="index"
-            x-member-path="topChoices"
-            label-member-path="topChoicesLabel"
-            callout-leader-brush="rgba(0, 0, 0, 0)"
-            callout-outline="rgba(0, 0, 0, 0)"
-            callout-background="rgba(0, 0, 0, 0)"
-            callout-text-color="black"
-            callout-stroke-thickness="2"
-            callout-padding-top="0"
-            callout-position-padding="0">
-            </igc-callout-layer>
-            <igc-data-tool-tip-layer
-            name="Tooltips"
-            id="Tooltips">
-            </igc-data-tool-tip-layer>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
         </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 
