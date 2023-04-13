@@ -17,100 +17,26 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <igc-property-editor-panel
-
-        description-type="Sparkline"
-        is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="propertyEditorPanel1"
-        id="propertyEditorPanel1">
-            <igc-property-editor-property-description
-            property-path="FirstMarkerVisibility"
-            name="FirstMarkerVisibilityEditor"
-            id="FirstMarkerVisibilityEditor"
-            label="First Markers"
-            should-override-default-editor="true"
-            value-type="EnumValue"
-            drop-down-names="Visible, Collapsed"
-            drop-down-values="Visible, Collapsed"
-            primitive-value="Visible">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="HighMarkerVisibility"
-            name="HighMarkerVisibilityEditor"
-            id="HighMarkerVisibilityEditor"
-            label="High Markers"
-            value-type="EnumValue"
-            drop-down-names="Visible, Collapsed"
-            drop-down-values="Visible, Collapsed"
-            primitive-value="Visible">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="LowMarkerVisibility"
-            name="LowMarkerVisibilityEditor"
-            id="LowMarkerVisibilityEditor"
-            label="Low Markers"
-            value-type="EnumValue"
-            drop-down-names="Visible, Collapsed"
-            drop-down-values="Visible, Collapsed"
-            primitive-value="Visible">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="NegativeMarkerVisibility"
-            name="NegativeMarkerVisibilityEditor"
-            id="NegativeMarkerVisibilityEditor"
-            label="Negative Markers"
-            value-type="EnumValue"
-            drop-down-names="Visible, Collapsed"
-            drop-down-values="Visible, Collapsed"
-            primitive-value="Visible">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="LastMarkerVisibility"
-            name="LastMarkerVisibilityEditor"
-            id="LastMarkerVisibilityEditor"
-            label="Last Markers"
-            value-type="EnumValue"
-            drop-down-names="Visible, Collapsed"
-            drop-down-values="Visible, Collapsed"
-            primitive-value="Visible">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="MarkerVisibility"
-            name="MarkerVisibilityEditor"
-            id="MarkerVisibilityEditor"
-            label="All Markers"
-            value-type="EnumValue"
-            drop-down-names="Visible, Collapsed"
-            drop-down-values="Visible, Collapsed"
-            primitive-value="Visible">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
-
+    
+    
+    
     <div class="container fill">
-        <igc-sparkline
-        name="chart"
-        id="chart"
-        display-type="Line"
-        label-member-path="label"
-        value-member-path="value"
-        marker-visibility="Visible"
-        high-marker-visibility="Visible"
-        low-marker-visibility="Visible"
-        first-marker-visibility="Visible"
-        last-marker-visibility="Visible"
-        negative-marker-visibility="Visible"
-        marker-size="10"
-        first-marker-size="10"
-        last-marker-size="10"
-        low-marker-size="10"
-        high-marker-size="10"
-        negative-marker-size="10"
-        minimum="0"
-        maximum="60">
-        </igc-sparkline>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 
