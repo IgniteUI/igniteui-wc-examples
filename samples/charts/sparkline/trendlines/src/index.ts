@@ -1,14 +1,10 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
-import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData';
+//insert bindingImports
+//end bindingImports
 
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-defineAllComponents();
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
@@ -17,33 +13,16 @@ ModuleManager.register(
 
 export class Sample {
 
-    private propertyEditorPanel1: IgcPropertyEditorPanelComponent
-    private trendLineTypeEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private chart: IgcSparklineComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
-        var trendLineTypeEditor = this.trendLineTypeEditor = document.getElementById('TrendLineTypeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var chart = this.chart = document.getElementById('chart') as IgcSparklineComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer;
-            propertyEditorPanel1.target = this.chart;
-            chart.dataSource = this.sparklineMixedData;
-        }
-        this._bind();
 
     }
 
-    private _sparklineMixedData: SparklineMixedData = null;
-    public get sparklineMixedData(): SparklineMixedData {
-        if (this._sparklineMixedData == null)
-        {
-            this._sparklineMixedData = new SparklineMixedData();
-        }
-        return this._sparklineMixedData;
-    }
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
