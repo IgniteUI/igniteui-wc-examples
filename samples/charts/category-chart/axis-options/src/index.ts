@@ -1,6 +1,6 @@
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
-import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-import { OlympicMedalsTopCountriesItem, OlympicMedalsTopCountries } from './OlympicMedalsTopCountries';
+//insert bindingImports
+//end bindingImports
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -10,26 +10,13 @@ ModuleManager.register(
 
 export class Sample {
 
-    private chart: IgcCategoryChartComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            chart.dataSource = this.olympicMedalsTopCountries;
-        }
-        this._bind();
-
-    }
-
-    private _olympicMedalsTopCountries: OlympicMedalsTopCountries = null;
-    public get olympicMedalsTopCountries(): OlympicMedalsTopCountries {
-        if (this._olympicMedalsTopCountries == null)
-        {
-            this._olympicMedalsTopCountries = new OlympicMedalsTopCountries();
-        }
-        return this._olympicMedalsTopCountries;
     }
 
 }

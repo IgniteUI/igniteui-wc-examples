@@ -22,60 +22,23 @@
         Distribution of Online Traffic Worldwide, by Device
     </div>
 
-    <div class="legend">
-        <igc-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-legend>
-    </div>
-
     <div class="container fill">
-        <igc-data-chart
-        name="chart"
-        id="chart"
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false">
-            <igc-category-x-axis
-            name="xAxis"
-            id="xAxis"
-            label="category"
-            gap="0.75">
-            </igc-category-x-axis>
-            <igc-numeric-y-axis
-            name="yAxis"
-            id="yAxis"
-            minimum-value="0">
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
             </igc-numeric-y-axis>
-            <igc-stacked-100-column-series
-            name="Stacked100ColumnSeries"
-            id="Stacked100ColumnSeries"
-            show-default-tooltip="true"
-            area-fill-opacity="1">
-                <igc-stacked-fragment-series
-                name="s1"
-                id="s1"
-                value-member-path="desktop"
-                title="Desktop">
-                </igc-stacked-fragment-series>
-                <igc-stacked-fragment-series
-                name="s2"
-                id="s2"
-                value-member-path="mobile"
-                title="Mobile">
-                </igc-stacked-fragment-series>
-                <igc-stacked-fragment-series
-                name="s3"
-                id="s3"
-                value-member-path="tablet"
-                title="Tablet">
-                </igc-stacked-fragment-series>
-            </igc-stacked-100-column-series>
-            <igc-data-tool-tip-layer
-            name="DataToolTipLayer"
-            id="DataToolTipLayer">
-            </igc-data-tool-tip-layer>
         </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

@@ -22,32 +22,23 @@
         Renewable Electricity Generated
     </div>
 
-    <div class="legend">
-        <igc-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-legend>
-    </div>
-
     <div class="container fill">
-        <igc-category-chart
-
-        name="chart"
-        id="chart"
-        chart-type="StepArea"
-        title-alignment="Left"
-        title-left-margin="25"
-        title-top-margin="10"
-        title-bottom-margin="10"
-        is-category-highlighting-enabled="true"
-        is-series-highlighting-enabled="true"
-        is-transition-in-enabled="true"
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
-        y-axis-title="TWh"
-        crosshairs-snap-to-data="true">
-        </igc-category-chart>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

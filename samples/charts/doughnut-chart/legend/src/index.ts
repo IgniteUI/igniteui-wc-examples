@@ -1,6 +1,6 @@
 import { IgcItemLegendModule, IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
-import { IgcItemLegendComponent, IgcDoughnutChartComponent, IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
-import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
+//insert bindingImports
+//end bindingImports
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -11,31 +11,13 @@ ModuleManager.register(
 
 export class Sample {
 
-    private legend: IgcItemLegendComponent
-    private chart: IgcDoughnutChartComponent
-    private series: IgcRingSeriesComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcItemLegendComponent;
-        var chart = this.chart = document.getElementById('chart') as IgcDoughnutChartComponent;
-        var series = this.series = document.getElementById('series') as IgcRingSeriesComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            series.dataSource = this.energyGlobalDemand;
-            series.legend = this.legend;
-        }
-        this._bind();
-
-    }
-
-    private _energyGlobalDemand: EnergyGlobalDemand = null;
-    public get energyGlobalDemand(): EnergyGlobalDemand {
-        if (this._energyGlobalDemand == null)
-        {
-            this._energyGlobalDemand = new EnergyGlobalDemand();
-        }
-        return this._energyGlobalDemand;
     }
 
 }

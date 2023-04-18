@@ -17,45 +17,28 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
-        description-type="CategoryChart"
-        is-horizontal="true"
-        is-wrapping-enabled="true">
-            <igc-property-editor-property-description
-            property-path="CalloutsVisible"
-            name="CalloutsVisibleEditor"
-            id="CalloutsVisibleEditor"
-            label="Callouts Visible"
-            should-override-default-editor="true"
-            primitive-value="True">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
 
     <div class="legend-title">
         Average Temperature in Sydney
     </div>
 
     <div class="container fill">
-        <igc-category-chart
-        name="chart"
-        id="chart"
-        chart-type="Column"
-        computed-plot-area-margin-mode="Series"
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
-        included-properties="month, temperature"
-        callouts-visible="true"
-        callouts-x-member-path="index"
-        callouts-y-member-path="temperature"
-        callouts-label-member-path="tempInfo"
-        crosshairs-annotation-y-axis-precision="0"
-        y-axis-maximum-value="35"
-        y-axis-label-location="OutsideRight">
-        </igc-category-chart>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 
