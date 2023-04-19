@@ -1,35 +1,23 @@
-import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcWebGridModule } from 'igniteui-webcomponents-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { CustomersDataItem, CustomersData } from './CustomersData';
-import { IgcRowSelectionEventArgs } from 'igniteui-webcomponents-grids/grids';
+//insert bindingImports
+//end bindingImports
 
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+ModuleManager.register(
+    IgcWebGridModule
+);
 
 export class Sample {
 
-    private grid: IgcGridComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        this.webGridRowSelectionConditional = this.webGridRowSelectionConditional.bind(this);
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            grid.data = this.customersData;
-            grid.addEventListener("rowSelectionChanging", this.webGridRowSelectionConditional);
-        }
-        this._bind();
-
-    }
-
-    private _customersData: CustomersData = null;
-    public get customersData(): CustomersData {
-        if (this._customersData == null)
-        {
-            this._customersData = new CustomersData();
-        }
-        return this._customersData;
     }
 
     private _componentRenderer: ComponentRenderer = null;
@@ -40,28 +28,6 @@ export class Sample {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
-    }
-
-    public webGridRowSelectionConditional(event: any): void {
-        console.log(event);
-        if (!event.added.length && event.removed.length) {
-            // ignore de-select
-            return;
-        }
-        var grid = this.grid;
-        const originalAddedLength = event.added.length;
-
-        // only allow selection of items that contain 'A'
-        event.newSelection = event.newSelection.filter(x => x.indexOf('A') !== -1);
-
-        // cleanup selection if all conditionally selectable rows are already selected
-        if (event.newSelection.length
-            && !event.newSelection.filter(x => event.oldSelection.indexOf(x) === -1).length
-            && originalAddedLength > 1) {
-                // all selected from header, de-select instead
-                event.newSelection = [];
-        }
-        grid.markForCheck();
     }
 
 }

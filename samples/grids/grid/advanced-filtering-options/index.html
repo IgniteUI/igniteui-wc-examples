@@ -19,58 +19,22 @@
 <div class="container sample">
 
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        name="grid"
-        id="grid"
-        moving="true"
-        allow-advanced-filtering="true">
-            <igc-grid-toolbar
-            >
-                <igc-grid-toolbar-actions
-                >
-                    <igc-grid-toolbar-advanced-filtering
-                    >
-                    </igc-grid-toolbar-advanced-filtering>
-                    <igc-grid-toolbar-hiding
-                    >
-                    </igc-grid-toolbar-hiding>
-                    <igc-grid-toolbar-pinning
-                    >
-                    </igc-grid-toolbar-pinning>
-                </igc-grid-toolbar-actions>
-            </igc-grid-toolbar>
-            <igc-column
-            field="ProductName"
-            header="Product Name"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="QuantityPerUnit"
-            header="Quantity Per Unit"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="UnitPrice"
-            header="Unit Price"
-            sortable="true"
-            data-type="currency">
-            </igc-column>
-            <igc-column
-            field="OrderDate"
-            header="Order Date"
-            data-type="date"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Discontinued"
-            header="Discontinued"
-            data-type="boolean"
-            sortable="true"
-            name="column1"
-            id="column1">
-            </igc-column>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

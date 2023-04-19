@@ -19,50 +19,22 @@
 <div class="container sample">
 
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        primary-key="ID"
-        name="grid"
-        id="grid">
-            <igc-column
-            header="ID"
-            field="ID">
-            </igc-column>
-            <igc-column
-            field="ContactName"
-            header="Contact"
-            editable="true"
-            width="250px"
-            resizable="false"
-            name="column1"
-            id="column1">
-            </igc-column>
-            <igc-column
-            header="Address"
-            field="Address"
-            editable="true"
-            width="250px"
-            resizable="false"
-            name="column2"
-            id="column2">
-            </igc-column>
-            <igc-column
-            header="Country"
-            field="Country">
-            </igc-column>
-            <igc-column
-            header="Region"
-            field="Region">
-            </igc-column>
-            <igc-column
-            header="Phone"
-            field="Phone">
-            </igc-column>
-            <igc-column
-            header="Fax"
-            field="Fax">
-            </igc-column>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

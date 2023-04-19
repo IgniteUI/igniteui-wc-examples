@@ -1,32 +1,23 @@
-import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcWebTreeGridModule } from 'igniteui-webcomponents-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
+//insert bindingImports
+//end bindingImports
 
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+ModuleManager.register(
+    IgcWebTreeGridModule
+);
 
 export class Sample {
 
-    private treeGrid: IgcTreeGridComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            treeGrid.data = this.employeesFlatData;
-        }
-        this._bind();
-
-    }
-
-    private _employeesFlatData: EmployeesFlatData = null;
-    public get employeesFlatData(): EmployeesFlatData {
-        if (this._employeesFlatData == null)
-        {
-            this._employeesFlatData = new EmployeesFlatData();
-        }
-        return this._employeesFlatData;
     }
 
     private _componentRenderer: ComponentRenderer = null;

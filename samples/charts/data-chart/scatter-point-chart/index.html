@@ -22,52 +22,23 @@
         Population Statistics for Selected Continents
     </div>
 
-    <div class="legend">
-        <igc-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-legend>
-    </div>
-
     <div class="container fill">
-        <igc-data-chart
-        name="chart"
-        id="chart">
-            <igc-numeric-x-axis
-            name="xAxis"
-            id="xAxis"
-            title="Death Rate (per 1,000 people)"
-            minimum-value="5"
-            maximum-value="15">
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
             </igc-numeric-x-axis>
-            <igc-numeric-y-axis
-            name="yAxis"
-            id="yAxis"
-            title="Birth Rate (per 1,000 people)"
-            minimum-value="0"
-            maximum-value="50"
-            interval="10">
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
             </igc-numeric-y-axis>
-            <igc-scatter-series
-            name="ScatterSeries1"
-            id="ScatterSeries1"
-            title="Europe"
-            x-member-path="deathRate"
-            y-member-path="birthRate"
-            marker-type="Circle"
-            show-default-tooltip="true">
-            </igc-scatter-series>
-            <igc-scatter-series
-            name="ScatterSeries2"
-            id="ScatterSeries2"
-            title="Africa"
-            x-member-path="deathRate"
-            y-member-path="birthRate"
-            marker-type="Circle"
-            show-default-tooltip="true">
-            </igc-scatter-series>
         </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

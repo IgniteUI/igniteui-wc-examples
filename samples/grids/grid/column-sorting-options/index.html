@@ -17,81 +17,24 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
-        description-type="WebGrid"
-        is-horizontal="true"
-        is-wrapping-enabled="true">
-            <igc-property-editor-property-description
-            property-path="SortingOptions"
-            name="SortingOptionsEditor"
-            id="SortingOptionsEditor">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            value-type="Button"
-            primitive-value="Clear Sorting"
-            name="propertyEditorPropertyDescription1"
-            id="propertyEditorPropertyDescription1">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            value-type="Button"
-            primitive-value="Clear Grouped Columns"
-            name="propertyEditorPropertyDescription2"
-            id="propertyEditorPropertyDescription2">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
 
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        name="grid"
-        id="grid">
-            <igc-column
-            field="OrderID"
-            header="Order ID"
-            groupable="true"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="CategoryName"
-            header="Category Name"
-            data-type="string"
-            groupable="true"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="CompanyName"
-            header="Company"
-            data-type="string"
-            groupable="true"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="ShipCountry"
-            header="Ship Country"
-            data-type="string"
-            groupable="true"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="SaleAmount"
-            header="Sale Amount"
-            data-type="currency"
-            groupable="true"
-            sortable="true"
-            name="column1"
-            id="column1">
-            </igc-column>
-            <igc-column
-            field="ShippedDate"
-            header="Shipped Date"
-            data-type="date"
-            sortable="true">
-            </igc-column>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

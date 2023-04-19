@@ -1,54 +1,26 @@
+import { IgcWebGridModule, IgcWebColumnGroupModule } from 'igniteui-webcomponents-grids';
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
-import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule, WebColumnGroupDescriptionModule, PropertyEditorPanelDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { CustomersDataItem, CustomersData } from './CustomersData';
+//insert bindingImports
+//end bindingImports
 
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-defineAllComponents();
 
 ModuleManager.register(
+    IgcWebGridModule,
+    IgcWebColumnGroupModule,
     IgcPropertyEditorPanelModule
 );
 
 export class Sample {
 
-    private propertyEditor: IgcPropertyEditorPanelComponent
-    private propertyEditorPropertyDescription1: IgcPropertyEditorPropertyDescriptionComponent
-    private propertyEditorPropertyDescription2: IgcPropertyEditorPropertyDescriptionComponent
-    private grid: IgcGridComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var propertyEditorPropertyDescription1 = this.propertyEditorPropertyDescription1 = document.getElementById('propertyEditorPropertyDescription1') as IgcPropertyEditorPropertyDescriptionComponent;
-        this.webGridPinFirstGroupToggle = this.webGridPinFirstGroupToggle.bind(this);
-        var propertyEditorPropertyDescription2 = this.propertyEditorPropertyDescription2 = document.getElementById('propertyEditorPropertyDescription2') as IgcPropertyEditorPropertyDescriptionComponent;
-        this.webGridHideFirstGroupToggle = this.webGridHideFirstGroupToggle.bind(this);
-        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer;
-            propertyEditor.target = this.grid;
-            propertyEditorPropertyDescription1.buttonClicked = this.webGridPinFirstGroupToggle;
-            propertyEditorPropertyDescription2.buttonClicked = this.webGridHideFirstGroupToggle;
-            grid.data = this.customersData;
-        }
-        this._bind();
-
-    }
-
-    private _customersData: CustomersData = null;
-    public get customersData(): CustomersData {
-        if (this._customersData == null)
-        {
-            this._customersData = new CustomersData();
-        }
-        return this._customersData;
     }
 
     private _componentRenderer: ComponentRenderer = null;
@@ -61,16 +33,6 @@ export class Sample {
             PropertyEditorPanelDescriptionModule.register(context);
         }
         return this._componentRenderer;
-    }
-
-    public webGridPinFirstGroupToggle(args: any): void {
-        console.log("TODO" + args);
-    	//TODO
-    }
-
-    public webGridHideFirstGroupToggle(args: any): void {
-        console.log("TODO" + args);
-    	//TODO
     }
 
 }

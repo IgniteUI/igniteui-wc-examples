@@ -19,17 +19,22 @@
 <div class="container sample">
 
     <div class="container fill">
-        <igc-financial-chart
-        name="chart"
-        id="chart"
-        is-toolbar-visible="false"
-        is-vertical-zoom-enabled="true"
-        is-horizontal-zoom-enabled="true"
-        vertical-view-scrollbar-mode="Fading"
-        horizontal-view-scrollbar-mode="Persistent"
-        zoom-slider-type="None"
-        window-rect="0, 0, 0.5, 1">
-        </igc-financial-chart>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

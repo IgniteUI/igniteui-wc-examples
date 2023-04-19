@@ -22,32 +22,23 @@
         Highest Grossing Movie Franchises
     </div>
 
-    <div class="legend">
-        <igc-data-legend
-        name="Legend"
-        id="Legend"
-        value-format-mode="Decimal"
-        value-format-min-fractions="1"
-        units-text="B">
-        </igc-data-legend>
-    </div>
-
     <div class="container fill">
-        <igc-category-chart
-        name="chart"
-        id="chart"
-        chart-type="Column"
-        x-axis-interval="1"
-        y-axis-title="Billions of U.S. Dollars"
-        y-axis-title-left-margin="10"
-        y-axis-title-right-margin="5"
-        y-axis-label-left-margin="0"
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false"
-        tool-tip-type="None"
-        crosshairs-display-mode="None"
-        is-category-highlighting-enabled="true">
-        </igc-category-chart>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 
