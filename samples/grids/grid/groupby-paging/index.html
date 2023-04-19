@@ -19,35 +19,22 @@
 <div class="container sample">
 
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        name="grid"
-        id="grid"
-        id="grid"
-        row-selection="multiple">
-            <igc-paginator
-            per-page="10">
-            </igc-paginator>
-            <igc-column
-            field="ShipCountry"
-            header="Ship Country"
-            width="200px"
-            groupable="true">
-            </igc-column>
-            <igc-column
-            field="ShipCity"
-            header="Ship City"
-            width="250px"
-            groupable="true">
-            </igc-column>
-            <igc-column
-            field="UnitPrice"
-            header="Unit Price"
-            width="150px"
-            data-type="number"
-            groupable="true">
-            </igc-column>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 
