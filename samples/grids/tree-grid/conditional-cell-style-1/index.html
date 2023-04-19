@@ -19,42 +19,22 @@
 <div class="container sample">
 
     <div class="container fill">
-        <igc-tree-grid
-        name="treeGrid"
-        id="treeGrid"
-        id="treeGrid"
-        primary-key="ID"
-        foreign-key="ParentID">
-            <igc-column
-            field="ID"
-            header="Product ID"
-            data-type="string">
-            </igc-column>
-            <igc-column
-            field="Name"
-            header="Product Name"
-            data-type="string"
-            name="column1"
-            id="column1">
-            </igc-column>
-            <igc-column
-            field="UnitPrice"
-            header="Unit Price"
-            data-type="number"
-            name="column2"
-            id="column2">
-            </igc-column>
-            <igc-column
-            field="AddedDate"
-            header="Added Date"
-            data-type="date">
-            </igc-column>
-            <igc-column
-            field="Discontinued"
-            header="Discontinued"
-            data-type="boolean">
-            </igc-column>
-        </igc-tree-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

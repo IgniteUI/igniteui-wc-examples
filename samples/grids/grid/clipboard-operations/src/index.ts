@@ -1,58 +1,25 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
-import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcWebGridModule } from 'igniteui-webcomponents-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+//insert bindingImports
+//end bindingImports
 
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-defineAllComponents();
 
 ModuleManager.register(
-    IgcPropertyEditorPanelModule
+    IgcPropertyEditorPanelModule,
+    IgcWebGridModule
 );
 
 export class Sample {
 
-    private propertyEditor: IgcPropertyEditorPanelComponent
-    private clipboardEnabledEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private clipboardHeadersEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private clipboardFormattersEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private propertyEditorPropertyDescription1: IgcPropertyEditorPropertyDescriptionComponent
-    private grid: IgcGridComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var clipboardEnabledEditor = this.clipboardEnabledEditor = document.getElementById('ClipboardEnabledEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var clipboardHeadersEditor = this.clipboardHeadersEditor = document.getElementById('ClipboardHeadersEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var clipboardFormattersEditor = this.clipboardFormattersEditor = document.getElementById('ClipboardFormattersEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var propertyEditorPropertyDescription1 = this.propertyEditorPropertyDescription1 = document.getElementById('propertyEditorPropertyDescription1') as IgcPropertyEditorPropertyDescriptionComponent;
-        this.webGridClearSelection = this.webGridClearSelection.bind(this);
-        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        this.webGridClipboardOperationsColumnInit = this.webGridClipboardOperationsColumnInit.bind(this);
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer;
-            propertyEditor.target = this.grid;
-            propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSelection;
-            grid.data = this.nwindData;
-            grid.addEventListener("columnInit", this.webGridClipboardOperationsColumnInit);
-        }
-        this._bind();
-
-    }
-
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
-        return this._nwindData;
     }
 
     private _componentRenderer: ComponentRenderer = null;
@@ -64,17 +31,6 @@ export class Sample {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
-    }
-
-    public webGridClearSelection(args: any): void {
-        console.log("TODO" + args);
-    	//TODO
-    }
-
-    public webGridClipboardOperationsColumnInit(args: any): void {
-        let column = args.detail;
-        column.formatter = (e: any) => { return "** " + e + " **" };
-        column.header = "🎉" + column.field;
     }
 
 }

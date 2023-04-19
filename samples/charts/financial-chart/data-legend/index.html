@@ -18,24 +18,23 @@
 
 <div class="container sample">
 
-    <div class="legend">
-        <igc-data-legend
-        name="Legend"
-        id="Legend"
-        included-columns="Open, Close, High, Low, Change">
-        </igc-data-legend>
-    </div>
-
     <div class="container fill">
-        <igc-financial-chart
-        name="chart"
-        id="chart"
-        chart-type="Candle"
-        is-vertical-zoom-enabled="true"
-        is-horizontal-zoom-enabled="true"
-        data-tool-tip-header-format-time="None"
-        zoom-slider-type="None">
-        </igc-financial-chart>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 
