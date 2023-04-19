@@ -19,70 +19,22 @@
 <div class="container sample">
 
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        name="grid"
-        id="grid"
-        row-editable="true"
-        allow-filtering="true"
-        primary-key="ProductID">
-            <igc-pinning-config
-            rows="Top">
-            </igc-pinning-config>
-            <igc-action-strip
-            name="actionStrip"
-            id="actionStrip">
-                <igc-grid-pinning-actions
-                >
-                </igc-grid-pinning-actions>
-                <igc-grid-editing-actions
-                edit-row="true"
-                delete-row="false">
-                </igc-grid-editing-actions>
-            </igc-action-strip>
-            <igc-column
-            name="ProductName"
-            id="ProductName"
-            field="ProductName"
-            header="Product Name">
-            </igc-column>
-            <igc-column
-            name="UnitPrice"
-            id="UnitPrice"
-            field="UnitPrice"
-            header="Unit Price">
-            </igc-column>
-            <igc-column
-            name="UnitsOnOrder"
-            id="UnitsOnOrder"
-            field="UnitsOnOrder"
-            header="Units On Order">
-            </igc-column>
-            <igc-column
-            name="UnitsInStock"
-            id="UnitsInStock"
-            field="UnitsInStock"
-            header="Units In Stock">
-            </igc-column>
-            <igc-column
-            name="QuantityPerUnit"
-            id="QuantityPerUnit"
-            field="QuantityPerUnit"
-            header="Quantity Per Unit">
-            </igc-column>
-            <igc-column
-            name="ReorderLevel"
-            id="ReorderLevel"
-            field="ReorderLevel"
-            header="Reorder Level">
-            </igc-column>
-            <igc-column
-            name="Discontinued"
-            id="Discontinued"
-            field="Discontinued"
-            header="Discontinued">
-            </igc-column>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

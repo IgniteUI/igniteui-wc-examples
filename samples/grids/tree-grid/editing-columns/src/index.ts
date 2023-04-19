@@ -1,32 +1,24 @@
-import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcWebTreeGridModule, IgcWebPaginatorModule } from 'igniteui-webcomponents-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule, WebPaginatorDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+//insert bindingImports
+//end bindingImports
 
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+ModuleManager.register(
+    IgcWebTreeGridModule,
+    IgcWebPaginatorModule
+);
 
 export class Sample {
 
-    private treeGrid1: IgcTreeGridComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var treeGrid1 = this.treeGrid1 = document.getElementById('treeGrid1') as IgcTreeGridComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            treeGrid1.data = this.nwindData;
-        }
-        this._bind();
-
-    }
-
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
-        return this._nwindData;
     }
 
     private _componentRenderer: ComponentRenderer = null;

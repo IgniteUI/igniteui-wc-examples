@@ -17,59 +17,24 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
-        description-type="WebGrid"
-        is-horizontal="true"
-        is-wrapping-enabled="true">
-            <igc-property-editor-property-description
-            property-path="DisplayDensity"
-            name="DisplayDensityEditor"
-            id="DisplayDensityEditor">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
 
     <div class="container fill">
-        <igc-grid
-        auto-generate="false"
-        name="grid"
-        id="grid"
-        id="grid"
-        display-density="cosy">
-            <igc-paginator
-            name="paginator"
-            id="paginator"
-            per-page="15"
-            display-density="cosy"
-            select-options="5, 15, 20, 50">
-                <igc-paginator-resource-strings
-                igx-_paginator-_label="Records per page">
-                </igc-paginator-resource-strings>
-            </igc-paginator>
-            <igc-column
-            field="Id"
-            header="Rank"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Name">
-            </igc-column>
-            <igc-column
-            field="BeatsPerMinute"
-            header="Beats Per Minute"
-            data-type="number">
-            </igc-column>
-            <igc-column
-            field="TopSpeed"
-            header="Top Speed"
-            data-type="number"
-            name="column1"
-            id="column1">
-            </igc-column>
-        </igc-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

@@ -23,8 +23,6 @@
   },
   "dependencies": {
     "igniteui-webcomponents-core": "4.2.5",
-    "igniteui-webcomponents-grids": "4.2.5",
-    "igniteui-webcomponents-inputs": "4.2.5",
     "igniteui-webcomponents-layouts": "4.2.5",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",

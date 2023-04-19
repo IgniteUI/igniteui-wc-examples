@@ -22,32 +22,23 @@
         Global Electricity Demand by Energy Use
     </div>
 
-    <div class="legend">
-        <igc-item-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-item-legend>
-    </div>
-
     <div class="container fill">
-        <igc-doughnut-chart
-        name="chart"
-        id="chart"
-        allow-slice-explosion="true">
-            <igc-ring-series
-            name="series"
-            id="series"
-            label-member-path="summary"
-            labels-position="OutsideEnd"
-            label-extent="30"
-            value-member-path="value"
-            legend-label-member-path="category"
-            outlines="white"
-            radius-factor="0.6"
-            start-angle="30">
-            </igc-ring-series>
-        </igc-doughnut-chart>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 
