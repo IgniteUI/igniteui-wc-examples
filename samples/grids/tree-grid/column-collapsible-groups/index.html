@@ -19,126 +19,22 @@
 <div class="container sample">
 
     <div class="container fill">
-        <igc-tree-grid
-        auto-generate="false"
-        name="treeGrid"
-        id="treeGrid"
-        id="treeGrid"
-        primary-key="ID"
-        foreign-key="ParentID"
-        moving="true"
-        display-density="compact"
-        row-selection="none">
-            <igc-column-group
-            header="General Information"
-            collapsible="true"
-            expanded="false"
-            pinned="false">
-                <igc-column
-                field="Name"
-                header="Full Name"
-                data-type="string"
-                sortable="true"
-                resizable="true"
-                width="200"
-                visible-when-collapsed="false">
-                </igc-column>
-                <igc-column
-                field="LastName"
-                header="Last Name"
-                data-type="string"
-                sortable="true"
-                resizable="true"
-                width="200"
-                visible-when-collapsed="true">
-                </igc-column>
-                <igc-column
-                field="Title"
-                width="250"
-                data-type="string"
-                sortable="true"
-                resizable="true">
-                </igc-column>
-                <igc-column
-                field="ID"
-                data-type="number"
-                resizable="true"
-                filterable="false"
-                visible-when-collapsed="false">
-                </igc-column>
-                <igc-column
-                field="HireDate"
-                data-type="date"
-                sortable="true"
-                resizable="true"
-                visible-when-collapsed="false">
-                </igc-column>
-                <igc-column
-                field="Age"
-                data-type="number"
-                sortable="true"
-                resizable="true"
-                visible-when-collapsed="false">
-                </igc-column>
-            </igc-column-group>
-            <igc-column-group
-            header="Address Information">
-                <igc-column-group
-                header="Location"
-                collapsible="true">
-                    <igc-column
-                    field="FullAddress"
-                    width="300"
-                    data-type="string"
-                    sortable="true"
-                    resizable="true"
-                    visible-when-collapsed="true">
-                    </igc-column>
-                    <igc-column
-                    field="Country"
-                    data-type="string"
-                    sortable="true"
-                    resizable="true"
-                    visible-when-collapsed="false">
-                    </igc-column>
-                    <igc-column
-                    field="City"
-                    data-type="string"
-                    sortable="true"
-                    resizable="true"
-                    visible-when-collapsed="false">
-                    </igc-column>
-                    <igc-column
-                    field="Address"
-                    data-type="string"
-                    sortable="true"
-                    resizable="true"
-                    visible-when-collapsed="false">
-                    </igc-column>
-                </igc-column-group>
-                <igc-column-group
-                header="Contact Information">
-                    <igc-column
-                    field="Phone"
-                    data-type="string"
-                    sortable="true"
-                    resizable="true">
-                    </igc-column>
-                    <igc-column
-                    field="Fax"
-                    data-type="string"
-                    sortable="true"
-                    resizable="true">
-                    </igc-column>
-                    <igc-column
-                    field="PostalCode"
-                    data-type="string"
-                    sortable="true"
-                    resizable="true">
-                    </igc-column>
-                </igc-column-group>
-            </igc-column-group>
-        </igc-tree-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

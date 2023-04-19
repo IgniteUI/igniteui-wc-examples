@@ -22,67 +22,23 @@
         Renewable Energy Consumption
     </div>
 
-    <div class="legend">
-        <igc-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-legend>
-    </div>
-
     <div class="container fill">
-        <igc-data-chart
-        name="chart"
-        id="chart"
-        is-horizontal-zoom-enabled="false"
-        is-vertical-zoom-enabled="false">
-            <igc-category-y-axis
-            name="yAxis"
-            id="yAxis"
-            label="location"
-            is-inverted="true">
-            </igc-category-y-axis>
-            <igc-numeric-x-axis
-            name="xAxis"
-            id="xAxis"
-            minimum-value="0"
-            title="TWh">
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
             </igc-numeric-x-axis>
-            <igc-stacked-100-bar-series
-            name="Stacked100BarSeries"
-            id="Stacked100BarSeries"
-            show-default-tooltip="true"
-            area-fill-opacity="1">
-                <igc-stacked-fragment-series
-                name="s1"
-                id="s1"
-                value-member-path="hydro"
-                title="Hydro">
-                </igc-stacked-fragment-series>
-                <igc-stacked-fragment-series
-                name="s2"
-                id="s2"
-                value-member-path="wind"
-                title="Wind">
-                </igc-stacked-fragment-series>
-                <igc-stacked-fragment-series
-                name="s3"
-                id="s3"
-                value-member-path="solar"
-                title="Solar">
-                </igc-stacked-fragment-series>
-                <igc-stacked-fragment-series
-                name="s4"
-                id="s4"
-                value-member-path="other"
-                title="Other">
-                </igc-stacked-fragment-series>
-            </igc-stacked-100-bar-series>
-            <igc-data-tool-tip-layer
-            name="DataToolTipLayer"
-            id="DataToolTipLayer">
-            </igc-data-tool-tip-layer>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
         </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

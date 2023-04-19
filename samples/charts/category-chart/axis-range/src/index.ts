@@ -1,14 +1,10 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+//insert bindingImports
+//end bindingImports
 
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-defineAllComponents();
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
@@ -18,37 +14,13 @@ ModuleManager.register(
 
 export class Sample {
 
-    private legend: IgcLegendComponent
-    private propertyEditorPanel1: IgcPropertyEditorPanelComponent
-    private yAxisMinimumValue: IgcPropertyEditorPropertyDescriptionComponent
-    private yAxisMaximumValue: IgcPropertyEditorPropertyDescriptionComponent
-    private chart: IgcCategoryChartComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
-        var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
-        var yAxisMinimumValue = this.yAxisMinimumValue = document.getElementById('YAxisMinimumValue') as IgcPropertyEditorPropertyDescriptionComponent;
-        var yAxisMaximumValue = this.yAxisMaximumValue = document.getElementById('YAxisMaximumValue') as IgcPropertyEditorPropertyDescriptionComponent;
-        var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            propertyEditorPanel1.componentRenderer = this.renderer;
-            propertyEditorPanel1.target = this.chart;
-            chart.dataSource = this.countryRenewableElectricity;
-            chart.legend = this.legend;
-        }
-        this._bind();
-
-    }
-
-    private _countryRenewableElectricity: CountryRenewableElectricity = null;
-    public get countryRenewableElectricity(): CountryRenewableElectricity {
-        if (this._countryRenewableElectricity == null)
-        {
-            this._countryRenewableElectricity = new CountryRenewableElectricity();
-        }
-        return this._countryRenewableElectricity;
     }
 
     private _componentRenderer: ComponentRenderer = null;

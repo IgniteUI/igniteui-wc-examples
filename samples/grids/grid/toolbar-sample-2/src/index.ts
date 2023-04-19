@@ -1,32 +1,23 @@
-import 'igniteui-webcomponents-grids/grids/combined';
+import { IgcWebGridModule } from 'igniteui-webcomponents-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { AthletesDataItem, AthletesData } from './AthletesData';
+//insert bindingImports
+//end bindingImports
 
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+ModuleManager.register(
+    IgcWebGridModule
+);
 
 export class Sample {
 
-    private grid1: IgcGridComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var grid1 = this.grid1 = document.getElementById('grid1') as IgcGridComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            grid1.data = this.athletesData;
-        }
-        this._bind();
-
-    }
-
-    private _athletesData: AthletesData = null;
-    public get athletesData(): AthletesData {
-        if (this._athletesData == null)
-        {
-            this._athletesData = new AthletesData();
-        }
-        return this._athletesData;
     }
 
     private _componentRenderer: ComponentRenderer = null;

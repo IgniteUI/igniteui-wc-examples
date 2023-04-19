@@ -22,60 +22,23 @@
         Highest Grossing Movie Franchises
     </div>
 
-    <div class="legend">
-        <igc-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-legend>
-    </div>
-
     <div class="container fill">
-        <igc-data-chart
-        name="Chart"
-        id="Chart">
-            <igc-category-y-axis
-            name="yAxis"
-            id="yAxis"
-            label="franchise"
-            use-enhanced-interval-management="true"
-            enhanced-interval-prefer-more-category-labels="true"
-            is-inverted="true"
-            gap="0.5"
-            overlap="-0.1">
-            </igc-category-y-axis>
-            <igc-numeric-x-axis
-            name="xAxis"
-            id="xAxis"
-            title="Billions of U.S. Dollars">
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
             </igc-numeric-x-axis>
-            <igc-category-highlight-layer
-            name="CategoryHighlightLayer"
-            id="CategoryHighlightLayer">
-            </igc-category-highlight-layer>
-            <igc-bar-series
-            name="BarSeries1"
-            id="BarSeries1"
-            title="Total Revenue of Franchise"
-            value-member-path="totalRevenue"
-            show-default-tooltip="true"
-            is-transition-in-enabled="true"
-            is-highlighting-enabled="true">
-            </igc-bar-series>
-            <igc-bar-series
-            name="BarSeries2"
-            id="BarSeries2"
-            title="Highest Grossing Movie in Series"
-            value-member-path="highestGrossing"
-            show-default-tooltip="true"
-            is-transition-in-enabled="true"
-            is-highlighting-enabled="true">
-            </igc-bar-series>
-            <igc-data-tool-tip-layer
-            name="Tooltips"
-            id="Tooltips">
-            </igc-data-tool-tip-layer>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
         </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

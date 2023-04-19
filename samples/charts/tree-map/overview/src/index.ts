@@ -1,6 +1,6 @@
 import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
-import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
-import { CountyHierarchicalDataItem, CountyHierarchicalData } from './CountyHierarchicalData';
+//insert bindingImports
+//end bindingImports
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -10,26 +10,13 @@ ModuleManager.register(
 
 export class Sample {
 
-    private treemap: IgcTreemapComponent
-    private _bind: () => void;
+    //insert bindingFields
+    //end bindingFields
 
     constructor() {
-        var treemap = this.treemap = document.getElementById('treemap') as IgcTreemapComponent;
+        //insert bindingInit
+        //end bindingInit
 
-        this._bind = () => {
-            treemap.dataSource = this.countyHierarchicalData;
-        }
-        this._bind();
-
-    }
-
-    private _countyHierarchicalData: CountyHierarchicalData = null;
-    public get countyHierarchicalData(): CountyHierarchicalData {
-        if (this._countyHierarchicalData == null)
-        {
-            this._countyHierarchicalData = new CountyHierarchicalData();
-        }
-        return this._countyHierarchicalData;
     }
 
 }
