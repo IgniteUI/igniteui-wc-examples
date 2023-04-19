@@ -23,27 +23,22 @@
     </div>
 
     <div class="container fill">
-        <igc-treemap
-        name="treemap"
-        id="treemap"
-        parent-id-member-path="parent"
-        id-member-path="name"
-        label-member-path="name"
-        value-member-path="population"
-        fill-scale-mode="Value"
-        fill-scale-minimum-value="0"
-        fill-scale-maximum-value="1500000000"
-        fill-brushes="rgba(78, 98, 207, 1) rgba(138, 88, 214, 1)"
-        is-fill-scale-logarithmic="true"
-        root-title="Countries"
-        header-display-mode="Overlay"
-        parent-node-bottom-padding="0"
-        parent-node-left-padding="0"
-        parent-node-right-padding="0"
-        parent-node-top-padding="0"
-        outline="black"
-        stroke-thickness="1">
-        </igc-treemap>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 

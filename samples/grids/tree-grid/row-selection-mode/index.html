@@ -17,71 +17,24 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <igc-property-editor-panel
-
-        description-type="WebTreeGrid"
-        is-wrapping-enabled="true"
-        is-horizontal="true"
-        name="propertyEditorPanel1"
-        id="propertyEditorPanel1">
-            <igc-property-editor-property-description
-            name="selectionType"
-            id="selectionType"
-            property-path="RowSelection">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            name="hideRowSelectors"
-            id="hideRowSelectors"
-            property-path="HideRowSelectors"
-            label="Hide Row Selectors">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
 
     <div class="container fill">
-        <igc-tree-grid
-        auto-generate="false"
-        name="treeGrid"
-        id="treeGrid"
-        id="treeGrid"
-        primary-key="ID"
-        foreign-key="ParentID"
-        cell-selection="none"
-        allow-filtering="true"
-        hide-row-selectors="false">
-            <igc-column
-            field="Name"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Title"
-            header="Job Title"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="HireDate"
-            data-type="date"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="ID"
-            data-type="number"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Age"
-            data-type="number"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="OnPTO"
-            data-type="boolean"
-            sortable="true">
-            </igc-column>
-        </igc-tree-grid>
+        <!-- insert content -->
+        <igc-data-chart id="chart"
+            is-horizontal-zoom-enabled="true"
+            is-vertical-zoom-enabled="true">
+            <igc-numeric-x-axis name="xAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis name="yAxis"
+                is-logarithmic="true"
+                abbreviate-large-numbers="true"
+                title="Total GDP ($)">
+            </igc-numeric-y-axis>
+        </igc-data-chart>
+        <!-- end content -->
     </div>
 </div>
 
