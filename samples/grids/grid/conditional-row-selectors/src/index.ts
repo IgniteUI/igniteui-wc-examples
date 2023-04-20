@@ -52,7 +52,7 @@ export class Sample {
         const originalAddedLength = event.added.length;
 
         // only allow selection of items that contain 'A'
-        event.newSelection = event.newSelection.filter(x => x.indexOf('A') !== -1);
+        event.newSelection = event.newSelection.filter(x => x.ID.indexOf('A') !== -1);
 
         // cleanup selection if all conditionally selectable rows are already selected
         if (event.newSelection.length
