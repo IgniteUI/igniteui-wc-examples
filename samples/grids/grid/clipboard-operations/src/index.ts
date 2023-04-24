@@ -30,7 +30,7 @@ export class Sample {
 
             var formatterSwitch = document.getElementById("formatterCopy") as IgcSwitchComponent;
             formatterSwitch.addEventListener("igcChange", (ev: CustomEvent) => {
-                grid.clipboardOptions.copyHeaders = ev.detail;
+                grid.clipboardOptions.copyFormatters = ev.detail;
             });
 
             var selectionClearBtn = document.getElementById("selectionClear") as IgcButtonComponent;
