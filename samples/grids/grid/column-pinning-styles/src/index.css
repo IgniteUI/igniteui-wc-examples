@@ -1,0 +1,9 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.grid {
+    --igx-grid-pinned-border-width: 5px;
+    --igx-grid-pinned-border-color: #FFCD0F;
+    --igx-grid-pinned-border-style: double;
+    --igx-grid-cell-active-border-color: #FFCD0F;
+}
