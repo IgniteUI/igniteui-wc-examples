@@ -1,0 +1,7 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.grid {
+    --igx-grid-filtering-row-background: #ffcd0f;
+    --igx-grid-filtering-background-or: #d83434;
+}
