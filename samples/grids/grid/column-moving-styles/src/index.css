@@ -1,0 +1,8 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.grid {
+    --igx-grid-ghost-header-text-color: #f4d45c;
+    --igx-grid-ghost-header-background: #ad9d9d;
+    --igx-grid-ghost-header-icon-color: #f4d45c;
+}
