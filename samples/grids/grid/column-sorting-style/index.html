@@ -17,25 +17,10 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
-        description-type="WebGrid"
-        is-horizontal="true"
-        is-wrapping-enabled="true">
-            <igc-property-editor-property-description
-            property-path="SortingOptions"
-            label="Select Sorting Type"
-            name="SortingOptionsEditor"
-            id="SortingOptionsEditor">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
-
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        class="grid"
         name="grid"
         id="grid">
             <igc-column
