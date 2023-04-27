@@ -8,6 +8,6 @@
 #circularProgress {
     margin-right: 50px;
     margin-left: 20px;
-    --diameter: 100px;
-    --stroke-thickness: 5px;
+    --diameter: 50px;
+    --stroke-thickness: 3px;
 }
