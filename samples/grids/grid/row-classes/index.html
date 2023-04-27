@@ -22,49 +22,59 @@
         <igc-grid
         auto-generate="false"
         name="grid"
-        id="grid">
+        id="grid"
+        id="grid"
+        primary-key="ProductID">
             <igc-column
-            field="Id"
-            id="rank"
-            header="Rank"
-            sortable="true"
-            editable="true">
+            name="ID"
+            id="ID"
+            field="ProductID"
+            header="Product ID"
+            data-type="number"
+            hidden="true">
             </igc-column>
             <igc-column
-            field="Name"
-            header="Athlete"
+            name="ReorderLevel"
+            id="ReorderLevel"
+            field="ReorderLevel"
+            header="Reorder Level"
+            data-type="number">
+            </igc-column>
+            <igc-column
+            name="ProductName"
+            id="ProductName"
+            field="ProductName"
+            header="Product Name"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            name="UnitsInStock"
+            id="UnitsInStock"
+            field="UnitsInStock"
+            header="Units In Stock"
+            data-type="number">
+            </igc-column>
+            <igc-column
+            name="UnitPrice"
+            id="UnitPrice"
+            field="UnitPrice"
+            header="Unit Price"
+            data-type="number"
             sortable="true">
             </igc-column>
             <igc-column
-            field="BeatsPerMinute"
-            header="Beats per Minute"
-            data-type="number"
-            editable="true"
-            sortable="true"
-            name="column1"
-            id="beatsPerMinuteClasses">
+            name="OrderDate"
+            id="OrderDate"
+            field="OrderDate"
+            header="Order Date"
+            data-type="date">
             </igc-column>
             <igc-column
-            field="TopSpeed"
-            header="Top Speed"
-            data-type="number"
-            editable="true"
-            sortable="true"
-            name="column2"
-            id="topSpeed">
-            </igc-column>
-            <igc-column
-            field="TrackProgress"
-            header="Track Progress"
-            editable="true"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="CountryFlag"
-            data-type="image"
-            header="Country"
-            name="column3"
-            id="column3">
+            name="Discontinued"
+            id="Discontinued"
+            field="Discontinued"
+            header="Discontinued"
+            data-type="boolean">
             </igc-column>
         </igc-grid>
     </div>

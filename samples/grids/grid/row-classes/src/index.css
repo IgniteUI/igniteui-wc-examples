@@ -1,10 +1,6 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
-
-.upFont {
-    color: green !important;
-}
-
-.downFont {
-    color: red !important;
+.activeRow {
+    border: 2px solid #fc81b8;
+    border-left: 3px solid #e41c77;
 }

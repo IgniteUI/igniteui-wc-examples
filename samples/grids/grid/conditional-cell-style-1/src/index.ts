@@ -2,8 +2,7 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { AthletesDataItem, AthletesData } from './AthletesData';
-import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
-import { html, nothing } from 'lit-html';
+import "./index.css";
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -14,23 +13,26 @@ ModuleManager.register(
 
 export class Sample {
 
-    private grid: IgcGridComponent
-    private column1: IgcColumnComponent
-    private column2: IgcColumnComponent
-    private column3: IgcColumnComponent
+    private grid: IgcGridComponent;
+
+    private upFontCondition = (rowData: any, columnKey: any): boolean => rowData[columnKey] > 95;
+
+    private downFontCondition = (rowData: any, columnKey: any): boolean => rowData[columnKey] <= 95;
+
+    public beatsPerMinuteClasses = {
+        downFont: this.downFontCondition,
+        upFont: this.upFontCondition
+    };
+
     private _bind: () => void;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
-        var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
-        var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
+        var beatsPerMinuteColumn = document.getElementById('beatsPerMinuteClasses') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.athletesData;
-            column1.bodyTemplate = this.webGridBeatsPerMinuteTemplate;
-            column2.bodyTemplate = this.webGridTopSpeedTemplate;
-            column3.bodyTemplate = this.webGridImageCellTemplate;
+            beatsPerMinuteColumn.cellClasses = this.beatsPerMinuteClasses;
         }
         this._bind();
 
@@ -44,35 +46,6 @@ export class Sample {
         }
         return this._athletesData;
     }
-
-
-    public webGridBeatsPerMinuteTemplate = (ctx: IgcCellTemplateContext) => {
-        if (ctx.cell.value > 95) {
-            return html`<div><span style="color: red;">${ctx.cell.value}</span></div>`;
-        }
-        else {
-            return html`<div><span style="color: green;">${ctx.cell.value}</span></div>`;
-        }
-    }
-
-    public webGridTopSpeedTemplate = (ctx: IgcCellTemplateContext) => {
-        if (ctx.cell.value < 5) {
-            return html`<div><span style="color: royalblue;">${ctx.cell.value}</span></div>`;
-        }
-        else {
-            return html`<div><span>${ctx.cell.value}</span></div>`;
-        }
-    };
-
-    public webGridImageCellTemplate = (ctx: IgcCellTemplateContext) => {
-        return html`<div>
-            <img src="${ctx.cell.value}"
-            style="border: 1px solid black;
-            object-fit: fill;
-            height: 2rem;
-            width: 3rem;"/>
-        </div>`;
-    };
 
 }
 
