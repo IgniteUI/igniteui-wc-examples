@@ -1,0 +1,10 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.grid {
+    --igx-grid-header-background: #e0f3ff;
+    --igx-grid-header-text-color: #e41c77;
+    --igx-grid-header-border-width: 1px;
+    --igx-grid-header-border-style: solid;
+    --igx-grid-header-border-color: rgba(0, 0, 0, 0.08);
+}
