@@ -1,0 +1,6 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.grid {
+    --igx-grid-resize-line-color: #f35b04;
+}
