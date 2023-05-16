@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+</head>
+
+<body>
+    <div id="root">
+
+        <div class="container sample">
+
+            <div class="container fill">
+                <div class="grid_wrapper">
+                    <igc-grid primary-key="CustomerID" allow-filtering="true" allow-advanced-filtering="true" filter-mode="excelStyleFilter" auto-generate="false" column-selection="true" name="grid" id="grid" id="grid">
+                        <igc-column-group header="Customer Information" collapsible="true">
+                            <igc-column field="CustomerName" header="Customer Name" visible-when-collapsed="true" has-summary="true" sortable="true" groupable="true" editable="true">
+                            </igc-column>
+                            <igc-column field="CustomerID" header="Customer ID" visible-when-collapsed="false" sortable="true" groupable="true" editable="true">
+                            </igc-column>
+                            <igc-column field="CustomerFirstName" header="First Name" visible-when-collapsed="false" sortable="true" groupable="true" editable="true">
+                            </igc-column>
+                            <igc-column field="CustomerLastName" header="Last Name" visible-when-collapsed="false" sortable="true" groupable="true" editable="true">
+                            </igc-column>
+                            <igc-column-group header="Customer Address" expanded="false" collapsible="true">
+                                <igc-column field="CustomerAddress" header="Full Address" width="250px"
+                                    visible-when-collapsed="true" sortable="true" groupable="true" editable="true">
+                                </igc-column>
+                                <igc-column field="Address" visible-when-collapsed="false" sortable="true" groupable="true" editable="true">
+                                </igc-column>
+                                <igc-column field="City" visible-when-collapsed="false" sortable="true" groupable="true" editable="true">
+                                </igc-column>
+                                <igc-column field="Country" visible-when-collapsed="false" sortable="true" groupable="true" editable="true">
+                                </igc-column>
+                                <igc-column field="PostalCode" header="Postal Code" visible-when-collapsed="false" sortable="true" groupable="true" editable="true">
+                                </igc-column>
+                            </igc-column-group>
+                        </igc-column-group>
+                        <igc-column field="ShipperName" header="Shipper Name" sortable="true" groupable="true" editable="true">
+                        </igc-column>
+                        <igc-column field="OrderDate" header="Order Date" has-summary="true" data-type="date" sortable="true" groupable="true" editable="true">
+                        </igc-column>
+                        <igc-column-group header="Product Details" collapsible="true" expanded="false">
+                            <igc-column field="ProductName" header="Name" visible-when-collapsed="true" sortable="true" groupable="true" editable="true">
+                            </igc-column>
+                            <igc-column field="UnitPrice" header="Unit Price" visible-when-collapsed="true" has-summary="true" data-type="number" sortable="true" groupable="true" editable="true">
+                            </igc-column>
+                            <igc-column field="ProductID" header="ID" visible-when-collapsed="true" sortable="true" groupable="true" editable="true">
+                            </igc-column>
+                            <igc-column field="Quantity" visible-when-collapsed="false" has-summary="true" data-type="number" sortable="true" groupable="true" editable="true">
+                            </igc-column>
+                        </igc-column-group>
+                    </igc-grid>
+                </div>
+                <div class="list_wrapper">
+                    <igc-list id="list">
+                        <span class="empty-list">
+                            <h6>Use the native navigation of the browser until you reach some of the following grid sections below:</h6>
+                            <ul>
+                                <li>Header</li>
+                                <li>Body</li>
+                                <li>Summary</li>
+                            </ul>
+                            <h6>When reached, an <b>action list</b> will be shown.</h6>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+</body>
+
+</html>
