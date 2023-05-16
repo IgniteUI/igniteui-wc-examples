@@ -29,19 +29,21 @@ export class Sample {
         this._bind();
     }
 
-    public onGridRowDragEnd(args: any): void {        
+    public onGridRowDragEnd(args: any): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
-        const dragElementPos = ghostElement.getBoundingClientRect();
-        
-        const gridPosition = this.rightGrid.getBoundingClientRect();
-        const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
-        const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;
-        if (withinXBounds && withinYBounds) {
-            this.leftGrid.deleteRow(args.detail.dragData.index);
-            this.rightGrid.addRow(args.detail.dragData.data);
-        }
 
-        let i = 0;
+        if (ghostElement != null) {
+
+            const dragElementPos = ghostElement.getBoundingClientRect();
+
+            const gridPosition = this.rightGrid.getBoundingClientRect();
+            const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
+            const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;
+            if (withinXBounds && withinYBounds) {
+                this.leftGrid.deleteRow(args.detail.dragData.index);
+                this.rightGrid.addRow(args.detail.dragData.data);
+            }
+        }
     }
 }
 
