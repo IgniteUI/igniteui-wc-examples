@@ -19,60 +19,76 @@
 <div class="container sample">
 
     <div class="legend-title">
-        Where Online Shoppers Start Their Search
+        Market Capitalization of Technology Companies
+    </div>
+
+    <div class="legend">
+        <igc-legend
+        name="Legend"
+        id="Legend"
+        orientation="Horizontal">
+        </igc-legend>
     </div>
 
     <div class="container fill">
         <igc-data-chart
-        name="Chart"
-        id="Chart"
+        name="chart"
+        id="chart"
+        chart-title="Market Capitalization of Technology Companies"
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false">
             <igc-category-y-axis
             name="yAxis"
             id="yAxis"
-            label="shop"
+            label="category"
             is-inverted="true"
-            gap="0.75">
+            gap="0.75"
+            overlap="1">
             </igc-category-y-axis>
             <igc-numeric-x-axis
             name="xAxis"
             id="xAxis"
-            interval="20"
-            maximum-value="80"
             minimum-value="0"
-            label-format="{0}%">
+            maximum-value="220">
             </igc-numeric-x-axis>
-            <igc-category-highlight-layer
-            name="CategoryHighlightLayer"
-            id="CategoryHighlightLayer">
-            </igc-category-highlight-layer>
             <igc-bar-series
             name="BarSeries1"
             id="BarSeries1"
-            value-member-path="percent"
-            show-default-tooltip="true"
-            is-transition-in-enabled="true"
-            is-highlighting-enabled="true"
-            brush="rgba(134, 6, 138, 0.6470588235294118)"
-            outline="rgba(133, 6, 138, 1)"
-            thickness="2"
-            area-fill-opacity="0.5">
+            value-member-path="v1"
+            title="Apple"
+            show-default-tooltip="true">
             </igc-bar-series>
-            <igc-callout-layer
-            name="CalloutLayer1"
-            id="CalloutLayer1"
-            x-member-path="x"
-            y-member-path="y"
-            label-member-path="label"
-            content-member-path="label"
-            callout-text-color="rgba(133, 6, 138, 1)"
-            callout-background="rgba(0, 0, 0, 0)"
-            callout-leader-brush="rgba(0, 0, 0, 0)">
-            </igc-callout-layer>
+            <igc-bar-series
+            name="BarSeries2"
+            id="BarSeries2"
+            value-member-path="v2"
+            title="Microsoft"
+            show-default-tooltip="true">
+            </igc-bar-series>
+            <igc-bar-series
+            name="BarSeries3"
+            id="BarSeries3"
+            value-member-path="v3"
+            title="Google"
+            show-default-tooltip="true">
+            </igc-bar-series>
+            <igc-bar-series
+            name="BarSeries4"
+            id="BarSeries4"
+            value-member-path="v4"
+            title="NVidia"
+            show-default-tooltip="true">
+            </igc-bar-series>
+            <igc-bar-series
+            name="BarSeries5"
+            id="BarSeries5"
+            value-member-path="v5"
+            title="Tesla"
+            show-default-tooltip="true">
+            </igc-bar-series>
             <igc-data-tool-tip-layer
-            name="Tooltips"
-            id="Tooltips">
+            name="DataToolTipLayer"
+            id="DataToolTipLayer">
             </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
