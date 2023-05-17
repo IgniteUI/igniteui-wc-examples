@@ -16,7 +16,6 @@ export class DynamicLinearProgress {
         registerIconFromText("remove", removeIcon, "material");
         registerIconFromText("add", addIcon, "material");
         this.linearProgress = document.getElementById("linearProgress") as IgcLinearProgressComponent;
-        this.linearProgress.value = 0;
         this.removeIcon = document.getElementById("removeIcon") as IgcIconButtonComponent;
         this.addIcon = document.getElementById("addIcon") as IgcIconButtonComponent;
 
