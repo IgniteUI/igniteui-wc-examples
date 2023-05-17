@@ -41,11 +41,15 @@ export class Sample {
     private list: IgcListComponent
     private _bind: () => void;
     private activeCollection: Item[];
+    private gridSection: GridSection;
+    private activeNode: any;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         var list = this.list = document.getElementById('list') as IgcListComponent;
         this.onActiveNodeChange = this.onActiveNodeChange.bind(this);
+        this.gridKeydown = this.gridKeydown.bind(this);
+        this.keydown = this.keydown.bind(this);
         this._bind = () => {
             grid.groupingExpressions = [
                 {
@@ -55,7 +59,9 @@ export class Sample {
             ];
             grid.data = this.invoicesData;
             grid.detailTemplate = this.masterDetailTemplate;
-            grid.addEventListener("activeNodeChange", this.onActiveNodeChange)
+            grid.addEventListener("activeNodeChange", this.onActiveNodeChange);
+            grid.addEventListener("gridKeydown", this.gridKeydown);
+            grid.addEventListener("keydown", this.keydown);
         }
         this._bind();
 
@@ -91,6 +97,10 @@ export class Sample {
                 this.activeCollection = [];
                 return;
         }
+        this.updateList();
+    }
+
+    public updateList() {
         this.list.innerHTML = this.listTemplate().values.toString();
     }
 
@@ -109,7 +119,9 @@ export class Sample {
             this.activeCollection.forEach(x => x.active = false);
             this.activeCollection.filter(x => x.action === ItemAction.Expandable || x.action === ItemAction.Always)?.forEach(x => x.active = true);
         } else {
-            const cell = this.grid.getCellByColumnVisibleIndex(activeNode.row, activeNode.column);
+            const currColumn = this.grid.columns.filter(x => !x.columnGroup)
+            .find(c => c.visibleIndex === activeNode.column);
+            const cell = this.grid.getCellByColumn(activeNode.row, currColumn.field);
             this.toggleCellCombinations(cell);
         }
     }
@@ -121,7 +133,7 @@ export class Sample {
     }
 
     public extractCellActions(cell: IgcCellType) {
-        const res = [];
+        const res: any[] = [];
         if(!cell) return res;
         if (cell?.editable) {
             res.push(ItemAction.Editable);
@@ -156,12 +168,103 @@ export class Sample {
         return res;
     }
 
-    public onActiveNodeChange(event: IgcActiveNodeChangeEventArgs) {
-        const evt = event.detail;
-        const gridSection = evt.row < 0 ? GridSection.THEAD : evt.row >= this.grid.data.length ?
+    public onActiveNodeChange(event: any) {
+        const evt = (event as any).detail;
+        this.activeNode = evt;
+        const row = this.grid.getRowByIndex(evt.row);
+        this.gridSection = evt.row < 0 ? GridSection.THEAD : row === undefined || row.isSummaryRow ?
         GridSection.FOOTER : GridSection.TBODY;
-        this.changeCombinationsCollection(gridSection, evt);
+        this.changeCombinationsCollection(this.gridSection, evt);
     }
+
+    public keydown(event: any) {
+        const key = event.key.toLowerCase();
+        if (key === 'tab') { return; }
+        if (this.gridSection === GridSection.FOOTER) {
+            switch (key) {
+                case 'end':
+                    this.activeCollection.at(3).completed = true;
+                    break;
+                case 'home':
+                    this.activeCollection.at(2).completed = true;
+                    break;
+                case 'arrowleft':
+                    this.activeCollection.at(0).completed = true;
+                    break;
+                case 'arrowright':
+                    this.activeCollection.at(1).completed = true;
+                    break;
+                default:
+                    break;
+            }
+            return;
+        }
+
+        const activeNode = this.activeNode;
+        if (this.gridSection === GridSection.THEAD) {
+            if (key === 'l' && event.altKey) {
+                this.activeCollection.at(5).completed = true;
+            }
+            const col = this.grid.columns
+            .find(c => c.visibleIndex === activeNode.column && c.level === activeNode.level);
+            if (key === 'l' && event.ctrlKey && event.shiftKey && col && !col.columnGroup && col.filterable) {
+                this.activeCollection.at(4).completed = true;
+            }
+
+            if ((key === 'arrowleft' || key === 'arrowright') && event.altKey && event.shiftKey &&
+                col && !col.columnGroup && col.groupable) {
+                this.activeCollection.at(2).completed = true;
+            }
+
+            if ((key === 'arrowup' || key === 'arrowdown') && event.ctrlKey) {
+                if (col && !col.columnGroup && col.sortable) {
+                    this.activeCollection.at(1).completed = true;
+                }
+            }
+
+            if (key === " ") {
+                this.activeCollection.at(0).completed = true;
+            }
+
+            if (col && col.columnGroup && (key === 'arrowup' || key === 'arrowdown' || key === 'arrowleft' || key === 'arrowright') && event.altKey) {
+                this.activeCollection.at(3).completed = true;
+            }
+        }
+
+        if (this.gridSection === GridSection.TBODY) {
+            if (key === 'enter') {
+                const currColumn = this.grid.columns.filter(x => !x.columnGroup)
+                .find(c => c.visibleIndex === activeNode.column);
+                const cell = this.grid.getCellByColumn(activeNode.row, currColumn.field);
+                if (cell && cell.column.editable) {
+                    this.activeCollection.at(0).completed = true;
+                }
+            }
+            if ((key === 'end' || key === 'home') && event.ctrlKey) {
+                this.activeCollection.at(4).completed = true;
+            }
+            const rowRef = this.grid.getRowByIndex(activeNode.row);
+            const isGroupByRow = rowRef.isGroupByRow;
+            if (!isGroupByRow && (key === 'arrowdown' || key === 'arrowright') && event.altKey) {
+                this.activeCollection.at(2).completed = true;
+            }
+
+            if (!isGroupByRow && (key === 'arrowup' || key === 'arrowleft') && event.altKey) {
+                this.activeCollection.at(1).completed = true;
+            }
+
+            if (isGroupByRow &&  (key === 'arrowright' || key === 'arrowleft') && event.altKey ) {
+                this.activeCollection.at(3).completed = true;
+            }
+        }
+        this.updateList();
+    }
+
+    public gridKeydown(event: any) {
+        const evt = event.detail.event;
+       this.keydown(evt);
+    }
+
 
     public listTemplate = () => {
         let htmlContent = "";
