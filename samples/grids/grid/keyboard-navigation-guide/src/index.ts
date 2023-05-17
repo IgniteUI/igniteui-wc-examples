@@ -272,6 +272,9 @@ export class Sample {
             this.activeCollection.at(i).completed = (event.currentTarget as any).checked;
         }
         let i = 0;
+        const headerText = this.gridSection === GridSection.THEAD ? "HEADER COMBINATIONS" : this.gridSection === GridSection.TBODY ? "BODY COMBINATIONS" : "SUMMARY COMBINATIONS";
+        const header = "<igc-list-header><h1>"+ headerText +"</h1></igc-list-header>";
+        htmlContent += header;
         for (const elem of this.activeCollection) {
             const checkbox = elem.completed ? "<input type='checkbox' slot='end' checked onchange='onChangeHandler("+i+")'></input>" : "<input type='checkbox' onchange='onChangeHandler("+i+")' slot='end'></input>";
             const disabledClass = !elem.active ? "disabled" : "";
