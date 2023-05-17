@@ -101,7 +101,7 @@ export class Sample {
     }
 
     public updateList() {
-        this.list.innerHTML = this.listTemplate().values.toString();
+        this.list.innerHTML = this.listTemplate();
     }
 
     public toggleHeaderCombinations(activeNode: any) {
@@ -268,16 +268,21 @@ export class Sample {
 
     public listTemplate = () => {
         let htmlContent = "";
+        (window as any).onChangeHandler = (i: number) => {
+            this.activeCollection.at(i).completed = (event.currentTarget as any).checked;
+        }
+        let i = 0;
         for (const elem of this.activeCollection) {
-            const checkbox = elem.completed ? "<igc-checkbox slot='end' checked></igx-checkbox>" : "<igc-checkbox  slot='end'></igx-checkbox>";
+            const checkbox = elem.completed ? "<input type='checkbox' slot='end' checked onchange='onChangeHandler("+i+")'></input>" : "<input type='checkbox' onchange='onChangeHandler("+i+")' slot='end'></input>";
             const disabledClass = !elem.active ? "disabled" : "";
             htmlContent += "<igc-list-item class='" + disabledClass +
              "'> <h2 slot='title'>" + elem.title + "</h2>" +
              "<span slot='subtitle'>" +  elem.subTitle +"</span>" +
              checkbox +
              "</igc-list-item>";
+             i++;
         }
-        return html`${htmlContent}`;
+        return htmlContent;
     }
 
     private _invoicesData: InvoicesData = null;
