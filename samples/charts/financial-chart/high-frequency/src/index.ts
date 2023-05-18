@@ -27,7 +27,7 @@ export class FinancialChartHighFrequency {
 
     constructor() {
 
-        this.data = StocksUtility.GetStocksItems(this.dataPoints);
+        this.data = StocksUtility.getStocksItems(this.dataPoints);
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.dataSource = this.data;
@@ -75,7 +75,7 @@ export class FinancialChartHighFrequency {
     }
 
     public onDataGenerateClick = (e: any) => {
-        this.data = StocksUtility.GetStocksItems(this.dataPoints);
+        this.data = StocksUtility.getStocksItems(this.dataPoints);
         this.dataIndex = this.data.length;
 
         this.chart.dataSource = this.data;
@@ -84,13 +84,13 @@ export class FinancialChartHighFrequency {
     public onStopStartClick = (e: any) => {
 
         this.shouldTick = !this.shouldTick;
-        
-        if(this.shouldTick){        
+
+        if(this.shouldTick){
             this.timerButton.textContent = "Stop Data";
         }
         else{
             this.timerButton.textContent = "Live Data";
-        }        
+        }
     }
 
     public onDataPointsChanged = (e: any) => {
@@ -155,8 +155,8 @@ export class FinancialChartHighFrequency {
     public tick(): void {
         if (this.shouldTick) {
             this.dataIndex++;
-            const oldItem = this.data[0];
-            const newItem = StocksUtility.GetNewItem(this.data);
+            const oldItem: any = this.data[0];
+            const newItem: any = StocksUtility.getNewItem(this.data);
 
             // updating data source and notifying category chart
             this.data.push(newItem);
@@ -165,10 +165,10 @@ export class FinancialChartHighFrequency {
             this.chart.notifyRemoveItem(this.data, 0, oldItem);
 
             this.frameCount++;
-            const currTime = new Date();
-            const elapsed = (currTime.getTime() - this.frameTime.getTime());
+            const currTime: Date = new Date();
+            const elapsed: number = (currTime.getTime() - this.frameTime.getTime());
             if (elapsed > 5000) {
-                const fps = this.frameCount / (elapsed / 1000.0);
+                const fps: number = this.frameCount / (elapsed / 1000.0);
                 this.frameTime = currTime;
                 this.frameCount = 0;
                 this.fps.textContent = ' FPS: ' + Math.round(fps).toString();

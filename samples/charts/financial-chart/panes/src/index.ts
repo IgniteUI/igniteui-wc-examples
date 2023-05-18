@@ -41,7 +41,7 @@ export class FinancialChartPanes {
         const month: number = today.getMonth();
         const dateEnd: Date = new Date(year, month, 1);
         const dateStart: Date = new Date(year - 1, month, 1);
-        return StocksUtility.GetStocksBetween(dateStart, dateEnd);
+        return StocksUtility.getStocksBetween(new Date(), 1);
     }
 
     public volumeTypeChanged = (e: any) => {
