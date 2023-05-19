@@ -17,7 +17,7 @@ export class FinancialChartPanes {
     constructor() {
 
         this.chart = document.getElementById("chart") as IgcFinancialChartComponent;
-        this.chart.dataSource = this.initData();;
+        this.chart.dataSource = this.initData();
 
         this.chart.volumeType = FinancialChartVolumeType.Area;
         this.chart.indicatorTypes.add(FinancialIndicatorType.AbsoluteVolumeOscillator);
@@ -36,12 +36,7 @@ export class FinancialChartPanes {
     }
 
     initData(): any[] {
-        const today: Date = new Date();
-        const year: number = today.getFullYear();
-        const month: number = today.getMonth();
-        const dateEnd: Date = new Date(year, month, 1);
-        const dateStart: Date = new Date(year - 1, month, 1);
-        return StocksUtility.getStocksBetween(new Date(), 1);
+        return StocksUtility.getStocksForMonths(12);
     }
 
     public volumeTypeChanged = (e: any) => {
