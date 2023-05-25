@@ -28,7 +28,8 @@ export class Sample {
         this.rightClick = this.rightClick.bind(this);
         this.copySelectedData = this.copySelectedData.bind(this);
         this.copySelectedRowData = this.copySelectedRowData.bind(this);
-        document.getElementById('copySingleCell').addEventListener("click", this.copySelectedData);
+        this.copySelectedCellData = this.copySelectedCellData.bind(this);
+        document.getElementById('copySingleCell').addEventListener("click", this.copySelectedCellData);
         document.getElementById('copyRow').addEventListener("click", this.copySelectedRowData);
         document.getElementById('copyMultiCells').addEventListener("click", this.copySelectedData);
         grid.addEventListener("contextMenu", this.rightClick);
@@ -93,7 +94,7 @@ export class Sample {
     }
 
     public copySelectedCellData() {
-        const selectedData = this.clickedCell.data;
+        const selectedData = this.clickedCell.value;
         this.copyData(selectedData);
         const selectedDataArea = document.getElementById('selectedArea');
         selectedDataArea.innerText = JSON.stringify(selectedData);
