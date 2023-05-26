@@ -1,77 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Sample | Ignite UI | Web Components | infragistics</title>
-    <meta charset="UTF-8" />
 
-    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+<head>
+  <title>Sample | Ignite UI | Web Components | infragistics</title>
+  <meta charset="UTF-8" />
 
-  </head>
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+  <link rel="stylesheet" href="/src/index.css" type="text/css" />
 
-  <body>
-    <div id="root">
+</head>
 
-<div class="container sample">
-    <div class="wrapper">
-        <igc-grid
-        auto-generate="false"
-        width="50%"
-        height="100%"
-        name="grid"
-        id="grid">
-            <igc-column
-            field="ProductID"
-            header="Product ID">
-            </igc-column>
-            <igc-column
-            field="ProductName"
-            header="Product Name">
-            </igc-column>
-            <igc-column
-            field="UnitsInStock"
-            header="Units In Stock"
-            data-type="number">
-            </igc-column>
-            <igc-column
-            field="UnitPrice"
-            header="Units Price"
-            data-type="number">
-            </igc-column>
-            <igc-column
-            field="Discontinued"
-            data-type="boolean">
-            </igc-column>
-            <igc-column
-            field="OrderDate"
-            header="Order Date"
-            data-type="date">
-            </igc-column>
+<body>
+  <div id="root">
+
+    <div class="container sample">
+      <div class="wrapper">
+        <igc-grid auto-generate="false" width="50%" height="100%" name="grid" id="grid">
+          <igc-column field="ProductID" header="Product ID">
+          </igc-column>
+          <igc-column field="ProductName" header="Product Name">
+          </igc-column>
+          <igc-column field="UnitsInStock" header="Units In Stock" data-type="number">
+          </igc-column>
+          <igc-column field="UnitPrice" header="Units Price" data-type="number">
+          </igc-column>
+          <igc-column field="Discontinued" data-type="boolean">
+          </igc-column>
+          <igc-column field="OrderDate" header="Order Date" data-type="date">
+          </igc-column>
         </igc-grid>
         <div id="selectedArea" class="selected-data-area">
+        </div>
+      </div>
+    </div>
+    <div id="menu" style="display: none;" class="contextmenu">
+      <span id="copySingleCell" class="item">
+        <igc-icon name="content_copy"></igc-icon>Copy Cell Data
+      </span>
+      <span id="copyRow" class="item">
+        <igc-icon name="content_copy"></igc-icon>Copy Row Data
+      </span>
+      <span id="copyMultiCells" class="item">
+        <igc-icon name="content_copy"></igc-icon>Copy Cells Data
+      </span>
     </div>
   </div>
-</div>
-<div id="menu" style="display: none;" class="contextmenu">
-  <span id="copySingleCell" class="item">
-      <igc-icon name="content_copy"></igc-icon>Copy Cell Data
-  </span>
-  <span id="copyRow" class="item">
-      <igc-icon name="content_copy"></igc-icon>Copy Row Data
-  </span>
-  <span id="copyMultiCells" class="item">
-      <igc-icon name="content_copy"></igc-icon>Copy Cells Data
-  </span>
-</div>
 
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+</body>
 
-    </div>
-
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %><script src="src/index.ts"></script><% } %>
-  </body>
 </html>
