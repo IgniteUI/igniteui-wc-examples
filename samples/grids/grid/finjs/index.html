@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sample | Ignite UI | Web Components | infragistics</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+  <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+</head>
+
+<body>
+  <div id="root">
+
+    <div class="container sample">
+
+      <div class="container fill">
+        <igc-grid row-selection="multiple" auto-generate="false" primary-key="id" display-density="cosy"
+          allow-filtering="true" filter-mode="excelStyleFilter" name="grid1" id="grid1">
+          <igc-grid-toolbar>
+            <igc-grid-toolbar-actions>
+              <igc-grid-toolbar-hiding></igc-grid-toolbar-hiding>
+              <igc-grid-toolbar-pining></igc-grid-toolbar-pining>
+            </igc-grid-toolbar-actions>
+          </igc-grid-toolbar>
+          <igc-column field="id" header="Id" data-type="number" sortable="true" editable="true" resizable="true">
+          </igc-column>
+          <igc-column field="category" header="Category" width="120px" data-type="string" sortable="true"
+            editable="true" resizable="true">
+          </igc-column>
+          <igc-column field="type" header="Type" width="100px" data-type="string" sortable="true" editable="true"
+            resizable="true">
+          </igc-column>
+          <igc-column field="contract" header="Contract" width="110px" data-type="string" sortable="true"
+            editable="true" groupable="true">
+          </igc-column>
+          <igc-column field="settlement" width="100px" header="Settlement" data-type="string" sortable="true"
+            editable="true" resizable="true">
+          </igc-column>
+          <igc-column field="country" header="Country" width="100px" data-type="string" sortable="true" editable="true"
+            resizable="true">
+          </igc-column>
+          <igc-column field="region" width="100px" header="Region" data-type="string" sortable="true" editable="true">
+          </igc-column>
+          <igc-column field="lastUpdated" width="120px" header="Last Updated" data-type="date" sortable="true"
+            editable="true" filterable="true">
+          </igc-column>
+          <igc-column field="openPrice" width="120px" header="Open Price" data-type="currency" sortable="true"
+            editable="true" filterable="true">
+          </igc-column>
+          <igc-column field="price" id="price" header="Price" width="120px" data-type="currency" sortable="true" editable="true"
+            filterable="true">
+          </igc-column>
+          <igc-column field="Chart" header="Chart" width="60px" data-type="currency" sortable="true" editable="true"
+            filterable="true">
+          </igc-column>
+          <igc-column field="change" id="change" header="Change" width="120px" data-type="number" sortable="true" editable="true"
+            filterable="true">
+          </igc-column>
+          <igc-column field="changeP" id="changeP" header="Change %" width="120px" data-type="percent" sortable="true"
+            editable="true" filterable="true">
+          </igc-column>
+          <igc-column field="buy" header="Buy" width="110px" data-type="currency" sortable="true" filterable="true">
+          </igc-column>
+          <igc-column field="sell" header="Sell" width="110px" data-type="currency" sortable="true" filterable="true">
+          </igc-column>
+          <igc-column field="spread" header="Spread" width="110px" data-type="number" sortable="true" filterable="true">
+          </igc-column>
+          <igc-column field="volume" header="Volume" width="110px" data-type="number" sortable="true" filterable="true">
+          </igc-column>
+          <igc-column field="highD" header="highD" width="110px" data-type="currency" sortable="true" filterable="true">
+          </igc-column>
+          <igc-column field="lowD" header="lowD" width="110px" data-type="currency" sortable="true" filterable="true">
+          </igc-column>
+          <igc-column field="highY" header="highY" width="110px" data-type="currency" sortable="true" filterable="true">
+          </igc-column>
+          <igc-column field="lowY" header="lowY" width="110px" data-type="currency" sortable="true" filterable="true">
+          </igc-column>
+          <igc-column field="startY" header="startY" width="110px" data-type="currency" sortable="true"
+            filterable="true">
+          </igc-column>
+          <igc-column field="indGrou" width="100px" filterable="false">
+          </igc-column>
+          <igc-column field="indSect" width="120px" filterable="false">
+          </igc-column>
+          <igc-column field="indSubg" width="100px" filterable="false">
+          </igc-column>
+          <igc-column field="indSubg" width="100px" filterable="false">
+          </igc-column>
+          <igc-column field="secType" width="90px" filterable="false">
+          </igc-column>
+          <igc-column field="issuerN" width="170px" filterable="false">
+          </igc-column>
+          <igc-column field="moodys" width="60px" filterable="false">
+          </igc-column>
+          <igc-column field="fitch" width="60px" filterable="false">
+          </igc-column>
+          <igc-column field="dbrs" width="60px" filterable="false">
+          </igc-column>
+          <igc-column field="collatT" width="90px" filterable="false">
+          </igc-column>
+          <igc-column field="curncy" width="60px" filterable="false">
+          </igc-column>
+          <igc-column field="security" width="120px" filterable="false">
+          </igc-column>
+          <igc-column field="sector" width="80px" filterable="false">
+          </igc-column>
+          <igc-column field="cusip" width="100px" filterable="false">
+          </igc-column>
+          <igc-column field="ticker" width="60px" filterable="false">
+          </igc-column>
+          <igc-column field="cpn" width="80px" filterable="false">
+          </igc-column>
+          <igc-column field="maturity" width="120px" filterable="false">
+          </igc-column>
+          <igc-column field="krD_3YR" width="110px" filterable="false">
+          </igc-column>
+          <igc-column field="zV_SPREAD" width="90px" filterable="false">
+          </igc-column>
+          <igc-column field="kRD_5YR" width="50px" filterable="false">
+          </igc-column>
+          <igc-column field="kRD_1YR" width="80px" filterable="false">
+          </igc-column>
+          <igc-column field="kRD_1YR" width="80px" filterable="false">
+          </igc-column>
+          <igc-column field="indGrou" width="100px" filterable="false">
+          </igc-column>
+          <igc-column field="indSect" width="100px" filterable="false">
+          </igc-column>
+          <igc-column field="indSubg" width="100px" filterable="false">
+          </igc-column>
+          <igc-column field="secType" width="90px" filterable="false">
+          </igc-column>
+          <igc-column field="issuerN" width="170px" filterable="false">
+          </igc-column>
+          <igc-column field="moodys" width="60px" filterable="false">
+          </igc-column>
+          <igc-column field="fitch" width="60px" filterable="false">
+          </igc-column>
+          <igc-column field="dbrs" width="60px" filterable="false">
+          </igc-column>
+          <igc-column field="collatT" width="90px" filterable="false">
+          </igc-column>
+        </igc-grid>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+</body>
+
+</html>
