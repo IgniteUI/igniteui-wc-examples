@@ -16,9 +16,30 @@
 
 <body>
   <div id="root">
-
     <div class="container sample">
-
+      <div class="controls-holder">
+        <div class="switches">
+          <div class="control-item">
+            <label for="slider" id="recordsLabel">Records: <span id="slider-rec-value">1000</span></label>
+            <igc-slider id="records" class="finjs-slider" value="1000" min="0" max="10000" step="100"></igc-slider>
+          </div>
+          <div class="control-item">
+            <label id="frequencyLabel" for="slider">Frequency:<span id="slider-freq-value">1000</span></label>
+            <igc-slider id="frequency" class="finjs-slider" value="500" min="100" max="3000" step="10"></igc-slider>
+          </div>
+        </div>
+        <div class="control-item finjs-play-controls">
+          <igc-button id="startButton" variant="outlined">
+            <igc-icon name="update" collection="material"></igc-icon>LIVE ALL PRICES
+          </igc-button>
+          <igc-button id="stopButton" variant="outlined">
+            <igc-icon name="stop" collection="material"></igc-icon>Stop
+          </igc-button>
+          <igc-button id="chartButton" variant="outlined">
+            <igc-icon name="insert_chart" collection="material"></igc-icon>Chart
+          </igc-button>
+        </div>
+      </div>
       <div class="container fill">
         <igc-grid row-selection="multiple" auto-generate="false" primary-key="id" display-density="cosy"
           allow-filtering="true" filter-mode="excelStyleFilter" name="grid1" id="grid1">
@@ -53,14 +74,14 @@
           <igc-column field="openPrice" width="120px" header="Open Price" data-type="currency" sortable="true"
             editable="true" filterable="true">
           </igc-column>
-          <igc-column field="price" id="price" header="Price" width="120px" data-type="currency" sortable="true" editable="true"
+          <igc-column field="price" id="price" header="Price" width="120px" data-type="currency" sortable="true"
+            editable="true" filterable="true">
+          </igc-column>
+          <igc-column id="chart" field="Chart" header="Chart" width="60px" data-type="currency" sortable="true"
             filterable="true">
           </igc-column>
-          <igc-column field="Chart" header="Chart" width="60px" data-type="currency" sortable="true" editable="true"
-            filterable="true">
-          </igc-column>
-          <igc-column field="change" id="change" header="Change" width="120px" data-type="number" sortable="true" editable="true"
-            filterable="true">
+          <igc-column field="change" id="change" header="Change" width="120px" data-type="number" sortable="true"
+            editable="true" filterable="true">
           </igc-column>
           <igc-column field="changeP" id="changeP" header="Change %" width="120px" data-type="percent" sortable="true"
             editable="true" filterable="true">
@@ -147,10 +168,16 @@
           <igc-column field="collatT" width="90px" filterable="false">
           </igc-column>
         </igc-grid>
+
       </div>
     </div>
 
   </div>
+  <igc-dialog id="dialog" title="Chart">
+    <igc-category-chart id='chart1' width="500px" chart-type="column" x-axis-interval="20" x-axis-label-angle="90"
+      height="400px">
+    </igc-category-chart>
+  </igc-dialog>
 
   <!-- This script is needed only for parcel and it will be excluded for webpack -->
   <% if (false) { %>

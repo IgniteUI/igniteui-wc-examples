@@ -1,26 +1,42 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcCellTemplateContext, IgcColumnComponent, IgcGridComponent, SortingDirection } from 'igniteui-webcomponents-grids/grids';
-import { defineAllComponents, IgcIconComponent, registerIconFromText } from "igniteui-webcomponents";
+import { defineAllComponents, IgcButtonComponent, IgcDialogComponent, IgcIconComponent, IgcSliderComponent, registerIconFromText } from "igniteui-webcomponents";
+import { IgcLegendModule, IgcCategoryChartModule, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { FinancialData } from './FinancialData';
 import { html, nothing } from 'lit-html';
 import "./index.css";
 defineAllComponents();
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+ModuleManager.register(
+    IgcLegendModule,
+    IgcCategoryChartModule
+);
+
 export class Sample {
 
+
     private grid1: IgcGridComponent;
-
-
+    private _timer: ReturnType<typeof setInterval>;
+    private data = FinancialData.generateData(1000);
     constructor() {
         var trendUp = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="m123-240-43-43 292-291 167 167 241-241H653v-60h227v227h-59v-123L538-321 371-488 123-240Z"/></svg>`;
         var trendDown = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M653-240v-60h127L539-541 372-374 80-665l43-43 248 248 167-167 283 283v-123h59v227H653Z"/></svg>`;
+        var chartIcon = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M284-277h60v-275h-60v275Zm166 0h60v-406h-60v406Zm166 0h60v-148h-60v148ZM180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm0-600v600-600Z"/></svg>`;
+        var stopIcon = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M300-660v360-360Zm-60 420v-480h480v480H240Zm60-60h360v-360H300v360Z"/></svg>`;
+        var updateIcon = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M483-120q-75 0-141-28.5T226.5-226q-49.5-49-78-115T120-482q0-75 28.5-140t78-113.5Q276-784 342-812t141-28q80 0 151.5 35T758-709v-106h60v208H609v-60h105q-44-51-103.5-82T483-780q-125 0-214 85.5T180-485q0 127 88 216t215 89q125 0 211-88t86-213h60q0 150-104 255.5T483-120Zm122-197L451-469v-214h60v189l137 134-43 43Z"/></svg>`;
         registerIconFromText("trending_up", trendUp, "material");
         registerIconFromText("trending_down", trendDown, "material");
+        registerIconFromText("insert_chart", chartIcon, "material");
+        registerIconFromText("stop", stopIcon, "material");
+        registerIconFromText("update", updateIcon, "material");
         var grid1 = this.grid1 = document.getElementById('grid1') as IgcGridComponent;
         var price = document.getElementById('price') as IgcColumnComponent;
         var change = document.getElementById('change') as IgcColumnComponent;
         var changeP = document.getElementById('changeP') as IgcColumnComponent;
-        grid1.data = FinancialData.generateData(1000);
+        var chartColumn = document.getElementById('chart') as IgcColumnComponent;
+        grid1.data = this.data;
         grid1.groupingExpressions = [
             {
                 dir: SortingDirection.Desc,
@@ -43,6 +59,77 @@ export class Sample {
         price.cellClasses = this.trends;
         changeP.cellClasses = this.trendsChange;
         change.cellClasses = this.trendsChange;
+        chartColumn.bodyTemplate = this.chartBtnTemplate;
+
+        this.openDialogForSelected = this.openDialogForSelected.bind(this);
+        document.getElementById('chartButton').addEventListener("click", this.openDialogForSelected);
+        this.startUpdate = this.startUpdate.bind(this);
+        document.getElementById('startButton').addEventListener("click", this.startUpdate);
+        this.stopUpdate = this.stopUpdate.bind(this);
+        document.getElementById('stopButton').addEventListener("click", this.stopUpdate);
+
+
+        const sliderRecValueSpan = document.getElementById('slider-rec-value') as HTMLElement;
+        const recordsSlider = document.getElementById('records') as IgcSliderComponent;
+        recordsSlider.value = 1000;
+        recordsSlider.addEventListener('igcInput', (ev: CustomEvent) => {
+            sliderRecValueSpan.innerHTML = ev.detail;
+            this.data = FinancialData.generateData(ev.detail);
+            this.grid1.data = this.data;
+        });
+
+
+        const sliderFreqValueSpan = document.getElementById('slider-freq-value') as HTMLElement;
+        const freqSlider = document.getElementById('frequency') as IgcSliderComponent;
+        freqSlider.value = 500;
+        freqSlider.addEventListener('igcInput', (ev: CustomEvent) => {
+            sliderFreqValueSpan.innerHTML = ev.detail;
+        });
+    }
+
+    public startUpdate() {
+        const frequency = (document.getElementById('frequency') as IgcSliderComponent).value;
+        this._timer = setInterval(() => {
+            this.grid1.data = FinancialData.updateAllPrices(this.data);
+        }, frequency);
+        (document.getElementById('startButton') as IgcButtonComponent).disabled = true;
+    }
+
+    public stopUpdate() {
+        clearInterval(this._timer);
+        (document.getElementById('startButton') as IgcButtonComponent).disabled = false;
+    }
+
+    public chartBtnTemplate = (ctx: IgcCellTemplateContext) => {
+        const cell = ctx.cell;
+        const rowData = this.grid1.getRowData(cell.id.rowID);
+        return html`
+        <igc-icon-button name="insert_chart" @click=${(e: any) => this.openDialogForRow(e, rowData)} collection="material" variant="contained" size="small"></igc-icon-button>
+        `;
+    };
+
+    public openDialogForSelected() {
+        const chart = document.getElementById('chart1') as IgcCategoryChartComponent;
+        const chartData = this.grid1.selectedRows.map(x => this.grid1.getRowData(x));
+        if (chartData && chartData.length > 0) {
+            chart.chartTitle = 'Data Chart with prices by Prices and Country';
+            chart.dataSource = chartData;
+            chart.includedProperties = ['price', 'country'];
+            const chartDialog = document.getElementById('dialog') as IgcDialogComponent;
+            chartDialog.show();
+        }
+    }
+
+    public openDialogForRow(e: any, rowData: any) {
+        const chart = document.getElementById('chart1') as IgcCategoryChartComponent;
+        const chartData = this.grid1.data.filter(item => item.region === rowData.region &&
+            item.category === rowData.category);
+        chart.chartTitle = 'Data Chart with prices of ' + rowData.category + ' in ' + rowData.region + ' Region';
+
+        chart.dataSource = chartData;
+        chart.includedProperties = ['price', 'country'];
+        const chartDialog = document.getElementById('dialog') as IgcDialogComponent;
+        chartDialog.show();
     }
 
 
