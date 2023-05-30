@@ -177,14 +177,14 @@
 
       </div>
     </div>
-
+    <igc-dialog id="dialog" title="Chart">
+      <igc-category-chart id='chart1' width="500px" chart-type="column" x-axis-interval="20" x-axis-label-angle="90"
+        height="400px">
+      </igc-category-chart>
+    </igc-dialog>
+    <igc-toast class="toast" id="toast">Please select some rows first!</igc-toast>
   </div>
-  <igc-dialog id="dialog" title="Chart">
-    <igc-category-chart id='chart1' width="500px" chart-type="column" x-axis-interval="20" x-axis-label-angle="90"
-      height="400px">
-    </igc-category-chart>
-  </igc-dialog>
-  <igc-toast class="toast" id="toast">Please select some rows first!</igc-toast>
+
 
   <!-- This script is needed only for parcel and it will be excluded for webpack -->
   <% if (false) { %>
