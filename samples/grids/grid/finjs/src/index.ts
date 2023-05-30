@@ -18,6 +18,7 @@ export class Sample {
 
 
     private grid1: IgcGridComponent;
+    private chart: IgcCategoryChartComponent;
     private _timer: ReturnType<typeof setInterval>;
     private data = FinancialData.generateData(1000);
     private groupingExpr = [
@@ -38,6 +39,7 @@ export class Sample {
         }
     ];
     constructor() {
+        const chart = this.chart = document.getElementById('chart1') as IgcCategoryChartComponent;
         var trendUp = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="m123-240-43-43 292-291 167 167 241-241H653v-60h227v227h-59v-123L538-321 371-488 123-240Z"/></svg>`;
         var trendDown = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M653-240v-60h127L539-541 372-374 80-665l43-43 248 248 167-167 283 283v-123h59v227H653Z"/></svg>`;
         var chartIcon = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M284-277h60v-275h-60v275Zm166 0h60v-406h-60v406Zm166 0h60v-148h-60v148ZM180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm0-600v600-600Z"/></svg>`;
@@ -132,9 +134,10 @@ export class Sample {
         const chart = document.getElementById('chart1') as IgcCategoryChartComponent;
         const chartData = this.grid1.selectedRows.map(x => this.grid1.getRowData(x));
         if (chartData && chartData.length > 0) {
-            chart.chartTitle = 'Data Chart with prices by Prices and Country';
             chart.dataSource = chartData;
             chart.includedProperties = ['price', 'country'];
+            this.setLabelIntervalAndAngle();
+            this.setChartConfig('Countries', 'Prices (USD)', 'Data Chart with prices by Category and Country');
             const chartDialog = document.getElementById('dialog') as IgcDialogComponent;
             chartDialog.show();
         } else {
@@ -142,6 +145,42 @@ export class Sample {
             toast.show();
         }
     }
+
+    public setChartConfig(xAsis: string, yAxis: string, title: string): void {
+        // update label interval and angle based on data
+        this.setLabelIntervalAndAngle();
+        this.chart.xAxisTitle = xAsis;
+        this.chart.yAxisTitle = yAxis;
+        this.chart.chartTitle = title;
+    }
+
+    public setLabelIntervalAndAngle(): void {
+        const intervalSet = this.chart.dataSource.length;
+        if (intervalSet < 10) {
+            this.chart.xAxisLabelAngle = 0;
+            this.chart.xAxisInterval = 1;
+        } else if (intervalSet < 15) {
+            this.chart.xAxisLabelAngle = 30;
+            this.chart.xAxisInterval = 1;
+        } else if (intervalSet < 40) {
+            this.chart.xAxisLabelAngle = 90;
+            this.chart.xAxisInterval = 1;
+        } else if (intervalSet < 100) {
+            this.chart.xAxisLabelAngle = 90;
+            this.chart.xAxisInterval = 3;
+        } else if (intervalSet < 200) {
+            this.chart.xAxisLabelAngle = 90;
+            this.chart.xAxisInterval = 5;
+        } else if (intervalSet < 400) {
+            this.chart.xAxisLabelAngle = 90;
+            this.chart.xAxisInterval = 7;
+        } else if (intervalSet > 400) {
+            this.chart.xAxisLabelAngle = 90;
+            this.chart.xAxisInterval = 10;
+        }
+        this.chart.yAxisAbbreviateLargeNumbers = true;
+    }
+
 
     public openDialogForRow(e: any, rowData: any) {
         const chart = document.getElementById('chart1') as IgcCategoryChartComponent;
@@ -151,6 +190,8 @@ export class Sample {
 
         chart.dataSource = chartData;
         chart.includedProperties = ['price', 'country'];
+        this.setLabelIntervalAndAngle();
+        this.setChartConfig('Countries', 'Prices (USD)', 'Data Chart with prices of ' + rowData.category + ' in ' + rowData.region + ' Region');
         const chartDialog = document.getElementById('dialog') as IgcDialogComponent;
         chartDialog.show();
     }
