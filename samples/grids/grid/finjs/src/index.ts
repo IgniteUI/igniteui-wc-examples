@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcCellTemplateContext, IgcColumnComponent, IgcGridComponent, SortingDirection } from 'igniteui-webcomponents-grids/grids';
-import { defineAllComponents, IgcButtonComponent, IgcDialogComponent, IgcIconComponent, IgcSliderComponent, registerIconFromText } from "igniteui-webcomponents";
+import { IgcCellTemplateContext, IgcColumnComponent, IgcGridComponent, IgcGridToolbarComponent, SortingDirection } from 'igniteui-webcomponents-grids/grids';
+import { defineAllComponents, IgcButtonComponent, IgcDialogComponent, IgcIconComponent, IgcSliderComponent, IgcSwitchComponent, IgcToastComponent, registerIconFromText } from "igniteui-webcomponents";
 import { IgcLegendModule, IgcCategoryChartModule, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { FinancialData } from './FinancialData';
@@ -20,6 +20,23 @@ export class Sample {
     private grid1: IgcGridComponent;
     private _timer: ReturnType<typeof setInterval>;
     private data = FinancialData.generateData(1000);
+    private groupingExpr = [
+        {
+            dir: SortingDirection.Desc,
+            fieldName: 'category',
+            ignoreCase: false
+        },
+        {
+            dir: SortingDirection.Desc,
+            fieldName: 'type',
+            ignoreCase: false
+        },
+        {
+            dir: SortingDirection.Desc,
+            fieldName: 'contract',
+            ignoreCase: false
+        }
+    ];
     constructor() {
         var trendUp = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="m123-240-43-43 292-291 167 167 241-241H653v-60h227v227h-59v-123L538-321 371-488 123-240Z"/></svg>`;
         var trendDown = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M653-240v-60h127L539-541 372-374 80-665l43-43 248 248 167-167 283 283v-123h59v227H653Z"/></svg>`;
@@ -37,24 +54,7 @@ export class Sample {
         var changeP = document.getElementById('changeP') as IgcColumnComponent;
         var chartColumn = document.getElementById('chart') as IgcColumnComponent;
         grid1.data = this.data;
-        grid1.groupingExpressions = [
-            {
-                dir: SortingDirection.Desc,
-                fieldName: 'category',
-                ignoreCase: false
-            },
-            {
-                dir: SortingDirection.Desc,
-                fieldName: 'type',
-                ignoreCase: false
-            },
-            {
-                dir: SortingDirection.Desc,
-                fieldName: 'contract',
-                ignoreCase: false
-            }
-        ];
-
+        grid1.groupingExpressions = this.groupingExpr;
         price.bodyTemplate = this.priceTemplate;
         price.cellClasses = this.trends;
         changeP.cellClasses = this.trendsChange;
@@ -85,6 +85,22 @@ export class Sample {
         freqSlider.addEventListener('igcInput', (ev: CustomEvent) => {
             sliderFreqValueSpan.innerHTML = ev.detail;
         });
+
+
+        const groupingSwitch = document.getElementById('groupSwitch') as IgcSwitchComponent;
+        groupingSwitch.addEventListener('igcChange', (ev: CustomEvent) => {
+           if (ev.detail) {
+                grid1.groupingExpressions = this.groupingExpr;
+           } else {
+                grid1.groupingExpressions = [];
+           }
+        });
+
+        const toolbar = document.getElementById('toolbar') as IgcGridToolbarComponent;
+        const toolbarSwitch = document.getElementById('toolbarSwitch') as IgcSwitchComponent;
+        toolbarSwitch.addEventListener('igcChange', (ev: CustomEvent) => {
+            toolbar.hidden = !ev.detail;
+        });
     }
 
     public startUpdate() {
@@ -93,11 +109,15 @@ export class Sample {
             this.grid1.data = FinancialData.updateAllPrices(this.data);
         }, frequency);
         (document.getElementById('startButton') as IgcButtonComponent).disabled = true;
+        (document.getElementById('stopButton') as IgcButtonComponent).disabled = false;
+        (document.getElementById('chartButton') as IgcButtonComponent).disabled = true;
     }
 
     public stopUpdate() {
         clearInterval(this._timer);
         (document.getElementById('startButton') as IgcButtonComponent).disabled = false;
+        (document.getElementById('chartButton') as IgcButtonComponent).disabled = false;
+        (document.getElementById('stopButton') as IgcButtonComponent).disabled = true;
     }
 
     public chartBtnTemplate = (ctx: IgcCellTemplateContext) => {
@@ -117,6 +137,9 @@ export class Sample {
             chart.includedProperties = ['price', 'country'];
             const chartDialog = document.getElementById('dialog') as IgcDialogComponent;
             chartDialog.show();
+        } else {
+            const toast = document.getElementById('toast') as IgcToastComponent;
+            toast.show();
         }
     }
 

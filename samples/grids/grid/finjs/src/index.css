@@ -6,12 +6,19 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
     padding: 15px;
 }
 
 .control-item {
-    width: 50%;
+    flex-grow: 1;
+}
+
+.toast {
+    z-index: 2;
+}
+
+.switch-control-item {
+    flex-basis: fit-content;
 }
 
 .switches {
@@ -22,6 +29,15 @@
     padding-inline-end: 20px;
     font-size: 0.9rem;
     gap: 20px;
+}
+.finjs-play-controls {
+    display: flex;
+    gap: 10px;
+    flex: 1 0 0%;
+}
+
+.finjs-play-controls > igc-button {
+    flex-grow: 1;
 }
 
 .finjs-slider {

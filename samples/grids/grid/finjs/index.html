@@ -19,12 +19,18 @@
     <div class="container sample">
       <div class="controls-holder">
         <div class="switches">
+          <div class="switch-control-item">
+            <igc-switch id="groupSwitch" checked>Grouped</igc-switch>
+          </div>
+          <div class="switch-control-item">
+            <igc-switch id="toolbarSwitch" checked>Toolbar</igc-switch>
+          </div>
           <div class="control-item">
             <label for="slider" id="recordsLabel">Records: <span id="slider-rec-value">1000</span></label>
             <igc-slider id="records" class="finjs-slider" value="1000" min="0" max="10000" step="100"></igc-slider>
           </div>
           <div class="control-item">
-            <label id="frequencyLabel" for="slider">Frequency:<span id="slider-freq-value">1000</span></label>
+            <label id="frequencyLabel" for="slider">Frequency:<span id="slider-freq-value">500</span></label>
             <igc-slider id="frequency" class="finjs-slider" value="500" min="100" max="3000" step="10"></igc-slider>
           </div>
         </div>
@@ -32,7 +38,7 @@
           <igc-button id="startButton" variant="outlined">
             <igc-icon name="update" collection="material"></igc-icon>LIVE ALL PRICES
           </igc-button>
-          <igc-button id="stopButton" variant="outlined">
+          <igc-button id="stopButton" variant="outlined" disabled>
             <igc-icon name="stop" collection="material"></igc-icon>Stop
           </igc-button>
           <igc-button id="chartButton" variant="outlined">
@@ -43,10 +49,11 @@
       <div class="container fill">
         <igc-grid row-selection="multiple" auto-generate="false" primary-key="id" display-density="cosy"
           allow-filtering="true" filter-mode="excelStyleFilter" name="grid1" id="grid1">
-          <igc-grid-toolbar>
+          <igc-grid-toolbar id="toolbar">
             <igc-grid-toolbar-actions>
               <igc-grid-toolbar-hiding></igc-grid-toolbar-hiding>
-              <igc-grid-toolbar-pining></igc-grid-toolbar-pining>
+              <igc-grid-toolbar-pinning></igc-grid-toolbar-pinning>
+              <igc-grid-toolbar-exporter></igc-grid-toolbar-exporter>
             </igc-grid-toolbar-actions>
           </igc-grid-toolbar>
           <igc-column field="id" header="Id" data-type="number" sortable="true" editable="true" resizable="true">
@@ -77,8 +84,7 @@
           <igc-column field="price" id="price" header="Price" width="120px" data-type="currency" sortable="true"
             editable="true" filterable="true">
           </igc-column>
-          <igc-column id="chart" field="Chart" header="Chart" width="60px" data-type="currency" sortable="true"
-            filterable="true">
+          <igc-column id="chart" field="Chart" header="Chart" width="60px">
           </igc-column>
           <igc-column field="change" id="change" header="Change" width="120px" data-type="number" sortable="true"
             editable="true" filterable="true">
@@ -178,6 +184,7 @@
       height="400px">
     </igc-category-chart>
   </igc-dialog>
+  <igc-toast class="toast" id="toast">Please select some rows first!</igc-toast>
 
   <!-- This script is needed only for parcel and it will be excluded for webpack -->
   <% if (false) { %>
