@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor-panel
+
+        description-type="Toolbar"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id="propertyEditorPanel1">
+            <igc-property-editor-property-description
+            property-path="BaseTheme"
+            name="BaseTheme"
+            id="BaseTheme"
+            label="Theme"
+            should-override-default-editor="true"
+            value-type="EnumValue"
+            primitive-value="SlingshotDark">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+
+    <div class="aboveContent">
+        <igc-toolbar
+        name="Toolbar"
+        id="Toolbar"
+        orientation="Horizontal"
+        base-theme="SlingshotDark">
+        </igc-toolbar>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        is-horizontal-zoom-enabled="true"
+        name="chart"
+        id="chart">
+            <igc-category-x-axis
+            name="xAxis"
+            id="xAxis"
+            label="year">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis
+            name="yAxis"
+            id="yAxis"
+            title="TWh">
+            </igc-numeric-y-axis>
+            <igc-line-series
+            name="LineSeries1"
+            id="LineSeries1"
+            title="Electricity"
+            value-member-path="america">
+            </igc-line-series>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

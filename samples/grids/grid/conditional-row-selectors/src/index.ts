@@ -42,8 +42,8 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridRowSelectionConditional(event: any): void {
-        console.log(event);
+    public webGridRowSelectionConditional(eventArgs: any): void {
+        const event = eventArgs.detail;
         if (!event.added.length && event.removed.length) {
             // ignore de-select
             return;

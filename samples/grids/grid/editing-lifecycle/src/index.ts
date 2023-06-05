@@ -65,7 +65,7 @@ export class Sample {
     public webGridRowEditEnter(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
-        message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.rowID;
+        message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.detail.rowID;
         container.appendChild(message);
     }
 
@@ -93,14 +93,14 @@ export class Sample {
     public webGridCellEditEnter(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
-        message.textContent = `=> 'cellEditEnter' with 'value':` + args.oldValue, args.cancel;
+        message.textContent = `=> 'cellEditEnter' with 'value':` + args.detail.oldValue, args.detail.cancel;
         container.appendChild(message);
     }
 
     public webGridCellEdit(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
-        message.textContent = `=> 'cellEdit' with 'newValue':` + args.newValue, args.cancel;
+        message.textContent = `=> 'cellEdit' with 'newValue':` + args.detail.newValue, args.detail.cancel;
         container.appendChild(message);
     }
 

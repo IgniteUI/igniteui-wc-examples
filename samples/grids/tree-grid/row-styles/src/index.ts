@@ -16,8 +16,8 @@ export class Sample {
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
 
         this._bind = () => {
-            treeGrid.data = this.employeesFlatDetails;            
-            treeGrid.rowStyles = this.webTreeGridRowStylesHandler();
+            treeGrid.data = this.employeesFlatDetails;
+            treeGrid.rowStyles = this.webTreeGridRowStylesHandler;
         }
         this._bind();
 
@@ -42,16 +42,6 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webTreeGridRowStylesHandler() {
-        return {
-            'background': (row: IgcRowType) => row.data['Title'] === 'CEO' ? '#6c757d' : row.data['Title'].includes('President') ? '#adb5bd' :
-                row.data['Title'].includes('Director') ? '#ced4da' : row.data['Title'].includes('Manager') ? '#dee2e6' :
-                row.data['Title'].includes('Lead') ? '#e9ecef' : row.data['Title'].includes('Senior') ? '#f8f9fa' : null,
-            'border-left': (row: IgcRowType) => row.data['Title'] === 'CEO' || row.data['Title'].includes('President') ? '2px solid' : null,
-            'border-color': (row: IgcRowType) => row.data['Title'] === 'CEO' ? '#495057' : null,
-            'color': (row: IgcRowType) => row.data['Title'] === 'CEO' ? '#fff' : null
-        };
-    }
 }
 
 new Sample();

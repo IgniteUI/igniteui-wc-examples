@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+
+    <div class="legend-title">
+        Market Capitalization of Technology Companies
+    </div>
+
+    <div class="legend">
+        <igc-legend
+        name="Legend"
+        id="Legend"
+        orientation="Horizontal">
+        </igc-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        name="chart"
+        id="chart"
+        chart-title="Market Capitalization of Technology Companies"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false">
+            <igc-category-x-axis
+            name="xAxis"
+            id="xAxis"
+            label="category"
+            is-inverted="true"
+            gap="0.75">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis
+            name="yAxis"
+            id="yAxis"
+            minimum-value="0"
+            maximum-value="220">
+            </igc-numeric-y-axis>
+            <igc-stacked-column-series
+            name="StackedColumnSeries"
+            id="StackedColumnSeries"
+            show-default-tooltip="true"
+            area-fill-opacity="1">
+                <igc-stacked-fragment-series
+                name="s1"
+                id="s1"
+                value-member-path="v1"
+                title="Apple">
+                </igc-stacked-fragment-series>
+                <igc-stacked-fragment-series
+                name="s2"
+                id="s2"
+                value-member-path="v2"
+                title="Microsoft">
+                </igc-stacked-fragment-series>
+                <igc-stacked-fragment-series
+                name="s3"
+                id="s3"
+                value-member-path="v3"
+                title="Google">
+                </igc-stacked-fragment-series>
+                <igc-stacked-fragment-series
+                name="s4"
+                id="s4"
+                value-member-path="v4"
+                title="NVidia">
+                </igc-stacked-fragment-series>
+                <igc-stacked-fragment-series
+                name="s5"
+                id="s5"
+                value-member-path="v5"
+                title="Tesla">
+                </igc-stacked-fragment-series>
+            </igc-stacked-column-series>
+            <igc-data-tool-tip-layer
+            name="DataToolTipLayer"
+            id="DataToolTipLayer">
+            </igc-data-tool-tip-layer>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

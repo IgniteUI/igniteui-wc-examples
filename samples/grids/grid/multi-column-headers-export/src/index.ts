@@ -94,7 +94,7 @@ export class Sample {
     }
 
     public webGridExportEventMultiColumnHeaders(args: any): void {
-        args.options.ignoreMultiColumnHeaders = false;
+        args.detail.options.ignoreMultiColumnHeaders = false;
     }
 
 }
