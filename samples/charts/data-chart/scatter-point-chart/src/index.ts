@@ -5,6 +5,8 @@ import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './Coun
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcLegendModule,
     IgcDataChartCoreModule,
