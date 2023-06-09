@@ -4,6 +4,8 @@ import { FootballPlayerStatsItem, FootballPlayerStats } from './FootballPlayerSt
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartRadialModule,

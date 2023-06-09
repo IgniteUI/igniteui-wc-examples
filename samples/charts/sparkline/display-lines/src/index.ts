@@ -6,6 +6,8 @@ import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
     IgcSparklineModule
