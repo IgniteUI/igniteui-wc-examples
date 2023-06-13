@@ -6,6 +6,8 @@ import { IgcRowSelectionEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
+import "./index.css";
+
 export class Sample {
 
     private grid: IgcGridComponent
@@ -42,8 +44,8 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridRowSelectionConditional(event: any): void {
-        console.log(event);
+    public webGridRowSelectionConditional(eventArgs: any): void {
+        const event = eventArgs.detail;
         if (!event.added.length && event.removed.length) {
             // ignore de-select
             return;
