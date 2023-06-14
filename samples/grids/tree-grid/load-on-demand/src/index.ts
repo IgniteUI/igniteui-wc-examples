@@ -10,7 +10,7 @@ export class Sample {
         treeGrid.expansionDepth = 0;
         const rootData = [...this.employeesFlatData].filter(x => x.ParentID == -1);
         treeGrid.data = rootData;
-        treeGrid.loadChildrenOnDemand = (parentID: any, done: (children: any[]) => void) => {
+        (treeGrid as any).loadChildrenOnDemand = (parentID: any, done: (children: any[]) => void) => {
             this.getData(parentID, (children) => done(children));
      };
     }
