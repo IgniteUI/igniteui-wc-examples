@@ -1,4 +1,3 @@
-import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
@@ -8,43 +7,52 @@ import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-import { ModuleManager } from 'igniteui-webcomponents-core';
+import { defineAllComponents, IgcButtonComponent, IgcInputComponent, IgcSwitchComponent } from 'igniteui-webcomponents';
 defineAllComponents();
 
-ModuleManager.register(
-    IgcPropertyEditorPanelModule
-);
 
 export class Sample {
 
-    private propertyEditor: IgcPropertyEditorPanelComponent
     private clipboardEnabledEditor: IgcPropertyEditorPropertyDescriptionComponent
     private clipboardHeadersEditor: IgcPropertyEditorPropertyDescriptionComponent
     private clipboardFormattersEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private propertyEditorPropertyDescription1: IgcPropertyEditorPropertyDescriptionComponent
     private treeGrid: IgcTreeGridComponent
-    private _bind: () => void;
 
     constructor() {
-        var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
         var clipboardEnabledEditor = this.clipboardEnabledEditor = document.getElementById('ClipboardEnabledEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var clipboardHeadersEditor = this.clipboardHeadersEditor = document.getElementById('ClipboardHeadersEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var clipboardFormattersEditor = this.clipboardFormattersEditor = document.getElementById('ClipboardFormattersEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var propertyEditorPropertyDescription1 = this.propertyEditorPropertyDescription1 = document.getElementById('propertyEditorPropertyDescription1') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webGridClearSelection = this.webGridClearSelection.bind(this);
-        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
+        var grid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
         this.webGridClipboardOperationsColumnInit = this.webGridClipboardOperationsColumnInit.bind(this);
 
-        this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer;
-            propertyEditor.target = this.treeGrid;
-            propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSelection;
-            treeGrid.data = this.employeesFlatDetails;
-            treeGrid.addEventListener("columnInit", this.webGridClipboardOperationsColumnInit);
-        }
-        this._bind();
+        grid.data = this.employeesFlatDetails;
+        grid.addEventListener("columnInit", this.webGridClipboardOperationsColumnInit);
+        var copyBehaviorSwitch = document.getElementById("copy") as IgcSwitchComponent;
+        copyBehaviorSwitch.addEventListener("igcChange", (ev: CustomEvent) => {
+            grid.clipboardOptions.enabled = ev.detail;
+        });
 
+        var copyHeaderSwitch = document.getElementById("headerCopy") as IgcSwitchComponent;
+        copyHeaderSwitch.addEventListener("igcChange", (ev: CustomEvent) => {
+            grid.clipboardOptions.copyHeaders = ev.detail;
+        });
+
+        var formatterSwitch = document.getElementById("formatterCopy") as IgcSwitchComponent;
+        formatterSwitch.addEventListener("igcChange", (ev: CustomEvent) => {
+            grid.clipboardOptions.copyFormatters = ev.detail;
+        });
+
+        var selectionClearBtn = document.getElementById("selectionClear") as IgcButtonComponent;
+        selectionClearBtn.addEventListener('click', (ev: any) => {
+            grid.cellSelection = 'none';
+            grid.cellSelection = 'multiple';
+        });
+
+        var input = document.getElementById("input") as IgcInputComponent;
+        input.addEventListener("igcChange", (ev: CustomEvent) => {
+            grid.clipboardOptions.separator = ev.detail;
+        });
     }
 
     private _employeesFlatDetails: EmployeesFlatDetails = null;
@@ -55,18 +63,6 @@ export class Sample {
         }
         return this._employeesFlatDetails;
     }
-
-    private _componentRenderer: ComponentRenderer = null;
-    public get renderer(): ComponentRenderer {
-        if (this._componentRenderer == null) {
-            this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
-            PropertyEditorPanelDescriptionModule.register(context);
-            WebTreeGridDescriptionModule.register(context);
-        }
-        return this._componentRenderer;
-    }
-
     public webGridClearSelection(args: any): void {
         console.log("TODO" + args);
     	//TODO
