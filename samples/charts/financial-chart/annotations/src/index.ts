@@ -73,15 +73,15 @@ export class FinancialChartAnnotations {
     }
 
     getData(): any[] {
-        const stockData = StocksUtility.GetStocks();
+        const stockData = StocksUtility.getStocksForMonths(12);
 
         let minVal: number = Number.MAX_VALUE;
         let maxVal: number = Number.MIN_VALUE;
         let minIndex: number = 0;
         let maxIndex: number = 0;
         let idx: number = 0;
-        let currentYear = 0;
-        let currentQuarter = 0;
+        let currentYear: number = 0;
+        let currentQuarter: number = 0;
 
         // adding annotation data for some data item
         for (const item of stockData) {
@@ -94,13 +94,13 @@ export class FinancialChartAnnotations {
                 maxVal = item.close;
                 maxIndex = idx;
             }
-            const itemYear = StocksUtility.GetYear(item.date);
+            const itemYear: number = StocksUtility.getYear(item.date);
             if (currentYear !== itemYear) {
                 currentYear = itemYear;
                 item.info = itemYear;
             }
 
-            const itemQuarter = StocksUtility.GetQuarter(item.date);
+            const itemQuarter: number = StocksUtility.getQuarter(item.date);
             if (currentQuarter !== itemQuarter) {
                 currentQuarter = itemQuarter;
                 item.info = 'Q' + itemQuarter;
@@ -111,12 +111,12 @@ export class FinancialChartAnnotations {
             idx++;
         }
 
-        let intervalSplit = Math.round(stockData.length / 3) - 1;
+        let intervalSplit: number = Math.round(stockData.length / 3) - 1;
         for (let i = intervalSplit; i < stockData.length; i += intervalSplit) {
             stockData[i].info = 'SPLIT';
         }
 
-        let intervalDividend = Math.round(stockData.length / 4) - 1;
+        let intervalDividend: number = Math.round(stockData.length / 4) - 1;
         for (let i = intervalDividend; i < stockData.length; i += intervalDividend) {
             stockData[i].info = 'DIV';
         }
