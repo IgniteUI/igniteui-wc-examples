@@ -4,6 +4,8 @@ import { MultipleStocks } from './MultipleStocks';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcFinancialChartModule,
     IgcDataChartInteractivityModule,
