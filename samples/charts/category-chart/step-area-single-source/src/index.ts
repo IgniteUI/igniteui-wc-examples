@@ -4,6 +4,8 @@ import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcCategoryChartModule,
     IgcDataChartInteractivityModule
