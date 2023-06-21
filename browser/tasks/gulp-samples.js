@@ -777,6 +777,8 @@ function logSourceFiles(cb) {
        '!./samples/**/src/DataChartSharedData.ts',
        '!./samples/**/src/DataGridSharedData.ts',
        '!./samples/**/src/DataService.ts',
+       '!./samples/**/src/TreeLoadOnDemandVirtualizedStyles.ts',
+       '!./samples/**/src/TreeLoadOnDemandVirtualizedData.ts',
        '!./samples/**/src/DockManagerSharedData.ts',
        '!./samples/**/src/EsriUtility.ts',
        '!./samples/**/src/ExcelUtility.ts',
