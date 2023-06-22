@@ -22,9 +22,9 @@
     "start:legacy": "npm run serve:dev:legacy"
   },
   "dependencies": {
-    "igniteui-webcomponents-core": "4.3.0-beta.0",
-    "igniteui-webcomponents-charts": "4.3.0-beta.0",
-    "igniteui-webcomponents-layouts": "4.3.0-beta.0",
+    "igniteui-webcomponents-core": "4.3.0-beta.2",
+    "igniteui-webcomponents-charts": "4.3.0-beta.2",
+    "igniteui-webcomponents-layouts": "4.3.0-beta.2",
     "igniteui-webcomponents": "4.2.3",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
