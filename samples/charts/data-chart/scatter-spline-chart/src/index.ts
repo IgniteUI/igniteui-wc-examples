@@ -5,6 +5,8 @@ import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFra
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcLegendModule,
     IgcNumberAbbreviatorModule,

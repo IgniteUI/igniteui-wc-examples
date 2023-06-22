@@ -4,6 +4,8 @@ import { Stock2YearsItem, Stock2Years } from './Stock2Years';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule,
