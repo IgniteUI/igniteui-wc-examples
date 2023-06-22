@@ -4,6 +4,8 @@ import { TemperatureAverageDataItem, TemperatureAverageData } from './Temperatur
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcCategoryChartModule
 );
