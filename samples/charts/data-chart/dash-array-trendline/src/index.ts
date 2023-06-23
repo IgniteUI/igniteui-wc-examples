@@ -1,4 +1,4 @@
-import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
+import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartCategoryTrendLineModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent } from 'igniteui-webcomponents-charts';
 import { Stock2YearsItem, Stock2Years } from './Stock2Years';
 
@@ -10,6 +10,7 @@ ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule,
     IgcDataChartCategoryCoreModule,
+    IgcDataChartCategoryTrendLineModule,
     IgcDataChartFinancialCoreModule,
     IgcDataChartFinancialModule,
     IgcDataChartFinancialOverlaysModule,
