@@ -64,6 +64,7 @@ var sampleSources = [
     // '!' + igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
+    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-styles/package.json', // BUG webTreeGridRowStylesHandler does not export
     // '!' + igConfig.SamplesCopyPath + '/grids/grid/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/editors/**/package.json',
