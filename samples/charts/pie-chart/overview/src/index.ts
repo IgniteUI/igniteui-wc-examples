@@ -4,6 +4,8 @@ import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcItemLegendModule,
     IgcPieChartModule

@@ -27,34 +27,22 @@
         primary-key="ID"
         foreign-key="ParentID">
             <igc-column
-            field="ID"
+            field="name"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="title"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="age"
             data-type="number"
-            sortable="true">
+            editable="true">
             </igc-column>
             <igc-column
-            field="Name"
-            data-type="string"
-            sortable="true"
-            editable="true"
-            disable-hiding="true">
-            </igc-column>
-            <igc-column
-            field="Title"
-            data-type="string"
-            sortable="true"
-            editable="true"
-            disable-hiding="true">
-            </igc-column>
-            <igc-column
-            field="HireDate"
+            field="hireDate"
             data-type="date"
-            sortable="true"
-            hidden="true">
-            </igc-column>
-            <igc-column
-            field="Address"
-            data-type="string"
-            sortable="true">
+            editable="true">
             </igc-column>
         </igc-tree-grid>
     </div>
