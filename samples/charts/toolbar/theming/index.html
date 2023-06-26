@@ -30,7 +30,7 @@
             label="Theme"
             should-override-default-editor="true"
             value-type="EnumValue"
-            primitive-value="SlingshotDark">
+            primitive-value="Default">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
@@ -40,12 +40,14 @@
         name="Toolbar"
         id="Toolbar"
         orientation="Horizontal"
-        base-theme="SlingshotDark">
+        base-theme="Default">
         </igc-toolbar>
     </div>
 
     <div class="container fill">
         <igc-data-chart
+        computed-plot-area-margin-mode="Series"
+        is-vertical-zoom-enabled="true"
         is-horizontal-zoom-enabled="true"
         name="chart"
         id="chart">

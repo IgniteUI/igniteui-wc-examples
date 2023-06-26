@@ -18,17 +18,25 @@
 
 <div class="container sample">
 
-    <div class="aboveContent">
-        <igc-toolbar
-        name="Toolbar"
-        id="Toolbar"
-        orientation="Horizontal">
-        </igc-toolbar>
+    <div class="aboveContentSplit">
+        <div class="aboveContentLeftContainer">
+            <igc-toolbar
+            name="Toolbar"
+            id="Toolbar"
+            orientation="Horizontal">
+            </igc-toolbar>
+        </div>
+        <div class="aboveContentRightContainer">
+            <!-- insert aboveContentRight -->
+            <!-- end aboveContentRight -->
+        </div>
     </div>
 
     <div class="container fill">
         <igc-data-chart
         is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true"
+        computed-plot-area-margin-mode="Series"
         name="chart"
         id="chart">
             <igc-category-x-axis
@@ -59,6 +67,9 @@
             title="Electricity"
             value-member-path="china">
             </igc-line-series>
+            <igc-data-tool-tip-layer
+            >
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>
