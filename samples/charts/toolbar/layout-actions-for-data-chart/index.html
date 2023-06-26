@@ -18,32 +18,45 @@
 
 <div class="container sample">
 
-    <div class="aboveContent">
-        <igc-toolbar
-        name="Toolbar"
-        id="Toolbar"
-        orientation="Horizontal">
-            <igc-tool-action-label
-            overlay-id="ZoomReset"
-            visibility="Collapsed">
-            </igc-tool-action-label>
-            <igc-tool-action-label
-            title="Reset"
-            after-id="ZoomOut"
-            icon-name="reset"
-            icon-collection-name="ChartToolbarIcons"
-            command-id="ZoomReset">
-            </igc-tool-action-label>
-            <igc-tool-action-icon-menu
-            overlay-id="AnalyzeMenu"
-            visibility="Collapsed">
-            </igc-tool-action-icon-menu>
-        </igc-toolbar>
+    <div class="aboveContentSplit">
+        <div class="aboveContentLeftContainer">
+            <igc-toolbar
+            name="Toolbar"
+            id="Toolbar"
+            orientation="Horizontal">
+                <igc-tool-action-checkbox
+                title="Enable Tooltips"
+                before-id="ZoomReset"
+                command-id="EnableTooltips">
+                </igc-tool-action-checkbox>
+                <igc-tool-action-label
+                overlay-id="ZoomReset"
+                visibility="Collapsed">
+                </igc-tool-action-label>
+                <igc-tool-action-label
+                title="Reset"
+                after-id="ZoomOut"
+                icon-name="reset"
+                icon-collection-name="ChartToolbarIcons"
+                command-id="ZoomReset">
+                </igc-tool-action-label>
+                <igc-tool-action-icon-menu
+                overlay-id="AnalyzeMenu"
+                visibility="Collapsed">
+                </igc-tool-action-icon-menu>
+            </igc-toolbar>
+        </div>
+        <div class="aboveContentRightContainer">
+            <!-- insert aboveContentRight -->
+            <!-- end aboveContentRight -->
+        </div>
     </div>
 
     <div class="container fill">
         <igc-data-chart
+        computed-plot-area-margin-mode="Series"
         is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true"
         name="chart"
         id="chart">
             <igc-category-x-axis
