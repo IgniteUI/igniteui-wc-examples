@@ -25,7 +25,8 @@
         id="grid"
         id="grid">
             <igc-column-group
-            header="Customer Information">
+            header="Customer Information"
+            collapsible="true">
                 <igc-column
                 field="CustomerName"
                 header="Customer Name"
@@ -47,7 +48,9 @@
                 visible-when-collapsed="false">
                 </igc-column>
                 <igc-column-group
-                header="Customer Address">
+                header="Customer Address"
+                expanded="false"
+                collapsible="true">
                     <igc-column
                     field="CustomerAddress"
                     header="Full Address"
@@ -82,7 +85,9 @@
             header="Order Date">
             </igc-column>
             <igc-column-group
-            header="Product Details">
+            header="Product Details"
+            collapsible="true"
+            expanded="false">
                 <igc-column
                 field="ProductName"
                 header="Name"
