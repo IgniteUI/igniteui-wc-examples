@@ -1,6 +1,6 @@
 import { IgcToolbarModule } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartToolbarModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartAnnotationModule, IgcDataChartInteractivityModule, IgcDataChartCategoryTrendLineModule } from 'igniteui-webcomponents-charts';
-import { IgcToolbarComponent } from 'igniteui-webcomponents-layouts';
+import { IgcToolbarComponent, IgcToolActionCheckboxComponent, IgcToolActionLabelComponent, IgcToolActionIconMenuComponent } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 import { IgcToolCommandEventArgs } from 'igniteui-webcomponents-layouts';
@@ -23,6 +23,10 @@ ModuleManager.register(
 export class Sample {
 
     private toolbar: IgcToolbarComponent
+    private enableTooltipsLabel: IgcToolActionCheckboxComponent
+    private zoomResetHidden: IgcToolActionLabelComponent
+    private zoomResetLabel: IgcToolActionLabelComponent
+    private analyzeMenu: IgcToolActionIconMenuComponent
     private chart: IgcDataChartComponent
     private xAxis: IgcCategoryXAxisComponent
     private yAxis: IgcNumericYAxisComponent
@@ -34,6 +38,10 @@ export class Sample {
     constructor() {
         var toolbar = this.toolbar = document.getElementById('Toolbar') as IgcToolbarComponent;
         this.toolbarToggleTooltip = this.toolbarToggleTooltip.bind(this);
+        var enableTooltipsLabel = this.enableTooltipsLabel = document.getElementById('EnableTooltipsLabel') as IgcToolActionCheckboxComponent;
+        var zoomResetHidden = this.zoomResetHidden = document.getElementById('ZoomResetHidden') as IgcToolActionLabelComponent;
+        var zoomResetLabel = this.zoomResetLabel = document.getElementById('ZoomResetLabel') as IgcToolActionLabelComponent;
+        var analyzeMenu = this.analyzeMenu = document.getElementById('AnalyzeMenu') as IgcToolActionIconMenuComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
