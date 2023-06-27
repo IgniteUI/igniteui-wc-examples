@@ -38,7 +38,8 @@ export class RemoteNwindService {
     }
 
     public async loadDataForPage(page: number, pageSize: number, callback?: (arg: any) => void) {
-        const response = await fetch(DATA_URL);
+        const url = this._buildDataUrl(page, pageSize)
+        const response = await fetch(url);
         const data = await response.json();
         const startIndex = (page - 1) * pageSize;
         this._updateData(data, startIndex);

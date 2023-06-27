@@ -47,7 +47,7 @@ export class Sample {
         this.remoteService.loadDataForPage(this.page, this.pageSize, (request) => {
             if (request.data) {
                 this.grid.data = this.remoteService.getCachedData({ startIndex: 0, chunkSize: 10 });
-                //this.grid.totalItemCount = this.page * this.pageSize;
+                this.grid.totalItemCount = this.page * this.pageSize;
                 this.totalItems = request.data['@odata.count'];
                 this.totalPageCount = Math.ceil(this.totalItems / this.pageSize);
                 this.grid.isLoading = false;
@@ -56,7 +56,7 @@ export class Sample {
 
         this._bind = () => {
             this.grid.addEventListener('dataPreLoad', (e) => {
-                this.handlePreLoad(e as IgcForOfState);
+                this.handlePreLoad(e as CustomEvent<IgcForOfState>);
             });
         }
         this._bind();
@@ -70,12 +70,12 @@ export class Sample {
         return this._nwindData;
     }
 
-    public handlePreLoad(e: IgcForOfState) {
-        const isLastChunk = this.grid.totalItemCount === e.startIndex + e.chunkSize;
+    public handlePreLoad(e: CustomEvent<IgcForOfState>) {
+        const isLastChunk = this.grid.totalItemCount === e.detail.startIndex + e.detail.chunkSize;
         // when last chunk reached load another page of data
         if (isLastChunk) {
             if (this.totalPageCount === this.page) {
-                this.grid.data = this.remoteService.getCachedData(e);
+                this.grid.data = this.remoteService.getCachedData(e.detail);
                 return;
             }
             this.page++;
@@ -83,12 +83,12 @@ export class Sample {
             this.remoteService.loadDataForPage(this.page, this.pageSize, (request) => {
                 if (request.data) {
                     this.grid.totalItemCount = Math.min(this.page * this.pageSize, this.totalItems);
-                    this.grid.data = this.remoteService.getCachedData(e);
+                    this.grid.data = this.remoteService.getCachedData(e.detail);
                     this.grid.isLoading = false;
                 }
             });
         } else {
-            this.grid.data = this.remoteService.getCachedData(e);
+            this.grid.data = this.remoteService.getCachedData(e.detail);
         }
     }
 
