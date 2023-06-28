@@ -11,6 +11,8 @@ import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
 
+import "./index.css";
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule
 );
@@ -64,13 +66,17 @@ export class Sample {
     }
 
     public webGridPinFirstGroupToggle(args: any): void {
-        console.log("TODO" + args);
-    	//TODO
+        const grid = document.getElementsByTagName("igc-grid")[0] as IgcGridComponent;
+        const firstColumnGroup = grid.columns.filter(c => c.header === 'General Information')[0];
+        firstColumnGroup.pinned = !firstColumnGroup.pinned;
+        grid.markForCheck();
     }
 
     public webGridHideFirstGroupToggle(args: any): void {
-        console.log("TODO" + args);
-    	//TODO
+        const grid = document.getElementsByTagName("igc-grid")[0] as IgcGridComponent;
+        const firstColumnGroup = grid.columns.filter(c => c.header === 'General Information')[0];
+        firstColumnGroup.hidden = !firstColumnGroup.hidden;
+        grid.markForCheck();
     }
 
 }

@@ -35,22 +35,20 @@ export class FinancialChartAxisTypes {
     }
 
     public onXAxisModeChanged = (e: any) => {
-        const mode = e.target.value;
+        const mode: string = e.target.value;
         if (mode === 'Time') {
             this.xAxisMode = FinancialChartXAxisMode.Time;
-        }
-        else if (mode === 'Ordinal') {
+        } else if (mode === 'Ordinal') {
             this.xAxisMode = FinancialChartXAxisMode.Ordinal;
         }
         this.chart.xAxisMode = this.xAxisMode;
     }
 
     public onYAxisModeChanged = (e: any) => {
-        const mode = e.target.value;
+        const mode: string = e.target.value;
         if (mode === 'PercentChange') {
             this.yAxisMode = FinancialChartYAxisMode.PercentChange;
-        }
-        else if (mode === 'Numeric') {
+        } else if (mode === 'Numeric') {
             this.yAxisMode = FinancialChartYAxisMode.Numeric;
         }
         this.chart.yAxisMode = this.yAxisMode;
@@ -62,13 +60,7 @@ export class FinancialChartAxisTypes {
     }
 
     initData(): any[] {
-        const today = new Date();
-        const year = today.getFullYear();
-        const month = today.getMonth();
-        const dateEnd = new Date(year, month, 1);
-        const dateStart = new Date(year - 1, month, 1);
-
-        return StocksUtility.GetStocksBetween(dateStart, dateEnd);
+        return StocksUtility.getStocksForMonths(12);
     }
 }
 

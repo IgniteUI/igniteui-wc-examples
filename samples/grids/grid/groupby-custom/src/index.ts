@@ -7,6 +7,8 @@ import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule
 );
