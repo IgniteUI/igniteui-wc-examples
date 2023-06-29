@@ -10,6 +10,8 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 defineAllComponents();
 
+import "./index.css";
+
 export class Sample {
 
     private grid: IgcGridComponent
@@ -108,21 +110,23 @@ export class Sample {
 
         const column = (ctx as any).column;
         return html`<div>
-                     <span style="float:left">${column.header}</span>
+                     <span style="float:left">${column.field}</span>
                      <span style="float:right" @pointerdown=${(e: any) => this.toggleColumnPin(column.field)}>📌</span>
                    </div>`;
         };
 
     public webGridCurrencyCellTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value > 0) {
-            return html`<div>
-            <igc-badge variant="success"><span>▲</span></igc-badge>
-            <span style='color:green;'>${ctx.cell.value.toFixed(2)}</span>
+            return html`<div style='width: 80px;
+            float: right;'>
+            <igc-badge variant="success" style="float: left;"><span>▲</span></igc-badge>
+            <span style='color:green;float: right;'>${ctx.cell.value.toFixed(2)}</span>
             </div>`;
         } else {
-            return html`<div>
-            <igc-badge variant="danger"><span>▼</span></igc-badge>
-            <span style='color:red;'>${ctx.cell.value.toFixed(2)}</span>
+            return html`<div style='width: 80px;
+            float: right;'>
+            <igc-badge variant="danger" style="float: left;"><span>▼</span></igc-badge>
+            <span style='color:red;float: right;'>${ctx.cell.value.toFixed(2)}</span>
             </div>`;
         };
     }

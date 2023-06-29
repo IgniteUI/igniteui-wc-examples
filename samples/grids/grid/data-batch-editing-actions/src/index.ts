@@ -14,6 +14,8 @@ import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
 
+import "./index.css";
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule
 );
