@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "outDir": "dist",
     "lib": ["es2017", "dom", "DOM.Iterable"],
+    "resolveJsonModule": true,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     "removeComments": true,
