@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "esNext",
+    "resolveJsonModule": true,
     "moduleResolution": "node",
     "declaration": true,
+    "target": "es5",
+    "module": "esNext",
     "sourceMap": true,
     "experimentalDecorators": true,
     "outDir": "dist",
     "lib": ["es2017", "dom", "DOM.Iterable"],
-    "resolveJsonModule": true,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     "removeComments": true,
