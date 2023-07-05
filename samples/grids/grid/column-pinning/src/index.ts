@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { CustomersDataItem, CustomersData } from './CustomersData';
+import CustomersDataLocal from './CustomersDataLocal.json';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -15,19 +15,15 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
         this._bind = () => {
-            grid.data = this.customersData;
+            grid.data = this.customersDataLocal;
         }
         this._bind();
 
     }
 
-    private _customersData: CustomersData = null;
-    public get customersData(): CustomersData {
-        if (this._customersData == null)
-        {
-            this._customersData = new CustomersData();
-        }
-        return this._customersData;
+    private _customersDataLocal: any[] = CustomersDataLocal;
+    public get customersDataLocal(): any[] {
+        return this._customersDataLocal;
     }
 
 }
