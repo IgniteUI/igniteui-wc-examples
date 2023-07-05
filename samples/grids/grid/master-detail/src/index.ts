@@ -35,7 +35,7 @@ export class Sample {
 
 
     public webGridMasterDetailTemplate = (ctx: IgcGridMasterDetailContext) => {
-        var data = ctx["$implicit"];
+        var data = ctx.implicit;
         return html` <div class="contact-container">
         <span><strong>Name:</strong> ${data.ContactName}</span>
         <br />
