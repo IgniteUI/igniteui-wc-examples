@@ -3,13 +3,15 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent, IgcActionStripComponent } from 'igniteui-webcomponents-grids/grids';
-import { CustomersDataItem, CustomersData } from './CustomersData';
+import CustomersDataLocal from './CustomersDataLocal.json';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
+
+import "./index.css";
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule
@@ -32,19 +34,15 @@ export class Sample {
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;
             propertyEditorPanel1.target = this.grid;
-            grid.data = this.customersData;
+            grid.data = this.customersDataLocal;
         }
         this._bind();
 
     }
 
-    private _customersData: CustomersData = null;
-    public get customersData(): CustomersData {
-        if (this._customersData == null)
-        {
-            this._customersData = new CustomersData();
-        }
-        return this._customersData;
+    private _customersDataLocal: any[] = CustomersDataLocal;
+    public get customersDataLocal(): any[] {
+        return this._customersDataLocal;
     }
 
     private _componentRenderer: ComponentRenderer = null;

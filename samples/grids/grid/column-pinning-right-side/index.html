@@ -27,6 +27,18 @@
             <igc-pinning-config
             columns="End">
             </igc-pinning-config>
+            <igc-grid-toolbar
+            >
+                <igc-grid-toolbar-title
+                >
+                </igc-grid-toolbar-title>
+                <igc-grid-toolbar-actions
+                >
+                    <igc-grid-toolbar-pinning
+                    >
+                    </igc-grid-toolbar-pinning>
+                </igc-grid-toolbar-actions>
+            </igc-grid-toolbar>
             <igc-column
             field="CountryFlag"
             header="Team"
@@ -43,16 +55,20 @@
             </igc-column>
             <igc-column
             field="AthleteNumber"
+            header="Athlete Number"
             data-type="number">
             </igc-column>
             <igc-column
-            field="BeatsPerMinute">
+            field="BeatsPerMinute"
+            header="Beats Per Minute">
             </igc-column>
             <igc-column
-            field="TopSpeed">
+            field="TopSpeed"
+            header="Top Speed">
             </igc-column>
             <igc-column
             field="RegistrationDate"
+            header="Registration Date"
             data-type="date">
             </igc-column>
             <igc-column
@@ -66,10 +82,12 @@
             field="Agent">
             </igc-column>
             <igc-column
-            field="AgentContact">
+            field="AgentContact"
+            header="Agent Contact">
             </igc-column>
             <igc-column
-            field="AgentPhone">
+            field="AgentPhone"
+            header="Agent Phone">
             </igc-column>
             <igc-column
             field="FirstPlaces"

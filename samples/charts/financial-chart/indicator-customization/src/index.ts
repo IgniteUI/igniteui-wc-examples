@@ -16,11 +16,11 @@ export class FinancialChartIndicatorCustom {
         this.applyCustomIndicators = this.applyCustomIndicators.bind(this);
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
-        this.chart.dataSource = StocksUtility.GetStocks();
+        this.chart.dataSource = StocksUtility.getStocksForMonths(12);
         this.chart.applyCustomIndicators = this.applyCustomIndicators;
     }
 
-    public applyCustomIndicators(chart: IgcFinancialChartComponent, event: IgcFinancialChartCustomIndicatorArgs) {
+    public applyCustomIndicators(chart: IgcFinancialChartComponent, event: IgcFinancialChartCustomIndicatorArgs): void {
 
         if (event.index === 0) {
             const info: IgcFinancialEventArgs = event.indicatorInfo;

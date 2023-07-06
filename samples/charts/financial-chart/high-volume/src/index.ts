@@ -11,11 +11,11 @@ export class FinancialChartHighVolume {
 
     constructor() {
 
-        const dateEnd = new Date(2020, 11, 1);
-        const dateStart = new Date(1900, 1, 1);
-        const yearStart = dateStart.getFullYear();
-        const yearEnd = dateEnd.getFullYear();
-        const data = StocksUtility.GetStocksBetween(dateStart, dateEnd, true, 60);
+        const dateEnd: Date = new Date(2020, 11, 1);
+        const dateStart: Date = new Date(1900, 1, 1);
+        const yearStart: number = dateStart.getFullYear();
+        const yearEnd: number = dateEnd.getFullYear();
+        const data = StocksUtility.getStocksBetween(dateStart, dateEnd, true, 60);
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.dataSource = data;

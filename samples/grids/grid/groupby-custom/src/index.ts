@@ -7,6 +7,8 @@ defineComponents(IgcButtonComponent, IgcDropdownComponent, IgcBadgeComponent);
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { html, ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule
 );

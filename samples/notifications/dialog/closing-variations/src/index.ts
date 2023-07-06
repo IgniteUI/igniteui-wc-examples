@@ -5,15 +5,15 @@ defineComponents(IgcDialogComponent, IgcButtonComponent, IgcSwitchComponent);
 export class DialogClosingVariations {
     constructor() {
         const dialog = document.getElementById('dialog') as IgcDialogComponent;
-        const closeOnEscSwitch = document.getElementById('closeOnEscSwitch') as IgcSwitchComponent;
+        const keepOpenOnEscSwitch = document.getElementById('keepOpenOnEscSwitch') as IgcSwitchComponent;
         const closeOnOutsideClickSwitch = document.getElementById('closeOnOutsideClickSwitch') as IgcSwitchComponent;
 
         closeOnOutsideClickSwitch!.addEventListener("igcChange", (ev: CustomEvent) => {
             dialog.closeOnOutsideClick = ev.detail;
         });
 
-        closeOnEscSwitch!.addEventListener("igcChange", (ev: CustomEvent) => {
-            dialog.closeOnEscape = ev.detail;
+        keepOpenOnEscSwitch!.addEventListener("igcChange", (ev: CustomEvent) => {
+            dialog.keepOpenOnEscape = ev.detail;
         });
     }
 }

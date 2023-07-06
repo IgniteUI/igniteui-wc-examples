@@ -9,6 +9,8 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 defineAllComponents();
 
+import "./index.css";
+
 export class Sample {
 
     private grid: IgcGridComponent
