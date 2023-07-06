@@ -118,7 +118,7 @@ export class Sample {
         return res;
     }
 
-    public extractColumnActions(col: IgcColumnComponent | IgcColumnGroupComponent) {
+    public extractColumnActions(col: IgcColumnComponent & IgcColumnGroupComponent) {
         const res = [];
         if (col.sortable) {
             res.push(ItemAction.Sortable);
