@@ -6,6 +6,9 @@ import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents, IgcButtonComponent, IgcInputComponent, IgcSwitchComponent } from 'igniteui-webcomponents';
 defineAllComponents();
+
+import "./index.css";
+
 export class Sample {
     private grid: IgcGridComponent
     private _bind: () => void;
