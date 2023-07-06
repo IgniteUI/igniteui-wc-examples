@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "esNext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "moduleResolution": "node",
     "declaration": true,
+    "target": "es5",
+    "module": "esNext",
     "sourceMap": true,
     "experimentalDecorators": true,
     "outDir": "dist",

@@ -41,6 +41,11 @@ var sampleSources = [
     // igConfig.SamplesCopyPath + '/editors/date-picker/overview/package.json',
     // igConfig.SamplesCopyPath + '/notifications/toast/overview/package.json',
     // igConfig.SamplesCopyPath + '/excel/excel-library/overview/package.json',
+    // igConfig.SamplesCopyPath + '/charts/category-chart/high-frequency/package.json',
+    // igConfig.SamplesCopyPath + '/charts/category-chart/high-volume/package.json',
+    // igConfig.SamplesCopyPath + '/charts/data-chart/chart-performance/package.json',
+    // igConfig.SamplesCopyPath + '/charts/financial-chart/high-frequency/package.json',
+    // igConfig.SamplesCopyPath + '/charts/financial-chart/high-volume/package.json',
 
     // including all samples for all components:
     igConfig.SamplesCopyPath + '/**/package.json',

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+
+    <div class="container fill">
+      <igc-grid id="grid" name="grid" height="480px" width="100%" autoGenerate='false'>
+        <igc-column field="ProductID"></igc-column>
+        <igc-column field="ProductName"></igc-column>
+        <igc-column field="UnitPrice" data-type="number"></igc-column>
+        <igc-column field="UnitsInStock" data-type="number" header-classes="headerAlignSyle">
+            <!-- <ng-template igcHeader>
+                <span class="cellAlignSyle">UnitsInStock</span>
+            </ng-template>
+            <ng-template igcCell let-val>
+                <div class="currency-badge-container">
+                    <igc-badge *ngIf="val>50" type="success" position="bottom-right" icon="arrow_upward" class="badge-left"></igc-badge>
+                    <igc-badge *ngIf="val<=50" type="error" position="bottom-right" icon="arrow_downward" class="error badge-left"></igc-badge>
+                    <span class="cellAlignSyle" [class.up]="val>50" [class.down]="val<=50">{{ formatNumber(val) }}</span>
+                </div>
+            </ng-template> -->
+        </igc-column>
+        <igc-column field="QuantityPerUnit"></igc-column>
+        <igc-column field="ReorderLevel" data-type="number" header-classes="headerAlignSyle">
+            <!-- <ng-template igcHeader>
+                <span class="cellAlignSyle">ReorderLevel</span>
+            </ng-template>
+            <ng-template igcCell let-val>
+                <div class="currency-badge-container">
+                    <igc-badge *ngIf="val>20" type="success" position="bottom-right" icon="arrow_upward" class="badge-left"></igc-badge>
+                    <igc-badge *ngIf="val<=20" type="error" position="bottom-right" icon="arrow_downward" class="error badge-left"></igc-badge>
+                    <span class="cellAlignSyle" [class.up]="val>0" [class.down]="val<=0">{{ formatNumber(val) }}</span>
+                </div>
+            </ng-template> -->
+        </igc-column>
+    </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

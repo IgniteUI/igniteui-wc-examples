@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcGroupingExpression, SortingDirection } from 'igniteui-webcomponents-grids/grids';
-import { InvoicesDataItem, InvoicesData } from './InvoicesData';
-import { IgcGroupByRowTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
+import { IgcGroupByRecord, IgcGroupByRowTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -32,7 +32,7 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
         this._bind = () => {
-            grid.data = this.invoicesData;
+            grid.data = this.invoicesWorldData;
             grid.groupingExpressions = this.groupingExpression1;
             grid.groupRowTemplate = this.webGridGroupByRowTemplate;
         }
@@ -40,19 +40,19 @@ export class Sample {
 
     }
 
-    private _invoicesData: InvoicesData = null;
-    public get invoicesData(): InvoicesData {
-        if (this._invoicesData == null)
+    private _invoicesWorldData: InvoicesWorldData = null;
+    public get invoicesWorldData(): InvoicesWorldData {
+        if (this._invoicesWorldData == null)
         {
-            this._invoicesData = new InvoicesData();
+            this._invoicesWorldData = new InvoicesWorldData();
         }
-        return this._invoicesData;
+        return this._invoicesWorldData;
     }
 
 
         public webGridGroupByRowTemplate = (ctx: IgcGroupByRowTemplateContext) => {
 
-            const groupRow: any = ctx["$implicit"];
+            const groupRow: IgcGroupByRecord = ctx.implicit;
             const values = groupRow.records;
 
             const startDate = new Date('1/1/2017');
