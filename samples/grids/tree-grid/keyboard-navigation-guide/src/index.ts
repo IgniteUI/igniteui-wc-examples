@@ -81,7 +81,7 @@ export class Sample {
 
     public toggleHeaderCombinations(activeNode: any) {
         const currColumn = this.grid.columns
-            .find(c => c.visibleIndex === activeNode.column && c.level === activeNode.level);
+            .find(c => c.visibleIndex === activeNode.column && c.level === activeNode.level) as IgcColumnGroupComponent;
         this.activeCollection.forEach(x => x.active = true);
         const actions = this.extractColumnActions(currColumn);
         this.activeCollection.filter(x => actions.indexOf(x.action) === -1 && x.action !== ItemAction.Always)?.forEach(x => x.active = false);
@@ -118,7 +118,7 @@ export class Sample {
         return res;
     }
 
-    public extractColumnActions(col: IgcColumnComponent & IgcColumnGroupComponent) {
+    public extractColumnActions(col: IgcColumnGroupComponent) {
         const res = [];
         if (col.sortable) {
             res.push(ItemAction.Sortable);
