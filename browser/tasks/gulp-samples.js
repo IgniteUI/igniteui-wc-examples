@@ -41,6 +41,11 @@ var sampleSources = [
     // igConfig.SamplesCopyPath + '/editors/date-picker/overview/package.json',
     // igConfig.SamplesCopyPath + '/notifications/toast/overview/package.json',
     // igConfig.SamplesCopyPath + '/excel/excel-library/overview/package.json',
+    // igConfig.SamplesCopyPath + '/charts/category-chart/high-frequency/package.json',
+    // igConfig.SamplesCopyPath + '/charts/category-chart/high-volume/package.json',
+    // igConfig.SamplesCopyPath + '/charts/data-chart/chart-performance/package.json',
+    // igConfig.SamplesCopyPath + '/charts/financial-chart/high-frequency/package.json',
+    // igConfig.SamplesCopyPath + '/charts/financial-chart/high-volume/package.json',
 
     // including all samples for all components:
     igConfig.SamplesCopyPath + '/**/package.json',
@@ -64,6 +69,7 @@ var sampleSources = [
     // '!' + igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
+    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-styles/package.json', // BUG webTreeGridRowStylesHandler does not export
     // '!' + igConfig.SamplesCopyPath + '/grids/grid/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/editors/**/package.json',
@@ -933,20 +939,20 @@ function updateIG(cb) {
     // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-webcomponents-core"                     , version: "4.3.0-beta.1" },
-        { name: "igniteui-webcomponents-charts"                   , version: "4.3.0-beta.1" },
-        { name: "igniteui-webcomponents-excel"                    , version: "4.3.0-beta.1" },
-        { name: "igniteui-webcomponents-gauges"                   , version: "4.3.0-beta.1" },
-        { name: "igniteui-webcomponents-grids"                    , version: "4.3.0-beta.1" },
-        { name: "igniteui-webcomponents-inputs"                   , version: "4.3.0-beta.1" },
-        { name: "igniteui-webcomponents-layouts"                  , version: "4.3.0-beta.1" },
-        { name: "igniteui-webcomponents-maps"                     , version: "4.3.0-beta.1" },
-        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.3.0-beta.1" },
-        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.3.0-beta.1" },
-        { name: "igniteui-webcomponents-datasources"              , version: "4.3.0-beta.1" },
+        { name: "igniteui-webcomponents-core"                     , version: "4.3.0" },
+        { name: "igniteui-webcomponents-charts"                   , version: "4.3.0" },
+        { name: "igniteui-webcomponents-excel"                    , version: "4.3.0" },
+        { name: "igniteui-webcomponents-gauges"                   , version: "4.3.0" },
+        { name: "igniteui-webcomponents-grids"                    , version: "4.3.0" },
+        { name: "igniteui-webcomponents-inputs"                   , version: "4.3.0" },
+        { name: "igniteui-webcomponents-layouts"                  , version: "4.3.0" },
+        { name: "igniteui-webcomponents-maps"                     , version: "4.3.0" },
+        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.3.0" },
+        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.3.0" },
+        { name: "igniteui-webcomponents-datasources"              , version: "4.3.0" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "4.2.3"  },
-        { name: "igniteui-dockmanager", version: "1.12.5" },
+        { name: "igniteui-webcomponents", version: "4.3.0-beta.0"  },
+        { name: "igniteui-dockmanager", version: "1.13.0" },
         // other packages:
         { name: "webpack", version: "^5.74.0"  },
         { name: "webpack-cli", version: "^4.10.0"  },

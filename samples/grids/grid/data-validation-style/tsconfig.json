@@ -2,6 +2,7 @@
   "compilerOptions": {
     "noImplicitReturns": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "noImplicitAny": true,
     "declarationDir": "dist/types",
     "moduleResolution": "node",

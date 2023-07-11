@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+
+    <div class="legend-title">
+        Renewable Electricity Generated
+    </div>
+
+    <div class="legend">
+        <igc-legend
+        name="Legend"
+        id="Legend"
+        orientation="Horizontal">
+        </igc-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        name="chart"
+        id="chart"
+        computed-plot-area-margin-mode="Series">
+            <igc-category-x-axis
+            name="xAxis"
+            id="xAxis"
+            label="year"
+            interval="1"
+            major-stroke="rgba(71, 71, 71, 1)"
+            major-stroke-thickness="0.5"
+            stroke="rgba(145, 145, 145, 1)"
+            stroke-thickness="2"
+            stroke-dash-array="5, 5"
+            major-stroke-dash-array="5, 5"
+            tick-length="0">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis
+            name="yAxis"
+            id="yAxis"
+            stroke="gray"
+            stroke-thickness="2"
+            interval="20"
+            major-stroke="darkslategray"
+            major-stroke-thickness="1"
+            minor-interval="5"
+            minor-stroke="gray"
+            minor-stroke-thickness="0.5"
+            stroke-dash-array="5, 5"
+            major-stroke-dash-array="5, 5"
+            minor-stroke-dash-array="2.5, 2.5"
+            tick-length="0">
+            </igc-numeric-y-axis>
+            <igc-line-series
+            name="LineSeries1"
+            id="LineSeries1"
+            title="Europe"
+            marker-type="Circle"
+            value-member-path="europe"
+            show-default-tooltip="true">
+            </igc-line-series>
+            <igc-line-series
+            name="LineSeries2"
+            id="LineSeries2"
+            title="China"
+            marker-type="Circle"
+            value-member-path="china"
+            show-default-tooltip="true">
+            </igc-line-series>
+            <igc-line-series
+            name="LineSeries3"
+            id="LineSeries3"
+            title="America"
+            marker-type="Circle"
+            value-member-path="america"
+            show-default-tooltip="true">
+            </igc-line-series>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
