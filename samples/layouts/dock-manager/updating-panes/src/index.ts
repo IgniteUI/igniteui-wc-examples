@@ -126,8 +126,6 @@ export class DockManagerUpdatingPanes {
         this.productivityChart.yAxisMaximumValue = 100;
         this.productivityChart.yAxisInterval = 25;
         this.productivityChart.xAxisInterval = 1;
-        this.productivityChart.brushes = ['#64d7dc'];
-        this.productivityChart.outlines = ['#64d7dc'];
         this.productivityChart.width = '100%';
         this.productivityChart.height = '100%';
         this.productivityChart.transitionDuration = 100;
@@ -204,7 +202,7 @@ export class DockManagerUpdatingPanes {
         this.geoLocationSeries.tooltipTemplate = this.createLocationMapTooltip;
 
         const tileSource = new IgcArcGISOnlineMapImagery();
-        tileSource.mapServerUri = 'https://services.arcgisonline.com/arcgis/rest/services/World_Terrain_Base/MapServer';
+        tileSource.mapServerUri = "https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer";
 
         this.geoLocationMap = document.getElementById('geoLocationMap') as IgcGeographicMapComponent;
         this.geoLocationMap.height = '100%';

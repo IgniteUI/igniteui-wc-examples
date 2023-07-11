@@ -4,6 +4,8 @@ import { CountyHierarchicalDataItem, CountyHierarchicalData } from './CountyHier
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcTreemapModule
 );
