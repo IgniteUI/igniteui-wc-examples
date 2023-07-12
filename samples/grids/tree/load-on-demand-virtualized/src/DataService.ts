@@ -10,17 +10,6 @@ export class DataService {
     private REMOTE_DATA: ItemData[] = [];
     public constructor() {
         for (let index = 0; index < 2000; index++) {
-            if (index === 1) {
-                this.REMOTE_DATA.push({
-                    Name: "DESKTOP-" + index.toString(),
-                    Icon: "desktop",
-                    Files: [
-                        { Name: "DESKTOP-" + index.toString() + " Child 1", Icon: "desktop" },
-                        { Name: "DESKTOP-" + index.toString() + " Child 2", Icon: "desktop" }
-                    ]
-                });
-                continue;
-            }
             this.REMOTE_DATA.push({ Name: "DESKTOP-" + index.toString(), Icon: "desktop" });
         }
     }
@@ -36,7 +25,7 @@ export class DataService {
                     }
                     return Object.assign({}, item, selectionState);
                 });
-                return resolve({ Data: passed, TotalCount: 2002 });
+                return resolve({ Data: passed, TotalCount: 2000 });
             }, 2000);
         });
     }

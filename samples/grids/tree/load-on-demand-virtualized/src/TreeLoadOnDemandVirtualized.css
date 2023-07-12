@@ -25,3 +25,7 @@ igc-tree {
     margin: 0 10px;
     vertical-align: middle;
 }
+
+lit-virtualizer igc-tree-item::part(indentation) {
+    width: var(--igc-tree-indentation-size);
+}
