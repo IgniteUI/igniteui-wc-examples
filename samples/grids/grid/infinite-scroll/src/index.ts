@@ -42,7 +42,7 @@ export class Sample {
 
         this.grid.isLoading = true;
         // load 1 page of data with the size of a  data view and a half
-        const dataViewSize = 480 / this.grid.rowHeight; // grid.height / grid.rowHeight;
+        const dataViewSize = 9.6; // grid.height / grid.rowHeight;
         this.pageSize = Math.floor(dataViewSize * 1.5);
         this.remoteService.loadDataForPage(this.page, this.pageSize, (request) => {
             if (request.data) {
