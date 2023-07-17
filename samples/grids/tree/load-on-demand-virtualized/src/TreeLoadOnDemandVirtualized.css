@@ -29,7 +29,3 @@ igc-tree {
 lit-virtualizer igc-tree-item {
     width: 100%;
 }
-
-lit-virtualizer igc-tree-item::part(indentation) {
-    width: var(--igc-tree-indentation-size);
-}
