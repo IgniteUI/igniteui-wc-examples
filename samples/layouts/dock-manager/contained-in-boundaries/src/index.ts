@@ -141,7 +141,7 @@ export class DockManagerContainedInBoundaries {
         };
 
         inBoundariesBtn!.addEventListener('click', () => {
-            this.dockManager.containedInBoundaries = !this.dockManager.containedInBoundaries;
+            //this.dockManager.containedInBoundaries = !this.dockManager.containedInBoundaries;
         })
     }
 }
