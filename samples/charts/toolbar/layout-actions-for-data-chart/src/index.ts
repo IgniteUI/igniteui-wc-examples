@@ -85,7 +85,7 @@ export class Sample {
     			var enable = args.command.argumentsList[0].value as boolean;
     			if (enable)
     			{
-    				target.series.add(new IgcDataToolTipLayerComponent());
+    				target.series.add(new IgcDataToolTipLayerComponent({ name: "tooltipLayer" }));
     			}
     			else
     			{

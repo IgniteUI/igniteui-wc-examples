@@ -1,6 +1,7 @@
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartAnnotationModule, IgcDataChartInteractivityModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent, IgcCalloutLayerComponent, IgcFinalValueLayerComponent, IgcCrosshairLayerComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -41,6 +42,7 @@ export class Sample {
             lineSeries1.xAxis = this.xAxis;
             lineSeries1.yAxis = this.yAxis;
             lineSeries1.dataSource = this.countryRenewableElectricity;
+            calloutLayer1.dataSource = this.countryRenewableCallouts;
         }
         this._bind();
 
@@ -53,6 +55,15 @@ export class Sample {
             this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
         return this._countryRenewableElectricity;
+    }
+
+    private _countryRenewableCallouts: CountryRenewableCallouts = null;
+    public get countryRenewableCallouts(): CountryRenewableCallouts {
+        if (this._countryRenewableCallouts == null)
+        {
+            this._countryRenewableCallouts = new CountryRenewableCallouts();
+        }
+        return this._countryRenewableCallouts;
     }
 
 }
