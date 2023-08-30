@@ -20,25 +20,20 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditor: IgcPropertyEditorPanelComponent
-    private crosshairsDisplayModeEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private highlightingModeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private calloutsVisibleEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private finalValueAnnotationsEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcCategoryChartComponent
     private _bind: () => void;
 
     constructor() {
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var crosshairsDisplayModeEditor = this.crosshairsDisplayModeEditor = document.getElementById('CrosshairsDisplayModeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var highlightingModeEditor = this.highlightingModeEditor = document.getElementById('HighlightingModeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var calloutsVisibleEditor = this.calloutsVisibleEditor = document.getElementById('CalloutsVisibleEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var finalValueAnnotationsEditor = this.finalValueAnnotationsEditor = document.getElementById('FinalValueAnnotationsEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
             propertyEditor.componentRenderer = this.renderer;
             propertyEditor.target = this.chart;
             chart.dataSource = this.temperatureAnnotatedData;
+            chart.calloutsDataSource = this.temperatureAnnotatedData;
         }
         this._bind();
 
