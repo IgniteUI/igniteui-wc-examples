@@ -33,8 +33,7 @@
             </igc-category-x-axis>
             <igc-numeric-y-axis
             name="yAxis"
-            id="yAxis"
-            title="TWh">
+            id="yAxis">
             </igc-numeric-y-axis>
             <igc-line-series
             name="LineSeries1"
@@ -45,7 +44,9 @@
             <igc-callout-layer
             name="CalloutLayer1"
             id="CalloutLayer1"
-            is-auto-callout-behavior-enabled="true"
+            x-member-path="index"
+            y-member-path="value"
+            label-member-path="label"
             callout-padding-left="20"
             callout-padding-right="20"
             callout-padding-bottom="10"
