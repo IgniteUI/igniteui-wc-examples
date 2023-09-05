@@ -36,8 +36,8 @@ export class DockManagerHidePaneHeaders {
 
     constructor() {
         this.dockManager = document.getElementById('dockManager') as IgcDockManagerComponent;
+        this.dockManager.showPaneHeaders = 'onHoverOnly';
 
-        //this.dockManager.showPaneHeaders = false;       
         this.dockManager.layout = {
             rootPane: {
                 type: IgcDockManagerPaneType.splitPane,
