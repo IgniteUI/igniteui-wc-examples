@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container vertical">
+    <div class="container vertical">
+      <div class="legend-title">
+        Line Chart with Editable Values by Dragging Markers Up/Down Directions
+      </div>
+
+      <igc-data-chart id="lineChart" name="lineChart" height="50%" width="100%" plot-area-margin-left="5" plot-area-margin-right="5" default-interaction="none"
+                      is-window-synced-to-visible-range="true" is-horizontal-zoom-enabled="true" is-vertical-zoom-enabled="false">
+          <igc-category-x-axis id="LineXAxis" name="LineXAxis" label="Category" label-angle="0" interval="1"></igc-category-x-axis>
+          <igc-numeric-y-axis id="LineYAxis" name="LineYAxis" label-extent="30" minimum-value="10" maximum-value="90" label-horizontal-alignment="left" label-location="OutsideRight"></igc-numeric-y-axis>
+
+          <igc-line-series id="lineSeries" name="lineSeries" x-axis-name="LineXAxis" y-axis-name="LineYAxis" marker-type="Circle" value-member-path="DataValue" title="Data Points"></igc-line-series>
+
+          <igc-point-series id="pointSeries" name="pointSeries" x-axis-name="LineXAxis" y-axis-name="LineYAxis" marker-type="Circle" value-member-path="EditingValue"
+                            marker-outline="dodgerblue" marker-brush="white" title="Editing Point">
+          </igc-point-series>
+
+          <igc-data-tool-tip-layer id="lineTooltip" name="lineTooltip" value-format-max-fractions="1" summary-type="none"></igc-data-tooltip-layer>
+
+      </igc-data-chart>
+    
+      <div class="legend-title">
+        Scatter Chart with Editable Values by Dragging Markers In All Directions
+      </div>
+
+      <igc-data-chart id="scatterChart" name="scatterChart" height="50%" width="100%" plot-area-margin-left="5" plot-area-margin-right="5" default-interaction="none"
+                      is-window-synced-to-visible-range="true" is-horizontal-zoom-enabled="true" is-vertical-zoom-enabled="false">
+          <igc-numeric-x-axis id="ScatterXAxis" name="ScatterXAxis" label-angle="0"></igc-numeric-x-axis>
+          <igc-numeric-y-axis id="ScatterYAxis" name="ScatterYAxis" label-extent="30" minimum-value="10" maximum-value="90" label-horizontal-alignment="left" label-location="OutsideRight"></igc-numeric-y-axis>
+
+          <igc-scatter-line-series id="scatterLineSeries" name="scatterLineSeries" x-axis-name="ScatterXAxis" y-axis-name="ScatterYAxis"
+                                   marker-type="Circle" x-member-path="X" y-member-path="Y" title="Data Points">
+          </igc-scatter-line-series>
+
+          <igc-scatter-series id="scatterSeries" name="scatterSeries" x-axis-name="ScatterXAxis" y-axis-name="ScatterYAxis" marker-outline="dodgerblue"
+                              marker-type="circle" x-member-path="EditingX" y-member-path="EditingY" title="Editing Point" marker-brush="white">
+          </igc-scatter-series>              
+
+          <igc-data-tool-tip-layer id="scatterTooltip" name="scatterTooltip" value-format-max-fractions="1" summary-type="none"></igc-data-tooltip-layer>
+
+      </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
