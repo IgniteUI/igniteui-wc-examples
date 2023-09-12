@@ -38,7 +38,6 @@ export class Sample {
 
         this._bind = () => {
             legend.target = this.chart;
-            chart.legend = this.legend;
             yAxis.dataSource = this.highestGrossingMovies;
             barSeries1.xAxis = this.xAxis;
             barSeries1.yAxis = this.yAxis;
