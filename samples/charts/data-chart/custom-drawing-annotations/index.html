@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container vertical">
+  <div class="legend-title">
+    Chart with Custom Drawing Annotations
+  </div>
+  <div class="legend">
+    <igc-legend id="legend" name="Legend" orientation="Horizontal"></igc-legend>
+  </div>
+  <div>
+    <igc-toolbar id="toolbar" name="Toolbar">
+      <igc-tool-action-label name="Draw" before-id="ZoomReset" title="Draw Modes:"></igc-tool-action-label>
+      <igc-tool-action-label id="drawRangeAreaToolAction" name="DrawRangeAreaToolAction" before-id="ZoomReset" title="Range Area" command-id="DrawRangeArea"></igc-tool-action-label>
+      <igc-tool-action-separator></igc-tool-action-separator>
+      <igc-tool-action-label id="drawSlopeLineToolAction" name="DrawSlopeLineToolAction" title="Slope Line" before-id="ZoomReset" command-id="DrawSlopeLine"></igc-tool-action-label>
+      <igc-tool-action-label id="drawHorizontalLineToolAction" name="DrawHorizontalLineToolAction" title="Horizontal Line" before-id="ZoomReset" command-id="DrawHorizontalLine"></igc-tool-action-label>
+    </igc-toolbar>
+  </div>
+  
+  <igc-data-chart id="chart" height="100%" width="100%" name="Chart" default-interaction="None" is-window-synced-to-visible-range="true" is-horiztonal-zoom-enabled="true" is-vertical-zoom-enabled="false">
+    <igc-category-x-axis id="xAxis" name="xAxis" label="date" gap="0.25" use-clustering-mode="true" label-angle="45">
+
+    </igc-category-x-axis>
+    <igc-numeric-y-axis id="yAxis" name="yAxis" label-extent="70" label-horizontal-alignment="Left" label-location="OutsideRight" title="Stock Price ($)">
+
+    </igc-numeric-y-axis>
+
+    <igc-financial-price-series id="financialSeries" x-axis-name="xAxis" y-axis-name="yAxis" display-type="Candlestick" high-member-path="high" low-member-path="low" close-member-path="close" open-member-path="open" volume-member-path="volume" show-default-tooltip="true" title="Stock Price">
+
+    </igc-financial-price-series>
+
+    <igc-range-area-series id="rangeAreaSeries" x-axis-name="xAxis" y-axis-name="yAxis" title="Range Area" area-fill-opacity="0.25" low-member-path="low" high-member-path="high" show-default-tooltip="false" dash-array="5 5">
+
+    </igc-range-area-series>
+
+    <igc-line-series id="slopeLine" x-axis-name="xAxis" y-axis-name="yAxis" marker-type="None" title="Slope Line" value-member-path="y" thickness="4" dash-array="5, 5">
+
+    </igc-line-series>
+
+    <igc-line-series id="horizontalLine" x-axis-name="xAxis" y-axis-name="yAxis" title="Horizontal Line" marker-type="None" value-member-path="y" thickness="4" brush="red" dash-array="5 5">
+
+    </igc-line-series>
+
+    <igc-final-value-layer axis-annotation-interpolated-value-precision="0">
+
+    </igc-final-value-layer>
+
+    <igc-data-tool-tip-layer value-format-max-fractions="1">
+
+    </igc-data-tool-tip-layer>
+  </igc-data-chart>
+  
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
