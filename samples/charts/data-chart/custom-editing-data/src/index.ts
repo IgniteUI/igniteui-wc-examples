@@ -1,6 +1,6 @@
+import { EditableDataSource } from './EditableDataSource';
 import { IgcDataChartCoreModule, IgcDataChartScatterModule, IgcCategoryXAxisComponent, IgcLineSeriesComponent, IgcDataChartCategoryModule, IgcSeriesViewerComponent, IgcDataChartMouseButtonEventArgs, IgcChartMouseEventArgs, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcPlotAreaMouseButtonEventArgs, IgcPlotAreaMouseEventArgs, IgcLegendModule, IgcAnnotationLayerProxyModule, IgcDataChartScatterCoreModule, IgcNumberAbbreviatorModule, IgcScatterSeriesComponent, IgcPointSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcScatterLineSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 import "./index.css";
@@ -37,8 +37,8 @@ export class Sample {
     private scatterLineEditingIndex = -1;
     
     constructor() {        
-        this.lineData = this.getLineData();
-        this.scatterData = this.getScatterData();
+        this.lineData = EditableDataSource.getLineData();
+        this.scatterData = EditableDataSource.getScatterData();
 
         this.lineChart = document.getElementById('lineChart') as IgcDataChartComponent;
         this.scatterChart = document.getElementById('scatterChart') as IgcDataChartComponent;
@@ -49,75 +49,31 @@ export class Sample {
         this.scatterXAxis = document.getElementById('ScatterXAxis') as IgcNumericXAxisComponent;
         this.scatterYAxis = document.getElementById('ScatterYAxis') as IgcNumericYAxisComponent;
 
-        var lineSeries = document.getElementById("lineSeries") as IgcLineSeriesComponent;    
-        var pointSeries = document.getElementById("pointSeries") as IgcPointSeriesComponent;
-        var scatterLineSeries = document.getElementById("scatterLineSeries") as IgcScatterLineSeriesComponent;
-        var scatterSeries = document.getElementById("scatterSeries") as IgcScatterSeriesComponent;
+        var lineDataSeries = document.getElementById("lineDataSeries") as IgcLineSeriesComponent;    
+        var lineEditSeries = document.getElementById("lineEditSeries") as IgcPointSeriesComponent;
+
+        var scatterDataSeries = document.getElementById("scatterDataSeries") as IgcScatterLineSeriesComponent;
+        var scatterEditSeries = document.getElementById("scatterEditSeries") as IgcScatterSeriesComponent;
 
         this.lineXAxis.dataSource = this.lineData;
-        lineSeries.dataSource = this.lineData;
-        pointSeries.dataSource = this.lineData;
+        lineDataSeries.dataSource = this.lineData;
+        lineEditSeries.dataSource = this.lineData;
         
-        scatterLineSeries.dataSource = this.scatterData;
-        scatterSeries.dataSource = this.scatterData;
+        scatterDataSeries.dataSource = this.scatterData;
+        scatterEditSeries.dataSource = this.scatterData;
 
-        this.lineChart.seriesMouseLeftButtonDown = this.onLineSeriesMouseLeftButtonDown.bind(this);
-        this.lineChart.plotAreaMouseOver = this.onLineChartPlotMouseMove.bind(this);        
-        this.lineChart.plotAreaMouseLeftButtonUp = this.onLineChartPlotMouseLeftButtonUp.bind(this);
+        this.lineChart.seriesMouseLeftButtonDown = this.onLineChartMouseDown.bind(this);
+        this.lineChart.plotAreaMouseOver = this.onLineChartMouseMove.bind(this);        
+        this.lineChart.plotAreaMouseLeftButtonUp = this.onLineChartMouseUp.bind(this);
 
-        this.scatterChart.seriesMouseLeftButtonDown = this.onScatterLineSeriesMouseLeftButtonDown.bind(this);
-        this.scatterChart.plotAreaMouseOver = this.onScatterChartPlotAreaMouseMove.bind(this);
-        this.scatterChart.plotAreaMouseLeftButtonUp = this.onScatterChartPlotAreaMouseLeftButtonUp.bind(this);
+        this.scatterChart.seriesMouseLeftButtonDown = this.onScatterChartMouseDown.bind(this);
+        this.scatterChart.plotAreaMouseOver = this.onScatterChartMouseMove.bind(this);
+        this.scatterChart.plotAreaMouseLeftButtonUp = this.onScatterChartMouseUp.bind(this);
     }
 
-    public getLineData(): any[]{
-        var lineData: any[] = [
-            { Category: "2010", DataValue: 20, EditingValue: null },
-            { Category: "2011", DataValue: 40, EditingValue: null },
-            { Category: "2012", DataValue: 30, EditingValue: null },
-            { Category: "2013", DataValue: 50, EditingValue: null },
-            { Category: "2014", DataValue: 40, EditingValue: null },
-            { Category: "2015", DataValue: 60, EditingValue: null },
-            { Category: "2016", DataValue: 30, EditingValue: null },
-            { Category: "2017", DataValue: 50, EditingValue: null },
-            { Category: "2018", DataValue: 40, EditingValue: null },
-            { Category: "2019", DataValue: 70, EditingValue: null },
-            { Category: "2020", DataValue: 40, EditingValue: null },
-            { Category: "2021", DataValue: 60, EditingValue: null },
-            { Category: "2022", DataValue: 50, EditingValue: null },
-            { Category: "2023", DataValue: 70, EditingValue: null },
-            { Category: "2024", DataValue: 60, EditingValue: null },
-            { Category: "2025", DataValue: 80, EditingValue: null },
-            { Category: "2026", DataValue: 70, EditingValue: null }
-        ];
 
-        return lineData;
-    }
 
-    public getScatterData(): any[] {
-        var scatterData: any[] = [
-            { X: 10, Y: 20, EditingX: null, EditingY: null },
-            { X: 11, Y: 40, EditingX: null, EditingY: null },
-            { X: 12, Y: 30, EditingX: null, EditingY: null },
-            { X: 13, Y: 50, EditingX: null, EditingY: null },
-            { X: 14, Y: 40, EditingX: null, EditingY: null },
-            { X: 15, Y: 60, EditingX: null, EditingY: null },
-            { X: 16, Y: 30, EditingX: null, EditingY: null },
-            { X: 17, Y: 50, EditingX: null, EditingY: null },
-            { X: 18, Y: 40, EditingX: null, EditingY: null },
-            { X: 19, Y: 70, EditingX: null, EditingY: null },
-            { X: 20, Y: 40, EditingX: null, EditingY: null },
-            { X: 21, Y: 60, EditingX: null, EditingY: null },
-            { X: 22, Y: 50, EditingX: null, EditingY: null },
-            { X: 23, Y: 70, EditingX: null, EditingY: null },
-            { X: 24, Y: 60, EditingX: null, EditingY: null },
-            { X: 25, Y: 80, EditingX: null, EditingY: null },
-            { X: 26, Y: 70, EditingX: null, EditingY: null }
-        ];
-        return scatterData;
-    }
-
-    public onLineSeriesMouseLeftButtonDown(s: IgcSeriesViewerComponent, e: IgcDataChartMouseButtonEventArgs){
+    public onLineChartMouseDown(s: IgcSeriesViewerComponent, e: IgcDataChartMouseButtonEventArgs){
         this.lineSeriesEditingActive = true;
         this.lineSeriesEditingIndex = -1;
 
@@ -138,7 +94,7 @@ export class Sample {
         }
     }
 
-    public onLineChartPlotMouseMove(s: IgcSeriesViewerComponent, e: IgcPlotAreaMouseEventArgs) {
+    public onLineChartMouseMove(s: IgcSeriesViewerComponent, e: IgcPlotAreaMouseEventArgs) {
         if (this.lineSeriesEditingIndex !== -1) {
             var index = this.lineSeriesEditingIndex;
 
@@ -163,11 +119,11 @@ export class Sample {
         }
     }
 
-    public onLineChartPlotMouseLeftButtonUp(s: IgcSeriesViewerComponent, e: IgcPlotAreaMouseButtonEventArgs){
+    public onLineChartMouseUp(s: IgcSeriesViewerComponent, e: IgcPlotAreaMouseButtonEventArgs){
         this.lineSeriesEditingActive = false;
     }
 
-    public onScatterLineSeriesMouseLeftButtonDown(s: IgcSeriesViewerComponent, e: IgcDataChartMouseButtonEventArgs){
+    public onScatterChartMouseDown(s: IgcSeriesViewerComponent, e: IgcDataChartMouseButtonEventArgs){
         this.scatterLineEditingActive = true;
         this.scatterLineEditingIndex = -1;
 
@@ -189,7 +145,7 @@ export class Sample {
         }
     }
 
-    public onScatterChartPlotAreaMouseMove(s: IgcSeriesViewerComponent, e: IgcPlotAreaMouseEventArgs){
+    public onScatterChartMouseMove(s: IgcSeriesViewerComponent, e: IgcPlotAreaMouseEventArgs){
         if (this.scatterLineEditingIndex !== -1) {
             var index = this.scatterLineEditingIndex;
 
@@ -222,7 +178,7 @@ export class Sample {
         }
     }
 
-    public onScatterChartPlotAreaMouseLeftButtonUp(s: IgcSeriesViewerComponent, e: IgcPlotAreaMouseButtonEventArgs){
+    public onScatterChartMouseUp(s: IgcSeriesViewerComponent, e: IgcPlotAreaMouseButtonEventArgs){
         this.scatterLineEditingActive = false;
     }
 }

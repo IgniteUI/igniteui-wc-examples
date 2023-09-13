@@ -135,10 +135,7 @@ export class Sample {
     }
 
     public getDataLocation(chartPixel: IgPoint): IgPoint
-    {
-        if (this.xAxis === null) console.log("no xAxis");
-        if (this.yAxis === null) console.log("no yAxis ");
-
+    {    
         var x = this.xAxis.unscaleValue(chartPixel.x);
         var y = this.yAxis.unscaleValue(chartPixel.y);
 
