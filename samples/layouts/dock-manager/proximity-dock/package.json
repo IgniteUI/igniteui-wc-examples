@@ -1,7 +1,7 @@
 {
-  "name": "wc-dock-manager-customize-buttons",
+  "name": "wc-dock-manager-proximity-dock",
   "version": "1.0.0",
-  "description": "This project provides example of Dock Manager Buttons Customization using IgniteUI for Web Components",
+  "description": "This project provides example of Dock Manager Proximity Dock using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
@@ -19,13 +19,13 @@
   },
   "author": "Infragistics",
   "dependencies": {
+    "@webcomponents/custom-elements": "^1.4.1",
+    "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
     "igniteui-dockmanager": "1.14.2",
     "lit-html": "^2.2.0",
-    "tslib": "^2.0.0",
-    "@webcomponents/custom-elements": "^1.4.1",
-    "@webcomponents/template": "^1.4.2"
+    "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
