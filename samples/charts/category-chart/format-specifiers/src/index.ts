@@ -26,7 +26,6 @@ export class Sample {
 
         this._bind = () => {
             legend.target = this.chart;
-            chart.legend = this.legend;
             chart.dataSource = this.highestGrossingMovies;
         }
         this._bind();
