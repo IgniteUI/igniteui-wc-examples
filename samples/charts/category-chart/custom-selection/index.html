@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+
+    <div class="legend-title">
+        Chart with Multiple Selectable Data Columns
+    </div>
+
+    <div class="legend">
+        <igc-data-legend
+        name="Legend"
+        id="Legend"
+        summary-type="None"
+        value-format-max-fractions="0">
+        </igc-data-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-category-chart
+        name="chart"
+        id="chart"
+        chart-type="Column"
+        x-axis-overlap="1"
+        y-axis-minimum-value="0"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
+        is-series-highlighting-enabled="true"
+        final-value-annotations-visible="false"
+        crosshairs-annotation-enabled="false"
+        data-tool-tip-summary-type="None"
+        data-tool-tip-value-format-max-fractions="0">
+        </igc-category-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
