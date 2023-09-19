@@ -41,21 +41,6 @@
     "@webcomponents/webcomponentsjs": "2.3.0",
     "core-js": "^3.6.5",
     "file-saver": "^2.0.2",
-<<<<<<< HEAD
-    "igniteui-dockmanager": "1.13.0",
-    "igniteui-webcomponents": "^4.4.0",
-    "igniteui-webcomponents-charts": "4.3.0",
-    "igniteui-webcomponents-core": "4.3.0",
-    "igniteui-webcomponents-datasources": "4.3.0",
-    "igniteui-webcomponents-excel": "4.3.0",
-    "igniteui-webcomponents-gauges": "4.3.0",
-    "igniteui-webcomponents-grids": "4.3.0",
-    "igniteui-webcomponents-inputs": "4.3.0",
-    "igniteui-webcomponents-layouts": "4.3.0",
-    "igniteui-webcomponents-maps": "4.3.0",
-    "igniteui-webcomponents-spreadsheet": "4.3.0",
-    "igniteui-webcomponents-spreadsheet-chart-adapter": "4.3.0",
-=======
     "igniteui-dockmanager": "1.14.2",
     "igniteui-webcomponents": "4.3.0-beta.0",
     "@infragistics/igniteui-webcomponents-charts": "23.2.17",
@@ -69,7 +54,6 @@
     "@infragistics/igniteui-webcomponents-maps": "23.2.17",
     "@infragistics/igniteui-webcomponents-spreadsheet": "23.2.17",
     "@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter": "23.2.17",
->>>>>>> vnext
     "lit": "^2.0.2",
     "lit-html": "^2.0.0"
   },
