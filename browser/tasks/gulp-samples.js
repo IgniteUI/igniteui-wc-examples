@@ -933,26 +933,31 @@ function logPackages(cb) {
 
 function updateIG(cb) {
 
+    // cleanup packages to speedup this gulp script
+    del.sync("./samples/**/node_modules/**/*.*", {force:true});
+    del.sync("./samples/**/node_modules/**", {force:true});
+    del.sync("./samples/**/node_modules", {force:true});
+
     // NOTE: change this array with new version of packages and optionally use "@infragistics/" proget prefix, e.g.
     // "igniteui-angular-charts" instead of "igniteui-angular-charts", e.g.
-    // { name: "igniteui-webcomponents-core", version: "22.1.62" }, // proget
+    // { name: "@infragistics/igniteui-webcomponents-core", version: "22.1.62" }, // proget
     // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-webcomponents-core"                     , version: "4.3.0" },
-        { name: "igniteui-webcomponents-charts"                   , version: "4.3.0" },
-        { name: "igniteui-webcomponents-excel"                    , version: "4.3.0" },
-        { name: "igniteui-webcomponents-gauges"                   , version: "4.3.0" },
-        { name: "igniteui-webcomponents-grids"                    , version: "4.3.0" },
-        { name: "igniteui-webcomponents-inputs"                   , version: "4.3.0" },
-        { name: "igniteui-webcomponents-layouts"                  , version: "4.3.0" },
-        { name: "igniteui-webcomponents-maps"                     , version: "4.3.0" },
-        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.3.0" },
-        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.3.0" },
-        { name: "igniteui-webcomponents-datasources"              , version: "4.3.0" },
+        { name: "@infragistics/igniteui-webcomponents-core"                     , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-charts"                   , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-excel"                    , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-gauges"                   , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-grids"                    , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-inputs"                   , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-layouts"                  , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-maps"                     , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter", version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-spreadsheet"              , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-datasources"              , version: "23.2.17" },
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "4.3.0-beta.0"  },
-        { name: "igniteui-dockmanager", version: "1.13.0" },
+        { name: "igniteui-dockmanager", version: "1.14.2" },
         // other packages:
         { name: "webpack", version: "^5.74.0"  },
         { name: "webpack-cli", version: "^4.10.0"  },
@@ -985,14 +990,14 @@ function updateIG(cb) {
         let name = item.name.replace("@infragistics/", "");
         packageMappings[name] = item;
     }
-
     // console.log(packageMappings);
 
     let updatedPackages = 0;
     // gulp all package.json files in samples/browser
     gulp.src(packagePaths, {allowEmpty: true})
     .pipe(es.map(function(file, fileCallback) {
-        let filePath = file.dirname + "/" + file.basename;
+        let filePath = file.dirname + "\\" + file.basename;
+        // console.log("updating " + filePath)
 
         var fileContent = file.contents.toString();
         var fileLines = fileContent.split('\n');
@@ -1013,7 +1018,6 @@ function updateIG(cb) {
                     }
                 }
             }
-
             // remove a comma from the last item in a list of dependencies
             let next = i + 1 < fileLines.length ? i + 1 : i;
             if (fileLines[next].trim().indexOf('}') === 0 &&
@@ -1032,7 +1036,7 @@ function updateIG(cb) {
         fileCallback(null, file);
     }))
     .on("end", function() {
-        log("updateIG... done = " + updatedPackages + " files");
+        log("updated: " + updatedPackages + " package files");
         cb();
     });
 
