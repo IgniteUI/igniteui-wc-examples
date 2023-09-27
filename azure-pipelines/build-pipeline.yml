@@ -41,7 +41,7 @@ stages:
           command: 'custom'
           workingDir: '$(Build.SourcesDirectory)'
           customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
-          customEndpoint: 'public proget'
+          customEndpoint: 'internal proget, public proget'
 
       - task: Npm@1
         displayName: 'npm ci --legacy-peer-deps'
