@@ -40,7 +40,7 @@ stages:
         inputs:
           command: 'custom'
           workingDir: '$(Build.SourcesDirectory)'
-          customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
+          customCommand: 'config -L project set @infragistics:registry=http://proget.infragistics.local:81/npm/IgniteUILicensed/'
           customEndpoint: 'internal proget'
 
       - task: Npm@1
