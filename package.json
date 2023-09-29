@@ -53,7 +53,7 @@
     "core-js": "^3.6.5",
     "file-saver": "^2.0.2",
     "igniteui-dockmanager": "1.14.2",
-    "igniteui-webcomponents": "^4.4.0",
+    "igniteui-webcomponents": "^4.5.0-beta.1",
     "lit": "^2.0.2",
     "lit-html": "^2.0.0"
   },
