@@ -18,10 +18,10 @@ export class ButtonSizing {
         this.fabButton = document.getElementById('fab-btn') as IgcButtonComponent;
 
         this.radioGroup.addEventListener('click', (radio: any) => {
-            this.outlinedButton.size = radio.target.value;
-            this.flatButton.size = radio.target.value;
-            this.containedButton.size = radio.target.value;
-            this.fabButton.size = radio.target.value;
+            this.outlinedButton.style.setProperty('--ig-size', `var(--ig-size-${radio.target.value})`);
+            this.flatButton.style.setProperty('--ig-size', `var(--ig-size-${radio.target.value})`);
+            this.containedButton.style.setProperty('--ig-size', `var(--ig-size-${radio.target.value})`);
+            this.fabButton.style.setProperty('--ig-size', `var(--ig-size-${radio.target.value})`);
         });        
     }
 }

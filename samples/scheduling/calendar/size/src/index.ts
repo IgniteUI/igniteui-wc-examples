@@ -14,7 +14,7 @@ export class CalendarSize {
         this.radios.forEach(radio => {
             radio.addEventListener('igcChange', () => {
                 if (radio.checked) {
-                    this.calendar.size = radio.value as any;
+                    this.calendar.style.setProperty('--ig-size', `var(--ig-size-${radio.value})`);
                 }
             });
         })
