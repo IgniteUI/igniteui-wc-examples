@@ -1,0 +1,11 @@
+.small {
+    --ig-size: var(--ig-size-small);
+}
+
+.medium {
+    --ig-size: var(--ig-size-medium);
+}
+
+.large {
+    --ig-size: var(--ig-size-large);
+}
