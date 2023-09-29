@@ -11,7 +11,7 @@ export class ListOverview {
         this.radioGroup = document.getElementById("radio-group") as IgcRadioGroupComponent;
 
         this.radioGroup.addEventListener("click", (radio: any) => {
-            this.list.size = radio.target.value;
+            this.list.style.setProperty('--ig-size', `var(--ig-size-${radio.target.value})`);
         });
     }
 }
