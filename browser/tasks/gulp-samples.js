@@ -937,6 +937,17 @@ function logPackages(cb) {
     });
 } exports.logPackages = logPackages;
 
+function sortByKeys(dependencies)
+{
+    let keys = Object.keys(dependencies);
+    keys.sort();
+ 
+    var sorted = {};
+    for (const key of keys) {
+        sorted[key] = dependencies[key];
+    }
+    return sorted;
+}
 function updateIG(cb) {
 
     // cleanup packages to speedup this gulp script
@@ -987,15 +998,12 @@ function updateIG(cb) {
         item.id = item.name.replace("@infragistics/", "");
         packageMappings[item.id] = item;
     }
-    // console.log(packageMappings);
 
     let updatedPackages = 0;
     // gulp all package.json files in samples/browser
     gulp.src(packagePaths, {allowEmpty: true})
     .pipe(es.map(function(file, fileCallback) {
         let filePath = file.dirname + "\\" + file.basename;
-        // console.log("updating " + filePath)
-
         var fileContent = file.contents.toString();
         var fileLines = fileContent.split('\n');
 
@@ -1024,8 +1032,15 @@ function updateIG(cb) {
             }
         }
 
-        if (fileChanged) {
-            let newContent = fileLines.join('\n'); // newContent !== fileContent
+        let newContent = fileLines.join('\n'); 
+        let jsonPackages = JSON.parse(fileContent);
+        // sort package dependencies by their names
+        jsonPackages.dependencies = sortByKeys(jsonPackages.dependencies);
+        jsonPackages.devDependencies = sortByKeys(jsonPackages.devDependencies); 
+        newContent = JSON.stringify(jsonPackages, null, '  ') + '\n';
+        
+        if (fileChanged || fileContent !== newContent) {
+            // let newContent = fileLines.join('\n'); // newContent !== fileContent
             updatedPackages++;
             fs.writeFileSync(filePath, newContent);
             log("updated: " + filePath);
