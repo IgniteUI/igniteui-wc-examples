@@ -8,6 +8,7 @@ exports.updateBrowser = updateBrowser = gulp.series(
     sb.findSamples,
     sb.copySamples,
     sb.updateCodeViewer,
+    sb.updateReadme,
 );
 
 exports.findSamples = findSamples = gulp.series(
@@ -21,8 +22,8 @@ exports.lintSamples = lintSamples = gulp.series(
 exports.updateSamples = updateSamples = gulp.series(
     // sb.lintSamples,
     sb.findSamples,
-    sb.updateSampleReadme,
-    sb.updateSamplePackages,
+    sb.updateReadme,
+    // sb.updateSamplePackages,
     // sb.updateSampleIndex,
     sb.updateSampleStyles,
  // sb.updateSampleResources,
@@ -31,13 +32,13 @@ exports.updateSamples = updateSamples = gulp.series(
 
 exports.updateReadme = updateReadme = gulp.series(
     sb.findSamples,
-    sb.updateSampleReadme,
+    sb.updateReadme,
 );
 
-exports.updateSamplePackages = updatePackages = gulp.series(
-    sb.findSamples,
-    sb.updateSamplePackages,
-);
+// exports.updateSamplePackages = updatePackages = gulp.series(
+//     sb.findSamples,
+//     sb.updateSamplePackages,
+// );
 
 exports.updateSampleWebpackConfigs = updateSampleWebpackConfigs = gulp.series(
     sb.findSamples,
