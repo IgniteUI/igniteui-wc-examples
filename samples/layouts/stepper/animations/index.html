@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>Stepper Animations Example</title>
+        <meta charset="UTF-8" />
+
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+    </head>
+
+    <section>
+        <div id="root">
+            <section class="container sample">
+                <article class="settings">
+                    <igc-select id="orientation" label="Orienation">
+                        <igc-select-item value="horizontal" selected>Horizontal</igc-select-item>
+                        <igc-select-item value="vertical">Vertical</igc-select-item>
+                    </igc-select>
+
+                    <igc-select id="vanimation" label="Vertical Animation">
+                        <igc-select-item value="grow" selected>Grow</igc-select-item>
+                        <igc-select-item value="fade">Fade</igc-select-item>
+                        <igc-select-item value="none">None</igc-select-item>
+                    </igc-select>
+
+                    <igc-select id="hanimation" label="Horizontal Animation">
+                        <igc-select-item value="slide" selected>Slide</igc-select-item>
+                        <igc-select-item value="fade">Fade</igc-select-item>
+                        <igc-select-item value="none">None</igc-select-item>
+                    </igc-select>
+
+                    <igc-input id="duration" type="number" value="320" label="Duration">
+                        <span slot="suffix">ms</span>
+                    </igc-input>
+                </article>
+
+                <igc-stepper id="stepper">
+                    <igc-step>
+                        <span slot="title">Personal Info</span>
+                        <igc-form>
+                            <igc-input label="Full Name" type="text" name="fullName"></igc-input>
+                            <igc-input label="Email" type="email" name="email"></igc-input>
+                            <br />
+                            <igc-button class="next" onclick="stepper.next()">NEXT</igc-button>
+                        </igc-form>
+                    </igc-step>
+
+                    <igc-step>
+                        <span slot="title">Delivery address</span>
+                        <igc-form>
+                            <igc-input label="City" type="text" name="city"></igc-input>
+                            <igc-input label="Street" type="text" name="street"></igc-input>
+                            <br />
+                            <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
+                            <igc-button class="next" onclick="stepper.next()">NEXT</igc-button>
+                        </igc-form>
+                    </igc-step>
+
+                    <igc-step>
+                        <span slot="title">Payment</span>
+                        <igc-form>
+                            <igc-radio-group>
+                                <igc-radio name="payment" checked>PayPal (n@mail.com; 18/02/2021)</igc-radio>
+                                <igc-radio name="payment">Visa (**** **** **** 1234; 12/23)</igc-radio>
+                                <igc-radio name="payment">MasterCard (**** **** **** 5678; 12/24)</igc-radio>
+                            </igc-radio-group>
+                            <br />
+                            <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
+                            <igc-button class="next" onclick="stepper.next()">SUBMIT</igc-button>
+                        </igc-form>
+                    </igc-step>
+
+                    <igc-step>
+                        <span slot="title">Delivery status</span>
+                        <p>Your order is on its way. Expect delivery on 25th September 2021. Delivery address: San Jose, CA 94243.</p>
+                        <br />
+                        <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
+                        <igc-button onclick="stepper.reset()">RESET</igc-button>
+                    </igc-step>
+                </igc-stepper>
+            </div>
+        </section>
+        <!-- This script is needed only for parcel and it will be excluded for webpack -->
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
+</html>
