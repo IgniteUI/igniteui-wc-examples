@@ -6,6 +6,8 @@ import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
+import "./index.css";
+
 export class Sample {
 
     private grid: IgcGridComponent
@@ -62,7 +64,7 @@ export class Sample {
 
         const column = (ctx as any).column;
         return html`<div>
-                     <span style="float:left">${column.header}</span>
+                     <span style="float:left">${column.field}</span>
                      <span style="float:right" @pointerdown=${(e: any) => this.toggleColumnPin(column.field)}>📌</span>
                    </div>`;
         };

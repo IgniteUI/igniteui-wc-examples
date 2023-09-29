@@ -21,13 +21,7 @@ export class FinancialChartIndicatorTypes {
     }
 
     initData(): any[] {
-        const today = new Date();
-        const year = today.getFullYear();
-        const month = today.getMonth();
-        const dateEnd = new Date(year, month, 1);
-        const dateStart = new Date(year - 1, month, 1);
-
-        return StocksUtility.GetStocksBetween(dateStart, dateEnd);
+        return StocksUtility.getStocksForMonths(12);
     }
 }
 

@@ -2,14 +2,14 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcPaginatorComponent } from 'igniteui-webcomponents-grids/grids';
-import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { CustomersDataItem, CustomersData } from './CustomersData';
+import { IgcRowSelectorTemplateContext, IgcHeadSelectorTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-defineAllComponents();
+
+import "./index.css";
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule
@@ -19,20 +19,16 @@ export class Sample {
 
     private grid: IgcGridComponent
     private paginator: IgcPaginatorComponent
-    private propertyEditor: IgcPropertyEditorPanelComponent
-    private selectionType: IgcPropertyEditorPropertyDescriptionComponent
     private _bind: () => void;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         var paginator = this.paginator = document.getElementById('paginator') as IgcPaginatorComponent;
-        var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var selectionType = this.selectionType = document.getElementById('selectionType') as IgcPropertyEditorPropertyDescriptionComponent;
 
         this._bind = () => {
             grid.data = this.customersData;
-            propertyEditor.componentRenderer = this.renderer;
-            propertyEditor.target = this.grid;
+            grid.rowSelectorTemplate = this.webGridRowSelectorExcelTemplate;
+            grid.headSelectorTemplate = this.webGridHeaderRowSelectorExcelTemplate;
         }
         this._bind();
 
@@ -57,6 +53,18 @@ export class Sample {
         }
         return this._componentRenderer;
     }
+
+    public webGridRowSelectorExcelTemplate = (ctx: IgcRowSelectorTemplateContext) => {
+        return html`<span style='display: block;width:30px;'> ${ctx.implicit.index}</span>`;
+    }
+
+    public webGridHeaderRowSelectorExcelTemplate = (ctx: IgcHeadSelectorTemplateContext) => {
+        if (ctx.implicit.selectedCount > 0 && ctx.implicit.selectedCount === ctx.implicit.totalCount) {
+            return html`<span style='display: block;width:30px;'><i style='color: rgb(239, 184, 209);'>◢</i></span>`;
+        } else {
+            return html`<span style='display: block;width:30px;'><i>◢</i></span>`;
+        }
+    };
 
 }
 

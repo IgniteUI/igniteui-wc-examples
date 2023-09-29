@@ -4,6 +4,8 @@ import { RoadblocksToSuccessItem, RoadblocksToSuccess } from './RoadblocksToSucc
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcLegendModule,
     IgcDataChartAnnotationModule,
@@ -53,8 +55,6 @@ export class Sample {
             barSeries2.xAxis = this.xAxis;
             barSeries2.yAxis = this.yAxis2;
             barSeries2.dataSource = this.roadblocksToSuccess;
-            calloutLayer1.dataSource = this.roadblocksToSuccess;
-            calloutLayer2.dataSource = this.roadblocksToSuccess;
         }
         this._bind();
 

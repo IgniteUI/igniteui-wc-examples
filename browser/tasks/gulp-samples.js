@@ -41,69 +41,71 @@ var sampleSources = [
     // igConfig.SamplesCopyPath + '/editors/date-picker/overview/package.json',
     // igConfig.SamplesCopyPath + '/notifications/toast/overview/package.json',
     // igConfig.SamplesCopyPath + '/excel/excel-library/overview/package.json',
+    // igConfig.SamplesCopyPath + '/charts/category-chart/high-frequency/package.json',
+    // igConfig.SamplesCopyPath + '/charts/category-chart/high-volume/package.json',
+    // igConfig.SamplesCopyPath + '/charts/data-chart/chart-performance/package.json',
+    // igConfig.SamplesCopyPath + '/charts/financial-chart/high-frequency/package.json',
+    // igConfig.SamplesCopyPath + '/charts/financial-chart/high-volume/package.json',
 
     // including all samples for all components:
-    igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
-    igConfig.SamplesCopyPath + '/maps/**/package.json',
-    igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
-    igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
+    igConfig.SamplesCopyPath + '/**/package.json',
 
-    igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
-    igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
-    igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
-
-    igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
-    igConfig.SamplesCopyPath + '/grids/list/**/package.json',
-    igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
-    igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
-    igConfig.SamplesCopyPath + '/grids/grid/**/package.json',
-    igConfig.SamplesCopyPath + '/grids/pivot-grid/**/package.json',
-    igConfig.SamplesCopyPath + '/editors/**/package.json',
-
-    igConfig.SamplesCopyPath + '/layouts/accordion/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/card/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/avatar/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/icon/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/expansion-panel/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/stepper/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/tabs/**/package.json',
-
-    igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
-
-    igConfig.SamplesCopyPath + '/menus/nav-drawer/**/package.json',
-    igConfig.SamplesCopyPath + '/menus/nav-bar/**/package.json',
-
-    igConfig.SamplesCopyPath + '/notifications/snackbar/**/package.json',
-    igConfig.SamplesCopyPath + '/notifications/toast/**/package.json',
-    igConfig.SamplesCopyPath + '/notifications/dialog/**/package.json',
-
-    igConfig.SamplesCopyPath + '/inputs/button/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/badge/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/checkbox/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/chip/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/circular-progress-indicator/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/combo/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/date-time-input/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/dropdown/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/icon-button/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/input/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/linear-progress-indicator/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/mask-input/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/radio/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/rating/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/ripple/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/select/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/slider/**/package.json',
-    igConfig.SamplesCopyPath + '/inputs/switches/**/package.json',
+    // uncomment to exclude samples for specific components:
+    // '!' + igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/maps/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/grids/list/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
+    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-styles/package.json', // BUG webTreeGridRowStylesHandler does not export
+    // '!' + igConfig.SamplesCopyPath + '/grids/grid/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/editors/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/layouts/accordion/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/layouts/dock-manager/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/layouts/card/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/layouts/avatar/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/layouts/icon/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/layouts/expansion-panel/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/layouts/stepper/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/layouts/tabs/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/scheduling/calendar/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/menus/nav-drawer/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/menus/nav-bar/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/notifications/snackbar/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/notifications/toast/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/notifications/dialog/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/button/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/badge/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/checkbox/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/chip/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/circular-progress-indicator/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/combo/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/date-time-input/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/dropdown/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/form/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/icon-button/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/input/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/linear-progress-indicator/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/mask-input/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/radio/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/rating/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/ripple/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/select/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/slider/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/inputs/switches/**/package.json',
 
     // excluding samples that are not finished:
     '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/remote/package.json',      // grid has no exported member named 'NoopPivotDimensionsStrategy'
@@ -437,49 +439,55 @@ function copySamples(cb) {
 } exports.copySamples = copySamples;
 
 
-function updateSampleReadme(cb) {
+function updateReadme(cb) {
 
-    // log('updating readme files... ');
+    var changeFilesCount = 0;
     var template = fs.readFileSync("./browser/templates/sample/ReadMe.md", "utf8");
     for (const sample of samples) {
 
-        // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
-        let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/ReadMe.md";
-        makeDirectoryFor(outputPath);
-        // log(outputPath);
-        let readmeFile = Transformer.updateReadme(sample, template);
-        fs.writeFileSync(outputPath, readmeFile);
-        // break;
-    }
-    cb();
-} exports.updateSampleReadme = updateSampleReadme;
-
-// updating package.json files for all sample using a template
-function updateSamplePackages(cb) {
-
-    // getting content of package.json file from templates
-    let templatePackageFile = fs.readFileSync("./browser/templates/sample/package.json");
-    let templatePackageJson = JSON.parse(templatePackageFile.toString());
-
-    // let last = samples[samples.length - 1];
-    // let content = Transformer.getPackage(last, templatePackageJson);
-    // fs.writeFileSync(sampleOutputFolder + "package.json", content);
-
-    for (const sample of samples) {
-        let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/package.json";
-        let packageFileOld = fs.readFileSync(outputPath).toString();
-
-        // makeDirectoryFor(outputPath);
-
-        let packageFileNew = Transformer.getPackage(sample, templatePackageJson);
-        if (packageFileNew !== packageFileOld) {
-            console.log('file updated: ' + outputPath);
-            fs.writeFileSync(outputPath, packageFileNew);
+        let readmePath = sampleOutputFolder + sample.SampleFolderPath + "/ReadMe.md";
+        makeDirectoryFor(readmePath);
+        
+        let readmeNewFile = Transformer.updateReadme(sample, template);
+        
+        let readmeOldFile = ""; 
+        if (fs.existsSync(readmePath)) {
+            readmeOldFile = fs.readFileSync(readmePath).toString(); 
+        }
+        
+        if (readmeNewFile !== readmeOldFile) {
+            console.log('UPDATED: ' + readmePath)
+            changeFilesCount++;
+            fs.writeFileSync(readmePath, readmeNewFile);
         }
     }
 
+    if (changeFilesCount > 0) {
+        console.log('WARNING: you must commit above ' + changeFilesCount + ' readme files in a pull request')
+    }
     cb();
-} exports.updateSamplePackages = updateSamplePackages;
+} exports.updateReadme = updateReadme;
+
+// // updating package.json files for all sample using a template
+// function updateSamplePackages(cb) {
+//     // getting content of package.json file from templates
+//     let templatePackageFile = fs.readFileSync("./browser/templates/sample/package.json");
+//     let templatePackageJson = JSON.parse(templatePackageFile.toString());
+//     // let last = samples[samples.length - 1];
+//     // let content = Transformer.getPackage(last, templatePackageJson);
+//     // fs.writeFileSync(sampleOutputFolder + "package.json", content);
+//     for (const sample of samples) {
+//         let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/package.json";
+//         let packageFileOld = fs.readFileSync(outputPath).toString();
+//         // makeDirectoryFor(outputPath);
+//         let packageFileNew = Transformer.getPackage(sample, templatePackageJson);
+//         if (packageFileNew !== packageFileOld) {
+//             console.log('file updated: ' + outputPath);
+//             fs.writeFileSync(outputPath, packageFileNew);
+//         }
+//     }
+//     cb();
+// } exports.updateSamplePackages = updateSamplePackages;
 
 // updating browser's package.json file using template's package.json
 function copyPackageJson(cb) {
@@ -781,6 +789,7 @@ function logSourceFiles(cb) {
        '!./samples/**/src/DataChartSharedData.ts',
        '!./samples/**/src/DataGridSharedData.ts',
        '!./samples/**/src/DataService.ts',
+       '!./samples/**/src/TreeLoadOnDemandVirtualizedData.ts',
        '!./samples/**/src/DockManagerSharedData.ts',
        '!./samples/**/src/EsriUtility.ts',
        '!./samples/**/src/ExcelUtility.ts',
@@ -930,26 +939,30 @@ function logPackages(cb) {
 
 function updateIG(cb) {
 
+    // cleanup packages to speedup this gulp script
+    del.sync("./samples/**/node_modules/**/*.*", {force:true});
+    del.sync("./samples/**/node_modules/**", {force:true});
+    del.sync("./samples/**/node_modules", {force:true});
+
     // NOTE: change this array with new version of packages and optionally use "@infragistics/" proget prefix, e.g.
-    // "igniteui-angular-charts" instead of "igniteui-angular-charts", e.g.
-    // { name: "igniteui-webcomponents-core", version: "22.1.62" }, // proget
-    // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // npm
+    // { name: "@infragistics/igniteui-webcomponents-core", version: "22.1.62" }, // LOCAL PROGET
+    // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // PUBLIC NPM
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-webcomponents-core"                     , version: "4.2.5" },
-        { name: "igniteui-webcomponents-charts"                   , version: "4.2.5" },
-        { name: "igniteui-webcomponents-excel"                    , version: "4.2.5" },
-        { name: "igniteui-webcomponents-gauges"                   , version: "4.2.5" },
-        { name: "igniteui-webcomponents-grids"                    , version: "4.2.5" },
-        { name: "igniteui-webcomponents-inputs"                   , version: "4.2.5" },
-        { name: "igniteui-webcomponents-layouts"                  , version: "4.2.5" },
-        { name: "igniteui-webcomponents-maps"                     , version: "4.2.5" },
-        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.2.5" },
-        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.2.5" },
-        { name: "igniteui-webcomponents-datasources"              , version: "4.2.5" },
+        { name: "@infragistics/igniteui-webcomponents-core"                     , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-charts"                   , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-excel"                    , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-gauges"                   , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-grids"                    , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-inputs"                   , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-layouts"                  , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-maps"                     , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter", version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-spreadsheet"              , version: "23.2.17" },
+        { name: "@infragistics/igniteui-webcomponents-datasources"              , version: "23.2.17" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "4.2.3"  },
-        { name: "igniteui-dockmanager", version: "1.12.4" },
+        { name: "igniteui-webcomponents", version: "4.3.0-beta.0"  },
+        { name: "igniteui-dockmanager", version: "1.14.2" },
         // other packages:
         { name: "webpack", version: "^5.74.0"  },
         { name: "webpack-cli", version: "^4.10.0"  },
@@ -960,36 +973,28 @@ function updateIG(cb) {
         './package.json', // browser
         './samples/**/package.json',
         // './samples/charts/**/package.json',
-        // './samples/editors/**/package.json',
-        // './samples/excel/**/package.json',
         // './samples/gauges/**/package.json',
-        // './samples/grids/**/package.json',
-        // './samples/inputs/**/package.json',
-        // './samples/layouts/**/package.json',
-        // './samples/maps/**/package.json',
-        // './samples/menus/**/package.json',
-        // './samples/notifications/**/package.json',
-        // './samples/scheduling/**/package.json',
-        // './samples/charts/category-chart/**/package.json',
-        // './samples/maps/geo-map/type-scatter-bubble-series/package.json',
+        
+        // skip packages in node_modules folders
         '!./samples/**/node_modules/**/package.json',
+        '!./samples/**/node_modules/**',
+        '!./samples/**/node_modules',
     ];
 
     // creating package mapping without proget prefix so we can upgrade to/from proget packages
     let packageMappings = {};
     for (const item of packageUpgrades) {
         item.id = item.name.replace("@infragistics/", "");
-        let name = item.name.replace("@infragistics/", "");
-        packageMappings[name] = item;
+        packageMappings[item.id] = item;
     }
-
     // console.log(packageMappings);
 
     let updatedPackages = 0;
     // gulp all package.json files in samples/browser
     gulp.src(packagePaths, {allowEmpty: true})
     .pipe(es.map(function(file, fileCallback) {
-        let filePath = file.dirname + "/" + file.basename;
+        let filePath = file.dirname + "\\" + file.basename;
+        // console.log("updating " + filePath)
 
         var fileContent = file.contents.toString();
         var fileLines = fileContent.split('\n');
@@ -1010,7 +1015,6 @@ function updateIG(cb) {
                     }
                 }
             }
-
             // remove a comma from the last item in a list of dependencies
             let next = i + 1 < fileLines.length ? i + 1 : i;
             if (fileLines[next].trim().indexOf('}') === 0 &&
@@ -1029,7 +1033,7 @@ function updateIG(cb) {
         fileCallback(null, file);
     }))
     .on("end", function() {
-        log("updateIG... done = " + updatedPackages + " files");
+        log("updated: " + updatedPackages + " package files");
         cb();
     });
 

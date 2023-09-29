@@ -4,6 +4,8 @@ import { OnlineShoppingSearchesItem, OnlineShoppingSearches } from './OnlineShop
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule,
