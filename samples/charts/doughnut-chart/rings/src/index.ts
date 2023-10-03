@@ -5,6 +5,8 @@ import { CalendarMonthsItem, CalendarMonths } from './CalendarMonths';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcLegendModule,
     IgcDoughnutChartModule

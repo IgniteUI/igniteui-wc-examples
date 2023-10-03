@@ -15,6 +15,8 @@ export class EmployeesFlatDetailsItem {
     public Phone: string;
     public PostalCode: string;
     public Title: string;
+    public LastName: string;
+    public FullAddress: string;
 
 }
 export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
@@ -33,7 +35,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: -1,
             Phone: `030-0074321`,
             PostalCode: `12209`,
-            Title: `Development Manager`
+            Title: `Development Manager`,
+            LastName: `Winchester`,
+            FullAddress: `Obere Str. 57, Berlin, Germany`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -48,7 +52,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: -1,
             Phone: `(5) 555-4729`,
             PostalCode: `05021`,
-            Title: `CEO`
+            Title: `CEO`,
+            LastName: `Sanders`,
+            FullAddress: `Avda. de la Constitución 2222, México D.F., Mexico`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -63,7 +69,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: -1,
             Phone: `(5) 555-3932`,
             PostalCode: `05023`,
-            Title: `Accounting Manager`
+            Title: `Accounting Manager`,
+            LastName: `Lincoln`,
+            FullAddress: `Mataderos 2312, México D.F., Mexico`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -78,7 +86,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: -1,
             Phone: `(171) 555-7788`,
             PostalCode: `WA1 1DP`,
-            Title: `Localization Manager`
+            Title: `Localization Manager`,
+            LastName: `Wang`,
+            FullAddress: `120 Hanover Sq., London, UK`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -93,7 +103,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 1,
             Phone: `0921-12 34 65`,
             PostalCode: `S-958 22`,
-            Title: `Senior Software Developer`
+            Title: `Senior Software Developer`,
+            LastName: `Burke`,
+            FullAddress: `Berguvsvägen 8, Luleå, Sweden`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -108,7 +120,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 1,
             Phone: `0621-08460`,
             PostalCode: `68306`,
-            Title: `Senior Software Developer`
+            Title: `Senior Software Developer`,
+            LastName: `Anderson`,
+            FullAddress: `Forsterstr. 57, Mannheim, Germany`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -123,7 +137,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 1,
             Phone: `88.60.15.31`,
             PostalCode: `67000`,
-            Title: `Software Development Team Lead`
+            Title: `Software Development Team Lead`,
+            LastName: `Reyes`,
+            FullAddress: `24, place Kléber, Strasbourg, France`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -138,7 +154,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 11,
             Phone: `(91) 555 22 82`,
             PostalCode: `28023`,
-            Title: `Senior Software Developer`
+            Title: `Senior Software Developer`,
+            LastName: `Mendel`,
+            FullAddress: `C/ Araquil, 67, Madrid, Spain`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -153,7 +171,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 11,
             Phone: `91.24.45.40`,
             PostalCode: `13008`,
-            Title: `Senior Software Developer`
+            Title: `Senior Software Developer`,
+            LastName: `Cooper`,
+            FullAddress: `12, rue des Bouchers, Marseille, France`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -168,7 +188,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 4,
             Phone: `(604) 555-4729`,
             PostalCode: `T2F 8M4`,
-            Title: `Director`
+            Title: `Director`,
+            LastName: `Johnson`,
+            FullAddress: `23 Tsawassen Blvd., Tsawassen, Canada`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -183,7 +205,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 4,
             Phone: `(171) 555-1212`,
             PostalCode: `EC2 5NT`,
-            Title: `Vice President`
+            Title: `Vice President`,
+            LastName: `Richards`,
+            FullAddress: `Fauntleroy Circus, London, UK`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -198,7 +222,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 5,
             Phone: `(1) 135-5555`,
             PostalCode: `1010`,
-            Title: `Director`
+            Title: `Director`,
+            LastName: `Ashworth`,
+            FullAddress: `Cerrito 333, Buenos Aires, Argentina`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -213,7 +239,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 18,
             Phone: `(5) 555-3392`,
             PostalCode: `05022`,
-            Title: `Senior Accountant`
+            Title: `Senior Accountant`,
+            LastName: `Moreno`,
+            FullAddress: `Sierras de Granada 9993, México D.F., Mexico`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -228,7 +256,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 10,
             Phone: `0452-076545`,
             PostalCode: `3012`,
-            Title: `Senior Localization Developer`
+            Title: `Senior Localization Developer`,
+            LastName: `Rodriguez`,
+            FullAddress: `Hauptstr. 29, Sao Paulo, Brazil`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -243,7 +273,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 10,
             Phone: `(11) 555-7647`,
             PostalCode: `05432-043`,
-            Title: `Senior Localization`
+            Title: `Senior Localization`,
+            LastName: `Harper`,
+            FullAddress: `Av. dos Lusíadas, 23, Bern, Switzerland`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -258,7 +290,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 7,
             Phone: `(171) 555-2282`,
             PostalCode: `WX1 6LT`,
-            Title: `Localization Intern`
+            Title: `Localization Intern`,
+            LastName: `Simpson`,
+            FullAddress: `Berkeley Gardens 12, London, UK`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -273,7 +307,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 7,
             Phone: `0241-039123`,
             PostalCode: `52066`,
-            Title: `Localization Intern`
+            Title: `Localization Intern`,
+            LastName: `Chang`,
+            FullAddress: `Walserweg 21, Aachen, Germany`
         }));
         this.push(new EmployeesFlatDetailsItem(
         {
@@ -288,7 +324,9 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
             ParentID: 7,
             Phone: `(171) 555-0297`,
             PostalCode: `WX3 6FW`,
-            Title: `Localization Intern`
+            Title: `Localization Intern`,
+            LastName: `Lewis`,
+            FullAddress: `35 King George, London, UK`
         }));
     }
 }

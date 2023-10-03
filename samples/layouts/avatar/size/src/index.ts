@@ -1,5 +1,6 @@
 import { defineComponents, IgcAvatarComponent, IgcIconComponent, registerIconFromText } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import "./AvatarSize.css";
 
 defineComponents(IgcAvatarComponent, IgcIconComponent);
 const homeIcon =

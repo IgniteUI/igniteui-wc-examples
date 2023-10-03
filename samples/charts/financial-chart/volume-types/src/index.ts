@@ -47,7 +47,7 @@ export class FinancialChartVolumeTypes {
         const dateEnd = new Date(year, month, 1);
         const dateStart = new Date(year - 1, month, 1);
 
-        return StocksUtility.GetStocksBetween(dateStart, dateEnd);
+        return StocksUtility.getStocksBetween(dateStart, dateEnd);
     }
 
 }

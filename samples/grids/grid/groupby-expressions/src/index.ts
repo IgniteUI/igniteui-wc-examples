@@ -1,10 +1,12 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcGroupingExpression, SortingDirection, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
-import { InvoicesDataItem, InvoicesData } from './InvoicesData';
-import { IgcGroupByRowTemplateContext, IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
+import { IgcGroupByRecord, IgcGroupByRowTemplateContext, IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
+import "./index.css";
 
 export class Sample {
 
@@ -38,7 +40,7 @@ export class Sample {
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.invoicesData;
+            grid.data = this.invoicesWorldData;
             grid.groupingExpressions = this.groupingExpression1;
             grid.groupRowTemplate = this.webGridGroupByRowTemplate;
             column1.bodyTemplate = this.webGridBooleanCellTemplate;
@@ -47,30 +49,30 @@ export class Sample {
 
     }
 
-    private _invoicesData: InvoicesData = null;
-    public get invoicesData(): InvoicesData {
-        if (this._invoicesData == null)
+    private _invoicesWorldData: InvoicesWorldData = null;
+    public get invoicesWorldData(): InvoicesWorldData {
+        if (this._invoicesWorldData == null)
         {
-            this._invoicesData = new InvoicesData();
+            this._invoicesWorldData = new InvoicesWorldData();
         }
-        return this._invoicesData;
+        return this._invoicesWorldData;
     }
 
 
         public webGridGroupByRowTemplate = (ctx: IgcGroupByRowTemplateContext) => {
 
-            const groupRow: any = ctx["$implicit"];
+            const groupRow: IgcGroupByRecord = ctx.implicit;
             const values = groupRow.records;
 
-            const startDate = new Date('1/1/2022');
-            const endDate = new Date('12/31/2022');
-            var calc2022 = values.filter((x) => new Date(x.orderDate) >= startDate && new Date(x.orderDate) <= endDate).length;
+            const startDate = new Date('1/1/2017');
+            const endDate = new Date('12/31/2017');
+            var calc2017 = values.filter((x) => new Date(x.OrderDate) >= startDate && new Date(x.OrderDate) <= endDate).length;
 
             return html`<div>
     <span style="color:#09f;">${groupRow.expression.fieldName} :</span>
     <span>${groupRow.value}</span>
     <igc-badge>${groupRow.records.length}</igc-badge>
-    <span style="color:#09f;"> Ordered in 2022:</span><span>${calc2022}</span>
+    <span style="color:#09f;"> Ordered in 2017:</span><span>${calc2017}</span>
     </div>`;
 
         };
