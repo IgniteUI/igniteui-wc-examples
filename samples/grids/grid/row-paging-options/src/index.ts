@@ -1,7 +1,7 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent, IgcPaginatorComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcPaginatorComponent, IgcPaginatorResourceStrings, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 
@@ -21,12 +21,23 @@ export class Sample {
 
     private grid: IgcGridComponent
     private paginator: IgcPaginatorComponent
+    private _paginatorResourceStrings1: IgcPaginatorResourceStrings | null = null;
+    public get paginatorResourceStrings1(): IgcPaginatorResourceStrings {
+        if (this._paginatorResourceStrings1 == null)
+        {
+            var paginatorResourceStrings1 = new IgcPaginatorResourceStrings();
+            paginatorResourceStrings1.igx_paginator_label = "Records per page";
+
+            this._paginatorResourceStrings1 = paginatorResourceStrings1;
+        }
+        return this._paginatorResourceStrings1;
+    }
     private column1: IgcColumnComponent
     private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgcColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
+            var columnPipeArgs1 = new IgcColumnPipeArgs();
             columnPipeArgs1.digitsInfo = "1.1-5";
 
             this._columnPipeArgs1 = columnPipeArgs1;
@@ -46,6 +57,7 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.athletesData;
+            paginator.resourceStrings = this.paginatorResourceStrings1;
             column1.pipeArgs = this.columnPipeArgs1;
             propertyEditor.componentRenderer = this.renderer;
             propertyEditor.target = this.grid;
