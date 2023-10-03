@@ -42,19 +42,21 @@
             <igc-line-series
             name="LineSeries1"
             id="LineSeries1"
-            value-member-path="america">
+            value-member-path="america"
+            brush="rgba(137, 97, 169, 1)"
+            marker-outline="rgba(137, 97, 169, 1)"
+            should-hide-auto-callouts="false">
             </igc-line-series>
             <igc-callout-layer
             name="CalloutLayer1"
             id="CalloutLayer1"
-            x-member-path="index"
-            y-member-path="value"
-            label-member-path="label"
-            callout-leader-brush="black"
-            callout-outline="black"
-            callout-background="orange"
-            callout-text-color="black"
-            callout-stroke-thickness="2">
+            is-auto-callout-behavior-enabled="true"
+            callout-leader-brush="rgba(137, 97, 169, 1)"
+            callout-outline="rgba(137, 97, 169, 1)"
+            callout-background="white"
+            callout-text-color="rgba(137, 97, 169, 1)"
+            callout-stroke-thickness="1"
+            callout-collision-mode="Greedy">
             </igc-callout-layer>
         </igc-data-chart>
     </div>

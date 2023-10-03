@@ -70,7 +70,8 @@
             value-member-path="topChoices"
             show-default-tooltip="true"
             is-transition-in-enabled="true"
-            is-highlighting-enabled="true">
+            is-highlighting-enabled="true"
+            marker-type="Hidden">
             </igc-bar-series>
             <igc-bar-series
             name="BarSeries2"
@@ -79,14 +80,13 @@
             value-member-path="firstChoice"
             show-default-tooltip="true"
             is-transition-in-enabled="true"
-            is-highlighting-enabled="true">
+            is-highlighting-enabled="true"
+            marker-type="Hidden">
             </igc-bar-series>
             <igc-callout-layer
             name="CalloutLayer1"
             id="CalloutLayer1"
-            y-member-path="index"
-            x-member-path="firstChoice"
-            label-member-path="firstChoiceLabel"
+            is-auto-callout-behavior-enabled="true"
             callout-leader-brush="rgba(0, 0, 0, 0)"
             callout-outline="rgba(0, 0, 0, 0)"
             callout-background="rgba(0, 0, 0, 0)"
@@ -98,9 +98,7 @@
             <igc-callout-layer
             name="CalloutLayer2"
             id="CalloutLayer2"
-            y-member-path="index"
-            x-member-path="topChoices"
-            label-member-path="topChoicesLabel"
+            is-auto-callout-behavior-enabled="true"
             callout-leader-brush="rgba(0, 0, 0, 0)"
             callout-outline="rgba(0, 0, 0, 0)"
             callout-background="rgba(0, 0, 0, 0)"

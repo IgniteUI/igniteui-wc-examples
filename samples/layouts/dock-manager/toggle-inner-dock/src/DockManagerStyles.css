@@ -1,0 +1,9 @@
+
+igc-dockmanager > div {
+    padding: 0.5rem;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    display: flex;
+    flex-direction: column;
+    /* background: orange; */
+}
