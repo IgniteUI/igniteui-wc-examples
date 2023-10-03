@@ -13,17 +13,17 @@ export class Sample {
     public get pivotConfiguration1(): IgcPivotConfiguration {
         if (this._pivotConfiguration1 == null)
         {
-            var pivotConfiguration1: IgcPivotConfiguration = {} as IgcPivotConfiguration;
+            var pivotConfiguration1 = new IgcPivotConfiguration();
 
             var pivotDateDimension1 = new IgcPivotDateDimension();
             pivotDateDimension1.memberName = "Date";
             pivotDateDimension1.enabled = true;
-            var pivotDimension1: IgcPivotDimension = {} as IgcPivotDimension;
+            var pivotDimension1 = new IgcPivotDimension();
             pivotDimension1.memberName = "Date";
             pivotDimension1.enabled = true;
 
             pivotDateDimension1.baseDimension = pivotDimension1;
-            var pivotDateDimensionOptions1: IgcPivotDateDimensionOptions = {} as IgcPivotDateDimensionOptions;
+            var pivotDateDimensionOptions1 = new IgcPivotDateDimensionOptions();
             pivotDateDimensionOptions1.years = true;
             pivotDateDimensionOptions1.months = false;
             pivotDateDimensionOptions1.quarters = true;
@@ -33,49 +33,49 @@ export class Sample {
 
             pivotConfiguration1.columns = []
             pivotConfiguration1.columns.push(pivotDateDimension1);
-            var pivotDimension2: IgcPivotDimension = {} as IgcPivotDimension;
+            var pivotDimension2 = new IgcPivotDimension();
             pivotDimension2.memberName = "ProductName";
             pivotDimension2.sortDirection = SortingDirection.Asc;
             pivotDimension2.enabled = true;
 
             pivotConfiguration1.rows = []
             pivotConfiguration1.rows.push(pivotDimension2);
-            var pivotDimension3: IgcPivotDimension = {} as IgcPivotDimension;
+            var pivotDimension3 = new IgcPivotDimension();
             pivotDimension3.memberName = "SellerCity";
             pivotDimension3.enabled = true;
 
             pivotConfiguration1.rows.push(pivotDimension3);
-            var pivotDimension4: IgcPivotDimension = {} as IgcPivotDimension;
+            var pivotDimension4 = new IgcPivotDimension();
             pivotDimension4.memberName = "SellerName";
             pivotDimension4.enabled = true;
 
             pivotConfiguration1.filters = []
             pivotConfiguration1.filters.push(pivotDimension4);
-            var pivotValue1: IgcPivotValue = {} as IgcPivotValue;
+            var pivotValue1 = new IgcPivotValue();
             pivotValue1.member = "AmountofSale";
             pivotValue1.displayName = "Amount of Sale";
             pivotValue1.dataType = "currency";
             pivotValue1.enabled = true;
-            var pivotAggregator1: IgcPivotAggregator = {} as IgcPivotAggregator;
+            var pivotAggregator1 = new IgcPivotAggregator();
             pivotAggregator1.key = "SUM";
             pivotAggregator1.label = "Sum of Sale";
             pivotAggregator1.aggregator = this.pivotDataFlatAggregateSumSale;
 
             pivotValue1.aggregate = pivotAggregator1;
-            var pivotAggregator2: IgcPivotAggregator = {} as IgcPivotAggregator;
+            var pivotAggregator2 = new IgcPivotAggregator();
             pivotAggregator2.key = "SUM";
             pivotAggregator2.label = "Sum of Sale";
             pivotAggregator2.aggregator = this.pivotDataFlatAggregateSumSale;
 
             pivotValue1.aggregateList = []
             pivotValue1.aggregateList.push(pivotAggregator2);
-            var pivotAggregator3: IgcPivotAggregator = {} as IgcPivotAggregator;
+            var pivotAggregator3 = new IgcPivotAggregator();
             pivotAggregator3.key = "MIN";
             pivotAggregator3.label = "Minimum of Sale";
             pivotAggregator3.aggregator = this.pivotDataFlatAggregateMinSale;
 
             pivotValue1.aggregateList.push(pivotAggregator3);
-            var pivotAggregator4: IgcPivotAggregator = {} as IgcPivotAggregator;
+            var pivotAggregator4 = new IgcPivotAggregator();
             pivotAggregator4.key = "MAX";
             pivotAggregator4.label = "Maximum of Sale";
             pivotAggregator4.aggregator = this.pivotDataFlatAggregateMaxSale;

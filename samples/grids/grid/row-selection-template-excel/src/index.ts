@@ -1,7 +1,7 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent, IgcPaginatorComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcPaginatorComponent, IgcPaginatorResourceStrings } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgcRowSelectorTemplateContext, IgcHeadSelectorTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
@@ -19,6 +19,17 @@ export class Sample {
 
     private grid: IgcGridComponent
     private paginator: IgcPaginatorComponent
+    private _paginatorResourceStrings1: IgcPaginatorResourceStrings | null = null;
+    public get paginatorResourceStrings1(): IgcPaginatorResourceStrings {
+        if (this._paginatorResourceStrings1 == null)
+        {
+            var paginatorResourceStrings1 = new IgcPaginatorResourceStrings();
+            paginatorResourceStrings1.igx_paginator_label = "Items per page";
+
+            this._paginatorResourceStrings1 = paginatorResourceStrings1;
+        }
+        return this._paginatorResourceStrings1;
+    }
     private _bind: () => void;
 
     constructor() {
@@ -29,6 +40,7 @@ export class Sample {
             grid.data = this.customersData;
             grid.rowSelectorTemplate = this.webGridRowSelectorExcelTemplate;
             grid.headSelectorTemplate = this.webGridHeaderRowSelectorExcelTemplate;
+            paginator.resourceStrings = this.paginatorResourceStrings1;
         }
         this._bind();
 
