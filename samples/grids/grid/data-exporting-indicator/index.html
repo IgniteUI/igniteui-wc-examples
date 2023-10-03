@@ -20,15 +20,17 @@
     <div class="container sample">
       <div class="container fill">
         <igc-grid auto-generate="false" name="grid1" id="grid1">
-          <igc-grid-toolbar>
-            <igc-button id="clearButton">
-              <igc-icon name="clear" collection="material"></igc-icon>Clear Sort
+          <igc-grid-toolbar id="toolbar">
+            <igc-button id="simulate">
+                Simulate long running operation
             </igc-button>
             <igc-grid-toolbar-actions>
               <igc-grid-toolbar-hiding>
               </igc-grid-toolbar-hiding>
               <igc-grid-toolbar-pinning>
               </igc-grid-toolbar-pinning>
+              <igc-grid-toolbar-exporter>
+              </igc-grid-toolbar-exporter>
             </igc-grid-toolbar-actions>
           </igc-grid-toolbar>
           <igc-column field="Name" header="Athlete" width="200px" sortable="true">
