@@ -14,5 +14,5 @@ igc-list-item::part(subtitle) {
 }
 
 igc-list-item::part(end) {
-    --igc-secondary-500: 230,48%,47%;
+    --ig-secondary-500: 230,48%,47%;
 }

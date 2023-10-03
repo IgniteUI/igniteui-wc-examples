@@ -17,7 +17,15 @@
     <div id="root">
 
 <div class="container sample">
-
+  <div style="align-self:flex-end">
+  <igc-dropdown>
+    <igc-button slot="target">Group By Options</igc-button>
+    <igc-dropdown-item id="day">Day</igc-dropdown-item>
+    <igc-dropdown-item id="week">Week</igc-dropdown-item>
+    <igc-dropdown-item id="month" selected>Month</igc-dropdown-item>
+    <igc-dropdown-item id="year">Year</igc-dropdown-item>
+  </igc-dropdown>
+  </div>
     <div class="container fill">
         <igc-grid
         auto-generate="false"
@@ -38,6 +46,7 @@
             <igc-column
             name="OrderDate"
             id="OrderDate"
+            data-type="date"
             field="OrderDate"
             header="Order Date">
             </igc-column>

@@ -17,20 +17,6 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
-        description-type="WebGrid"
-        is-horizontal="true"
-        is-wrapping-enabled="true">
-            <igc-property-editor-property-description
-            name="selectionType"
-            id="selectionType"
-            property-path="RowSelection">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
 
     <div class="container fill">
         <igc-grid
@@ -38,7 +24,8 @@
         name="grid"
         id="grid"
         id="grid"
-        display-density="cosy">
+        display-density="cosy"
+        row-selection="multiple">
             <igc-paginator
             name="paginator"
             id="paginator"

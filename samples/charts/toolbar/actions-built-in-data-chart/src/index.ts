@@ -1,7 +1,7 @@
 import { IgcToolbarModule } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartToolbarModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartAnnotationModule, IgcDataChartInteractivityModule, IgcAnnotationLayerProxyModule, IgcDataChartCategoryTrendLineModule } from 'igniteui-webcomponents-charts';
 import { IgcToolbarComponent } from 'igniteui-webcomponents-layouts';
-import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -28,6 +28,7 @@ export class Sample {
     private lineSeries1: IgcLineSeriesComponent
     private lineSeries2: IgcLineSeriesComponent
     private lineSeries3: IgcLineSeriesComponent
+    private tooltipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -38,6 +39,7 @@ export class Sample {
         var lineSeries1 = this.lineSeries1 = document.getElementById('LineSeries1') as IgcLineSeriesComponent;
         var lineSeries2 = this.lineSeries2 = document.getElementById('LineSeries2') as IgcLineSeriesComponent;
         var lineSeries3 = this.lineSeries3 = document.getElementById('LineSeries3') as IgcLineSeriesComponent;
+        var tooltipLayer = this.tooltipLayer = document.getElementById('tooltipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             toolbar.target = this.chart;
