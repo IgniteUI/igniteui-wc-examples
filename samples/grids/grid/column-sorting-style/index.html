@@ -17,59 +17,40 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
-        description-type="WebGrid"
-        is-horizontal="true"
-        is-wrapping-enabled="true">
-            <igc-property-editor-property-description
-            property-path="SortingOptions"
-            label="Select Sorting Type"
-            name="SortingOptionsEditor"
-            id="SortingOptionsEditor">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
 
     <div class="container fill">
         <igc-grid
         auto-generate="false"
         name="grid"
+        id="grid"
         id="grid">
             <igc-column
             field="OrderID"
             header="Order ID"
-            groupable="true"
             sortable="true">
             </igc-column>
             <igc-column
             field="CategoryName"
             header="Category Name"
             data-type="string"
-            groupable="true"
             sortable="true">
             </igc-column>
             <igc-column
             field="CompanyName"
             header="Company"
             data-type="string"
-            groupable="true"
             sortable="true">
             </igc-column>
             <igc-column
             field="ShipCountry"
             header="Ship Country"
             data-type="string"
-            groupable="true"
             sortable="true">
             </igc-column>
             <igc-column
             field="SaleAmount"
             header="Sale Amount"
             data-type="currency"
-            groupable="true"
             sortable="true"
             name="column1"
             id="column1">
