@@ -937,6 +937,17 @@ function logPackages(cb) {
     });
 } exports.logPackages = logPackages;
 
+function sortByKeys(dependencies)
+{
+    let keys = Object.keys(dependencies);
+    keys.sort();
+ 
+    var sorted = {};
+    for (const key of keys) {
+        sorted[key] = dependencies[key];
+    }
+    return sorted;
+}
 function updateIG(cb) {
 
     // cleanup packages to speedup this gulp script
@@ -949,19 +960,19 @@ function updateIG(cb) {
     // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // PUBLIC NPM
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "@infragistics/igniteui-webcomponents-core"                     , version: "23.2.17" },
-        { name: "@infragistics/igniteui-webcomponents-charts"                   , version: "23.2.17" },
-        { name: "@infragistics/igniteui-webcomponents-excel"                    , version: "23.2.17" },
-        { name: "@infragistics/igniteui-webcomponents-gauges"                   , version: "23.2.17" },
-        { name: "@infragistics/igniteui-webcomponents-grids"                    , version: "23.2.17" },
-        { name: "@infragistics/igniteui-webcomponents-inputs"                   , version: "23.2.17" },
-        { name: "@infragistics/igniteui-webcomponents-layouts"                  , version: "23.2.17" },
-        { name: "@infragistics/igniteui-webcomponents-maps"                     , version: "23.2.17" },
-        { name: "@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter", version: "23.2.17" },
-        { name: "@infragistics/igniteui-webcomponents-spreadsheet"              , version: "23.2.17" },
-        { name: "@infragistics/igniteui-webcomponents-datasources"              , version: "23.2.17" },
+        { name: "igniteui-webcomponents-core"                     , version: "4.3.1" },
+        { name: "igniteui-webcomponents-charts"                   , version: "4.3.1" },
+        { name: "igniteui-webcomponents-excel"                    , version: "4.3.1" },
+        { name: "igniteui-webcomponents-gauges"                   , version: "4.3.1" },
+        { name: "igniteui-webcomponents-grids"                    , version: "4.3.1" },
+        { name: "igniteui-webcomponents-inputs"                   , version: "4.3.1" },
+        { name: "igniteui-webcomponents-layouts"                  , version: "4.3.1" },
+        { name: "igniteui-webcomponents-maps"                     , version: "4.3.1" },
+        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.3.1" },
+        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.3.1" },
+        { name: "igniteui-webcomponents-datasources"              , version: "4.3.1" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "4.3.0-beta.0"  },
+        { name: "igniteui-webcomponents", version: "4.5.0-beta.1"  },
         { name: "igniteui-dockmanager", version: "1.14.2" },
         // other packages:
         { name: "webpack", version: "^5.74.0"  },
@@ -987,15 +998,12 @@ function updateIG(cb) {
         item.id = item.name.replace("@infragistics/", "");
         packageMappings[item.id] = item;
     }
-    // console.log(packageMappings);
 
     let updatedPackages = 0;
     // gulp all package.json files in samples/browser
     gulp.src(packagePaths, {allowEmpty: true})
     .pipe(es.map(function(file, fileCallback) {
         let filePath = file.dirname + "\\" + file.basename;
-        // console.log("updating " + filePath)
-
         var fileContent = file.contents.toString();
         var fileLines = fileContent.split('\n');
 
@@ -1024,8 +1032,19 @@ function updateIG(cb) {
             }
         }
 
-        if (fileChanged) {
-            let newContent = fileLines.join('\n'); // newContent !== fileContent
+        let newContent = fileLines.join('\n'); 
+        let jsonPackages = JSON.parse(newContent);
+        // sort package dependencies by their names
+        let sortPackages = sortByKeys(jsonPackages.dependencies);
+        if (JSON.stringify(sortPackages) !== JSON.stringify(jsonPackages.dependencies)) {
+            jsonPackages.dependencies = sortPackages;
+            jsonPackages.devDependencies = sortByKeys(jsonPackages.devDependencies); 
+            newContent = JSON.stringify(jsonPackages, null, '  ') + '\n';
+            fileChanged = true;
+        }
+        
+        if (fileChanged || fileContent !== newContent) {
+            // let newContent = fileLines.join('\n'); // newContent !== fileContent
             updatedPackages++;
             fs.writeFileSync(filePath, newContent);
             log("updated: " + filePath);
