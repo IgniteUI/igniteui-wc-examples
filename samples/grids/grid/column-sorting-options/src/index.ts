@@ -30,7 +30,7 @@ export class Sample {
         if (this._sortingExpression1 == null)
         {
             let sortingExpression1: IgcSortingExpression[] = [];
-            var sortingExpression2: IgcSortingExpression = {} as IgcSortingExpression;
+            var sortingExpression2 = new IgcSortingExpression();
             sortingExpression2.fieldName = "CategoryName";
             sortingExpression2.dir = SortingDirection.Asc;
             sortingExpression2.ignoreCase = true;
@@ -45,7 +45,7 @@ export class Sample {
     public get columnPipeArgs1(): IgcColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
+            var columnPipeArgs1 = new IgcColumnPipeArgs();
             columnPipeArgs1.currencyCode = "USD";
             columnPipeArgs1.digitsInfo = "1.2-2";
 
