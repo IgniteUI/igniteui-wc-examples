@@ -25,7 +25,7 @@ export class Sample {
     public get columnPipeArgs1(): IgcColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
+            var columnPipeArgs1 = new IgcColumnPipeArgs();
             columnPipeArgs1.digitsInfo = "1.2-2";
 
             this._columnPipeArgs1 = columnPipeArgs1;
@@ -37,7 +37,7 @@ export class Sample {
     public get columnPipeArgs2(): IgcColumnPipeArgs {
         if (this._columnPipeArgs2 == null)
         {
-            var columnPipeArgs2: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
+            var columnPipeArgs2 = new IgcColumnPipeArgs();
             columnPipeArgs2.format = "MM/dd/YYYY";
 
             this._columnPipeArgs2 = columnPipeArgs2;
