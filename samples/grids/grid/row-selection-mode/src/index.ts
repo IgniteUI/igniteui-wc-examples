@@ -31,7 +31,7 @@ export class Sample {
     public get columnPipeArgs1(): IgcColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
+            var columnPipeArgs1 = new IgcColumnPipeArgs();
             columnPipeArgs1.currencyCode = "USD";
             columnPipeArgs1.digitsInfo = "1.2-2";
 
@@ -44,7 +44,7 @@ export class Sample {
     public get columnPipeArgs2(): IgcColumnPipeArgs {
         if (this._columnPipeArgs2 == null)
         {
-            var columnPipeArgs2: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
+            var columnPipeArgs2 = new IgcColumnPipeArgs();
             columnPipeArgs2.currencyCode = "USD";
             columnPipeArgs2.digitsInfo = "1.2-2";
 
@@ -57,7 +57,7 @@ export class Sample {
     public get columnPipeArgs3(): IgcColumnPipeArgs {
         if (this._columnPipeArgs3 == null)
         {
-            var columnPipeArgs3: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
+            var columnPipeArgs3 = new IgcColumnPipeArgs();
             columnPipeArgs3.currencyCode = "USD";
             columnPipeArgs3.digitsInfo = "1.2-2";
 
