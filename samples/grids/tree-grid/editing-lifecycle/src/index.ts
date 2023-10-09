@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-import { IgcRowSelectionEventArgs, IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcRowSelectionEventArgs, IgcGridComponent, IgcGridEditEventArgs, IgcGridEditDoneEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -64,7 +64,7 @@ export class Sample {
         container.appendChild(title);
     }
 
-    public webGridRowEditEnter(args: any): void {
+    public webGridRowEditEnter(args: CustomEvent<IgcGridEditEventArgs>): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.detail.rowID;
@@ -78,14 +78,14 @@ export class Sample {
         container.appendChild(message);
     }
 
-    public webGridRowEditDone(args: any): void {
+    public webGridRowEditDone(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditDone'`;
         container.appendChild(message);
     }
 
-    public webGridRowEditExit(args: any): void {
+    public webGridRowEditExit(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditExit'  << End of cycle >>`;
@@ -99,7 +99,7 @@ export class Sample {
         container.appendChild(message);
     }
 
-    public webGridCellEdit(args: any): void {
+    public webGridCellEdit(args: CustomEvent<IgcGridEditEventArgs>): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEdit' with 'newValue':` + args.detail.newValue, args.detail.cancel;
