@@ -972,7 +972,7 @@ function updateIG(cb) {
         { name: "igniteui-webcomponents-spreadsheet"              , version: "4.3.1" },
         { name: "igniteui-webcomponents-datasources"              , version: "4.3.1" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "4.5.0-beta.1"  },
+        { name: "igniteui-webcomponents", version: "4.5.0"  },
         { name: "igniteui-dockmanager", version: "1.14.2" },
         // other packages:
         { name: "webpack", version: "^5.74.0"  },
@@ -1057,5 +1057,3 @@ function updateIG(cb) {
     });
 
 } exports.updateIG = updateIG;
-
-
