@@ -1,5 +1,6 @@
 import { IgcDataLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryCoreModule, IgcDataChartCategoryModule, IgcDataChartInteractivityModule, IgcDataChartVerticalCategoryModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcDataLegendComponent, IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcBarSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcNumberFormatSpecifierComponent } from 'igniteui-webcomponents-core';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -22,6 +23,22 @@ export class Sample {
     private chart: IgcDataChartComponent
     private yAxis: IgcCategoryYAxisComponent
     private xAxis: IgcNumericXAxisComponent
+    private _numberFormatSpecifier1: IgcNumberFormatSpecifierComponent[] | null = null;
+    public get numberFormatSpecifier1(): IgcNumberFormatSpecifierComponent[] {
+        if (this._numberFormatSpecifier1 == null)
+        {
+            let numberFormatSpecifier1: IgcNumberFormatSpecifierComponent[] = [];
+            var numberFormatSpecifier2 = new IgcNumberFormatSpecifierComponent();
+            numberFormatSpecifier2.style = "currency";
+            numberFormatSpecifier2.currency = "USD";
+            numberFormatSpecifier2.currencyDisplay = "symbol";
+            numberFormatSpecifier2.minimumFractionDigits = 0;
+
+            numberFormatSpecifier1.push(numberFormatSpecifier2)
+            this._numberFormatSpecifier1 = numberFormatSpecifier1;
+        }
+        return this._numberFormatSpecifier1;
+    }
     private barSeries1: IgcBarSeriesComponent
     private barSeries2: IgcBarSeriesComponent
     private tooltips: IgcDataToolTipLayerComponent
@@ -39,6 +56,7 @@ export class Sample {
         this._bind = () => {
             legend.target = this.chart;
             yAxis.dataSource = this.highestGrossingMovies;
+            xAxis.labelFormatSpecifiers = this.numberFormatSpecifier1;
             barSeries1.xAxis = this.xAxis;
             barSeries1.yAxis = this.yAxis;
             barSeries1.dataSource = this.highestGrossingMovies;
