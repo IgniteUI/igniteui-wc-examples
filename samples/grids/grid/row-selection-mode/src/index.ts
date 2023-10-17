@@ -130,7 +130,7 @@ export class Sample {
             <igc-badge variant="danger" style="float: left;"><span>▼</span></igc-badge>
             <span style='color:red;float: right;'>${ctx.cell.value.toFixed(2)}</span>
             </div>`;
-        };
+        }
     }
 
 }
