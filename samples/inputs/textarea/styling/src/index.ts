@@ -4,7 +4,7 @@ import "./textarea.css";
 
 defineComponents(IgcIconComponent, IgcTextareaComponent);
 
-export class IgcTextareaStyling {
+export class TextareaStyling {
     constructor() {
         registerIconFromText(
             "feedback",
@@ -13,4 +13,4 @@ export class IgcTextareaStyling {
     }
 }
 
-new IgcTextareaStyling();
+new TextareaStyling();

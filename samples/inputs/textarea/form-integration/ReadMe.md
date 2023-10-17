@@ -1,7 +1,8 @@
 <!-- NOTE: do not change this file because it's auto re-generated from template: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/vnext/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Overview feature using [Textarea](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
+This folder contains implementation of Web Components application with example of Form Integration feature using [Textarea](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
+
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -31,7 +32,6 @@ cd ./samples/inputs/textarea/form-integration
 ```
 
 open above folder in VS Code or type:
-
 ```
 code .
 ```
@@ -44,6 +44,7 @@ npm run start
 ```
 
 Then open http://localhost:4200/ in your browser
+
 
 ## Learn More
 

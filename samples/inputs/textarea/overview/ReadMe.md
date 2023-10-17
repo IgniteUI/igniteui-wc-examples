@@ -3,6 +3,7 @@
 
 This folder contains implementation of Web Components application with example of Overview feature using [Textarea](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
 
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
         <a target="_blank" href="https://infragistics.com/webcomponentssite/components/general-getting-started.html" rel="noopener noreferrer">
@@ -31,7 +32,6 @@ cd ./samples/inputs/textarea/overview
 ```
 
 open above folder in VS Code or type:
-
 ```
 code .
 ```
@@ -44,6 +44,7 @@ npm run start
 ```
 
 Then open http://localhost:4200/ in your browser
+
 
 ## Learn More
 

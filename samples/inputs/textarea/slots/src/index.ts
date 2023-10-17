@@ -3,7 +3,7 @@ import "igniteui-webcomponents/themes/light/bootstrap.css";
 
 defineComponents(IgcIconComponent, IgcTextareaComponent);
 
-export class IgcTextareaSlot {
+export class TextareaSlots {
     constructor() {
         registerIconFromText(
             "feedback",
@@ -12,4 +12,4 @@ export class IgcTextareaSlot {
     }
 }
 
-new IgcTextareaSlot();
+new TextareaSlots();
