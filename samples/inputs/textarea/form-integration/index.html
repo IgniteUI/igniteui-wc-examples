@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Textarea Form Integration</title>
+        <meta charset="UTF-8" />
+
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+    </head>
+
+    <body>
+        <div id="root">
+            <div class="container sample center">
+                <form id="form">
+                    <igc-textarea rows="5" name="user_feedback" label="Your review" required></igc-textarea>
+                    <div class="controls">
+                        <igc-button type="submit">Submit review</igc-button>
+                        <igc-button type="reset" variant="outlined">Reset</igc-button>
+                    </div>
+                    <igc-toast id="submitted" position="top" display-time="1e3">Your review was submitted</igc-toast>
+                </form>
+            </div>
+        </div>
+        <!-- This script is needed only for parcel and it will be excluded for webpack -->
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
+</html>
