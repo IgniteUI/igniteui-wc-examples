@@ -3,6 +3,7 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { IgcGridKeydownEventArgs, GridKeydownTargetType } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -62,14 +63,14 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridCustomKBNav(evtArgs: any): void {
+    public webGridCustomKBNav(evtArgs: CustomEvent<IgcGridKeydownEventArgs>): void {
         const args = evtArgs.detail;
         const target = args.target;
         const evt = args.event;
         const type = args.targetType;
         var grid = this.grid as any;
 
-        if (type === 'dataCell' && target.editMode && evt.key.toLowerCase() === 'tab') {
+        if (type === GridKeydownTargetType.DataCell && target.editMode && evt.key.toLowerCase() === 'tab') {
             // Value validation for number column.
             // This covers both 'tab' and 'shift+tab' key interactions.
             args.event.preventDefault();
@@ -79,15 +80,15 @@ export class Sample {
                 return;
             }
             const cell = evt.shiftKey ?
-            grid.getPreviousCell(target.row.index, target.column.visibleIndex, (col) => col.editable) :
-            grid.getNextCell(target.row.index, target.column.visibleIndex, (col) => col.editable);
+            grid.getPreviousCell(target.row.index, target.column.visibleIndex, (col: any) => col.editable) :
+            grid.getNextCell(target.row.index, target.column.visibleIndex, (col: any) => col.editable);
 
             grid.navigateTo(cell.rowIndex, cell.visibleColumnIndex,
-                (obj) => { obj.target.activate(); });
-        } else if (type === 'dataCell' && evt.key.toLowerCase() === 'enter') {
+                (obj: any) => { obj.target.activate(); });
+        } else if (type === GridKeydownTargetType.DataCell && evt.key.toLowerCase() === 'enter') {
             // Perform column based kb navigation with 'enter' key press
             args.cancel = true;
-            grid.navigateTo(target.row.index + 1, target.column.visibleIndex, (obj) => {
+            grid.navigateTo(target.row.index + 1, target.column.visibleIndex, (obj: any) => {
                 obj.target.activate();
             });
         }
