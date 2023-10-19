@@ -55,7 +55,7 @@ export class Sample {
     }
 
     public toggleRowPin(index: number) {
-        var grid = document.getElementsByTagName("igc-grid")[0] as IgcGridComponent;
+        var grid = CodeGenHelper.getDescription<IgcGridComponent>("content");
         grid.getRowByIndex(index).pinned = !grid.getRowByIndex(index).pinned;
     }
 }
