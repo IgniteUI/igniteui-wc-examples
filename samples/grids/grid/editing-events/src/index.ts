@@ -2,6 +2,7 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { IgcGridEditEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -47,7 +48,7 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridEditingEventsCellEdit(args: any): void {
+    public webGridEditingEventsCellEdit(args: CustomEvent<IgcGridEditEventArgs>): void {
         var d = args.detail;
 
         if (d.column != null && d.column.field == "UnitsOnOrder") {

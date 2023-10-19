@@ -1,7 +1,7 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent, IgcActionStripComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcPinningConfig, RowPinningPosition, IgcActionStripComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -16,6 +16,17 @@ ModuleManager.register(
 export class Sample {
 
     private grid: IgcGridComponent
+    private _pinningConfig1: IgcPinningConfig | null = null;
+    public get pinningConfig1(): IgcPinningConfig {
+        if (this._pinningConfig1 == null)
+        {
+            var pinningConfig1: IgcPinningConfig = {} as IgcPinningConfig;
+            pinningConfig1.rows = RowPinningPosition.Top;
+
+            this._pinningConfig1 = pinningConfig1;
+        }
+        return this._pinningConfig1;
+    }
     private actionStrip: IgcActionStripComponent
     private productName: IgcColumnComponent
     private unitPrice: IgcColumnComponent
@@ -39,6 +50,7 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.nwindData;
+            grid.pinning = this.pinningConfig1;
         }
         this._bind();
 
