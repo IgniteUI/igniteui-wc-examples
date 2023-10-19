@@ -2,6 +2,7 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcDataLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataLegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcDataLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
+import { IgcNumberFormatSpecifier } from 'igniteui-webcomponents-core';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -18,6 +19,22 @@ export class Sample {
 
     private legend: IgcDataLegendComponent
     private chart: IgcCategoryChartComponent
+    private _numberFormatSpecifier1: IgcNumberFormatSpecifier[] | null = null;
+    public get numberFormatSpecifier1(): IgcNumberFormatSpecifier[] {
+        if (this._numberFormatSpecifier1 == null)
+        {
+            let numberFormatSpecifier1: IgcNumberFormatSpecifier[] = [];
+            var numberFormatSpecifier2 = new IgcNumberFormatSpecifier();
+            numberFormatSpecifier2.style = "currency";
+            numberFormatSpecifier2.currency = "USD";
+            numberFormatSpecifier2.currencyDisplay = "symbol";
+            numberFormatSpecifier2.minimumFractionDigits = 0;
+
+            numberFormatSpecifier1.push(numberFormatSpecifier2)
+            this._numberFormatSpecifier1 = numberFormatSpecifier1;
+        }
+        return this._numberFormatSpecifier1;
+    }
     private _bind: () => void;
 
     constructor() {
@@ -27,6 +44,7 @@ export class Sample {
         this._bind = () => {
             legend.target = this.chart;
             chart.dataSource = this.highestGrossingMovies;
+            chart.yAxisLabelFormatSpecifiers = this.numberFormatSpecifier1;
         }
         this._bind();
 
