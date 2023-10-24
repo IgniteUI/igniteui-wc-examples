@@ -58,12 +58,16 @@ export class Router {
     private displaySample(sample: any) {
         let tagName = sample.htmlTagName;
         this._targetEle.innerHTML = `<${tagName} class="sample-content"></${tagName}>`;
+        this._targetEle.addEventListener('wheel', this.preventDocumentScroll, { passive: false });
     }
 
     private public_url = "";
 
     public async navigateToRoute(route: string) {
         let navBarIsHidden: boolean = true;
+
+        // clear event listener before routing to a new sample
+        this._targetEle.removeEventListener('wheel', this.preventDocumentScroll);
 
         if (route.indexOf("/webcomponents-demos") === 0) {
             this.public_url = "/webcomponents-demos";
@@ -160,6 +164,12 @@ export class Router {
         //         this.navigateToRoute("");
         //         break;
         // }
+    }
+
+    private preventDocumentScroll(event:any) {
+        if (event.target.outerHTML.toLowerCase().includes('igx')) {
+            event.preventDefault();
+        }
     }
 
 }
