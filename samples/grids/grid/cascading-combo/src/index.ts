@@ -14,22 +14,22 @@ import "./index.css";
 
 export class Sample {
 
-    private grid1: IgcGridComponent
+    private grid: IgcGridComponent
     private column1: IgcColumnComponent
     private column2: IgcColumnComponent
     private column3: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
-        var grid1 = this.grid1 = document.getElementById('grid1') as IgcGridComponent;
+        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         this.webGridWithComboRendered = this.webGridWithComboRendered.bind(this);
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
         var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
         var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
 
         this._bind = () => {
-            grid1.data = this.worldCitiesAbove500K;
-            grid1.addEventListener("rendered", this.webGridWithComboRendered);
+            grid.data = this.worldCitiesAbove500K;
+            grid.addEventListener("rendered", this.webGridWithComboRendered);
             column1.bodyTemplate = this.webGridCountryDropDownTemplate;
             column2.bodyTemplate = this.webGridRegionDropDownTemplate;
             column3.bodyTemplate = this.webGridCityDropDownTemplate;
@@ -57,7 +57,7 @@ export class Sample {
     public regions = [...this.worldCitiesAbove500K].filter((value, index, array) => array.findIndex(x => x.Region === value.Region) === index);
     public cities = [...this.worldCitiesAbove500K].filter((value, index, array) => array.findIndex(x => x.Name === value.Name) === index);
     public webGridWithComboRendered(args:any): void {
-        const grid = CodeGenHelper.getDescription<IgcGridComponent>("content");
+        const grid = this.grid;
         grid.data = [
             {
               ID: 1,
