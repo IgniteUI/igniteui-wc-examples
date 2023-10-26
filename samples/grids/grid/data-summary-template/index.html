@@ -16,7 +16,7 @@
   <body>
     <div id="root">
 
-<div class="container sample">
+<div class="container sample ig-typography">
     <div class="options vertical">
         <igc-property-editor-panel
 
@@ -28,14 +28,16 @@
             <igc-property-editor-property-description
             property-path="SummaryRowHeight"
             label="Summary Row Height"
-            value-type="Number">
+            value-type="Number"
+            name="SummaryRowHeightEditor"
+            id="SummaryRowHeightEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             label="Toggle Summaries"
             value-type="Boolean1"
             primitive-value="True"
-            name="propertyEditorPropertyDescription1"
-            id="propertyEditorPropertyDescription1">
+            name="ToggleSummariesEditor"
+            id="ToggleSummariesEditor">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="DisplayDensity"
@@ -78,7 +80,9 @@
             data-type="number"
             editable="true"
             groupable="true"
-            has-summary="true">
+            has-summary="true"
+            name="column1"
+            id="column1">
             </igc-column>
             <igc-column
             field="Discontinued"
@@ -94,8 +98,8 @@
             data-type="date"
             groupable="true"
             has-summary="true"
-            name="column1"
-            id="column1">
+            name="column2"
+            id="column2">
             </igc-column>
         </igc-grid>
     </div>

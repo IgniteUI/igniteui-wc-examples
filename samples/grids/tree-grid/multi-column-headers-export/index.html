@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container fill">
+        <igc-tree-grid
+        auto-generate="false"
+        name="treeGrid"
+        id="treeGrid"
+        id="treeGrid"
+        foreign-key="ParentID"
+        primary-key="ID">
+            <igc-grid-toolbar
+            >
+                <igc-grid-toolbar-actions
+                >
+                    <igc-grid-toolbar-pinning
+                    >
+                    </igc-grid-toolbar-pinning>
+                    <igc-grid-toolbar-hiding
+                    >
+                    </igc-grid-toolbar-hiding>
+                    <igc-grid-toolbar-exporter
+                    export-csv="false"
+                    export-excel="true"
+                    name="gridToolbarExporter1"
+                    id="gridToolbarExporter1">
+                    </igc-grid-toolbar-exporter>
+                </igc-grid-toolbar-actions>
+            </igc-grid-toolbar>
+            <igc-column
+            field="ID"
+            header="ID"
+            resizable="true"
+            filterable="false">
+            </igc-column>
+            <igc-column
+            field="Name"
+            header="Name"
+            resizable="true"
+            sortable="true"
+            width="200px">
+            </igc-column>
+            <igc-column-group
+            header="General Information">
+                <igc-column
+                field="HireDate"
+                header="HireDate"
+                data-type="date"
+                resizable="true"
+                sortable="true">
+                </igc-column>
+                <igc-column-group
+                header="Personal Details">
+                    <igc-column
+                    header="Title"
+                    field="Title"
+                    resizable="true"
+                    sortable="true">
+                    </igc-column>
+                    <igc-column
+                    header="Age"
+                    field="Age"
+                    data-type="number"
+                    resizable="true"
+                    sortable="true">
+                    </igc-column>
+                </igc-column-group>
+            </igc-column-group>
+            <igc-column-group
+            header="Address Information">
+                <igc-column-group
+                header="Location">
+                    <igc-column
+                    header="Country"
+                    field="Country"
+                    resizable="true"
+                    sortable="true">
+                    </igc-column>
+                    <igc-column
+                    field="City"
+                    header="City"
+                    resizable="true"
+                    sortable="true">
+                    </igc-column>
+                    <igc-column
+                    header="Address"
+                    field="Address"
+                    resizable="true"
+                    sortable="true">
+                    </igc-column>
+                </igc-column-group>
+                <igc-column-group
+                header="Contact Information">
+                    <igc-column
+                    header="Phone"
+                    field="Phone"
+                    resizable="true"
+                    sortable="true">
+                    </igc-column>
+                    <igc-column
+                    header="Fax"
+                    field="Fax"
+                    resizable="true"
+                    sortable="true">
+                    </igc-column>
+                    <igc-column
+                    header="PostalCode"
+                    field="PostalCode"
+                    resizable="true"
+                    sortable="true">
+                    </igc-column>
+                </igc-column-group>
+            </igc-column-group>
+        </igc-tree-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
