@@ -2,7 +2,7 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule, WebGridToolbarDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcGridToolbarExporterComponent, IgcColumnComponent, IgcColumnGroupComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
-import { IgcExporterEventEventArgs } from 'igniteui-webcomponents-grids/grids';
+import { IgcExporterEvent } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -79,7 +79,7 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridExportEventMultiColumnHeaders(args: CustomEvent<IgcExporterEventEventArgs>): void {
+    public webGridExportEventMultiColumnHeaders(args: CustomEvent<IgcExporterEvent>): void {
         if (args.detail.options) {
             args.detail.options.ignoreMultiColumnHeaders = false;
         }
