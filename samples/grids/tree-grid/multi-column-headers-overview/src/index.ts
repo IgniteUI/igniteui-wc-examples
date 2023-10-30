@@ -4,7 +4,6 @@ import { ComponentRenderer, WebGridDescriptionModule, WebColumnGroupDescriptionM
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
-import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -30,16 +29,16 @@ export class Sample {
     constructor() {
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
         var propertyEditorPropertyDescription1 = this.propertyEditorPropertyDescription1 = document.getElementById('propertyEditorPropertyDescription1') as IgcPropertyEditorPropertyDescriptionComponent;
-        this.webGridPinFirstGroupToggle = this.webGridPinFirstGroupToggle.bind(this);
+        this.webTreeGridPinFirstGroupToggle = this.webTreeGridPinFirstGroupToggle.bind(this);
         var propertyEditorPropertyDescription2 = this.propertyEditorPropertyDescription2 = document.getElementById('propertyEditorPropertyDescription2') as IgcPropertyEditorPropertyDescriptionComponent;
-        this.webGridHideFirstGroupToggle = this.webGridHideFirstGroupToggle.bind(this);
+        this.webTreeGridHideFirstGroupToggle = this.webTreeGridHideFirstGroupToggle.bind(this);
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
 
         this._bind = () => {
             propertyEditor.componentRenderer = this.renderer;
-            propertyEditor.target = this.treegrid;
-            propertyEditorPropertyDescription1.buttonClicked = this.webGridPinFirstGroupToggle;
-            propertyEditorPropertyDescription2.buttonClicked = this.webGridHideFirstGroupToggle;
+            propertyEditor.target = this.treeGrid;
+            propertyEditorPropertyDescription1.buttonClicked = this.webTreeGridPinFirstGroupToggle;
+            propertyEditorPropertyDescription2.buttonClicked = this.webTreeGridHideFirstGroupToggle;
             treeGrid.data = this.employeesFlatDetails;
         }
         this._bind();
@@ -67,16 +66,16 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridPinFirstGroupToggle(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
-        const grid: IgcGridComponent = this.treeGrid
-        const firstColumnGroup = grid.getColumnByName("CompanyName").parent;
+    public webTreeGridPinFirstGroupToggle(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
+        const grid: IgcTreeGridComponent = this.treeGrid;
+        const firstColumnGroup = grid.getColumnByName("HireDate").parent;
         firstColumnGroup.pinned = !firstColumnGroup.pinned;
         grid.markForCheck();
     }
 
-    public webGridHideFirstGroupToggle(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
-        const grid: IgcGridComponent = this.treeGrid;
-        const firstColumnGroup = grid.getColumnByName("CompanyName").parent;
+    public webTreeGridHideFirstGroupToggle(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
+        const grid: IgcTreeGridComponent = this.treeGrid;
+        const firstColumnGroup = grid.getColumnByName("HireDate").parent;
         firstColumnGroup.hidden = !firstColumnGroup.hidden;
         grid.markForCheck();
     }
