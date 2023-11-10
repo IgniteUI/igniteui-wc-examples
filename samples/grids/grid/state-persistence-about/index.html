@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="./about.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div style="padding: 0.5rem">
+        <div style="text-align: center; width: 900px">
+            <br />
+            <span>Navigating to the previous page, components will reinitialize as per their initial configuration, therefore the igxGrid will lose its state.</span>
+            <br />
+            <span>What our GridSaveStateComponent does is reading the state from the window.localStorage object and applying the corresponding state in the AfterViewInit lifecycle.</span><br />
+            <igc-button id="backBtn" variant="contained">Go Back</igc-button>
+        </div>
+      
+        </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
