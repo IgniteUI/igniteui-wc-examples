@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    <style>
+      .horizontal {
+          gap: 10px;
+          flex-basis: fit-content;
+          flex-wrap: wrap;
+      }
+      .sampleContainer {
+        padding: 0.5rem
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="sampleContainer">
+          <div class="container horizontal">
+            <igc-button id="restoreState" variant="contained">
+              <igc-icon name="restore" collection="material"></igc-icon>
+              Restore
+            </igc-button>
+            <igc-button id="saveState" variant="contained">
+              <igc-icon name="save" collection="material"></igc-icon>
+              Save
+            </igc-button>
+            <igc-button id="resetState" variant="contained">
+              <igc-icon name="clear" collection="material"></igc-icon>
+              Reset
+            </igc-button>
+            <igc-button id="leavePage" variant="contained">
+              <igc-icon name="forward" collection="material"></igc-icon>
+              Leave
+            </igc-button>
+            <igc-button id="clearStorage" variant="contained">
+              <igc-icon name="delete" collection="material"></igc-icon>
+              Clear
+            </igc-button>
+            <igc-button id="reloadPage" variant="contained">
+              <igc-icon name="refresh" collection="material"></igc-icon>
+              Reload
+            </igc-button>
+          </div>
+
+          <div class="container horizontal">
+            <ul>
+                <li>Clicking the SAVE button or leaving the page <a id="leaveLink" href="./about.html"><strong>here</strong></a> will save grid state to localStorage.</li>
+                <li>Use the control buttons to SAVE / RESTORE / RESET / DELETE / grid state or LEAVE the page.</li>
+                <li>Select/Deselect checkboxes to control saving / restoring feature state.</li>
+            </ul>
+          </div>
+
+          <div class="container horizontal">
+            <igc-checkbox id="allFeatures" checked>All Features</igc-checkbox>
+            <igc-checkbox id="advancedFiltering" checked>Adv. Filtering</igc-checkbox>
+            <igc-checkbox id="cellSelection" checked>Cell Selection</igc-checkbox>
+            <igc-checkbox id="columns" checked>Columns</igc-checkbox>
+            <igc-checkbox id="columnSelection" checked>Col Selection</igc-checkbox>
+            <igc-checkbox id="expansion" checked>Expansion</igc-checkbox>
+            <igc-checkbox id="filtering" checked>Filtering</igc-checkbox>
+            <igc-checkbox id="paging" checked>Paging</igc-checkbox>
+            <igc-checkbox id="rowPinning" checked>Row Pinning</igc-checkbox>
+            <igc-checkbox id="rowSelection" checked>Row Selection</igc-checkbox>
+            <igc-checkbox id="sorting" checked>Sorting</igc-checkbox>
+            <igc-checkbox id="groupBy" checked>GroupBy</igc-checkbox>
+          </div>
+
+          <igc-grid id="grid" name="grid" primary-key="ID" width="98%" height="500px" auto-generate="false" moving="true" allow-filtering="true">
+            <igc-grid-state id="gridState"></igc-grid-state>
+            <igc-grid-toolbar>
+              <igc-grid-toolbar-actions>
+                <igc-grid-toolbar-hiding></igc-grid-toolbar-hiding>
+                <igc-grid-toolbar-pinning></igc-grid-toolbar-pinning>
+            </igc-grid-toolbar-actions>
+            </igc-grid-toolbar>
+            <igc-action-strip>
+              <igc-grid-pinning-actions>
+              </igc-grid-pinning-actions>
+            </igc-action-strip>
+            <igc-paginator></igc-paginator>
+
+            <igc-column field="ID" header="ID" sortable="true" filterable="true" pinned="true"></igc-column>
+            <igc-column field="ContactName" header="Contact Name" sortable="true" filterable="true" pinned="true"></igc-column>
+            <igc-column field="ContactTitle" header="Contact Title" sortable="true" filterable="true" pinned="true"></igc-column>
+            <igc-column field="CompanyName" header="Company Name" sortable="true" filterable="true"></igc-column>
+            <igc-column field="Country" header="Country" sortable="true" filterable="true" groupable="true"></igc-column>
+            <igc-column field="City" header="City" sortable="true" filterable="true" groupable="true"></igc-column>
+            <igc-column field="Address" header="Address" sortable="true" filterable="true"  groupable="true" ></igc-column>
+            <igc-column field="PostalCode" header="Postal Code" sortable="true" filterable="true" groupable="true"></igc-column>
+          </igc-grid>
+        </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
