@@ -32,11 +32,10 @@ module.exports = env => {
             path.resolve(__dirname, 'node_modules/@webcomponents/custom-elements'),
             path.resolve(__dirname, 'node_modules/@webcomponents/template'),
             path.resolve(__dirname, 'src')
-        ] : { main: path.resolve(__dirname, 'src/index.ts'), about: path.resolve(__dirname, 'src/about/about.ts')},
+        ] : path.resolve(__dirname, 'src'),
         devtool: isProd ? false : 'source-map',
         output: {
             filename: '[name].[fullhash].bundle.js',
-            chunkFilename: '[id].bundle_[chunkhash].js',
             globalObject: 'this',
             path: path.resolve(__dirname, 'dist'),
         },
@@ -98,15 +97,7 @@ module.exports = env => {
             }),
             new HtmlWebpackPlugin({
                 title: 'index-cs',
-                filename: 'index.html',
                 template: 'index.html',
-                chunks: ['main']
-            }),
-            new HtmlWebpackPlugin({
-                title: 'about-cs',
-                filename: 'about.html',
-                template: 'about.html',
-                chunks: ['about']
             }),
             new ForkTsCheckerWebpackPlugin()
         ]

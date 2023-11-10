@@ -119,7 +119,7 @@ export class Sample {
 
     public leavePage() {
         this.saveGridState();
-        window.location.replace("./about.html");
+        window.location.replace("./grids/grid/state-persistence-about");
     }
 
     public clearStorage() {
