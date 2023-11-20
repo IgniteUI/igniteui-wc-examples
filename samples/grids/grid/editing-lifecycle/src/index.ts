@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-import { IgcRowSelectionEventArgs } from 'igniteui-webcomponents-grids/grids';
+import { IgcRowSelectionEventArgs, IgcGridEditEventArgs, IgcGridEditDoneEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -64,56 +64,56 @@ export class Sample {
         container.appendChild(title);
     }
 
-    public webGridRowEditEnter(args: any): void {
+    public webGridRowEditEnter(args: CustomEvent<IgcGridEditEventArgs>): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.detail.rowID;
         container.appendChild(message);
     }
 
-    public webGridRowEdit(args: any): void {
+    public webGridRowEdit(args: CustomEvent<IgcGridEditEventArgs>): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEdit'`;
         container.appendChild(message);
     }
 
-    public webGridRowEditDone(args: any): void {
+    public webGridRowEditDone(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditDone'`;
         container.appendChild(message);
     }
 
-    public webGridRowEditExit(args: any): void {
+    public webGridRowEditExit(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditExit'  << End of cycle >>`;
         container.appendChild(message);
     }
 
-    public webGridCellEditEnter(args: any): void {
+    public webGridCellEditEnter(args: CustomEvent<IgcGridEditEventArgs>): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditEnter' with 'value':` + args.detail.oldValue, args.detail.cancel;
         container.appendChild(message);
     }
 
-    public webGridCellEdit(args: any): void {
+    public webGridCellEdit(args: CustomEvent<IgcGridEditEventArgs>): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEdit' with 'newValue':` + args.detail.newValue, args.detail.cancel;
         container.appendChild(message);
     }
 
-    public webGridCellEditDone(args: any): void {
+    public webGridCellEditDone(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditDone'`;
         container.appendChild(message);
     }
 
-    public webGridCellEditExit(args: any): void {
+    public webGridCellEditExit(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditExit'`;

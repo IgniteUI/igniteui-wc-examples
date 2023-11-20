@@ -2,7 +2,7 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { AthletesDataItem, AthletesData } from './AthletesData';
-import { IgcRowSelectionEventArgs, IgcExporterOptionsBase } from 'igniteui-webcomponents-grids/grids';
+import { IgcExporterOptionsBase, IgcGridToolbarExportEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -44,14 +44,15 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridToolbarExporting(evt:any): void {
+    public webGridToolbarExporting(evt: CustomEvent<IgcGridToolbarExportEventArgs>): void {
         const args = evt.detail;
         const options: IgcExporterOptionsBase = args.options;
-
-        options.fileName = `Report_${new Date().toDateString()}`;
-        (args.exporter as any).columnExporting.subscribe((columnArgs: any) => {
-                columnArgs.cancel = columnArgs.header === 'Athlete' || columnArgs.header === 'Country';
-        });
+        if (options) {
+            options.fileName = `Report_${new Date().toDateString()}`;
+            (args.exporter as any).columnExporting.subscribe((columnArgs: any) => {
+                    columnArgs.cancel = columnArgs.header === 'Athlete' || columnArgs.header === 'Country';
+            });
+        }
     }
 
 }
