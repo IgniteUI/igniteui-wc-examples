@@ -30,8 +30,8 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.athletesData;
-            column1.bodyTemplate = this.webGridBeatsPerMinuteTemplate;
-            column2.bodyTemplate = this.webGridTopSpeedTemplate;
+            column1.cellClasses = this.webGridBeatsPerMinuteCellClassesHandler;
+            column2.cellClasses = this.webGridTopSpeedCellClassesHandler;
             column3.bodyTemplate = this.webGridImageCellTemplate;
         }
         this._bind();
@@ -48,23 +48,14 @@ export class Sample {
     }
 
 
-    public webGridBeatsPerMinuteTemplate = (ctx: IgcCellTemplateContext) => {
-        if (ctx.cell.value > 95) {
-            return html`<div><span style="color: red;">${ctx.cell.value}</span></div>`;
-        }
-        else {
-            return html`<div><span style="color: green;">${ctx.cell.value}</span></div>`;
-        }
+    public webGridBeatsPerMinuteCellClassesHandler = {
+        upFont: (rowData: any, columnKey: any): boolean => rowData[columnKey] > 95,
+        downFont: (rowData: any, columnKey: any): boolean => rowData[columnKey] <= 95
     }
 
-    public webGridTopSpeedTemplate = (ctx: IgcCellTemplateContext) => {
-        if (ctx.cell.value < 5) {
-            return html`<div><span style="color: royalblue;">${ctx.cell.value}</span></div>`;
-        }
-        else {
-            return html`<div><span>${ctx.cell.value}</span></div>`;
-        }
-    };
+    public webGridTopSpeedCellClassesHandler = {
+        topSpeed: (rowData: any, columnKey: any): boolean => rowData[columnKey] < 5
+    }
 
     public webGridImageCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>
