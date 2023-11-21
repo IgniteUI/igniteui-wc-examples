@@ -10,6 +10,8 @@ import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
 
+import "./index.css";
+
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
     IgcCategoryChartModule
@@ -31,7 +33,6 @@ export class Sample {
             propertyEditor.componentRenderer = this.renderer;
             propertyEditor.target = this.chart;
             chart.dataSource = this.temperatureAnnotatedData;
-            chart.calloutsDataSource = this.temperatureAnnotatedData;
         }
         this._bind();
 

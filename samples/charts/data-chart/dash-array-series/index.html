@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+
+    <div class="legend-title">
+        Renewable Electricity Generated
+    </div>
+
+    <div class="legend">
+        <igc-legend
+        name="Legend"
+        id="Legend"
+        orientation="Horizontal">
+        </igc-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        name="chart"
+        id="chart"
+        computed-plot-area-margin-mode="Series">
+            <igc-category-x-axis
+            name="xAxis"
+            id="xAxis"
+            label="year">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis
+            name="yAxis"
+            id="yAxis">
+            </igc-numeric-y-axis>
+            <igc-line-series
+            name="LineSeries1"
+            id="LineSeries1"
+            title="Europe"
+            marker-type="Circle"
+            value-member-path="europe"
+            show-default-tooltip="true"
+            dash-array="2, 2">
+            </igc-line-series>
+            <igc-line-series
+            name="LineSeries2"
+            id="LineSeries2"
+            title="China"
+            marker-type="Circle"
+            value-member-path="china"
+            show-default-tooltip="true"
+            dash-array="5, 5">
+            </igc-line-series>
+            <igc-line-series
+            name="LineSeries3"
+            id="LineSeries3"
+            title="America"
+            marker-type="Circle"
+            value-member-path="america"
+            show-default-tooltip="true"
+            dash-array="10, 10">
+            </igc-line-series>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

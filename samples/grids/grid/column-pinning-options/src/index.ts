@@ -6,6 +6,8 @@ import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
+import "./index.css";
+
 export class Sample {
 
     private grid: IgcGridComponent
@@ -62,13 +64,13 @@ export class Sample {
 
         const column = (ctx as any).column;
         return html`<div>
-                     <span style="float:left">${column.header}</span>
+                     <span style="float:left">${column.field}</span>
                      <span style="float:right" @pointerdown=${(e: any) => this.toggleColumnPin(column.field)}>📌</span>
                    </div>`;
         };
 
     public toggleColumnPin(field: string) {
-        var grid = document.getElementsByTagName("igc-grid")[0] as IgcGridComponent;
+        var grid: IgcGridComponent = this.grid;
         var col = grid.getColumnByName(field);
         col.pinned = !col.pinned;
         grid.markForCheck();

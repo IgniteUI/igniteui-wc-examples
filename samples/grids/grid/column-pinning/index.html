@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        name="grid"
+        id="grid">
+            <igc-grid-toolbar
+            >
+                <igc-grid-toolbar-title
+                >
+                </igc-grid-toolbar-title>
+                <igc-grid-toolbar-actions
+                >
+                    <igc-grid-toolbar-pinning
+                    >
+                    </igc-grid-toolbar-pinning>
+                </igc-grid-toolbar-actions>
+            </igc-grid-toolbar>
+            <igc-column
+            field="ID"
+            header="ID"
+            hidden="true">
+            </igc-column>
+            <igc-column
+            field="CompanyName"
+            header="Company Name"
+            width="300px">
+            </igc-column>
+            <igc-column
+            field="ContactName"
+            header="Contact Name"
+            width="200px"
+            pinned="true">
+            </igc-column>
+            <igc-column
+            field="ContactTitle"
+            header="Contact Title"
+            width="200px"
+            pinned="true">
+            </igc-column>
+            <igc-column
+            field="Address"
+            header="Address"
+            width="300px">
+            </igc-column>
+            <igc-column
+            field="City"
+            header="City"
+            width="120px">
+            </igc-column>
+            <igc-column
+            field="Region"
+            header="Region"
+            width="120px">
+            </igc-column>
+            <igc-column
+            field="PostalCode"
+            header="Postal Code"
+            width="150px">
+            </igc-column>
+            <igc-column
+            field="Phone"
+            header="Phone"
+            width="150px">
+            </igc-column>
+            <igc-column
+            field="Fax"
+            header="Fax"
+            width="150px">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
