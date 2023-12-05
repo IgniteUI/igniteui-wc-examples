@@ -63,7 +63,6 @@ export class Sample {
                 // all selected from header, de-select instead
                 event.newSelection = [];
         }
-        grid.markForCheck();
     }
 
 }
