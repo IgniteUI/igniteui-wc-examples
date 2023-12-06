@@ -21,27 +21,39 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        name="grid"
-        id="grid"
-        id="grid"
-        row-editable="true"
-        primary-key="ID"
-        foreign-key="ParentID">
+        name="treeGrid"
+        id="treeGrid"
+        id="treeGrid"
+        child-data-key="Employees"
+        row-selection="multiple"
+        moving="true"
+        allow-filtering="true">
+            <igc-paginator
+            per-page="15">
+            </igc-paginator>
             <igc-column
             field="Name"
+            header="Name"
             data-type="string"
-            editable="true">
+            sortable="true"
+            editable="true"
+            resizable="true">
             </igc-column>
             <igc-column
-            field="Title"
-            header="Job Title"
-            data-type="string"
-            editable="true">
+            field="HireDate"
+            header="Hire Date"
+            data-type="date"
+            sortable="true"
+            editable="true"
+            resizable="true">
             </igc-column>
             <igc-column
             field="Age"
+            header="Age"
             data-type="number"
-            editable="true">
+            sortable="true"
+            editable="true"
+            resizable="true">
             </igc-column>
         </igc-tree-grid>
     </div>

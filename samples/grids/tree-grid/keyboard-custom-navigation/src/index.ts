@@ -1,9 +1,9 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-import { IgcGridKeydownEventArgs, GridKeydownTargetType } from 'igniteui-webcomponents-grids/grids';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
+import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
+import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
+import { IgcGridComponent, IgcGridKeydownEventArgs, GridKeydownTargetType } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -16,40 +16,28 @@ ModuleManager.register(
 
 export class Sample {
 
-    private grid: IgcGridComponent
-    private productID: IgcColumnComponent
-    private reorderLevel: IgcColumnComponent
-    private productName: IgcColumnComponent
-    private unitsInStock: IgcColumnComponent
-    private orderDate: IgcColumnComponent
-    private discontinued: IgcColumnComponent
+    private treeGrid: IgcTreeGridComponent
     private _bind: () => void;
 
     constructor() {
-        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
+        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
         this.webGridCustomKBNav = this.webGridCustomKBNav.bind(this);
-        var productID = this.productID = document.getElementById('ProductID') as IgcColumnComponent;
-        var reorderLevel = this.reorderLevel = document.getElementById('ReorderLevel') as IgcColumnComponent;
-        var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
-        var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
-        var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
-        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.nwindData;
-            grid.addEventListener("gridKeydown", this.webGridCustomKBNav);
+            treeGrid.data = this.employeesNestedData;
+            treeGrid.addEventListener("gridKeydown", this.webGridCustomKBNav);
         }
         this._bind();
 
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
+    private _employeesNestedData: EmployeesNestedData = null;
+    public get employeesNestedData(): EmployeesNestedData {
+        if (this._employeesNestedData == null)
         {
-            this._nwindData = new NwindData();
+            this._employeesNestedData = new EmployeesNestedData();
         }
-        return this._nwindData;
+        return this._employeesNestedData;
     }
 
     private _componentRenderer: ComponentRenderer = null;
@@ -58,7 +46,7 @@ export class Sample {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
-            WebGridDescriptionModule.register(context);
+            WebTreeGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
     }
@@ -68,7 +56,7 @@ export class Sample {
         const target = args.target;
         const evt = args.event;
         const type = args.targetType;
-        var grid = this.grid as any;
+        var grid = this.treeGrid as any;
 
         if (type === "dataCell" && target.editMode && evt.key.toLowerCase() === 'tab') {
             // Value validation for number column.

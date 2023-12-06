@@ -21,27 +21,57 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
+        id="grid"
         name="grid"
         id="grid"
-        id="grid"
-        row-editable="true"
         primary-key="ID"
         foreign-key="ParentID">
             <igc-column
+            field="ID"
+            header="Order ID"
+            groupable="true"
+            sortable="true">
+            </igc-column>
+            <igc-column
             field="Name"
+            header="Name"
             data-type="string"
-            editable="true">
+            groupable="true"
+            sortable="true">
             </igc-column>
             <igc-column
-            field="Title"
-            header="Job Title"
+            field="Category"
+            header="Category"
             data-type="string"
-            editable="true">
+            groupable="true"
+            sortable="true">
             </igc-column>
             <igc-column
-            field="Age"
+            field="OrderDate"
+            header="Order Date"
+            data-type="date"
+            groupable="true"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Price"
+            data-type="currency"
+            groupable="true"
+            sortable="true"
+            name="column1"
+            id="column1">
+            </igc-column>
+            <igc-column
+            field="Units"
+            header="Units"
             data-type="number"
-            editable="true">
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Delivered"
+            header="Units"
+            data-type="boolean"
+            sortable="true">
             </igc-column>
         </igc-tree-grid>
     </div>
