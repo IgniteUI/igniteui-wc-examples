@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 import { IgcRowSelectionEventArgs, IgcGridComponent, IgcGridEditEventArgs, IgcGridEditDoneEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -25,7 +25,7 @@ export class Sample {
         this.webGridCellEditExit = this.webGridCellEditExit.bind(this);
 
         this._bind = () => {
-            grid.data = this.nwindData;
+            grid.data = this.employeesFlatData;
             grid.addEventListener("rendered", this.webTreeGridRendered);
             grid.addEventListener("rowEditEnter", this.webGridRowEditEnter);
             grid.addEventListener("rowEdit", this.webGridRowEdit);
@@ -40,13 +40,13 @@ export class Sample {
 
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
+    private _employeesFlatData: EmployeesFlatData = null;
+    public get employeesFlatData(): EmployeesFlatData {
+        if (this._employeesFlatData == null)
         {
-            this._nwindData = new NwindData();
+            this._employeesFlatData = new EmployeesFlatData();
         }
-        return this._nwindData;
+        return this._employeesFlatData;
     }
 
 
