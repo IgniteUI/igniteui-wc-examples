@@ -1,5 +1,6 @@
 import { defineComponents, IgcChipComponent, IgcIconComponent, registerIconFromText } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import './ChipSize.css';
 
 defineComponents(IgcIconComponent, IgcChipComponent);
 

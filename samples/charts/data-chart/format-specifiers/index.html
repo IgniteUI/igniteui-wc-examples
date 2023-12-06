@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+
+    <div class="legend-title">
+        Highest Grossing Movie Franchises
+    </div>
+
+    <div class="legend">
+        <igc-data-legend
+        name="Legend"
+        id="Legend"
+        value-format-mode="Currency"
+        value-format-string="${0} Billion">
+        </igc-data-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        name="chart"
+        id="chart">
+            <igc-category-y-axis
+            name="yAxis"
+            id="yAxis"
+            label="franchise"
+            use-enhanced-interval-management="true"
+            enhanced-interval-prefer-more-category-labels="true"
+            is-inverted="true"
+            gap="0.5"
+            overlap="-0.1">
+            </igc-category-y-axis>
+            <igc-numeric-x-axis
+            name="xAxis"
+            id="xAxis"
+            title="Billions of U.S. Dollars"
+            label-format="{0}B"
+            abbreviate-large-numbers="false">
+            </igc-numeric-x-axis>
+            <igc-bar-series
+            name="BarSeries1"
+            id="BarSeries1"
+            title="Total Revenue of Franchise"
+            value-member-path="totalRevenue"
+            show-default-tooltip="true">
+            </igc-bar-series>
+            <igc-bar-series
+            name="BarSeries2"
+            id="BarSeries2"
+            title="Highest Grossing Movie in Series"
+            value-member-path="highestGrossing"
+            show-default-tooltip="true">
+            </igc-bar-series>
+            <igc-data-tool-tip-layer
+            name="Tooltips"
+            id="Tooltips"
+            value-format-mode="Currency"
+            value-format-string="${0} Billion">
+            </igc-data-tool-tip-layer>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
