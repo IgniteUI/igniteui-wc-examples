@@ -73,6 +73,9 @@ export class Sample {
             allCheckboxes.forEach(cb => {
                 cb.addEventListener("igcChange", (ev: CustomEvent) => { this.onChange(ev, cb.id); });
             });
+
+            window.addEventListener("load", () => { this.restoreGridState(); })
+            window.addEventListener("beforeunload", () => { this.saveGridState(); });
         }
         this._bind();
     }
