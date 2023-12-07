@@ -78,18 +78,14 @@ export class Sample {
     }
 
     public saveGridState() {
-        const state = this.gridState.getState(true);
-        if (typeof state === 'string') {
-            window.localStorage.setItem(this.stateKey, state);
-        } else {
-            window.localStorage.setItem(this.stateKey, JSON.stringify(state));
-        }
+        const state = this.gridState.getStateAsString();
+        window.localStorage.setItem(this.stateKey, state);
     }
 
     public restoreGridState() {
         const state = window.localStorage.getItem(this.stateKey);
         if (state) {
-            this.gridState.applyState(JSON.parse(state));
+            this.gridState.applyStateFromString(state);
         }
     }
 
