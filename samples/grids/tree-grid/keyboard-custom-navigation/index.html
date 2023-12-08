@@ -27,39 +27,17 @@
         child-data-key="Employees"
         row-selection="multiple"
         moving="true"
-        allow-filtering="true"
-        filter-mode="excelStyleFilter">
+        allow-filtering="true">
             <igc-paginator
-            >
+            per-page="15">
             </igc-paginator>
-            <igc-grid-toolbar
-            >
-                <igc-grid-toolbar-title
-                name="Employees"
-                id="Employees">
-                </igc-grid-toolbar-title>
-                <igc-grid-toolbar-actions
-                >
-                    <igc-grid-toolbar-hiding
-                    >
-                    </igc-grid-toolbar-hiding>
-                    <igc-grid-toolbar-pinning
-                    >
-                    </igc-grid-toolbar-pinning>
-                    <igc-grid-toolbar-exporter
-                    export-csv="true"
-                    export-excel="true">
-                    </igc-grid-toolbar-exporter>
-                </igc-grid-toolbar-actions>
-            </igc-grid-toolbar>
             <igc-column
             field="Name"
             header="Name"
             data-type="string"
             sortable="true"
             editable="true"
-            resizable="true"
-            has-summary="true">
+            resizable="true">
             </igc-column>
             <igc-column
             field="HireDate"
