@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+    <div class="options vertical">
+        <igc-property-editor-panel
+        name="PropertyEditor"
+        id="PropertyEditor"
+        description-type="WebGrid"
+        is-horizontal="true"
+        is-wrapping-enabled="true">
+            <igc-property-editor-property-description
+            property-path="SortingOptions"
+            name="SortingOptionsEditor"
+            id="SortingOptionsEditor">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            value-type="Button"
+            primitive-value="Clear Sorting"
+            name="propertyEditorPropertyDescription1"
+            id="propertyEditorPropertyDescription1">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+
+    <div class="container fill">
+        <igc-tree-grid
+        auto-generate="false"
+        name="grid"
+        id="grid"
+        primary-key="ID"
+        foreign-key="ParentID">
+            <igc-column
+            field="ID"
+            header="Order ID"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Name"
+            header="Name"
+            data-type="string"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Category"
+            header="Category"
+            data-type="string"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="OrderDate"
+            header="Order Date"
+            data-type="date"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Price"
+            data-type="currency"
+            sortable="true"
+            name="column1"
+            id="column1">
+            </igc-column>
+            <igc-column
+            field="Units"
+            header="Units"
+            data-type="number"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Delivered"
+            header="Units"
+            data-type="boolean"
+            sortable="true">
+            </igc-column>
+        </igc-tree-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
