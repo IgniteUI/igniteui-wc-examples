@@ -61,6 +61,8 @@ export class Sample {
             grid.data = this.gridData;
             grid.allowAdvancedFiltering = true;
             grid.filterMode = 'excelStyleFilter';
+            grid.columnSelection = 'multiple';
+            grid.rowSelection = 'multiple';
 
             saveStateBtn.addEventListener('click', (ev: any) => { this.saveGridState(); });
             restoreStateBtn.addEventListener('click', (ev: any) => { this.restoreGridState(); });
