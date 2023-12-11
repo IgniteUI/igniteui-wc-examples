@@ -110,11 +110,11 @@ export class Sample {
                 cb.checked = event.detail;
             });
             for (const key of Object.keys(this.options)) {
-                this.gridState.options[key] = event.detail;
+                (this.gridState.options as any)[key] = event.detail;
             }
             return;
         }
-        this.gridState.options[action] = event.detail;
+        (this.gridState.options as any)[action] = event.detail;
     }
 
     public leavePage() {
