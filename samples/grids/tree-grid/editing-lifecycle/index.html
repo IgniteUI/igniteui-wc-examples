@@ -25,21 +25,23 @@
         id="grid"
         id="grid"
         row-editable="true"
-        primary-key="ProductID">
+        primary-key="ID"
+        foreign-key="ParentID">
             <igc-column
-            field="ProductName"
-            header="Product Name">
+            field="Name"
+            data-type="string"
+            editable="true">
             </igc-column>
             <igc-column
-            field="UnitPrice"
-            header="Unit Price">
+            field="Title"
+            header="Job Title"
+            data-type="string"
+            editable="true">
             </igc-column>
             <igc-column
-            field="UnitsInStock"
-            header="Units In Stock">
-            </igc-column>
-            <igc-column
-            field="Ordered">
+            field="Age"
+            data-type="number"
+            editable="true">
             </igc-column>
         </igc-tree-grid>
     </div>
