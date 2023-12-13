@@ -153,7 +153,7 @@ export class Sample {
             res.push(ItemAction.Filterable);
         }
 
-        if (col.collapsible) {
+        if ((col as IgcColumnGroupComponent).collapsible) {
             res.push(ItemAction.Collapsible);
         }
 
