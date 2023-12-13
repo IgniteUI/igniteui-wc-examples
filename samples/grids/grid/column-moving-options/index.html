@@ -16,7 +16,7 @@
   <body>
     <div id="root">
 
-<div class="container sample">
+<div class="container sample ig-typography">
 
     <div class="container fill">
         <igc-grid
@@ -26,6 +26,7 @@
         name="grid"
         id="grid">
             <igc-column
+            header="Category"
             field="Category"
             pinned="true"
             width="200px"
@@ -33,36 +34,42 @@
             id="column1">
             </igc-column>
             <igc-column
+            header="Type"
             field="Type"
             pinned="true"
             name="column2"
             id="column2">
             </igc-column>
             <igc-column
+            header="Price"
             field="Price"
             data-type="currency"
             name="column3"
             id="column3">
             </igc-column>
             <igc-column
+            header="Buy"
             field="Buy"
             data-type="currency"
             name="column4"
             id="column4">
             </igc-column>
             <igc-column
+            header="Sell"
             field="Sell"
             data-type="currency"
             name="column5"
             id="column5">
             </igc-column>
             <igc-column
+            header="Spread"
             field="Spread"
             name="column6"
             id="column6">
             </igc-column>
             <igc-column
             field="Change"
+            header="Change"
             name="column7"
             id="column7">
             </igc-column>
@@ -70,6 +77,7 @@
             field="ChangePercent"
             header="Change Percent"
             data-type="number"
+            width="150px"
             name="column8"
             id="column8">
             </igc-column>
@@ -77,6 +85,7 @@
             field="AnnualChange"
             header="Annual Change"
             data-type="number"
+            width="150px"
             name="column9"
             id="column9">
             </igc-column>

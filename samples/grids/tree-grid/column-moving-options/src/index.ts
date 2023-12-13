@@ -7,6 +7,8 @@ import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
+import "./index.css";
+
 export class Sample {
 
     private treeGrid: IgcTreeGridComponent
@@ -84,7 +86,7 @@ export class Sample {
         };
 
     public toggleColumnPin(field: string) {
-        var grid = document.getElementsByTagName("igc-tree-grid")[0] as IgcTreeGridComponent;
+        var grid = this.treeGrid;
         var col = grid.getColumnByName(field);
         col.pinned = !col.pinned;
         grid.markForCheck();

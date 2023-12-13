@@ -1,25 +1,30 @@
-import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
+import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
+import { IgcGridComponent, IgcSortingExpression, SortingDirection, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { ProductSalesItem, ProductSales } from './ProductSales';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-defineAllComponents();
 
-ModuleManager.register(
-    IgcPropertyEditorPanelModule
-);
+import "./index.css";
 
 export class Sample {
 
-    private propertyEditor: IgcPropertyEditorPanelComponent
-    private sortingOptionsEditor: IgcPropertyEditorPropertyDescriptionComponent
     private grid: IgcGridComponent
+    private _sortingExpression1: IgcSortingExpression[] | null = null;
+    public get sortingExpression1(): IgcSortingExpression[] {
+        if (this._sortingExpression1 == null)
+        {
+            let sortingExpression1: IgcSortingExpression[] = [];
+            var sortingExpression2: IgcSortingExpression = {} as IgcSortingExpression;
+            sortingExpression2.fieldName = "CategoryName";
+            sortingExpression2.dir = SortingDirection.Asc;
+            sortingExpression2.ignoreCase = true;
+
+            sortingExpression1.push(sortingExpression2)
+            this._sortingExpression1 = sortingExpression1;
+        }
+        return this._sortingExpression1;
+    }
     private column1: IgcColumnComponent
     private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgcColumnPipeArgs {
@@ -36,15 +41,12 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var sortingOptionsEditor = this.sortingOptionsEditor = document.getElementById('SortingOptionsEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer;
-            propertyEditor.target = this.grid;
             grid.data = this.productSales;
+            grid.sortingExpressions = this.sortingExpression1;
             column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
@@ -65,7 +67,6 @@ export class Sample {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            PropertyEditorPanelDescriptionModule.register(context);
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;

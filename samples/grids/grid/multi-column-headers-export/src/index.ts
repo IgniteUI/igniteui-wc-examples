@@ -1,24 +1,15 @@
-import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule, WebGridToolbarDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
+import { ComponentRenderer, WebGridDescriptionModule, WebGridToolbarDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcGridToolbarExporterComponent, IgcColumnComponent, IgcColumnGroupComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
+import { IgcExporterEvent } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-defineAllComponents();
 
-ModuleManager.register(
-    IgcPropertyEditorPanelModule
-);
+import "./index.css";
 
 export class Sample {
 
-    private propertyEditor: IgcPropertyEditorPanelComponent
-    private exportHeaders: IgcPropertyEditorPropertyDescriptionComponent
     private grid: IgcGridComponent
     private gridToolbarExporter1: IgcGridToolbarExporterComponent
     private iD: IgcColumnComponent
@@ -40,8 +31,6 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var exportHeaders = this.exportHeaders = document.getElementById('exportHeaders') as IgcPropertyEditorPropertyDescriptionComponent;
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         var gridToolbarExporter1 = this.gridToolbarExporter1 = document.getElementById('gridToolbarExporter1') as IgcGridToolbarExporterComponent;
         this.webGridExportEventMultiColumnHeaders = this.webGridExportEventMultiColumnHeaders.bind(this);
@@ -63,8 +52,6 @@ export class Sample {
         var postalCode = this.postalCode = document.getElementById('PostalCode') as IgcColumnComponent;
 
         this._bind = () => {
-            propertyEditor.componentRenderer = this.renderer;
-            propertyEditor.target = this.grid;
             grid.data = this.customersData;
             gridToolbarExporter1.addEventListener("exportStarted", this.webGridExportEventMultiColumnHeaders);
         }
@@ -86,15 +73,16 @@ export class Sample {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            PropertyEditorPanelDescriptionModule.register(context);
             WebGridDescriptionModule.register(context);
             WebGridToolbarDescriptionModule.register(context);
         }
         return this._componentRenderer;
     }
 
-    public webGridExportEventMultiColumnHeaders(args: any): void {
-        args.options.ignoreMultiColumnHeaders = false;
+    public webGridExportEventMultiColumnHeaders(args: CustomEvent<IgcExporterEvent>): void {
+        if (args.detail.options) {
+            args.detail.options.ignoreMultiColumnHeaders = false;
+        }
     }
 
 }

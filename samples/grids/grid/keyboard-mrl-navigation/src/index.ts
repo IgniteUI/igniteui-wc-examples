@@ -2,8 +2,11 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule, WebColumnLayoutDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcColumnLayoutComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { CompanyDataItem, CompanyData } from './CompanyData';
+import { IgcGridKeydownEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
+import "./index.css";
 
 export class Sample {
 
@@ -72,17 +75,18 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridMRLCustomNavigationEvent(args: any): void {
-        //const target = args.target;
-        //if (args.event.key.toLowerCase() === 'enter') {
-        //    args.event.preventDefault();
-        //    args.cancel = true;
-        //    const rowIndex = target.row.index === undefined ? target.index : target.row.index;
-        //    this.grid.navigateTo(args.event.shiftKey ? rowIndex - 1 : rowIndex + 1, target.column.visibleIndex,
-        //         (obj) => {
-        //            obj.target.activate();
-        //        });
-        //}
+    public webGridMRLCustomNavigationEvent(args: CustomEvent<IgcGridKeydownEventArgs>): void {
+        const target = args.detail.target;
+        const grid: IgcGridComponent = this.grid;
+        if (args.detail.event.key.toLowerCase() === 'enter') {
+           args.detail.event.preventDefault();
+           args.detail.cancel = true;
+           const rowIndex = target.row.index === undefined ? target.index : target.row.index;
+           (grid as any).navigateTo(args.detail.event.shiftKey ? rowIndex - 1 : rowIndex + 1, target.column.visibleIndex,
+                (obj: any) => {
+                   obj.target.activate();
+               });
+        }
     }
 
 }
