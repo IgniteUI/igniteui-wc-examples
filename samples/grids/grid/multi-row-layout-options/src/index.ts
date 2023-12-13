@@ -1,15 +1,11 @@
-import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
+import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcGroupingExpression, SortingDirection } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-import { ModuleManager } from 'igniteui-webcomponents-core';
 
-ModuleManager.register(
-    IgcPropertyEditorPanelModule
-);
+import "./index.css";
 
 export class Sample {
 
@@ -56,7 +52,6 @@ export class Sample {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            PropertyEditorPanelDescriptionModule.register(context);
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;

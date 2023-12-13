@@ -1,10 +1,12 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
-import { IgcCellTemplateContext, IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcRowSelectorTemplateContext, IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
+import "./index.css";
 
 export class Sample {
 
@@ -33,16 +35,15 @@ export class Sample {
     }
 
 
-    public webGridRowSelectorTemplate = (ctx: IgcCellTemplateContext) => {
-        const implicit: any = ctx["$implicit"];
-        if (implicit.selected) {
+    public webGridRowSelectorTemplate = (ctx: IgcRowSelectorTemplateContext) => {
+        if (ctx.implicit.selected) {
             return html`<div style="justify-content: space-evenly;display: flex;width: 70px;">
-        <span> ${implicit.index}</span>
+        <span> ${ctx.implicit.index}</span>
     <igc-checkbox checked></igc-checkbox>
     </div>`;
         } else {
             return html`<div style="justify-content: space-evenly;display: flex;width: 70px;">
-        <span> ${implicit.index}</span>
+        <span> ${ctx.implicit.index}</span>
     <igc-checkbox></igc-checkbox>
     </div>`;
     };

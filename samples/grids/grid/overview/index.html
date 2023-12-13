@@ -16,7 +16,7 @@
   <body>
     <div id="root">
 
-<div class="container sample">
+<div class="container sample ig-typography">
 
     <div class="container fill">
         <igc-grid
@@ -30,15 +30,6 @@
             <igc-paginator
             per-page="10">
             </igc-paginator>
-            <igc-column
-            field="ProductID"
-            header="Product ID"
-            data-type="number"
-            sortable="true"
-            has-summary="true"
-            editable="true"
-            resizable="true">
-            </igc-column>
             <igc-column
             field="ProductName"
             header="Product Name"
@@ -81,7 +72,9 @@
             data-type="boolean"
             sortable="true"
             has-summary="true"
-            editable="true">
+            editable="true"
+            name="column1"
+            id="column1">
             </igc-column>
             <igc-column
             field="ReorderLevel"
