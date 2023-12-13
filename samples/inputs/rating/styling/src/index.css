@@ -3,20 +3,20 @@
 
 igc-rating {
     --symbol-size: 44px;
-    --symbol-full-color: hsla(var(--igc-warn-A400), var(--igc-warn-a));
-    --symbol-empty-color: hsla(var(--igc-warn-A400), var(--igc-warn-a));
+    --symbol-full-color: hsla(var(--ig-warn-A400), var(--ig-warn-a));
+    --symbol-empty-color: hsla(var(--ig-warn-A400), var(--ig-warn-a));
 }
 
 igc-rating[disabled] {
-    --symbol-full-color: hsla(var(--igc-gray-400), var(--igc-gray-a));
-    --symbol-empty-color: hsla(var(--igc-gray-400), var(--igc-gray-a));
+    --symbol-full-color: hsla(var(--ig-gray-400), var(--ig-gray-a));
+    --symbol-empty-color: hsla(var(--ig-gray-400), var(--ig-gray-a));
 }
 
 igc-rating::part(label) {
     font-size: 18px;
     font-weight: 600;
-    text-transform: var(--igc-overline-text-transform);
-    color: hsla(var(--igc-gray-600), var(--igc-gray-a));
+    text-transform: var(--ig-overline-text-transform);
+    color: hsla(var(--ig-gray-600), var(--ig-gray-a));
 }
 
 igc-rating::part(symbols) {

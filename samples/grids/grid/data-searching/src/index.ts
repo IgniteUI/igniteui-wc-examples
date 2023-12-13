@@ -48,13 +48,14 @@ export class Sample {
         this.caseSensitiveChip = document.getElementById('caseSensitiveChip') as IgcChipComponent;
         this.exactMatchChip = document.getElementById('exactMatchChip') as IgcChipComponent;
 
-        this.searchBox = document.getElementById('searchBox') as IgcInputComponent;
+        var searchBox = this.searchBox = document.getElementById('searchBox') as IgcInputComponent;
 
         this.data = new MarketData();
 
         this._bind = () => {
             grid.data = this.data;            
                         
+            searchBox.addEventListener("keydown", (evt) => { this.onSearchKeydown(evt); });
             nextIconButton.addEventListener("click", this.nextSearch);
             prevIconButton.addEventListener("click", this.prevSearch);
             clearIcon.addEventListener("click", this.clearSearch);
@@ -62,15 +63,25 @@ export class Sample {
         this._bind();
     }
 
-    public prevSearch(){
+    public onSearchKeydown(evt: KeyboardEvent) {  
+        if (evt.key === 'Enter' || evt.key === 'ArrowDown') {
+            evt.preventDefault();
+            this.grid.findNext(this.searchBox.value, this.caseSensitiveChip.selected, this.exactMatchChip.selected);
+        } else if (evt.key === 'ArrowUp') {
+            evt.preventDefault();
+            this.grid.findPrev(this.searchBox.value, this.caseSensitiveChip.selected, this.exactMatchChip.selected);
+        }
+    }
+
+    public prevSearch() {
         this.grid.findPrev(this.searchBox.value, this.caseSensitiveChip.selected, this.exactMatchChip.selected);
     }
 
-    public nextSearch(){
+    public nextSearch() {
         this.grid.findNext(this.searchBox.value, this.caseSensitiveChip.selected, this.exactMatchChip.selected);
     }
 
-    public clearSearch(){
+    public clearSearch() {
         this.searchBox.value = "";
         this.grid.clearSearch();
     }

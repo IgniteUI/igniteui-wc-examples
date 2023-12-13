@@ -1,0 +1,10 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+igc-button-group {
+    max-width: 400px;
+}
+
+igc-ripple {
+    --color: gray;
+}
