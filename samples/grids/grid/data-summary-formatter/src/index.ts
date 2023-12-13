@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-import { IgcDateSummaryOperand, IgcSummaryResult, IgcSummaryOperand } from 'igniteui-webcomponents-grids/grids';
+import { IgcSummaryResult, IgcSummaryOperand } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -38,7 +38,7 @@ export class Sample {
 
     public webGridSummaryFormatter(summary: IgcSummaryResult, summaryOperand: IgcSummaryOperand): string {
         const result = summary.summaryResult;
-        if (summaryOperand instanceof IgcDateSummaryOperand && summary.key !== "count" && result !== null && result !== undefined) {
+        if (summary.key !== "count" && result !== null && result !== undefined) {
             const format = new Intl.DateTimeFormat("en", { year: "numeric" });
             return format.format(new Date(result));
         }
