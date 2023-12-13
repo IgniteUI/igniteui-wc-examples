@@ -17,50 +17,16 @@
     <div id="root">
 
 <div class="container sample">
-    <div class="options vertical">
-        <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
-        description-type="WebTreeGrid"
-        is-horizontal="true"
-        is-wrapping-enabled="true">
-            <igc-property-editor-property-description
-            value-type="StringValue"
-            label="Change Copy Separator"
-            property-path="ClipboardOptions.Separator">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="ClipboardOptions.Enabled"
-            name="ClipboardEnabledEditor"
-            id="ClipboardEnabledEditor"
-            label="Grid Copy Behavior"
-            value-type="Boolean1"
-            primitive-value="True">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="ClipboardOptions.CopyHeaders"
-            name="ClipboardHeadersEditor"
-            id="ClipboardHeadersEditor"
-            label="Copying of Header Labels"
-            value-type="Boolean1"
-            primitive-value="True">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="ClipboardOptions.CopyFormatters"
-            name="ClipboardFormattersEditor"
-            id="ClipboardFormattersEditor"
-            label="Copying Column Formatters"
-            value-type="Boolean1"
-            primitive-value="True">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            value-type="Button"
-            primitive-value="Clear Selection"
-            name="propertyEditorPropertyDescription1"
-            id="propertyEditorPropertyDescription1">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
+  <div class="options horizontal" style="gap: 50px;">
+    <igc-input id="input">
+      <span slot="prefix">Change copy separator:</span>
+      <span slot="helper-text">The default value is a single tabulation.</span>
+    </igc-input>
+    <igc-switch id="copy" label-position="before" checked>Grid copy behavior</igc-switch>
+    <igc-switch id="headerCopy" label-position="before" checked>Copying of header labels</igc-switch>
+    <igc-switch id="formatterCopy" label-position="before" checked>Copying column formatters</igc-switch>
+    <igc-button id="selectionClear">Clear selection</igc-button>
+  </div>
 
     <div class="container fill">
         <igc-tree-grid
