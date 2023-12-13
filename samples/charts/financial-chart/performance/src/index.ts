@@ -12,7 +12,7 @@ export class FinancialChartPerformance {
     constructor() {
 
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
-        this.chart.dataSource = StocksUtility.GetStocks();
+        this.chart.dataSource = StocksUtility.getStocksForMonths(12);
     }
 
 }

@@ -7,9 +7,11 @@ import { Router } from './router';
 const BrowserInfo = require("./BrowserInfo.json"); // auto-generated
 // logging versions of IG packages
 for (const item of BrowserInfo) {
-    if (item.name === "igniteui-webcomponents-charts" ||
-        item.name === "igniteui-webcomponents") {
-        console.log('SB uses v' + item.version + ' ' + item.name);
+    let name: string = item.name.toString();
+    name = name.replace("@infragistics/", "")
+    if (name === "igniteui-webcomponents-charts" ||
+        name === "igniteui-webcomponents") {
+        console.log('SB uses v' + item.version + ' ' + name);
     }
 }
 

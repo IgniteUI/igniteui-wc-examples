@@ -5,6 +5,11 @@ import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
+
+import "./index.css";
 
 export class Sample {
 
@@ -43,14 +48,8 @@ export class Sample {
             ${ctx.cell.value[0].Name}
             </div>
             <div class="description">
-                <div style="display: flex; align-items: center;">
-                    <div for="title" style="width: 2rem; margin: 0rem;">Title</div>
-                    <input id='Title' type="text" name="title" value="${ctx.cell.value[0].Title}" style="text-overflow: ellipsis;" />
-                </div>
-                <div style="display: flex; align-items: center;">
-                    <div for="age" style="width: 2rem; margin: 0rem;">Age</div>
-                    <input id='Age' type="text" name="title" value="${ctx.cell.value[0].Age}" style="text-overflow: ellipsis;" />
-                </div>
+                <igc-input label='Title' type="text" name="title" value="${ctx.cell.value[0].Title}" style="text-overflow: ellipsis;"></igc-input>
+                <igc-input label="Age" type="text" name="title" value="${ctx.cell.value[0].Age}" style="text-overflow: ellipsis;"></igc-input>
             </div>
         </igc-expansion-panel>
             `;

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        name="grid"
+        id="grid"
+        id="grid">
+            <igc-column
+            name="OrderID"
+            id="OrderID"
+            field="OrderID"
+            header="Order ID"
+            hidden="true">
+            </igc-column>
+            <igc-column
+            name="ShipCountry"
+            id="ShipCountry"
+            field="ShipCountry"
+            header="Ship Country"
+            width="200px"
+            groupable="true">
+            </igc-column>
+            <igc-column
+            name="OrderDate"
+            id="OrderDate"
+            field="OrderDate"
+            header="Order Date"
+            width="200px"
+            groupable="true">
+            </igc-column>
+            <igc-column
+            name="PostalCode"
+            id="PostalCode"
+            field="PostalCode"
+            header="Postal Code"
+            width="200px"
+            groupable="true">
+            </igc-column>
+            <igc-column
+            name="Discontinued"
+            id="Discontinued"
+            field="Discontinued"
+            header="Discontinued"
+            width="200px"
+            groupable="true">
+            </igc-column>
+            <igc-column
+            name="ShipName"
+            id="ShipName"
+            field="ShipName"
+            header="Ship Name"
+            width="250px"
+            groupable="true">
+            </igc-column>
+            <igc-column
+            name="ShipCity"
+            id="ShipCity"
+            field="ShipCity"
+            header="Ship City"
+            width="250px"
+            groupable="true">
+            </igc-column>
+            <igc-column
+            name="ShipperName"
+            id="ShipperName"
+            field="ShipperName"
+            header="Shipper Name"
+            width="250px"
+            groupable="true">
+            </igc-column>
+            <igc-column
+            name="Salesperson"
+            id="Salesperson"
+            field="Salesperson"
+            header="Sales Person"
+            width="250px"
+            groupable="true">
+            </igc-column>
+            <igc-column
+            name="UnitPrice"
+            id="UnitPrice"
+            field="UnitPrice"
+            header="Unit Price"
+            width="150px"
+            data-type="currency"
+            groupable="true">
+            </igc-column>
+            <igc-column
+            name="Quantity"
+            id="Quantity"
+            field="Quantity"
+            header="Quantity"
+            width="150px"
+            data-type="number"
+            groupable="true">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

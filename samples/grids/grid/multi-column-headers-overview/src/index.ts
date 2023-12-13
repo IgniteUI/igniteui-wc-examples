@@ -4,12 +4,15 @@ import { ComponentRenderer, WebGridDescriptionModule, WebColumnGroupDescriptionM
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
+import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 defineAllComponents();
+
+import "./index.css";
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule
@@ -63,14 +66,18 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridPinFirstGroupToggle(args: any): void {
-        console.log("TODO" + args);
-    	//TODO
+    public webGridPinFirstGroupToggle(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
+        const grid: IgcGridComponent = this.grid;
+        const firstColumnGroup = grid.getColumnByName("CompanyName").parent;
+        firstColumnGroup.pinned = !firstColumnGroup.pinned;
+        grid.markForCheck();
     }
 
-    public webGridHideFirstGroupToggle(args: any): void {
-        console.log("TODO" + args);
-    	//TODO
+    public webGridHideFirstGroupToggle(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
+        const grid: IgcGridComponent = this.grid;
+        const firstColumnGroup = grid.getColumnByName("CompanyName").parent;
+        firstColumnGroup.hidden = !firstColumnGroup.hidden;
+        grid.markForCheck();
     }
 
 }
