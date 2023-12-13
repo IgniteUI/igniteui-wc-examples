@@ -5,11 +5,11 @@ export class InvoicesDataExtendedDates extends Array<Invoice>
         super();
         this.push(new Invoice(
                 {
-                    ProductID : 1,
-                    ProductName : "Chai",
-                    SupplierID : 1,
-                    CategoryID : 1,
-                    QuantityPerUnit : "10 boxes x 20 bags",
+                    ProductID: 1,
+                    ProductName: "Chai",
+                    SupplierID: 1,
+                    CategoryID: 1,
+                    QuantityPerUnit: "10 boxes x 20 bags",
                     UnitPrice: 18.0000,
                     UnitsInStock: 39,
                     UnitsOnOrder: 0.030,
@@ -152,7 +152,7 @@ export class InvoicesDataExtendedDates extends Array<Invoice>
 }
 
 export class Invoice
-{      
+{
     public constructor(init: Partial<Invoice>) {
         Object.assign(this, init);
     }
