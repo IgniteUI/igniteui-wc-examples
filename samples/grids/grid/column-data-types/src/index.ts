@@ -4,6 +4,7 @@ import { InvoicesDataExtendedDates } from './InvoicesDataExtendedDates';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
+import "./index.css";
 
 export class Sample {
 
@@ -14,10 +15,9 @@ export class Sample {
         if (this._columnPipeArgs1 == null)
         {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs1.digitsInfo = "1.4-4";
             columnPipeArgs1.currencyCode = "";
-            
-            
+            columnPipeArgs1.digitsInfo = "1.4-4";
+
             this._columnPipeArgs1 = columnPipeArgs1;
         }
         return this._columnPipeArgs1;
@@ -30,8 +30,7 @@ export class Sample {
             var columnPipeArgs2: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs2.format = "long";
             columnPipeArgs2.timezone = "UTC+0";
-            
-            
+
             this._columnPipeArgs2 = columnPipeArgs2;
         }
         return this._columnPipeArgs2;
@@ -43,8 +42,7 @@ export class Sample {
         {
             var columnPipeArgs3: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs3.format = "mediumDate";
-            
-            
+
             this._columnPipeArgs3 = columnPipeArgs3;
         }
         return this._columnPipeArgs3;
@@ -57,8 +55,7 @@ export class Sample {
             var columnPipeArgs4: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs4.format = "shortTime";
             columnPipeArgs4.timezone = "UTC+0";
-            
-            
+
             this._columnPipeArgs4 = columnPipeArgs4;
         }
         return this._columnPipeArgs4;
@@ -71,8 +68,7 @@ export class Sample {
             var columnPipeArgs5: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs5.currencyCode = "";
             columnPipeArgs5.digitsInfo = "1.4-4";
-            
-            
+
             this._columnPipeArgs5 = columnPipeArgs5;
         }
         return this._columnPipeArgs5;
@@ -85,8 +81,7 @@ export class Sample {
             var columnPipeArgs6: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs6.currencyCode = "";
             columnPipeArgs6.digitsInfo = "1.4-4";
-            
-            
+
             this._columnPipeArgs6 = columnPipeArgs6;
         }
         return this._columnPipeArgs6;
@@ -103,13 +98,13 @@ export class Sample {
         var column6 = this.column6 = document.getElementById('column6') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.invoicesDataExtendedDates
-            column1.pipeArgs = this.columnPipeArgs1
-            column2.pipeArgs = this.columnPipeArgs2
-            column3.pipeArgs = this.columnPipeArgs3
-            column4.pipeArgs = this.columnPipeArgs4
-            column5.pipeArgs = this.columnPipeArgs5
-            column6.pipeArgs = this.columnPipeArgs6
+            grid.data = this.invoicesDataExtendedDates;
+            column1.pipeArgs = this.columnPipeArgs1;
+            column2.pipeArgs = this.columnPipeArgs2;
+            column3.pipeArgs = this.columnPipeArgs3;
+            column4.pipeArgs = this.columnPipeArgs4;
+            column5.pipeArgs = this.columnPipeArgs5;
+            column6.pipeArgs = this.columnPipeArgs6;
         }
         this._bind();
 
@@ -123,8 +118,6 @@ export class Sample {
         }
         return this._invoicesDataExtendedDates;
     }
-    
-
 
 }
 
