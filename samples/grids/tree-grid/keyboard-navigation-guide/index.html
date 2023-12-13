@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+</head>
+
+<body>
+    <div id="root">
+
+        <div class="container sample">
+
+            <div class="container fill">
+                <div class="grid_wrapper">
+                    <igc-tree-grid column-selection="single" auto-generate="false" name="grid" id="grid" primary-key="ID" foreign-key="ParentID"
+                        allow-advanced-filtering="true" allow-filtering="true">
+                        <igc-paginator></igc-paginator>
+                        <igc-grid-toolbar></igc-grid-toolbar>
+                        <igc-column-group header="General Information" >
+                            <igc-column field="Name" data-type="string" sortable="true" editable="true">
+                            </igc-column>
+                            <igc-column-group header="Personel Details" collapsible="true">
+                                <igc-column field="ID" data-type="number" sortable="true" visible-when-collapsed="true">
+                                </igc-column>
+                                <igc-column field="Title" data-type="string" editable="true" sortable="true" visible-when-collapsed="false">
+                                </igc-column>
+                                <igc-column field="HireDate" data-type="date" editable="true" sortable="true" visible-when-collapsed="true">
+                                </igc-column>
+                                <igc-column field="Age" data-type="number" editable="true" sortable="true" visible-when-collapsed="false">
+                                </igc-column>
+                            </igc-column-group>
+                        </igc-column-group>
+                        <igc-column-group header="Address Information">
+                            <igc-column-group header="Location" collapsible="true" expanded="false">
+                                <igc-column field="Address" editable="true" data-type="string" sortable="true" visible-when-collapsed="true">
+                                </igc-column>
+                                <igc-column field="City" editable="true" data-type="string" sortable="true" visible-when-collapsed="false">
+                                </igc-column>
+                                <igc-column field="Country" editable="true" data-type="string" sortable="true" visible-when-collapsed="false">
+                                </igc-column>
+                            </igc-column-group>
+                            <igc-column-group header="Contact Information">
+                                <igc-column field="Fax" editable="true" data-type="string" sortable="true">
+                                </igc-column>
+                                <igc-column field="PostalCode" editable="true" header="Postal Code" data-type="string" sortable="true">
+                                </igc-column>
+                                <igc-column field="Phone" editable="true" data-type="string" sortable="true">
+                                </igc-column>
+                            </igc-column-group>
+                        </igc-column-group>
+                    </igc-tree-grid>
+                </div>
+                <div class="list_wrapper">
+                    <igc-list id="list">
+                        <span class="empty-list">
+                            <h6>Use the native navigation of the browser until you reach some of the following grid
+                                sections below:</h6>
+                            <ul>
+                                <li>Header</li>
+                                <li>Body</li>
+                                <li>Summary</li>
+                            </ul>
+                            <h6>When reached, an <b>action list</b> will be shown.</h6>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+</body>
+
+</html>
