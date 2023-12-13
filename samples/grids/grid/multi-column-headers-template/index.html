@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        name="grid"
+        id="grid"
+        id="grid">
+            <igc-column
+            field="ID"
+            resizable="true">
+            </igc-column>
+            <igc-column-group
+            header="General Information"
+            name="columnGroup1"
+            id="columnGroup1">
+                <igc-column
+                field="CompanyName"
+                sortable="true"
+                resizable="true">
+                </igc-column>
+                <igc-column-group
+                header="Personal Details">
+                    <igc-column
+                    field="ContactName"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="ContactTitle"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                </igc-column-group>
+            </igc-column-group>
+            <igc-column-group
+            header="Address Information"
+            name="columnGroup2"
+            id="columnGroup2">
+                <igc-column
+                header="Location"
+                field="Address"
+                hidden="true"
+                sortable="true"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="Phone"
+                hidden="true"
+                sortable="true"
+                resizable="true">
+                </igc-column>
+                <igc-column-group
+                header="Location">
+                    <igc-column
+                    field="Country"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Region"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="City"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Address"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                </igc-column-group>
+                <igc-column-group
+                header="Contact Information">
+                    <igc-column
+                    field="Phone"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Fax"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="PostalCode"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                </igc-column-group>
+            </igc-column-group>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

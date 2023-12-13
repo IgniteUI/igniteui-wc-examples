@@ -20,9 +20,9 @@ export class InputSize {
         registerIconFromText("phone", phoneIcon);
         
         this.radioGroup.addEventListener('click', (radio: any) => {
-            this.inputRequired.size = radio.target.value;
-            this.inputDisabled.size = radio.target.value;
-            this.inputReadonly.size = radio.target.value;
+            this.inputRequired.style.setProperty('--ig-size', `var(--ig-size-${radio.target.value})`);
+            this.inputDisabled.style.setProperty('--ig-size', `var(--ig-size-${radio.target.value})`);
+            this.inputReadonly.style.setProperty('--ig-size', `var(--ig-size-${radio.target.value})`);
         }); 
     }
 }

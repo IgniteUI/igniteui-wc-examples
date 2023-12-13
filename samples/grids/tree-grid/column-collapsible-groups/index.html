@@ -16,7 +16,7 @@
   <body>
     <div id="root">
 
-<div class="container sample">
+<div class="container sample ig-typography">
 
     <div class="container fill">
         <igc-tree-grid
@@ -31,6 +31,7 @@
         row-selection="none">
             <igc-column-group
             header="General Information"
+            collapsible="true"
             pinned="false">
                 <igc-column
                 field="Name"
@@ -82,7 +83,8 @@
             <igc-column-group
             header="Address Information">
                 <igc-column-group
-                header="Location">
+                header="Location"
+                collapsible="true">
                     <igc-column
                     field="FullAddress"
                     width="300"

@@ -1,5 +1,6 @@
 import { defineComponents, IgcIconButtonComponent, registerIconFromText } from "igniteui-webcomponents";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import './IconButtonSize.css';
 
 defineComponents(IgcIconButtonComponent);
 const thumbUpIcon =
