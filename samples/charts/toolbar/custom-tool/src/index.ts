@@ -15,8 +15,9 @@ export class Sample {
     private toolbar: IgcToolbarComponent
 
     constructor() {
-        this.toolbarCustomIconOnViewInit();
         var toolbar = this.toolbar = document.getElementById('Toolbar') as IgcToolbarComponent;
+
+        this.toolbarCustomIconOnViewInit();
 
     }
 
