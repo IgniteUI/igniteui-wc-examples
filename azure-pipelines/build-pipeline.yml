@@ -60,9 +60,6 @@ stages:
           showWarnings: true
           workingDirectory: '$(Build.SourcesDirectory)'
           targetType: 'inline'
-          
-                    # use this only for proget packages:
-                    # $npmInstallPackages += "@infragistics/" + $_.Name + "@" + $_.Value + " "
           script: |
             Get-Content -Path .\.npmrc
             $packageJson = Get-Content -Raw .\package.json | ConvertFrom-Json
@@ -74,7 +71,7 @@ stages:
                 } | `
                 ForEach-Object { `
                     $npmUninstallPackages += $_.Name + " "
-                    $npmInstallPackages += $_.Name + "@" + $_.Value + " "
+                    $npmInstallPackages += "@infragistics/" + $_.Name + "@" + $_.Value + " "
                 }
             Write-Host $npmUninstallPackages
             Write-Host $npmInstallPackages
