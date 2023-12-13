@@ -16,7 +16,7 @@
   <body>
     <div id="root">
 
-<div class="container sample">
+<div class="container sample ig-typography">
 
     <div class="container fill">
         <igc-grid
@@ -26,8 +26,22 @@
         allow-filtering="true"
         filter-mode="excelStyleFilter"
         primary-key="CompanyName">
+            <igc-grid-toolbar
+            >
+                <igc-grid-toolbar-title
+                >
+                </igc-grid-toolbar-title>
+                <igc-grid-toolbar-actions
+                >
+                    <igc-grid-toolbar-pinning
+                    >
+                    </igc-grid-toolbar-pinning>
+                    <igc-grid-toolbar-hiding
+                    >
+                    </igc-grid-toolbar-hiding>
+                </igc-grid-toolbar-actions>
+            </igc-grid-toolbar>
             <igc-column-layout
-            hidden="true"
             header="ID">
                 <igc-column
                 field="ID"

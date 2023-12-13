@@ -1,5 +1,6 @@
 import { defineComponents, IgcIconComponent, registerIconFromText } from "igniteui-webcomponents";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import './IconSize.css';
 
 defineComponents(IgcIconComponent);
 const buildIcon =

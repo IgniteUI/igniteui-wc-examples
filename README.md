@@ -169,3 +169,20 @@ Next, follow these steps:
 ## Learn More
 
 To learn more about **Ignite UI for Web Components** components, check out the [Web Components documentation](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html).
+
+
+# Updating Version of IgniteUI Packages
+
+Perform these steps to update version of **Ignite UI for WebComponent** packages in all samples. NOTE that the order of these steps is very important.
+
+- open this repo in VS Code
+- open [gulp-samples.js](./browser/tasks/gulp-samples.js) file
+- navigate to the `updateIG` function
+- change version of **Ignite UI for WebComponent** packages in the `packageUpgrades` array
+- open terminal window
+- run `gulp updateIG` command
+- run `npm install --legacy-peer-deps` command
+- create pull request with your changes
+- open the [Igniteui-xplat-example](https://github.com/IgniteUI/igniteui-xplat-examples) repo in VS Code
+- update version of **Ignite UI for WebComponent** packages in [WC template](https://github.com/IgniteUI/igniteui-xplat-examples/blob/23.2.x/editor-templates/WebComponents/main-template/package.json)
+- create pull request with your changes in [Igniteui-xplat-example](https://github.com/IgniteUI/igniteui-xplat-examples) repo

@@ -33,7 +33,6 @@ export class Sample {
             propertyEditor.componentRenderer = this.renderer;
             propertyEditor.target = this.chart;
             chart.dataSource = this.temperatureAnnotatedData;
-            chart.calloutsDataSource = this.temperatureAnnotatedData;
         }
         this._bind();
 
