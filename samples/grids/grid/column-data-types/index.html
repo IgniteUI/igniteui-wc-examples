@@ -16,28 +16,26 @@
   <body>
     <div id="root">
 
-<div class="container sample">
-    
-    
-    
+<div class="container sample ig-typography">
+
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        name="grid"
         id="grid"
-        locale="EN"
+        id="grid"
         allow-filtering="true"
         filter-mode="excelStyleFilter"
         display-density="compact"
-        name="grid"
-        id ="grid">
+        locale="EN">
             <igc-column
             field="ProductName"
             header="Prod. Name"
+            width="120px"
             sortable="true"
+            has-summary="true"
             editable="true"
             resizable="true"
-            has-summary="true"
-            width="120px"
             data-type="string">
             </igc-column>
             <igc-column
@@ -50,7 +48,7 @@
             resizable="true"
             data-type="number"
             name="column1"
-            id ="column1">
+            id="column1">
             </igc-column>
             <igc-column
             field="OrderFullDate"
@@ -62,7 +60,7 @@
             resizable="true"
             data-type="dateTime"
             name="column2"
-            id ="column2">
+            id="column2">
             </igc-column>
             <igc-column
             field="OrderDate"
@@ -74,7 +72,7 @@
             resizable="true"
             data-type="date"
             name="column3"
-            id ="column3">
+            id="column3">
             </igc-column>
             <igc-column
             field="OrderDateDelay"
@@ -86,7 +84,7 @@
             resizable="true"
             data-type="time"
             name="column4"
-            id ="column4">
+            id="column4">
             </igc-column>
             <igc-column
             field="UnitsInStock"
@@ -98,7 +96,7 @@
             resizable="true"
             data-type="currency"
             name="column5"
-            id ="column5">
+            id="column5">
             </igc-column>
             <igc-column
             field="UnitsOnOrder"
@@ -110,7 +108,7 @@
             resizable="true"
             data-type="percent"
             name="column6"
-            id ="column6">
+            id="column6">
             </igc-column>
             <igc-column
             field="Discontinued"
