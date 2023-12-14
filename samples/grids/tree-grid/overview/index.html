@@ -29,6 +29,9 @@
         moving="true"
         allow-filtering="true"
         filter-mode="excelStyleFilter">
+            <igc-paginator
+            >
+            </igc-paginator>
             <igc-grid-toolbar
             >
                 <igc-grid-toolbar-title
@@ -50,15 +53,6 @@
                 </igc-grid-toolbar-actions>
             </igc-grid-toolbar>
             <igc-column
-            field="iD"
-            header="ID"
-            data-type="number"
-            sortable="true"
-            editable="true"
-            resizable="true"
-            has-summary="true">
-            </igc-column>
-            <igc-column
             field="Name"
             header="Name"
             data-type="string"
@@ -78,22 +72,6 @@
             <igc-column
             field="Age"
             header="Age"
-            data-type="number"
-            sortable="true"
-            editable="true"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="salary"
-            header="Salary"
-            data-type="number"
-            sortable="true"
-            editable="true"
-            resizable="true">
-            </igc-column>
-            <igc-column
-            field="productivity"
-            header="Productivity"
             data-type="number"
             sortable="true"
             editable="true"

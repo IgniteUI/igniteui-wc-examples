@@ -71,19 +71,19 @@ var sampleSources = [
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
     '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-styles/package.json', // BUG webTreeGridRowStylesHandler does not export
    
-    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/editing-lifecycle/package.json', // BUG TS2339: Property 'cancel' does not exist on type 'IgcGridEditEventArgs'.
-    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-export/package.json', // BUG Module '"igniteui-webcomponents-grids/grids"' has no exported member 'IgcExporterEventEventArgs'.
-    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-overview/package.json', // BUG Property 'treegrid' does not exist on type 'TreeGridMultiColumnHeadersOverview'. Did you mean 'treeGrid'?
-    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-overview/package.json', // BUG Type 'IgcTreeGridComponent' is missing the following properties from type 'IgcGridComponent':
-    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-overview/package.json', // BUG: Type 'IgcTreeGridComponent' is not assignable to type 'IgcGridComponent'.
-    '!' + igConfig.SamplesCopyPath + '/grids/grid/keyboard-custom-navigation/package.json', // BUG export 'GridKeydownTargetType' (imported as 'GridKeydownTargetType') was not found in 'igniteui-webcomponents-grids/grids'
-    '!' + igConfig.SamplesCopyPath + '/grids/grid/cascading-combo/package.json', // BUG Cannot find name 'CodeGenHelper'.
-    '!' + igConfig.SamplesCopyPath + '/grids/grid/editing-events/package.json', // BUG Property 'cancel' does not exist on type 'IgcGridEditEventArgs'.
-    '!' + igConfig.SamplesCopyPath + '/grids/grid/editing-lifecycle/package.json', // BUG Property 'cancel' does not exist on type 'IgcGridEditEventArgs'.
-    '!' + igConfig.SamplesCopyPath + '/grids/grid/keyboard-custom-navigation/package.json', // BUG Property 'event' does not exist on type 'IgcGridKeydownEventArgs'.
-    '!' + igConfig.SamplesCopyPath + '/grids/grid/keyboard-custom-navigation/package.json', // BUG 'GridKeydownTargetType' only refers to a type, but is being used as a value here.
-    '!' + igConfig.SamplesCopyPath + '/grids/grid/keyboard-mrl-navigation/package.json', // BUG Property 'event' does not exist on type 'IgcGridKeydownEventArgs'.
-    '!' + igConfig.SamplesCopyPath + '/grids/grid/multi-column-headers-export/package.json', // BUG Module '"igniteui-webcomponents-grids/grids"' has no exported member 'IgcExporterEventEventArgs'.
+    // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/editing-lifecycle/package.json', // BUG TS2339: Property 'cancel' does not exist on type 'IgcGridEditEventArgs'.
+    // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-export/package.json', // BUG Module '"igniteui-webcomponents-grids/grids"' has no exported member 'IgcExporterEventEventArgs'.
+    // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-overview/package.json', // BUG Property 'treegrid' does not exist on type 'TreeGridMultiColumnHeadersOverview'. Did you mean 'treeGrid'?
+    // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-overview/package.json', // BUG Type 'IgcTreeGridComponent' is missing the following properties from type 'IgcGridComponent':
+    // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-overview/package.json', // BUG: Type 'IgcTreeGridComponent' is not assignable to type 'IgcGridComponent'.
+    // '!' + igConfig.SamplesCopyPath + '/grids/grid/keyboard-custom-navigation/package.json', // BUG export 'GridKeydownTargetType' (imported as 'GridKeydownTargetType') was not found in 'igniteui-webcomponents-grids/grids'
+    // '!' + igConfig.SamplesCopyPath + '/grids/grid/cascading-combo/package.json', // BUG Cannot find name 'CodeGenHelper'.
+    // '!' + igConfig.SamplesCopyPath + '/grids/grid/editing-events/package.json', // BUG Property 'cancel' does not exist on type 'IgcGridEditEventArgs'.
+    // '!' + igConfig.SamplesCopyPath + '/grids/grid/editing-lifecycle/package.json', // BUG Property 'cancel' does not exist on type 'IgcGridEditEventArgs'.
+    // '!' + igConfig.SamplesCopyPath + '/grids/grid/keyboard-custom-navigation/package.json', // BUG Property 'event' does not exist on type 'IgcGridKeydownEventArgs'.
+    // '!' + igConfig.SamplesCopyPath + '/grids/grid/keyboard-custom-navigation/package.json', // BUG 'GridKeydownTargetType' only refers to a type, but is being used as a value here.
+    // '!' + igConfig.SamplesCopyPath + '/grids/grid/keyboard-mrl-navigation/package.json', // BUG Property 'event' does not exist on type 'IgcGridKeydownEventArgs'.
+    // '!' + igConfig.SamplesCopyPath + '/grids/grid/multi-column-headers-export/package.json', // BUG Module '"igniteui-webcomponents-grids/grids"' has no exported member 'IgcExporterEventEventArgs'.
 
     // '!' + igConfig.SamplesCopyPath + '/grids/grid/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/**/package.json',
@@ -975,19 +975,19 @@ function updateIG(cb) {
     // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // PUBLIC NPM
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-webcomponents-core"                     , version: "4.3.2" },
-        { name: "igniteui-webcomponents-charts"                   , version: "4.3.2" },
-        { name: "igniteui-webcomponents-excel"                    , version: "4.3.2" },
-        { name: "igniteui-webcomponents-gauges"                   , version: "4.3.2" },
-        { name: "igniteui-webcomponents-grids"                    , version: "4.3.2" },
-        { name: "igniteui-webcomponents-inputs"                   , version: "4.3.2" },
-        { name: "igniteui-webcomponents-layouts"                  , version: "4.3.2" },
-        { name: "igniteui-webcomponents-maps"                     , version: "4.3.2" },
-        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.3.2" },
-        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.3.2" },
-        { name: "igniteui-webcomponents-datasources"              , version: "4.3.2" },
+        { name: "igniteui-webcomponents-core"                     , version: "4.6.0" },
+        { name: "igniteui-webcomponents-charts"                   , version: "4.6.0" },
+        { name: "igniteui-webcomponents-excel"                    , version: "4.6.0" },
+        { name: "igniteui-webcomponents-gauges"                   , version: "4.6.0" },
+        { name: "igniteui-webcomponents-grids"                    , version: "4.6.0" },
+        { name: "igniteui-webcomponents-inputs"                   , version: "4.6.0" },
+        { name: "igniteui-webcomponents-layouts"                  , version: "4.6.0" },
+        { name: "igniteui-webcomponents-maps"                     , version: "4.6.0" },
+        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.6.0" },
+        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.6.0" },
+        { name: "igniteui-webcomponents-datasources"              , version: "4.6.0" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "4.5.0"  },
+        { name: "igniteui-webcomponents", version: "4.6.0"  },
         { name: "igniteui-dockmanager", version: "1.14.2" },
         // other packages:
         { name: "webpack", version: "^5.74.0"  },
