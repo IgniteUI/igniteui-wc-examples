@@ -21,47 +21,30 @@
     <div class="container fill">
         <igc-tree-grid
         auto-generate="false"
-        name="treeGrid"
-        id="treeGrid"
-        id="treeGrid"
+        name="grid"
+        id="grid"
+        id="grid"
+        filter-mode="quickFilter"
         primary-key="ID"
         foreign-key="ParentID"
-        row-editable="true"
-        batch-editing="true"
         allow-filtering="true">
-            <igc-action-strip
-            name="actionStrip"
-            id="actionStrip">
-                <igc-grid-pinning-actions
-                >
-                </igc-grid-pinning-actions>
-                <igc-grid-editing-actions
-                >
-                </igc-grid-editing-actions>
-            </igc-action-strip>
-            <igc-column
-            field="Name"
-            data-type="string"
-            sortable="true"
-            disable-hiding="true"
-            width="auto">
-            </igc-column>
             <igc-column
             field="ID"
-            data-type="number"
-            sortable="true">
+            header="Order ID"
+            data-type="number">
             </igc-column>
             <igc-column
-            field="Title"
-            data-type="string"
-            sortable="true"
-            disable-hiding="true">
+            field="Name"
+            header="Order Product"
+            data-type="string">
             </igc-column>
             <igc-column
-            field="HireDate"
-            data-type="date"
-            sortable="true"
-            hidden="true">
+            field="Category"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="Units"
+            data-type="number">
             </igc-column>
             <igc-column
             field="Age"
@@ -70,14 +53,13 @@
             hidden="true">
             </igc-column>
             <igc-column
-            field="Address"
-            data-type="string"
-            sortable="true">
+            field="UnitPrice"
+            header="Unit Price"
+            data-type="currency">
             </igc-column>
             <igc-column
-            field="City"
-            data-type="string"
-            sortable="true">
+            field="Price"
+            data-type="currency">
             </igc-column>
             <igc-column
             field="Country"
@@ -85,20 +67,13 @@
             sortable="true">
             </igc-column>
             <igc-column
-            field="Fax"
-            data-type="string"
-            sortable="true">
+            field="OrderDate"
+            header="Order Date"
+            data-type="date">
             </igc-column>
             <igc-column
-            field="PostalCode"
-            header="Postal Code"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Phone"
-            data-type="string"
-            sortable="true">
+            field="Delivered"
+            data-type="boolean">
             </igc-column>
         </igc-tree-grid>
     </div>

@@ -26,25 +26,30 @@
         id="treeGrid"
         primary-key="ID"
         foreign-key="ParentID"
-        row-editable="true"
-        batch-editing="true"
-        allow-filtering="true">
-            <igc-action-strip
-            name="actionStrip"
-            id="actionStrip">
-                <igc-grid-pinning-actions
-                >
-                </igc-grid-pinning-actions>
-                <igc-grid-editing-actions
-                >
-                </igc-grid-editing-actions>
-            </igc-action-strip>
+        row-selection="multiple"
+        display-density="cosy">
+            <igc-paginator
+            name="paginator"
+            id="paginator"
+            per-page="15"
+            display-density="cosy"
+            select-options="5, 10, 15, 25, 50">
+            </igc-paginator>
             <igc-column
             field="Name"
             data-type="string"
-            sortable="true"
-            disable-hiding="true"
-            width="auto">
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Title"
+            header="Job Title"
+            data-type="string"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="HireDate"
+            data-type="date"
+            sortable="true">
             </igc-column>
             <igc-column
             field="ID"
@@ -52,52 +57,13 @@
             sortable="true">
             </igc-column>
             <igc-column
-            field="Title"
-            data-type="string"
-            sortable="true"
-            disable-hiding="true">
-            </igc-column>
-            <igc-column
-            field="HireDate"
-            data-type="date"
-            sortable="true"
-            hidden="true">
-            </igc-column>
-            <igc-column
             field="Age"
             data-type="number"
-            sortable="true"
-            hidden="true">
-            </igc-column>
-            <igc-column
-            field="Address"
-            data-type="string"
             sortable="true">
             </igc-column>
             <igc-column
-            field="City"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Country"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Fax"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="PostalCode"
-            header="Postal Code"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Phone"
-            data-type="string"
+            field="OnPTO"
+            data-type="boolean"
             sortable="true">
             </igc-column>
         </igc-tree-grid>
