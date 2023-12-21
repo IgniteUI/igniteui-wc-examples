@@ -44,7 +44,7 @@
 
           <div class="container horizontal">
             <ul>
-                <li>Clicking the SAVE button or leaving the page <a id="leaveLink" href="./grids/grid/state-persistence-about"><strong>here</strong></a> will save grid state to localStorage.</li>
+                <li>Clicking the SAVE button or leaving the page <a id="leaveLink" href="./grids/tree-grid/state-persistence-about"><strong>here</strong></a> will save grid state to localStorage.</li>
                 <li>Use the control buttons to SAVE / RESTORE / RESET / DELETE / grid state or LEAVE the page.</li>
                 <li>Select/Deselect checkboxes to control saving / restoring feature state.</li>
             </ul>
@@ -66,7 +66,7 @@
             <igc-checkbox id="moving" checked>Moving</igc-checkbox>
           </div>
 
-          <igc-grid id="grid" name="grid" primary-key="ID" width="98%" height="500px" auto-generate="false" moving="true" allow-filtering="true">
+          <igc-tree-grid id="grid" name="grid" primary-key="ID" foreign-key="ParentID" width="98%" height="500px" auto-generate="false" moving="true" allow-filtering="true">
             <igc-grid-state id="gridState"></igc-grid-state>
             <igc-grid-toolbar>
               <igc-grid-toolbar-actions>
@@ -80,15 +80,13 @@
             </igc-action-strip>
             <igc-paginator></igc-paginator>
 
-            <igc-column field="ID" header="ID" sortable="true" filterable="true" pinned="true"></igc-column>
-            <igc-column field="ContactName" header="Contact Name" sortable="true" filterable="true" pinned="true"></igc-column>
-            <igc-column field="ContactTitle" header="Contact Title" sortable="true" filterable="true"></igc-column>
-            <igc-column field="CompanyName" header="Company Name" sortable="true" filterable="true"></igc-column>
-            <igc-column field="Country" header="Country" sortable="true" filterable="true" groupable="true"></igc-column>
-            <igc-column field="City" header="City" sortable="true" filterable="true" groupable="true"></igc-column>
-            <igc-column field="Address" header="Address" sortable="true" filterable="true"  groupable="true" ></igc-column>
-            <igc-column field="PostalCode" header="Postal Code" sortable="true" filterable="true" groupable="true"></igc-column>
-          </igc-grid>
+            <igc-column field="ID" header="ID" sortable="true" filterable="true" hidden="true"></igc-column>
+            <igc-column field="Name" header="Name" sortable="true" filterable="true" pinned="true"></igc-column>
+            <igc-column field="Title" header="Title" sortable="true" filterable="true"></igc-column>
+            <igc-column field="Age" header="Age" sortable="true" filterable="true" groupable="true"></igc-column>
+            <igc-column field="Phone" header="Phone" sortable="true" filterable="true"></igc-column>
+            <igc-column field="OnPTO" header="On PTO" sortable="true" filterable="true" groupable="true"></igc-column>
+          </igc-tree-grid>
         </div>
     </div>
 
