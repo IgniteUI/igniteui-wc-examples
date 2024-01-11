@@ -4,6 +4,7 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataChartCoreD
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
 import { OnlineTrafficHighlightTotalsItem, OnlineTrafficHighlightTotals } from './OnlineTrafficHighlightTotals';
+import { OnlineTrafficHighlightDesktopOnlyItem, OnlineTrafficHighlightDesktopOnly } from './OnlineTrafficHighlightDesktopOnly';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
@@ -44,6 +45,7 @@ export class Sample {
             columnSeries1.xAxis = this.xAxis;
             columnSeries1.yAxis = this.yAxis;
             columnSeries1.dataSource = this.onlineTrafficHighlightTotals;
+            columnSeries1.highlightedDataSource = this.onlineTrafficHighlightDesktopOnly;
         }
         this._bind();
 
@@ -56,6 +58,15 @@ export class Sample {
             this._onlineTrafficHighlightTotals = new OnlineTrafficHighlightTotals();
         }
         return this._onlineTrafficHighlightTotals;
+    }
+
+    private _onlineTrafficHighlightDesktopOnly: OnlineTrafficHighlightDesktopOnly = null;
+    public get onlineTrafficHighlightDesktopOnly(): OnlineTrafficHighlightDesktopOnly {
+        if (this._onlineTrafficHighlightDesktopOnly == null)
+        {
+            this._onlineTrafficHighlightDesktopOnly = new OnlineTrafficHighlightDesktopOnly();
+        }
+        return this._onlineTrafficHighlightDesktopOnly;
     }
 
     private _componentRenderer: ComponentRenderer = null;
