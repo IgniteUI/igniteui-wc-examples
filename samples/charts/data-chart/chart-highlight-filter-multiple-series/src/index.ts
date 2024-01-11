@@ -4,6 +4,7 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataChartCoreD
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+import { CountryRenewableElectricityFilteredItem, CountryRenewableElectricityFiltered } from './CountryRenewableElectricityFiltered';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
@@ -48,12 +49,15 @@ export class Sample {
             columnSeries1.xAxis = this.xAxis;
             columnSeries1.yAxis = this.yAxis;
             columnSeries1.dataSource = this.countryRenewableElectricity;
+            columnSeries1.highlightedDataSource = this.countryRenewableElectricityFiltered;
             columnSeries2.xAxis = this.xAxis;
             columnSeries2.yAxis = this.yAxis;
             columnSeries2.dataSource = this.countryRenewableElectricity;
+            columnSeries2.highlightedDataSource = this.countryRenewableElectricityFiltered;
             columnSeries3.xAxis = this.xAxis;
             columnSeries3.yAxis = this.yAxis;
             columnSeries3.dataSource = this.countryRenewableElectricity;
+            columnSeries3.highlightedDataSource = this.countryRenewableElectricityFiltered;
         }
         this._bind();
 
@@ -66,6 +70,15 @@ export class Sample {
             this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
         return this._countryRenewableElectricity;
+    }
+
+    private _countryRenewableElectricityFiltered: CountryRenewableElectricityFiltered = null;
+    public get countryRenewableElectricityFiltered(): CountryRenewableElectricityFiltered {
+        if (this._countryRenewableElectricityFiltered == null)
+        {
+            this._countryRenewableElectricityFiltered = new CountryRenewableElectricityFiltered();
+        }
+        return this._countryRenewableElectricityFiltered;
     }
 
     private _componentRenderer: ComponentRenderer = null;
