@@ -42,6 +42,10 @@ This repository contains over 300 examples on how to use [Ignite UI for Web ](ht
 [Multi-Column Combobox](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/editors/multi-column-combobox)
 
 
+## Branches
+
+> **_NOTE:_** You should use [master](https://github.com/IgniteUI/igniteui-wc-examples/tree/master) branch of this repository if you want to run samples on your computer. Use the [vnext](https://github.com/IgniteUI/igniteui-wc-examples/tree/vnext) branch only when you want to contribute new samples to this repository.
+
 ## Preview
 
 You can preview and browse all samples in this repository by opening our [Web Components Browser](https://www.infragistics.com/webcomponents-demos/samples/index). Alternatively, you you can view these samples with detailed information in our [Web Component Documentation](https://infragistics.com/webcomponentssite/components/general-getting-started.html).
@@ -56,6 +60,7 @@ In addition, you can run each sample project individually from the [./samples](.
 To set up this project locally, clone this repository:
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
+git checkout master
 ```
 
 ## Running Individual Sample
