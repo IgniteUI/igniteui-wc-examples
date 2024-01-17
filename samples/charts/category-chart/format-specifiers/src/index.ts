@@ -1,6 +1,7 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcDataLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataLegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
+import { IgcNumberFormatSpecifierModule } from 'igniteui-webcomponents-core';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataLegendDescriptionModule, CategoryChartDescriptionModule, NumberFormatSpecifierDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcDataLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcNumberFormatSpecifier } from 'igniteui-webcomponents-core';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
@@ -12,13 +13,13 @@ import "./index.css";
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
     IgcDataLegendModule,
-    IgcCategoryChartModule
+    IgcCategoryChartModule,
+    IgcNumberFormatSpecifierModule
 );
 
 export class Sample {
 
     private legend: IgcDataLegendComponent
-    private chart: IgcCategoryChartComponent
     private _numberFormatSpecifier1: IgcNumberFormatSpecifier[] | null = null;
     public get numberFormatSpecifier1(): IgcNumberFormatSpecifier[] {
         if (this._numberFormatSpecifier1 == null)
@@ -28,12 +29,47 @@ export class Sample {
             numberFormatSpecifier2.style = "currency";
             numberFormatSpecifier2.currency = "USD";
             numberFormatSpecifier2.currencyDisplay = "symbol";
-            numberFormatSpecifier2.minimumFractionDigits = 0;
+            numberFormatSpecifier2.maximumFractionDigits = 2;
+            numberFormatSpecifier2.minimumFractionDigits = 2;
 
             numberFormatSpecifier1.push(numberFormatSpecifier2)
             this._numberFormatSpecifier1 = numberFormatSpecifier1;
         }
         return this._numberFormatSpecifier1;
+    }
+    private chart: IgcCategoryChartComponent
+    private _numberFormatSpecifier3: IgcNumberFormatSpecifier[] | null = null;
+    public get numberFormatSpecifier3(): IgcNumberFormatSpecifier[] {
+        if (this._numberFormatSpecifier3 == null)
+        {
+            let numberFormatSpecifier3: IgcNumberFormatSpecifier[] = [];
+            var numberFormatSpecifier4 = new IgcNumberFormatSpecifier();
+            numberFormatSpecifier4.style = "currency";
+            numberFormatSpecifier4.currency = "USD";
+            numberFormatSpecifier4.currencyDisplay = "symbol";
+            numberFormatSpecifier4.maximumFractionDigits = 2;
+            numberFormatSpecifier4.minimumFractionDigits = 2;
+
+            numberFormatSpecifier3.push(numberFormatSpecifier4)
+            this._numberFormatSpecifier3 = numberFormatSpecifier3;
+        }
+        return this._numberFormatSpecifier3;
+    }
+    private _numberFormatSpecifier5: IgcNumberFormatSpecifier[] | null = null;
+    public get numberFormatSpecifier5(): IgcNumberFormatSpecifier[] {
+        if (this._numberFormatSpecifier5 == null)
+        {
+            let numberFormatSpecifier5: IgcNumberFormatSpecifier[] = [];
+            var numberFormatSpecifier6 = new IgcNumberFormatSpecifier();
+            numberFormatSpecifier6.style = "currency";
+            numberFormatSpecifier6.currency = "USD";
+            numberFormatSpecifier6.currencyDisplay = "symbol";
+            numberFormatSpecifier6.minimumFractionDigits = 0;
+
+            numberFormatSpecifier5.push(numberFormatSpecifier6)
+            this._numberFormatSpecifier5 = numberFormatSpecifier5;
+        }
+        return this._numberFormatSpecifier5;
     }
     private _bind: () => void;
 
@@ -43,8 +79,10 @@ export class Sample {
 
         this._bind = () => {
             legend.target = this.chart;
+            legend.valueFormatSpecifiers = this.numberFormatSpecifier1;
             chart.dataSource = this.highestGrossingMovies;
-            chart.yAxisLabelFormatSpecifiers = this.numberFormatSpecifier1;
+            chart.dataToolTipValueFormatSpecifiers = this.numberFormatSpecifier3;
+            chart.yAxisLabelFormatSpecifiers = this.numberFormatSpecifier5;
         }
         this._bind();
 
@@ -67,6 +105,7 @@ export class Sample {
             PropertyEditorPanelDescriptionModule.register(context);
             DataLegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
+            NumberFormatSpecifierDescriptionModule.register(context);
         }
         return this._componentRenderer;
     }
