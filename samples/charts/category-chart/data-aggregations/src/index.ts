@@ -4,6 +4,9 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescript
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { SalesData } from './SalesData';
+import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
+import { MarkerType, MarkerType_$type } from 'igniteui-webcomponents-charts';
+import { EnumUtil } from 'igniteui-webcomponents-core';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
@@ -30,13 +33,19 @@ export class Sample {
     constructor() {
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
         var initialGroups = this.initialGroups = document.getElementById('InitialGroups') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.editorChangeUpdateInitialGroups = this.editorChangeUpdateInitialGroups.bind(this);
         var initialSummaries = this.initialSummaries = document.getElementById('InitialSummaries') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.editorChangeUpdateInitialSummaries = this.editorChangeUpdateInitialSummaries.bind(this);
         var groupSorts = this.groupSorts = document.getElementById('GroupSorts') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.editorChangeUpdateGroupSorts = this.editorChangeUpdateGroupSorts.bind(this);
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;
             propertyEditorPanel1.target = this.chart;
+            initialGroups.changed = this.editorChangeUpdateInitialGroups;
+            initialSummaries.changed = this.editorChangeUpdateInitialSummaries;
+            groupSorts.changed = this.editorChangeUpdateGroupSorts;
             chart.dataSource = this.salesData;
         }
         this._bind();
@@ -62,6 +71,24 @@ export class Sample {
             CategoryChartDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public editorChangeUpdateInitialGroups(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+
+        var intialGroupVal = args.newValue.toString();
+        this.chart.initialGroups = intialGroupVal;
+    }
+
+    public editorChangeUpdateInitialSummaries(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+
+        var intialSummaryVal = args.newValue.toString();
+        this.chart.initialSummaries = intialSummaryVal;
+    }
+
+    public editorChangeUpdateGroupSorts(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+
+        var groupSortsVal = args.newValue.toString();
+        this.chart.groupSorts = groupSortsVal;
     }
 
 }
