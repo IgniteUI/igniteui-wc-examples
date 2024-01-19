@@ -19,12 +19,11 @@
 <div class="container sample">
     <div class="options vertical">
         <igc-property-editor-panel
-
+        name="editor"
+        id="editor"
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="propertyEditorPanel1"
-        id="propertyEditorPanel1">
+        is-wrapping-enabled="true">
             <igc-property-editor-property-description
             property-path="InitialGroupsHandler"
             name="InitialGroups"
@@ -43,8 +42,6 @@
             label="Initial Summaries"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="Sum(Sales) as Sales, Avg(Sales) as Sales, Min(Sales) as Sales, Max(Sales) as Sales, Count(Sales) as Sales"
-            drop-down-values="Sum(Sales) as Sales, Avg(Sales) as Sales, Min(Sales) as Sales, Max(Sales) as Sales, Count(Sales) as Sales"
             primitive-value="Sum(Sales) as Sales">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
@@ -54,8 +51,6 @@
             label="Sort Groups"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="Sales Desc, Sales Asc"
-            drop-down-values="Sales Desc, Sales Asc"
             primitive-value="Sales Desc">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
