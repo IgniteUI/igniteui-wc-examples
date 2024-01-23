@@ -107,10 +107,8 @@ export class Sample {
     }
 
     public editorChangeUpdateInitialGroups(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
-
         var chart = this.chart;
-        var intialGroupVal = args.newValue.toString();
-        chart.initialGroups = intialGroupVal;
+        chart.initialGroups = args.newValue.toString();
     }
 
 }
