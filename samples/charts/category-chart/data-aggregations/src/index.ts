@@ -4,7 +4,7 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescript
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { SalesData } from './SalesData';
-import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
+import { PropertyEditorValueType, IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { MarkerType, MarkerType_$type } from 'igniteui-webcomponents-charts';
 import { EnumUtil } from 'igniteui-webcomponents-core';
 
@@ -25,8 +25,6 @@ export class Sample {
 
     private editor: IgcPropertyEditorPanelComponent
     private initialGroups: IgcPropertyEditorPropertyDescriptionComponent
-    private initialSummaries: IgcPropertyEditorPropertyDescriptionComponent
-    private groupSorts: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcCategoryChartComponent
     private _bind: () => void;
 
@@ -34,18 +32,12 @@ export class Sample {
         var editor = this.editor = document.getElementById('editor') as IgcPropertyEditorPanelComponent;
         var initialGroups = this.initialGroups = document.getElementById('InitialGroups') as IgcPropertyEditorPropertyDescriptionComponent;
         this.editorChangeUpdateInitialGroups = this.editorChangeUpdateInitialGroups.bind(this);
-        var initialSummaries = this.initialSummaries = document.getElementById('InitialSummaries') as IgcPropertyEditorPropertyDescriptionComponent;
-        this.editorChangeUpdateInitialSummaries = this.editorChangeUpdateInitialSummaries.bind(this);
-        var groupSorts = this.groupSorts = document.getElementById('GroupSorts') as IgcPropertyEditorPropertyDescriptionComponent;
-        this.editorChangeUpdateGroupSorts = this.editorChangeUpdateGroupSorts.bind(this);
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
             editor.componentRenderer = this.renderer;
             editor.target = this.chart;
             initialGroups.changed = this.editorChangeUpdateInitialGroups;
-            initialSummaries.changed = this.editorChangeUpdateInitialSummaries;
-            groupSorts.changed = this.editorChangeUpdateGroupSorts;
             chart.dataSource = this.salesData;
         }
         this._bind();
@@ -77,20 +69,28 @@ export class Sample {
     public propertyEditorInitAggregationsOnViewInit(): void {
 
         var editor = this.editor;
-        var initialSummaries = editor.actualProperties.filter((p) => p.label == "Initial Summaries")[0];
-        initialSummaries.dropDownNames = ["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales" ];
-        initialSummaries.dropDownValues = ["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales" ];
+        var initialSummariesDropdown = new IgcPropertyEditorPropertyDescriptionComponent();
+        var sortGroupsDropdown = new IgcPropertyEditorPropertyDescriptionComponent();
 
-        var groupSorts = editor.actualProperties.filter((p) => p.label == "Sort Groups")[0];
-        groupSorts.dropDownNames = ["Sales Desc", "Sales Asc"];
-        groupSorts.dropDownValues = ["Sales Desc", "Sales Asc"];
-    }
+        initialSummariesDropdown.label = "Initial Summaries";
+        initialSummariesDropdown.valueType = PropertyEditorValueType.EnumValue;
+        initialSummariesDropdown.shouldOverrideDefaultEditor = true;
+        initialSummariesDropdown.dropDownNames = ["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales" ];
+        initialSummariesDropdown.dropDownValues = ["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales" ];
 
-    public editorChangeUpdateInitialGroups(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        sortGroupsDropdown.label = "Sort Groups"
+        sortGroupsDropdown.valueType = PropertyEditorValueType.EnumValue;
+        sortGroupsDropdown.shouldOverrideDefaultEditor = true;
+        sortGroupsDropdown.dropDownNames = ["Sales Asc", "Sales Desc"];
+        sortGroupsDropdown.dropDownValues = ["Sales Asc","Sales Desc"];
 
-        var chart = this.chart;
-        var intialGroupVal = args.newValue.toString();
-        chart.initialGroups = intialGroupVal;
+        editor.properties.add(initialSummariesDropdown);
+        editor.properties.add(sortGroupsDropdown);
+
+        this.editorChangeUpdateInitialSummaries = this.editorChangeUpdateInitialSummaries.bind(this);
+        this.editorChangeUpdateGroupSorts = this.editorChangeUpdateGroupSorts.bind(this);
+        initialSummariesDropdown.changed = this.editorChangeUpdateInitialSummaries;
+        sortGroupsDropdown.changed = this.editorChangeUpdateGroupSorts;
     }
 
     public editorChangeUpdateInitialSummaries(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
@@ -104,6 +104,13 @@ export class Sample {
         var chart = this.chart;
         var groupSortsVal = args.newValue.toString();
         chart.groupSorts = groupSortsVal;
+    }
+
+    public editorChangeUpdateInitialGroups(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+
+        var chart = this.chart;
+        var intialGroupVal = args.newValue.toString();
+        chart.initialGroups = intialGroupVal;
     }
 
 }
