@@ -1,0 +1,7 @@
+#button-wrapper{
+    padding: 16px;
+}
+
+igc-icon-button::part(icon) {
+    --size: 32px;
+}
