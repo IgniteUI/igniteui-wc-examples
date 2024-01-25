@@ -18,7 +18,6 @@ export class Sample {
         var toolbar = this.toolbar = document.getElementById('Toolbar') as IgcToolbarComponent;
 
         this.toolbarCustomIconOnViewInit();
-
     }
 
 

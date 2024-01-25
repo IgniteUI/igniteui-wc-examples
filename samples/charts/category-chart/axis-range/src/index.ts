@@ -4,6 +4,9 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescript
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
+import { MarkerType, MarkerType_$type } from 'igniteui-webcomponents-charts';
+import { EnumUtil } from 'igniteui-webcomponents-core';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
@@ -31,12 +34,16 @@ export class Sample {
         var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
         var yAxisMinimumValue = this.yAxisMinimumValue = document.getElementById('YAxisMinimumValue') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.editorChangeUpdateYAxisMinimumValue = this.editorChangeUpdateYAxisMinimumValue.bind(this);
         var yAxisMaximumValue = this.yAxisMaximumValue = document.getElementById('YAxisMaximumValue') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.editorChangeUpdateYAxisMaximumValue = this.editorChangeUpdateYAxisMaximumValue.bind(this);
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;
             propertyEditorPanel1.target = this.chart;
+            yAxisMinimumValue.changed = this.editorChangeUpdateYAxisMinimumValue;
+            yAxisMaximumValue.changed = this.editorChangeUpdateYAxisMaximumValue;
             chart.dataSource = this.countryRenewableElectricity;
             chart.legend = this.legend;
         }
@@ -63,6 +70,18 @@ export class Sample {
             CategoryChartDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public editorChangeUpdateYAxisMinimumValue(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+
+    	var yAxisMinimumVal = args.newValue;
+        this.chart.yAxisMinimumValue = parseInt(yAxisMinimumVal);
+    }
+
+    public editorChangeUpdateYAxisMaximumValue(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+
+        var yAxisMaximumVal = args.newValue;
+        this.chart.yAxisMaximumValue = parseInt(yAxisMaximumVal);
     }
 
 }
