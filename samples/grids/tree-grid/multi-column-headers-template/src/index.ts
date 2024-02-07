@@ -23,8 +23,8 @@ export class Sample {
 
         this._bind = () => {
             treeGrid.data = this.employeesFlatDetails;
-            columnGroup1.headerTemplate = this.webGridColumnGroupHeaderTemplate;
-            columnGroup2.headerTemplate = this.webGridColumnGroupHeaderTemplate;
+            columnGroup1.headerTemplate = this.webTreeGridColumnGroupHeaderTemplate;
+            columnGroup2.headerTemplate = this.webTreeGridColumnGroupHeaderTemplate;
         }
         this._bind();
 
@@ -50,7 +50,7 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridColumnGroupHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
+    public webTreeGridColumnGroupHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
         const column = (ctx as any).column;
         return html`<div style="display:flex;align-items:center;gap:5px;">
                     <span draggable="false"  @click=${(e: any) => this.toggleColumnGroup(column)}>
