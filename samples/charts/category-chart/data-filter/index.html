@@ -19,23 +19,33 @@
 <div class="container sample">
     <div class="options vertical">
         <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
+        name="editor"
+        id="editor"
         description-type="CategoryChart"
         is-horizontal="true"
         is-wrapping-enabled="true">
             <igc-property-editor-property-description
-            property-path="HighlightedValuesDisplayMode"
-            name="HighlightedValuesDisplayModeEditor"
-            id="HighlightedValuesDisplayModeEditor"
-            label="Highlight Display Mode: "
-            primitive-value="Hidden">
+            property-path="InitialFilterHandler"
+            editor-width="800"
+            name="InitialFilter"
+            id="InitialFilter"
+            label="Modify Chart Filter"
+            value-type="StringValue"
+            should-override-default-editor="true">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
 
     <div class="legend-title">
-        Sales Filtered by Country
+        Sales Filtered by Country, Product, and Dates
+    </div>
+
+    <div class="legend">
+        <igc-legend
+        name="Legend"
+        id="Legend"
+        orientation="Horizontal">
+        </igc-legend>
     </div>
 
     <div class="container fill">
@@ -43,9 +53,11 @@
         name="chart"
         id="chart"
         chart-type="Column"
-        initial-groups="MonthName"
-        initial-highlight-filter="Country ne 'UK'"
-        highlighted-values-display-mode="Hidden">
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
+        crosshairs-display-mode="None"
+        included-properties="Date, GrossSales, Profit, Sales"
+        initial-filter="(startswith(Country, 'B') and endswith(Country, 'l') and contains(Product, 'Royal Oak') and contains(Date, '3/1/20'))">
         </igc-category-chart>
     </div>
 </div>
