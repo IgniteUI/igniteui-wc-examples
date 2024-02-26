@@ -38,6 +38,10 @@ This browser application allows you to browse all samples of the [IgniteUI for W
 [Date Picker](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/editors/date-picker),
 [Multi-Column Combobox](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/editors/multi-column-combobox)
 
+## Branches
+
+> **_NOTE:_** You should use [master](https://github.com/IgniteUI/igniteui-angular-examples/tree/master) branch of this repository if you want to run samples on your computer. Use the [vnext](https://github.com/IgniteUI/igniteui-angular-examples/tree/vnext) branch only when you want to contribute new samples to this repository.
+
 # Instructions
 
 Follow these instructions to run all samples locally in a browser application.
