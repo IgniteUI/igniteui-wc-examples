@@ -21,12 +21,17 @@ This folder contains implementation of Web Components application with example o
     </body>
 </html>
 
+## Branches
+
+> **_NOTE:_** You should use [master](https://github.com/IgniteUI/igniteui-angular-examples/tree/master) branch of this repository if you want to run samples on your computer. Use the [vnext](https://github.com/IgniteUI/igniteui-angular-examples/tree/vnext) branch only when you want to contribute new samples to this repository.
+
 ## Instructions
 
 To set up this project locally, execute these commands:
 
 ```
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
+git checkout master
 cd ./igniteui-wc-examples
 cd ./samples/gauges/radial-gauge/ranges
 ```
