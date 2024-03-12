@@ -15,14 +15,14 @@ export class RadialGaugeOpticalScaling {
         this.gauge.font = '22px Verdana'
 
         let checkbox1 = document.getElementById('checkbox1');
-        checkbox1!.addEventListener('change', this.onCrosshairsVisible);
+        checkbox1!.addEventListener('change', this.onOpticalScalingChanged);
 
         let slider1 = document.getElementById('slider') as HTMLInputElement;
         slider1.value = "250";
         slider1!.addEventListener('change', this.onOpticalSizeChanged);
     }
 
-    public onCrosshairsVisible = (e: any) => {
+    public onOpticalScalingChanged = (e: any) => {
         const isEnabled = e.target.checked;
         this.gauge.opticalScalingEnabled = isEnabled;
 
