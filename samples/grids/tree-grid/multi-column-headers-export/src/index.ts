@@ -2,7 +2,7 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule, WebGridToolbarDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcTreeGridComponent, IgcGridToolbarExporterComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
-import { IgcGridComponent, IgcExporterEvent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcExporterEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -47,7 +47,7 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridExportEventMultiColumnHeaders(args: CustomEvent<IgcExporterEvent>): void {
+    public webGridExportEventMultiColumnHeaders(args: CustomEvent<IgcExporterEventArgs>): void {
         if (args.detail.options) {
             args.detail.options.ignoreMultiColumnHeaders = false;
         }
