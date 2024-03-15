@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcGridStateComponent, IgcGridStateOptions } from 'igniteui-webcomponents-grids/grids';
 import { defineAllComponents, IgcButtonComponent, IgcCheckboxComponent, registerIconFromText } from 'igniteui-webcomponents';
-import CustomersDataLocal from './CustomersDataLocal.json';
+import { EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import "./index.css";
 defineAllComponents();
@@ -18,7 +18,7 @@ export class Sample {
     private gridData;
     private grid: IgcGridComponent;
     private gridState: IgcGridStateComponent;
-    public stateKey = 'grid-state';
+    public stateKey = 'tree-grid-state';
 
     public options: IgcGridStateOptions = {
         cellSelection: true,
@@ -39,7 +39,7 @@ export class Sample {
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        this.gridData = CustomersDataLocal;
+        this.gridData = new EmployeesNestedTreeData();
         this.gridState = document.getElementById('gridState') as IgcGridStateComponent;
 
         var saveStateBtn = document.getElementById("saveState") as IgcButtonComponent;
@@ -124,7 +124,7 @@ export class Sample {
 
     public leavePage() {
         this.saveGridState();
-        window.location.replace("./grids/grid/state-persistence-about");
+        window.location.replace("./grids/tree-grid/state-persistence-about");
     }
 
     public clearStorage() {
