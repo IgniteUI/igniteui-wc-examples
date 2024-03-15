@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container fill">
+        <igc-hierarchical-grid
+        auto-generate="false"
+        name="hierarchicalGrid1"
+        id="hierarchicalGrid1">
+            <igc-column
+            field="CustomerID"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="CompanyName"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="ContactName"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="ContactTitle"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="Address"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="City"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="PostalCode"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="Country"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="Phone"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="Fax"
+            width="auto"
+            resizable="true">
+            </igc-column>
+            <igc-row-island
+            child-data-key="Orders"
+            auto-generate="false">
+                <igc-column
+                field="OrderID"
+                width="auto"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="EmployeeID"
+                width="auto"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="OrderDate"
+                width="auto"
+                data-type="date"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="RequiredDate"
+                width="auto"
+                data-type="date"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="ShippedDate"
+                width="auto"
+                data-type="date"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="ShipVia"
+                width="auto"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="Freight"
+                width="auto"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="ShipName"
+                width="auto"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="ShipAddress"
+                width="auto"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="ShipCity"
+                width="auto"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="ShipPostalCode"
+                width="auto"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="ShipCountry"
+                width="auto"
+                resizable="true">
+                </igc-column>
+                <igc-row-island
+                child-data-key="OrderDetails"
+                auto-generate="false">
+                    <igc-column
+                    field="ProductID"
+                    width="auto"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="UnitPrice"
+                    width="auto"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Quantity"
+                    width="auto"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Discount"
+                    width="auto"
+                    resizable="true">
+                    </igc-column>
+                </igc-row-island>
+            </igc-row-island>
+        </igc-hierarchical-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

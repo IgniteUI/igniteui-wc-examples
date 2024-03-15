@@ -188,7 +188,7 @@ export class SingersData extends Array<SingersDataItem> {
                                 {
                                     Number: 4,
                                     Title: `Future past`,
-                                    Released: `false`,
+                                    Released: `14 Jul 2021`,
                                     Genre: `*`,
                                     Album: `Dream Driven`
                                 }),
@@ -212,7 +212,7 @@ export class SingersData extends Array<SingersDataItem> {
                                 {
                                     Number: 7,
                                     Title: `Stay where you are`,
-                                    Released: `false`,
+                                    Released: `14 Aug 1998`,
                                     Genre: `*`,
                                     Album: `Dream Driven`
                                 }),
@@ -220,7 +220,7 @@ export class SingersData extends Array<SingersDataItem> {
                                 {
                                     Number: 8,
                                     Title: `Imaginarium`,
-                                    Released: `false`,
+                                    Released: `15 Sep 2013`,
                                     Genre: `*`,
                                     Album: `Dream Driven`
                                 }),
@@ -236,7 +236,7 @@ export class SingersData extends Array<SingersDataItem> {
                                 {
                                     Number: 10,
                                     Title: `Shredded into pieces`,
-                                    Released: `false`,
+                                    Released: `2 Sep 2011`,
                                     Genre: `*`,
                                     Album: `Dream Driven`
                                 }),
@@ -244,7 +244,7 @@ export class SingersData extends Array<SingersDataItem> {
                                 {
                                     Number: 11,
                                     Title: `Capture this moment`,
-                                    Released: `false`,
+                                    Released: `5 Jan 2011`,
                                     Genre: `*`,
                                     Album: `Dream Driven`
                                 }),
@@ -252,7 +252,7 @@ export class SingersData extends Array<SingersDataItem> {
                                 {
                                     Number: 12,
                                     Title: `Dream Driven`,
-                                    Released: `false`,
+                                    Released: `12 Dec 1999`,
                                     Genre: `*`,
                                     Album: `Dream Driven`
                                 })]
