@@ -19,14 +19,14 @@
   <div class="options horizontal">
     <label class="options-label">Optical Scaling: </label>
     <label class="options-label"><input type="checkbox" id="checkbox1" checked="true"></input> Resize Gauge: </label>
-    <input class="options-slider" id="slider" type="range" min="250" max="480" step="25" value="480"></input>
+    <input class="options-slider" id="slider" type="range" min="20" max="100" step="10" value="100"></input>
 
 </div>
 
     <igc-radial-gauge
         id="gauge"
-        height="480px"
-        width="480px"
+        height="100%"
+        width="100%"
         title-displays-value="true"
         subtitle-text="MPH"       
         minimum-value="0" value="50"
@@ -34,7 +34,7 @@
         title-extent="0.5"
         subtitle-extent="0.65"
         optical-scaling-enabled="true" 
-        optical-scaling-size="400">
+        optical-scaling-size="500">
     </igc-radial-gauge>
 
 </div>
