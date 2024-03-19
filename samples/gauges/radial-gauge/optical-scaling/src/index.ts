@@ -9,7 +9,7 @@ export class RadialGaugeOpticalScaling {
     private gauge: IgcRadialGaugeComponent;
 
     constructor() {
-        this.onOpticalSizeChanged = this.onOpticalSizeChanged.bind(this);
+        this.onGaugeSizeChanged = this.onGaugeSizeChanged.bind(this);
 
         this.gauge = document.getElementById('gauge') as IgcRadialGaugeComponent;
 
@@ -17,7 +17,7 @@ export class RadialGaugeOpticalScaling {
         checkbox1!.addEventListener('change', this.onOpticalScalingChanged);
 
         let slider1 = document.getElementById('slider') as HTMLInputElement;
-        slider1!.addEventListener('change', this.onOpticalSizeChanged);
+        slider1!.addEventListener('change', this.onGaugeSizeChanged);
     }
 
     public onOpticalScalingChanged = (e: any) => {
@@ -32,7 +32,7 @@ export class RadialGaugeOpticalScaling {
         }
     }
 
-    public onOpticalSizeChanged = (e: any) => {
+    public onGaugeSizeChanged = (e: any) => {
 
         let num: number = parseInt(e.target.value);
         this.gauge.width = num.toString() + "px";
