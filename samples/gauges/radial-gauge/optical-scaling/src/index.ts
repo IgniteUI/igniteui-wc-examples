@@ -34,9 +34,10 @@ export class RadialGaugeOpticalScaling {
 
     public onOpticalSizeChanged = (e: any) => {
 
-        let num: number = parseInt(e.target.value, 10);
-
-        this.gauge.opticalScalingSize = num;
+        let num: number = parseInt(e.target.value);
+        this.gauge.width = num.toString() + "px";
+        this.gauge.height = num.toString() + "px";
+        console.log(this.gauge.width);
     }
 }
 
