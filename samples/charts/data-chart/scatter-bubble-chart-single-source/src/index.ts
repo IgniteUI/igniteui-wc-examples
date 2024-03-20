@@ -1,8 +1,10 @@
 import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
-import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
+import { WorldDebtAndPopulationItem, WorldDebtAndPopulation } from './WorldDebtAndPopulation';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcNumberAbbreviatorModule,
@@ -30,24 +32,22 @@ export class Sample {
         var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            bubbleSeries1.xAxis = this.xAxis
-            bubbleSeries1.yAxis = this.yAxis
-            bubbleSeries1.dataSource = this.countryStatsEurope
+            bubbleSeries1.xAxis = this.xAxis;
+            bubbleSeries1.yAxis = this.yAxis;
+            bubbleSeries1.dataSource = this.worldDebtAndPopulation;
         }
         this._bind();
 
     }
 
-    private _countryStatsEurope: CountryStatsEurope = null;
-    public get countryStatsEurope(): CountryStatsEurope {
-        if (this._countryStatsEurope == null)
+    private _worldDebtAndPopulation: WorldDebtAndPopulation = null;
+    public get worldDebtAndPopulation(): WorldDebtAndPopulation {
+        if (this._worldDebtAndPopulation == null)
         {
-            this._countryStatsEurope = new CountryStatsEurope();
+            this._worldDebtAndPopulation = new WorldDebtAndPopulation();
         }
-        return this._countryStatsEurope;
+        return this._worldDebtAndPopulation;
     }
-    
-
 
 }
 
