@@ -46,6 +46,16 @@ export class Sample {
             bubbleSeries2.xAxis = this.xAxis;
             bubbleSeries2.yAxis = this.yAxis;
             bubbleSeries2.dataSource = this.countryDemographicEurope;
+
+            const sizeScale = new IgcSizeScaleComponent();
+            sizeScale.minimumValue = 10;
+            sizeScale.maximumValue = 50;
+            bubbleSeries1.radiusScale = sizeScale;
+
+            const sizeScale2 = new IgcSizeScaleComponent();
+            sizeScale2.minimumValue = 10;
+            sizeScale2.maximumValue = 50;
+            bubbleSeries2.radiusScale = sizeScale;
         }
         this._bind();
 
