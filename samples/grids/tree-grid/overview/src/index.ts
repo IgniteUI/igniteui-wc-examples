@@ -1,6 +1,6 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule, WebPaginatorDescriptionModule } from 'igniteui-webcomponents-core';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcTreeGridComponent, IgcGridToolbarTitleComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
 
@@ -46,7 +46,6 @@ export class Sample {
             var context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             WebTreeGridDescriptionModule.register(context);
-            WebPaginatorDescriptionModule.register(context);
         }
         return this._componentRenderer;
     }

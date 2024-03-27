@@ -7,7 +7,6 @@ import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindDa
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-import { IgcButtonComponent } from 'igniteui-webcomponents';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -160,9 +159,9 @@ export class Sample {
     }
 
     public webGridDeleteCellTemplate = (ctx: IgcCellTemplateContext) => {
-        var grid = this.grid;
-        var id = ctx.cell.id.rowID;
-        return html`<igc-button @click=${(e: any) => grid.deleteRow(id)}>Delete</igc-button>`;
+        console.log("TODO webGridDeleteCellTemplate");
+        //TODO
+        return html``;
     }
 
 }

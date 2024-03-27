@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcTreeGridComponent, IgcPinningConfig, ColumnPinningPosition } from 'igniteui-webcomponents-grids/grids';
+import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -10,17 +10,6 @@ import "./index.css";
 export class Sample {
 
     private treeGrid: IgcTreeGridComponent
-    private _pinningConfig1: IgcPinningConfig | null = null;
-    public get pinningConfig1(): IgcPinningConfig {
-        if (this._pinningConfig1 == null)
-        {
-            var pinningConfig1: IgcPinningConfig = {} as IgcPinningConfig;
-            pinningConfig1.columns = ColumnPinningPosition.End;
-
-            this._pinningConfig1 = pinningConfig1;
-        }
-        return this._pinningConfig1;
-    }
     private _bind: () => void;
 
     constructor() {
@@ -28,7 +17,6 @@ export class Sample {
 
         this._bind = () => {
             treeGrid.data = this.employeesFlatDetails;
-            treeGrid.pinning = this.pinningConfig1;
         }
         this._bind();
 

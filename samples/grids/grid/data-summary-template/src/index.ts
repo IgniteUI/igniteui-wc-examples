@@ -4,8 +4,7 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
-import { IgcSummaryResult, IgcSummaryTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -23,31 +22,26 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
-    private summaryRowHeightEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private toggleSummariesEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private propertyEditorPropertyDescription1: IgcPropertyEditorPropertyDescriptionComponent
     private displayDensityEditor: IgcPropertyEditorPropertyDescriptionComponent
     private grid: IgcGridComponent
     private column1: IgcColumnComponent
-    private column2: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
-        var summaryRowHeightEditor = this.summaryRowHeightEditor = document.getElementById('SummaryRowHeightEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var toggleSummariesEditor = this.toggleSummariesEditor = document.getElementById('ToggleSummariesEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var propertyEditorPropertyDescription1 = this.propertyEditorPropertyDescription1 = document.getElementById('propertyEditorPropertyDescription1') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webGridHasSummariesChange = this.webGridHasSummariesChange.bind(this);
         var displayDensityEditor = this.displayDensityEditor = document.getElementById('DisplayDensityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
-        var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
 
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;
             propertyEditorPanel1.target = this.grid;
-            toggleSummariesEditor.changed = this.webGridHasSummariesChange;
+            propertyEditorPropertyDescription1.changed = this.webGridHasSummariesChange;
             grid.data = this.nwindData;
-            column1.summaries = this.discontinuedSummary;
-            column2.summaryTemplate = this.webGridOrderDateSummaryTemplate;
+            column1.summaryTemplate = this.webGridOrderDateSummaryTemplate;
         }
         this._bind();
 
@@ -73,53 +67,22 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public webGridHasSummariesChange(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        let newValue = sender.primitiveValue as boolean;
-        const grid = this.grid;
-        var column1 = grid.getColumnByName("UnitsInStock");
-        var column2 = grid.getColumnByName("OrderDate");
+    public webGridHasSummariesChange(args: any): void {
+        let newValue = args.primitiveValue as boolean;
+
+        var column1 = this.grid.columns[3];
+        var column2 = this.grid.columns[5];
 
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
     }
 
-    public webGridOrderDateSummaryTemplate = (ctx: IgcSummaryTemplateContext) => {
-        const summaryResults = ctx.implicit as IgcSummaryResult[];
-        return html`<div class="summary-temp">
-            <span><strong>${ summaryResults[0].label }</strong><span>${ summaryResults[0].summaryResult }</span></span>
-            <span><strong>${ summaryResults[1].label }</strong><span>${ summaryResults[1].summaryResult }</span></span>
-        </div>`;
+    public webGridOrderDateSummaryTemplate = (ctx: IgcCellTemplateContext) => {
+        console.log("TODO");
+        //TODO
+        return html``;
     }
 
-    private discontinuedSummary = {
-        sum(data: any[] = []): number {
-            return data.length && data.filter((el) => el === 0 || Boolean(el)).length ? data.filter((el) => el === 0 || Boolean(el)).reduce((a, b) => +a + +b) : 0;
-        },
-        operate(data?: any[], allData: any[] = [], fieldName = ''): any[] {
-            const result = [] as any[];
-            result.push({
-                key: 'products',
-                label: 'Producs',
-                summaryResult: data?.length
-            });
-            result.push({
-                key: 'total',
-                label: 'Total Items',
-                summaryResult: this.sum(data)
-            });
-            result.push({
-                key: 'discontinued',
-                label: 'Discontinued Producs',
-                summaryResult: allData.map(r => r['Discontinued']).filter((rec) => rec).length
-            } );
-            result.push({
-                key: 'totalDiscontinued',
-                label: 'Total Discontinued Items',
-                summaryResult: this.sum(allData.filter((rec) => rec['Discontinued']).map(r => r[fieldName]))
-            } );
-            return result;
-        }
-    }
 }
 
 new Sample();

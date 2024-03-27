@@ -54,7 +54,7 @@ export class Sample {
     public webGridReorderRowHandler(args: CustomEvent<IgcRowDragEndEventArgs>): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
         const dragElementPos = ghostElement.getBoundingClientRect();
-        const grid = this.grid;
+        const grid = document.getElementsByTagName("igc-grid")[0] as any;
         const rows = Array.prototype.slice.call(document.getElementsByTagName("igx-grid-row"));
         const currRowIndex = this.getCurrentRowIndex(rows,
         { x: dragElementPos.x, y: dragElementPos.y });
@@ -64,7 +64,7 @@ export class Sample {
         grid.data.splice(currRowIndex, 0, args.detail.dragData.data);
     }
 
-    public getCurrentRowIndex(rowList: any[], cursorPosition: any) {
+    public getCurrentRowIndex(rowList: any[], cursorPosition) {
         for (const row of rowList) {
             const rowRect = row.getBoundingClientRect();
             if (cursorPosition.y > rowRect.top + window.scrollY && cursorPosition.y < rowRect.bottom + window.scrollY &&

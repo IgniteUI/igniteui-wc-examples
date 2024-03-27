@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
-import { IgcRowSelectionEventArgs, IgcGridComponent, IgcGridEditEventArgs, IgcGridEditDoneEventArgs } from 'igniteui-webcomponents-grids/grids';
+import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { IgcRowSelectionEventArgs, IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -25,7 +25,7 @@ export class Sample {
         this.webGridCellEditExit = this.webGridCellEditExit.bind(this);
 
         this._bind = () => {
-            grid.data = this.employeesFlatData;
+            grid.data = this.nwindData;
             grid.addEventListener("rendered", this.webTreeGridRendered);
             grid.addEventListener("rowEditEnter", this.webGridRowEditEnter);
             grid.addEventListener("rowEdit", this.webGridRowEdit);
@@ -40,13 +40,13 @@ export class Sample {
 
     }
 
-    private _employeesFlatData: EmployeesFlatData = null;
-    public get employeesFlatData(): EmployeesFlatData {
-        if (this._employeesFlatData == null)
+    private _nwindData: NwindData = null;
+    public get nwindData(): NwindData {
+        if (this._nwindData == null)
         {
-            this._employeesFlatData = new EmployeesFlatData();
+            this._nwindData = new NwindData();
         }
-        return this._employeesFlatData;
+        return this._nwindData;
     }
 
 
@@ -64,56 +64,56 @@ export class Sample {
         container.appendChild(title);
     }
 
-    public webGridRowEditEnter(args: CustomEvent<IgcGridEditEventArgs>): void {
+    public webGridRowEditEnter(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.detail.rowID;
         container.appendChild(message);
     }
 
-    public webGridRowEdit(args: CustomEvent<IgcGridEditEventArgs>): void {
+    public webGridRowEdit(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEdit'`;
         container.appendChild(message);
     }
 
-    public webGridRowEditDone(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
+    public webGridRowEditDone(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditDone'`;
         container.appendChild(message);
     }
 
-    public webGridRowEditExit(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
+    public webGridRowEditExit(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditExit'  << End of cycle >>`;
         container.appendChild(message);
     }
 
-    public webGridCellEditEnter(args: CustomEvent<IgcGridEditEventArgs>): void {
+    public webGridCellEditEnter(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditEnter' with 'value':` + args.detail.oldValue, args.detail.cancel;
         container.appendChild(message);
     }
 
-    public webGridCellEdit(args: CustomEvent<IgcGridEditEventArgs>): void {
+    public webGridCellEdit(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEdit' with 'newValue':` + args.detail.newValue, args.detail.cancel;
         container.appendChild(message);
     }
 
-    public webGridCellEditDone(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
+    public webGridCellEditDone(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditDone'`;
         container.appendChild(message);
     }
 
-    public webGridCellEditExit(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
+    public webGridCellEditExit(args: any): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditExit'`;

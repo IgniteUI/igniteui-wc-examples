@@ -71,7 +71,7 @@ export class Sample {
         };
 
     public toggleColumnPin(field: string) {
-        var grid = this.treeGrid;
+        var grid = document.getElementsByTagName("igc-tree-grid")[0] as IgcTreeGridComponent;
         var col = grid.getColumnByName(field);
         col.pinned = !col.pinned;
         grid.markForCheck();

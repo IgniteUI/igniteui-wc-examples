@@ -16,7 +16,24 @@
   <body>
     <div id="root">
 
-<div class="container sample ig-typography">
+<div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor-panel
+        name="PropertyEditor"
+        id="PropertyEditor"
+        description-type="WebGrid"
+        is-horizontal="true"
+        is-wrapping-enabled="true">
+            <igc-property-editor-property-description
+            value-type="Boolean1"
+            should-override-default-editor="true"
+            label="Export Multi-Column Headers"
+            primitive-value="True"
+            name="exportHeaders"
+            id="exportHeaders">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
 
     <div class="container fill">
         <igc-grid
@@ -55,20 +72,17 @@
             <igc-column-group
             name="GeneralInformation"
             id="GeneralInformation"
-            header="General Information"
-            collapsible="true">
+            header="General Information">
                 <igc-column
                 name="CompanyName"
                 id="CompanyName"
-                field="CompanyName"
                 visible-when-collapsed="true">
                 </igc-column>
                 <igc-column-group
                 name="PersonalDetails"
                 id="PersonalDetails"
                 header="Personal Details"
-                collapsible="true"
-                visible-when-collapsed="false">
+                visible-when-collapsed="true">
                     <igc-column
                     name="ContactName"
                     id="ContactName"
@@ -89,7 +103,6 @@
                 name="Location"
                 id="Location"
                 header="Location"
-                collapsible="true"
                 visible-when-collapsed="true">
                     <igc-column
                     name="Country"

@@ -128,11 +128,11 @@ export class Sample {
             <igc-badge variant="danger" style="float: left;"><span>▼</span></igc-badge>
             <span style='color:red;float: right;'>${ctx.cell.value.toFixed(2)}</span>
             </div>`;
-        }
+        };
     }
 
     public toggleColumnPin(field: string) {
-        var grid: IgcGridComponent = this.grid;
+        var grid = document.getElementsByTagName("igc-grid")[0] as IgcGridComponent;
         var col = grid.getColumnByName(field);
         col.pinned = !col.pinned;
         grid.markForCheck();

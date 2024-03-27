@@ -16,7 +16,7 @@
   <body>
     <div id="root">
 
-<div class="container sample ig-typography">
+<div class="container sample">
 
     <div class="container fill">
         <igc-grid
@@ -26,6 +26,9 @@
         row-editable="true"
         allow-filtering="true"
         primary-key="ProductID">
+            <igc-pinning-config
+            rows="Top">
+            </igc-pinning-config>
             <igc-action-strip
             name="actionStrip"
             id="actionStrip">
@@ -34,8 +37,7 @@
                 </igc-grid-pinning-actions>
                 <igc-grid-editing-actions
                 edit-row="true"
-                delete-row="true"
-                add-row="true">
+                delete-row="false">
                 </igc-grid-editing-actions>
             </igc-action-strip>
             <igc-column

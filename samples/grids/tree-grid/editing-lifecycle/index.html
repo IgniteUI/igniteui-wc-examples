@@ -16,7 +16,7 @@
   <body>
     <div id="root">
 
-<div class="container sample ig-typography">
+<div class="container sample">
 
     <div class="container fill">
         <igc-tree-grid
@@ -25,23 +25,21 @@
         id="grid"
         id="grid"
         row-editable="true"
-        primary-key="ID"
-        foreign-key="ParentID">
+        primary-key="ProductID">
             <igc-column
-            field="Name"
-            data-type="string"
-            editable="true">
+            field="ProductName"
+            header="Product Name">
             </igc-column>
             <igc-column
-            field="Title"
-            header="Job Title"
-            data-type="string"
-            editable="true">
+            field="UnitPrice"
+            header="Unit Price">
             </igc-column>
             <igc-column
-            field="Age"
-            data-type="number"
-            editable="true">
+            field="UnitsInStock"
+            header="Units In Stock">
+            </igc-column>
+            <igc-column
+            field="Ordered">
             </igc-column>
         </igc-tree-grid>
     </div>

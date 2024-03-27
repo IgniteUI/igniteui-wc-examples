@@ -26,7 +26,8 @@
         <igc-data-legend
         name="Legend"
         id="Legend"
-        value-format-string="{0} Billion">
+        value-format-mode="Currency"
+        value-format-string="${0} Billion">
         </igc-data-legend>
     </div>
 
@@ -50,6 +51,12 @@
             title="Billions of U.S. Dollars"
             label-format="{0}B"
             abbreviate-large-numbers="false">
+                <igc-number-format-specifier
+                style="currency"
+                currency="USD"
+                currency-display="symbol"
+                minimum-fraction-digits="0">
+                </igc-number-format-specifier>
             </igc-numeric-x-axis>
             <igc-bar-series
             name="BarSeries1"
@@ -68,7 +75,8 @@
             <igc-data-tool-tip-layer
             name="Tooltips"
             id="Tooltips"
-            value-format-string="{0} Billion">
+            value-format-mode="Currency"
+            value-format-string="${0} Billion">
             </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
