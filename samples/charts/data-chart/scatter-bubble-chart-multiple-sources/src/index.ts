@@ -5,6 +5,8 @@ import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcLegendModule,
     IgcNumberAbbreviatorModule,
@@ -22,7 +24,6 @@ export class Sample {
     private yAxis: IgcNumericYAxisComponent
     private bubbleSeries1: IgcBubbleSeriesComponent
     private bubbleSeries2: IgcBubbleSeriesComponent
-
     private _bind: () => void;
 
     constructor() {
@@ -34,15 +35,16 @@ export class Sample {
         var bubbleSeries2 = this.bubbleSeries2 = document.getElementById('BubbleSeries2') as IgcBubbleSeriesComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            bubbleSeries1.xAxis = this.xAxis
-            bubbleSeries1.yAxis = this.yAxis
-            bubbleSeries1.dataSource = this.countryStatsAfrica
-            bubbleSeries2.xAxis = this.xAxis
-            bubbleSeries2.yAxis = this.yAxis
-            bubbleSeries2.dataSource = this.countryStatsEurope
+            chart.legend = this.legend;
+            bubbleSeries1.xAxis = this.xAxis;
+            bubbleSeries1.yAxis = this.yAxis;
+            bubbleSeries1.dataSource = this.countryStatsAfrica;
+            bubbleSeries2.xAxis = this.xAxis;
+            bubbleSeries2.yAxis = this.yAxis;
+            bubbleSeries2.dataSource = this.countryStatsEurope;
         }
         this._bind();
+
     }
 
     private _countryStatsAfrica: CountryStatsAfrica = null;
@@ -53,7 +55,7 @@ export class Sample {
         }
         return this._countryStatsAfrica;
     }
-    
+
     private _countryStatsEurope: CountryStatsEurope = null;
     public get countryStatsEurope(): CountryStatsEurope {
         if (this._countryStatsEurope == null)
@@ -62,9 +64,6 @@ export class Sample {
         }
         return this._countryStatsEurope;
     }
-    
-
-
 
 }
 

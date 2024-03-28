@@ -5,6 +5,8 @@ import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
+import "./index.css";
+
 ModuleManager.register(
     IgcLegendModule,
     IgcNumberAbbreviatorModule,
@@ -36,13 +38,13 @@ export class Sample {
         var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            chart.legend = this.legend
-            bubbleSeries1.xAxis = this.xAxis
-            bubbleSeries1.yAxis = this.yAxis
-            bubbleSeries1.dataSource = this.countryStatsAfrica
-            bubbleSeries2.xAxis = this.xAxis
-            bubbleSeries2.yAxis = this.yAxis
-            bubbleSeries2.dataSource = this.countryStatsEurope
+            chart.legend = this.legend;
+            bubbleSeries1.xAxis = this.xAxis;
+            bubbleSeries1.yAxis = this.yAxis;
+            bubbleSeries1.dataSource = this.countryStatsAfrica;
+            bubbleSeries2.xAxis = this.xAxis;
+            bubbleSeries2.yAxis = this.yAxis;
+            bubbleSeries2.dataSource = this.countryStatsEurope;
         }
         this._bind();
 
@@ -56,7 +58,7 @@ export class Sample {
         }
         return this._countryStatsAfrica;
     }
-    
+
     private _countryStatsEurope: CountryStatsEurope = null;
     public get countryStatsEurope(): CountryStatsEurope {
         if (this._countryStatsEurope == null)
@@ -65,8 +67,6 @@ export class Sample {
         }
         return this._countryStatsEurope;
     }
-    
-
 
 }
 
