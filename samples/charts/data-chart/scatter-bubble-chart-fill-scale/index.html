@@ -17,29 +17,55 @@
     <div id="root">
 
 <div class="container sample">
-
-    <div class="legend-title">
-        Total Population of Selected Countries
+    <div class="options vertical">
+        <igc-property-editor-panel
+        name="PropertyEditor"
+        id="PropertyEditor"
+        description-type="DataChart"
+        is-horizontal="true"
+        is-wrapping-enabled="true">
+            <igc-property-editor-property-description
+            name="FillScaleMinimumValueEditor"
+            id="FillScaleMinimumValueEditor"
+            label="MinimumValue: "
+            value-type="Slider"
+            min="0"
+            max="20000">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            name="FillScaleMaximumValueEditor"
+            id="FillScaleMaximumValueEditor"
+            label="MaximumValue: "
+            value-type="Slider"
+            min="25000"
+            max="100000">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
     </div>
 
     <div class="container fill">
         <igc-data-chart
         name="chart"
-        id="chart">
+        id="chart"
+        is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true"
+        chart-title="Public Debt vs. Population"
+        subtitle="GDP per Capita">
             <igc-numeric-x-axis
             name="xAxis"
             id="xAxis"
-            title="Population"
+            minimum-value="10000"
+            maximum-value="10000000000"
             is-logarithmic="true"
-            abbreviate-large-numbers="true">
+            abbreviate-large-numbers="true"
+            title="Population">
             </igc-numeric-x-axis>
             <igc-numeric-y-axis
             name="yAxis"
             id="yAxis"
-            title="Public Debt"
-            is-logarithmic="false"
-            abbreviate-large-numbers="true"
-            maximum-value="120">
+            is-logarithmic="true"
+            logarithm-base="10"
+            title="Public Debt per GDP">
             </igc-numeric-y-axis>
             <igc-bubble-series
             name="BubbleSeries1"
@@ -49,12 +75,9 @@
             radius-member-path="gdpPerCapita"
             fill-member-path="gdpPerCapita"
             marker-type="Circle"
+            marker-outline="black"
             show-default-tooltip="true">
             </igc-bubble-series>
-            <igc-data-tool-tip-layer
-            name="DataToolTipLayer"
-            id="DataToolTipLayer">
-            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>
