@@ -4,6 +4,8 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDes
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcTreeGridComponent, IgcPinningConfig, RowPinningPosition, IgcActionStripComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
+import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
+import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -39,6 +41,7 @@ export class Sample {
     constructor() {
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
         var rowPinningEditor = this.rowPinningEditor = document.getElementById('rowPinningEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.webGridSetRowPinning = this.webGridSetRowPinning.bind(this);
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
         this.webTreeGridPinRowOnRendered = this.webTreeGridPinRowOnRendered.bind(this);
         var actionStrip = this.actionStrip = document.getElementById('actionStrip') as IgcActionStripComponent;
@@ -46,6 +49,7 @@ export class Sample {
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;
             propertyEditorPanel1.target = this.treeGrid;
+            rowPinningEditor.changed = this.webGridSetRowPinning;
             treeGrid.data = this.employeesNestedTreeData;
             treeGrid.addEventListener("rendered", this.webTreeGridPinRowOnRendered);
             treeGrid.pinning = this.pinningConfig1;
@@ -73,6 +77,13 @@ export class Sample {
             WebActionStripDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webGridSetRowPinning(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var item = sender as IgcPropertyEditorPropertyDescriptionComponent;
+        var newVal = item.primitiveValue;
+        var grid = this.treeGrid;
+        grid.pinning.rows = newVal === "Top" ? RowPinningPosition.Top : RowPinningPosition.Bottom;
     }
 
     public webTreeGridPinRowOnRendered(args:any): void {
