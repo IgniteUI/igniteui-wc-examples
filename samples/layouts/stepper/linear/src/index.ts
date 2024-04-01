@@ -1,8 +1,10 @@
-import { defineComponents, IgcStepperComponent, IgcRadioGroupComponent, IgcStepComponent, IgcSwitchComponent, IgcInputComponent, IgcButtonComponent, IgcRadioComponent } from "igniteui-webcomponents";
+import { defineComponents, IgcStepperComponent, IgcStepComponent, IgcInputComponent, IgcButtonComponent, IgcRadioComponent } from "igniteui-webcomponents";
+
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./StepperLinear.css";
 
-defineComponents(IgcStepperComponent, IgcRadioGroupComponent, IgcSwitchComponent, IgcInputComponent, IgcButtonComponent);
+defineComponents(IgcStepperComponent, IgcInputComponent, IgcButtonComponent);
+
 export class StepperLinear {
     private stepper: IgcStepperComponent;
 
@@ -27,12 +29,12 @@ export class StepperLinear {
 
     private linearChange() {
         document.querySelector("igc-switch")!.addEventListener("igcChange", (e: CustomEvent) => {
-            this.stepper!.linear = e.detail;
+            this.stepper.linear = e.detail;
 
             document.querySelectorAll("igc-button.next").forEach((button) => {
                 const igcButton = button as unknown as IgcButtonComponent;
                 const step = igcButton.closest("igc-step") as IgcStepComponent;
-                igcButton.disabled = !this.stepper!.linear ? false : step.invalid ? true : false;
+                igcButton.disabled = !this.stepper.linear ? false : step.invalid ? true : false;
             });
         });
     }
@@ -41,18 +43,12 @@ export class StepperLinear {
         if (this.activeStep!.optional || !this.nextButton) {
             return;
         }
-        const formControls = this.activeStep!.querySelectorAll("igc-radio, igc-input") as NodeListOf<any>;
-        const isFormInvalid = Array.from(formControls).some((control: IgcInputComponent | IgcRadioComponent) => {
-            const oldState = control.invalid;
-            // checks whether some of the form controls is not valid
-            const isControlInvalid = !control.checkValidity();
-            // restores the invalid state of the control
-            control.invalid = oldState;
-            return isControlInvalid;
-        });
-
+    
+        const form = this.activeStep!.querySelector("form") as HTMLFormElement;
+        const isFormInvalid = !form.checkValidity();
+    
         this.activeStep!.invalid = isFormInvalid;
-        this.nextButton.disabled = this.stepper!.linear ? isFormInvalid : false;
+        this.nextButton.disabled = this.stepper.linear ? isFormInvalid : false;
     }
 }
 

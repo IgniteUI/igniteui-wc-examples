@@ -18,7 +18,7 @@
                 <igc-stepper id="stepper">
                     <igc-step invalid>
                         <span slot="title">Personal Info</span>
-                        <form id="personalInformation" novalidate>
+                        <form>
                             <igc-input required label="Full Name" type="text" name="fullName"></igc-input>
                             <igc-input required label="Email" type="email" name="email"></igc-input>
                             <br />
@@ -48,7 +48,7 @@
                     </igc-step>
                     <igc-step invalid>
                         <span slot="title">Payment</span>
-                        <form novalidate id="payment">
+                        <form>
                             <igc-radio-group>
                                 <igc-radio name="payment" required>PayPal (n@mail.com; 18/02/2021)</igc-radio>
                                 <igc-radio name="payment" required>Visa (**** **** **** 1234; 12/23)</igc-radio>
