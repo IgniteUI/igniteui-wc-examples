@@ -146,7 +146,8 @@ export class StepperOverview {
             const selectedCards = document.querySelectorAll(".selected-card");
             selectedCards.forEach((c) => c.classList.remove("selected-card"));
 
-	    document.querySelectorAll("form").forEach((form) => form.reset());
+            const forms = document.querySelectorAll("form");
+	        forms.forEach((form) => form.reset());
 
             const formControls = document.querySelectorAll("input, select, textarea");
             formControls.forEach(control => (control as HTMLInputElement).value = '');
