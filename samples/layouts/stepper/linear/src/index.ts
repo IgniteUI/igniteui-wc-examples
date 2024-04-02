@@ -1,9 +1,9 @@
-import { defineComponents, IgcStepperComponent, IgcStepComponent, IgcInputComponent, IgcButtonComponent, IgcRadioComponent } from "igniteui-webcomponents";
+import { defineComponents, IgcStepperComponent, IgcStepComponent, IgcInputComponent, IgcButtonComponent, IgcRadioComponent, IgcSwitchComponent } from "igniteui-webcomponents";
 
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./StepperLinear.css";
 
-defineComponents(IgcStepperComponent, IgcInputComponent, IgcButtonComponent);
+defineComponents(IgcStepperComponent, IgcInputComponent, IgcButtonComponent, IgcRadioComponent, IgcSwitchComponent);
 
 export class StepperLinear {
     private stepper: IgcStepperComponent;
