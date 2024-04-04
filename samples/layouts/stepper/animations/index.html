@@ -39,28 +39,28 @@
                 <igc-stepper id="stepper">
                     <igc-step>
                         <span slot="title">Personal Info</span>
-                        <igc-form>
+                        <form>
                             <igc-input label="Full Name" type="text" name="fullName"></igc-input>
                             <igc-input label="Email" type="email" name="email"></igc-input>
                             <br />
                             <igc-button class="next" onclick="stepper.next()">NEXT</igc-button>
-                        </igc-form>
+                        </form>
                     </igc-step>
 
                     <igc-step>
                         <span slot="title">Delivery address</span>
-                        <igc-form>
+                        <form>
                             <igc-input label="City" type="text" name="city"></igc-input>
                             <igc-input label="Street" type="text" name="street"></igc-input>
                             <br />
                             <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
                             <igc-button class="next" onclick="stepper.next()">NEXT</igc-button>
-                        </igc-form>
+                        </form>
                     </igc-step>
 
                     <igc-step>
                         <span slot="title">Payment</span>
-                        <igc-form>
+                        <form>
                             <igc-radio-group>
                                 <igc-radio name="payment" checked>PayPal (n@mail.com; 18/02/2021)</igc-radio>
                                 <igc-radio name="payment">Visa (**** **** **** 1234; 12/23)</igc-radio>
@@ -69,7 +69,7 @@
                             <br />
                             <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
                             <igc-button class="next" onclick="stepper.next()">SUBMIT</igc-button>
-                        </igc-form>
+                        </form>
                     </igc-step>
 
                     <igc-step>

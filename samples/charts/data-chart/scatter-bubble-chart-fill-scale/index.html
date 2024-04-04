@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor-panel
+        name="PropertyEditor"
+        id="PropertyEditor"
+        description-type="DataChart"
+        is-horizontal="true"
+        is-wrapping-enabled="true">
+            <igc-property-editor-property-description
+            name="FillScaleMinimumValueEditor"
+            id="FillScaleMinimumValueEditor"
+            label="MinimumValue: "
+            value-type="Slider"
+            min="0"
+            max="20000">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            name="FillScaleMaximumValueEditor"
+            id="FillScaleMaximumValueEditor"
+            label="MaximumValue: "
+            value-type="Slider"
+            min="25000"
+            max="100000">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        name="chart"
+        id="chart"
+        is-horizontal-zoom-enabled="true"
+        is-vertical-zoom-enabled="true"
+        chart-title="Public Debt vs. Population"
+        subtitle="GDP per Capita">
+            <igc-numeric-x-axis
+            name="xAxis"
+            id="xAxis"
+            minimum-value="10000"
+            maximum-value="10000000000"
+            is-logarithmic="true"
+            abbreviate-large-numbers="true"
+            title="Population">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis
+            name="yAxis"
+            id="yAxis"
+            is-logarithmic="true"
+            logarithm-base="10"
+            title="Public Debt per GDP">
+            </igc-numeric-y-axis>
+            <igc-bubble-series
+            name="BubbleSeries1"
+            id="BubbleSeries1"
+            x-member-path="population"
+            y-member-path="publicDebt"
+            radius-member-path="gdpPerCapita"
+            fill-member-path="gdpPerCapita"
+            marker-type="Circle"
+            marker-outline="black"
+            show-default-tooltip="true">
+            </igc-bubble-series>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
