@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { SingersDataItem, SingersDataItem_ToursItem, SingersDataItem_AlbumsItem, SingersDataItem_AlbumsItem_SongsItem, SingersData } from './SingersData';
+import SingersData from './SingersData.json';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -21,12 +21,8 @@ export class Sample {
 
     }
 
-    private _singersData: SingersData = null;
-    public get singersData(): SingersData {
-        if (this._singersData == null)
-        {
-            this._singersData = new SingersData();
-        }
+    private _singersData: any[] = SingersData;
+    public get singersData(): any[] {
         return this._singersData;
     }
 
