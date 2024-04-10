@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcGridStateComponent, IgcGridStateOptions } from 'igniteui-webcomponents-grids/grids';
-import { defineAllComponents, IgcButtonComponent, registerIconFromText } from 'igniteui-webcomponents';
+import { defineAllComponents, IgcButtonComponent, IgcCheckboxComponent, registerIconFromText } from 'igniteui-webcomponents';
 import CustomersDataLocal from './CustomersDataLocal.json';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import "./index.css";
@@ -31,7 +31,8 @@ export class Sample {
         columns: true,
         expansion: true,
         rowPinning: true,
-        columnSelection: true
+        columnSelection: true,
+        moving: true
     };
 
     private _bind: () => void;
@@ -114,9 +115,11 @@ export class Sample {
             for (const key of Object.keys(this.options)) {
                 (this.gridState.options as any)[key] = event.detail;
             }
-            return;
+        } else {
+            (this.gridState.options as any)[action] = event.detail;
+            var allFeatures = document.getElementById("allFeatures") as IgcCheckboxComponent;
+            allFeatures.checked = Object.keys(this.options).every(o => (this.gridState.options as any)[o]);
         }
-        (this.gridState.options as any)[action] = event.detail;
     }
 
     public leavePage() {
