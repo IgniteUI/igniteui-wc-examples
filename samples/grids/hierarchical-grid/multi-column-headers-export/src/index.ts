@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent, IgcGridToolbarExporterComponent } from 'igniteui-webcomponents-grids/grids';
 import MultiColumnsExportData from './MultiColumnsExportData.json';
-import { IgcExporterEvent } from 'igniteui-webcomponents-grids/grids';
+import { IgcExporterEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -32,7 +32,7 @@ export class Sample {
     }
 
 
-    public webHierarchicalGridExportMultiColumnHeaders(args: CustomEvent<IgcExporterEvent>): void {
+    public webHierarchicalGridExportMultiColumnHeaders(args: CustomEvent<IgcExporterEventArgs>): void {
         if (args.detail.options) {
             args.detail.options.ignoreMultiColumnHeaders = false;
         }
