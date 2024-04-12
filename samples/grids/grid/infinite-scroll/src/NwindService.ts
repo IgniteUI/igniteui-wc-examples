@@ -2,7 +2,7 @@ import { IgcForOfState } from "igniteui-webcomponents-grids/grids";
 import { NwindData, NwindDataItem } from "./NwindData";
 import { BehaviorSubject, Observable } from 'rxjs';
 
-const DATA_URL: string = 'https://services.odata.org/V4/Northwind/Northwind.svc/Products';
+const DATA_URL: string = 'https://services.odata.org/northwind/northwind.svc/Products';
 
 export class RemoteNwindService {
     // public remoteData: NwindDataItem[];
