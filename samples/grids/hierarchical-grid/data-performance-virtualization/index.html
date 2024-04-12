@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sample | Ignite UI | Web Components | infragistics</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+  <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample">
+      <div class="container fill">
+
+        <igc-hierarchical-grid id="hGrid" primary-key="CustomerID" height="600px">
+          <igc-column field="CustomerID" hidden="true"></igc-column>
+          <igc-column field="CompanyName" header="Company Name"></igc-column>
+          <igc-column field="ContactName" header="Contact Name"></igc-column>
+          <igc-column field="ContactTitle" header="Contact Title"></igc-column>
+          <igc-column field="Country"></igc-column>
+          <igc-column field="Phone"></igc-column>
+          
+          <igc-row-island id="ordersRowIsland" child-data-key="Orders" primary-key="OrderID">
+            <igc-column field="OrderID" hidden="true"></igc-column>
+            <igc-column field="ShipCountry" header="Ship Country"></igc-column>
+            <igc-column field="ShipCity" header="Ship City"></igc-column>
+            <igc-column field="ShipAddress" header="Ship Address"></igc-column>
+            <igc-column field="OrderDate" header="Order Date" data-type="date"></igc-column>
+
+            <igc-row-island id="orderDetailsRowIsland" child-data-key="Order_Details" primary-key="ProductID">
+              <igc-column field="ProductID" hidden="true"></igc-column>
+              <igc-column field="Quantity"></igc-column>
+              <igc-column field="UnitPrice" header="Unit Price"></igc-column>
+              <igc-column field="Discount"></igc-column>
+            </igc-row-island>
+          </igc-row-island>
+        </igc-hierarchical-grid>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+</body>
+
+</html>
