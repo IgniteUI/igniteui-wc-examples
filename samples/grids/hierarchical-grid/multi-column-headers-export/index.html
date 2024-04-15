@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container fill">
+        <igc-hierarchical-grid
+        auto-generate="false"
+        primary-key="ID"
+        moving="true"
+        allow-filtering="true"
+        name="hierarchicalGrid1"
+        id="hierarchicalGrid1">
+            <igc-grid-toolbar
+            >
+                <igc-grid-toolbar-actions
+                >
+                    <igc-grid-toolbar-exporter
+                    export-csv="false"
+                    export-excel="true"
+                    name="hGridToolbarExporter"
+                    id="hGridToolbarExporter">
+                    </igc-grid-toolbar-exporter>
+                </igc-grid-toolbar-actions>
+            </igc-grid-toolbar>
+            <igc-column-group
+            header="General Information">
+                <igc-column
+                field="CompanyName"
+                data-type="string"
+                sortable="true"
+                resizable="true">
+                </igc-column>
+                <igc-column-group
+                header="Personal Details">
+                    <igc-column
+                    field="ContactName"
+                    data-type="string"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="ContactTitle"
+                    data-type="string"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                </igc-column-group>
+            </igc-column-group>
+            <igc-column-group
+            header="Address Information">
+                <igc-column-group
+                header="Location">
+                    <igc-column
+                    field="Address"
+                    data-type="string"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="City"
+                    data-type="string"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="PostalCode"
+                    data-type="string"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Country"
+                    data-type="string"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                </igc-column-group>
+                <igc-column-group
+                header="Contact Information">
+                    <igc-column
+                    field="Phone"
+                    data-type="string"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Fax"
+                    data-type="string"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                </igc-column-group>
+            </igc-column-group>
+            <igc-row-island
+            child-data-key="ChildCompanies"
+            auto-generate="false"
+            moving="true">
+                <igc-column-group
+                header="General Information">
+                    <igc-column
+                    field="CompanyName"
+                    data-type="string"
+                    sortable="true"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column-group
+                    header="Personal Details">
+                        <igc-column
+                        field="ContactName"
+                        data-type="string"
+                        sortable="true"
+                        resizable="true">
+                        </igc-column>
+                        <igc-column
+                        field="ContactTitle"
+                        data-type="string"
+                        sortable="true"
+                        resizable="true">
+                        </igc-column>
+                    </igc-column-group>
+                </igc-column-group>
+                <igc-column-group
+                header="Address Information">
+                    <igc-column-group
+                    header="Location">
+                        <igc-column
+                        field="Address"
+                        data-type="string"
+                        sortable="true"
+                        resizable="true">
+                        </igc-column>
+                        <igc-column
+                        field="City"
+                        data-type="string"
+                        sortable="true"
+                        resizable="true">
+                        </igc-column>
+                        <igc-column
+                        field="PostalCode"
+                        data-type="string"
+                        sortable="true"
+                        resizable="true">
+                        </igc-column>
+                        <igc-column
+                        field="Country"
+                        data-type="string"
+                        sortable="true"
+                        resizable="true">
+                        </igc-column>
+                    </igc-column-group>
+                    <igc-column-group
+                    header="Contact Information">
+                        <igc-column
+                        field="Phone"
+                        data-type="string"
+                        sortable="true"
+                        resizable="true">
+                        </igc-column>
+                        <igc-column
+                        field="Fax"
+                        data-type="string"
+                        sortable="true"
+                        resizable="true">
+                        </igc-column>
+                    </igc-column-group>
+                </igc-column-group>
+                <igc-row-island
+                child-data-key="ChildCompanies"
+                auto-generate="false"
+                moving="true">
+                    <igc-column-group
+                    header="General Information">
+                        <igc-column
+                        field="CompanyName"
+                        data-type="string"
+                        sortable="true"
+                        resizable="true">
+                        </igc-column>
+                        <igc-column-group
+                        header="Personal Details">
+                            <igc-column
+                            field="ContactName"
+                            data-type="string"
+                            sortable="true"
+                            resizable="true">
+                            </igc-column>
+                            <igc-column
+                            field="ContactTitle"
+                            data-type="string"
+                            sortable="true"
+                            resizable="true">
+                            </igc-column>
+                        </igc-column-group>
+                    </igc-column-group>
+                    <igc-column-group
+                    header="Address Information">
+                        <igc-column-group
+                        header="Location">
+                            <igc-column
+                            field="Address"
+                            data-type="string"
+                            sortable="true"
+                            resizable="true">
+                            </igc-column>
+                            <igc-column
+                            field="City"
+                            data-type="string"
+                            sortable="true"
+                            resizable="true">
+                            </igc-column>
+                            <igc-column
+                            field="PostalCode"
+                            data-type="string"
+                            sortable="true"
+                            resizable="true">
+                            </igc-column>
+                            <igc-column
+                            field="Country"
+                            data-type="string"
+                            sortable="true"
+                            resizable="true">
+                            </igc-column>
+                        </igc-column-group>
+                        <igc-column-group
+                        header="Contact Information">
+                            <igc-column
+                            field="Phone"
+                            data-type="string"
+                            sortable="true"
+                            resizable="true">
+                            </igc-column>
+                            <igc-column
+                            field="Fax"
+                            data-type="string"
+                            sortable="true"
+                            resizable="true">
+                            </igc-column>
+                        </igc-column-group>
+                    </igc-column-group>
+                </igc-row-island>
+            </igc-row-island>
+        </igc-hierarchical-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
