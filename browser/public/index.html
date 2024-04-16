@@ -71,6 +71,9 @@
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/high-frequency">─<span>High Frequency</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/high-volume">─<span>High Volume</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/highlighting">─<span>Highlighting</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/highlighting-behavior">─<span>Highlighting Behavior</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/highlighting-mode">─<span>Highlighting Mode</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/legend-highlighting">─<span>Legend Highlighting</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/line-chart-multiple-sources">─<span>Line Chart Multiple Sources</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/line-chart-single-source">─<span>Line Chart Single Source</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/line-chart-styling">─<span>Line Chart Styling</span></a> 
@@ -164,6 +167,7 @@
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/type-range-column-series">─<span>Range Column Series</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/type-range-series">─<span>Range Series</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/type-scatter-area-series">─<span>Scatter Area Series</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/scatter-bubble-chart-fill-scale">─<span>Scatter Bubble Chart Fill Scale</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/scatter-bubble-chart-multiple-sources">─<span>Scatter Bubble Chart Multiple Sources</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/scatter-bubble-chart-single-source">─<span>Scatter Bubble Chart Single Source</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/scatter-bubble-chart-styling">─<span>Scatter Bubble Chart Styling</span></a> 
@@ -274,6 +278,7 @@
        <label id="nav-tree-map" class="nav-component">Tree Map</label> 
        <div id="nav-tree-map-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/charts/tree-map/events">─<span>Events</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/tree-map/highlighting">─<span>Highlighting</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/tree-map/layout">─<span>Layout</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/tree-map/overview">─<span>Overview</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/tree-map/styling">─<span>Styling</span></a> 
@@ -329,6 +334,7 @@
        <div id="nav-bullet-graph-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/bullet-graph/animation">─<span>Animation</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/bullet-graph/background">─<span>Background</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/gauges/bullet-graph/highlight-needle">─<span>Highlight Needle</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/bullet-graph/labels">─<span>Labels</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/bullet-graph/measures">─<span>Measures</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/bullet-graph/ranges">─<span>Ranges</span></a> 
@@ -344,6 +350,7 @@
        <div id="nav-linear-gauge-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge/animation">─<span>Animation</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge/backing">─<span>Backing</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge/highlight-needle">─<span>Highlight Needle</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge/labels">─<span>Labels</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge/needle">─<span>Needle</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/linear-gauge/ranges">─<span>Ranges</span></a> 
@@ -361,6 +368,7 @@
        <div id="nav-radial-gauge-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/radial-gauge/animation">─<span>Animation</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/radial-gauge/backing">─<span>Backing</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/gauges/radial-gauge/highlight-needle">─<span>Highlight Needle</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/radial-gauge/labels">─<span>Labels</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/radial-gauge/needle">─<span>Needle</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/gauges/radial-gauge/optical-scaling">─<span>Optical Scaling</span></a> 
@@ -538,12 +546,76 @@
        </div>
        <label id="nav-hierarchical-grid" class="nav-component">Hierarchical Grid</label> 
        <div id="nav-hierarchical-grid-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/action-strip">─<span>Action Strip</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/advanced-filtering-options">─<span>Advanced Filtering Options</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/advanced-filtering-style">─<span>Advanced Filtering Style</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/cell-editing-sample">─<span>Cell Editing Sample</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/cell-editing-styling">─<span>Cell Editing Styling</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/cell-selection-mode">─<span>Cell Selection Mode</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/cell-selection-overview">─<span>Cell Selection Overview</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/cell-selection-styling">─<span>Cell Selection Styling</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-auto-sizing">─<span>Column Auto Sizing</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-collapsible-groups">─<span>Column Collapsible Groups</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-hiding-toolbar">─<span>Column Hiding Toolbar</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-hiding-toolbar-style">─<span>Column Hiding Toolbar Style</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-moving-options">─<span>Column Moving Options</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-moving-styles">─<span>Column Moving Styles</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-pinning">─<span>Column Pinning</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-pinning-options">─<span>Column Pinning Options</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-pinning-right-side">─<span>Column Pinning Right Side</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-pinning-styles">─<span>Column Pinning Styles</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-resize-styling">─<span>Column Resize Styling</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-resizing">─<span>Column Resizing</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-selection-group">─<span>Column Selection Group</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-selection-mode">─<span>Column Selection Mode</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-selection-styles">─<span>Column Selection Styles</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-sorting-indicators">─<span>Column Sorting Indicators</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-sorting-options">─<span>Column Sorting Options</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/column-sorting-style">─<span>Column Sorting Style</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/conditional-cell-style-1">─<span>Conditional Cell Style1</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/conditional-cell-style-2">─<span>Conditional Cell Style2</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/conditional-row-selectors">─<span>Conditional Row Selectors</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/custom-filtering">─<span>Custom Filtering</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/data-performance-virtualization">─<span>Data Performance Virtualization</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/data-summary-formatter">─<span>Data Summary Formatter</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/data-summary-options">─<span>Data Summary Options</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/data-summary-options-styling">─<span>Data Summary Options Styling</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/data-summary-template">─<span>Data Summary Template</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/editing-columns">─<span>Editing Columns</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/editing-events">─<span>Editing Events</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/editing-lifecycle">─<span>Editing Lifecycle</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/excel-exporting">─<span>Excel Exporting</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/excel-style-filtering-sample-1">─<span>Excel Style Filtering Sample1</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/excel-style-filtering-sample-2">─<span>Excel Style Filtering Sample2</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/excel-style-filtering-sample-3">─<span>Excel Style Filtering Sample3</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/excel-style-filtering-style">─<span>Excel Style Filtering Style</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/filtering-options">─<span>Filtering Options</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/filtering-style">─<span>Filtering Style</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/layout-display-density">─<span>Layout Display Density</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/multi-column-headers-export">─<span>Multi Column Headers Export</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/multi-column-headers-overview">─<span>Multi Column Headers Overview</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/multi-column-headers-styling">─<span>Multi Column Headers Styling</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/multi-column-headers-template">─<span>Multi Column Headers Template</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/hierarchical-grid-options">─<span>Options</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/overview">─<span>Overview</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/hierarchical-grid-paging-style">─<span>Paging Style</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-adding">─<span>Row Adding</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-classes">─<span>Row Classes</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-drag-base">─<span>Row Drag Base</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-editing-options">─<span>Row Editing Options</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-editing-style">─<span>Row Editing Style</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-pinning-extra-column">─<span>Row Pinning Extra Column</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-pinning-options">─<span>Row Pinning Options</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-pinning-style">─<span>Row Pinning Style</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-reorder">─<span>Row Reorder</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-selection-mode">─<span>Row Selection Mode</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-selection-template-numbers">─<span>Row Selection Template Numbers</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-styles">─<span>Row Styles</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/hierarchical-grid-styling">─<span>Styling</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/toolbar-sample-1">─<span>Toolbar Sample1</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/toolbar-sample-2">─<span>Toolbar Sample2</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/toolbar-sample-3">─<span>Toolbar Sample3</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/toolbar-style">─<span>Toolbar Style</span></a> 
        </div>
        <label id="nav-list" class="nav-component">List</label> 
        <div id="nav-list-list" class="nav-list" state="collapsed"> 
@@ -708,6 +780,11 @@
        <label id="nav-form" class="nav-component">Form</label> 
        <div id="nav-form-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/inputs/form/overview">─<span>Overview</span></a> 
+       </div>
+       <label id="nav-form-integration" class="nav-component">Form Integration</label> 
+       <div id="nav-form-integration-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/form-integration/fancy">─<span>Fancy</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/inputs/form-integration/overview">─<span>Overview</span></a> 
        </div>
        <label id="nav-icon-button" class="nav-component">Icon Button</label> 
        <div id="nav-icon-button-list" class="nav-list" state="collapsed"> 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Integration</title>
+        <meta charset="UTF-8" />
+
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+    </head>
+
+    <body>
+        <div id="root">
+            <div class="container sample">
+                <form id="form">
+                    <igc-input class="form-input" name="first-name" label="First name" placeholder="First Name" required></igc-input>
+                    <igc-input class="form-input" name="last-name" label="Last name" placeholder="Last Name" required></igc-input>
+                    <igc-input class="form-input" name="company-name" label="Company name" placeholder="Company Name" required></igc-input>
+                    <igc-select class="form-input" name="business-role" label="Business role" placeholder="Please Select" required></igc-select>
+                    <igc-select class="form-input" name="title-level" label="Title level" placeholder="Please Select" required></igc-select>
+                    <igc-combo class="form-input" name="state" label="State" placeholder="Please Select" single-select></igc-combo>
+                    <igc-input class="form-input" name="email" label="Company Email" type="email" placeholder="Email" required></igc-input>
+                    <igc-mask-input class="form-input" name="telephone" label="Phone number" mask="+1 (999) 999-9999" placeholder="US based telephone number" prompt="#"></igc-mask-input>
+                    <igc-textarea class="form-input" resize="auto" name="message" label="Contact us Message" placeholder="Contact us message" required></igc-textarea>
+                    <igc-checkbox name="toc-accepted" class="form-input" required checked> By submitting your information, you are signing up to receive offers, promotions and other commercial messages from FooBar Inc. </igc-checkbox>
+
+                    <div class="form-input">
+                        <igc-button type="submit">Submit request</igc-button>
+                        <igc-button type="reset" variant="outlined">Reset information</igc-button>
+                    </div>
+                </form>
+            </div>
+            <igc-snackbar class="form-notification" display-time="2000" position="middle">
+                <h3>Form submitted successfully!</h3>
+            </igc-snackbar>
+        </div>
+
+        <!-- This script is needed only for parcel and it will be excluded for webpack -->
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
+</html>
