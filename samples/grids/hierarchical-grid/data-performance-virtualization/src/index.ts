@@ -11,11 +11,11 @@ export class Sample {
         const orderDetailsRowIsland = document.getElementById("orderDetailsRowIsland");
 
         ordersRowIsland.addEventListener("gridCreated", (event: any) => {
-            this.gridCreated(event, "CustomerID");
+            this.gridCreated(event, "Customers");
         });
 
         orderDetailsRowIsland.addEventListener("gridCreated", (event: any) => {
-            this.gridCreated(event, "OrderID");
+            this.gridCreated(event, "Orders");
         });
 
         hierarchicalGrid.isLoading = true;
