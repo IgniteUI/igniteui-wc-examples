@@ -1,0 +1,10 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.form-input {
+    margin-top: 1em;
+}
+
+.form-notification {
+    z-index: 1;
+}

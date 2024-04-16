@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from template: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/vnext/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Highlight Needle feature using [Bullet Graph](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
+This folder contains implementation of Web Components application with example of Row Selection Mode feature using [Hierarchical Grid](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
 
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -12,10 +12,10 @@ This folder contains implementation of Web Components application with example o
         <a target="_blank" href="./src/index.ts" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="View Code" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-code.png"/>
         </a>
-        <a target="_blank" href="https://www.infragistics.com/webcomponents-demos/samples/gauges/bullet-graph/highlight-needle" rel="noopener noreferrer">
+        <a target="_blank" href="https://www.infragistics.com/webcomponents-demos/samples/grids/hierarchical-grid/row-selection-mode" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-run.png"/>
         </a>
-        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-wc-examples/tree/master/samples/gauges/bullet-graph/highlight-needle?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/{SampleFile}" rel="noopener noreferrer">
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-wc-examples/tree/master/samples/grids/hierarchical-grid/row-selection-mode?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/{SampleFile}" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-sandbox.png"/>
         </a>
     </body>
@@ -33,7 +33,7 @@ To set up this project locally, execute these commands:
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
 git checkout master
 cd ./igniteui-wc-examples
-cd ./samples/gauges/bullet-graph/highlight-needle
+cd ./samples/grids/hierarchical-grid/row-selection-mode
 ```
 
 open above folder in VS Code or type:

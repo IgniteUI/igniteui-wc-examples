@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Integration</title>
+        <meta charset="UTF-8" />
+
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+    </head>
+
+    <body>
+        <div id="root">
+            <div class="container sample">
+                <form id="form">
+                    <igc-stepper id="stepper" step-type="full" linear>
+                        <igc-step>
+                            <p slot="title">General Information</p>
+                            <fieldset>
+                                <legend>What is the category of your event?</legend>
+                                <igc-radio-group class="categories-group" alignment="horizontal">
+                                    <igc-radio class="categories" name="category" value="music" required>
+                                        <span>Music</span>
+                                        <igc-icon name="music" collection="categories"></igc-icon>
+                                    </igc-radio>
+                                    <igc-radio class="categories" name="category" value="food">
+                                        <span>Food & Drink</span>
+                                        <igc-icon name="food" collection="categories"></igc-icon>
+                                    </igc-radio>
+                                    <igc-radio class="categories" name="category" value="arts">
+                                        <span>Arts & Culture</span>
+                                        <igc-icon name="arts" collection="categories"></igc-icon>
+                                    </igc-radio>
+                                    <igc-radio class="categories" name="category" value="party">
+                                        <span>Parties & Nightlife</span>
+                                        <igc-icon name="party" collection="categories"></igc-icon>
+                                    </igc-radio>
+                                    <igc-radio class="categories" name="category" value="sport">
+                                        <span>Sports & Wellness</span>
+                                        <igc-icon name="sport" collection="categories"></igc-icon>
+                                    </igc-radio>
+                                    <igc-radio class="categories" name="category" value="education">
+                                        <span>Classes & Education</span>
+                                        <igc-icon name="education" collection="categories"></igc-icon>
+                                    </igc-radio>
+                                </igc-radio-group>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Is this a private or public event?</legend>
+                                <igc-switch name="event-public" checked>Public</igc-switch>
+                            </fieldset>
+                            <fieldset>
+                                <igc-input name="event-title" label="Event Title" required></igc-input>
+                            </fieldset>
+                            <fieldset>
+                                <igc-textarea name="event-description" label="What is this Event about?" required></igc-textarea>
+                            </fieldset>
+                            <igc-button variant="outlined" onclick="stepper.next()">Next</igc-button>
+                        </igc-step>
+                        <igc-step>
+                            <p slot="title">Pricing and Location</p>
+                            <fieldset>
+                                <igc-select name="event-location" label="Select the location" value="New York" required></igc-select>
+                                <igc-select name="event-venue" label="Select the venue" required></igc-select>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Select your budget</legend>
+                                <igc-slider aria-label="Drag the slider to select the budget for the event" name="event-budget" max="5000" secondary-ticks="4" primary-ticks="5" step="10"></igc-slider>
+                            </fieldset>
+                            <fieldset>
+                                <label for="event-date">When will the event be?</label>
+                                <input id="event-date" type="date" name="event-date" required />
+                                <igc-date-time-input name="event-time" label="When will the event start?" prompt="-" input-format="hh:mm tt" display-format="shortTime" required></igc-date-time-input>
+                            </fieldset>
+                            <igc-button variant="outlined" onclick="stepper.prev()">Back</igc-button>
+                            <igc-button variant="outlined" onclick="stepper.next()">Next</igc-button>
+                        </igc-step>
+                        <igc-step>
+                            <p slot="title">Additional Information</p>
+                            <fieldset>
+                                <legend>Any restrictions in regards of your audience?</legend>
+                                <igc-radio-group>
+                                    <igc-radio name="event-restrictions" value="none" checked>None</igc-radio>
+                                    <igc-radio name="event-restrictions" value="children-only">Children only</igc-radio>
+                                    <igc-radio name="event-restrictions" value="women-only">Women only</igc-radio>
+                                    <igc-radio name="event-restrictions" value="no-children">No children</igc-radio>
+                                    <igc-radio name="event-restrictions" value="legal-age">Event 18+</igc-radio>
+                                    <igc-radio name="event-restrictions" value="senior-age">Senior citizens</igc-radio>
+                                </igc-radio-group>
+                            </fieldset>
+                            <fieldset>
+                                <igc-input name="event-number-of-guests" label="How many people do you expect to see?" type="number" min="0" step="1"></igc-input>
+                            </fieldset>
+                            <fieldset>
+                                <igc-input name="event-number-of-special-guests" label="How many special guests will there be?" type="number" min="0" step="1"></igc-input>
+                                <fieldset id="special-guests"></fieldset>
+                            </fieldset>
+                            <fieldset>
+                                <igc-textarea name="event-additional-info" label="Any additional information?"></igc-textarea>
+                            </fieldset>
+                            <fieldset>
+                                <igc-checkbox name="toc-accepted" required>I hereby accept the <a href="#">Terms and Conditions</a> for the event creation</igc-checkbox>
+                            </fieldset>
+                            <igc-button variant="outlined" onclick="stepper.prev()">Back</igc-button>
+                            <igc-button type="submit">Create Event</igc-button>
+                        </igc-step>
+                    </igc-stepper>
+                </form>
+            </div>
+        </div>
+
+        <!-- This script is needed only for parcel and it will be excluded for webpack -->
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
+</html>

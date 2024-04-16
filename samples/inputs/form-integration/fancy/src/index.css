@@ -1,0 +1,60 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+:root {
+    --ig-primary-h: 270deg;
+    --ig-primary-s: 50%;
+    --ig-primary-l: 40%;
+    --ig-font-family: sans-serif;
+    --ig-size: var(--ig-size-medium);
+}
+
+fieldset {
+    border: none;
+}
+
+igc-step::part(content) {
+    padding: 1rem;
+    min-height: 90dvh;
+    min-width: 90dvw;
+}
+
+.categories-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.categories-selected::part(label) {
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: rebeccapurple;
+}
+
+.categories::part(control) {
+    display: none;
+}
+
+.categories::part(label) {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    height: 8rem;
+    width: 8rem;
+    padding: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    border: 1px solid rebeccapurple;
+    transition: all 0.2s ease-in;
+}
+
+.categories::part(label):hover {
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: rebeccapurple;
+}
+
+.categories:focus-within::part(label) {
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: rebeccapurple;
+}
