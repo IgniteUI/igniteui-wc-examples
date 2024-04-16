@@ -25,6 +25,10 @@
             <igc-button id="clearSort">
               <igc-icon name="clear" collection="material"></igc-icon>Clear Sort
             </igc-button>
+            <igc-grid-toolbar-actions>
+              <igc-grid-toolbar-hiding>
+              </igc-grid-toolbar-hiding>
+            </igc-grid-toolbar-actions>
           </igc-grid-toolbar>
           <igc-column field="Artist" header="Artist" data-type="string" width="150px" sortable="true">
           </igc-column>
@@ -36,7 +40,7 @@
           </igc-column>
           <igc-column field="GrammyAwards" header="Grammy Awards" data-type="string" width="200px" sortable="true">
           </igc-column>
-          <igc-row-island child-data-key="Albums" auto-generate="false">
+          <igc-row-island id="rowIsland1" child-data-key="Albums" auto-generate="false">
             <igc-column field="Album" header="Album" data-type="string" sortable="true">
             </igc-column>
             <igc-column field="LaunchDate" header="Launch Date" data-type="date" sortable="true">

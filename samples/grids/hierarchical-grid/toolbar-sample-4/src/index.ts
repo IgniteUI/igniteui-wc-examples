@@ -1,6 +1,7 @@
-import { IgcHierarchicalGridComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridToolbarTemplateContext, IgcHierarchicalGridComponent, IgcRowIslandComponent } from 'igniteui-webcomponents-grids/grids';
 import { defineComponents, IgcButtonComponent, IgcIconComponent, registerIconFromText } from 'igniteui-webcomponents';
 import { SingersData } from './SingersData';
+import { html } from 'lit-html';
 
 import 'igniteui-webcomponents-grids/grids/combined';
 import 'igniteui-webcomponents-grids/grids/themes/light/bootstrap.css';
@@ -17,11 +18,26 @@ export class Sample {
 
         var hGrid1 = this.hGrid1 = document.getElementById('hGrid1') as IgcHierarchicalGridComponent;
         hGrid1.data = this.singersData;
+        
+        var rowIsland1 = document.getElementById('rowIsland1') as IgcRowIslandComponent;
+        rowIsland1.toolbarTemplate = this.rowIslandToolbarTemplate;
 
         var button = document.getElementById('clearSort') as IgcButtonComponent;
         button.addEventListener("click", () => {
             hGrid1.clearSort();
         });
+    }
+
+    public rowIslandToolbarTemplate = (ctx: IgcGridToolbarTemplateContext) => {
+        return html`<igc-grid-toolbar>
+            <igc-grid-toolbar-title>Albums</igc-grid-toolbar-title>
+            <igc-button @click="${() => ctx.implicit.clearSort()}">
+                <igc-icon name="clear" collection="material"></igc-icon>Clear Sort
+            </igc-button>
+            <igc-grid-toolbar-actions>
+                <igc-grid-toolbar-hiding></igc-grid-toolbar-hiding>
+            </igc-grid-toolbar-actions>
+        </igc-grid-toolbar>`;
     }
 
     private _singersData: SingersData = null;
