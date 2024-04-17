@@ -1,9 +1,16 @@
 import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
-import { ComponentRenderer, NumberAbbreviatorDescriptionModule, DataChartCoreDescriptionModule, DataChartScatterDescriptionModule, DataChartScatterCoreDescriptionModule, DataChartInteractivityDescriptionModule, DataChartAnnotationDescriptionModule } from 'igniteui-webcomponents-core';
+import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
+import { ComponentRenderer, NumberAbbreviatorDescriptionModule, DataChartCoreDescriptionModule, DataChartScatterDescriptionModule, DataChartScatterCoreDescriptionModule, DataChartInteractivityDescriptionModule, DataChartAnnotationDescriptionModule, PropertyEditorPanelDescriptionModule } from 'igniteui-webcomponents-core';
+import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcValueBrushScaleComponent } from 'igniteui-webcomponents-charts';
 import { WorldDebtAndPopulationItem, WorldDebtAndPopulation } from './WorldDebtAndPopulation';
+import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
+import { EnumUtil } from 'igniteui-webcomponents-core';
 
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+defineAllComponents();
 
 import "./index.css";
 
@@ -13,11 +20,15 @@ ModuleManager.register(
     IgcDataChartScatterModule,
     IgcDataChartScatterCoreModule,
     IgcDataChartInteractivityModule,
-    IgcDataChartAnnotationModule
+    IgcDataChartAnnotationModule,
+    IgcPropertyEditorPanelModule
 );
 
 export class Sample {
 
+    private propertyEditor: IgcPropertyEditorPanelComponent
+    private fillScaleMinimumValueEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private fillScaleMaximumValueEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcDataChartComponent
     private xAxis: IgcNumericXAxisComponent
     private yAxis: IgcNumericYAxisComponent
@@ -52,12 +63,21 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
+        var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
+        var fillScaleMinimumValueEditor = this.fillScaleMinimumValueEditor = document.getElementById('FillScaleMinimumValueEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.scatterBubbleSeriesFillScaleSliderChanged = this.scatterBubbleSeriesFillScaleSliderChanged.bind(this);
+        var fillScaleMaximumValueEditor = this.fillScaleMaximumValueEditor = document.getElementById('FillScaleMaximumValueEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.scatterBubbleSeriesFillScaleSliderChanged = this.scatterBubbleSeriesFillScaleSliderChanged.bind(this);
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
         var bubbleSeries1 = this.bubbleSeries1 = document.getElementById('BubbleSeries1') as IgcBubbleSeriesComponent;
 
         this._bind = () => {
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.chart;
+            fillScaleMinimumValueEditor.changed = this.scatterBubbleSeriesFillScaleSliderChanged;
+            fillScaleMaximumValueEditor.changed = this.scatterBubbleSeriesFillScaleSliderChanged;
             bubbleSeries1.radiusScale = this.sizeScale1;
             bubbleSeries1.xAxis = this.xAxis;
             bubbleSeries1.yAxis = this.yAxis;
@@ -88,8 +108,22 @@ export class Sample {
             DataChartScatterCoreDescriptionModule.register(context);
             DataChartInteractivityDescriptionModule.register(context);
             DataChartAnnotationDescriptionModule.register(context);
+            PropertyEditorPanelDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public scatterBubbleSeriesFillScaleSliderChanged(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        let series: IgcBubbleSeriesComponent = this.chart.actualSeries[0] as IgcBubbleSeriesComponent;
+
+        let fillScale = (series.fillScale as any);
+
+        if(args.newValue >= 25000){
+            fillScale.maximumValue = args.newValue;
+        }
+        else{
+            fillScale.minimumValue = args.newValue;
+        }
     }
 
 }

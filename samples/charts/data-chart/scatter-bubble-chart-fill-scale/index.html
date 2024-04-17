@@ -17,6 +17,31 @@
     <div id="root">
 
 <div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor-panel
+        name="PropertyEditor"
+        id="PropertyEditor"
+        description-type="DataChart"
+        is-horizontal="true"
+        is-wrapping-enabled="true">
+            <igc-property-editor-property-description
+            name="FillScaleMinimumValueEditor"
+            id="FillScaleMinimumValueEditor"
+            label="MinimumValue: "
+            value-type="Slider"
+            min="0"
+            max="20000">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            name="FillScaleMaximumValueEditor"
+            id="FillScaleMaximumValueEditor"
+            label="MaximumValue: "
+            value-type="Slider"
+            min="25000"
+            max="100000">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
 
     <div class="container fill">
         <igc-data-chart
