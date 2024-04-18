@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sample | Ignite UI | Web Components | infragistics</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+  <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample">
+      <div class="container fill">
+
+        <igc-tree-grid id="treeGrid" auto-generate="false" primary-key="ID" foreign-key="ParentID" height="350px">
+          <igc-grid-toolbar id="toolbar">
+            <igc-button id="simulate">
+                Simulate long running operation
+            </igc-button>
+            <igc-grid-toolbar-actions>
+              <igc-grid-toolbar-exporter></igc-grid-toolbar-exporter>
+            </igc-grid-toolbar-actions>
+          </igc-grid-toolbar>
+
+          <igc-column field="ID" header="Order ID">
+          </igc-column>
+          <igc-column field="Name" header="Order Product">
+          </igc-column>
+          <igc-column field="Category" header="Category">
+          </igc-column>
+          <igc-column field="Units" header="Units" data-type="number">
+          </igc-column>
+          <igc-column field="UnitPrice" header="Unit Price" data-type="currency">
+          </igc-column>
+          <igc-column field="Price" header="Price" dataType="currency">
+          </igc-column>
+          <igc-column field="OrderDate" header="Order Date" data-type="date">
+          </igc-column>
+
+        </igc-tree-grid>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+</body>
+
+</html>
