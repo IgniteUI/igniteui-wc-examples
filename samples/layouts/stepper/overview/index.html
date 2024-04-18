@@ -25,7 +25,7 @@
                     <igc-step id="businessInformation" invalid>
                         <span slot="title">Business Information</span>
                         <div class="sample-row">
-                            <igc-form class="flex-form">
+                            <form class="flex-form">
                                 <igc-input required label="Name" type="text" name="name"></igc-input>
                                 <igc-input required label="Physical address" type="text" name="physicalAddress"></igc-input>
                                 <div class="form-row">
@@ -47,7 +47,7 @@
                                     <igc-radio name="nonUSBusinessActivity" required value="true">Yes.</igc-radio>
                                     <igc-radio name="nonUSBusinessActivity" required value="false">No.</igc-radio>
                                 </igc-radio-group>
-                            </igc-form>
+                            </form>
                             <div class="selected-card-wrapper"></div>
                         </div>
                         <br />
@@ -58,7 +58,7 @@
                     <igc-step id="personalInformation" invalid>
                         <span slot="title">Personal Information</span>
                         <div class="sample-row">
-                            <igc-form class="flex-form">
+                            <form class="flex-form">
                                 <igc-input required label="First Name" type="text" name="firstName"></igc-input>
                                 <igc-input required label="Last Name" type="text" name="lastName"></igc-input>
                                 <igc-input required label="Job Title" type="text" name="jobTitle"></igc-input>
@@ -66,7 +66,7 @@
                                 <igc-input required label="Email Address" type="email" name="email"></igc-input>
                                 <igc-checkbox required name="authorization"> I confirm that I am authorized to borrow on behalf of this business.<span class="required">*</span> </igc-checkbox>
                                 <igc-checkbox required name="agreementAccepted"> I agree with the<span class="required">*</span><a class="terms-and-conditions">Terms and Conditions</a> </igc-checkbox>
-                            </igc-form>
+                            </form>
                             <div class="selected-card-wrapper"></div>
                         </div>
                         <br />
@@ -77,7 +77,7 @@
                     <igc-step id="shippingDetails" optional disabled>
                         <span slot="title">Shipping Details</span>
                         <div class="sample-row">
-                            <igc-form class="flex-form">
+                            <form class="flex-form">
                                 <igc-input required label="First Name" type="text" name="firstName"></igc-input>
                                 <igc-input required label="Last Name" type="text" name="lastName"></igc-input>
                                 <igc-input required label="Mailing Address" type="text" name="mailingAddress"></igc-input>
@@ -92,7 +92,7 @@
                                     </igc-select>
                                     <igc-mask-input required label="ZIP Code" placeHolder="#####" type="text" name="zip" mask="00000"> </igc-mask-input>
                                 </div>
-                            </igc-form>
+                            </form>
                             <div class="selected-card-wrapper card-horizontal card-horizontal-small"></div>
                         </div>
                         <br />

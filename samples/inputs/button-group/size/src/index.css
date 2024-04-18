@@ -1,2 +1,6 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
+
+igc-button-group {
+    --ig-size: var(--ig-size-large);
+}

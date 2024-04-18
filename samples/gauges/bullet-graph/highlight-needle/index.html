@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BulletGraphHighlightNeedle</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample center" >
+    <igc-bullet-graph
+        id="gauge"
+        height="80px"
+        width="100%"
+        minimum-value="0" 
+        maximum-value="100"
+        value="70" 
+        interval="10"
+        target-value="90"
+        label-interval="10"
+        label-extent="0.025"
+        labels-pre-terminal="0"
+        labels-post-initial="0"
+        highlight-value-display-mode="Overlay"
+        highlight-value="25" >
+    </igc-bullet-graph>
+
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

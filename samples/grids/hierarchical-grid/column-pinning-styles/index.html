@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container fill">
+        <igc-hierarchical-grid
+        name="grid"
+        id="grid"
+        id="grid"
+        column-selection="single"
+        primary-key="CustomerID">
+            <igc-grid-toolbar
+            >
+                <igc-grid-toolbar-actions
+                >
+                    <igc-grid-toolbar-pinning
+                    >
+                    </igc-grid-toolbar-pinning>
+                </igc-grid-toolbar-actions>
+            </igc-grid-toolbar>
+            <igc-column
+            field="CustomerID"
+            hidden="true">
+            </igc-column>
+            <igc-column
+            field="CompanyName"
+            header="Company Name"
+            pinned="true">
+            </igc-column>
+            <igc-column
+            field="ContactName"
+            header="Contact Name">
+            </igc-column>
+            <igc-column
+            field="ContactTitle"
+            header="Contact Title">
+            </igc-column>
+            <igc-column
+            field="Address"
+            header="Address">
+            </igc-column>
+            <igc-column
+            field="City"
+            header="City">
+            </igc-column>
+            <igc-column
+            field="PostalCode"
+            header="Postal Code">
+            </igc-column>
+            <igc-column
+            field="Country"
+            header="Country">
+            </igc-column>
+            <igc-column
+            field="Phone">
+            </igc-column>
+            <igc-column
+            field="Fax">
+            </igc-column>
+            <igc-row-island
+            child-data-key="Orders"
+            auto-generate="false">
+                <igc-column
+                field="OrderDate"
+                header="Order Date"
+                data-type="date"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="RequiredDate"
+                header="Required Date"
+                data-type="date"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="ShippedDate"
+                header="Shipped Date"
+                data-type="date"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="ShipName"
+                header="Ship Name"
+                data-type="string"
+                resizable="true"
+                pinned="true">
+                </igc-column>
+                <igc-column
+                field="ShippedVia"
+                header="Shipped Via"
+                data-type="string"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="Freight"
+                header="Freight"
+                data-type="string"
+                resizable="true">
+                </igc-column>
+                <igc-row-island
+                child-data-key="OrderDetails"
+                auto-generate="false">
+                    <igc-column
+                    field="UnitPrice"
+                    header="Unit Price"
+                    data-type="string"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Quantity"
+                    header="Quantity"
+                    data-type="string"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Discount"
+                    header="Discount"
+                    data-type="string"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Weight"
+                    header="Weight"
+                    data-type="string"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Length"
+                    header="Length"
+                    data-type="string"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="TotalPrice"
+                    header="Total Price"
+                    data-type="string"
+                    resizable="true">
+                    </igc-column>
+                </igc-row-island>
+            </igc-row-island>
+        </igc-hierarchical-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

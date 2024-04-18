@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sample | Ignite UI | Web Components | infragistics</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+  <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample">
+      <div class="container fill">
+
+        <igc-hierarchical-grid auto-generate="false" name="hGrid1" id="hGrid1">
+          <igc-grid-toolbar id="toolbar">
+            <igc-grid-toolbar-title>Singers</igc-grid-toolbar-title>
+            <igc-button id="simulate">
+                Simulate long running operation
+            </igc-button>
+            <igc-grid-toolbar-actions>
+              <igc-grid-toolbar-exporter></igc-grid-toolbar-exporter>
+            </igc-grid-toolbar-actions>
+          </igc-grid-toolbar>
+          <igc-column field="Artist" header="Artist" data-type="string" width="150px">
+          </igc-column>
+          <igc-column field="Photo" header="Photo" data-type="image">
+          </igc-column>
+          <igc-column field="Debut" header="Debut" data-type="number">
+          </igc-column>
+          <igc-column field="GrammyNominations" header="Grammy Nominations" data-type="string" width="200px">
+          </igc-column>
+          <igc-column field="GrammyAwards" header="Grammy Awards" data-type="string" width="200px">
+          </igc-column>
+          <igc-row-island child-data-key="Albums" auto-generate="false">
+            <igc-column field="Album" header="Album" data-type="string">
+            </igc-column>
+            <igc-column field="LaunchDate" header="Launch Date" data-type="date">
+            </igc-column>
+            <igc-column field="BillboardReview" header="Billboard Review" data-type="string">
+            </igc-column>
+            <igc-column field="USBillboard200" header="US Billboard 200" data-type="string">
+            </igc-column>
+            <igc-row-island child-data-key="Songs" auto-generate="false">
+              <igc-column field="Number" header="No." data-type="string">
+              </igc-column>
+              <igc-column field="Title" header="Title" data-type="string">
+              </igc-column>
+              <igc-column field="Released" header="Released" data-type="date">
+              </igc-column>
+              <igc-column field="Genre" header="Genre" data-type="string">
+              </igc-column>
+            </igc-row-island>
+          </igc-row-island>
+          <igc-row-island child-data-key="Tours" auto-generate="false">
+            <igc-column field="Tour" header="Tour" data-type="string">
+            </igc-column>
+            <igc-column field="StartedOn" header="Started on" data-type="string">
+            </igc-column>
+            <igc-column field="Location" header="Location" data-type="string">
+            </igc-column>
+            <igc-column field="Headliner" header="Headliner" data-type="string">
+            </igc-column>
+          </igc-row-island>
+        </igc-hierarchical-grid>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+</body>
+
+</html>
