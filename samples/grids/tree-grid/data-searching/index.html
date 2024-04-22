@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample">         
+          <div class="container vertical">
+            <div style="margin-bottom: 1rem">
+              <igc-input id="searchBox" name="searchBox">          
+                <igc-icon id="clearIcon" slot="prefix" name="clear" collection="material"></igc-icon>
+                <div slot="suffix">
+                  <igc-chip selectable="true" id="caseSensitiveChip">Case Sensitive</igc-chip>
+                  <igc-chip selectable="true" id="exactMatchChip">Exact Match</igc-chip>
+                </div>
+                <div slot="suffix">
+                  <igc-icon-button id="prevIconBtn" variant="flat" name="prev" collection="material" ></igc-icon-button>
+                  <igc-icon-button id="nextIconBtn" variant="flat" name="next" collection="material"></igc-icon-button>
+                </div>
+              </igc-input>
+            </div>
+          
+            <igc-tree-grid id="treeGrid" auto-generate="false" primary-key="ID" foreign-key="ParentID" allow-filtering="true" height="480px">
+              <igc-column field="Name" data-type="string" sortable="true"></igc-column>        
+              <igc-column field="ID" data-type="number" sortable="true"></igc-column>        
+              <igc-column field="Title" data-type="string" sortable="true"></igc-column>        
+              <igc-column field="Age" data-type="number" sortable="true"></igc-column>        
+              <igc-column field="HireDate" data-type="date" sortable="true"></igc-column>        
+            </igc-tree-grid>
+          </div>
+      </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
