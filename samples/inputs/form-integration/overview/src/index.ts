@@ -18,6 +18,45 @@ function populateCombo() {
     document.querySelector<IgcComboComponent>("[name='state']")!.data = ["Not in the USA", ...states];
 }
 
+function inputValidation(elements) {
+    const inputs = [
+        { name: "email", errorSelector: "#email .helper-text" },
+        { name: "first-name", errorSelector: "#first-name .helper-text" },
+        { name: "last-name", errorSelector: "#last-name .helper-text" },
+        { name: "message", errorSelector: "#message .helper-text" },
+        { name: "company-name", errorSelector: "#company-name .helper-text" }
+    ];
+
+    inputs.forEach(input => {
+        const inputElement = elements?.namedItem(input.name) as HTMLInputElement;
+        const errorElement = document.querySelector(input.errorSelector);
+        inputValidaionMessages(inputElement, errorElement);
+    });
+}
+
+function inputValidaionMessages(input, inputError){
+
+    if(input != null){
+        input.addEventListener("blur", (event) => {
+        // On blur we check if the form fields are valid.
+        if (input.validity.valid) {
+            // In case there is an error message visible, if the field
+            // is valid, we remove the error message.
+            if(inputError != null){
+                inputError.textContent = ""; // Reset the content of the message
+        }
+        } else {
+            // If there is still an error, show the correct error
+            showError(input, inputError);
+        }
+        });
+    }    
+}
+
+function showError(input, inputError) {
+    inputError!.textContent = input.validationMessage; 
+}
+
 function onSubmit() {
     const form = document.querySelector("form")!;
     form.addEventListener("submit", (e) => {
@@ -36,7 +75,14 @@ export class FormOverview {
         populateSelect("[name='title-level']", titleLevels);
         populateCombo();
         onSubmit();
+
+        const form: HTMLFormElement = document.querySelector("form")!;
+        const elements: HTMLFormControlsCollection = form?.elements;        
+        const emailError = document.querySelector("span.helper-text");
+
+        inputValidation(elements);
     }
+    
 }
 
 new FormOverview();
