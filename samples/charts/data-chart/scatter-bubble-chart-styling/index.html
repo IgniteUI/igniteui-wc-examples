@@ -17,69 +17,68 @@
     <div id="root">
 
 <div class="container sample">
-    
-        <div class="legend-title">
+
+    <div class="legend-title">
         Total Population of Selected Countries
     </div>
-    
+
     <div class="legend">
         <igc-legend
-        orientation="Horizontal"
         name="Legend"
-        id ="Legend">
+        id="Legend"
+        orientation="Horizontal">
         </igc-legend>
     </div>
-    
+
     <div class="container fill">
         <igc-data-chart
-        
         name="chart"
-        id ="chart">
+        id="chart">
             <igc-numeric-x-axis
-            is-logarithmic="true"
-            abbreviate-large-numbers="true"
-            title="Population"
             name="xAxis"
-            id ="xAxis">
+            id="xAxis"
+            title="Population"
+            is-logarithmic="true"
+            abbreviate-large-numbers="true">
             </igc-numeric-x-axis>
             <igc-numeric-y-axis
-            is-logarithmic="true"
-            abbreviate-large-numbers="true"
-            title="GDP per Capita"
             name="yAxis"
-            id ="yAxis">
+            id="yAxis"
+            title="GDP per Capita"
+            is-logarithmic="true"
+            abbreviate-large-numbers="true">
             </igc-numeric-y-axis>
             <igc-bubble-series
-            radius-member-path="population"
+            name="BubbleSeries1"
+            id="BubbleSeries1"
+            title="African Countries"
             x-member-path="population"
             y-member-path="gDP"
+            radius-member-path="population"
             marker-type="Circle"
-            marker-thickness="2"
-            marker-brush="rgba(62, 202, 62, 1)"
             marker-outline="rgba(62, 202, 62, 1)"
+            marker-brush="rgba(69, 179, 224, 1)"
             marker-fill-opacity="0.5"
-            show-default-tooltip="true"
-            title="African Countries"
-            name="BubbleSeries1"
-            id ="BubbleSeries1">
+            marker-thickness="2"
+            show-default-tooltip="true">
             </igc-bubble-series>
             <igc-bubble-series
+            name="BubbleSeries2"
+            id="BubbleSeries2"
             title="European Countries"
             x-member-path="population"
             y-member-path="gDP"
             radius-member-path="population"
             marker-type="Circle"
             marker-outline="rgba(171, 6, 221, 1)"
-            marker-brush="rgba(171, 6, 221, 1)"
+            marker-brush="rgba(135, 156, 235, 1)"
             marker-fill-opacity="0.5"
             marker-thickness="2"
-            show-default-tooltip="true"
-            name="BubbleSeries2"
-            id ="BubbleSeries2">
+            show-default-tooltip="true">
             </igc-bubble-series>
             <igc-data-tool-tip-layer
             name="DataToolTipLayer"
-            id ="DataToolTipLayer">
+            id="DataToolTipLayer">
             </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>

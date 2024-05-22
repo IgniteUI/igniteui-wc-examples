@@ -2,8 +2,9 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcGridComponent, IgcActionStripComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcPinningConfig, RowPinningPosition, IgcActionStripComponent } from 'igniteui-webcomponents-grids/grids';
 import CustomersDataLocal from './CustomersDataLocal.json';
+import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -22,19 +23,33 @@ export class Sample {
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
     private rowPinningEditor: IgcPropertyEditorPropertyDescriptionComponent
     private grid: IgcGridComponent
+    private _pinningConfig1: IgcPinningConfig | null = null;
+    public get pinningConfig1(): IgcPinningConfig {
+        if (this._pinningConfig1 == null)
+        {
+            var pinningConfig1: IgcPinningConfig = {} as IgcPinningConfig;
+            pinningConfig1.rows = RowPinningPosition.Top;
+
+            this._pinningConfig1 = pinningConfig1;
+        }
+        return this._pinningConfig1;
+    }
     private actionStrip: IgcActionStripComponent
     private _bind: () => void;
 
     constructor() {
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
         var rowPinningEditor = this.rowPinningEditor = document.getElementById('rowPinningEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.webGridSetRowPinning = this.webGridSetRowPinning.bind(this);
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         var actionStrip = this.actionStrip = document.getElementById('actionStrip') as IgcActionStripComponent;
 
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;
             propertyEditorPanel1.target = this.grid;
+            rowPinningEditor.changed = this.webGridSetRowPinning;
             grid.data = this.customersDataLocal;
+            grid.pinning = this.pinningConfig1;
         }
         this._bind();
 
@@ -54,6 +69,13 @@ export class Sample {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webGridSetRowPinning(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var item = sender as IgcPropertyEditorPropertyDescriptionComponent;
+        var newVal = item.primitiveValue;
+        var grid = this.grid;
+        grid.pinning.rows = newVal === "Top" ? RowPinningPosition.Top : RowPinningPosition.Bottom;
     }
 
 }

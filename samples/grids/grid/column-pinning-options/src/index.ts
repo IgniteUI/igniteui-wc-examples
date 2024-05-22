@@ -70,7 +70,7 @@ export class Sample {
         };
 
     public toggleColumnPin(field: string) {
-        var grid = document.getElementsByTagName("igc-grid")[0] as IgcGridComponent;
+        var grid: IgcGridComponent = this.grid;
         var col = grid.getColumnByName(field);
         col.pinned = !col.pinned;
         grid.markForCheck();

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor-panel
+        name="editor"
+        id="editor"
+        description-type="CategoryChart"
+        is-horizontal="true"
+        is-wrapping-enabled="true">
+            <igc-property-editor-property-description
+            property-path="InitialFilterHandler"
+            editor-width="800"
+            name="InitialFilter"
+            id="InitialFilter"
+            label="Modify Chart Filter"
+            value-type="StringValue"
+            should-override-default-editor="true">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+
+    <div class="legend-title">
+        Sales Filtered by Country, Product, and Dates
+    </div>
+
+    <div class="legend">
+        <igc-legend
+        name="Legend"
+        id="Legend"
+        orientation="Horizontal">
+        </igc-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-category-chart
+        name="chart"
+        id="chart"
+        chart-type="Column"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false"
+        crosshairs-display-mode="None"
+        included-properties="Date, GrossSales, Profit, Sales"
+        initial-filter="(startswith(Country, 'B') and endswith(Country, 'l') and contains(Product, 'Royal Oak') and contains(Date, '3/1/20'))">
+        </igc-category-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

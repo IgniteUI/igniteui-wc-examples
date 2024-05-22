@@ -25,8 +25,7 @@
         included-columns="Close, Change, Value"
         excluded-columns="High, Low, Open, Volume"
         label-display-mode="Hidden"
-        value-format-mode="Currency"
-        value-format-culture="en-GB">
+        value-format-string="{0}">
         </igc-data-legend>
     </div>
 
@@ -35,24 +34,13 @@
         name="chart"
         id="chart"
         chart-type="Candle"
-        data-tool-tip-value-format-mode="Currency"
-        data-tool-tip-value-format-culture="en-GB"
-        data-tool-tip-label-display-mode="Hidden"
+        data-tool-tip-value-format-string="{0}"
         data-tool-tip-included-columns="Close, Change, Value"
         data-tool-tip-header-format-time="None"
         zoom-slider-type="None"
+        y-axis-abbreviate-large-numbers="false"
         y-axis-label-format="{0}"
         x-axis-label-format="{0}">
-            <igc-number-format-specifier
-            currency="EUR"
-            style="currency"
-            locale="en-GB"
-            minimum-fraction-digits="0">
-            </igc-number-format-specifier>
-            <igc-date-time-format-specifier
-            locale="en-GB"
-            date-style="long">
-            </igc-date-time-format-specifier>
         </igc-financial-chart>
     </div>
 </div>

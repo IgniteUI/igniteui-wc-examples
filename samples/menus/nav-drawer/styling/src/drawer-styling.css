@@ -12,9 +12,26 @@ igc-nav-drawer-item::part(base):hover {
 
 igc-nav-drawer-item[active]::part(base) {
     background: #f3c03e;
-    color: #2c2c2c
+    color: #2c2c2c;
 }
 
 igc-nav-drawer-header-item {
+    color: #f3c03e;
+}
+
+#button-wrapper{
+    padding: 16px;
+}
+
+igc-icon-button::part(icon) {
+    --size: 32px;
     color: #f3c03e
+}
+
+igc-icon-button::part(base) {
+    background-color: #2c2c2c;
+}
+
+igc-icon-button::part(base):hover {
+    background-color: #3D4149;
 }

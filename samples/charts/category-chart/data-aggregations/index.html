@@ -19,50 +19,27 @@
 <div class="container sample">
     <div class="options vertical">
         <igc-property-editor-panel
-
+        name="editor"
+        id="editor"
         description-type="CategoryChart"
         is-horizontal="true"
-        is-wrapping-enabled="true"
-        name="propertyEditorPanel1"
-        id="propertyEditorPanel1">
+        is-wrapping-enabled="true">
             <igc-property-editor-property-description
-            property-path="InitialGroups"
+            property-path="InitialGroupsHandler"
             name="InitialGroups"
             id="InitialGroups"
             label="Initial Groups"
             value-type="EnumValue"
             should-override-default-editor="true"
-            drop-down-names="Country, Product, MonthName, Year"
-            drop-down-values="Country, Product, MonthName, Year"
+            drop-down-names="Country, Product, Month, Year"
+            drop-down-values="Country, Product, Month, Year"
             primitive-value="Country">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="InitialSummaries"
-            name="InitialSummaries"
-            id="InitialSummaries"
-            label="Initial Summaries"
-            value-type="EnumValue"
-            should-override-default-editor="true"
-            drop-down-names="Sum(Sales), Avg(Sales), Min(Sales), Max(Sales), Count(Sales)"
-            drop-down-values="Sum(Sales) as Sales, Avg(Sales) as Sales, Min(Sales) as Sales, Max(Sales) as Sales, Count(Sales) as Sales"
-            primitive-value="Sum(Sales) as Sales">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="GroupSorts"
-            name="GroupSorts"
-            id="GroupSorts"
-            label="Sort Groups"
-            value-type="EnumValue"
-            should-override-default-editor="true"
-            drop-down-names="Sales Desc, Sales Asc"
-            drop-down-values="Sales Desc, Sales Asc"
-            primitive-value="Sales Desc">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
 
     <div class="legend-title">
-        Renewable Electricity Generated
+        Sales Aggregated by Country and Product
     </div>
 
     <div class="container fill">

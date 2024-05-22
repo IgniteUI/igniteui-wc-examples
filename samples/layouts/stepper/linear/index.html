@@ -18,46 +18,46 @@
                 <igc-stepper id="stepper">
                     <igc-step invalid>
                         <span slot="title">Personal Info</span>
-                        <igc-form id="personalInformation" novalidate>
+                        <form>
                             <igc-input required label="Full Name" type="text" name="fullName"></igc-input>
                             <igc-input required label="Email" type="email" name="email"></igc-input>
                             <br />
                             <igc-button class="next" onclick="stepper.next()">NEXT</igc-button>
-                        </igc-form>
+                        </form>
                     </igc-step>
                     <igc-step invalid>
                         <span slot="title">Delivery address</span>
-                        <igc-form>
+                        <form>
                             <igc-input required label="City" type="text" name="city"></igc-input>
                             <igc-input required label="Street" type="text" name="street"></igc-input>
                             <br />
                             <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
                             <igc-button class="next" onclick="stepper.next()">NEXT</igc-button>
-                        </igc-form>
+                        </form>
                     </igc-step>
                     <igc-step optional>
                         <span slot="title">Billing address</span>
                         <span slot="subtitle">(optional)</span>
-                        <igc-form>
+                        <form>
                             <igc-input label="City" type="text" name="bill-city"></igc-input>
                             <igc-input label="Street" type="text" name="bill-city"></igc-input>
                             <br />
                             <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
                             <igc-button onclick="stepper.next()">NEXT</igc-button>
-                        </igc-form>
+                        </form>
                     </igc-step>
                     <igc-step invalid>
                         <span slot="title">Payment</span>
-                        <igc-form novalidate id="payment">
+                        <form>
                             <igc-radio-group>
-                                <igc-radio required>PayPal (n@mail.com; 18/02/2021)</igc-radio>
-                                <igc-radio required>Visa (**** **** **** 1234; 12/23)</igc-radio>
-                                <igc-radio required>MasterCard (**** **** **** 5678; 12/24)</igc-radio>
+                                <igc-radio name="payment" required>PayPal (n@mail.com; 18/02/2021)</igc-radio>
+                                <igc-radio name="payment" required>Visa (**** **** **** 1234; 12/23)</igc-radio>
+                                <igc-radio name="payment" required>MasterCard (**** **** **** 5678; 12/24)</igc-radio>
                             </igc-radio-group>
                             <br />
                             <igc-button onclick="stepper.prev()">PREVIOUS</igc-button>
                             <igc-button class="next" onclick="stepper.next()">SUBMIT</igc-button>
-                        </igc-form>
+                        </form>
                     </igc-step>
                     <igc-step>
                         <span slot="title">Delivery status</span>

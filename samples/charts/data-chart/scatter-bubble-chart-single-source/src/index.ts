@@ -1,8 +1,10 @@
 import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
-import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
+import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { WorldStatsItem, WorldStats } from './WorldStats';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcNumberAbbreviatorModule,
@@ -19,6 +21,19 @@ export class Sample {
     private xAxis: IgcNumericXAxisComponent
     private yAxis: IgcNumericYAxisComponent
     private bubbleSeries1: IgcBubbleSeriesComponent
+    private _sizeScale1: IgcSizeScaleComponent | null = null;
+    public get sizeScale1(): IgcSizeScaleComponent {
+        if (this._sizeScale1 == null)
+        {
+            var sizeScale1 = new IgcSizeScaleComponent();
+            sizeScale1.isLogarithmic = false;
+            sizeScale1.minimumValue = 10;
+            sizeScale1.maximumValue = 50;
+
+            this._sizeScale1 = sizeScale1;
+        }
+        return this._sizeScale1;
+    }
     private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
@@ -30,24 +45,23 @@ export class Sample {
         var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
-            bubbleSeries1.xAxis = this.xAxis
-            bubbleSeries1.yAxis = this.yAxis
-            bubbleSeries1.dataSource = this.countryStatsEurope
+            bubbleSeries1.radiusScale = this.sizeScale1;
+            bubbleSeries1.xAxis = this.xAxis;
+            bubbleSeries1.yAxis = this.yAxis;
+            bubbleSeries1.dataSource = this.worldStats;
         }
         this._bind();
 
     }
 
-    private _countryStatsEurope: CountryStatsEurope = null;
-    public get countryStatsEurope(): CountryStatsEurope {
-        if (this._countryStatsEurope == null)
+    private _worldStats: WorldStats = null;
+    public get worldStats(): WorldStats {
+        if (this._worldStats == null)
         {
-            this._countryStatsEurope = new CountryStatsEurope();
+            this._worldStats = new WorldStats();
         }
-        return this._countryStatsEurope;
+        return this._worldStats;
     }
-    
-
 
 }
 

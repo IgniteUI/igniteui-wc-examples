@@ -16,7 +16,7 @@
   <body>
     <div id="root">
 
-<div class="container sample">
+<div class="container sample ig-typography">
 
     <div class="container fill">
         <igc-tree-grid
@@ -32,6 +32,9 @@
             <igc-action-strip
             name="actionStrip"
             id="actionStrip">
+                <igc-grid-pinning-actions
+                >
+                </igc-grid-pinning-actions>
                 <igc-grid-editing-actions
                 >
                 </igc-grid-editing-actions>
@@ -40,7 +43,8 @@
             field="Name"
             data-type="string"
             sortable="true"
-            disable-hiding="true">
+            disable-hiding="true"
+            width="auto">
             </igc-column>
             <igc-column
             field="ID"

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RadialGaugeHighlightNeedle</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample center">
+    <igc-radial-gauge
+        id="gauge"
+        highlight-value-display-mode="Overlay"
+        highlight-value="25"
+        is-highlight-needle-dragging-enabled="true"
+        is-needle-dragging-enabled="true"
+        title-displays-value="true"
+        label-interval="10"
+        label-extent="0.65"        
+        height="100%"
+        width="100%"
+        minimum-value="0" value="75"
+        maximum-value="80" interval="10" >
+    </igc-radial-gauge>
+
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
