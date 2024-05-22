@@ -1,6 +1,6 @@
 import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
-import { WorldDebtAndPopulationItem, WorldDebtAndPopulation } from './WorldDebtAndPopulation';
+import { WorldStatsItem, WorldStats } from './WorldStats';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -48,19 +48,19 @@ export class Sample {
             bubbleSeries1.radiusScale = this.sizeScale1;
             bubbleSeries1.xAxis = this.xAxis;
             bubbleSeries1.yAxis = this.yAxis;
-            bubbleSeries1.dataSource = this.worldDebtAndPopulation;
+            bubbleSeries1.dataSource = this.worldStats;
         }
         this._bind();
 
     }
 
-    private _worldDebtAndPopulation: WorldDebtAndPopulation = null;
-    public get worldDebtAndPopulation(): WorldDebtAndPopulation {
-        if (this._worldDebtAndPopulation == null)
+    private _worldStats: WorldStats = null;
+    public get worldStats(): WorldStats {
+        if (this._worldStats == null)
         {
-            this._worldDebtAndPopulation = new WorldDebtAndPopulation();
+            this._worldStats = new WorldStats();
         }
-        return this._worldDebtAndPopulation;
+        return this._worldStats;
     }
 
 }
