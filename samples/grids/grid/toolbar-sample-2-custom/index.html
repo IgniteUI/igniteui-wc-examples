@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container">
+      <div id="control-panel">
+        <label>
+            <input type="checkbox" id="toggleAdvancedFiltering" value=${this._advancedFiltering} checked=${this._advancedFiltering}>
+            Show Advanced Filtering
+        </label>
+        <label>
+            <input type="checkbox" id="toggleHiding" value=${this._hiding} checked=${this._hiding}>
+            Show Hiding
+        </label>
+        <label>
+            <input type="checkbox" id="togglePinning" value=${this._pinning} checked=${this._pinning}>
+            Show Pinning
+        </label>
+        <label>
+            <input type="checkbox" id="toggleExporter" value=${this._exporter} checked=${this._exporter}>
+            Show Exporter
+        </label>
+    </div>
+        <igc-grid
+        auto-generate="false"
+        name="grid1"
+        id="grid1">
+            <igc-column
+            field="Name"
+            header="Athlete"
+            width="200px">
+            </igc-column>
+            <igc-column
+            field="CountryName"
+            header="Country"
+            width="200px">
+            </igc-column>
+            <igc-column
+            field="BeatsPerMinute"
+            header="Beats Per Minute">
+            </igc-column>
+            <igc-column
+            field="TopSpeed"
+            header="Top Speed">
+            </igc-column>
+            <igc-column
+            field="AthleteNumber"
+            header="ID">
+            </igc-column>
+            <igc-column
+            field="TrackProgress"
+            header="Progress">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
