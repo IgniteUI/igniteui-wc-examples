@@ -1,22 +1,29 @@
-import { IgcGridCreatedEventArgs, IgcHierarchicalGridComponent, IgcPaginatorComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridCreatedEventArgs, IgcHierarchicalGridComponent, IgcPaginatorComponent, IgcRowIslandComponent } from 'igniteui-webcomponents-grids/grids';
 
 import 'igniteui-webcomponents-grids/grids/combined';
 import 'igniteui-webcomponents-grids/grids/themes/light/bootstrap.css';
 import { getData, getDataLength } from './RemoteService';
+import { html } from 'lit-html';
 
 export class Sample {
 
     public data: any[] = [];
     public page = 0;
     private pager = document.getElementById('paginator') as IgcPaginatorComponent;
+    private islandpaginator = document.getElementById('islandPaginator') as IgcPaginatorComponent;
+    
     public get perPage(): number {
         return this.pager.perPage || 15;
     }
+
     public hierarchicalGrid = document.getElementById("hGrid") as IgcHierarchicalGridComponent;
 
     constructor() {
-        const ordersRowIsland = document.getElementById("ordersRowIsland");
-        const orderDetailsRowIsland = document.getElementById("orderDetailsRowIsland");
+        const ordersRowIsland = document.getElementById("ordersRowIsland") as IgcRowIslandComponent;
+        const orderDetailsRowIsland = document.getElementById("orderDetailsRowIsland") as IgcRowIslandComponent;
+
+        ordersRowIsland.paginatorTemplate = this.webHierarchicalGridPaginatorTemplate;
+        orderDetailsRowIsland.paginatorTemplate = this.webHierarchicalGridPaginatorTemplate;
 
         this.pager.addEventListener("perPageChange", ()=> {
             this.paginate(0);
@@ -33,7 +40,6 @@ export class Sample {
         });
 
         this.hierarchicalGrid.isLoading = true;
-
         getData({ parentID: null, rootLevel: true, key: "Customers" }, this.page, this.perPage).then((data: any) => {
             this.hierarchicalGrid.isLoading = false;
             this.hierarchicalGrid.data = data;
@@ -43,6 +49,14 @@ export class Sample {
 
     public gridCreated(event: CustomEvent<IgcGridCreatedEventArgs>, _parentKey: string) {
         const context = event.detail;
+        //console.log(context.grid.children.length);
+
+        //const paginator = context.grid.features.find(feature => feature instanceof IgcPaginatorComponent);
+
+        // if(paginator) {
+        //     console.log("Paginator found");
+        // }
+
         const dataState = {
             key: context.owner.childDataKey,
             parentID: context.parentID,
@@ -71,6 +85,11 @@ export class Sample {
           this.hierarchicalGrid.isLoading = false;
           this.hierarchicalGrid.markForCheck();// Update the UI after receiving data
         });
+    }
+
+    public webHierarchicalGridPaginatorTemplate = () => {
+        return html`<igc-paginator id="islandPaginator" @perPage="{this.perPage}" @perPageChanged="{this.paginate(0)}" per-page="5">
+        </igc-paginator>`
     }
 }
 
