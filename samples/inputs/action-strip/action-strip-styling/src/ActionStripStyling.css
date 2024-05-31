@@ -1,0 +1,51 @@
+igc-action-strip {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0.5rem 0.5rem;
+    position: absolute;
+    top: 9rem;
+    left: 57rem;
+    z-index: 2;
+    background-color: white;
+}
+
+igc-button {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+igc-button::part(base) {
+    background-color: rgb(233, 233, 233);
+    color: #005EEC;
+}
+
+igc-button::part(base):hover {
+    background-color: rgb(240, 240, 240);
+}
+
+.parent {
+    padding: 6rem 1rem 1rem 1rem;
+    margin: auto;
+    min-width: 700px;
+    max-width: 1000px;
+    height: 300px;
+    position: relative;
+}
+
+.parent::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(236, 236, 236, 0.404);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.text-strike-through {
+    text-decoration: line-through;
+}

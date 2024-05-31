@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Action Strip Styling</title>
+        <meta charset="UTF-8" />
+
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+    </head>
+
+    <body>
+        <div id="root">
+            <div class="sample center">
+                <div class="parent">
+                    <p class="paragraph">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non nibh eu libero commodo posuere at id augue. Morbi nec justo enim. Sed placerat fringilla quam in pharetra. Pellentesque imperdiet lorem quis sem bibendum
+                        molestie. Aliquam fringilla tellus nec convallis sodales. Suspendisse a eros accumsan, mattis mauris id, malesuada nibh. Maecenas eget augue faucibus, euismod arcu sit amet, tempus nisi. Sed tellus nisl, luctus vitae
+                        vestibulum ac, vehicula non ex. Donec condimentum rhoncus enim, et efficitur tortor faucibus sed. Integer at mauris facilisis mauris condimentum bibendum. Maecenas eget lacus dolor. Etiam pulvinar, sapien vitae fermentum
+                        interdum, nunc justo facilisis est, eu ullamcorper dolor lectus sit amet nisl. Quisque aliquam urna ut leo mollis luctus. Morbi lacinia orci augue, sed blandit est ornare placerat. Cras a ante nec mauris euismod aliquam vel
+                        pulvinar urna. Morbi tincidunt fringilla tortor, at ultricies neque rhoncus ac.
+                    </p>
+                    <igc-action-strip hidden="true">
+                        <igc-button class="restore" slot="button"><igc-icon name="restore" collection="material"></igc-icon></igc-button>
+                        <igc-button class="delete" slot="button"><igc-icon name="delete" collection="material"></igc-icon></igc-button>
+                    </igc-action-strip>
+                </div>
+            </div>
+        </div>
+        <!-- This script is needed only for parcel and it will be excluded for webpack -->
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
+</html>
