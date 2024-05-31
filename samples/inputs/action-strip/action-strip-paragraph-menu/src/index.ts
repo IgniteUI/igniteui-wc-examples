@@ -37,7 +37,7 @@ export class ActionStripParagraphMenu {
     private center: HTMLElement;
     private right: HTMLElement;
 
-    private parentElement: HTMLElement;
+    private parent: HTMLElement;
 
     private isActionStripShown = false;
 
@@ -54,10 +54,10 @@ export class ActionStripParagraphMenu {
         this.center = document.getElementById("center") as IgcButtonComponent;
         this.right = document.querySelector(".right") as IgcButtonComponent;
 
-        this.parentElement = document.querySelector(".parent") as HTMLElement;
+        this.parent = document.querySelector(".parent") as HTMLElement;
 
-        this.parentElement.addEventListener("mouseenter", () => this.show());
-        this.parentElement.addEventListener("mouseleave", () => this.hide());
+        this.parent.addEventListener("mouseenter", () => this.show());
+        this.parent.addEventListener("mouseleave", () => this.hide());
 
         let paragraph = document.querySelector(".paragraph") as HTMLElement;
 

@@ -27,7 +27,7 @@ export class ActionStripStyling {
     private restore: HTMLElement;
     private delete: HTMLElement;
 
-    private parentElement: HTMLElement;
+    private parent: HTMLElement;
 
     constructor() {
         icons.forEach((icon) => {
@@ -39,10 +39,10 @@ export class ActionStripStyling {
         this.restore = document.querySelector(".restore") as IgcButtonComponent;
         this.delete = document.querySelector(".delete") as IgcButtonComponent;
 
-        this.parentElement = document.querySelector(".parent") as HTMLElement;
+        this.parent = document.querySelector(".parent") as HTMLElement;
 
-        this.parentElement.addEventListener("mouseenter", () => this.actionStrip.show());
-        this.parentElement.addEventListener("mouseleave", () => this.actionStrip.hide());
+        this.parent.addEventListener("mouseenter", () => this.actionStrip.show());
+        this.parent.addEventListener("mouseleave", () => this.actionStrip.hide());
 
         let paragraph = document.querySelector(".paragraph") as HTMLElement;
 

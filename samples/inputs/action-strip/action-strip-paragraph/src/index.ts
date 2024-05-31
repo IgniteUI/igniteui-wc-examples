@@ -30,7 +30,7 @@ export class ActionStripParagraph {
     private italic: IgcToggleButtonComponent;
     private underlined: IgcToggleButtonComponent;
 
-    private parentElement: HTMLElement;
+    private parent: HTMLElement;
 
     private isBold = false;
     private isItalic = false;
@@ -47,10 +47,10 @@ export class ActionStripParagraph {
         this.italic = document.querySelector(".italic") as IgcToggleButtonComponent;
         this.underlined = document.querySelector(".underlined") as IgcToggleButtonComponent;
 
-        this.parentElement = document.querySelector(".parent") as HTMLElement;
+        this.parent = document.querySelector(".parent") as HTMLElement;
 
-        this.parentElement.addEventListener("mouseenter", () => this.actionStrip.show());
-        this.parentElement.addEventListener("mouseleave", () => this.actionStrip.hide());
+        this.parent.addEventListener("mouseenter", () => this.actionStrip.show());
+        this.parent.addEventListener("mouseleave", () => this.actionStrip.hide());
 
         let paragraph = document.querySelector(".paragraph") as HTMLElement;
 
