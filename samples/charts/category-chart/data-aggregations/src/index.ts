@@ -3,7 +3,7 @@ import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-import { SalesData } from './SalesData';
+import { SalesDataItem, SalesData } from './SalesData';
 import { PropertyEditorValueType, IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { MarkerType, MarkerType_$type } from 'igniteui-webcomponents-charts';
 import { EnumUtil } from 'igniteui-webcomponents-core';
