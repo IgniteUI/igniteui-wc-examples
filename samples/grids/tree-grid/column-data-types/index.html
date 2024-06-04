@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sample | Ignite UI | Web Components | infragistics</title>
+        <meta charset="UTF-8" />
+
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+        <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    </head>
+
+    <body>
+        <div id="root">
+            <div class="container sample ig-typography">
+                <div class="container fill">
+                    <igc-tree-grid auto-generate="false" id="grid" primary-key="ID" foreign-key="ParentID" allow-filtering="true" filter-mode="excelStyleFilter" locale="EN" summary-calculation-mode="rootLevelOnly">
+                        <igc-column field="Name" header="Full Name" data-type="string" width="220px" sortable="true" has-summary="true" editable="true" resizable="true"></igc-column>
+                        <igc-column field="Avatar" header="Photo" data-type="image" width="120px"  resizable="true"></igc-column>
+                        <igc-column field="Title" header="Title" data-type="string" width="250px" sortable="true" has-summary="true" editable="true" resizable="true"></igc-column>
+                        <igc-column field="Age" header="Age" data-type="number" width="120px" sortable="true" has-summary="true" editable="true" resizable="true"></igc-column>
+                        <igc-column field="HireFullDate" header="Hire Full Date" data-type="dateTime" width="300px" sortable="true" has-summary="true" editable="true" resizable="true" id="column1"></igc-column>
+                        <igc-column field="HireDate" header="Hire Date" data-type="date" width="160px" sortable="true" has-summary="true" editable="true" resizable="true" id="column2"></igc-column>
+                        <igc-column field="HireTime" header="Hire Time" data-type="time" width="160px" sortable="true" has-summary="true" editable="true" resizable="true" id="column3"></igc-column>
+                        <igc-column field="Salary" header="Salary" data-type="currency" width="120px" sortable="true" has-summary="true" editable="true" resizable="true" id="column4"></igc-column>
+                        <igc-column field="CompletedTasks" header="Completed Tasks" data-type="percent" width="200px" sortable="true" editable="true" resizable="true" id="column5"></igc-column>
+                        <igc-column field="OnPTO" header="On PTO" data-type="boolean" width="120px" sortable="true" editable="true" resizable="true"></igc-column>
+                    </igc-tree-grid>
+                </div>
+            </div>
+        </div>
+
+        <!-- This script is needed only for parcel and it will be excluded for webpack -->
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
+</html>
