@@ -14,7 +14,7 @@ export class Sample {
     private gridToolbarExporter1: IgcGridToolbarExporterComponent
     private iD: IgcColumnComponent
     private generalInformation: IgcColumnGroupComponent
-    private companyName: IgcColumnComponent
+    private company: IgcColumnComponent
     private personalDetails: IgcColumnGroupComponent
     private contactName: IgcColumnComponent
     private contactTitle: IgcColumnComponent
@@ -36,7 +36,7 @@ export class Sample {
         this.webGridExportEventMultiColumnHeaders = this.webGridExportEventMultiColumnHeaders.bind(this);
         var iD = this.iD = document.getElementById('ID') as IgcColumnComponent;
         var generalInformation = this.generalInformation = document.getElementById('GeneralInformation') as IgcColumnGroupComponent;
-        var companyName = this.companyName = document.getElementById('CompanyName') as IgcColumnComponent;
+        var company = this.company = document.getElementById('Company') as IgcColumnComponent;
         var personalDetails = this.personalDetails = document.getElementById('PersonalDetails') as IgcColumnGroupComponent;
         var contactName = this.contactName = document.getElementById('ContactName') as IgcColumnComponent;
         var contactTitle = this.contactTitle = document.getElementById('ContactTitle') as IgcColumnComponent;
