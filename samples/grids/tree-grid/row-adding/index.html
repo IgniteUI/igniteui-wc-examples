@@ -26,71 +26,47 @@
         id="treeGrid"
         primary-key="ID"
         foreign-key="ParentID"
-        column-width="200"
-        allow-filtering="true">
-            <igc-grid-toolbar
+        row-editable="true">
+            <igc-action-strip
             >
-                <igc-grid-toolbar-actions
-                >
-                    <igc-grid-toolbar-hiding
-                    title="Column Hiding">
-                    </igc-grid-toolbar-hiding>
-                </igc-grid-toolbar-actions>
-            </igc-grid-toolbar>
+                <igc-grid-editing-actions
+                add-row="true"
+                add-child="true">
+                </igc-grid-editing-actions>
+            </igc-action-strip>
             <igc-column
             field="Name"
+            header="Full Name"
             data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="ID"
-            data-type="number"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Title"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="HireDate"
-            data-type="date"
-            sortable="true">
+            resizable="true"
+            sortable="true"
+            filterable="true"
+            editable="true">
             </igc-column>
             <igc-column
             field="Age"
             data-type="number"
-            sortable="true">
+            resizable="false"
+            sortable="false"
+            filterable="false"
+            editable="true">
             </igc-column>
             <igc-column
-            field="Address"
+            field="Title"
             data-type="string"
-            sortable="true">
+            resizable="true"
+            sortable="true"
+            filterable="true"
+            editable="true">
             </igc-column>
             <igc-column
-            field="City"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Country"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Fax"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="PostalCode"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Phone"
-            data-type="string"
-            sortable="true">
+            field="HireDate"
+            header="Hire Date"
+            data-type="date"
+            resizable="true"
+            sortable="true"
+            filterable="true"
+            editable="true">
             </igc-column>
         </igc-tree-grid>
     </div>
