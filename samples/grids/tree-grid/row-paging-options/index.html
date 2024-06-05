@@ -25,13 +25,10 @@
         is-horizontal="true"
         is-wrapping-enabled="true">
             <igc-property-editor-property-description
-            property-path="CellSelection"
-            name="CellSelectionEditor"
-            id="CellSelectionEditor"
-            label="Cell Selection"
-            value-type="EnumValue"
-            drop-down-names="None, Single, Multiple"
-            drop-down-values="None, Single, Multiple">
+            property-path="DisplayDensity"
+            name="DisplayDensityEditor"
+            id="DisplayDensityEditor"
+            label="Display Density">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
@@ -43,28 +40,49 @@
         id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        foreign-key="ParentID">
+        foreign-key="ParentID"
+        display-density="cosy">
+            <igc-paginator
+            name="paginator"
+            id="paginator"
+            per-page="10"
+            display-density="cosy">
+            </igc-paginator>
             <igc-column
-            field="ID">
+            field="ID"
+            header="Order ID">
             </igc-column>
             <igc-column
-            field="Name">
+            field="Name"
+            header="Order Product">
             </igc-column>
             <igc-column
-            field="Age"
+            field="Category"
+            header="Category">
+            </igc-column>
+            <igc-column
+            field="Units"
+            header="Units"
             data-type="number">
             </igc-column>
             <igc-column
-            field="Title">
+            field="UnitPrice"
+            header="Unit Price"
+            data-type="number">
             </igc-column>
             <igc-column
-            field="HireDate"
-            header="Hire Date"
+            field="Price"
+            header="Price"
+            data-type="number">
+            </igc-column>
+            <igc-column
+            field="OrderDate"
+            header="Order Date"
             data-type="date">
             </igc-column>
             <igc-column
-            field="OnPTO"
-            header="On PTO"
+            field="Delivered"
+            header="Delivered"
             data-type="boolean">
             </igc-column>
         </igc-tree-grid>
