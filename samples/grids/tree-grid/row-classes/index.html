@@ -20,50 +20,32 @@
 
     <div class="container fill">
         <igc-tree-grid
-        name="treeGrid"
-        id="treeGrid"
-        id="treeGrid"
+        auto-generate="false"
         primary-key="ID"
-        foreign-key="ParentID">
-            <igc-column
-            field="ID"
-            header="Order ID"
-            data-type="string">
-            </igc-column>
+        foreign-key="ParentID"
+        moving="true"
+        row-editable="true"
+        name="treeGrid1"
+        id="treeGrid1">
             <igc-column
             field="Name"
-            header="Order Product"
-            data-type="string"
-            name="column1"
-            id="column1">
-            </igc-column>
-            <igc-column
-            field="Category"
+            header="Full Name"
             data-type="string">
             </igc-column>
             <igc-column
-            field="Units"
+            field="Age"
+            header="Age"
             data-type="number">
             </igc-column>
             <igc-column
-            field="UnitPrice"
-            header="Unit Price"
-            data-type="currency"
-            name="column2"
-            id="column2">
+            field="Title"
+            header="Title"
+            data-type="string">
             </igc-column>
             <igc-column
-            field="Price"
-            data-type="currency">
-            </igc-column>
-            <igc-column
-            field="OrderDate"
-            header="Order Date"
+            field="HireDate"
+            header="Hire Date"
             data-type="date">
-            </igc-column>
-            <igc-column
-            field="Delivered"
-            data-type="boolean">
             </igc-column>
         </igc-tree-grid>
     </div>
