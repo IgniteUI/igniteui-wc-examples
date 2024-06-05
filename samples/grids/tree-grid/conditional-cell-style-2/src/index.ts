@@ -11,17 +11,23 @@ export class Sample {
     private treeGrid: IgcTreeGridComponent
     private column1: IgcColumnComponent
     private column2: IgcColumnComponent
+    private column3: IgcColumnComponent
+    private column4: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
         var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
+        var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
+        var column4 = this.column4 = document.getElementById('column4') as IgcColumnComponent;
 
         this._bind = () => {
             treeGrid.data = this.ordersTreeData;
-            column1.cellClasses = this.webTreeGridAllergensCellClassesHandler;
-            column2.cellClasses = this.webTreeGridUnitPriceCellClassesHandler;
+            column1.cellStyles = this.webTreeGridCellStylesHandler;
+            column2.cellStyles = this.webTreeGridCellStylesHandler;
+            column3.cellStyles = this.webTreeGridCellStylesHandler;
+            column4.cellStyles = this.webTreeGridCellStylesHandler;
         }
         this._bind();
 
@@ -37,16 +43,17 @@ export class Sample {
     }
 
 
-    public allergenItems = ['Frozen Shrimps', 'Wild Salmon Fillets', 'Fresh Cheese', 'Skimmed Milk 1L', 'Butter'];
-
-    public webTreeGridAllergensCellClassesHandler = {
-        allergensFont: (rowData: any, columnKey: any): boolean => this.allergenItems.indexOf(rowData[columnKey]) >= 0,
-    }
-
-    public webTreeGridUnitPriceCellClassesHandler = {
-        downPrice: (rowData: any, columnKey: any): boolean => rowData[columnKey] <= 5,
-        upPrice: (rowData: any, columnKey: any): boolean => rowData[columnKey] > 5,
-    }
+    public webTreeGridCellStylesHandler = {
+        background: (rowData: any, columnKey: any, cellValue: any, rowIndex: any) => rowIndex % 2 === 0 ? "#EFF4FD" : null,
+        color: (rowData: any, columnKey: any, cellValue: any, rowIndex: any) => {
+            if (columnKey === "UnitPrice") {
+                if (cellValue > 10) return "#dc3545";
+                if (cellValue < 5) return "#28a745";
+                if (cellValue >= 5 && cellValue <= 10) return "#17a2b8";
+            }
+            return undefined;
+        }
+    };
 
 }
 

@@ -17,24 +17,6 @@
     <div id="root">
 
 <div class="container sample ig-typography">
-    <div class="options vertical">
-        <igc-property-editor-panel
-        name="PropertyEditor"
-        id="PropertyEditor"
-        description-type="WebTreeGrid"
-        is-horizontal="true"
-        is-wrapping-enabled="true">
-            <igc-property-editor-property-description
-            property-path="CellSelection"
-            name="CellSelectionEditor"
-            id="CellSelectionEditor"
-            label="Cell Selection"
-            value-type="EnumValue"
-            drop-down-names="None, Single, Multiple"
-            drop-down-values="None, Single, Multiple">
-            </igc-property-editor-property-description>
-        </igc-property-editor-panel>
-    </div>
 
     <div class="container fill">
         <igc-tree-grid
@@ -43,29 +25,48 @@
         id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        foreign-key="ParentID">
+        foreign-key="ParentID"
+        row-editable="true">
+            <igc-action-strip
+            >
+                <igc-grid-editing-actions
+                add-row="true"
+                add-child="true">
+                </igc-grid-editing-actions>
+            </igc-action-strip>
             <igc-column
-            field="ID">
-            </igc-column>
-            <igc-column
-            field="Name">
+            field="Name"
+            header="Full Name"
+            data-type="string"
+            resizable="true"
+            sortable="true"
+            filterable="true"
+            editable="true">
             </igc-column>
             <igc-column
             field="Age"
-            data-type="number">
+            data-type="number"
+            resizable="false"
+            sortable="false"
+            filterable="false"
+            editable="true">
             </igc-column>
             <igc-column
-            field="Title">
+            field="Title"
+            data-type="string"
+            resizable="true"
+            sortable="true"
+            filterable="true"
+            editable="true">
             </igc-column>
             <igc-column
             field="HireDate"
             header="Hire Date"
-            data-type="date">
-            </igc-column>
-            <igc-column
-            field="OnPTO"
-            header="On PTO"
-            data-type="boolean">
+            data-type="date"
+            resizable="true"
+            sortable="true"
+            filterable="true"
+            editable="true">
             </igc-column>
         </igc-tree-grid>
     </div>
