@@ -25,72 +25,46 @@
         id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        foreign-key="ParentID"
-        column-width="200"
-        allow-filtering="true">
-            <igc-grid-toolbar
-            >
-                <igc-grid-toolbar-actions
-                >
-                    <igc-grid-toolbar-hiding
-                    title="Column Hiding">
-                    </igc-grid-toolbar-hiding>
-                </igc-grid-toolbar-actions>
-            </igc-grid-toolbar>
-            <igc-column
-            field="Name"
-            data-type="string"
-            sortable="true">
-            </igc-column>
+        foreign-key="ParentID">
+            <igc-paginator
+            per-page="10">
+            </igc-paginator>
             <igc-column
             field="ID"
-            data-type="number"
-            sortable="true">
+            header="Order ID">
             </igc-column>
             <igc-column
-            field="Title"
-            data-type="string"
-            sortable="true">
+            field="Name"
+            header="Order Product">
             </igc-column>
             <igc-column
-            field="HireDate"
-            data-type="date"
-            sortable="true">
+            field="Category"
+            header="Category">
             </igc-column>
             <igc-column
-            field="Age"
-            data-type="number"
-            sortable="true">
+            field="Units"
+            header="Units"
+            data-type="number">
             </igc-column>
             <igc-column
-            field="Address"
-            data-type="string"
-            sortable="true">
+            field="UnitPrice"
+            header="Unit Price"
+            data-type="number">
             </igc-column>
             <igc-column
-            field="City"
-            data-type="string"
-            sortable="true">
+            field="Price"
+            header="Price"
+            data-type="number">
             </igc-column>
             <igc-column
-            field="Country"
-            data-type="string"
-            sortable="true">
+            field="OrderDate"
+            header="Order Date"
+            data-type="date">
             </igc-column>
             <igc-column
-            field="Fax"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="PostalCode"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Phone"
-            data-type="string"
-            sortable="true">
+            field="Delivered"
+            header="Delivered"
+            data-type="boolean">
             </igc-column>
         </igc-tree-grid>
     </div>

@@ -25,72 +25,37 @@
         id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        foreign-key="ParentID"
-        column-width="200"
-        allow-filtering="true">
+        foreign-key="ParentID">
             <igc-grid-toolbar
             >
                 <igc-grid-toolbar-actions
                 >
-                    <igc-grid-toolbar-hiding
-                    title="Column Hiding">
-                    </igc-grid-toolbar-hiding>
+                    <igc-grid-toolbar-exporter
+                    >
+                    </igc-grid-toolbar-exporter>
                 </igc-grid-toolbar-actions>
             </igc-grid-toolbar>
             <igc-column
             field="Name"
             data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="ID"
-            data-type="number"
-            sortable="true">
+            name="column1"
+            id="column1">
             </igc-column>
             <igc-column
             field="Title"
-            data-type="string"
-            sortable="true">
+            data-type="string">
             </igc-column>
             <igc-column
-            field="HireDate"
-            data-type="date"
-            sortable="true">
+            field="ID"
+            data-type="number">
             </igc-column>
             <igc-column
             field="Age"
-            data-type="number"
-            sortable="true">
+            data-type="number">
             </igc-column>
             <igc-column
-            field="Address"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="City"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Country"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Fax"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="PostalCode"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Phone"
-            data-type="string"
-            sortable="true">
+            field="HireDate"
+            data-type="date">
             </igc-column>
         </igc-tree-grid>
     </div>
