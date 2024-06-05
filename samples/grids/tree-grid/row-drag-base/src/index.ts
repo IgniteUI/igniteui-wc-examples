@@ -18,23 +18,49 @@ export class Sample {
     private treeGrid: IgcTreeGridComponent
     private treeGrid2: IgcTreeGridComponent
     private employees: IgcGridToolbarTitleComponent
+    private employeesData:EmployeesNestedData;
     private _bind: () => void;
 
     constructor() {
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
         var treeGrid2 = this.treeGrid2 = document.getElementById('treeGrid2') as IgcTreeGridComponent;
         var employees = this.employees = document.getElementById('Employees') as IgcGridToolbarTitleComponent;
+        var employeesData = new EmployeesNestedData();
 
         this._bind = () => {
             treeGrid.data = this.employeesNestedData;
             treeGrid2.data = [];
             treeGrid2.emptyGridMessage = "Drag and Drop a row from the left grid to this grid";            
-            treeGrid.addEventListener("rowDragEnd", this.onGridRowDragEnd.bind(this));            
+            treeGrid.addEventListener("rowDragEnd", this.onGridRowDragEnd.bind(this));         
         }
         this._bind();
 
     }
 
+    public addRowAndChildren(row:EmployeesNestedDataItem, newData:any[]) {
+        if(newData.includes(row)){
+            return;
+        }
+        else if(newData.length>0 && row.Employees){            
+            for(let i= row.Employees.length;i>=0;i--){
+                if(newData.includes(row.Employees[i])){
+                    let index = newData.findIndex(element => element.ID === row.Employees[i].ID);                    
+                    if (index > -1) {
+                        newData.splice(index, 1);                        
+                    }
+                }
+            }
+        }
+
+        for (let record of newData) {
+            if (record.Employees && record.Employees.includes(row)) {
+                return;
+            }
+        }
+
+        newData.push(row);           
+      }
+       
     public onGridRowDragEnd(args: any): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
 
@@ -45,8 +71,11 @@ export class Sample {
             const gridPosition = this.treeGrid2.getBoundingClientRect();            
             const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
             const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;
-            if (withinXBounds && withinYBounds) {                
-                this.treeGrid2.addRow(args.detail.dragData.data);
+            if (withinXBounds && withinYBounds) {
+                const newData = [...this.treeGrid2.data];
+                const draggedRowData = args.detail.dragData.data;
+                this.addRowAndChildren(draggedRowData, newData);
+                this.treeGrid2.data = newData;  
             }
         }
     }
@@ -71,7 +100,6 @@ export class Sample {
         }
         return this._componentRenderer;
     }
-
 }
 
 new Sample();
