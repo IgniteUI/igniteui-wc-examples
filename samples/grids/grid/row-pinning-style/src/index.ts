@@ -21,7 +21,7 @@ export class Sample {
         }
         return this._pinningConfig1;
     }
-    private companyName: IgcColumnComponent
+    private company: IgcColumnComponent
     private contactName: IgcColumnComponent
     private contactTitle: IgcColumnComponent
     private address: IgcColumnComponent
@@ -34,7 +34,7 @@ export class Sample {
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         this.webGridPinRowOnRendered = this.webGridPinRowOnRendered.bind(this);
-        var companyName = this.companyName = document.getElementById('CompanyName') as IgcColumnComponent;
+        var company = this.company = document.getElementById('Company') as IgcColumnComponent;
         var contactName = this.contactName = document.getElementById('ContactName') as IgcColumnComponent;
         var contactTitle = this.contactTitle = document.getElementById('ContactTitle') as IgcColumnComponent;
         var address = this.address = document.getElementById('Address') as IgcColumnComponent;

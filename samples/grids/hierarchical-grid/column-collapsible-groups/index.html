@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container fill">
+        <igc-hierarchical-grid
+        auto-generate="false"
+        name="grid"
+        id="grid"
+        id="grid"
+        primary-key="CustomerID">
+            <igc-column-group
+            header="General Information"
+            collapsible="true">
+                <igc-column
+                field="ContactName"
+                header="Contact Name"
+                visible-when-collapsed="true">
+                </igc-column>
+                <igc-column
+                field="ContactTitle"
+                header="Contact Title"
+                visible-when-collapsed="false">
+                </igc-column>
+                <igc-column
+                field="CustomerID"
+                header="Customer ID"
+                visible-when-collapsed="false">
+                </igc-column>
+                <igc-column
+                field="Company"
+                header="Company Name"
+                visible-when-collapsed="false">
+                </igc-column>
+                <igc-column-group
+                header="Address Information"
+                collapsible="true">
+                    <igc-column-group
+                    header="Location"
+                    width="250px"
+                    visible-when-collapsed="true">
+                        <igc-column
+                        field="Country"
+                        header="Country"
+                        visible-when-collapsed="true">
+                        </igc-column>
+                        <igc-column
+                        field="City"
+                        header="City"
+                        visible-when-collapsed="true">
+                        </igc-column>
+                        <igc-column
+                        field="Address"
+                        header="Address"
+                        visible-when-collapsed="true">
+                        </igc-column>
+                        <igc-column
+                        field="PostalCode"
+                        header="Postal Code"
+                        visible-when-collapsed="true">
+                        </igc-column>
+                    </igc-column-group>
+                </igc-column-group>
+            </igc-column-group>
+            <igc-row-island
+            child-data-key="Orders"
+            auto-generate="false">
+                <igc-column-group
+                header="Order Details"
+                collapsible="true">
+                    <igc-column
+                    field="OrderID"
+                    header="Order ID"
+                    visible-when-collapsed="true">
+                    </igc-column>
+                    <igc-column
+                    field="EmployeeID"
+                    header="Employee ID"
+                    visible-when-collapsed="true">
+                    </igc-column>
+                    <igc-column
+                    field="OrderDate"
+                    header="Order Date"
+                    visible-when-collapsed="true">
+                    </igc-column>
+                    <igc-column
+                    field="RequiredDate"
+                    header="Required Date"
+                    visible-when-collapsed="true">
+                    </igc-column>
+                </igc-column-group>
+                <igc-column-group
+                header="General Shipping Information"
+                collapsible="true">
+                    <igc-column
+                    field="ShippedDate"
+                    header="Shipped Date"
+                    visible-when-collapsed="true">
+                    </igc-column>
+                    <igc-column
+                    field="ShipVia"
+                    header="Ship Via"
+                    visible-when-collapsed="true">
+                    </igc-column>
+                    <igc-column
+                    field="Freight"
+                    header="Freight"
+                    visible-when-collapsed="true">
+                    </igc-column>
+                    <igc-column
+                    field="ShipName"
+                    header="Ship Name"
+                    visible-when-collapsed="true">
+                    </igc-column>
+                </igc-column-group>
+                <igc-column-group
+                header="Shipping Location"
+                collapsible="true">
+                    <igc-column
+                    field="ShipAddress"
+                    header="Ship Address"
+                    visible-when-collapsed="true">
+                    </igc-column>
+                    <igc-column
+                    field="ShipCity"
+                    header="Ship City"
+                    visible-when-collapsed="true">
+                    </igc-column>
+                    <igc-column
+                    field="ShipPostalCode"
+                    header="Ship Postal Code"
+                    visible-when-collapsed="true">
+                    </igc-column>
+                    <igc-column
+                    field="ShipCountry"
+                    header="Ship Country"
+                    visible-when-collapsed="true">
+                    </igc-column>
+                </igc-column-group>
+                <igc-row-island
+                child-data-key="OrderDetails"
+                auto-generate="false">
+                    <igc-column
+                    field="ProductID"
+                    header="Product ID"
+                    data-type="string"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="UnitPrice"
+                    header="Unit Price"
+                    data-type="string"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Quantity"
+                    header="Quantity"
+                    data-type="string"
+                    resizable="true">
+                    </igc-column>
+                    <igc-column
+                    field="Discount"
+                    header="Discount"
+                    data-type="string"
+                    resizable="true">
+                    </igc-column>
+                </igc-row-island>
+            </igc-row-island>
+        </igc-hierarchical-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

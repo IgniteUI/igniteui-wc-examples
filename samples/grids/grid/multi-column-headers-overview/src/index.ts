@@ -68,14 +68,14 @@ export class Sample {
 
     public webGridPinFirstGroupToggle(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         const grid: IgcGridComponent = this.grid;
-        const firstColumnGroup = grid.getColumnByName("CompanyName").parent;
+        const firstColumnGroup = grid.getColumnByName("Company").parent;
         firstColumnGroup.pinned = !firstColumnGroup.pinned;
         grid.markForCheck();
     }
 
     public webGridHideFirstGroupToggle(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         const grid: IgcGridComponent = this.grid;
-        const firstColumnGroup = grid.getColumnByName("CompanyName").parent;
+        const firstColumnGroup = grid.getColumnByName("Company").parent;
         firstColumnGroup.hidden = !firstColumnGroup.hidden;
         grid.markForCheck();
     }

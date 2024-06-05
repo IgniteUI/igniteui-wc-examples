@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container fill">
+        <igc-hierarchical-grid
+        auto-generate="false"
+        primary-key="Name"
+        name="hierarchicalGrid1"
+        id="hierarchicalGrid1">
+            <igc-column
+            field="Name"
+            header="Character Name"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="Race"
+            header="Race"
+            data-type="string"
+            editable="true"
+            name="column1"
+            id="column1">
+            </igc-column>
+            <igc-column
+            field="Class"
+            header="Class"
+            editable="true"
+            data-type="string"
+            name="column2"
+            id="column2">
+            </igc-column>
+            <igc-column
+            field="Age"
+            header="Age"
+            data-type="string"
+            editable="true">
+            </igc-column>
+            <igc-column
+            field="Alignment"
+            header="Alignment"
+            editable="true"
+            data-type="string"
+            name="column3"
+            id="column3">
+            </igc-column>
+            <igc-row-island
+            child-data-key="Skills"
+            auto-generate="false">
+                <igc-column
+                field="Skill"
+                header="Skill"
+                data-type="string"
+                editable="true"
+                resizable="true">
+                </igc-column>
+                <igc-column
+                field="Level"
+                header="Level"
+                data-type="string"
+                editable="true"
+                resizable="true">
+                </igc-column>
+            </igc-row-island>
+        </igc-hierarchical-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
