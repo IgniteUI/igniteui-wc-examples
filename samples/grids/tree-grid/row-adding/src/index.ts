@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import { ComponentRenderer, WebGridToolbarDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
+import { ComponentRenderer, WebTreeGridDescriptionModule, WebActionStripDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
+import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -16,19 +16,19 @@ export class Sample {
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
 
         this._bind = () => {
-            treeGrid.data = this.employeesFlatDetails;
+            treeGrid.data = this.employeesNestedTreeData;
         }
         this._bind();
 
     }
 
-    private _employeesFlatDetails: EmployeesFlatDetails = null;
-    public get employeesFlatDetails(): EmployeesFlatDetails {
-        if (this._employeesFlatDetails == null)
+    private _employeesNestedTreeData: EmployeesNestedTreeData = null;
+    public get employeesNestedTreeData(): EmployeesNestedTreeData {
+        if (this._employeesNestedTreeData == null)
         {
-            this._employeesFlatDetails = new EmployeesFlatDetails();
+            this._employeesNestedTreeData = new EmployeesNestedTreeData();
         }
-        return this._employeesFlatDetails;
+        return this._employeesNestedTreeData;
     }
 
     private _componentRenderer: ComponentRenderer = null;
@@ -36,8 +36,8 @@ export class Sample {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            WebGridToolbarDescriptionModule.register(context);
             WebTreeGridDescriptionModule.register(context);
+            WebActionStripDescriptionModule.register(context);
         }
         return this._componentRenderer;
     }
