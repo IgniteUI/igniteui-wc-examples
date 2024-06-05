@@ -56,7 +56,7 @@ export class Sample {
         <br />
         <span><strong>Title:</strong> ${cell.row.data.ContactTitle}</span>
         <br />
-        <span><strong>Company:</strong> ${cell.row.data.CompanyName}</span>
+        <span><strong>Company:</strong> ${cell.row.data.Company}</span>
         <br />
     </div>`;
     }
@@ -77,7 +77,7 @@ export class Sample {
         return html`<div class="contact-container--edit" style="padding: 1rem">
                         <igc-input id="ContactName" label='Name' type="text" name="name" value="${ctx.cell.row.data.ContactName}" @keyup=${(e: any) => keyUpHandler(e, ctx)}></igc-input>
                         <igc-input id="ContactTitle" label='Title' type="text" name="title" value="${ctx.cell.row.data.ContactTitle}" @keyup=${(e: any) => keyUpHandler(e, ctx)}></igc-input>
-                        <igc-input id="CompanyName" label='Company' type="text" name="company" value="${ctx.cell.row.data.CompanyName}" @keyup=${(e: any) => keyUpHandler(e, ctx)}></igc-input>
+                        <igc-input id="Company" label='Company' type="text" name="company" value="${ctx.cell.row.data.Company}" @keyup=${(e: any) => keyUpHandler(e, ctx)}></igc-input>
                     </div>`;
     }
 
