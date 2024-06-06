@@ -1,18 +1,18 @@
-igc-action-strip {
+.igx-action-strip__actions {
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 0.5rem 0.5rem;
-    position: absolute;
-    top: 9rem;
-    left: 57rem;
-    z-index: 2;
-    background-color: white;
+    flex-direction: column;
+    max-height: 72px;
 }
 
-igc-button {
-    display: block;
-    margin-bottom: 0.3rem;
+igc-action-strip {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+    --ig-action-strip-background: rgba(236, 236, 236, 0.4);
+    --ig-action-strip-actions-background: rgba(255, 255, 255, 0.8);
+    --ig-action-strip-actions-border-radius: 0;
 }
 
 igc-button::part(base) {
@@ -25,25 +25,14 @@ igc-button::part(base):hover {
 }
 
 .parent {
-    padding: 6rem 1rem 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
     margin: auto;
     min-width: 700px;
     max-width: 1000px;
-    height: 300px;
     position: relative;
-}
-
-.parent::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(236, 236, 236, 0.404);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
 }
 
 .text-strike-through {

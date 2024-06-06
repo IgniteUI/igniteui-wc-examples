@@ -1,6 +1,7 @@
 import { defineComponents, IgcIconComponent, IgcRippleComponent, IgcButtonComponent, registerIconFromText } from "igniteui-webcomponents";
 import { IgcActionStripComponent } from "igniteui-webcomponents-grids/grids";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
+import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import "igniteui-webcomponents-grids/grids/combined";
 import "./ActionStripStyling.css";
 
