@@ -25,29 +25,60 @@
         id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        foreign-key="ParentID"
-        row-selection="multiple"
-        cell-selection="none"
-        hide-row-selectors="false">
+        foreign-key="ParentID">
+            <igc-column
+            field="ID"
+            header="Order ID">
+            </igc-column>
             <igc-column
             field="Name"
-            data-type="string">
+            header="Order Product"
+            has-summary="true"
+            name="column1"
+            id="column1">
             </igc-column>
             <igc-column
-            field="Title"
-            header="Job Title">
+            field="Units"
+            header="Units"
+            data-type="number"
+            has-summary="true"
+            editable="true"
+            name="column2"
+            id="column2">
             </igc-column>
             <igc-column
-            field="HireDate"
-            data-type="date">
+            field="UnitPrice"
+            header="Unit Price"
+            data-type="number"
+            has-summary="true"
+            editable="true"
+            name="column3"
+            id="column3">
             </igc-column>
             <igc-column
-            field="Age"
-            data-type="number">
+            field="Price"
+            header="Price"
+            data-type="number"
+            has-summary="true"
+            editable="true"
+            name="column4"
+            id="column4">
             </igc-column>
             <igc-column
-            field="OnPTO"
-            data-type="boolean">
+            field="OrderDate"
+            header="Order Date"
+            data-type="date"
+            has-summary="true"
+            name="column5"
+            id="column5">
+            </igc-column>
+            <igc-column
+            field="Delivered"
+            header="Delivered"
+            data-type="boolean"
+            has-summary="true"
+            name="column6"
+            id="column6">
             </igc-column>
         </igc-tree-grid>
     </div>

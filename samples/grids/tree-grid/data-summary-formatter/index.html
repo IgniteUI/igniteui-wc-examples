@@ -26,28 +26,55 @@
         id="treeGrid"
         primary-key="ID"
         foreign-key="ParentID"
-        row-selection="multiple"
-        cell-selection="none"
-        hide-row-selectors="false">
+        allow-filtering="true"
+        filter-mode="excelStyleFilter">
+            <igc-column
+            field="ID"
+            header="Order ID"
+            sortable="true">
+            </igc-column>
             <igc-column
             field="Name"
-            data-type="string">
+            header="Order Product"
+            sortable="true">
             </igc-column>
             <igc-column
-            field="Title"
-            header="Job Title">
+            field="Category"
+            header="Product Category"
+            sortable="true">
             </igc-column>
             <igc-column
-            field="HireDate"
-            data-type="date">
+            field="Units"
+            header="Units"
+            data-type="number"
+            sortable="true">
             </igc-column>
             <igc-column
-            field="Age"
-            data-type="number">
+            field="UnitPrice"
+            header="Unit Price"
+            data-type="number"
+            sortable="true">
             </igc-column>
             <igc-column
-            field="OnPTO"
-            data-type="boolean">
+            field="Price"
+            header="Price"
+            data-type="number"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="OrderDate"
+            header="Order Date"
+            data-type="date"
+            has-summary="true"
+            sortable="true"
+            name="column1"
+            id="column1">
+            </igc-column>
+            <igc-column
+            field="Delivered"
+            header="Delivered"
+            data-type="boolean"
+            sortable="true">
             </igc-column>
         </igc-tree-grid>
     </div>

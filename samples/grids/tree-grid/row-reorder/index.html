@@ -26,28 +26,40 @@
         id="treeGrid"
         primary-key="ID"
         foreign-key="ParentID"
-        row-selection="multiple"
-        cell-selection="none"
-        hide-row-selectors="false">
+        row-draggable="true">
             <igc-column
             field="Name"
-            data-type="string">
-            </igc-column>
-            <igc-column
-            field="Title"
-            header="Job Title">
-            </igc-column>
-            <igc-column
-            field="HireDate"
-            data-type="date">
+            header="Full Name"
+            data-type="string"
+            resizable="true"
+            sortable="true"
+            filterable="true"
+            editable="true">
             </igc-column>
             <igc-column
             field="Age"
-            data-type="number">
+            data-type="number"
+            resizable="false"
+            sortable="false"
+            filterable="false"
+            editable="true">
             </igc-column>
             <igc-column
-            field="OnPTO"
-            data-type="boolean">
+            field="Title"
+            data-type="string"
+            resizable="true"
+            sortable="true"
+            filterable="true"
+            editable="true">
+            </igc-column>
+            <igc-column
+            field="HireDate"
+            header="Hire Date"
+            data-type="date"
+            resizable="true"
+            sortable="true"
+            filterable="true"
+            editable="true">
             </igc-column>
         </igc-tree-grid>
     </div>
