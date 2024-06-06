@@ -69,7 +69,8 @@ var sampleSources = [
     // '!' + igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
-    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-styles/package.json', // BUG webTreeGridRowStylesHandler does not export
+    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-styles/package.json',  // BUG webTreeGridRowStylesHandler does not export
+    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-reorder/package.json', // BUG Property 'dragElement' does not exist on type 'IgcRowDragStartEventArgs'
    
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/editing-lifecycle/package.json', // BUG TS2339: Property 'cancel' does not exist on type 'IgcGridEditEventArgs'.
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-export/package.json', // BUG Module '"igniteui-webcomponents-grids/grids"' has no exported member 'IgcExporterEventEventArgs'.
