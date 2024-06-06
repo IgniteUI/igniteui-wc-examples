@@ -69,7 +69,8 @@ var sampleSources = [
     // '!' + igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
-    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-styles/package.json', // BUG webTreeGridRowStylesHandler does not export
+    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-styles/package.json',  // BUG webTreeGridRowStylesHandler does not export
+    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-reorder/package.json', // BUG Property 'dragElement' does not exist on type 'IgcRowDragStartEventArgs'
    
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/editing-lifecycle/package.json', // BUG TS2339: Property 'cancel' does not exist on type 'IgcGridEditEventArgs'.
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-export/package.json', // BUG Module '"igniteui-webcomponents-grids/grids"' has no exported member 'IgcExporterEventEventArgs'.
@@ -975,19 +976,19 @@ function updateIG(cb) {
     // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // PUBLIC NPM
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-webcomponents-core"                     , version: "4.8.0" },
-        { name: "igniteui-webcomponents-charts"                   , version: "4.8.0" },
-        { name: "igniteui-webcomponents-excel"                    , version: "4.8.0" },
-        { name: "igniteui-webcomponents-gauges"                   , version: "4.8.0" },
-        { name: "igniteui-webcomponents-grids"                    , version: "4.8.0" },
-        { name: "igniteui-webcomponents-inputs"                   , version: "4.8.0" },
-        { name: "igniteui-webcomponents-layouts"                  , version: "4.8.0" },
-        { name: "igniteui-webcomponents-maps"                     , version: "4.8.0" },
-        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.8.0" },
-        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.8.0" },
-        { name: "igniteui-webcomponents-datasources"              , version: "4.8.0" },
+        { name: "igniteui-webcomponents-core"                     , version: "4.8.1-alpha.0" },
+        { name: "igniteui-webcomponents-charts"                   , version: "4.8.1-alpha.0" },
+        { name: "igniteui-webcomponents-excel"                    , version: "4.8.1-alpha.0" },
+        { name: "igniteui-webcomponents-gauges"                   , version: "4.8.1-alpha.0" },
+        { name: "igniteui-webcomponents-grids"                    , version: "4.8.1-alpha.0" },
+        { name: "igniteui-webcomponents-inputs"                   , version: "4.8.1-alpha.0" },
+        { name: "igniteui-webcomponents-layouts"                  , version: "4.8.1-alpha.0" },
+        { name: "igniteui-webcomponents-maps"                     , version: "4.8.1-alpha.0" },
+        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "4.8.1-alpha.0" },
+        { name: "igniteui-webcomponents-spreadsheet"              , version: "4.8.1-alpha.0" },
+        { name: "igniteui-webcomponents-datasources"              , version: "4.8.1-alpha.0" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "4.8.0"  },
+        { name: "igniteui-webcomponents", version: "4.9.0"  },
         { name: "igniteui-dockmanager", version: "1.14.3" },
         // other packages:
         { name: "webpack", version: "^5.74.0"  },
