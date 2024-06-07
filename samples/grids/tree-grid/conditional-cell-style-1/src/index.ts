@@ -1,19 +1,10 @@
-import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
-import { FoodsDataItem, FoodsData } from './FoodsData';
-import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
-import { html, nothing } from 'lit-html';
+import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-import { ModuleManager } from 'igniteui-webcomponents-core';
 
 import "./index.css";
-
-ModuleManager.register(
-    IgcPropertyEditorPanelModule
-);
 
 export class Sample {
 
@@ -28,53 +19,34 @@ export class Sample {
         var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
 
         this._bind = () => {
-            treeGrid.data = this.foodsData;
-            column1.bodyTemplate = this.webTreeGridProductNameTemplate;
-            column2.bodyTemplate = this.webTreeGridUnitPriceTemplate;
+            treeGrid.data = this.ordersTreeData;
+            column1.cellClasses = this.webTreeGridAllergensCellClassesHandler;
+            column2.cellClasses = this.webTreeGridUnitPriceCellClassesHandler;
         }
         this._bind();
 
     }
 
-    private _foodsData: FoodsData = null;
-    public get foodsData(): FoodsData {
-        if (this._foodsData == null)
+    private _ordersTreeData: OrdersTreeData = null;
+    public get ordersTreeData(): OrdersTreeData {
+        if (this._ordersTreeData == null)
         {
-            this._foodsData = new FoodsData();
+            this._ordersTreeData = new OrdersTreeData();
         }
-        return this._foodsData;
+        return this._ordersTreeData;
     }
 
-    private _componentRenderer: ComponentRenderer = null;
-    public get renderer(): ComponentRenderer {
-        if (this._componentRenderer == null) {
-            this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
-            PropertyEditorPanelDescriptionModule.register(context);
-            WebTreeGridDescriptionModule.register(context);
-        }
-        return this._componentRenderer;
+
+    public allergenItems = ['Frozen Shrimps', 'Wild Salmon Fillets', 'Fresh Cheese', 'Skimmed Milk 1L', 'Butter'];
+
+    public webTreeGridAllergensCellClassesHandler = {
+        allergensFont: (rowData: any, columnKey: any): boolean => this.allergenItems.indexOf(rowData[columnKey]) >= 0,
     }
 
-    public webTreeGridProductNameTemplate = (ctx: IgcCellTemplateContext) => {
-        let value = ctx.cell.value;
-
-        if (value == "Grandmas Boysenberry Spread" || value == "Mishi Kobe Niku" || value == "Carnarvon Tigers" || value == "Ikura") {
-            return html`<span style="color: royalblue">${value}</span>`;
-        }
-        else {
-            return html`<span>${value}</span>`;
-        }
-    };
-
-    public webTreeGridUnitPriceTemplate = (ctx: IgcCellTemplateContext) => {
-        if (ctx.cell.value <= 25) {
-            return html`<span style="color: green">${ctx.cell.value}</span>`;
-        }
-        else {
-            return html`<span style="color: red">${ctx.cell.value}</span>`;
-        }
-    };
+    public webTreeGridUnitPriceCellClassesHandler = {
+        downPrice: (rowData: any, columnKey: any): boolean => rowData[columnKey] <= 5,
+        upPrice: (rowData: any, columnKey: any): boolean => rowData[columnKey] > 5,
+    }
 
 }
 
