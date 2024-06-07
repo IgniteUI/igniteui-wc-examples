@@ -16,7 +16,7 @@ export class Sample {
         {
             let sortingExpression1: IgcSortingExpression[] = [];
             var sortingExpression2: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression2.fieldName = "CategoryName";
+            sortingExpression2.fieldName = "Category";
             sortingExpression2.dir = SortingDirection.Asc;
             sortingExpression2.ignoreCase = true;
 

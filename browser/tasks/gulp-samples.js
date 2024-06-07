@@ -69,7 +69,8 @@ var sampleSources = [
     // '!' + igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
-    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-styles/package.json', // BUG webTreeGridRowStylesHandler does not export
+    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-styles/package.json',  // BUG webTreeGridRowStylesHandler does not export
+    '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-reorder/package.json', // BUG Property 'dragElement' does not exist on type 'IgcRowDragStartEventArgs'
    
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/editing-lifecycle/package.json', // BUG TS2339: Property 'cancel' does not exist on type 'IgcGridEditEventArgs'.
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-export/package.json', // BUG Module '"igniteui-webcomponents-grids/grids"' has no exported member 'IgcExporterEventEventArgs'.
@@ -987,7 +988,7 @@ function updateIG(cb) {
         { name: "igniteui-webcomponents-spreadsheet"              , version: "4.8.1-alpha.0" },
         { name: "igniteui-webcomponents-datasources"              , version: "4.8.1-alpha.0" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "4.8.0"  },
+        { name: "igniteui-webcomponents", version: "4.9.0"  },
         { name: "igniteui-dockmanager", version: "1.14.3" },
         // other packages:
         { name: "webpack", version: "^5.74.0"  },
