@@ -11,7 +11,7 @@ export class Sample {
 
     private grid: IgcGridComponent
     private iD: IgcColumnComponent
-    private companyName: IgcColumnComponent
+    private company: IgcColumnComponent
     private contactName: IgcColumnComponent
     private contactTitle: IgcColumnComponent
     private address: IgcColumnComponent
@@ -26,7 +26,7 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         this.webGridColumnResized = this.webGridColumnResized.bind(this);
         var iD = this.iD = document.getElementById('ID') as IgcColumnComponent;
-        var companyName = this.companyName = document.getElementById('CompanyName') as IgcColumnComponent;
+        var company = this.company = document.getElementById('Company') as IgcColumnComponent;
         var contactName = this.contactName = document.getElementById('ContactName') as IgcColumnComponent;
         var contactTitle = this.contactTitle = document.getElementById('ContactTitle') as IgcColumnComponent;
         var address = this.address = document.getElementById('Address') as IgcColumnComponent;
