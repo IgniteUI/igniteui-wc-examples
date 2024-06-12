@@ -1,7 +1,7 @@
 {
-  "name": "wc-dialog-styling",
+  "name": "wc-banner-sample-2",
   "version": "1.0.0",
-  "description": "This project provides example of Dialog Styling using IgniteUI for Web Components",
+  "description": "This project provides example of Banner sample using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
@@ -23,7 +23,7 @@
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "file:igniteui-webcomponents-0.0.0.tgz",
+    "igniteui-webcomponents": "4.9.0",
     "lit": "^2.0.2",
     "lit-html": "^2.2.0",
     "tslib": "^2.0.0"

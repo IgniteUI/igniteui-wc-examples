@@ -1,7 +1,7 @@
 {
-  "name": "wc-banner-advanced-sample",
+  "name": "wc-banner-styling",
   "version": "1.0.0",
-  "description": "This project provides example of Banner Advanced Sample using IgniteUI for Web Components",
+  "description": "This project provides example of Banner Styling using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",

@@ -1,5 +1,5 @@
 import { defineComponents, registerIconFromText, IgcBannerComponent, IgcIconComponent, IgcCardComponent, IgcNavbarComponent, IgcButtonComponent, IgcRippleComponent } from "igniteui-webcomponents";
-import "igniteui-webcomponents/themes/light/material.css";
+import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./BannerStyling.css";
 
 defineComponents(IgcBannerComponent, IgcNavbarComponent, IgcIconComponent, IgcCardComponent, IgcButtonComponent, IgcRippleComponent);
