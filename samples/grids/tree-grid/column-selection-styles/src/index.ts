@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { OrdersDataItem, OrdersData } from './OrdersData';
+import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -15,19 +15,19 @@ export class Sample {
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
 
         this._bind = () => {
-            treeGrid.data = this.ordersData;
+            treeGrid.data = this.employeesFlatDetails;
         }
         this._bind();
 
     }
 
-    private _ordersData: OrdersData = null;
-    public get ordersData(): OrdersData {
-        if (this._ordersData == null)
+    private _employeesFlatDetails: EmployeesFlatDetails = null;
+    public get employeesFlatDetails(): EmployeesFlatDetails {
+        if (this._employeesFlatDetails == null)
         {
-            this._ordersData = new OrdersData();
+            this._employeesFlatDetails = new EmployeesFlatDetails();
         }
-        return this._ordersData;
+        return this._employeesFlatDetails;
     }
 
 }
