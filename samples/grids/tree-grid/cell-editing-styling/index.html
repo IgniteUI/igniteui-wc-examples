@@ -25,14 +25,21 @@
         id="treeGrid"
         id="treeGrid"
         primary-key="ID"
+        display-density="comfortable"
+        allow-filtering="true"
         foreign-key="ParentID">
+            <igc-paginator
+            per-page="10">
+            </igc-paginator>
             <igc-column
             field="Name"
-            data-type="string">
+            data-type="string"
+            editable="true">
             </igc-column>
             <igc-column
             field="Title"
-            data-type="string">
+            data-type="string"
+            editable="true">
             </igc-column>
             <igc-column
             field="Age"
@@ -43,6 +50,12 @@
             field="HireDate"
             data-type="date"
             editable="true">
+            </igc-column>
+            <igc-column
+            field="OnPTO"
+            data-type="boolean"
+            editable="true"
+            width="130px">
             </igc-column>
         </igc-tree-grid>
     </div>
