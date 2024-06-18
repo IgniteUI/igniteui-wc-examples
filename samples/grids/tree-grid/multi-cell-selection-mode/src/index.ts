@@ -1,5 +1,5 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcTreeGridComponent, IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatData } from './EmployeesFlatData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
