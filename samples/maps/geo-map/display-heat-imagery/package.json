@@ -23,9 +23,9 @@
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents-charts": "4.8.1-alpha.0",
-    "igniteui-webcomponents-core": "4.8.1-alpha.0",
-    "igniteui-webcomponents-maps": "4.8.1-alpha.0",
+    "igniteui-webcomponents-charts": "4.8.1-beta.0",
+    "igniteui-webcomponents-core": "4.8.1-beta.0",
+    "igniteui-webcomponents-maps": "4.8.1-beta.0",
     "lit-html": "^2.0.0",
     "tslib": "^2.0.0"
   },
