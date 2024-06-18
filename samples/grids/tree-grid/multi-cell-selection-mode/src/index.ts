@@ -8,7 +8,7 @@ import "./index.css";
 
 export class Sample {
     private leftTreeGrid: IgcTreeGridComponent;
-    private rightTreeGrid: IgcGridComponent;
+    private rightGrid: IgcGridComponent;
 
     private leftTreeGridData: EmployeesFlatData;
 
@@ -16,7 +16,7 @@ export class Sample {
 
     constructor() {
         var leftTreeGrid = this.leftTreeGrid = document.getElementById("leftTreeGrid") as IgcTreeGridComponent;
-        var rightTreeGrid = this.rightTreeGrid = document.getElementById("rightTreeGrid") as IgcGridComponent;
+        var rightGrid = this.rightGrid = document.getElementById("rightGrid") as IgcGridComponent;
 
         this.onTreeGridRangeSelected = this.onTreeGridRangeSelected.bind(this);
 
@@ -30,7 +30,7 @@ export class Sample {
     }
 
     public onTreeGridRangeSelected(): void {
-        this.rightTreeGrid.data = this.leftTreeGrid.getSelectedData();
+        this.rightGrid.data = this.leftTreeGrid.getSelectedData();
     }
 }
 
