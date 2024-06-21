@@ -1,5 +1,5 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcPivotGridComponent, IgcPivotConfiguration, IgcPivotDimension, IgcPivotValue, IgcPivotAggregator } from 'igniteui-webcomponents-grids/grids';
+import { IgcPivotGridComponent, IgcPivotConfiguration } from 'igniteui-webcomponents-grids/grids';
 import { PivotSalesDataItem, PivotSalesData } from './PivotSalesData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -14,31 +14,9 @@ export class Sample {
         if (this._pivotConfiguration1 == null)
         {
             var pivotConfiguration1: IgcPivotConfiguration = {} as IgcPivotConfiguration;
-
-            var pivotDimension1: IgcPivotDimension = {} as IgcPivotDimension;
-            pivotDimension1.memberName = "Country";
-            pivotDimension1.enabled = true;
-
-            pivotConfiguration1.columns = []
-            pivotConfiguration1.columns.push(pivotDimension1);
-            var pivotDimension2: IgcPivotDimension = {} as IgcPivotDimension;
-            pivotDimension2.memberName = "Product";
-            pivotDimension2.enabled = true;
-
-            pivotConfiguration1.rows = []
-            pivotConfiguration1.rows.push(pivotDimension2);
-            var pivotValue1: IgcPivotValue = {} as IgcPivotValue;
-            pivotValue1.member = "Sales";
-            pivotValue1.enabled = true;
-            var pivotAggregator1: IgcPivotAggregator = {} as IgcPivotAggregator;
-            pivotAggregator1.key = "MAX";
-            pivotAggregator1.label = "SalesValue";
-            pivotAggregator1.aggregator = this.pivotSalesDataAggregateUnitsSold;
-
-            pivotValue1.aggregate = pivotAggregator1;
-
-            pivotConfiguration1.values = []
-            pivotConfiguration1.values.push(pivotValue1);
+            pivotConfiguration1.columns = [Infragistics.Controls.Description.CodeGenerationItemBuilder];
+            pivotConfiguration1.rows = [Infragistics.Controls.Description.CodeGenerationItemBuilder];
+            pivotConfiguration1.values = [Infragistics.Controls.Description.CodeGenerationItemBuilder];
 
             this._pivotConfiguration1 = pivotConfiguration1;
         }
@@ -64,11 +42,6 @@ export class Sample {
             this._pivotSalesData = new PivotSalesData();
         }
         return this._pivotSalesData;
-    }
-
-
-    public pivotSalesDataAggregateUnitsSold(members: any[], data: any[]): any {
-        return data.reduce((accumulator, item) => accumulator + (item.UnitsSold * item.SalePrice), 0);
     }
 
 }
