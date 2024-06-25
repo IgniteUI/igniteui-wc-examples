@@ -2,7 +2,7 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcGridComponent, IgcGroupingExpression, SortingDirection, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -24,21 +24,6 @@ export class Sample {
     private summaryPositionEditor: IgcPropertyEditorPropertyDescriptionComponent
     private showOnCollapseEditor: IgcPropertyEditorPropertyDescriptionComponent
     private grid: IgcGridComponent
-    private _groupingExpression1: IgcGroupingExpression[] | null = null;
-    public get groupingExpression1(): IgcGroupingExpression[] {
-        if (this._groupingExpression1 == null)
-        {
-            let groupingExpression1: IgcGroupingExpression[] = [];
-            var groupingExpression2: IgcGroupingExpression = {} as IgcGroupingExpression;
-            groupingExpression2.fieldName = "ShipCountry";
-            groupingExpression2.ignoreCase = false;
-            groupingExpression2.dir = SortingDirection.Asc;
-
-            groupingExpression1.push(groupingExpression2)
-            this._groupingExpression1 = groupingExpression1;
-        }
-        return this._groupingExpression1;
-    }
     private column1: IgcColumnComponent
     private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgcColumnPipeArgs {
@@ -66,7 +51,6 @@ export class Sample {
             propertyEditor.componentRenderer = this.renderer;
             propertyEditor.target = this.grid;
             grid.data = this.invoicesData;
-            grid.groupingExpressions = this.groupingExpression1;
             column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();

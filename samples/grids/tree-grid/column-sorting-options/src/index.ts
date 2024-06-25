@@ -2,7 +2,7 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcTreeGridComponent, IgcSortingExpression, SortingDirection, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
+import { IgcTreeGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
@@ -25,21 +25,6 @@ export class Sample {
     private sortingOptionsEditor: IgcPropertyEditorPropertyDescriptionComponent
     private propertyEditorPropertyDescription1: IgcPropertyEditorPropertyDescriptionComponent
     private grid: IgcTreeGridComponent
-    private _sortingExpression1: IgcSortingExpression[] | null = null;
-    public get sortingExpression1(): IgcSortingExpression[] {
-        if (this._sortingExpression1 == null)
-        {
-            let sortingExpression1: IgcSortingExpression[] = [];
-            var sortingExpression2: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression2.fieldName = "Category";
-            sortingExpression2.dir = SortingDirection.Asc;
-            sortingExpression2.ignoreCase = true;
-
-            sortingExpression1.push(sortingExpression2)
-            this._sortingExpression1 = sortingExpression1;
-        }
-        return this._sortingExpression1;
-    }
     private column1: IgcColumnComponent
     private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgcColumnPipeArgs {
@@ -68,7 +53,6 @@ export class Sample {
             propertyEditor.target = this.grid;
             propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSort;
             grid.data = this.ordersTreeData;
-            grid.sortingExpressions = this.sortingExpression1;
             column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();

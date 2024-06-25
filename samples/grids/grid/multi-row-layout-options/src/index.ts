@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent, IgcGroupingExpression, SortingDirection } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -10,21 +10,6 @@ import "./index.css";
 export class Sample {
 
     private grid: IgcGridComponent
-    private _groupingExpression1: IgcGroupingExpression[] | null = null;
-    public get groupingExpression1(): IgcGroupingExpression[] {
-        if (this._groupingExpression1 == null)
-        {
-            let groupingExpression1: IgcGroupingExpression[] = [];
-            var groupingExpression2: IgcGroupingExpression = {} as IgcGroupingExpression;
-            groupingExpression2.fieldName = "Country";
-            groupingExpression2.ignoreCase = false;
-            groupingExpression2.dir = SortingDirection.Asc;
-
-            groupingExpression1.push(groupingExpression2)
-            this._groupingExpression1 = groupingExpression1;
-        }
-        return this._groupingExpression1;
-    }
     private _bind: () => void;
 
     constructor() {
@@ -32,7 +17,6 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.customersData;
-            grid.groupingExpressions = this.groupingExpression1;
         }
         this._bind();
 

@@ -2,7 +2,7 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcGridComponent, IgcSortingExpression, SortingDirection, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { ProductSalesItem, ProductSales } from './ProductSales';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 
@@ -25,21 +25,6 @@ export class Sample {
     private propertyEditorPropertyDescription1: IgcPropertyEditorPropertyDescriptionComponent
     private propertyEditorPropertyDescription2: IgcPropertyEditorPropertyDescriptionComponent
     private grid: IgcGridComponent
-    private _sortingExpression1: IgcSortingExpression[] | null = null;
-    public get sortingExpression1(): IgcSortingExpression[] {
-        if (this._sortingExpression1 == null)
-        {
-            let sortingExpression1: IgcSortingExpression[] = [];
-            var sortingExpression2: IgcSortingExpression = {} as IgcSortingExpression;
-            sortingExpression2.fieldName = "Category";
-            sortingExpression2.dir = SortingDirection.Asc;
-            sortingExpression2.ignoreCase = true;
-
-            sortingExpression1.push(sortingExpression2)
-            this._sortingExpression1 = sortingExpression1;
-        }
-        return this._sortingExpression1;
-    }
     private column1: IgcColumnComponent
     private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgcColumnPipeArgs {
@@ -71,7 +56,6 @@ export class Sample {
             propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSort;
             propertyEditorPropertyDescription2.buttonClicked = this.webGridClearGrouping;
             grid.data = this.productSales;
-            grid.sortingExpressions = this.sortingExpression1;
             column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
