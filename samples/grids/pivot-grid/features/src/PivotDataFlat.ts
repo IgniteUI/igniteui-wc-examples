@@ -5019,7 +5019,7 @@ export class PivotDataFlat extends Array<PivotDataFlatItem> {
                     NumberOfUnits: 376
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }
