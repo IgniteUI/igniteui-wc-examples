@@ -47,11 +47,9 @@ export class Sample {
     }
 
     public webTreeGridReorderRowStartHandler(args: CustomEvent<IgcRowDragStartEventArgs>){
-        const draggedRow = args.detail.dragElement;
-        const grid = this.treeGrid;
-        const row = grid.getRowByIndex(draggedRow.getAttribute('data-rowindex'));
-        if(row.expanded){
-            row.expanded = false;
+        const draggedRow = args.detail.dragData;
+        if(draggedRow.expanded){
+            draggedRow.expanded = false;
         }
     }
 
