@@ -31,26 +31,22 @@ export class Sample {
 
             pivotDateDimension1.options = pivotDateDimensionOptions1;
 
-            pivotConfiguration1.columns = []
-            pivotConfiguration1.columns.push(pivotDateDimension1);
+            pivotConfiguration1.columns = [pivotDateDimension1];
             var pivotDimension2: IgcPivotDimension = {} as IgcPivotDimension;
             pivotDimension2.memberName = "ProductName";
             pivotDimension2.sortDirection = SortingDirection.Asc;
             pivotDimension2.enabled = true;
 
-            pivotConfiguration1.rows = []
-            pivotConfiguration1.rows.push(pivotDimension2);
             var pivotDimension3: IgcPivotDimension = {} as IgcPivotDimension;
             pivotDimension3.memberName = "SellerCity";
             pivotDimension3.enabled = true;
 
-            pivotConfiguration1.rows.push(pivotDimension3);
+            pivotConfiguration1.rows = [pivotDimension2,pivotDimension3];
             var pivotDimension4: IgcPivotDimension = {} as IgcPivotDimension;
             pivotDimension4.memberName = "SellerName";
             pivotDimension4.enabled = true;
 
-            pivotConfiguration1.filters = []
-            pivotConfiguration1.filters.push(pivotDimension4);
+            pivotConfiguration1.filters = [pivotDimension4];
             var pivotValue1: IgcPivotValue = {} as IgcPivotValue;
             pivotValue1.member = "AmountofSale";
             pivotValue1.displayName = "Amount of Sale";
@@ -82,8 +78,7 @@ export class Sample {
 
             pivotValue1.aggregateList.push(pivotAggregator4);
 
-            pivotConfiguration1.values = []
-            pivotConfiguration1.values.push(pivotValue1);
+            pivotConfiguration1.values = [pivotValue1];
 
             this._pivotConfiguration1 = pivotConfiguration1;
         }
