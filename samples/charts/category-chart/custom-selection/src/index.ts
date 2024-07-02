@@ -1,6 +1,7 @@
 import { IgcDataLegendModule, IgcCategoryChartModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcDataLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { SelectableDataItem, SelectableData } from './SelectableData';
+import { IgcDomainChartSeriesPointerEventArgs } from 'igniteui-webcomponents-charts';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -42,8 +43,11 @@ export class Sample {
     }
 
 
-    public categoryChartCustomSelectionPointerDown(o: any, e: any): void {
-    let oldItem = e.item as SelectableDataItem;
+    public categoryChartCustomSelectionPointerDown(sender: any, args: IgcDomainChartSeriesPointerEventArgs): void {
+
+        var chart = this.chart;
+        var selectableData = chart.dataSource as SelectableData;
+    let oldItem = args.item as SelectableDataItem;
 
         if (oldItem === null) return;
 
@@ -54,8 +58,8 @@ export class Sample {
         });
 
         var selectedIndex = -1;
-        for (var i = 0; i < this.selectableData.length; i++) {
-            if (oldItem.category === this.selectableData[i].category) {
+        for (var i = 0; i < selectableData.length; i++) {
+            if (oldItem.category === selectableData[i].category) {
                 selectedIndex = i;
                 break;
             }
@@ -66,7 +70,7 @@ export class Sample {
         else
             newItem.selectedValue = newItem.dataValue;
 
-        this.chart.notifySetItem(this.selectableData, selectedIndex, oldItem, newItem);
+        chart.notifySetItem(selectableData, selectedIndex, oldItem, newItem);
     }
 
 }

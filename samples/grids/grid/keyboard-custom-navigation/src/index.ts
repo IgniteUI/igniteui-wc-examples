@@ -70,7 +70,7 @@ export class Sample {
         const type = args.targetType;
         var grid = this.grid as any;
 
-        if (type === "dataCell" && target.editMode && evt.key.toLowerCase() === 'tab') {
+        if (type === "dataCell" && target.editMode && (evt as any).key.toLowerCase() === 'tab') {
             // Value validation for number column.
             // This covers both 'tab' and 'shift+tab' key interactions.
             args.event.preventDefault();
@@ -79,13 +79,13 @@ export class Sample {
                 alert('The value should be bigger than 10');
                 return;
             }
-            const cell = evt.shiftKey ?
+            const cell = (evt as any).shiftKey ?
             grid.getPreviousCell(target.row.index, target.column.visibleIndex, (col: any) => col.editable) :
             grid.getNextCell(target.row.index, target.column.visibleIndex, (col: any) => col.editable);
 
             grid.navigateTo(cell.rowIndex, cell.visibleColumnIndex,
                 (obj: any) => { obj.target.activate(); });
-        } else if (type === "dataCell" && evt.key.toLowerCase() === 'enter') {
+        } else if (type === "dataCell" && (evt as any).key.toLowerCase() === 'enter') {
             // Perform column based kb navigation with 'enter' key press
             args.cancel = true;
             grid.navigateTo(target.row.index + 1, target.column.visibleIndex, (obj: any) => {
