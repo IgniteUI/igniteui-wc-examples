@@ -20,7 +20,7 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcDataLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcDataLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
         this.categoryChartCustomSelectionPointerDown = this.categoryChartCustomSelectionPointerDown.bind(this);
 
