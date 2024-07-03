@@ -29,7 +29,7 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
         var xAxisLabelAngleEditor = this.xAxisLabelAngleEditor = document.getElementById('XAxisLabelAngleEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var yAxisLabelAngleEditor = this.yAxisLabelAngleEditor = document.getElementById('YAxisLabelAngleEditor') as IgcPropertyEditorPropertyDescriptionComponent;
