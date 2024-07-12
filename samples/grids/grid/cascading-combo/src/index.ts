@@ -146,7 +146,7 @@ export class Sample {
                 display-key="Country"
                 single-select
                 .data="${this.countries}"
-                @igcChange="${(e: CustomEvent) => this.onCountryChange(id, e)}"
+                @igcChange="${(e: CustomEvent) => (this as any).onCountryChange(id, e)}"
             ></igc-combo>
         `;
     }
@@ -168,7 +168,7 @@ export class Sample {
                     display-key="Region"
                     single-select
                     disabled
-                    @igcChange="${(e: CustomEvent) => this.onRegionChange(id, e)}"
+                    @igcChange="${(e: CustomEvent) => (this as any).onRegionChange(id, e)}"
                 ></igc-combo>
             </div>
         `;
