@@ -18,6 +18,7 @@ export class Sample {
     private gridData;
     private grid: IgcGridComponent;
     private gridState: IgcGridStateComponent;
+    private columnsLoaded: Promise<void>;
     public stateKey = 'grid-state';
 
     public options: IgcGridStateOptions = {
@@ -58,13 +59,14 @@ export class Sample {
             registerIconFromText("forward", forwardIcon, "material");
             registerIconFromText("delete", deleteIcon, "material");
             registerIconFromText("refresh", refreshIcon, "material");
-
+    
             grid.data = this.gridData;
             grid.allowAdvancedFiltering = true;
             grid.filterMode = 'excelStyleFilter';
             grid.columnSelection = 'multiple';
             grid.rowSelection = 'multiple';
-
+            
+            grid.addEventListener("columnInit", (ev: any) => { this.onColumnInit(ev); });
             saveStateBtn.addEventListener('click', (ev: any) => { this.saveGridState(); });
             restoreStateBtn.addEventListener('click', (ev: any) => { this.restoreGridState(); });
             resetStateBtn.addEventListener('click', (ev: any) => { this.resetGridState(); });
@@ -77,7 +79,10 @@ export class Sample {
                 cb.addEventListener("igcChange", (ev: CustomEvent) => { this.onChange(ev, cb.id); });
             });
 
-            window.addEventListener("load", () => { this.restoreGridState(); })
+            window.addEventListener("load", async () => { 
+                await this.columnsLoaded;
+                this.restoreGridState(); 
+            });
             window.addEventListener("beforeunload", () => { this.saveGridState(); });
         }
         this._bind();
@@ -133,6 +138,12 @@ export class Sample {
 
     public reloadPage() {
         window.location.reload();
+    }
+
+    private onColumnInit(event: any) { 
+        if(event.detail.index === this.grid.columns.length - 1) {
+           this.columnsLoaded = new Promise((resolve) => resolve());
+        }
     }
 }
 
