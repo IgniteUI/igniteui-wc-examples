@@ -1,0 +1,4 @@
+.withInset{
+    --inset: 100px;
+    --color:red;
+}
