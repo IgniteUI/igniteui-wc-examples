@@ -7,7 +7,7 @@
     "declarationDir": "dist/types",
     "moduleResolution": "node",
     "declaration": true,
-    "target": "es2015",
+    "target": "es2023",
     "module": "es2015",
     "strict": true,
     "strictNullChecks": false,

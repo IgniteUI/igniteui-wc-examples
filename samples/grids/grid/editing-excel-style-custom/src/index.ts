@@ -60,37 +60,15 @@ export class Sample {
                 }
     
                 if (code === 'Enter') {
-
+                    
                     if(activeElem == null) {
                         return;
                     }
-                    var nextRowIndex = activeElem.row.index + 1;
-                    if(event.shiftKey) {
-                        nextRowIndex = activeElem.row.index - 1;
-                    }
-                    const maxRows = grid1.data.length;
-                    if (nextRowIndex >= maxRows) {
-                        nextRowIndex--;
-                    }
-                    if(nextRowIndex < 0) {
-                        nextRowIndex = 0;
-                    }
 
-                    while (!this.isEditableDataRecordAtIndex(nextRowIndex, grid1.data)) {
-                        if (event.shiftKey) {
-                            nextRowIndex--;
-                        } else {
-                            nextRowIndex++;
-                        }
-                        if (nextRowIndex >= maxRows) {
-                            nextRowIndex--;
-                            break;
-                        }
-                        if (nextRowIndex < 0) {
-                            nextRowIndex = 0;
-                            break;
-                        }
-                    }
+                    const thisRow = activeElem.row.index;
+                    const dataView = this.grid1.dataView;
+                    const nextRowIndex = this.getNextEditableRowIndex(thisRow, dataView, event.shiftKey);    
+
                     grid1.navigateTo(nextRowIndex, activeElem.column.visibleIndex, (obj: any) => {
                         grid1.clearCellSelection(); 
                         obj.target.activate(); 
@@ -120,6 +98,17 @@ export class Sample {
         }
         return this._componentRenderer;
     }
+
+    public getNextEditableRowIndex(currentRowIndex: number, dataView: any[], previous: boolean): number {
+        if (currentRowIndex < 0 || (currentRowIndex === 0 && previous) || (currentRowIndex >= dataView.length - 1 && !previous)) {
+            return currentRowIndex;
+        }
+        if(previous){
+          return  dataView.findLastIndex((rec, index) => index < currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
+        }
+        return dataView.findIndex((rec, index) => index > currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
+      }
+  
 
     private isEditableDataRecordAtIndex(rowIndex: number, dataView: any[]): boolean {
         const rec = dataView[rowIndex];
