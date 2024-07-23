@@ -20,24 +20,20 @@ export class Sample {
 
             grid1.addEventListener('activeNodeChange', (event: any) => {
                 grid1.endEdit();
-                grid1.markForCheck();
+                (grid1.getElementsByClassName("igx-grid__tbody-content")[0] as any).focus();
 
             });
             grid1.addEventListener('keydown', (event: KeyboardEvent) => {
-                var key = event.key; 
+                var code = event.code;
                 var activeElem = grid1.selectedCells[0];
 
-                if(key === 'Escape') {
-                    activeElem.editMode = false;
-                    return;
-                }
-
-                if ((key >= '0' && key <= '9') || (key.toLowerCase() >= 'a' && key.toLowerCase() <= 'z') && key != 'Enter') {
+                if ((event.code >= 'Digit0' && event.code <= 'Digit9') || 
+                    (event.code >= 'KeyA' && event.code <= 'KeyZ') && 
+                    event.code !== 'Enter') {
         
                     if (activeElem && activeElem.editMode === false) {
-                        activeElem.value = key;
-                        
                         activeElem.editMode = true;
+                        activeElem.editValue = event.key;
                         grid1.markForCheck();
                     }
                         const inputElem = grid1.querySelector('input');
@@ -51,8 +47,19 @@ export class Sample {
                             }
                         }
                 }
+
+                if (code === 'Backspace') {
+                    if(activeElem == null) {
+                        return;
+                    }
+                    const rowIndex = activeElem.row.index;
+                    const columnKey = activeElem.column.field; 
+            
+                    grid1.data[rowIndex][columnKey] = '';
+
+                }
     
-                if (key === 'Enter') {
+                if (code === 'Enter') {
 
                     if(activeElem == null) {
                         return;
@@ -69,12 +76,27 @@ export class Sample {
                         nextRowIndex = 0;
                     }
 
+                    while (!this.isEditableDataRecordAtIndex(nextRowIndex, grid1.data)) {
+                        if (event.shiftKey) {
+                            nextRowIndex--;
+                        } else {
+                            nextRowIndex++;
+                        }
+                        if (nextRowIndex >= maxRows) {
+                            nextRowIndex--;
+                            break;
+                        }
+                        if (nextRowIndex < 0) {
+                            nextRowIndex = 0;
+                            break;
+                        }
+                    }
                     grid1.navigateTo(nextRowIndex, activeElem.column.visibleIndex, (obj: any) => {
                         grid1.clearCellSelection(); 
                         obj.target.activate(); 
                     });
 
-            }
+                }
         });
     }
     this._bind();
@@ -98,6 +120,11 @@ export class Sample {
         }
         return this._componentRenderer;
     }
+
+    private isEditableDataRecordAtIndex(rowIndex: number, dataView: any[]): boolean {
+        const rec = dataView[rowIndex];
+        return !rec.expression && !rec.summaries && !rec.childGridsData && !rec.detailsData
+      }
 
 }
 
