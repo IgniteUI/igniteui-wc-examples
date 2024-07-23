@@ -104,7 +104,12 @@ export class Sample {
             return currentRowIndex;
         }
         if(previous){
-          return  dataView.findLastIndex((rec, index) => index < currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
+            for (let index = dataView.length - 1; index >= 0; index--) {
+            if (index < currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView)) {
+                return index;
+            }
+        }
+        return -1
         }
         return dataView.findIndex((rec, index) => index > currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
       }
@@ -114,7 +119,6 @@ export class Sample {
         const rec = dataView[rowIndex];
         return !rec.expression && !rec.summaries && !rec.childGridsData && !rec.detailsData
       }
-
 }
 
 new Sample();
