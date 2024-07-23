@@ -11,6 +11,7 @@ export class Sample {
 
     private grid1: IgcGridComponent
     private _bind: () => void;
+    private shouldAppendValue = false;
 
     constructor() {
         var grid1 = this.grid1 = document.getElementById('grid1') as IgcGridComponent;
@@ -34,18 +35,15 @@ export class Sample {
                     if (activeElem && activeElem.editMode === false) {
                         activeElem.editMode = true;
                         activeElem.editValue = event.key;
+                        this.shouldAppendValue = true;
                         grid1.markForCheck();
-                    }
-                        const inputElem = grid1.querySelector('input');
-                        if (inputElem) {
-                            if (inputElem.type === 'number') {
-                                inputElem.type = 'text';
-                                inputElem.setSelectionRange(inputElem.value.length, inputElem.value.length);
-                                inputElem.type = 'number';
-                            } else {
-                                inputElem.selectionStart = inputElem.selectionEnd = inputElem.value.length;
-                            }
-                        }
+                    } else
+                    
+                    if (activeElem && activeElem.editMode && this.shouldAppendValue) {
+                        event.preventDefault();
+                        activeElem.editValue = activeElem.editValue + event.key;
+                        this.shouldAppendValue = false;
+                      }
                 }
 
                 if (code === 'Backspace') {
