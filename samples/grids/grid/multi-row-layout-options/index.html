@@ -25,7 +25,8 @@
         row-editable="true"
         allow-filtering="true"
         filter-mode="excelStyleFilter"
-        primary-key="Company">
+        primary-key="Company"
+        columns="Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder">
             <igc-grid-toolbar
             >
                 <igc-grid-toolbar-title
@@ -41,112 +42,6 @@
                     </igc-grid-toolbar-hiding>
                 </igc-grid-toolbar-actions>
             </igc-grid-toolbar>
-            <igc-column-layout
-            header="ID">
-                <igc-column
-                field="ID"
-                row-start="1"
-                col-start="1"
-                row-end="3"
-                filterable="false"
-                width="150px">
-                </igc-column>
-            </igc-column-layout>
-            <igc-column-layout
-            pinned="true"
-            header="Contact Details">
-                <igc-column
-                field="Company"
-                header="Company"
-                row-start="1"
-                col-start="1"
-                col-end="3"
-                sortable="true"
-                width="350px">
-                </igc-column>
-                <igc-column
-                field="ContactName"
-                header="Name"
-                row-start="2"
-                col-start="1"
-                col-end="2"
-                groupable="true">
-                </igc-column>
-                <igc-column
-                field="ContactTitle"
-                header="Title"
-                row-start="2"
-                col-start="2"
-                col-end="3"
-                groupable="true">
-                </igc-column>
-            </igc-column-layout>
-            <igc-column-layout
-            pinned="false"
-            header="Address Details">
-                <igc-column
-                field="Country"
-                row-start="1"
-                col-start="1"
-                col-end="3"
-                groupable="true"
-                filterable="false"
-                width="220px">
-                </igc-column>
-                <igc-column
-                field="Region"
-                row-start="1"
-                col-start="3"
-                col-end="5"
-                groupable="true"
-                filterable="false"
-                width="220px">
-                </igc-column>
-                <igc-column
-                field="PostalCode"
-                row-start="1"
-                col-start="5"
-                col-end="7"
-                groupable="true"
-                filterable="false"
-                width="220px">
-                </igc-column>
-                <igc-column
-                field="City"
-                row-start="2"
-                col-start="1"
-                col-end="4"
-                groupable="true"
-                filterable="false"
-                width="220px">
-                </igc-column>
-                <igc-column
-                field="Address"
-                row-start="2"
-                col-start="4"
-                col-end="7"
-                filterable="false">
-                </igc-column>
-            </igc-column-layout>
-            <igc-column-layout
-            header="Phone Details">
-                <igc-column
-                field="Phone"
-                row-start="1"
-                col-start="1"
-                col-end="2"
-                filterable="false"
-                width="220px">
-                </igc-column>
-                <igc-column
-                field="Fax"
-                row-start="2"
-                col-start="1"
-                col-end="2"
-                filterable="false"
-                width="220px">
-                </igc-column>
-            </igc-column-layout>
         </igc-grid>
     </div>
 </div>

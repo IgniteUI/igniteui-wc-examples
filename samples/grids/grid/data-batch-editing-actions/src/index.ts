@@ -2,12 +2,9 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
-import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
-import { html, nothing } from 'lit-html';
-import { IgcButtonComponent } from 'igniteui-webcomponents';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -29,17 +26,6 @@ export class Sample {
     private propertyEditorPropertyDescription3: IgcPropertyEditorPropertyDescriptionComponent
     private propertyEditorPropertyDescription4: IgcPropertyEditorPropertyDescriptionComponent
     private grid: IgcGridComponent
-    private column1: IgcColumnComponent
-    private productID: IgcColumnComponent
-    private productName: IgcColumnComponent
-    private unitPrice: IgcColumnComponent
-    private unitsOnOrder: IgcColumnComponent
-    private unitsInStock: IgcColumnComponent
-    private quantityPerUnit: IgcColumnComponent
-    private reorderLevel: IgcColumnComponent
-    private supplierID: IgcColumnComponent
-    private categoryID: IgcColumnComponent
-    private discontinued: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
@@ -53,17 +39,6 @@ export class Sample {
         var propertyEditorPropertyDescription4 = this.propertyEditorPropertyDescription4 = document.getElementById('propertyEditorPropertyDescription4') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webGridCommit = this.webGridCommit.bind(this);
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
-        var productID = this.productID = document.getElementById('ProductID') as IgcColumnComponent;
-        var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
-        var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
-        var unitsOnOrder = this.unitsOnOrder = document.getElementById('UnitsOnOrder') as IgcColumnComponent;
-        var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
-        var quantityPerUnit = this.quantityPerUnit = document.getElementById('QuantityPerUnit') as IgcColumnComponent;
-        var reorderLevel = this.reorderLevel = document.getElementById('ReorderLevel') as IgcColumnComponent;
-        var supplierID = this.supplierID = document.getElementById('SupplierID') as IgcColumnComponent;
-        var categoryID = this.categoryID = document.getElementById('CategoryID') as IgcColumnComponent;
-        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
 
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;
@@ -73,7 +48,6 @@ export class Sample {
             propertyEditorPropertyDescription3.buttonClicked = this.webGridRedo;
             propertyEditorPropertyDescription4.buttonClicked = this.webGridCommit;
             grid.data = this.nwindData;
-            column1.bodyTemplate = this.webGridDeleteCellTemplate;
         }
         this._bind();
 
@@ -157,12 +131,6 @@ export class Sample {
         //dialog.close();
 
         console.log("test");
-    }
-
-    public webGridDeleteCellTemplate = (ctx: IgcCellTemplateContext) => {
-        var grid = this.grid;
-        var id = ctx.cell.id.rowID;
-        return html`<igc-button @click=${(e: any) => grid.deleteRow(id)}>Delete</igc-button>`;
     }
 
 }

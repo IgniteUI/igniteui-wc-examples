@@ -1,9 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatAvatarsItem, EmployeesFlatAvatars } from './EmployeesFlatAvatars';
 import { IgcExporterOptionsBase, IgcGridToolbarExportEventArgs } from 'igniteui-webcomponents-grids/grids';
-import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
-import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -15,18 +13,15 @@ import "./index.css";
 export class Sample {
 
     private treeGrid: IgcTreeGridComponent
-    private column1: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
         this.webTreeGridToolbarExporting = this.webTreeGridToolbarExporting.bind(this);
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
             treeGrid.data = this.employeesFlatAvatars;
             treeGrid.addEventListener("toolbarExporting", this.webTreeGridToolbarExporting);
-            column1.bodyTemplate = this.webTreeGridAvatarCellTemplate;
         }
         this._bind();
 
@@ -51,14 +46,6 @@ export class Sample {
                     columnArgs.cancel = columnArgs.header === 'Name';
             });
         }
-    }
-
-        public webTreeGridAvatarCellTemplate = (ctx: IgcCellTemplateContext) => {
-        return html`<div class="cell__inner">
-        <igc-avatar shape="circle" src="${ctx.cell.row.data.Avatar}">
-        </igc-avatar>
-        <span class="name">${ctx.cell.value}</span>
-    </div>`;
     }
 
 }

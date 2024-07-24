@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { FoodsDataItem, FoodsData } from './FoodsData';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
@@ -12,17 +12,14 @@ import "./index.css";
 export class Sample {
 
     private grid: IgcTreeGridComponent
-    private column1: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcTreeGridComponent;
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.foodsData;
             grid.excelStyleHeaderIconTemplate = this.webGridFilterAltIconTemplate;
-            column1.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
 
@@ -49,14 +46,6 @@ export class Sample {
 
     public webGridFilterAltIconTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<img height="15px" width="15px" src="http://static.infragistics.com/xplatform/images/grid/propeller-logo.svg" title="Continued" alt="Continued" />`
-    }
-
-        public webGridBooleanCellTemplate = (ctx: IgcCellTemplateContext) => {
-            if (ctx.cell.value) {
-                return html`<img src="https://static.infragistics.com/xplatform/images/grid/active.png" title="Continued" alt="Continued" />`
-            } else {
-                return html`<img src="https://static.infragistics.com/xplatform/images/grid/expired.png" title="Discontinued" alt="Discontinued" />`;
-            }
     }
 
 }

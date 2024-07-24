@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcGridComponent, IgcGroupingExpression, SortingDirection, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcGroupingExpression, SortingDirection } from 'igniteui-webcomponents-grids/grids';
 import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
-import { IgcGroupByRecord, IgcGroupByRowTemplateContext, IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { IgcGroupByRecord, IgcGroupByRowTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -32,18 +32,15 @@ export class Sample {
         }
         return this._groupingExpression1;
     }
-    private column1: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.invoicesWorldData;
             grid.groupingExpressions = this.groupingExpression1;
             grid.groupRowTemplate = this.webGridGroupByRowTemplate;
-            column1.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
 
@@ -76,14 +73,6 @@ export class Sample {
     </div>`;
 
         };
-
-        public webGridBooleanCellTemplate = (ctx: IgcCellTemplateContext) => {
-            if (ctx.cell.value) {
-                return html`<img src="https://static.infragistics.com/xplatform/images/grid/active.png" title="Continued" alt="Continued" />`
-            } else {
-                return html`<img src="https://static.infragistics.com/xplatform/images/grid/expired.png" title="Discontinued" alt="Discontinued" />`;
-            }
-    }
 
 }
 
