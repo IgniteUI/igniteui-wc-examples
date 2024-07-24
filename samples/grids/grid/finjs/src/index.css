@@ -112,3 +112,7 @@
     border-inline-end: 4px solid rgb(255, 20, 75);
     padding-inline-end: 15px;
 }
+
+.gridSize {
+    --ig-size: var(--ig-size-medium);
+}
