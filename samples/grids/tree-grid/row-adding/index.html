@@ -26,7 +26,8 @@
         id="treeGrid"
         primary-key="ID"
         foreign-key="ParentID"
-        row-editable="true">
+        row-editable="true"
+        columns="Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder">
             <igc-action-strip
             >
                 <igc-grid-editing-actions
@@ -34,40 +35,6 @@
                 add-child="true">
                 </igc-grid-editing-actions>
             </igc-action-strip>
-            <igc-column
-            field="Name"
-            header="Full Name"
-            data-type="string"
-            resizable="true"
-            sortable="true"
-            filterable="true"
-            editable="true">
-            </igc-column>
-            <igc-column
-            field="Age"
-            data-type="number"
-            resizable="false"
-            sortable="false"
-            filterable="false"
-            editable="true">
-            </igc-column>
-            <igc-column
-            field="Title"
-            data-type="string"
-            resizable="true"
-            sortable="true"
-            filterable="true"
-            editable="true">
-            </igc-column>
-            <igc-column
-            field="HireDate"
-            header="Hire Date"
-            data-type="date"
-            resizable="true"
-            sortable="true"
-            filterable="true"
-            editable="true">
-            </igc-column>
         </igc-tree-grid>
     </div>
 </div>

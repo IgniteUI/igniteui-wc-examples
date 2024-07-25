@@ -1,9 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent, IgcGroupingExpression, SortingDirection, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcGroupingExpression, SortingDirection } from 'igniteui-webcomponents-grids/grids';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
-import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
-import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -33,49 +31,14 @@ export class Sample {
         }
         return this._groupingExpression1;
     }
-    private orderID: IgcColumnComponent
-    private shipCountry: IgcColumnComponent
-    private orderDate: IgcColumnComponent
-    private postalCode: IgcColumnComponent
-    private discontinued: IgcColumnComponent
-    private shipName: IgcColumnComponent
-    private shipCity: IgcColumnComponent
-    private shipperName: IgcColumnComponent
-    private salesperson: IgcColumnComponent
-    private unitPrice: IgcColumnComponent
-    private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
-    public get columnPipeArgs1(): IgcColumnPipeArgs {
-        if (this._columnPipeArgs1 == null)
-        {
-            var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs1.digitsInfo = "1.2-2";
-
-            this._columnPipeArgs1 = columnPipeArgs1;
-        }
-        return this._columnPipeArgs1;
-    }
-    private quantity: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        var orderID = this.orderID = document.getElementById('OrderID') as IgcColumnComponent;
-        var shipCountry = this.shipCountry = document.getElementById('ShipCountry') as IgcColumnComponent;
-        var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
-        var postalCode = this.postalCode = document.getElementById('PostalCode') as IgcColumnComponent;
-        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
-        var shipName = this.shipName = document.getElementById('ShipName') as IgcColumnComponent;
-        var shipCity = this.shipCity = document.getElementById('ShipCity') as IgcColumnComponent;
-        var shipperName = this.shipperName = document.getElementById('ShipperName') as IgcColumnComponent;
-        var salesperson = this.salesperson = document.getElementById('Salesperson') as IgcColumnComponent;
-        var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
-        var quantity = this.quantity = document.getElementById('Quantity') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.invoicesData;
             grid.groupingExpressions = this.groupingExpression1;
-            discontinued.bodyTemplate = this.webGridBooleanCellTemplate;
-            unitPrice.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
 
@@ -98,14 +61,6 @@ export class Sample {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
-    }
-
-        public webGridBooleanCellTemplate = (ctx: IgcCellTemplateContext) => {
-            if (ctx.cell.value) {
-                return html`<img src="https://static.infragistics.com/xplatform/images/grid/active.png" title="Continued" alt="Continued" />`
-            } else {
-                return html`<img src="https://static.infragistics.com/xplatform/images/grid/expired.png" title="Discontinued" alt="Discontinued" />`;
-            }
     }
 
 }

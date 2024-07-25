@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent, IgcSortingExpression, SortingDirection, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcSortingExpression, SortingDirection } from 'igniteui-webcomponents-grids/grids';
 import { ProductSalesItem, ProductSales } from './ProductSales';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -25,29 +25,14 @@ export class Sample {
         }
         return this._sortingExpression1;
     }
-    private column1: IgcColumnComponent
-    private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
-    public get columnPipeArgs1(): IgcColumnPipeArgs {
-        if (this._columnPipeArgs1 == null)
-        {
-            var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs1.currencyCode = "USD";
-            columnPipeArgs1.digitsInfo = "1.2-2";
-
-            this._columnPipeArgs1 = columnPipeArgs1;
-        }
-        return this._columnPipeArgs1;
-    }
     private _bind: () => void;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.productSales;
             grid.sortingExpressions = this.sortingExpression1;
-            column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
 
