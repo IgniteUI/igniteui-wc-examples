@@ -2,7 +2,7 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcTreeGridComponent, IgcSortingExpression, SortingDirection, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
+import { IgcTreeGridComponent, IgcSortingExpression, SortingDirection } from 'igniteui-webcomponents-grids/grids';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
@@ -40,19 +40,6 @@ export class Sample {
         }
         return this._sortingExpression1;
     }
-    private column1: IgcColumnComponent
-    private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
-    public get columnPipeArgs1(): IgcColumnPipeArgs {
-        if (this._columnPipeArgs1 == null)
-        {
-            var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs1.currencyCode = "USD";
-            columnPipeArgs1.digitsInfo = "1.2-2";
-
-            this._columnPipeArgs1 = columnPipeArgs1;
-        }
-        return this._columnPipeArgs1;
-    }
     private _bind: () => void;
 
     constructor() {
@@ -61,7 +48,6 @@ export class Sample {
         var propertyEditorPropertyDescription1 = this.propertyEditorPropertyDescription1 = document.getElementById('propertyEditorPropertyDescription1') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webGridClearSort = this.webGridClearSort.bind(this);
         var grid = this.grid = document.getElementById('grid') as IgcTreeGridComponent;
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
             propertyEditor.componentRenderer = this.renderer;
@@ -69,7 +55,6 @@ export class Sample {
             propertyEditorPropertyDescription1.buttonClicked = this.webGridClearSort;
             grid.data = this.ordersTreeData;
             grid.sortingExpressions = this.sortingExpression1;
-            column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
 
