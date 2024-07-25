@@ -1,8 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
-import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -11,16 +9,13 @@ import "./index.css";
 export class Sample {
 
     private grid1: IgcGridComponent
-    private column1: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
         var grid1 = this.grid1 = document.getElementById('grid1') as IgcGridComponent;
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
             grid1.data = this.nwindData;
-            column1.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
 
@@ -33,15 +28,6 @@ export class Sample {
             this._nwindData = new NwindData();
         }
         return this._nwindData;
-    }
-
-
-        public webGridBooleanCellTemplate = (ctx: IgcCellTemplateContext) => {
-            if (ctx.cell.value) {
-                return html`<img src="https://static.infragistics.com/xplatform/images/grid/active.png" title="Continued" alt="Continued" />`
-            } else {
-                return html`<img src="https://static.infragistics.com/xplatform/images/grid/expired.png" title="Discontinued" alt="Discontinued" />`;
-            }
     }
 
 }

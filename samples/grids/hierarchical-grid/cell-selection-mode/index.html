@@ -49,59 +49,14 @@
         primary-key="ID"
         id="hierarchicalGrid"
         name="hierarchicalGrid"
-        id="hierarchicalGrid">
-            <igc-column
-            field="Artist"
-            header="Artist"
-            data-type="string">
-            </igc-column>
-            <igc-column
-            field="HasGrammyAward"
-            header="Has Grammy Award"
-            data-type="boolean">
-            </igc-column>
-            <igc-column
-            field="Debut"
-            header="Debut"
-            data-type="number">
-            </igc-column>
-            <igc-column
-            field="GrammyNominations"
-            header="Grammy Nominations"
-            data-type="number"
-            has-summary="true">
-            </igc-column>
-            <igc-column
-            field="GrammyAwards"
-            header="Grammy Awards"
-            data-type="number"
-            has-summary="true">
-            </igc-column>
+        id="hierarchicalGrid"
+        columns="Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder">
             <igc-row-island
             child-data-key="Albums"
             auto-generate="false"
             name="rowIsland"
-            id="rowIsland">
-                <igc-column
-                field="Album"
-                header="Album"
-                data-type="string">
-                </igc-column>
-                <igc-column
-                field="LaunchDate"
-                header="Launch Date"
-                data-type="date">
-                </igc-column>
-                <igc-column
-                field="BillboardReview"
-                header="Billboard Review"
-                data-type="string">
-                </igc-column>
-                <igc-column
-                field="USBillboard200"
-                header="US Billboard 200"
-                data-type="string">
-                </igc-column>
+            id="rowIsland"
+            columns="Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder">
             </igc-row-island>
         </igc-hierarchical-grid>
     </div>

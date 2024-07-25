@@ -2,7 +2,7 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcGridComponent, IgcSortingExpression, SortingDirection, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcSortingExpression, SortingDirection } from 'igniteui-webcomponents-grids/grids';
 import { ProductSalesItem, ProductSales } from './ProductSales';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 
@@ -40,19 +40,6 @@ export class Sample {
         }
         return this._sortingExpression1;
     }
-    private column1: IgcColumnComponent
-    private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
-    public get columnPipeArgs1(): IgcColumnPipeArgs {
-        if (this._columnPipeArgs1 == null)
-        {
-            var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs1.currencyCode = "USD";
-            columnPipeArgs1.digitsInfo = "1.2-2";
-
-            this._columnPipeArgs1 = columnPipeArgs1;
-        }
-        return this._columnPipeArgs1;
-    }
     private _bind: () => void;
 
     constructor() {
@@ -63,7 +50,6 @@ export class Sample {
         var propertyEditorPropertyDescription2 = this.propertyEditorPropertyDescription2 = document.getElementById('propertyEditorPropertyDescription2') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webGridClearGrouping = this.webGridClearGrouping.bind(this);
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
             propertyEditor.componentRenderer = this.renderer;
@@ -72,7 +58,6 @@ export class Sample {
             propertyEditorPropertyDescription2.buttonClicked = this.webGridClearGrouping;
             grid.data = this.productSales;
             grid.sortingExpressions = this.sortingExpression1;
-            column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
 

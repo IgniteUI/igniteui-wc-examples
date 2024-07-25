@@ -2,11 +2,9 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
-import { IgcSummaryResult, IgcSummaryTemplateContext } from 'igniteui-webcomponents-grids/grids';
-import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -27,7 +25,6 @@ export class Sample {
     private toggleSummariesEditor: IgcPropertyEditorPropertyDescriptionComponent
     private displayDensityEditor: IgcPropertyEditorPropertyDescriptionComponent
     private treeGrid: IgcTreeGridComponent
-    private column1: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
@@ -37,14 +34,12 @@ export class Sample {
         this.webTreeGridHasSummariesChange = this.webTreeGridHasSummariesChange.bind(this);
         var displayDensityEditor = this.displayDensityEditor = document.getElementById('DisplayDensityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;
             propertyEditorPanel1.target = this.treeGrid;
             toggleSummariesEditor.changed = this.webTreeGridHasSummariesChange;
             treeGrid.data = this.employeesNestedTreeData;
-            column1.summaryTemplate = this.webTreeGridSummaryTemplate;
         }
         this._bind();
 
@@ -80,16 +75,6 @@ export class Sample {
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
         column3.hasSummary = newValue;
-    }
-
-    public webTreeGridSummaryTemplate = (ctx: IgcSummaryTemplateContext) => {
-        const summaryResults = ctx.implicit as IgcSummaryResult[];
-        return html`<div class="summary-temp">
-        <span><strong>${summaryResults[0].label}</strong><span>${summaryResults[0].summaryResult}</span></span>
-        <span><strong>${summaryResults[1].label}</strong><span>${summaryResults[1].summaryResult}</span></span>
-        <span><strong>${summaryResults[2].label}</strong><span>${summaryResults[2].summaryResult}</span></span>
-    	<span><strong>${summaryResults[3].label}</strong><span>${summaryResults[3].summaryResult}</span></span>
-    </div>`;
     }
 
 }

@@ -23,59 +23,12 @@
         auto-generate="false"
         primary-key="Name"
         name="hierarchicalGrid1"
-        id="hierarchicalGrid1">
-            <igc-column
-            field="Name"
-            header="Character Name"
-            data-type="string">
-            </igc-column>
-            <igc-column
-            field="Race"
-            header="Race"
-            data-type="string"
-            editable="true"
-            name="column1"
-            id="column1">
-            </igc-column>
-            <igc-column
-            field="Class"
-            header="Class"
-            editable="true"
-            data-type="string"
-            name="column2"
-            id="column2">
-            </igc-column>
-            <igc-column
-            field="Age"
-            header="Age"
-            data-type="string"
-            editable="true">
-            </igc-column>
-            <igc-column
-            field="Alignment"
-            header="Alignment"
-            editable="true"
-            data-type="string"
-            name="column3"
-            id="column3">
-            </igc-column>
+        id="hierarchicalGrid1"
+        columns="Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder">
             <igc-row-island
             child-data-key="Skills"
-            auto-generate="false">
-                <igc-column
-                field="Skill"
-                header="Skill"
-                data-type="string"
-                editable="true"
-                resizable="true">
-                </igc-column>
-                <igc-column
-                field="Level"
-                header="Level"
-                data-type="string"
-                editable="true"
-                resizable="true">
-                </igc-column>
+            auto-generate="false"
+            columns="Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder">
             </igc-row-island>
         </igc-hierarchical-grid>
     </div>

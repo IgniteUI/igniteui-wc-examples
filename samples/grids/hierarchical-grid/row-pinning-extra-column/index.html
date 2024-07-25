@@ -42,107 +42,24 @@
         id="grid"
         name="grid"
         id="grid"
-        cell-selection="none">
-            <igc-column
-            width="70px"
-            filterable="false"
-            pinned="true"
-            name="column1"
-            id="column1">
-            </igc-column>
-            <igc-column
-            field="Artist"
-            header="Artist"
-            data-type="string">
-            </igc-column>
-            <igc-column
-            field="Photo"
-            header="Photo"
-            data-type="image">
-            </igc-column>
-            <igc-column
-            field="Debut"
-            header="Debut"
-            data-type="number">
-            </igc-column>
-            <igc-column
-            field="GrammyNominations"
-            header="Grammy Nominations"
-            data-type="string">
-            </igc-column>
-            <igc-column
-            field="GrammyAwards"
-            header="Grammy Awards"
-            data-type="string">
-            </igc-column>
+        cell-selection="none"
+        columns="Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder">
             <igc-row-island
             child-data-key="Albums"
             primary-key="Album"
             cell-selection="none"
             auto-generate="false"
+            columns="Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder"
             name="rowIsland1"
             id="rowIsland1">
-                <igc-column
-                width="70px"
-                filterable="false"
-                pinned="true"
-                name="column2"
-                id="column2">
-                </igc-column>
-                <igc-column
-                field="Album"
-                header="Album"
-                data-type="string">
-                </igc-column>
-                <igc-column
-                field="LaunchDate"
-                header="Launch Date"
-                data-type="date">
-                </igc-column>
-                <igc-column
-                field="BillboardReview"
-                header="Billboard Review"
-                data-type="string">
-                </igc-column>
-                <igc-column
-                field="USBillboard200"
-                header="US Billboard 200"
-                data-type="string">
-                </igc-column>
                 <igc-row-island
                 child-data-key="Songs"
                 primary-key="Number"
                 cell-selection="none"
                 auto-generate="false"
+                columns="Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder"
                 name="rowIsland2"
                 id="rowIsland2">
-                    <igc-column
-                    width="70px"
-                    filterable="false"
-                    pinned="true"
-                    name="column3"
-                    id="column3">
-                    </igc-column>
-                    <igc-column
-                    field="Number"
-                    header="No."
-                    data-type="string">
-                    </igc-column>
-                    <igc-column
-                    field="Title"
-                    header="Title"
-                    data-type="string">
-                    </igc-column>
-                    <igc-column
-                    field="Released"
-                    header="Released"
-                    data-type="string">
-                    </igc-column>
-                    <igc-column
-                    field="Genre"
-                    header="Genre"
-                    data-type="string">
-                    </igc-column>
                 </igc-row-island>
             </igc-row-island>
             <igc-row-island
@@ -150,35 +67,9 @@
             primary-key="Tour"
             cell-selection="none"
             auto-generate="false"
+            columns="Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder"
             name="rowIsland3"
             id="rowIsland3">
-                <igc-column
-                width="70px"
-                filterable="false"
-                pinned="true"
-                name="column4"
-                id="column4">
-                </igc-column>
-                <igc-column
-                field="Tour"
-                header="Tour"
-                data-type="string">
-                </igc-column>
-                <igc-column
-                field="StartedOn"
-                header="Started on"
-                data-type="string">
-                </igc-column>
-                <igc-column
-                field="Location"
-                header="Location"
-                data-type="string">
-                </igc-column>
-                <igc-column
-                field="Headliner"
-                header="Headliner"
-                data-type="string">
-                </igc-column>
             </igc-row-island>
         </igc-hierarchical-grid>
     </div>

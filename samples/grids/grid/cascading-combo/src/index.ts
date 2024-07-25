@@ -1,9 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { WorldCitiesAbove500KItem, WorldCitiesAbove500K } from './WorldCitiesAbove500K';
 import { IgcComboComponent, IgcLinearProgressComponent } from 'igniteui-webcomponents';
-import { IgcCellTemplateContext, IgcRenderFunction } from 'igniteui-webcomponents-grids/grids';
-import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -15,24 +13,15 @@ import "./index.css";
 export class Sample {
 
     private grid: IgcGridComponent
-    private column1: IgcColumnComponent
-    private column2: IgcColumnComponent
-    private column3: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         this.webGridWithComboRendered = this.webGridWithComboRendered.bind(this);
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
-        var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
-        var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.worldCitiesAbove500K;
             grid.addEventListener("rendered", this.webGridWithComboRendered);
-            column1.bodyTemplate = this.webGridCountryDropDownTemplate;
-            column2.bodyTemplate = this.webGridRegionDropDownTemplate;
-            column3.bodyTemplate = this.webGridCityDropDownTemplate;
         }
         this._bind();
 
@@ -128,72 +117,6 @@ export class Sample {
             cityCombo.disabled = false;
             cityCombo.data = this.cities.filter(city => city.Region === newValue);
         }
-    }
-
-    public webGridCountryDropDownTemplate: IgcRenderFunction<IgcCellTemplateContext> = (ctx: IgcCellTemplateContext) => {
-        if (!ctx || !ctx.cell) {
-            return nothing;
-        }
-
-        const id = ctx.cell.id.rowID;
-        const comboId = "country_" + id;
-
-        return html`
-            <igc-combo
-                id="${comboId}"
-                placeholder="Choose Country..."
-                value-key="Country"
-                display-key="Country"
-                single-select
-                .data="${this.countries}"
-                @igcChange="${(e: CustomEvent) => (this as any).onCountryChange(id, e)}"
-            ></igc-combo>
-        `;
-    }
-
-    public webGridRegionDropDownTemplate: IgcRenderFunction<IgcCellTemplateContext> = (ctx: IgcCellTemplateContext) => {
-        if (!ctx || !ctx.cell) {
-            return nothing;
-        }
-
-        const id = ctx.cell.id.rowID;
-        const comboId = "region_" + id;
-
-        return html`
-            <div style="display: flex; flex-direction: column;">
-                <igc-combo
-                    id="${comboId}"
-                    placeholder="Choose Region..."
-                    value-key="Region"
-                    display-key="Region"
-                    single-select
-                    disabled
-                    @igcChange="${(e: CustomEvent) => (this as any).onRegionChange(id, e)}"
-                ></igc-combo>
-            </div>
-        `;
-    }
-
-    public webGridCityDropDownTemplate: IgcRenderFunction<IgcCellTemplateContext> = (ctx: IgcCellTemplateContext) => {
-        if (!ctx || !ctx.cell) {
-            return nothing;
-        }
-
-        const id = ctx.cell.id.rowID;
-        const comboId = "city_" + id;
-
-        return html`
-            <div style="display: flex; flex-direction: column;">
-                <igc-combo
-                    id="${comboId}"
-                    placeholder="Choose City..."
-                    value-key="Name"
-                    display-key="Name"
-                    single-select
-                    disabled
-                ></igc-combo>
-            </div>
-        `;
     }
 
 }

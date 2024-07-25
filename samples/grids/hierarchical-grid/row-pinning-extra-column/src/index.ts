@@ -2,11 +2,9 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebHierarchicalGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcHierarchicalGridComponent, IgcPinningConfig, RowPinningPosition, ColumnPinningPosition, IgcColumnComponent, IgcRowIslandComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcHierarchicalGridComponent, IgcPinningConfig, RowPinningPosition, ColumnPinningPosition, IgcRowIslandComponent } from 'igniteui-webcomponents-grids/grids';
 import SingersData from './SingersData.json';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
-import { IgcCellTemplateContext, IgcRowType } from 'igniteui-webcomponents-grids/grids';
-import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -37,7 +35,6 @@ export class Sample {
         }
         return this._pinningConfig1;
     }
-    private column1: IgcColumnComponent
     private rowIsland1: IgcRowIslandComponent
     private _pinningConfig2: IgcPinningConfig | null = null;
     public get pinningConfig2(): IgcPinningConfig {
@@ -51,7 +48,6 @@ export class Sample {
         }
         return this._pinningConfig2;
     }
-    private column2: IgcColumnComponent
     private rowIsland2: IgcRowIslandComponent
     private _pinningConfig3: IgcPinningConfig | null = null;
     public get pinningConfig3(): IgcPinningConfig {
@@ -65,7 +61,6 @@ export class Sample {
         }
         return this._pinningConfig3;
     }
-    private column3: IgcColumnComponent
     private rowIsland3: IgcRowIslandComponent
     private _pinningConfig4: IgcPinningConfig | null = null;
     public get pinningConfig4(): IgcPinningConfig {
@@ -79,7 +74,6 @@ export class Sample {
         }
         return this._pinningConfig4;
     }
-    private column4: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
@@ -87,13 +81,9 @@ export class Sample {
         var rowPinningEditor = this.rowPinningEditor = document.getElementById('rowPinningEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webHierarchicalGridChangePinningConfig = this.webHierarchicalGridChangePinningConfig.bind(this);
         var grid = this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent;
-        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
         var rowIsland1 = this.rowIsland1 = document.getElementById('rowIsland1') as IgcRowIslandComponent;
-        var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
         var rowIsland2 = this.rowIsland2 = document.getElementById('rowIsland2') as IgcRowIslandComponent;
-        var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
         var rowIsland3 = this.rowIsland3 = document.getElementById('rowIsland3') as IgcRowIslandComponent;
-        var column4 = this.column4 = document.getElementById('column4') as IgcColumnComponent;
 
         this._bind = () => {
             propertyEditorHierarchicalGrid.componentRenderer = this.renderer;
@@ -101,13 +91,9 @@ export class Sample {
             rowPinningEditor.changed = this.webHierarchicalGridChangePinningConfig;
             grid.data = this.singersData;
             grid.pinning = this.pinningConfig1;
-            column1.bodyTemplate = this.webHierarchicalGridRowPinCellTemplate;
             rowIsland1.pinning = this.pinningConfig2;
-            column2.bodyTemplate = this.webHierarchicalGridRowPinCellTemplate;
             rowIsland2.pinning = this.pinningConfig3;
-            column3.bodyTemplate = this.webHierarchicalGridRowPinCellTemplate;
             rowIsland3.pinning = this.pinningConfig4;
-            column4.bodyTemplate = this.webHierarchicalGridRowPinCellTemplate;
         }
         this._bind();
 
@@ -145,14 +131,6 @@ export class Sample {
         }
     }
 
-        public webHierarchicalGridRowPinCellTemplate = (ctx: IgcCellTemplateContext) => {
-    		const row = ctx.cell.row;
-            return html`<span @pointerdown=${(e: any) => this.toggleRowPin(row)}>📌</span>`
-    }
-
-    public toggleRowPin(row: IgcRowType) {
-        row.pinned = !row.pinned;
-    }
 }
 
 new Sample();

@@ -27,7 +27,8 @@
         primary-key="ID"
         foreign-key="ParentID"
         row-selection="multiple"
-        display-density="cosy">
+        display-density="cosy"
+        columns="Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder, Infragistics.Controls.Description.CodeGenerationItemBuilder">
             <igc-paginator
             name="paginator"
             id="paginator"
@@ -35,37 +36,6 @@
             display-density="cosy"
             select-options="5, 10, 15, 25, 50">
             </igc-paginator>
-            <igc-column
-            field="Name"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Title"
-            header="Job Title"
-            data-type="string"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="HireDate"
-            data-type="date"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="ID"
-            data-type="number"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="Age"
-            data-type="number"
-            sortable="true">
-            </igc-column>
-            <igc-column
-            field="OnPTO"
-            data-type="boolean"
-            sortable="true">
-            </igc-column>
         </igc-tree-grid>
     </div>
 </div>
