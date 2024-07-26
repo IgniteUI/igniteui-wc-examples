@@ -1,10 +1,9 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcCellTemplateContext, IgcColumnComponent, IgcGridComponent, IgcGridStateComponent, IgcGridStateOptions, IgcRowIslandComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridStateComponent, IgcGridStateOptions, IgcHierarchicalGridComponent, IgcRowIslandComponent } from 'igniteui-webcomponents-grids/grids';
 import { defineAllComponents, IgcButtonComponent, IgcCheckboxComponent, registerIconFromText } from 'igniteui-webcomponents';
 import SingersDataLocal from './SingersData.json';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import "./index.css";
-import { html } from 'lit-html';
 
 defineAllComponents();
 
@@ -18,7 +17,7 @@ const refreshIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox
 export class Sample {
 
     private gridData;
-    private grid: IgcGridComponent;
+    private grid: IgcHierarchicalGridComponent;
     private gridState: IgcGridStateComponent;
     private columnsLoaded: Promise<void>;
     public stateKey = 'grid-state';
@@ -40,7 +39,7 @@ export class Sample {
     };
 
     constructor() {
-        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
+        var grid = this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent;
         const albumsRowIsland = document.getElementById('albumsRowIsland') as IgcRowIslandComponent;
         const songsRowIsland = document.getElementById('songsRowIsland') as IgcRowIslandComponent;
         const toursRowIsland = document.getElementById('toursRowIsland') as IgcRowIslandComponent;
@@ -116,7 +115,6 @@ export class Sample {
         (this.grid as any).pagingState = pagingState;
         this.grid.clearFilter();
         this.grid.sortingExpressions = [];
-        this.grid.groupingExpressions = [];
         this.grid.deselectAllColumns();
         this.grid.deselectAllRows();
         this.grid.clearCellSelection();
@@ -155,10 +153,6 @@ export class Sample {
         if(event.detail.index === this.grid.columns.length - 1) {
            this.columnsLoaded = new Promise((resolve) => resolve());
         }
-    }
-
-    private photoImageTemplate(ctx: IgcCellTemplateContext) {
-        return html`<img src=${ctx.cell.value} title="Continued" alt="Continued" />`;
     }
 
 }
