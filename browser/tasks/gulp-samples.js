@@ -124,7 +124,7 @@ var sampleSources = [
     // '!' + igConfig.SamplesCopyPath + '/inputs/switches/**/package.json',
 
     // excluding samples that are not finished:
-    '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/remote/package.json',      // grid has no exported member named 'NoopPivotDimensionsStrategy'
+    // '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/remote/package.json',      // grid has no exported member named 'NoopPivotDimensionsStrategy'
 
      // excluding samples' node_modules:
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',

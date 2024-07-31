@@ -1,5 +1,5 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcPivotGridComponent, NoopPivotDimensionsStrategy } from 'igniteui-webcomponents-grids/grids';
+import { IgcPivotGridComponent, IgcNoopPivotDimensionsStrategy } from 'igniteui-webcomponents-grids/grids';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { PivotNoopData } from './PivotNoopData';
 
@@ -8,8 +8,8 @@ export class Sample {
     public get pivotConfiguration(): any {
         if (this._pivotConfiguration == null) {
             const pivotConfiguration: any = {
-                columnStrategy: NoopPivotDimensionsStrategy.instance(),
-                rowStrategy: NoopPivotDimensionsStrategy.instance(),
+                columnStrategy: IgcNoopPivotDimensionsStrategy.instance(),
+                rowStrategy: IgcNoopPivotDimensionsStrategy.instance(),
                 columns: [
                     {
                         memberName: 'Country',
