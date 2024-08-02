@@ -4,6 +4,7 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDes
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
+import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -20,18 +21,20 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditor: IgcPropertyEditorPanelComponent
-    private displayDensityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private sizeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private treeGrid: IgcTreeGridComponent
     private _bind: () => void;
 
     constructor() {
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var displayDensityEditor = this.displayDensityEditor = document.getElementById('DisplayDensityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var sizeEditor = this.sizeEditor = document.getElementById('SizeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.webTreeGridSetGridSize = this.webTreeGridSetGridSize.bind(this);
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
 
         this._bind = () => {
             propertyEditor.componentRenderer = this.renderer;
             propertyEditor.target = this.treeGrid;
+            sizeEditor.changed = this.webTreeGridSetGridSize;
             treeGrid.data = this.employeesFlatDetails;
         }
         this._bind();
@@ -56,6 +59,12 @@ export class Sample {
             WebTreeGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webTreeGridSetGridSize(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("treeGrid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
 }
