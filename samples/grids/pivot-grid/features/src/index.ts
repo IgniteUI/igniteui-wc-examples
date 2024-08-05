@@ -63,20 +63,17 @@ export class Sample {
             pivotAggregator2.label = "Sum of Sale";
             pivotAggregator2.aggregator = this.pivotDataFlatAggregateSumSale;
 
-            pivotValue1.aggregateList = []
-            pivotValue1.aggregateList.push(pivotAggregator2);
             var pivotAggregator3: IgcPivotAggregator = {} as IgcPivotAggregator;
             pivotAggregator3.key = "MIN";
             pivotAggregator3.label = "Minimum of Sale";
             pivotAggregator3.aggregator = this.pivotDataFlatAggregateMinSale;
 
-            pivotValue1.aggregateList.push(pivotAggregator3);
             var pivotAggregator4: IgcPivotAggregator = {} as IgcPivotAggregator;
             pivotAggregator4.key = "MAX";
             pivotAggregator4.label = "Maximum of Sale";
             pivotAggregator4.aggregator = this.pivotDataFlatAggregateMaxSale;
 
-            pivotValue1.aggregateList.push(pivotAggregator4);
+            pivotValue1.aggregateList = [pivotAggregator2,pivotAggregator3,pivotAggregator4];
 
             pivotConfiguration1.values = [pivotValue1];
 
