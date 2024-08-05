@@ -8,14 +8,14 @@ import "./index.css";
 
 export class Sample {
 
-    private hierarchicalGrid1: IgcHierarchicalGridComponent
+    private grid: IgcHierarchicalGridComponent
     private _bind: () => void;
 
     constructor() {
-        var hierarchicalGrid1 = this.hierarchicalGrid1 = document.getElementById('hierarchicalGrid1') as IgcHierarchicalGridComponent;
+        var grid = this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent;
 
         this._bind = () => {
-            hierarchicalGrid1.data = this.singersData;
+            grid.data = this.singersData;
         }
         this._bind();
 
