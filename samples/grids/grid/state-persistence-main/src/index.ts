@@ -36,8 +36,6 @@ export class Sample {
         moving: true
     };
 
-    private _bind: () => void;
-
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         this.gridData = CustomersDataLocal;
@@ -52,40 +50,37 @@ export class Sample {
         var reloadPageBtn = document.getElementById("reloadPage") as IgcButtonComponent;
         var allCheckboxes = Array.from(document.getElementsByTagName("igc-checkbox"));
 
-        this._bind = () => {
-            registerIconFromText("restore", restoreIcon, "material");
-            registerIconFromText("save", saveIcon, "material");
-            registerIconFromText("clear", clearIcon, "material");
-            registerIconFromText("forward", forwardIcon, "material");
-            registerIconFromText("delete", deleteIcon, "material");
-            registerIconFromText("refresh", refreshIcon, "material");
-    
-            grid.data = this.gridData;
-            grid.allowAdvancedFiltering = true;
-            grid.filterMode = 'excelStyleFilter';
-            grid.columnSelection = 'multiple';
-            grid.rowSelection = 'multiple';
-            
-            grid.addEventListener("columnInit", (ev: any) => { this.onColumnInit(ev); });
-            saveStateBtn.addEventListener('click', (ev: any) => { this.saveGridState(); });
-            restoreStateBtn.addEventListener('click', (ev: any) => { this.restoreGridState(); });
-            resetStateBtn.addEventListener('click', (ev: any) => { this.resetGridState(); });
-            leavePageBtn.addEventListener('click', (ev: any) => { this.leavePage(); });
-            leaveLink.addEventListener('click', (ev: any) => { this.saveGridState(); });
-            clearStorageBtn.addEventListener('click', (ev: any) => { this.clearStorage(); });
-            reloadPageBtn.addEventListener('click', (ev: any) => { this.reloadPage(); });
-    
-            allCheckboxes.forEach(cb => {
-                cb.addEventListener("igcChange", (ev: CustomEvent) => { this.onChange(ev, cb.id); });
-            });
+        registerIconFromText("restore", restoreIcon, "material");
+        registerIconFromText("save", saveIcon, "material");
+        registerIconFromText("clear", clearIcon, "material");
+        registerIconFromText("forward", forwardIcon, "material");
+        registerIconFromText("delete", deleteIcon, "material");
+        registerIconFromText("refresh", refreshIcon, "material");
 
-            window.addEventListener("load", async () => { 
-                await this.columnsLoaded;
-                this.restoreGridState(); 
-            });
-            window.addEventListener("beforeunload", () => { this.saveGridState(); });
-        }
-        this._bind();
+        grid.data = this.gridData;
+        grid.allowAdvancedFiltering = true;
+        grid.filterMode = 'excelStyleFilter';
+        grid.columnSelection = 'multiple';
+        grid.rowSelection = 'multiple';
+        
+        grid.addEventListener("columnInit", (ev: any) => { this.onColumnInit(ev); });
+        saveStateBtn.addEventListener('click', (ev: any) => { this.saveGridState(); });
+        restoreStateBtn.addEventListener('click', (ev: any) => { this.restoreGridState(); });
+        resetStateBtn.addEventListener('click', (ev: any) => { this.resetGridState(); });
+        leavePageBtn.addEventListener('click', (ev: any) => { this.leavePage(); });
+        leaveLink.addEventListener('click', (ev: any) => { this.saveGridState(); });
+        clearStorageBtn.addEventListener('click', (ev: any) => { this.clearStorage(); });
+        reloadPageBtn.addEventListener('click', (ev: any) => { this.reloadPage(); });
+
+        allCheckboxes.forEach(cb => {
+            cb.addEventListener("igcChange", (ev: CustomEvent) => { this.onChange(ev, cb.id); });
+        });
+
+        window.addEventListener("load", async () => { 
+            await this.columnsLoaded;
+            this.restoreGridState(); 
+        });
+        window.addEventListener("beforeunload", () => { this.saveGridState(); });
     }
 
     public saveGridState() {

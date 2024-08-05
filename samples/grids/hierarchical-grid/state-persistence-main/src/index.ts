@@ -96,6 +96,7 @@ export class Sample {
             this.restoreGridState(); 
         });
 
+        window.addEventListener("beforeunload", () => { this.saveGridState(); });
     }
 
     public saveGridState() {
