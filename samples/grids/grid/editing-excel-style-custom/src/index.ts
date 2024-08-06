@@ -54,6 +54,7 @@ export class Sample {
                     const columnKey = activeElem.column.field; 
             
                     grid1.data[rowIndex][columnKey] = '';
+                    grid1.markForCheck();
 
                 }
     
