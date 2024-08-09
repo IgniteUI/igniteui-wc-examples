@@ -6,6 +6,8 @@ import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindDa
 import { defineComponents, IgcButtonGroupComponent, registerIcon, registerIconFromText, setIconRef } from 'igniteui-webcomponents';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
+import { arrowDown, arrowUp, caretDown, chevronRight, ellipsisRight, eye,
+     eyeSlash, fileExport, filter, magnifyGlass, thumbtack, thumbtackSlash, xMark } from "./icons"
 import "./index.css";
 
 ModuleManager.register(
@@ -36,19 +38,19 @@ export class Sample {
     }
 
     private registerAwesomeIcons() {
-        registerIcon("filter_list", require('./assets/filter-solid.svg') as string, "fontAwesome");
-        registerIcon("arrow_upward", require('./assets/arrow-up-wide-short-solid.svg') as string, "fontAwesome");
-        registerIcon("arrow_downward", require('./assets/arrow-down-wide-short-solid.svg') as string, "fontAwesome");
-        registerIcon("more_vert", require('./assets/ellipsis-vertical-solid.svg') as string, "fontAwesome");
-        registerIcon("unpin-left", require('./assets/thumbtack-slash-solid.svg') as string, "fontAwesome");
-        registerIcon("pin-left", require('./assets/thumbtack-solid.svg') as string, "fontAwesome");
-        registerIcon("visibility", require('./assets/eye-solid.svg') as string, "fontAwesome");
-        registerIcon("visibility_off", require('./assets/eye-slash-solid.svg') as string, "fontAwesome");
-        registerIcon("search", require('./assets/magnifying-glass-solid.svg') as string, "fontAwesome");
-        registerIcon("chevron_right", require('./assets/chevron-right-solid.svg') as string, "fontAwesome");
-        registerIcon("clear", require('./assets/xmark-solid.svg') as string, "fontAwesome");
-        registerIcon("import_export", require('./assets/file-export-solid.svg') as string, "fontAwesome");
-        registerIcon("arrow_drop_down", require('./assets/caret-down-solid.svg') as string, "fontAwesome");
+        registerIconFromText("filter_list", filter, "fontAwesome");
+        registerIconFromText("arrow_upward", arrowUp, "fontAwesome");
+        registerIconFromText("arrow_downward", arrowDown, "fontAwesome");
+        registerIconFromText("more_vert", ellipsisRight, "fontAwesome");
+        registerIconFromText("unpin-left", thumbtackSlash, "fontAwesome");
+        registerIconFromText("pin-left", thumbtack, "fontAwesome");
+        registerIconFromText("visibility", eye, "fontAwesome");
+        registerIconFromText("visibility_off", eyeSlash, "fontAwesome");
+        registerIconFromText("search", magnifyGlass, "fontAwesome");
+        registerIconFromText("chevron_right", chevronRight, "fontAwesome");
+        registerIconFromText("clear", xMark, "fontAwesome");
+        registerIconFromText("import_export", fileExport, "fontAwesome");
+        registerIconFromText("arrow_drop_down", caretDown , "fontAwesome");
     }
 
     private changeRefs(collectionName: string) {
