@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carousel Animations</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="carousel-wrapper">
+        <div class="action-wrapper">
+          <div class="action">
+            <span>Animation type</span>
+            <igc-select id="select">
+              <igc-select-item value="slide" selected>Slide</igc-select-item>
+              <igc-select-item value="fade">Fade</igc-select-item>
+              <igc-select-item value="none">None</igc-select-item>
+            </igc-select>
+          </div>
+          <div class="action">
+            <igc-switch label-position="before">Vertical alignment</igc-switch>
+          </div>
+        </div>
+        <igc-carousel skip-indicator>
+          <igc-carousel-slide>
+            <div class="slide-wrapper">
+              <igc-card>
+                <igc-card-header>
+                  <h3 slot="title">Ignite UI for Angular</h3>
+                </igc-card-header>
+                <igc-card-content>
+                  <p>30+ Material-based Angular components to code speedy web apps faster.</p>
+                </igc-card-content> 
+                <igc-card-media>
+                  <img src="https://www.infragistics.com/angular-demos-lob/assets/images/carousel/slide1-angular.png">
+                </igc-card-media>
+                <igc-card-actions>
+                  <igc-button slot="start" href="https://www.infragistics.com/products/ignite-ui-angular" target="_blank" rel="noopener">
+                    Visit Page
+                  </igc-button>
+                </igc-card-actions>
+              </igc-card>
+            </div>
+          </igc-carousel-slide>
+          <igc-carousel-slide>
+            <div class="slide-wrapper">
+              <igc-card>
+                <igc-card-header>
+                  <h3 slot="title">Ignite UI for Javascript</h3>
+                </igc-card-header>
+                <igc-card-content>
+                  <p>A complete JavaScript UI library empowering you to build data-rich responsive web apps.</p>
+                </igc-card-content>
+                <igc-card-media>
+                  <img src="https://www.infragistics.com/angular-demos-lob/assets/images/carousel/slide2-ignite.png">
+                </igc-card-media>
+                <igc-card-actions>
+                  <igc-button slot="start" href="https://www.infragistics.com/products/ignite-ui" target="_blank" rel="noopener">
+                    Visit Page
+                  </igc-button>
+                </igc-card-actions>
+              </igc-card>
+            </div>
+          </igc-carousel-slide>
+          <igc-carousel-slide>
+            <div class="slide-wrapper">
+              <igc-card>
+                <igc-card-header>
+                  <h3 slot="title">Ultimate UI for ASP.NET</h3>
+                </igc-card-header>
+                <igc-card-content>
+                  <p>Build full-featured business apps with the most versatile set of ASP.NET AJAX UI controls.</p>
+                </igc-card-content>
+                <igc-card-media>
+                  <img src="https://www.infragistics.com/angular-demos-lob/assets/images/carousel/slide3-aspnet.png">
+                </igc-card-media>
+                <igc-card-actions>
+                  <igc-button slot="start" href="https://www.infragistics.com/products/aspnet" target="_blank" rel="noopener">
+                    Visit Page
+                  </igc-button>
+                </igc-card-actions>
+              </igc-card>
+            </div>
+          </igc-carousel-slide>
+        </igc-carousel>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

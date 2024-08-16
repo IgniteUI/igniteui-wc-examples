@@ -1,0 +1,28 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.carousel-container {
+    padding: 16px;
+}
+
+igc-carousel {
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-inline: auto;
+    max-width: 75%;
+    height: 500px;
+}
+
+igc-carousel-slide::part(base) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+igc-carousel-slide div {
+    text-align: center;
+}
+
+igc-carousel-slide div * {
+    margin-block: 8px;
+}

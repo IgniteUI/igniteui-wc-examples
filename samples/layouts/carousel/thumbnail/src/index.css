@@ -1,0 +1,16 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+igc-carousel {
+
+    width: 60%
+}
+
+igc-carousel::part(indicators) {
+    border-radius: 2px;
+}
+
+.blurred {
+    filter: blur(2px);
+    opacity: 0.5;
+}
