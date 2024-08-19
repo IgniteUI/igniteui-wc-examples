@@ -29,7 +29,7 @@ export class Sample {
     constructor() {
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
         var toolTipTypeEditor = this.toolTipTypeEditor = document.getElementById('ToolTipTypeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {

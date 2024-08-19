@@ -64,14 +64,14 @@ export class Sample {
 
     public webHierarchicalGridPinFirstGroupToggle(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         const hgrid: IgcHierarchicalGridComponent = this.hierarchicalGrid;
-        const firstColumnGroup = hgrid.getColumnByName("CompanyName").parent;
+        const firstColumnGroup = hgrid.getColumnByName("Company").parent;
         firstColumnGroup.pinned = !firstColumnGroup.pinned;
         hgrid.markForCheck();
     }
 
     public webHierarchicalGridHideFirstGroupToggle(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         const hgrid: IgcHierarchicalGridComponent = this.hierarchicalGrid;
-        const firstColumnGroup = hgrid.getColumnByName("CompanyName").parent;
+        const firstColumnGroup = hgrid.getColumnByName("Company").parent;
         firstColumnGroup.hidden = !firstColumnGroup.hidden;
         hgrid.markForCheck();
     }

@@ -59,7 +59,8 @@ export class Sample {
     public webGridCellEditCellTemplate = (ctx: IgcCellTemplateContext) => {
         let cellValues: any = [];
         let uniqueValues: any = [];
-        for(const i of (this.roleplayDataStats as any)){
+        let roleplayDataStats = this.grid1.data;
+        for(const i of (roleplayDataStats as any)){
             const field: string = ctx.cell.column.field;
             if(uniqueValues.indexOf(i[field]) === -1 )
             {

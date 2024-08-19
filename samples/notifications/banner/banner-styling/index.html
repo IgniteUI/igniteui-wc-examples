@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <title>Banner Styling Sample</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="gallery__wrapper">
+      <div class="gallery__content">
+        <igc-navbar>
+          <h1>Gallery</h1>
+          <igc-icon id="icon" name="signal_wifi_off" slot="end" size="large"></igc-icon>
+        </igc-navbar>
+        
+        <igc-banner id="banner" class="offline-banner">
+          <igc-icon name="signal_wifi_off" slot="prefix" size="large"></igc-icon>
+          You have lost connection to the internet. This app is offline.
+          <div slot="actions">
+            <igc-button variant="flat" onclick="banner.hide()">
+              <igc-ripple></igc-ripple>
+              Continue Offline
+            </igc-button>
+            <igc-button id="button" variant="flat">
+              <igc-ripple></igc-ripple>
+              Turn On Wifi
+            </igc-button>
+          </div>
+        </igc-banner>
+
+        <igc-card class="gallery__item" elevated>
+            <div>
+              <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/media/the_red_ice_forest.jpg">
+            </div>
+        </igc-card>
+        <igc-card class="gallery__item" elevated>
+            <div>
+              <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/media/yosemite.jpg">
+            </div>
+        </igc-card>
+
+        <igc-toast id="toast" position="middle"></igc-toast>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>

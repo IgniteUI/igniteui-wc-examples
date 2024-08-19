@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sample | Ignite UI | Web Components | infragistics</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+  <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample">
+      <div class="container fill">
+
+        <igc-tree-grid id="treeGrid" auto-generate="false" primary-key="ID" foreign-key="ParentID" height="400px">
+          <igc-grid-toolbar>
+            <igc-grid-toolbar-title>Tree Grid Toolbar</igc-grid-toolbar-title>
+            <igc-button id="clearSort">
+              <igc-icon name="clear" collection="material"></igc-icon>Clear Sort
+            </igc-button>
+            <igc-grid-toolbar-actions>
+              <igc-grid-toolbar-hiding></igc-grid-toolbar-hiding>
+              <igc-grid-toolbar-pinning></igc-grid-toolbar-pinning>
+              <igc-grid-toolbar-exporter></igc-grid-toolbar-exporter>
+            </igc-grid-toolbar-actions>
+          </igc-grid-toolbar>
+          <igc-column id="column1" field="Name" data-type="string"></igc-column>
+          <igc-column field="Title" data-type="string" sortable="true"></igc-column>
+          <igc-column field="ID" data-type="number" sortable="true"></igc-column>
+          <igc-column field="Age" data-type="number" sortable="true"></igc-column>
+          <igc-column field="HireDate" data-type="date" sortable="true"></igc-column>
+        </igc-tree-grid>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+</body>
+
+</html>

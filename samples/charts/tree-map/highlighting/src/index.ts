@@ -1,5 +1,5 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
-import { IgcTreemapModule, TreemapHighlightingMode } from 'igniteui-webcomponents-charts';
+import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, TreemapDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
@@ -25,30 +25,18 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-
-        this.onHighlightingModeChanged = this.onHighlightingModeChanged.bind(this);
-                
+        var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
+        var highlightedModeEditor = this.highlightedModeEditor = document.getElementById('HighlightedModeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var treemap = this.treemap = document.getElementById('treemap') as IgcTreemapComponent;
-        
-        const highlightingMode = document.getElementById("highlightingMode") as HTMLSelectElement;
-        highlightingMode!.addEventListener("change", this.onHighlightingModeChanged);
 
-        this._bind = () => {            
+        this._bind = () => {
+            propertyEditor.componentRenderer = this.renderer;
+            propertyEditor.target = this.treemap;
             treemap.dataSource = this.countyHierarchicalData;
         }
-        this._bind();	
-    }
+        this._bind();
 
-    public onHighlightingModeChanged = (e: any) => {
-        let value = e.target.value as String;   
-        
-        if(value === "Brighten"){
-            this.treemap.highlightingMode = TreemapHighlightingMode.Brighten;
-        }
-        else{
-            this.treemap.highlightingMode = TreemapHighlightingMode.FadeOthers;
-        }        
-    } 
+    }
 
     private _countyHierarchicalData: CountyHierarchicalData = null;
     public get countyHierarchicalData(): CountyHierarchicalData {
@@ -58,7 +46,7 @@ export class Sample {
         }
         return this._countyHierarchicalData;
     }
-    
+
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {

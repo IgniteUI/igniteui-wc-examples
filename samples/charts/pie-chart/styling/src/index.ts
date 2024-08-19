@@ -18,7 +18,7 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcItemLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcItemLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcPieChartComponent;
 
         this._bind = () => {
