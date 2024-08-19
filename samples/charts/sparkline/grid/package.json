@@ -28,7 +28,7 @@
     "igniteui-webcomponents-grids": "4.8.1",
     "igniteui-webcomponents-inputs": "4.8.1",
     "igniteui-webcomponents-layouts": "4.8.1",
-    "lit-html": "^2.2.0",
+    "lit-html": "^3.2.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
