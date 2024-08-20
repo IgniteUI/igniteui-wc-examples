@@ -63,9 +63,9 @@ export class Sample {
 
 
     public webHierarchicalGridPinRowOnRendered(): void {
-    	var hierarchicalGrid = document.getElementById("grid") as IgcHierarchicalGridComponent;
-    	hierarchicalGrid.pinRow(this.singersData[0].Photo);
-    	hierarchicalGrid.pinRow(this.singersData[1].Photo);
+    	var hierarchicalGrid = this.grid;
+    	hierarchicalGrid.pinRow(hierarchicalGrid.data[0].Photo);
+    	hierarchicalGrid.pinRow(hierarchicalGrid.data[1].Photo);
     }
 
 }

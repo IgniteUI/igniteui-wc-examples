@@ -124,7 +124,7 @@ var sampleSources = [
     // '!' + igConfig.SamplesCopyPath + '/inputs/switches/**/package.json',
 
     // excluding samples that are not finished:
-    '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/remote/package.json',      // grid has no exported member named 'NoopPivotDimensionsStrategy'
+    // '!' + igConfig.SamplesCopyPath + '/grids/pivot-grid/remote/package.json',      // grid has no exported member named 'NoopPivotDimensionsStrategy'
 
      // excluding samples' node_modules:
      '!' + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
@@ -988,7 +988,7 @@ function updateIG(cb) {
         { name: "igniteui-webcomponents-spreadsheet"              , version: "4.8.1" },
         { name: "igniteui-webcomponents-datasources"              , version: "4.8.1" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "4.9.0"  },
+        { name: "igniteui-webcomponents", version: "4.11.1"  },
         { name: "igniteui-dockmanager", version: "1.14.3" },
         // other packages:
         { name: "webpack", version: "^5.74.0"  },

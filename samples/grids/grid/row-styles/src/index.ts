@@ -2,8 +2,9 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
-import { IgcRowType, IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { IgcRowType } from 'igniteui-webcomponents-grids/grids';
 import { IgcBadgeComponent } from 'igniteui-webcomponents';
+import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";

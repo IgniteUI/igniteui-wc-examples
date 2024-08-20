@@ -26,7 +26,7 @@ export class Sample {
 
     constructor() {
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var highlightedValuesDisplayModeEditor = this.highlightedValuesDisplayModeEditor = document.getElementById('HighlightedValuesDisplayModeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var highlightedValuesDisplayModeEditor = this.highlightedValuesDisplayModeEditor = document.getElementById('highlightedValuesDisplayModeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {

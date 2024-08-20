@@ -55,7 +55,8 @@ export class Sample {
     public hGridCellEditCellTemplate = (ctx: IgcCellTemplateContext) => {
         let cellValues: any = [];
         let uniqueValues: any = [];
-        for(const i of (this.hGridDndData as any)){
+        let hGridDndData = this.hierarchicalGrid1.data;
+        for(const i of (hGridDndData as any)){
             const field: string = ctx.cell.column.field;
             if(uniqueValues.indexOf(i[field]) === -1 )
             {
