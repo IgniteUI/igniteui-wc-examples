@@ -29,8 +29,9 @@ export class Sample {
                 var activeElem = grid1.selectedCells[0];
 
                 if ((event.code >= 'Digit0' && event.code <= 'Digit9') || 
-                    (event.code >= 'KeyA' && event.code <= 'KeyZ') && 
-                    event.code !== 'Enter') {
+                    (event.code >= 'KeyA' && event.code <= 'KeyZ') ||
+                    (event.code >= 'Numpad0' && event.code <= 'Numpad9') && 
+                     event.code !== 'Enter' && event.code !== 'NumpadEnter') {
         
                     if (activeElem && activeElem.editMode === false) {
                         activeElem.editMode = true;
