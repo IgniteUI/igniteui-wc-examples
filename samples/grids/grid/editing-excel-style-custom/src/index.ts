@@ -59,7 +59,7 @@ export class Sample {
 
                 }
     
-                if (code === 'Enter') {
+                if (code === 'Enter' || code === 'NumpadEnter') {
                     
                     if(activeElem == null) {
                         return;
