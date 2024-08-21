@@ -49,7 +49,7 @@ export class Sample {
         registerIconFromText("search", magnifyGlass, "fontAwesome");
         registerIconFromText("chevron_right", chevronRight, "fontAwesome");
         registerIconFromText("clear", xMark, "fontAwesome");
-        registerIconFromText("import_export", fileExport, "fontAwesome");
+        registerIconFromText("file_download", fileExport, "fontAwesome");
         registerIconFromText("arrow_drop_down", caretDown , "fontAwesome");
     }
 
@@ -58,8 +58,8 @@ export class Sample {
             name: 'arrow_drop_down',
             collection: collectionName,
         });
-        setIconRef('import_export', 'default', {
-            name: 'import_export',
+        setIconRef('file_download', 'default', {
+            name: 'file_download',
             collection: collectionName,
         });
         setIconRef('clear', 'default', {
@@ -67,7 +67,7 @@ export class Sample {
             collection: collectionName,
         });
         setIconRef('chevron_right', 'default', {
-            name: 'search',
+            name: 'chevron_right',
             collection: collectionName,
         });
 
@@ -76,22 +76,22 @@ export class Sample {
             collection: collectionName,
         });
 
-        setIconRef('visibility_off', 'default', {
+        setIconRef('hide', 'default', {
             name: 'visibility_off',
             collection: collectionName,
         });
 
-        setIconRef('visibility', 'default', {
+        setIconRef('show', 'default', {
             name: 'visibility',
             collection: collectionName,
         });
 
-        setIconRef('unpin-left', 'default', {
+        setIconRef('unpin', 'default', {
             name: 'unpin-left',
             collection: collectionName === "material" ? "imx-icons" : collectionName,
         });
 
-        setIconRef('pin-left', 'default', {
+        setIconRef('pin', 'default', {
             name: 'pin-left',
             collection: collectionName === "material" ? "imx-icons" : collectionName,
         });
@@ -100,7 +100,7 @@ export class Sample {
             collection: collectionName,
         });
 
-        setIconRef('arrow_upward', 'default', {
+        setIconRef('sort_asc', 'default', {
             name: 'arrow_upward',
             collection: collectionName,
         });
@@ -110,7 +110,7 @@ export class Sample {
             collection: collectionName,
         });
 
-        setIconRef('arrow_downward', 'default', {
+        setIconRef('sort_desc', 'default', {
             name: 'arrow_downward',
             collection: collectionName,
         });
