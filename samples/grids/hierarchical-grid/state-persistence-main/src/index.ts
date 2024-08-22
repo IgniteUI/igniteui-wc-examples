@@ -139,7 +139,7 @@ export class Sample {
 
     public leavePage() {
         this.saveGridState();
-        window.location.replace("./grids/grid/state-persistence-about");
+        window.location.replace("./grids/hierarchical-grid/state-persistence-about");
     }
 
     public clearStorage() {
