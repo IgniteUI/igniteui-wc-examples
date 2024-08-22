@@ -2,23 +2,32 @@ import { IgcGridCreatedEventArgs, IgcHierarchicalGridComponent, IgcPaginatorComp
 
 import 'igniteui-webcomponents-grids/grids/combined';
 import 'igniteui-webcomponents-grids/grids/themes/light/bootstrap.css';
-import { getData, getDataLength } from './RemoteService';
 import { html } from 'lit-html';
+import { RemotePagingService } from './RemoteService';
 
 export class Sample {
 
     public data: any[] = [];
     public page = 0;
-    private pager = document.getElementById('paginator') as IgcPaginatorComponent;
-    private islandpaginator = document.getElementById('islandPaginator') as IgcPaginatorComponent;
+    private totalRecordsCount = 0;
+    private _perPage = 10;
+    public pager: IgcPaginatorComponent;
+    public hierarchicalGrid: IgcHierarchicalGridComponent;
+    private remoteService: RemotePagingService = new RemotePagingService();
     
     public get perPage(): number {
-        return this.pager.perPage || 15;
+        return this.pager?.perPage || 10;
+    }
+    public set perPage(val: number) {
+        this._perPage = val;
+        this.paginate(val);
     }
 
-    public hierarchicalGrid = document.getElementById("hGrid") as IgcHierarchicalGridComponent;
 
     constructor() {
+
+        this.hierarchicalGrid = document.getElementById("hGrid") as IgcHierarchicalGridComponent;
+        this.pager = document.getElementById('paginator') as IgcPaginatorComponent;
         const ordersRowIsland = document.getElementById("ordersRowIsland") as IgcRowIslandComponent;
         const orderDetailsRowIsland = document.getElementById("orderDetailsRowIsland") as IgcRowIslandComponent;
 
@@ -30,6 +39,7 @@ export class Sample {
         });
         this.pager.addEventListener("pageChange", ((args: CustomEvent<any>) => {
             this.paginate(args.detail);}) as EventListener);
+        
 
         ordersRowIsland.addEventListener("gridCreated", (event: any) => {
             this.gridCreated(event, "Customers");
@@ -39,23 +49,29 @@ export class Sample {
             this.gridCreated(event, "Orders");
         });
 
+        window.addEventListener("load", () => {
+            this.pager.totalRecords = this.totalRecordsCount;
+            this.paginate(0);
+         });
+
+        this.hierarchicalGrid.data = this.data;
+
         this.hierarchicalGrid.isLoading = true;
-        getData({ parentID: null, rootLevel: true, key: "Customers" }, this.page, this.perPage).then((data: any) => {
+        this.remoteService.getData({ parentID: null, rootLevel: true, key: "Customers" }, this.page, this.perPage).then((data: any) => {
             this.hierarchicalGrid.isLoading = false;
             this.hierarchicalGrid.data = data;
             this.hierarchicalGrid.markForCheck();
+        });
+        this.remoteService.getDataLength({ parentID: null, rootLevel: true, key: "Customers" }).then((length: number) => {
+            if(length !== undefined) {
+                this.totalRecordsCount = length;
+                this.pager.totalRecords = this.totalRecordsCount;
+            }
         });
     }
 
     public gridCreated(event: CustomEvent<IgcGridCreatedEventArgs>, _parentKey: string) {
         const context = event.detail;
-        //console.log(context.grid.children.length);
-
-        //const paginator = context.grid.features.find(feature => feature instanceof IgcPaginatorComponent);
-
-        // if(paginator) {
-        //     console.log("Paginator found");
-        // }
 
         const dataState = {
             key: context.owner.childDataKey,
@@ -65,10 +81,12 @@ export class Sample {
         };
 
         context.grid.isLoading = true;
-        getDataLength(dataState).then((length: number) => {
-            this.pager.totalRecords = length;
+        this.remoteService.getDataLength(dataState).then((length: number) => {
+            if(length !== undefined) {
+                this.pager.totalRecords = length;
+            }
         
-        getData(dataState, this.page, this.perPage).then((data: any[]) => {
+        this.remoteService.getData(dataState, this.page, this.perPage).then((data: any[]) => {
             context.grid.isLoading = false;
             context.grid.data = data;
             context.grid.markForCheck();
@@ -80,7 +98,7 @@ export class Sample {
         const skip = this.page * this.perPage;
         const top = this.perPage;
     
-        getData({ parentID: null, rootLevel: true, key: 'Customers' }, skip, top).then((data:any)=> {
+        this.remoteService.getData({ parentID: null, rootLevel: true, key: 'Customers' }, skip, top).then((data:any)=> {
           this.data = data; // Assign received data to this.data
           this.hierarchicalGrid.isLoading = false;
           this.hierarchicalGrid.markForCheck();// Update the UI after receiving data

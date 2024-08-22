@@ -9,19 +9,21 @@ export class Sample {
 
     public data: any[] = [];
     public dataLength: number = 0;
-    private grid = document.getElementById('grid') as IgcGridComponent;
+    private grid: IgcGridComponent;
     private _bind: () => void;
     private remotePagingService: RemotePagingService = new RemotePagingService();
     private totalRecordsCount = 0;
     public page = 0;
     private _perPage = 10;
-    private pager = document.getElementById('paginator') as IgcPaginatorComponent;
+    private pager: IgcPaginatorComponent;
 
     public get perPage(): number {
-        return this.pager.perPage || 15;
+        return this.pager.perPage || 10;
     }
   
     constructor() {
+      this.pager = document.getElementById('paginator') as IgcPaginatorComponent;
+      this.grid = document.getElementById('grid') as IgcGridComponent;
       
       this._bind = () => {
         this.loadData();
