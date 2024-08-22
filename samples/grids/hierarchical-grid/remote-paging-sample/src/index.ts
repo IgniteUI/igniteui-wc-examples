@@ -57,7 +57,7 @@ export class Sample {
         this.hierarchicalGrid.data = this.data;
 
         this.hierarchicalGrid.isLoading = true;
-        this.remoteService.getData({ parentID: null, rootLevel: true, key: "Customers" }, this.page, this.perPage).then((data: any) => {
+        this.remoteService.getData({ parentID: null, rootLevel: true, key: "Customers" }, this.page, this._perPage).then((data: any) => {
             this.hierarchicalGrid.isLoading = false;
             this.hierarchicalGrid.data = data;
             this.hierarchicalGrid.markForCheck();
