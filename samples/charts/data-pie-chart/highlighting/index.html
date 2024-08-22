@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor-panel
+
+        description-type="DataPieChart"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id="propertyEditorPanel1">
+            <igc-property-editor-property-description
+            property-path="HighlightingMode"
+            label="Highlighting Mode: "
+            primitive-value="BrightenSpecific">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            property-path="HighlightingBehavior"
+            label="Highlighting Behavior: "
+            primitive-value="DirectlyOver">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+
+    <div class="legend-title">
+        Global Electricity Demand by Energy Use
+    </div>
+
+    <div class="container fill">
+        <igc-data-pie-chart
+        name="chart"
+        id="chart"
+        highlighting-behavior="DirectlyOver"
+        highlighting-mode="BrightenSpecific">
+        </igc-data-pie-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
