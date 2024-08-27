@@ -9,14 +9,14 @@ import "./index.css";
 
 export class Sample {
 
-    private grid1: IgcGridComponent
+    private grid: IgcGridComponent
     private _bind: () => void;
 
     constructor() {
-        var grid1 = this.grid1 = document.getElementById('grid1') as IgcGridComponent;
+        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
         this._bind = () => {
-            grid1.data = this.nwindData;
+            grid.data = this.nwindData;
         }
         this._bind();
 
