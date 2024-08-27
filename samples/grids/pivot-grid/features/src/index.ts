@@ -50,7 +50,6 @@ export class Sample {
             var pivotValue1 = new IgcPivotValue();
             pivotValue1.member = "AmountofSale";
             pivotValue1.displayName = "Amount of Sale";
-            pivotValue1.dataType = "currency";
             pivotValue1.enabled = true;
             var pivotAggregator1 = new IgcPivotAggregator();
             pivotAggregator1.key = "SUM";
