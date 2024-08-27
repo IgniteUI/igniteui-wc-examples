@@ -25,10 +25,12 @@
         is-horizontal="true"
         is-wrapping-enabled="true">
             <igc-property-editor-property-description
-            property-path="DisplayDensity"
-            name="DisplayDensityEditor"
-            id="DisplayDensityEditor"
-            label="Display Density">
+            name="SizeEditor"
+            id="SizeEditor"
+            label="Grid Size:"
+            value-type="EnumValue"
+            drop-down-names="Small, Medium, Large"
+            drop-down-values="Small, Medium, Large">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
@@ -40,13 +42,11 @@
         id="treeGrid"
         id="treeGrid"
         primary-key="ID"
-        foreign-key="ParentID"
-        display-density="cosy">
+        foreign-key="ParentID">
             <igc-paginator
             name="paginator"
             id="paginator"
-            per-page="10"
-            display-density="cosy">
+            per-page="10">
             </igc-paginator>
             <igc-column
             field="ID"
