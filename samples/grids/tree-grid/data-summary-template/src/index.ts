@@ -25,7 +25,7 @@ export class Sample {
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
     private summaryRowHeightEditor: IgcPropertyEditorPropertyDescriptionComponent
     private toggleSummariesEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private displayDensityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private sizeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private treeGrid: IgcTreeGridComponent
     private column1: IgcColumnComponent
     private _bind: () => void;
@@ -35,7 +35,8 @@ export class Sample {
         var summaryRowHeightEditor = this.summaryRowHeightEditor = document.getElementById('SummaryRowHeightEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var toggleSummariesEditor = this.toggleSummariesEditor = document.getElementById('ToggleSummariesEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webTreeGridHasSummariesChange = this.webTreeGridHasSummariesChange.bind(this);
-        var displayDensityEditor = this.displayDensityEditor = document.getElementById('DisplayDensityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var sizeEditor = this.sizeEditor = document.getElementById('SizeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.webTreeGridSetGridSize = this.webTreeGridSetGridSize.bind(this);
         var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
@@ -43,6 +44,7 @@ export class Sample {
             propertyEditorPanel1.componentRenderer = this.renderer;
             propertyEditorPanel1.target = this.treeGrid;
             toggleSummariesEditor.changed = this.webTreeGridHasSummariesChange;
+            sizeEditor.changed = this.webTreeGridSetGridSize;
             treeGrid.data = this.employeesNestedTreeData;
             column1.summaryTemplate = this.webTreeGridSummaryTemplate;
         }
@@ -80,6 +82,12 @@ export class Sample {
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
         column3.hasSummary = newValue;
+    }
+
+    public webTreeGridSetGridSize(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("treeGrid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
     public webTreeGridSummaryTemplate = (ctx: IgcSummaryTemplateContext) => {

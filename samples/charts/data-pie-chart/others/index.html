@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor-panel
+
+        description-type="DataPieChart"
+        is-horizontal="true"
+        is-wrapping-enabled="true"
+        name="propertyEditorPanel1"
+        id="propertyEditorPanel1">
+            <igc-property-editor-property-description
+            property-path="OthersCategoryType"
+            label="Others Type: "
+            primitive-value="Number">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            property-path="OthersCategoryThreshold"
+            label="Others Threshold: "
+            should-override-default-editor="true"
+            value-type="Slider"
+            min="0"
+            max="40">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            property-path="OthersCategoryText"
+            label="Others Text: ">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+
+    <div class="legend-title">
+        Global Electricity Demand by Energy Use
+    </div>
+
+    <div class="container fill">
+        <igc-data-pie-chart
+        name="chart"
+        id="chart"
+        others-category-text="Others"
+        others-category-type="Number"
+        others-category-threshold="5">
+        </igc-data-pie-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
