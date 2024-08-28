@@ -25,9 +25,12 @@
         is-horizontal="true"
         is-wrapping-enabled="true">
             <igc-property-editor-property-description
-            property-path="DisplayDensity"
-            name="DisplayDensityEditor"
-            id="DisplayDensityEditor">
+            name="SizeEditor"
+            id="SizeEditor"
+            label="Grid Size:"
+            value-type="EnumValue"
+            drop-down-names="Small, Medium, Large"
+            drop-down-values="Small, Medium, Large">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
@@ -35,6 +38,7 @@
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        id="grid"
         name="grid"
         id="grid"
         allow-filtering="true">
