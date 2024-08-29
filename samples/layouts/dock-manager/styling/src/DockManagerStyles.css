@@ -187,3 +187,11 @@ igc-card-content {
   justify-content: flex-end;
   margin-bottom: 0.5rem;
 }
+
+.size-small {
+  --ig-size: var(--ig-size-small);
+}
+
+.size-medium {
+  --ig-size: var(--ig-size-medium);
+}
