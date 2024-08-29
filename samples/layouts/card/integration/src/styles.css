@@ -58,6 +58,7 @@
     flex-shrink: 0;
 }
 .avatar {
+    --ig-size: var(--ig-size-small);
     --background: none;
     margin: 0 16px 0 0;
 }

@@ -73,7 +73,7 @@ export class Sample {
         const toolbar = document.getElementById('toolbar') as IgcGridToolbarComponent;
         const toolbarSwitch = document.getElementById('toolbarSwitch') as IgcSwitchComponent;
         toolbarSwitch.addEventListener('igcChange', (ev: CustomEvent) => {
-            toolbar.hidden = !ev.detail;
+            toolbar.hidden = !ev.detail.checked;
         });
     }
 
