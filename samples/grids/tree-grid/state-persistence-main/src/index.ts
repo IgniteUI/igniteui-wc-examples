@@ -110,13 +110,13 @@ export class Sample {
         if (action === 'allFeatures') {
             var allCheckboxes = Array.from(document.getElementsByTagName("igc-checkbox"));
             allCheckboxes.forEach(cb => {
-                cb.checked = event.detail;
+                cb.checked = event.detail.checked;
             });
             for (const key of Object.keys(this.options)) {
-                (this.gridState.options as any)[key] = event.detail;
+                (this.gridState.options as any)[key] = event.detail.checked;
             }
         } else {
-            (this.gridState.options as any)[action] = event.detail;
+            (this.gridState.options as any)[action] = event.detail.checked;
             var allFeatures = document.getElementById("allFeatures") as IgcCheckboxComponent;
             allFeatures.checked = Object.keys(this.options).every(o => (this.gridState.options as any)[o]);
         }

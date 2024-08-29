@@ -91,7 +91,7 @@ export class Sample {
 
         const groupingSwitch = document.getElementById('groupSwitch') as IgcSwitchComponent;
         groupingSwitch.addEventListener('igcChange', (ev: CustomEvent) => {
-           if (ev.detail) {
+           if (ev.detail.checked) {
                 grid1.groupingExpressions = this.groupingExpr;
            } else {
                 grid1.groupingExpressions = [];
