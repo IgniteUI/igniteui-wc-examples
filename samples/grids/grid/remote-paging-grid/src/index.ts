@@ -12,7 +12,6 @@ export class Sample {
     private grid: IgcGridComponent;
     private _bind: () => void;
     private remotePagingService: RemotePagingService = new RemotePagingService();
-    private totalRecordsCount = 0;
     public page = 0;
     private _perPage = 10;
     private pager: IgcPaginatorComponent;
@@ -20,13 +19,23 @@ export class Sample {
     public get perPage(): number {
         return this.pager.perPage || 10;
     }
+
+    private _totalRecordsCount: number;
+
+    public get totalRecordsCount(): number {
+    return this._totalRecordsCount;
+    }
+
+    public set totalRecordsCount(value: number) {
+    this._totalRecordsCount = value;
+    this.grid.totalRecords = value;
+    }
   
     constructor() {
       this.pager = document.getElementById('paginator') as IgcPaginatorComponent;
       this.grid = document.getElementById('grid') as IgcGridComponent;
       
       this._bind = () => {
-        this.loadData();
         this.remotePagingService.getDataLength().then((length) => {
             this.totalRecordsCount = length;
             this.pager.totalRecords = this.totalRecordsCount;
@@ -43,20 +52,6 @@ export class Sample {
     }
     this._bind();
     }
-
-    private loadData(): void {
-      this.remotePagingService.getData().then((data) => {
-        this.data = data; // Assign received data to this.data
-        this.grid.isLoading = false;
-        this.updateUI(); // Update the UI after receiving data
-    }).catch(error => {
-        console.error('Error fetching data:', error); // Log any errors
-    });
-      
-      this.remotePagingService.getDataLength().then((dataLength) => {
-          this.grid.totalItemCount = dataLength;
-      });
-  } 
 
       public paginate(page: number) {
         this.page = page;

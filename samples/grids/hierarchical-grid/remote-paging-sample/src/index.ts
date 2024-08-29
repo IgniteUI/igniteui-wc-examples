@@ -9,7 +9,6 @@ export class Sample {
 
     public data: any[] = [];
     public page = 0;
-    private totalRecordsCount = 0;
     private _perPage = 10;
     public pager: IgcPaginatorComponent;
     public hierarchicalGrid: IgcHierarchicalGridComponent;
@@ -23,6 +22,16 @@ export class Sample {
         this.paginate(val);
     }
 
+    private _totalRecordsCount: number;
+
+    public get totalRecordsCount(): number {
+    return this._totalRecordsCount;
+    }
+
+    public set totalRecordsCount(value: number) {
+    this._totalRecordsCount = value;
+    this.hierarchicalGrid.totalRecords = value;
+    }
 
     constructor() {
 
