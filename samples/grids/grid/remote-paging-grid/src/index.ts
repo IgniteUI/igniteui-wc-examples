@@ -45,7 +45,7 @@ export class Sample {
           this.paginate(0);
        });
        this.pager.addEventListener("perPageChange", ()=> {
-        this.paginate(this.page);
+        this.paginate(0);
        })
        this.pager.addEventListener("pageChange", ((args: CustomEvent<any>) => {
         this.paginate(args.detail);}) as EventListener);
