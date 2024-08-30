@@ -1,9 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import { IgcGridComponent, IgcGridStateComponent, IgcGridStateOptions } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridStateComponent, IgcGridStateOptions, IgcHierarchicalGridComponent, IgcRowIslandComponent } from 'igniteui-webcomponents-grids/grids';
 import { defineAllComponents, IgcButtonComponent, IgcCheckboxComponent, registerIconFromText } from 'igniteui-webcomponents';
-import { EmployeesNestedTreeData } from './EmployeesNestedTreeData';
+import SingersDataLocal from './SingersData.json';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import "./index.css";
+
 defineAllComponents();
 
 const restoreIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-120q-138 0-240.5-91.5T122-440h82q14 104 92.5 172T480-200q117 0 198.5-81.5T760-480q0-117-81.5-198.5T480-760q-69 0-129 32t-101 88h110v80H120v-240h80v94q51-64 124.5-99T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z"/></svg>';
@@ -16,9 +17,10 @@ const refreshIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox
 export class Sample {
 
     private gridData;
-    private grid: IgcGridComponent;
+    private grid: IgcHierarchicalGridComponent;
     private gridState: IgcGridStateComponent;
-    public stateKey = 'tree-grid-state';
+    private columnsLoaded: Promise<void>;
+    public stateKey = 'grid-state';
 
     public options: IgcGridStateOptions = {
         cellSelection: true,
@@ -32,14 +34,17 @@ export class Sample {
         expansion: true,
         rowPinning: true,
         columnSelection: true,
-        moving: true
+        moving: true,
+        rowIslands: true
     };
-    private columnsLoaded: Promise<void>;
-
 
     constructor() {
-        var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        this.gridData = new EmployeesNestedTreeData();
+        var grid = this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent;
+        const albumsRowIsland = document.getElementById('albumsRowIsland') as IgcRowIslandComponent;
+        const songsRowIsland = document.getElementById('songsRowIsland') as IgcRowIslandComponent;
+        const toursRowIsland = document.getElementById('toursRowIsland') as IgcRowIslandComponent;
+
+        this.gridData = SingersDataLocal;
         this.gridState = document.getElementById('gridState') as IgcGridStateComponent;
 
         var saveStateBtn = document.getElementById("saveState") as IgcButtonComponent;
@@ -59,12 +64,21 @@ export class Sample {
         registerIconFromText("refresh", refreshIcon, "material");
 
         grid.data = this.gridData;
-        grid.addEventListener("columnInit", (ev: any) => { this.onColumnInit(ev); });
         grid.allowAdvancedFiltering = true;
         grid.filterMode = 'excelStyleFilter';
         grid.columnSelection = 'multiple';
         grid.rowSelection = 'multiple';
+        albumsRowIsland.columnSelection = 'multiple';
+        albumsRowIsland.rowSelection = 'multiple';
+        albumsRowIsland.cellSelection = 'multiple';
+        songsRowIsland.columnSelection = 'multiple';
+        songsRowIsland.rowSelection = 'multiple';
+        songsRowIsland.cellSelection = 'multiple';
+        toursRowIsland.columnSelection = 'multiple';
+        toursRowIsland.rowSelection = 'multiple';
+        toursRowIsland.cellSelection = 'multiple';
 
+        grid.addEventListener("columnInit", (ev: any) => { this.onColumnInit(ev); });
         saveStateBtn.addEventListener('click', (ev: any) => { this.saveGridState(); });
         restoreStateBtn.addEventListener('click', (ev: any) => { this.restoreGridState(); });
         resetStateBtn.addEventListener('click', (ev: any) => { this.resetGridState(); });
@@ -81,6 +95,7 @@ export class Sample {
             await this.columnsLoaded;
             this.restoreGridState(); 
         });
+
         window.addEventListener("beforeunload", () => { this.saveGridState(); });
     }
 
@@ -101,7 +116,6 @@ export class Sample {
         (this.grid as any).pagingState = pagingState;
         this.grid.clearFilter();
         this.grid.sortingExpressions = [];
-        this.grid.groupingExpressions = [];
         this.grid.deselectAllColumns();
         this.grid.deselectAllRows();
         this.grid.clearCellSelection();
@@ -111,13 +125,13 @@ export class Sample {
         if (action === 'allFeatures') {
             var allCheckboxes = Array.from(document.getElementsByTagName("igc-checkbox"));
             allCheckboxes.forEach(cb => {
-                cb.checked = event.detail.checked;
+                cb.checked = event.detail;
             });
             for (const key of Object.keys(this.options)) {
-                (this.gridState.options as any)[key] = event.detail.checked;
+                (this.gridState.options as any)[key] = event.detail;
             }
         } else {
-            (this.gridState.options as any)[action] = event.detail.checked;
+            (this.gridState.options as any)[action] = event.detail;
             var allFeatures = document.getElementById("allFeatures") as IgcCheckboxComponent;
             allFeatures.checked = Object.keys(this.options).every(o => (this.gridState.options as any)[o]);
         }
@@ -125,7 +139,7 @@ export class Sample {
 
     public leavePage() {
         this.saveGridState();
-        window.location.replace("./grids/tree-grid/state-persistence-about");
+        window.location.replace("./grids/hierarchical-grid/state-persistence-about");
     }
 
     public clearStorage() {
@@ -141,6 +155,7 @@ export class Sample {
            this.columnsLoaded = new Promise((resolve) => resolve());
         }
     }
+
 }
 
 new Sample();
