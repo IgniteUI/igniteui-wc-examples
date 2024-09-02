@@ -30,17 +30,17 @@ export class Sample {
         grid.addEventListener("columnInit", this.webGridClipboardOperationsColumnInit);
         var copyBehaviorSwitch = document.getElementById("copy") as IgcSwitchComponent;
         copyBehaviorSwitch.addEventListener("igcChange", (ev: CustomEvent) => {
-            grid.clipboardOptions.enabled = ev.detail;
+            grid.clipboardOptions.enabled = ev.detail.checked;
         });
 
         var copyHeaderSwitch = document.getElementById("headerCopy") as IgcSwitchComponent;
         copyHeaderSwitch.addEventListener("igcChange", (ev: CustomEvent) => {
-            grid.clipboardOptions.copyHeaders = ev.detail;
+            grid.clipboardOptions.copyHeaders = ev.detail.checked;
         });
 
         var formatterSwitch = document.getElementById("formatterCopy") as IgcSwitchComponent;
         formatterSwitch.addEventListener("igcChange", (ev: CustomEvent) => {
-            grid.clipboardOptions.copyFormatters = ev.detail;
+            grid.clipboardOptions.copyFormatters = ev.detail.checked;
         });
 
         var selectionClearBtn = document.getElementById("selectionClear") as IgcButtonComponent;
