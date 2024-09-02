@@ -17,11 +17,11 @@
       <div class="gallery__content">
         <igc-navbar>
           <h1>Gallery</h1>
-          <igc-icon name="refresh" slot="end" size="large" onclick="banner.show()"></igc-icon>
+          <igc-icon name="refresh" slot="end" onclick="banner.show()"></igc-icon>
         </igc-navbar>
         
         <igc-banner id="banner" class="offline-banner">
-          <igc-icon name="signal_wifi_off" slot="prefix" size="large"></igc-icon>
+          <igc-icon name="signal_wifi_off" slot="prefix"></igc-icon>
           You have lost connection to the internet. This app is offline.
           <div slot="actions">
             <igc-button variant="flat" onclick="banner.toggle()">
