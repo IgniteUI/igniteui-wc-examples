@@ -6,6 +6,8 @@ import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { defineComponents, IgcInputComponent, IgcChipComponent, IgcIconComponent, IgcIconButtonComponent, registerIconFromText } from 'igniteui-webcomponents';
 import { MarketData } from './MarketData';
 
+import "./index.css";
+
 defineComponents(IgcInputComponent, IgcChipComponent, IgcIconComponent, IgcIconButtonComponent);
 
 export class Sample {

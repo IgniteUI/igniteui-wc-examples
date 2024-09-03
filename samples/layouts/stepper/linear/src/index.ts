@@ -29,7 +29,7 @@ export class StepperLinear {
 
     private linearChange() {
         document.querySelector("igc-switch")!.addEventListener("igcChange", (e: CustomEvent) => {
-            this.stepper.linear = e.detail;
+            this.stepper.linear = e.detail.checked;
 
             document.querySelectorAll("igc-button.next").forEach((button) => {
                 const igcButton = button as unknown as IgcButtonComponent;
