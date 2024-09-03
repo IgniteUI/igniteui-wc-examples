@@ -4,6 +4,7 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
@@ -22,7 +23,7 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditor: IgcPropertyEditorPanelComponent
-    private displayDensityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private sizeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private grid: IgcGridComponent
     private productName: IgcColumnComponent
     private quantityPerUnit: IgcColumnComponent
@@ -55,7 +56,8 @@ export class Sample {
 
     constructor() {
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var displayDensityEditor = this.displayDensityEditor = document.getElementById('DisplayDensityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var sizeEditor = this.sizeEditor = document.getElementById('SizeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.webGridSetGridSize = this.webGridSetGridSize.bind(this);
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
         var quantityPerUnit = this.quantityPerUnit = document.getElementById('QuantityPerUnit') as IgcColumnComponent;
@@ -66,6 +68,7 @@ export class Sample {
         this._bind = () => {
             propertyEditor.componentRenderer = this.renderer;
             propertyEditor.target = this.grid;
+            sizeEditor.changed = this.webGridSetGridSize;
             grid.data = this.nwindData;
             unitPrice.pipeArgs = this.columnPipeArgs1;
             orderDate.pipeArgs = this.columnPipeArgs2;
@@ -93,6 +96,12 @@ export class Sample {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webGridSetGridSize(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("grid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
         public webGridBooleanCellTemplate = (ctx: IgcCellTemplateContext) => {

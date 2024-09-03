@@ -91,7 +91,7 @@ export class Sample {
 
         const groupingSwitch = document.getElementById('groupSwitch') as IgcSwitchComponent;
         groupingSwitch.addEventListener('igcChange', (ev: CustomEvent) => {
-           if (ev.detail) {
+           if (ev.detail.checked) {
                 grid1.groupingExpressions = this.groupingExpr;
            } else {
                 grid1.groupingExpressions = [];
@@ -126,7 +126,7 @@ export class Sample {
         const cell = ctx.cell;
         const rowData = this.grid1.getRowData(cell.id.rowID);
         return html`
-        <igc-icon-button name="insert_chart" @click=${(e: any) => this.openDialogForRow(e, rowData)} collection="material" variant="contained" size="small"></igc-icon-button>
+        <igc-icon-button class="size-small" name="insert_chart" @click=${(e: any) => this.openDialogForRow(e, rowData)} collection="material" variant="contained"></igc-icon-button>
         `;
     };
 

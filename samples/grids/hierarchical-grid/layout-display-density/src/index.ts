@@ -4,6 +4,7 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebHierarchica
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcHierarchicalGridComponent } from 'igniteui-webcomponents-grids/grids';
 import HierarchicalCustomers from './HierarchicalCustomers.json';
+import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -20,18 +21,20 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditor: IgcPropertyEditorPanelComponent
-    private displayDensityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private sizeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private hierarchicalGrid: IgcHierarchicalGridComponent
     private _bind: () => void;
 
     constructor() {
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var displayDensityEditor = this.displayDensityEditor = document.getElementById('DisplayDensityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var sizeEditor = this.sizeEditor = document.getElementById('SizeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.webHierarchicalGridSetGridSize = this.webHierarchicalGridSetGridSize.bind(this);
         var hierarchicalGrid = this.hierarchicalGrid = document.getElementById('hierarchicalGrid') as IgcHierarchicalGridComponent;
 
         this._bind = () => {
             propertyEditor.componentRenderer = this.renderer;
             propertyEditor.target = this.hierarchicalGrid;
+            sizeEditor.changed = this.webHierarchicalGridSetGridSize;
             hierarchicalGrid.data = this.hierarchicalCustomers;
         }
         this._bind();
@@ -52,6 +55,12 @@ export class Sample {
             WebHierarchicalGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webHierarchicalGridSetGridSize(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("hierarchicalGrid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
 }
