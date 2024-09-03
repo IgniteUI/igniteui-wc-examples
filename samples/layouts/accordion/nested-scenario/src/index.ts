@@ -12,7 +12,7 @@ export class AccordionNestedScenario {
         this.switch = document.getElementById("switch") as IgcSwitchComponent;
 
         this.switch.addEventListener("igcChange", (ev: CustomEvent) => {
-            this.accordion.singleExpand = ev.detail;
+            this.accordion.singleExpand = ev.detail.checked;
         });
     }
 }

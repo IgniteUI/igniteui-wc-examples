@@ -34,8 +34,8 @@ export class Sample {
         columnSelection: true,
         moving: true
     };
+    private columnsLoaded: Promise<void>;
 
-    private _bind: () => void;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
@@ -51,36 +51,37 @@ export class Sample {
         var reloadPageBtn = document.getElementById("reloadPage") as IgcButtonComponent;
         var allCheckboxes = Array.from(document.getElementsByTagName("igc-checkbox"));
 
-        this._bind = () => {
-            registerIconFromText("restore", restoreIcon, "material");
-            registerIconFromText("save", saveIcon, "material");
-            registerIconFromText("clear", clearIcon, "material");
-            registerIconFromText("forward", forwardIcon, "material");
-            registerIconFromText("delete", deleteIcon, "material");
-            registerIconFromText("refresh", refreshIcon, "material");
+        registerIconFromText("restore", restoreIcon, "material");
+        registerIconFromText("save", saveIcon, "material");
+        registerIconFromText("clear", clearIcon, "material");
+        registerIconFromText("forward", forwardIcon, "material");
+        registerIconFromText("delete", deleteIcon, "material");
+        registerIconFromText("refresh", refreshIcon, "material");
 
-            grid.data = this.gridData;
-            grid.allowAdvancedFiltering = true;
-            grid.filterMode = 'excelStyleFilter';
-            grid.columnSelection = 'multiple';
-            grid.rowSelection = 'multiple';
+        grid.data = this.gridData;
+        grid.addEventListener("columnInit", (ev: any) => { this.onColumnInit(ev); });
+        grid.allowAdvancedFiltering = true;
+        grid.filterMode = 'excelStyleFilter';
+        grid.columnSelection = 'multiple';
+        grid.rowSelection = 'multiple';
 
-            saveStateBtn.addEventListener('click', (ev: any) => { this.saveGridState(); });
-            restoreStateBtn.addEventListener('click', (ev: any) => { this.restoreGridState(); });
-            resetStateBtn.addEventListener('click', (ev: any) => { this.resetGridState(); });
-            leavePageBtn.addEventListener('click', (ev: any) => { this.leavePage(); });
-            leaveLink.addEventListener('click', (ev: any) => { this.saveGridState(); });
-            clearStorageBtn.addEventListener('click', (ev: any) => { this.clearStorage(); });
-            reloadPageBtn.addEventListener('click', (ev: any) => { this.reloadPage(); });
-    
-            allCheckboxes.forEach(cb => {
-                cb.addEventListener("igcChange", (ev: CustomEvent) => { this.onChange(ev, cb.id); });
-            });
+        saveStateBtn.addEventListener('click', (ev: any) => { this.saveGridState(); });
+        restoreStateBtn.addEventListener('click', (ev: any) => { this.restoreGridState(); });
+        resetStateBtn.addEventListener('click', (ev: any) => { this.resetGridState(); });
+        leavePageBtn.addEventListener('click', (ev: any) => { this.leavePage(); });
+        leaveLink.addEventListener('click', (ev: any) => { this.saveGridState(); });
+        clearStorageBtn.addEventListener('click', (ev: any) => { this.clearStorage(); });
+        reloadPageBtn.addEventListener('click', (ev: any) => { this.reloadPage(); });
 
-            window.addEventListener("load", () => { this.restoreGridState(); })
-            window.addEventListener("beforeunload", () => { this.saveGridState(); });
-        }
-        this._bind();
+        allCheckboxes.forEach(cb => {
+            cb.addEventListener("igcChange", (ev: CustomEvent) => { this.onChange(ev, cb.id); });
+        });
+
+        window.addEventListener("load", async () => { 
+            await this.columnsLoaded;
+            this.restoreGridState(); 
+        });
+        window.addEventListener("beforeunload", () => { this.saveGridState(); });
     }
 
     public saveGridState() {
@@ -110,13 +111,13 @@ export class Sample {
         if (action === 'allFeatures') {
             var allCheckboxes = Array.from(document.getElementsByTagName("igc-checkbox"));
             allCheckboxes.forEach(cb => {
-                cb.checked = event.detail;
+                cb.checked = event.detail.checked;
             });
             for (const key of Object.keys(this.options)) {
-                (this.gridState.options as any)[key] = event.detail;
+                (this.gridState.options as any)[key] = event.detail.checked;
             }
         } else {
-            (this.gridState.options as any)[action] = event.detail;
+            (this.gridState.options as any)[action] = event.detail.checked;
             var allFeatures = document.getElementById("allFeatures") as IgcCheckboxComponent;
             allFeatures.checked = Object.keys(this.options).every(o => (this.gridState.options as any)[o]);
         }
@@ -133,6 +134,12 @@ export class Sample {
 
     public reloadPage() {
         window.location.reload();
+    }
+
+    private onColumnInit(event: any) { 
+        if(event.detail.index === this.grid.columns.length - 1) {
+           this.columnsLoaded = new Promise((resolve) => resolve());
+        }
     }
 }
 
