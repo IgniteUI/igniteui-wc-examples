@@ -994,6 +994,8 @@ function updateIG(cb) {
         { name: "webpack", version: "^5.74.0"  },
         { name: "webpack-cli", version: "^4.10.0"  },
         { name: "webpack-dev-server", version: "^4.11.1"  },
+        { name: "lit", version: "^3.2.0"  },
+        { name: "lit-html", version: "^3.2.0"  },
     ];
 
     var packagePaths = [

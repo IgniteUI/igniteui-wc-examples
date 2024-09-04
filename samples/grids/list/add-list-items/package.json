@@ -25,8 +25,8 @@
     "core-js": "^3.6.5",
     "igniteui-webcomponents": "5.0.0",
     "igniteui-webcomponents-core": "5.0.0-beta.3",
-    "lit": "^2.0.2",
-    "lit-html": "^2.2.0",
+    "lit": "^3.2.0",
+    "lit-html": "^3.2.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
