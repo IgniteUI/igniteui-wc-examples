@@ -16,7 +16,7 @@ const refreshIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox
 export class Sample {
     private gridData;
     private grid: IgcPivotGridComponent;
-    private gridState: IgcGridStateComponent;
+    private _gridState: IgcGridStateComponent;
     public stateKey = 'pivot-grid-state';
 
     public options: IgcGridStateOptions = {
@@ -39,6 +39,13 @@ export class Sample {
     public totalMax = (members: any, data: any) => {
         return data.map((x: any) => x.ProductUnitPrice * x.NumberOfUnits).reduce((a: any, b: any) => Math.max(a,b));
     };
+
+    public get gridState() {
+        if (!this._gridState) {
+            this._gridState = document.getElementById('gridState') as IgcGridStateComponent;
+        }
+        return this._gridState;
+    }
 
     private pivotConfiguration: IgcPivotConfiguration = {
         columns: [
@@ -172,7 +179,6 @@ export class Sample {
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcPivotGridComponent;
         this.gridData = new PivotDataFlat();
-        this.gridState = document.getElementById('gridState') as IgcGridStateComponent;
 
         var saveStateBtn = document.getElementById("saveState") as IgcButtonComponent;
         var restoreStateBtn = document.getElementById("restoreState") as IgcButtonComponent;
