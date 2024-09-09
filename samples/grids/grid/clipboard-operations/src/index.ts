@@ -10,6 +10,7 @@ defineAllComponents();
 import "./index.css";
 
 export class Sample {
+    private defaultSeparator: string;
     private grid: IgcGridComponent
     private _bind: () => void;
 
@@ -42,9 +43,10 @@ export class Sample {
                 grid.cellSelection = 'multiple';
             });
 
+            this.defaultSeparator = grid.clipboardOptions.separator;
             var input = document.getElementById("input") as IgcInputComponent;
             input.addEventListener("igcChange", (ev: CustomEvent) => {
-                grid.clipboardOptions.separator = ev.detail;
+                grid.clipboardOptions.separator = ev.detail || this.defaultSeparator;
             });
         }
         this._bind();
