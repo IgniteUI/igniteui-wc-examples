@@ -78,7 +78,7 @@ stages:
                 } | `
                 ForEach-Object { `
                     $npmUninstallPackages += $_.Name + " "
-                    $npmInstallPackages += "@infragistics/" + $_.Name + "@" + $_.Value + " "
+                    $npmInstallPackages += "@infragistics/" + $_.Name + "@" + $_.Value + " --legacy-peer-deps "
                 }
             Write-Host $npmUninstallPackages
             Write-Host $npmInstallPackages
