@@ -71,7 +71,7 @@ stages:
             Get-Content -Path .\.npmrc
             $packageJson = Get-Content -Raw .\package.json | ConvertFrom-Json
             $npmUninstallPackages = "npm uninstall --save "
-            $npmInstallPackages = "npm install --legacy-peer-deps"
+            $npmInstallPackages = "npm install --legacy-peer-deps "
             $packageJson.dependencies.PSObject.Properties | `
                 Where-Object {
                     $_.Name.StartsWith("igniteui-webcomponents-") -or $_.Name.StartsWith("igniteui-dockmanager") `
