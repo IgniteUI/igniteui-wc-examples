@@ -26,13 +26,13 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
-        var rangeAreaSeries1 = this.rangeAreaSeries1 = document.getElementById('RangeAreaSeries1') as IgcRangeAreaSeriesComponent;
-        var rangeAreaSeries2 = this.rangeAreaSeries2 = document.getElementById('RangeAreaSeries2') as IgcRangeAreaSeriesComponent;
-        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
+        var rangeAreaSeries1 = this.rangeAreaSeries1 = document.getElementById('rangeAreaSeries1') as IgcRangeAreaSeriesComponent;
+        var rangeAreaSeries2 = this.rangeAreaSeries2 = document.getElementById('rangeAreaSeries2') as IgcRangeAreaSeriesComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('dataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             chart.legend = this.legend;

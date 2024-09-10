@@ -28,7 +28,7 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
         var selectionModeEditor = this.selectionModeEditor = document.getElementById('SelectionModeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var selectionBehaviorEditor = this.selectionBehaviorEditor = document.getElementById('SelectionBehaviorEditor') as IgcPropertyEditorPropertyDescriptionComponent;

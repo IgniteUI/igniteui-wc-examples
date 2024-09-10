@@ -30,7 +30,7 @@ export class Sample {
         var radiusAxis = this.radiusAxis = document.getElementById('radiusAxis') as IgcNumericRadiusAxisComponent;
         var polarScatterSeries1 = this.polarScatterSeries1 = document.getElementById('PolarScatterSeries1') as IgcPolarScatterSeriesComponent;
         var polarScatterSeries2 = this.polarScatterSeries2 = document.getElementById('PolarScatterSeries2') as IgcPolarScatterSeriesComponent;
-        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('dataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             polarScatterSeries1.dataSource = this.boatSailingData;

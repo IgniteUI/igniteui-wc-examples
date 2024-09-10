@@ -34,7 +34,7 @@ export class Sample {
         var columnSeries1 = this.columnSeries1 = document.getElementById('ColumnSeries1') as IgcColumnSeriesComponent;
         var columnSeries2 = this.columnSeries2 = document.getElementById('ColumnSeries2') as IgcColumnSeriesComponent;
         var columnSeries3 = this.columnSeries3 = document.getElementById('ColumnSeries3') as IgcColumnSeriesComponent;
-        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('dataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             xAxis.dataSource = this.olympicMedalsTopCountriesWithTotals;

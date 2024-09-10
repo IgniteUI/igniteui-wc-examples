@@ -9,11 +9,11 @@ export class DialogClosingVariations {
         const closeOnOutsideClickSwitch = document.getElementById('closeOnOutsideClickSwitch') as IgcSwitchComponent;
 
         closeOnOutsideClickSwitch!.addEventListener("igcChange", (ev: CustomEvent) => {
-            dialog.closeOnOutsideClick = ev.detail;
+            dialog.closeOnOutsideClick = ev.detail.checked;
         });
 
         keepOpenOnEscSwitch!.addEventListener("igcChange", (ev: CustomEvent) => {
-            dialog.keepOpenOnEscape = ev.detail;
+            dialog.keepOpenOnEscape = ev.detail.checked;
         });
     }
 }

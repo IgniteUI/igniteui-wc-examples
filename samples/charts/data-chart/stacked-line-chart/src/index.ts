@@ -33,17 +33,17 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
-        var stackedLineSeries = this.stackedLineSeries = document.getElementById('StackedLineSeries') as IgcStackedLineSeriesComponent;
+        var stackedLineSeries = this.stackedLineSeries = document.getElementById('stackedLineSeries') as IgcStackedLineSeriesComponent;
         var s1 = this.s1 = document.getElementById('s1') as IgcStackedFragmentSeriesComponent;
         var s2 = this.s2 = document.getElementById('s2') as IgcStackedFragmentSeriesComponent;
         var s3 = this.s3 = document.getElementById('s3') as IgcStackedFragmentSeriesComponent;
         var s4 = this.s4 = document.getElementById('s4') as IgcStackedFragmentSeriesComponent;
         var s5 = this.s5 = document.getElementById('s5') as IgcStackedFragmentSeriesComponent;
-        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('dataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             chart.legend = this.legend;

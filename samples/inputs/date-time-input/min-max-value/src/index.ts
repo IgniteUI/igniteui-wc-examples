@@ -15,8 +15,7 @@ const clearIcon =
 export class DateTimeInputMinMaxValue {
     constructor() {
         const input = document.querySelector('igc-date-time-input') as IgcDateTimeInputComponent;
-
-        input.minValue = new Date(2021, 0, 1);
+        input.min = new Date(2021, 0, 1);
 
         registerIconFromText("up", upIcon);
         registerIconFromText("down", downIcon);

@@ -85,6 +85,8 @@
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/point-chart-multiple-sources">─<span>Point Chart Multiple Sources</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/point-chart-single-source">─<span>Point Chart Single Source</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/point-chart-styling">─<span>Point Chart Styling</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/selection-modes">─<span>Selection Modes</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/selection-multiple-modes">─<span>Selection Multiple Modes</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/spline-area-multiple-sources">─<span>Spline Area Multiple Sources</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/spline-area-single-source">─<span>Spline Area Single Source</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/category-chart/spline-area-styling">─<span>Spline Area Styling</span></a> 
@@ -165,8 +167,12 @@
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/radial-area-chart-styling">─<span>Radial Area Chart Styling</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/radial-chart-types">─<span>Radial Chart Types</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/radial-column-chart">─<span>Radial Column Chart</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/radial-column-chart-selection">─<span>Radial Column Chart Selection</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/radial-label-mode">─<span>Radial Label Mode</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/radial-line-chart">─<span>Radial Line Chart</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/radial-pie-chart">─<span>Radial Pie Chart</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/radial-pie-proportional-category-angle-axis">─<span>Radial Pie Proportional Category Angle Axis</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/radial-proportional-radial-angle-axis">─<span>Radial Proportional Radial Angle Axis</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/range-area-chart">─<span>Range Area Chart</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/type-range-area-series">─<span>Range Area Series</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/range-column-chart">─<span>Range Column Chart</span></a> 
@@ -212,6 +218,16 @@
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/tooltip-template">─<span>Tooltip Template</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/transition-event">─<span>Transition Event</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/charts/data-chart/waterfall-chart">─<span>Waterfall Chart</span></a> 
+       </div>
+       <label id="nav-data-pie-chart" class="nav-component">Data Pie Chart</label> 
+       <div id="nav-data-pie-chart-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-pie-chart/animation">─<span>Animation</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-pie-chart/highlight-filter">─<span>Highlight Filter</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-pie-chart/highlighting">─<span>Highlighting</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-pie-chart/legend">─<span>Legend</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-pie-chart/others">─<span>Others</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-pie-chart/overview">─<span>Overview</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/charts/data-pie-chart/selection">─<span>Selection</span></a> 
        </div>
        <label id="nav-doughnut-chart" class="nav-component">Doughnut Chart</label> 
        <div id="nav-doughnut-chart-list" class="nav-list" state="collapsed"> 
@@ -296,14 +312,6 @@
        </div>
 
        <div class="nav-group">EDITORS</div> 
-       <label id="nav-date-picker" class="nav-component">Date Picker</label> 
-       <div id="nav-date-picker-list" class="nav-list" state="collapsed"> 
-           <a class="nav-link" href="#" data-nav="/samples/editors/date-picker/date-limits">─<span>Date Limits</span></a> 
-           <a class="nav-link" href="#" data-nav="/samples/editors/date-picker/editing">─<span>Editing</span></a> 
-           <a class="nav-link" href="#" data-nav="/samples/editors/date-picker/format">─<span>Format</span></a> 
-           <a class="nav-link" href="#" data-nav="/samples/editors/date-picker/overview">─<span>Overview</span></a> 
-           <a class="nav-link" href="#" data-nav="/samples/editors/date-picker/range">─<span>Range</span></a> 
-       </div>
        <label id="nav-multi-column-combobox" class="nav-component">Multi Column Combobox</label> 
        <div id="nav-multi-column-combobox-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/editors/multi-column-combobox/overview">─<span>Overview</span></a> 
@@ -526,6 +534,7 @@
            <a class="nav-link" href="#" data-nav="/samples/grids/grid/overview">─<span>Overview</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/grid/paste">─<span>Paste</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/grid/remote-paging-data">─<span>Remote Paging Data</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/grid/remote-paging-grid">─<span>Remote Paging Grid</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/grid/row-adding">─<span>Row Adding</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/grid/row-classes">─<span>Row Classes</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/grid/row-drag-base">─<span>Row Drag Base</span></a> 
@@ -608,6 +617,7 @@
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/hierarchical-grid-options">─<span>Options</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/overview">─<span>Overview</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/hierarchical-grid-paging-style">─<span>Paging Style</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/remote-paging-sample">─<span>Remote Paging Sample</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-adding">─<span>Row Adding</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-classes">─<span>Row Classes</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-drag-base">─<span>Row Drag Base</span></a> 
@@ -620,6 +630,8 @@
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-selection-mode">─<span>Row Selection Mode</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-selection-template-numbers">─<span>Row Selection Template Numbers</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/row-styles">─<span>Row Styles</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/state-persistence-about">─<span>State Persistence About</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/state-persistence-main">─<span>State Persistence Main</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/hierarchical-grid-styling">─<span>Styling</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/toolbar-sample-1">─<span>Toolbar Sample1</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/hierarchical-grid/toolbar-sample-2">─<span>Toolbar Sample2</span></a> 
@@ -639,8 +651,12 @@
            <a class="nav-link" href="#" data-nav="/samples/grids/pivot-grid/aggregate-max-sales">─<span>Aggregate Max Sales</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/pivot-grid/aggregate-units-sold">─<span>Aggregate Units Sold</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/pivot-grid/basic">─<span>Basic</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/pivot-grid/data-persistence-noop">─<span>Data Persistence Noop</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/pivot-grid/data-selector">─<span>Data Selector</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/pivot-grid/features">─<span>Features</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/pivot-grid/remote">─<span>Remote</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/pivot-grid/state-persistence-about">─<span>State Persistence About</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/pivot-grid/state-persistence-main">─<span>State Persistence Main</span></a> 
        </div>
        <label id="nav-tree" class="nav-component">Tree</label> 
        <div id="nav-tree-list" class="nav-list" state="collapsed"> 
@@ -706,6 +722,7 @@
            <a class="nav-link" href="#" data-nav="/samples/grids/tree-grid/keyboard-navigation-guide">─<span>Keyboard Navigation Guide</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/tree-grid/layout-display-density">─<span>Layout Display Density</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/tree-grid/load-on-demand">─<span>Load On Demand</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/grids/tree-grid/multi-cell-selection-mode">─<span>Multi Cell Selection Mode</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/tree-grid/multi-column-headers-export">─<span>Multi Column Headers Export</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/tree-grid/multi-column-headers-overview">─<span>Multi Column Headers Overview</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/grids/tree-grid/multi-column-headers-styling">─<span>Multi Column Headers Styling</span></a> 
@@ -812,10 +829,6 @@
            <a class="nav-link" href="#" data-nav="/samples/inputs/dropdown/position">─<span>Position</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/inputs/dropdown/styling">─<span>Styling</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/inputs/dropdown/target">─<span>Target</span></a> 
-       </div>
-       <label id="nav-form" class="nav-component">Form</label> 
-       <div id="nav-form-list" class="nav-list" state="collapsed"> 
-           <a class="nav-link" href="#" data-nav="/samples/inputs/form/overview">─<span>Overview</span></a> 
        </div>
        <label id="nav-icon-button" class="nav-component">Icon Button</label> 
        <div id="nav-icon-button-list" class="nav-list" state="collapsed"> 
@@ -927,6 +940,14 @@
            <a class="nav-link" href="#" data-nav="/samples/layouts/card/semi-horizontal">─<span>Semi Horizontal</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/layouts/card/styling">─<span>Styling</span></a> 
        </div>
+       <label id="nav-divider" class="nav-component">Divider</label> 
+       <div id="nav-divider-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/divider/base">─<span>Base</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/divider/dashed">─<span>Dashed</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/divider/middle">─<span>Middle</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/divider/select">─<span>Select</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/layouts/divider/vertical">─<span>Vertical</span></a> 
+       </div>
        <label id="nav-dock-manager" class="nav-component">Dock Manager</label> 
        <div id="nav-dock-manager-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/layouts/dock-manager/add-content-runtime">─<span>Add Content Runtime</span></a> 
@@ -1018,6 +1039,13 @@
        </div>
 
        <div class="nav-group">NOTIFICATIONS</div> 
+       <label id="nav-banner" class="nav-component">Banner</label> 
+       <div id="nav-banner-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/notifications/banner/banner-advanced-sample">─<span>Advanced Sample</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/notifications/banner/banner-sample-1">─<span>Sample1</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/notifications/banner/banner-sample-2">─<span>Sample2</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/notifications/banner/banner-styling">─<span>Styling</span></a> 
+       </div>
        <label id="nav-dialog" class="nav-component">Dialog</label> 
        <div id="nav-dialog-list" class="nav-list" state="collapsed"> 
            <a class="nav-link" href="#" data-nav="/samples/notifications/dialog/closing-variations">─<span>Closing Variations</span></a> 
@@ -1053,6 +1081,14 @@
            <a class="nav-link" href="#" data-nav="/samples/scheduling/calendar/special-dates">─<span>Special Dates</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/scheduling/calendar/styling">─<span>Styling</span></a> 
            <a class="nav-link" href="#" data-nav="/samples/scheduling/calendar/week-numbers">─<span>Week Numbers</span></a> 
+       </div>
+       <label id="nav-date-picker" class="nav-component">Date Picker</label> 
+       <div id="nav-date-picker-list" class="nav-list" state="collapsed"> 
+           <a class="nav-link" href="#" data-nav="/samples/scheduling/date-picker/dialog_mode">─<span>Dialog_mode</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/scheduling/date-picker/form">─<span>Form</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/scheduling/date-picker/format">─<span>Format</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/scheduling/date-picker/overview">─<span>Overview</span></a> 
+           <a class="nav-link" href="#" data-nav="/samples/scheduling/date-picker/styling">─<span>Styling</span></a> 
        </div>
 
 

@@ -29,13 +29,13 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
-        var scatterSplineSeries1 = this.scatterSplineSeries1 = document.getElementById('ScatterSplineSeries1') as IgcScatterSplineSeriesComponent;
-        var scatterSplineSeries2 = this.scatterSplineSeries2 = document.getElementById('ScatterSplineSeries2') as IgcScatterSplineSeriesComponent;
-        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
+        var scatterSplineSeries1 = this.scatterSplineSeries1 = document.getElementById('scatterSplineSeries1') as IgcScatterSplineSeriesComponent;
+        var scatterSplineSeries2 = this.scatterSplineSeries2 = document.getElementById('scatterSplineSeries2') as IgcScatterSplineSeriesComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('dataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             chart.legend = this.legend;
