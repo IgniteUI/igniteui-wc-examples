@@ -17,6 +17,7 @@ export class Sample {
     private clipboardHeadersEditor: IgcPropertyEditorPropertyDescriptionComponent
     private clipboardFormattersEditor: IgcPropertyEditorPropertyDescriptionComponent
     private treeGrid: IgcTreeGridComponent
+    private defaultSeparator: string;
 
     constructor() {
         var clipboardEnabledEditor = this.clipboardEnabledEditor = document.getElementById('ClipboardEnabledEditor') as IgcPropertyEditorPropertyDescriptionComponent;
@@ -49,9 +50,10 @@ export class Sample {
             grid.cellSelection = 'multiple';
         });
 
+        this.defaultSeparator = grid.clipboardOptions.separator;
         var input = document.getElementById("input") as IgcInputComponent;
         input.addEventListener("igcChange", (ev: CustomEvent) => {
-            grid.clipboardOptions.separator = ev.detail;
+            grid.clipboardOptions.separator = ev.detail || this.defaultSeparator;
         });
     }
 
