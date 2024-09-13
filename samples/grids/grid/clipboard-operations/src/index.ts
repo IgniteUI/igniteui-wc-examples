@@ -43,9 +43,11 @@ export class Sample {
                 grid.cellSelection = 'multiple';
             });
 
-            this.defaultSeparator = grid.clipboardOptions.separator;
             var input = document.getElementById("input") as IgcInputComponent;
             input.addEventListener("igcChange", (ev: CustomEvent) => {
+                if (!this.defaultSeparator) {
+                    this.defaultSeparator = grid.clipboardOptions.separator;
+                }
                 grid.clipboardOptions.separator = ev.detail || this.defaultSeparator;
             });
         }
@@ -67,7 +69,6 @@ export class Sample {
         column.formatter = (e: any) => { return "** " + e + " **" };
         column.header = "🎉" + column.field;
     }
-
 }
 
 new Sample();
