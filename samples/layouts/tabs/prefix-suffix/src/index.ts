@@ -1,5 +1,6 @@
 import { defineComponents, IgcTabComponent, IgcTabPanelComponent, IgcTabsComponent, registerIconFromText } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import "./index.css";
 
 defineComponents(IgcTabsComponent);
 

@@ -1,2 +1,10 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
+
+igc-icon {
+    --ig-size: var(--ig-size-small);
+}
+
+igc-icon-button {
+    --ig-size: var(--ig-size-small);
+}

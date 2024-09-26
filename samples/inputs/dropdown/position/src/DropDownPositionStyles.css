@@ -6,3 +6,7 @@ igc-dropdown::part(list) {
     align-items: center;
     justify-content: center;
 }
+
+.size-small {
+    --ig-size: var(--ig-size-small);
+}
