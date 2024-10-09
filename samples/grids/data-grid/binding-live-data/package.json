@@ -19,6 +19,11 @@
   },
   "author": "Infragistics",
   "dependencies": {
+    "@infragistics/igniteui-webcomponents-charts": "24.1.58",
+    "@infragistics/igniteui-webcomponents-core": "24.1.58",
+    "@infragistics/igniteui-webcomponents-grids": "24.1.58",
+    "@infragistics/igniteui-webcomponents-inputs": "24.1.58",
+    "@infragistics/igniteui-webcomponents-layouts": "24.1.58",
     "@material/mwc-button": "0.9.1",
     "@material/mwc-dialog": "0.9.1",
     "@material/mwc-slider": "0.9.1",
@@ -29,11 +34,6 @@
     "@webcomponents/webcomponentsjs": "2.3.0",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents-charts": "5.0.0",
-    "igniteui-webcomponents-core": "5.0.0",
-    "igniteui-webcomponents-grids": "5.0.0",
-    "igniteui-webcomponents-inputs": "5.0.0",
-    "igniteui-webcomponents-layouts": "5.0.0",
     "lit-html": "^3.2.0",
     "tslib": "^2.0.0"
   },

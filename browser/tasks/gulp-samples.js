@@ -976,17 +976,17 @@ function updateIG(cb) {
     // { name:               "igniteui-webcomponents-core", version: "3.2.2" },   // PUBLIC NPM
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-webcomponents-core"                     , version: "5.0.0" },
-        { name: "igniteui-webcomponents-charts"                   , version: "5.0.0" },
-        { name: "igniteui-webcomponents-excel"                    , version: "5.0.0" },
-        { name: "igniteui-webcomponents-gauges"                   , version: "5.0.0" },
-        { name: "igniteui-webcomponents-grids"                    , version: "5.0.0" },
-        { name: "igniteui-webcomponents-inputs"                   , version: "5.0.0" },
-        { name: "igniteui-webcomponents-layouts"                  , version: "5.0.0" },
-        { name: "igniteui-webcomponents-maps"                     , version: "5.0.0" },
-        { name: "igniteui-webcomponents-spreadsheet-chart-adapter", version: "5.0.0" },
-        { name: "igniteui-webcomponents-spreadsheet"              , version: "5.0.0" },
-        { name: "igniteui-webcomponents-datasources"              , version: "5.0.0" },
+        { name: "@infragistics/igniteui-webcomponents-core"                     , version: "24.1.58" },
+        { name: "@infragistics/igniteui-webcomponents-charts"                   , version: "24.1.58" },
+        { name: "@infragistics/igniteui-webcomponents-excel"                    , version: "24.1.58" },
+        { name: "@infragistics/igniteui-webcomponents-gauges"                   , version: "24.1.58" },
+        { name: "@infragistics/igniteui-webcomponents-grids"                    , version: "24.1.58" },
+        { name: "@infragistics/igniteui-webcomponents-inputs"                   , version: "24.1.58" },
+        { name: "@infragistics/igniteui-webcomponents-layouts"                  , version: "24.1.58" },
+        { name: "@infragistics/igniteui-webcomponents-maps"                     , version: "24.1.58" },
+        { name: "@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter", version: "24.1.58" },
+        { name: "@infragistics/igniteui-webcomponents-spreadsheet"              , version: "24.1.58" },
+        { name: "@infragistics/igniteui-webcomponents-datasources"              , version: "24.1.58" },
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "5.0.0" },
         { name: "igniteui-dockmanager", version: "1.14.3" },

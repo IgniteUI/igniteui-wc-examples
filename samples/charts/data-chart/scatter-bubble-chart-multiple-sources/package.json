@@ -22,9 +22,9 @@
     "start:legacy": "npm run serve:dev:legacy"
   },
   "dependencies": {
+    "@infragistics/igniteui-webcomponents-charts": "24.1.58",
+    "@infragistics/igniteui-webcomponents-core": "24.1.58",
     "babel-runtime": "^6.26.0",
-    "igniteui-webcomponents-charts": "5.0.0",
-    "igniteui-webcomponents-core": "5.0.0",
     "lit-html": "^3.2.0",
     "tslib": "^2.0.0"
   },
