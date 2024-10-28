@@ -3,9 +3,9 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 defineComponents(IgcDividerComponent);
 
-export class SelectOverview {
+export class DividerOverview {
     constructor() {
     }
 }
 
-new SelectOverview();
+new DividerOverview();
