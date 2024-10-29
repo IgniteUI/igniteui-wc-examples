@@ -13,7 +13,7 @@ igc-carousel {
     height: 500px;
 }
 
-igc-carousel-slide::part(base) {
+igc-carousel-slide {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,6 +21,8 @@ igc-carousel-slide::part(base) {
 
 igc-carousel-slide div {
     text-align: center;
+    max-width: 40%;
+    margin-inline: auto;
 }
 
 igc-carousel-slide div * {
