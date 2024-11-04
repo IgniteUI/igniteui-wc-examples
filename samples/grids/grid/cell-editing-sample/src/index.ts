@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule, WebSelectDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
-import { WebGridCellEditSampleRoleplayItem, WebGridCellEditSampleRoleplay } from './WebGridCellEditSampleRoleplay';
+import { RoleplayDataStatsItem, RoleplayDataStats } from './RoleplayDataStats';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
@@ -27,7 +27,7 @@ export class Sample {
         var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
 
         this._bind = () => {
-            grid1.data = this.webGridCellEditSampleRoleplay;
+            grid1.data = this.roleplayDataStats;
             column1.inlineEditorTemplate = this.webGridCellEditCellTemplate;
             column2.inlineEditorTemplate = this.webGridCellEditCellTemplate;
             column3.inlineEditorTemplate = this.webGridCellEditCellTemplate;
@@ -36,13 +36,13 @@ export class Sample {
 
     }
 
-    private _webGridCellEditSampleRoleplay: WebGridCellEditSampleRoleplay = null;
-    public get webGridCellEditSampleRoleplay(): WebGridCellEditSampleRoleplay {
-        if (this._webGridCellEditSampleRoleplay == null)
+    private _roleplayDataStats: RoleplayDataStats = null;
+    public get roleplayDataStats(): RoleplayDataStats {
+        if (this._roleplayDataStats == null)
         {
-            this._webGridCellEditSampleRoleplay = new WebGridCellEditSampleRoleplay();
+            this._roleplayDataStats = new RoleplayDataStats();
         }
-        return this._webGridCellEditSampleRoleplay;
+        return this._roleplayDataStats;
     }
 
     private _componentRenderer: ComponentRenderer = null;
@@ -59,7 +59,8 @@ export class Sample {
     public webGridCellEditCellTemplate = (ctx: IgcCellTemplateContext) => {
         let cellValues: any = [];
         let uniqueValues: any = [];
-        for(const i of (this.webGridCellEditSampleRoleplay as any)){
+        let roleplayDataStats = this.grid1.data;
+        for(const i of (roleplayDataStats as any)){
             const field: string = ctx.cell.column.field;
             if(uniqueValues.indexOf(i[field]) === -1 )
             {
@@ -70,7 +71,7 @@ export class Sample {
             }
         }
         return html`
-        <igc-select style="width:100%; height:100%" @igcChange=${(e: any) => ctx.cell.editValue = e.detail.value}>
+        <igc-select style="width:100%; height:100%; --ig-size: var(--ig-size-large);" @igcChange=${(e: any) => ctx.cell.editValue = e.detail.value}>
               ${cellValues}
         </igc-select>
     `;

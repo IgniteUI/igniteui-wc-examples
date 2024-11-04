@@ -22,15 +22,12 @@
     "start:legacy": "npm run serve:dev:legacy"
   },
   "dependencies": {
-    "@webcomponents/custom-elements": "^1.4.1",
-    "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
-    "core-js": "^3.6.5",
-    "igniteui-webcomponents-core": "4.7.2-beta.2",
-    "igniteui-webcomponents-grids": "4.7.2-beta.2",
-    "igniteui-webcomponents-inputs": "4.7.2-beta.2",
-    "igniteui-webcomponents-layouts": "4.7.2-beta.2",
-    "lit-html": "^2.2.0",
+    "igniteui-webcomponents-core": "5.0.2",
+    "igniteui-webcomponents-grids": "5.0.2",
+    "igniteui-webcomponents-inputs": "5.0.2",
+    "igniteui-webcomponents-layouts": "5.0.2",
+    "lit-html": "^3.2.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {

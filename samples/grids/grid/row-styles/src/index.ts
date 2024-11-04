@@ -2,8 +2,9 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
-import { IgcRowType, IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { IgcRowType } from 'igniteui-webcomponents-grids/grids';
 import { IgcBadgeComponent } from 'igniteui-webcomponents';
+import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -46,9 +47,9 @@ export class Sample {
 
 
     public webGridRowStylesHandler = {
-        'background': (row: IgcRowType) => (+row.data['Change'] < 0 && +row.data['AnnualChange'] < 0) ? '#FF000088' : '#00000000',
-        'border': (row: IgcRowType) => (+row.data['Change'] < 0 && +row.data['AnnualChange'] < 0) ? '2px solid' : '1px solid',
-        'border-color': (row: IgcRowType) => (+row.data['Change'] < 0 && +row.data['AnnualChange'] < 0) ? '#FF000099' : '#E9E9E9'
+        'background': (row: IgcRowType) => (+row.data['Change'] < 0 && +row.data['YearlyChange'] < 0) ? '#FF000088' : '#00000000',
+        'border': (row: IgcRowType) => (+row.data['Change'] < 0 && +row.data['YearlyChange'] < 0) ? '2px solid' : '1px solid',
+        'border-color': (row: IgcRowType) => (+row.data['Change'] < 0 && +row.data['YearlyChange'] < 0) ? '#FF000099' : '#E9E9E9'
     };
 
     public webGridCurrencyCellTemplate = (ctx: IgcCellTemplateContext) => {

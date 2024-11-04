@@ -3,7 +3,7 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import NwindData from './NwindData.json';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcSummaryResult, IgcSummaryTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
@@ -25,7 +25,7 @@ export class Sample {
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
     private summaryRowHeightEditor: IgcPropertyEditorPropertyDescriptionComponent
     private toggleSummariesEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private displayDensityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private sizeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private grid: IgcGridComponent
     private column1: IgcColumnComponent
     private column2: IgcColumnComponent
@@ -36,7 +36,8 @@ export class Sample {
         var summaryRowHeightEditor = this.summaryRowHeightEditor = document.getElementById('SummaryRowHeightEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var toggleSummariesEditor = this.toggleSummariesEditor = document.getElementById('ToggleSummariesEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webGridHasSummariesChange = this.webGridHasSummariesChange.bind(this);
-        var displayDensityEditor = this.displayDensityEditor = document.getElementById('DisplayDensityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var sizeEditor = this.sizeEditor = document.getElementById('SizeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.webGridSetGridSize = this.webGridSetGridSize.bind(this);
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
         var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
@@ -45,6 +46,7 @@ export class Sample {
             propertyEditorPanel1.componentRenderer = this.renderer;
             propertyEditorPanel1.target = this.grid;
             toggleSummariesEditor.changed = this.webGridHasSummariesChange;
+            sizeEditor.changed = this.webGridSetGridSize;
             grid.data = this.nwindData;
             column1.summaries = this.discontinuedSummary;
             column2.summaryTemplate = this.webGridOrderDateSummaryTemplate;
@@ -53,12 +55,8 @@ export class Sample {
 
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
+    private _nwindData: any[] = NwindData;
+    public get nwindData(): any[] {
         return this._nwindData;
     }
 
@@ -81,6 +79,12 @@ export class Sample {
 
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
+    }
+
+    public webGridSetGridSize(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("grid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
     public webGridOrderDateSummaryTemplate = (ctx: IgcSummaryTemplateContext) => {

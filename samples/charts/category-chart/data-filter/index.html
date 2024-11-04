@@ -26,24 +26,25 @@
         is-wrapping-enabled="true">
             <igc-property-editor-property-description
             property-path="InitialFilterHandler"
-            editor-width="800"
             name="InitialFilter"
             id="InitialFilter"
-            label="Modify Chart Filter"
-            value-type="StringValue"
-            should-override-default-editor="true">
+            label="Modify Filter"
+            value-type="EnumValue"
+            should-override-default-editor="true"
+            drop-down-names="1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020"
+            drop-down-values="1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
 
     <div class="legend-title">
-        Sales Filtered by Country, Product, and Dates
+        Annual Birth Rates by World Region
     </div>
 
     <div class="legend">
         <igc-legend
-        name="Legend"
-        id="Legend"
+        name="legend"
+        id="legend"
         orientation="Horizontal">
         </igc-legend>
     </div>
@@ -56,8 +57,7 @@
         is-horizontal-zoom-enabled="false"
         is-vertical-zoom-enabled="false"
         crosshairs-display-mode="None"
-        included-properties="Date, GrossSales, Profit, Sales"
-        initial-filter="(startswith(Country, 'B') and endswith(Country, 'l') and contains(Product, 'Royal Oak') and contains(Date, '3/1/20'))">
+        y-axis-label-format="{0}M">
         </igc-category-chart>
     </div>
 </div>

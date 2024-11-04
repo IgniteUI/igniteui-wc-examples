@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor-panel
+        name="PropertyEditor"
+        id="PropertyEditor"
+        description-type="Treemap"
+        is-horizontal="true"
+        is-wrapping-enabled="true">
+            <igc-property-editor-property-description
+            property-path="HighlightingMode"
+            name="HighlightedModeEditor"
+            id="HighlightedModeEditor"
+            label="Highlighting Mode: "
+            primitive-value="Brighten"
+            drop-down-values="Brighten, FadeOthers">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+
+    <div class="legend-title">
+        Comparing Population of Countries
+    </div>
+
+    <div class="container fill">
+        <igc-treemap
+        name="treemap"
+        id="treemap"
+        parent-id-member-path="parent"
+        id-member-path="name"
+        label-member-path="name"
+        value-member-path="population"
+        fill-scale-mode="Value"
+        fill-scale-minimum-value="0"
+        fill-scale-maximum-value="1500000000"
+        fill-brushes="rgba(78, 98, 207, 1) rgba(138, 88, 214, 1)"
+        is-fill-scale-logarithmic="true"
+        root-title="Countries"
+        header-display-mode="Overlay"
+        parent-node-bottom-padding="0"
+        parent-node-left-padding="0"
+        parent-node-right-padding="0"
+        parent-node-top-padding="0"
+        outline="black"
+        stroke-thickness="1">
+        </igc-treemap>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

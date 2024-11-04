@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+    <div class="options vertical">
+        <igc-property-editor-panel
+
+        description-type="WebTreeGrid"
+        is-horizontal="true"
+        is-wrapping-enabled="false"
+        name="propertyEditorPanel1"
+        id="propertyEditorPanel1">
+            <igc-property-editor-property-description
+            name="SummaryCalculationModeEditor"
+            id="SummaryCalculationModeEditor"
+            label="Summary Calculation Mode"
+            value-type="EnumValue"
+            drop-down-names="rootLevelOnly, childLevelsOnly, rootAndChildLevels"
+            drop-down-values="rootLevelOnly, childLevelsOnly, rootAndChildLevels">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            name="SummaryPositionEditor"
+            id="SummaryPositionEditor"
+            label="Summary Position"
+            value-type="EnumValue"
+            drop-down-names="top, bottom"
+            drop-down-values="top, bottom">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            label="Show summary row when group row is collapsed:"
+            property-path="ShowSummaryOnCollapse"
+            name="ShowSummaryOnCollapseEditor"
+            id="ShowSummaryOnCollapseEditor">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+
+    <div class="container fill">
+        <igc-tree-grid
+        auto-generate="false"
+        name="treeGrid"
+        id="treeGrid"
+        id="treeGrid"
+        primary-key="ID"
+        foreign-key="ParentID">
+            <igc-column
+            field="ID"
+            header="Order ID"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Name"
+            header="Order Product"
+            has-summary="true">
+            </igc-column>
+            <igc-column
+            field="UnitPrice"
+            header="Price"
+            data-type="number"
+            has-summary="true"
+            editable="true">
+            </igc-column>
+            <igc-column
+            field="Delivered"
+            data-type="boolean">
+            </igc-column>
+            <igc-column
+            field="OrderDate"
+            header="Order Date"
+            data-type="date">
+            </igc-column>
+        </igc-tree-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

@@ -276,7 +276,7 @@ export class OrdersTreeData extends Array<OrdersTreeDataItem> {
                 {
                     ID: 404,
                     ParentID: 4,
-                    Name: `Potatos`,
+                    Name: `Potatoes`,
                     Category: `Vegetables`,
                     OrderDate: `2023-01-04`,
                     Units: 240,
@@ -285,7 +285,7 @@ export class OrdersTreeData extends Array<OrdersTreeDataItem> {
                     Delivered: true
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

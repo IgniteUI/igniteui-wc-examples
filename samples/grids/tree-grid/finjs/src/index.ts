@@ -73,7 +73,7 @@ export class Sample {
         const toolbar = document.getElementById('toolbar') as IgcGridToolbarComponent;
         const toolbarSwitch = document.getElementById('toolbarSwitch') as IgcSwitchComponent;
         toolbarSwitch.addEventListener('igcChange', (ev: CustomEvent) => {
-            toolbar.hidden = !ev.detail;
+            toolbar.hidden = !ev.detail.checked;
         });
     }
 
@@ -98,7 +98,7 @@ export class Sample {
         const cell = ctx.cell;
         const rowData = this.grid1.getRowData(cell.id.rowID);
         return html`
-        <igc-icon-button name="insert_chart" @click=${(e: any) => this.openDialogForRow(e, rowData)} collection="material" variant="contained" size="small"></igc-icon-button>
+        <igc-icon-button class="size-small" name="insert_chart" @click=${(e: any) => this.openDialogForRow(e, rowData)} collection="material" variant="contained"></igc-icon-button>
         `;
     };
 

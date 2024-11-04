@@ -4,6 +4,7 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { FoodsDataItem, FoodsData } from './FoodsData';
+import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
@@ -22,21 +23,23 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditor: IgcPropertyEditorPanelComponent
-    private displayDensityEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private grid: IgcTreeGridComponent
+    private sizeEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private treeGrid: IgcTreeGridComponent
     private column1: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var displayDensityEditor = this.displayDensityEditor = document.getElementById('DisplayDensityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
-        var grid = this.grid = document.getElementById('grid') as IgcTreeGridComponent;
+        var sizeEditor = this.sizeEditor = document.getElementById('SizeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.webTreeGridSetGridSize = this.webTreeGridSetGridSize.bind(this);
+        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
 
         this._bind = () => {
             propertyEditor.componentRenderer = this.renderer;
-            propertyEditor.target = this.grid;
-            grid.data = this.foodsData;
+            propertyEditor.target = this.treeGrid;
+            sizeEditor.changed = this.webTreeGridSetGridSize;
+            treeGrid.data = this.foodsData;
             column1.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
@@ -63,11 +66,17 @@ export class Sample {
         return this._componentRenderer;
     }
 
+    public webTreeGridSetGridSize(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("treeGrid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
+    }
+
         public webGridBooleanCellTemplate = (ctx: IgcCellTemplateContext) => {
             if (ctx.cell.value) {
-                return html`<img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/active.png" title="Continued" alt="Continued" />`
+                return html`<img src="https://static.infragistics.com/xplatform/images/grid/active.png" title="Continued" alt="Continued" />`
             } else {
-                return html`<img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/expired.png" title="Discontinued" alt="Discontinued" />`;
+                return html`<img src="https://static.infragistics.com/xplatform/images/grid/expired.png" title="Discontinued" alt="Discontinued" />`;
             }
     }
 

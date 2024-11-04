@@ -20,7 +20,7 @@
     <div class="container vertical">
       <div style="margin-bottom: 1rem">
         <igc-input id="searchBox" name="searchBox">          
-          <igc-icon id="clearIcon" slot="prefix" name="clear" collection="material"></igc-icon>
+          <igc-icon id="searchIcon" slot="prefix" name="search" collection="material"></igc-icon>          
           <div slot="suffix">
             <igc-chip selectable="true" id="caseSensitiveChip">Case Sensitive</igc-chip>
             <igc-chip selectable="true" id="exactMatchChip">Exact Match</igc-chip>
@@ -32,7 +32,7 @@
         </igc-input>
       </div>
 
-      <igc-grid auto-generate="false" id="grid" name="grid" allow-filtering="true" display-density="compact">
+      <igc-grid class="gridSize" auto-generate="false" id="grid" name="grid" allow-filtering="true" height="100%" width="100%">
         <igc-column field="IndustrySector" data-type="string" sortable="true"></igc-column>        
         <igc-column field="IndustryGroup" data-type="string" sortable="true"></igc-column>        
         <igc-column field="SectorType" data-type="string" sortable="true"></igc-column>        

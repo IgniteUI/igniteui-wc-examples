@@ -36,7 +36,7 @@ export class AccordionOverview {
         const item = this.categories.find((c) => c.type === type);
 
         if (item) {
-            item.checked = ev.detail;
+            item.checked = ev.detail.checked;
         }
         this.updateCheckedCategories();
     };

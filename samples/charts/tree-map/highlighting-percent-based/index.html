@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+
+    <div class="legend-title">
+        Comparing Top Urban Population Percentages between North America & Asia
+    </div>
+
+    <div class="container fill">
+        <igc-treemap
+        name="treemap"
+        id="treemap"
+        parent-id-member-path="parent"
+        id-member-path="name"
+        label-member-path="name"
+        value-member-path="population"
+        highlighted-value-member-path="urbanPopulation"
+        highlighted-values-display-mode="Overlay"
+        fill-brushes="rgba(252, 65, 0, 1) rgba(255, 197, 90, 1) rgba(0, 33, 94, 1) rgba(44, 78, 128, 1)"
+        root-title="Continents"
+        header-display-mode="Auto"
+        is-fill-scale-logarithmic="true"
+        label-vertical-alignment="Top"
+        parent-node-top-margin="10"
+        fill-scale-mode="Value"
+        text-color="black"
+        text-style="normal bold 25px Verdana">
+        </igc-treemap>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

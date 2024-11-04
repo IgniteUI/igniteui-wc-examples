@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+    <div class="options vertical">
+        <igc-property-editor-panel
+        name="PropertyEditor"
+        id="PropertyEditor"
+        description-type="WebHierarchicalGrid"
+        is-horizontal="true"
+        is-wrapping-enabled="true">
+            <igc-property-editor-property-description
+            name="SizeEditor"
+            id="SizeEditor"
+            label="Grid Size:"
+            value-type="EnumValue"
+            drop-down-names="Small, Medium, Large"
+            drop-down-values="Small, Medium, Large">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+
+    <div class="container fill">
+        <igc-hierarchical-grid
+        auto-generate="false"
+        name="hierarchicalGrid"
+        id="hierarchicalGrid"
+        id="hierarchicalGrid"
+        allow-filtering="true">
+            <igc-column
+            field="CustomerID"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="Company"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="ContactName"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="Address"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="City"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="PostalCode"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="Country"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="Phone"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="Fax"
+            data-type="string">
+            </igc-column>
+            <igc-row-island
+            child-data-key="Orders"
+            auto-generate="false">
+                <igc-column
+                field="OrderID"
+                data-type="number">
+                </igc-column>
+                <igc-column
+                field="EmployeeID"
+                data-type="number">
+                </igc-column>
+                <igc-column
+                field="OrderDate"
+                data-type="date">
+                </igc-column>
+                <igc-column
+                field="RequiredDate"
+                data-type="date">
+                </igc-column>
+                <igc-column
+                field="ShippedDate"
+                data-type="date">
+                </igc-column>
+                <igc-column
+                field="ShipVia"
+                data-type="number">
+                </igc-column>
+                <igc-column
+                field="Freight"
+                data-type="number">
+                </igc-column>
+                <igc-column
+                field="ShipName"
+                data-type="string">
+                </igc-column>
+                <igc-column
+                field="ShipAddress"
+                data-type="string">
+                </igc-column>
+                <igc-column
+                field="ShipCity"
+                data-type="string">
+                </igc-column>
+                <igc-column
+                field="ShipPostalCode"
+                data-type="string">
+                </igc-column>
+                <igc-column
+                field="ShipCountry"
+                data-type="string">
+                </igc-column>
+                <igc-row-island
+                child-data-key="OrderDetails"
+                auto-generate="false">
+                    <igc-column
+                    field="ProductID"
+                    data-type="number">
+                    </igc-column>
+                    <igc-column
+                    field="UnitPrice"
+                    data-type="number">
+                    </igc-column>
+                    <igc-column
+                    field="Quantity"
+                    data-type="number">
+                    </igc-column>
+                    <igc-column
+                    field="Discount"
+                    data-type="number">
+                    </igc-column>
+                </igc-row-island>
+            </igc-row-island>
+        </igc-hierarchical-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

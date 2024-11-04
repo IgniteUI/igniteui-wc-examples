@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container fill">
+        <igc-hierarchical-grid
+        auto-generate="false"
+        moving="true"
+        name="grid"
+        id="grid"
+        id="grid">
+            <igc-paginator
+            name="paginator"
+            id="paginator"
+            per-page="15">
+            </igc-paginator>
+            <igc-column
+            field="CustomerID"
+            data-type="string"
+            name="column1"
+            id="column1">
+            </igc-column>
+            <igc-column
+            field="Company"
+            data-type="string"
+            width="150px"
+            name="column2"
+            id="column2">
+            </igc-column>
+            <igc-column
+            field="ContactName"
+            data-type="string"
+            width="150px"
+            name="column3"
+            id="column3">
+            </igc-column>
+            <igc-column
+            field="ContactTitle"
+            data-type="string"
+            width="150px"
+            name="column4"
+            id="column4">
+            </igc-column>
+            <igc-column
+            field="Address"
+            data-type="string"
+            name="column5"
+            id="column5">
+            </igc-column>
+            <igc-column
+            field="City"
+            data-type="string"
+            name="column6"
+            id="column6">
+            </igc-column>
+            <igc-column
+            field="PostalCode"
+            data-type="string"
+            name="column7"
+            id="column7">
+            </igc-column>
+            <igc-column
+            field="Country"
+            data-type="string"
+            name="column8"
+            id="column8">
+            </igc-column>
+            <igc-column
+            field="Phone"
+            data-type="string"
+            name="column9"
+            id="column9">
+            </igc-column>
+            <igc-column
+            field="Fax"
+            data-type="string"
+            name="column10"
+            id="column10">
+            </igc-column>
+            <igc-row-island
+            child-data-key="Orders"
+            auto-generate="false"
+            moving="true">
+                <igc-column
+                field="OrderID"
+                data-type="number">
+                </igc-column>
+                <igc-column
+                field="EmployeeID"
+                data-type="number">
+                </igc-column>
+                <igc-column
+                field="OrderDate"
+                data-type="date">
+                </igc-column>
+                <igc-column
+                field="RequiredDate"
+                data-type="date">
+                </igc-column>
+                <igc-column
+                field="ShippedDate"
+                data-type="date">
+                </igc-column>
+                <igc-column
+                field="ShipVia"
+                data-type="number">
+                </igc-column>
+                <igc-column
+                field="Freight"
+                data-type="number">
+                </igc-column>
+                <igc-column
+                field="ShipName"
+                data-type="string">
+                </igc-column>
+                <igc-column
+                field="ShipAddress"
+                data-type="string">
+                </igc-column>
+                <igc-column
+                field="ShipCity"
+                data-type="string">
+                </igc-column>
+                <igc-column
+                field="ShipPostalCode"
+                data-type="string">
+                </igc-column>
+                <igc-column
+                field="ShipCountry"
+                data-type="string">
+                </igc-column>
+                <igc-row-island
+                child-data-key="OrderDetails"
+                auto-generate="false"
+                moving="true">
+                    <igc-column
+                    field="ProductID"
+                    data-type="number">
+                    </igc-column>
+                    <igc-column
+                    field="UnitPrice"
+                    data-type="number">
+                    </igc-column>
+                    <igc-column
+                    field="Quantity"
+                    data-type="number">
+                    </igc-column>
+                    <igc-column
+                    field="Discount"
+                    data-type="number">
+                    </igc-column>
+                </igc-row-island>
+            </igc-row-island>
+        </igc-hierarchical-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

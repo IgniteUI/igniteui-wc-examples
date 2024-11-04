@@ -150,6 +150,16 @@ export class DockManagerHidePanes {
         for (const pane of ev.detail.panes) {
             pane.hidden = true;
             this.setHiddenPane(pane);
+            
+            if (this.dockManager.maximizedPane)
+            {
+                if (this.dockManager.maximizedPane === pane ||
+                    (this.dockManager.maximizedPane.type === IgcDockManagerPaneType.tabGroupPane &&
+                        this.dockManager.maximizedPane.panes.findIndex(() => pane as IgcContentPane) > -1)) {
+                    this.dockManager.maximizedPane.isMaximized = false;
+                    this.dockManager.maximizedPane = null;
+                }
+            }
         }
         ev.preventDefault();
     }

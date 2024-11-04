@@ -23,9 +23,33 @@ export class Sample {
     private xAxis: IgcNumericXAxisComponent
     private yAxis: IgcNumericYAxisComponent
     private bubbleSeries1: IgcBubbleSeriesComponent
-    private sizeScale1: IgcSizeScaleComponent
+    private _sizeScale1: IgcSizeScaleComponent | null = null;
+    public get sizeScale1(): IgcSizeScaleComponent {
+        if (this._sizeScale1 == null)
+        {
+            var SizeScale1 = new IgcSizeScaleComponent();
+
+            SizeScale1.minimumValue = 10;
+            SizeScale1.maximumValue = 50;
+
+            this._sizeScale1 = SizeScale1;
+        }
+        return this._sizeScale1;
+    }
     private bubbleSeries2: IgcBubbleSeriesComponent
-    private sizeScale2: IgcSizeScaleComponent
+    private _sizeScale2: IgcSizeScaleComponent | null = null;
+    public get sizeScale2(): IgcSizeScaleComponent {
+        if (this._sizeScale2 == null)
+        {
+            var SizeScale2 = new IgcSizeScaleComponent();
+
+            SizeScale2.minimumValue = 10;
+            SizeScale2.maximumValue = 50;
+
+            this._sizeScale2 = SizeScale2;
+        }
+        return this._sizeScale2;
+    }
     private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
@@ -33,19 +57,19 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
-        var bubbleSeries1 = this.bubbleSeries1 = document.getElementById('BubbleSeries1') as IgcBubbleSeriesComponent;
-        var sizeScale1 = this.sizeScale1 = document.getElementById('SizeScale1') as IgcSizeScaleComponent;
-        var bubbleSeries2 = this.bubbleSeries2 = document.getElementById('BubbleSeries2') as IgcBubbleSeriesComponent;
-        var sizeScale2 = this.sizeScale2 = document.getElementById('SizeScale2') as IgcSizeScaleComponent;
-        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
+        var bubbleSeries1 = this.bubbleSeries1 = document.getElementById('bubbleSeries1') as IgcBubbleSeriesComponent;
+        var bubbleSeries2 = this.bubbleSeries2 = document.getElementById('bubbleSeries2') as IgcBubbleSeriesComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('dataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             bubbleSeries1.xAxis = this.xAxis;
             bubbleSeries1.yAxis = this.yAxis;
             bubbleSeries1.dataSource = this.countryDemographicAfrican;
+            bubbleSeries1.radiusScale = this.sizeScale1;
             bubbleSeries2.xAxis = this.xAxis;
             bubbleSeries2.yAxis = this.yAxis;
             bubbleSeries2.dataSource = this.countryDemographicEurope;
+            bubbleSeries2.radiusScale = this.sizeScale2;
         }
         this._bind();
 

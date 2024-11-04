@@ -3,7 +3,7 @@ import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { SalesData } from './SalesData';
+import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { MarkerType, MarkerType_$type } from 'igniteui-webcomponents-charts';
 import { EnumUtil } from 'igniteui-webcomponents-core';
@@ -30,30 +30,30 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
         var editor = this.editor = document.getElementById('editor') as IgcPropertyEditorPanelComponent;
         var initialFilter = this.initialFilter = document.getElementById('InitialFilter') as IgcPropertyEditorPropertyDescriptionComponent;
-        this.editorChangeUpdateInitialFilter = this.editorChangeUpdateInitialFilter.bind(this);
+        this.editorChangeDataFilter = this.editorChangeDataFilter.bind(this);
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {
             editor.componentRenderer = this.renderer;
             editor.target = this.chart;
-            initialFilter.changed = this.editorChangeUpdateInitialFilter;
-            chart.dataSource = this.salesData;
+            initialFilter.changed = this.editorChangeDataFilter;
+            chart.dataSource = this.continentsBirthRate;
             chart.legend = this.legend;
         }
         this._bind();
 
     }
 
-    private _salesData: SalesData = null;
-    public get salesData(): SalesData {
-        if (this._salesData == null)
+    private _continentsBirthRate: ContinentsBirthRate = null;
+    public get continentsBirthRate(): ContinentsBirthRate {
+        if (this._continentsBirthRate == null)
         {
-            this._salesData = new SalesData();
+            this._continentsBirthRate = new ContinentsBirthRate();
         }
-        return this._salesData;
+        return this._continentsBirthRate;
     }
 
     private _componentRenderer: ComponentRenderer = null;
@@ -68,11 +68,11 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    public editorChangeUpdateInitialFilter(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+    public editorChangeDataFilter(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
 
         var chart = this.chart;
-        var intialFilterVal = args.newValue.toString();
-        chart.initialFilter = intialFilterVal;
+        var filter = args.newValue.toString();
+        chart.initialFilter = "(contains(Year," + "'" + filter + "'" + "))";
     }
 
 }
