@@ -41,7 +41,7 @@
     "core-js": "^3.6.5",
     "file-saver": "^2.0.2",
     "igniteui-dockmanager": "1.14.3",
-    "igniteui-webcomponents": "5.0.0",
+    "igniteui-webcomponents": "5.1.1",
     "igniteui-webcomponents-charts": "5.0.2",
     "igniteui-webcomponents-core": "5.0.2",
     "igniteui-webcomponents-datasources": "5.0.2",
