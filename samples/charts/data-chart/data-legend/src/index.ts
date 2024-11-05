@@ -1,5 +1,5 @@
 import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule, IgcDataLegendModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
-import { IgcDataLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcCrosshairLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataLegendComponent, IgcDataChartComponent, IgcNumericYAxisComponent, IgcNumericXAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcCrosshairLayerComponent } from 'igniteui-webcomponents-charts';
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 
@@ -22,8 +22,8 @@ export class Sample {
 
     private legend: IgcDataLegendComponent
     private chart: IgcDataChartComponent
-    private xAxis: IgcNumericXAxisComponent
     private yAxis: IgcNumericYAxisComponent
+    private xAxis: IgcNumericXAxisComponent
     private bubbleSeries1: IgcBubbleSeriesComponent
     private _sizeScale1: IgcSizeScaleComponent | null = null;
     public get sizeScale1(): IgcSizeScaleComponent {
@@ -58,8 +58,8 @@ export class Sample {
     constructor() {
         var legend = this.legend = document.getElementById('legend') as IgcDataLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
-        var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
+        var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
         var bubbleSeries1 = this.bubbleSeries1 = document.getElementById('bubbleSeries1') as IgcBubbleSeriesComponent;
         var bubbleSeries2 = this.bubbleSeries2 = document.getElementById('bubbleSeries2') as IgcBubbleSeriesComponent;
         var crosshairLayer = this.crosshairLayer = document.getElementById('CrosshairLayer') as IgcCrosshairLayerComponent;
