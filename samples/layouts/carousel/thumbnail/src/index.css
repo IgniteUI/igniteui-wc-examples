@@ -2,7 +2,8 @@
 /* https://static.infragistics.com/xplatform/css/samples */
 
 igc-carousel {
-    width: 60%
+    margin-inline: auto;
+    max-width: 75%;
 }
 
 igc-carousel::part(indicators) {

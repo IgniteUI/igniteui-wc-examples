@@ -15,6 +15,7 @@
     width: 500px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .action {
@@ -30,9 +31,7 @@
 }
 
 igc-carousel {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-height: 550px;
+    border: 0.5px solid #dde0e4;
 }
 
 igc-select {

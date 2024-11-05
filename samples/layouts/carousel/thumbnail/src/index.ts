@@ -4,6 +4,8 @@ import "./index.css";
 
 defineComponents(IgcCarouselComponent);
 
-export class CarouselThumbnail {}
+export class CarouselThumbnail {
+    constructor() {}
+}
 
 new CarouselThumbnail();
