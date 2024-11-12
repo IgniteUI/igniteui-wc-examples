@@ -35,7 +35,7 @@ stages:
         displayName: 'Install Node'
         inputs:
           versionSource: 'spec'
-          versionSpec: '16.x'
+          versionSpec: '18.x'
 
       - task: Npm@1
         displayName: 'Register licensed npm registry in .npmrc'
@@ -58,7 +58,7 @@ stages:
         inputs:
           command: 'custom'
           workingDir: '$(Build.SourcesDirectory)'
-          customCommand: 'config -L project set @infragistics:registry=http://proget.infragistics.local:81/npm/IgniteUILicensed/'
+          customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
           customEndpoint: 'internal licensed proget'
 
       - task: PowerShell@2
