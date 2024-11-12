@@ -58,8 +58,8 @@ stages:
         inputs:
           command: 'custom'
           workingDir: '$(Build.SourcesDirectory)'
-          customCommand: 'config -L project set @infragistics:registry=packages.infragistics.com/npm/js-licensed'
-          customEndpoint: 'public proget'
+          customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
+          customEndpoint: 'internal licensed proget'
 
       - task: PowerShell@2
         displayName: 'Uninstall all IG trial packages & re-install their licensed variations'
