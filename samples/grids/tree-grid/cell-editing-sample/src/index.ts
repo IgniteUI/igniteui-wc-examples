@@ -59,7 +59,8 @@ export class Sample {
     public webTreeGridCellEditCellTemplate = (ctx: IgcCellTemplateContext) => {
         let cellValues: any = [];
         let uniqueValues: any = [];
-        for(const i of (this.roleplayTreeGridData as any)){
+        let roleplayData = this.roleplayTreeGridData
+        for (const i of (roleplayData as any)){
             const field: string = ctx.cell.column.field;
             if(uniqueValues.indexOf(i[field]) === -1 )
             {
