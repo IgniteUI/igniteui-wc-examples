@@ -1,49 +1,31 @@
-import { BehaviorSubject, Observable, from } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
-
-
 export class RemotePagingService {
-  public remoteData: BehaviorSubject<any[]> = new BehaviorSubject([]);
-  public dataLength: BehaviorSubject<number> = new BehaviorSubject(0);
-  public url = 'https://www.igniteui.com/api/products';
+    public static CUSTOMERS_URL = `https://data-northwind.indigo.design/Customers/GetCustomersWithPage`;
+    constructor() {}
 
-  constructor() {}
-
-  public async getData(index?: number, perPage?: number): Promise<any> {
-    let qS = '';
-
-    if (index !== undefined && perPage !== undefined) {
-        qS = `?$skip=${index}&$top=${perPage}&$count=true`;
+    public static getDataWithPaging(pageIndex?: number, pageSize?: number) {
+        return fetch(RemotePagingService.buildUrl(RemotePagingService.CUSTOMERS_URL, pageIndex, pageSize))
+        .then((result) => result.json())
+        .catch((error) => console.error(error.message));
     }
-
-    try {
-        const response = await fetch(`${this.url + qS}`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+    
+    private static buildUrl(baseUrl: string, pageIndex?: number, pageSize?: number) {
+        let qS = "";
+        if (baseUrl) {
+                qS += `${baseUrl}`;
         }
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        throw error; // Propagate the error further
-    }
-}
 
-public async getDataLength(): Promise<number> {
-    try {
-        const response = await fetch(this.url);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+        // Add pageIndex and size to the query string if they are defined
+        if (pageIndex !== undefined) {
+            qS += `?pageIndex=${pageIndex}`;
+            if (pageSize !== undefined) {
+                qS += `&size=${pageSize}`;
+            }
+        } else if (pageSize !== undefined) {
+            qS += `?perPage=${pageSize}`;
         }
-        const data = await response.json();
-        return data.length; // Assuming the length is directly accessible in the JSON response
-    } catch (error) {
-        console.error('Error fetching data length:', error);
-        throw error; // Propagate the error further
+
+        return `${qS}`;
     }
-}
-
-
 }
 
 
