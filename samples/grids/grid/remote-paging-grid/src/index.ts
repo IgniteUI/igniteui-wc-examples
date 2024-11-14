@@ -9,13 +9,13 @@ import { CustomersWithPageResponseModel } from './CustomersWithPageResponseModel
 export class Sample {
 
   public data: any[] = [];
-  public dataLength: number = 0;
   public page: number = 0;
   private grid: IgcGridComponent;
   private _bind: () => void;
   private _perPage: number = 15;
   private pager: IgcPaginatorComponent;
   private _totalRecordsCount: number;
+
   public get perPage(): number {
       return this.pager.perPage || this._perPage;
   }
@@ -31,11 +31,10 @@ export class Sample {
   }
 
   constructor() {
-      this.pager = document.getElementById('paginator') as IgcPaginatorComponent;
       this.grid = document.getElementById('grid') as IgcGridComponent;
+      this.pager = document.getElementById('paginator') as IgcPaginatorComponent;
       
       this._bind = () => {
-
         window.addEventListener("load", () => {
           this.loadData(this.page,this.perPage);
         });
@@ -75,7 +74,6 @@ export class Sample {
     })
     .catch((error) => {
       console.error(error.message);
-      this.grid.data = [];
       // Stop loading even if error occurs. Prevents endless loading
       this.grid.isLoading = false;
       this.updateUI();
