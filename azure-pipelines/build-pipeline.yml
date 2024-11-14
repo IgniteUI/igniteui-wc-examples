@@ -35,7 +35,7 @@ stages:
         displayName: 'Install Node'
         inputs:
           versionSource: 'spec'
-          versionSpec: '16.x'
+          versionSpec: '18.x'
 
       - task: Npm@1
         displayName: 'Register licensed npm registry in .npmrc'
@@ -46,45 +46,45 @@ stages:
           customEndpoint: 'public proget'
 
       - task: Npm@1
-        displayName: 'npm ci --legacy-peer-deps'
+        displayName: 'npm install --legacy-peer-deps'
         inputs:
           command: custom
           workingDir: '$(Build.SourcesDirectory)'
-          customCommand: 'ci --legacy-peer-deps'
+          customCommand: 'install --legacy-peer-deps'
           customEndpoint: 'public proget'
       
-      # - task: Npm@1
-      #   displayName: 'Register licensed npm registry in .npmrc'
-      #   inputs:
-      #     command: 'custom'
-      #     workingDir: '$(Build.SourcesDirectory)'
-      #     customCommand: 'config -L project set @infragistics:registry=http://proget.infragistics.local:81/npm/IgniteUILicensed/'
-      #     customEndpoint: 'internal licensed proget'
+      - task: Npm@1
+        displayName: 'Register licensed npm registry in .npmrc'
+        inputs:
+          command: 'custom'
+          workingDir: '$(Build.SourcesDirectory)'
+          customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
+          customEndpoint: 'internal licensed proget'
 
-      # - task: PowerShell@2
-      #   displayName: 'Uninstall all IG trial packages & re-install their licensed variations'
-      #   inputs:
-      #     failOnStderr: true
-      #     showWarnings: true
-      #     workingDirectory: '$(Build.SourcesDirectory)'
-      #     targetType: 'inline'
-      #     script: |
-      #       Get-Content -Path .\.npmrc
-      #       $packageJson = Get-Content -Raw .\package.json | ConvertFrom-Json
-      #       $npmUninstallPackages = "npm uninstall --save "
-      #       $npmInstallPackages = "npm install --legacy-peer-deps "
-      #       $packageJson.dependencies.PSObject.Properties | `
-      #           Where-Object {
-      #               $_.Name.StartsWith("igniteui-webcomponents-") -or $_.Name.StartsWith("igniteui-dockmanager") `
-      #           } | `
-      #           ForEach-Object { `
-      #               $npmUninstallPackages += $_.Name + " "
-      #               $npmInstallPackages += "@infragistics/" + $_.Name + "@" + $_.Value + " "
-      #           }
-      #       Write-Host $npmUninstallPackages
-      #       Write-Host $npmInstallPackages
-      #       Invoke-Expression -Command “$npmUninstallPackages”
-      #       Invoke-Expression -Command “$npmInstallPackages”
+      - task: PowerShell@2
+        displayName: 'Uninstall all IG trial packages & re-install their licensed variations'
+        inputs:
+          failOnStderr: true
+          showWarnings: true
+          workingDirectory: '$(Build.SourcesDirectory)'
+          targetType: 'inline'
+          script: |
+            Get-Content -Path .\.npmrc
+            $packageJson = Get-Content -Raw .\package.json | ConvertFrom-Json
+            $npmUninstallPackages = "npm uninstall --save "
+            $npmInstallPackages = "npm install --legacy-peer-deps "
+            $packageJson.dependencies.PSObject.Properties | `
+                Where-Object {
+                    $_.Name.StartsWith("igniteui-webcomponents-") -or $_.Name.StartsWith("igniteui-dockmanager") `
+                } | `
+                ForEach-Object { `
+                    $npmUninstallPackages += $_.Name + " "
+                    $npmInstallPackages += "@infragistics/" + $_.Name + "@" + $_.Value + " "
+                }
+            Write-Host $npmUninstallPackages
+            Write-Host $npmInstallPackages
+            Invoke-Expression -Command “$npmUninstallPackages”
+            Invoke-Expression -Command “$npmInstallPackages”
 
       - task: Npm@1
         displayName: 'npm run build'
