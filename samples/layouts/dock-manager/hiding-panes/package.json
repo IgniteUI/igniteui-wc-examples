@@ -24,8 +24,8 @@
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
     "igniteui-dockmanager": "1.14.3",
-    "igniteui-webcomponents-core": "4.8.1-alpha.0",
-    "lit-html": "^2.2.0",
+    "igniteui-webcomponents-core": "5.0.3-beta.0",
+    "lit-html": "^3.2.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {

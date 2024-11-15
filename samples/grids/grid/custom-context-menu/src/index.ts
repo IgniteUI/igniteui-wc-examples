@@ -50,13 +50,13 @@ export class Sample {
     eventArgs.event.preventDefault();
     this.multiCellArgs = {};
     if (this.multiCellSelection) {
-      const node = eventArgs.cell.selectionNode;
+      const node = eventArgs.cell;
       const isCellWithinRange = this.grid.getSelectedRanges().some((range) => {
         if (
-          node.column >= range.columnStart &&
-          node.column <= range.columnEnd &&
-          node.row >= range.rowStart &&
-          node.row <= range.rowEnd
+          node.columnIndex >= range.columnStart &&
+          node.columnIndex <= range.columnEnd &&
+          node.rowIndex >= range.rowStart &&
+          node.rowIndex <= range.rowEnd
         ) {
           return true;
         }
@@ -85,7 +85,7 @@ export class Sample {
   }
 
   public copySelectedRowData() {
-    const selectedData = this.grid.getRowData(this.clickedCell.id.rowID);
+    const selectedData = this.grid.getRowData(this.clickedCell.cellID.rowID);
     this.copyData(selectedData);
     const selectedDataArea = document.getElementById('selectedArea');
     selectedDataArea.innerText = JSON.stringify(selectedData);

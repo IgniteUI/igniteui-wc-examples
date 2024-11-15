@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carousel With Components</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="carousel-container">
+        <igc-carousel>
+          <igc-carousel-slide>
+            <div>
+              <img src="https://www.infragistics.com/angular-demos-lob/assets/images/svg/carousel/SignUp.svg">
+              <form>
+                <igc-input type="text" placeholder="Username">
+                  <igc-icon slot="prefix" name="person"></igc-icon>
+                </igc-input>
+                <igc-input type="password" placeholder="Password">
+                  <igc-icon slot="prefix" name="password"></igc-icon>
+                </igc-input>
+                <igc-button type="reset">Sign In</igc-button>
+              </form>
+            </div>
+          </igc-carousel-slide>
+          <igc-carousel-slide>
+            <div>
+              <img src="https://www.infragistics.com/angular-demos-lob/assets/images/svg/carousel/Route.svg">
+              <form>
+                <igc-input type="text" placeholder="Search">
+                  <igc-icon slot="prefix" name="search"></igc-icon>
+                </igc-input>
+                <igc-button type="reset">Search</igc-button>
+              </form>
+            </div>
+          </igc-carousel-slide>
+        </igc-carousel>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

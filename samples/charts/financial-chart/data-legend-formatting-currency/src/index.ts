@@ -19,7 +19,7 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcDataLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcDataLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
 
         this._bind = () => {
@@ -31,11 +31,11 @@ export class Sample {
     }
 
     private _multipleStocks: MultipleStocks = null;
-    private _multipleStocksFetching: boolean = false;
+    private _isFetching: boolean = false;
     public get multipleStocks(): MultipleStocks {
-        if (this._multipleStocks == null && !this._multipleStocksFetching)
+        if (this._multipleStocks == null && !this._isFetching)
         {
-            this._multipleStocksFetching = true;
+            this._isFetching = true;
             ( async () => { this._multipleStocks = await (await MultipleStocks.fetch()); if ((this as any)._bind) { (this as any)._bind(); }  })();
         }
         return this._multipleStocks;

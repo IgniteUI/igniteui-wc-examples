@@ -27,31 +27,42 @@
         foreign-key="ParentID">
             <igc-column
             field="ID"
-            header="Product ID"
+            header="Order ID"
             data-type="string">
             </igc-column>
             <igc-column
             field="Name"
-            header="Product Name"
+            header="Order Product"
             data-type="string"
             name="column1"
             id="column1">
             </igc-column>
             <igc-column
+            field="Category"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="Units"
+            data-type="number">
+            </igc-column>
+            <igc-column
             field="UnitPrice"
             header="Unit Price"
-            data-type="number"
+            data-type="currency"
             name="column2"
             id="column2">
             </igc-column>
             <igc-column
-            field="AddedDate"
-            header="Added Date"
+            field="Price"
+            data-type="currency">
+            </igc-column>
+            <igc-column
+            field="OrderDate"
+            header="Order Date"
             data-type="date">
             </igc-column>
             <igc-column
-            field="Discontinued"
-            header="Discontinued"
+            field="Delivered"
             data-type="boolean">
             </igc-column>
         </igc-tree-grid>

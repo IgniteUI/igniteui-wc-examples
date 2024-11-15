@@ -31,30 +31,25 @@ export class Sample {
 
             pivotDateDimension1.options = pivotDateDimensionOptions1;
 
-            pivotConfiguration1.columns = []
-            pivotConfiguration1.columns.push(pivotDateDimension1);
+            pivotConfiguration1.columns = [pivotDateDimension1];
             var pivotDimension2: IgcPivotDimension = {} as IgcPivotDimension;
             pivotDimension2.memberName = "ProductName";
             pivotDimension2.sortDirection = SortingDirection.Asc;
             pivotDimension2.enabled = true;
 
-            pivotConfiguration1.rows = []
-            pivotConfiguration1.rows.push(pivotDimension2);
             var pivotDimension3: IgcPivotDimension = {} as IgcPivotDimension;
             pivotDimension3.memberName = "SellerCity";
             pivotDimension3.enabled = true;
 
-            pivotConfiguration1.rows.push(pivotDimension3);
+            pivotConfiguration1.rows = [pivotDimension2,pivotDimension3];
             var pivotDimension4: IgcPivotDimension = {} as IgcPivotDimension;
             pivotDimension4.memberName = "SellerName";
             pivotDimension4.enabled = true;
 
-            pivotConfiguration1.filters = []
-            pivotConfiguration1.filters.push(pivotDimension4);
+            pivotConfiguration1.filters = [pivotDimension4];
             var pivotValue1: IgcPivotValue = {} as IgcPivotValue;
             pivotValue1.member = "AmountofSale";
             pivotValue1.displayName = "Amount of Sale";
-            pivotValue1.dataType = "currency";
             pivotValue1.enabled = true;
             var pivotAggregator1: IgcPivotAggregator = {} as IgcPivotAggregator;
             pivotAggregator1.key = "SUM";
@@ -67,23 +62,19 @@ export class Sample {
             pivotAggregator2.label = "Sum of Sale";
             pivotAggregator2.aggregator = this.pivotDataFlatAggregateSumSale;
 
-            pivotValue1.aggregateList = []
-            pivotValue1.aggregateList.push(pivotAggregator2);
             var pivotAggregator3: IgcPivotAggregator = {} as IgcPivotAggregator;
             pivotAggregator3.key = "MIN";
             pivotAggregator3.label = "Minimum of Sale";
             pivotAggregator3.aggregator = this.pivotDataFlatAggregateMinSale;
 
-            pivotValue1.aggregateList.push(pivotAggregator3);
             var pivotAggregator4: IgcPivotAggregator = {} as IgcPivotAggregator;
             pivotAggregator4.key = "MAX";
             pivotAggregator4.label = "Maximum of Sale";
             pivotAggregator4.aggregator = this.pivotDataFlatAggregateMaxSale;
 
-            pivotValue1.aggregateList.push(pivotAggregator4);
+            pivotValue1.aggregateList = [pivotAggregator2,pivotAggregator3,pivotAggregator4];
 
-            pivotConfiguration1.values = []
-            pivotConfiguration1.values.push(pivotValue1);
+            pivotConfiguration1.values = [pivotValue1];
 
             this._pivotConfiguration1 = pivotConfiguration1;
         }

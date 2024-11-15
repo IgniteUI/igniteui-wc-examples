@@ -38,7 +38,7 @@ export class Sample {
                 ],
                 values: [
                     {
-                        member: "SalePrice",
+                        member: "Sales",
                         enabled:false,
                         dataType: 'currency',
                         aggregate: {

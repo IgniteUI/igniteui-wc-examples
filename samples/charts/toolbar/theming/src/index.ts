@@ -36,11 +36,11 @@ export class Sample {
 
     constructor() {
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
-        var toolbar = this.toolbar = document.getElementById('Toolbar') as IgcToolbarComponent;
+        var toolbar = this.toolbar = document.getElementById('toolbar') as IgcToolbarComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
-        var lineSeries1 = this.lineSeries1 = document.getElementById('LineSeries1') as IgcLineSeriesComponent;
+        var lineSeries1 = this.lineSeries1 = document.getElementById('lineSeries1') as IgcLineSeriesComponent;
 
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;

@@ -27,12 +27,12 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
-        var scatterSeries1 = this.scatterSeries1 = document.getElementById('ScatterSeries1') as IgcScatterSeriesComponent;
-        var scatterSeries2 = this.scatterSeries2 = document.getElementById('ScatterSeries2') as IgcScatterSeriesComponent;
+        var scatterSeries1 = this.scatterSeries1 = document.getElementById('scatterSeries1') as IgcScatterSeriesComponent;
+        var scatterSeries2 = this.scatterSeries2 = document.getElementById('scatterSeries2') as IgcScatterSeriesComponent;
 
         this._bind = () => {
             chart.legend = this.legend;
