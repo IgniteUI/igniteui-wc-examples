@@ -991,7 +991,7 @@ function updateIG(cb) {
         { name: "igniteui-webcomponents", version: "5.1.2" },
         { name: "igniteui-dockmanager", version: "1.15.2" },
         // other packages:
-        { name: "webpack", version: "^5.74.0"  },
+        { name: "webpack", version: "^5.96.1"  },
         { name: "webpack-cli", version: "^4.10.0"  },
         { name: "webpack-dev-server", version: "^4.11.1"  },
         { name: "lit", version: "^3.2.0"  },
