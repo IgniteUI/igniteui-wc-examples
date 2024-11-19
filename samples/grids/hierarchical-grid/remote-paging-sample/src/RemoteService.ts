@@ -1,29 +1,3 @@
-import { BehaviorSubject } from 'rxjs';
-const URL = `https://data-northwind.indigo.design/`;
-
-function buildUrl(dataState: any, index?: number, perPage?: number): string {
-    let qS = "";
-    if (dataState) {
-        if (dataState.rootLevel) {
-            qS += `${dataState.key}`;
-        } else {
-            qS += `${dataState.parentKey}/${dataState.parentID}/${dataState.key}`;
-        }
-    }
-
-    // Add index and perPage to the query string if they are defined
-    if (index !== undefined) {
-        qS += `?index=${index}`;
-        if (perPage !== undefined) {
-            qS += `&perPage=${perPage}`;
-        }
-    } else if (perPage !== undefined) {
-        qS += `?perPage=${perPage}`;
-    }
-
-    return `${URL}${qS}`;
-}
-
 export class RemotePagingService {
     public static BASE_URL = 'https://data-northwind.indigo.design/';
     public static CUSTOMERS_URL = `${RemotePagingService.BASE_URL}Customers/GetCustomersWithPage`;
