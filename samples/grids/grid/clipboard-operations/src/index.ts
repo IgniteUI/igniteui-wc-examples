@@ -10,6 +10,7 @@ defineAllComponents();
 import "./index.css";
 
 export class Sample {
+    private defaultSeparator: string;
     private grid: IgcGridComponent
     private _bind: () => void;
 
@@ -44,7 +45,10 @@ export class Sample {
 
             var input = document.getElementById("input") as IgcInputComponent;
             input.addEventListener("igcChange", (ev: CustomEvent) => {
-                grid.clipboardOptions.separator = ev.detail;
+                if (!this.defaultSeparator) {
+                    this.defaultSeparator = grid.clipboardOptions.separator;
+                }
+                grid.clipboardOptions.separator = ev.detail || this.defaultSeparator;
             });
         }
         this._bind();
@@ -65,7 +69,6 @@ export class Sample {
         column.formatter = (e: any) => { return "** " + e + " **" };
         column.header = "🎉" + column.field;
     }
-
 }
 
 new Sample();
