@@ -203,6 +203,11 @@ var config = {
           name: 'igniteui-webcomponents-layouts',
           chunks: 'all',
         },
+        igniteuiDashboards: {
+          test: /[\\/]node_modules[\\/](igniteui-webcomponents-dashboards)[\\/]/,
+          name: 'igniteui-webcomponents-dashboards',
+          chunks: 'all',
+        },
         igniteuiDockmanager: {
           test: /[\\/]node_modules[\\/](igniteui-dockmanager)[\\/]/,
           name: 'igniteui-dockmanager',
