@@ -19,10 +19,12 @@ export class DockManagerSplitPaneFixedSize {
             rootPane: {
                 type: IgcDockManagerPaneType.splitPane,
                 orientation: IgcSplitPaneOrientation.vertical,
+                useFixedSize: true,
                 panes: [
                     {
                         type: IgcDockManagerPaneType.splitPane,
                         orientation: IgcSplitPaneOrientation.horizontal,
+                        size: 300, // Size will be applied in pixels
                         panes: [
                             {
                                 type: IgcDockManagerPaneType.contentPane,
@@ -41,6 +43,7 @@ export class DockManagerSplitPaneFixedSize {
                     {
                         type: IgcDockManagerPaneType.splitPane,
                         orientation: IgcSplitPaneOrientation.horizontal,
+                        size: 200, // Size will be applied in pixels
                         useFixedSize: true,
                         panes: [
                             {
@@ -63,15 +66,14 @@ export class DockManagerSplitPaneFixedSize {
                 {
                     type: IgcDockManagerPaneType.splitPane,
                     orientation: IgcSplitPaneOrientation.horizontal,
-                    floatingLocation: { x: 700, y: 350 },
+                    floatingLocation: { x: 250, y: 100 },
                     floatingWidth: 250,
                     floatingHeight: 150,
                     panes: [
                     {
                         type: IgcDockManagerPaneType.contentPane,
                         contentId: "content5",
-                        header: "Content Pane 5",
-                        size: 800
+                        header: "Pane 5"
                     }
                     ]
                 }
