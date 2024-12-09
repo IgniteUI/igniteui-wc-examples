@@ -170,6 +170,20 @@ Next, follow these steps:
 - submit your pull request
 
 
+## Updating Packages in Samples
+
+NOTE Do NOT find replace version of packages in package.json files. 
+
+- open this repo in VS Code
+- open [./browser/tasks/gulp-samples.js](./browser/tasks/gulp-samples.js) file
+- navigate to the `updateIG` function
+- update version of packages in `packageUpgrades` array
+- open terminal window
+- run `cd browser` command
+- run the `gulp updateIG` command
+- run `npm install --legacy-peer-deps` command
+- create AND merge a pull request with changes in all package.json files in this repository
+- create 2nd pull request with similar changes in `/editor-templates/WebComponents/main-template/package.json` of the [igniteui-xplat-examples](https://github.com/IgniteUI/igniteui-xplat-examples) repository.
 
 ## Learn More
 
