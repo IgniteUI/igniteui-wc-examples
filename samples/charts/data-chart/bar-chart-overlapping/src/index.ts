@@ -1,10 +1,9 @@
 import { IgcLegendModule, IgcDataChartAnnotationModule, IgcDataChartCoreModule, IgcDataChartCategoryCoreModule, IgcDataChartCategoryModule, IgcDataChartInteractivityModule, IgcDataChartVerticalCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcCategoryHighlightLayerComponent, IgcBarSeriesComponent, IgcCalloutLayerComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { RoadblocksToSuccessItem, RoadblocksToSuccess } from './RoadblocksToSuccess';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcLegendModule,
@@ -57,7 +56,6 @@ export class Sample {
             barSeries2.dataSource = this.roadblocksToSuccess;
         }
         this._bind();
-
     }
 
     private _roadblocksToSuccess: RoadblocksToSuccess = null;

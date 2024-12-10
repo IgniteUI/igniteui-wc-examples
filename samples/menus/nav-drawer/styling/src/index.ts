@@ -1,4 +1,4 @@
-import { defineComponents, IgcNavDrawerComponent, IgcNavDrawerItemComponent, IgcIconComponent, 
+import { defineComponents, IgcNavDrawerComponent, IgcNavDrawerItemComponent, IgcIconComponent,
          registerIconFromText, IgcIconButtonComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './drawer-styling.css';

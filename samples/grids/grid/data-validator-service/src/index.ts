@@ -6,11 +6,11 @@ import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteu
 import { EmployeesDataItem, EmployeesData } from './EmployeesData';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 import "./index.css";
@@ -41,6 +41,7 @@ export class Sample {
         }
         return this._columnPipeArgs1;
     }
+
     private lastActivity: IgcColumnComponent
     private estimatedSales: IgcColumnComponent
     private dealsLost: IgcColumnComponent
@@ -72,7 +73,6 @@ export class Sample {
             createdOn.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
-
     }
 
     private _employeesData: EmployeesData = null;

@@ -1,8 +1,8 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 export class Sample {
 
     constructor() {

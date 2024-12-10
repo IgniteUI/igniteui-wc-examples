@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent, IgcRowIslandComponent } from 'igniteui-webcomponents-grids/grids';
 import SingersData from './SingersData.json';
 import { IgcRowType } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -29,14 +29,12 @@ export class Sample {
             rowIsland3.rowClasses = this.webGridRowClassesHandler;
         }
         this._bind();
-
     }
 
     private _singersData: any[] = SingersData;
     public get singersData(): any[] {
         return this._singersData;
     }
-
 
     public webGridRowClassesHandler = {
       activeRow: (row: IgcRowType) => row.index % 2 === 0

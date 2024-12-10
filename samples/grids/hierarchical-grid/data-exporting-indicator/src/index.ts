@@ -1,9 +1,9 @@
 import { IgcGridToolbarComponent, IgcHierarchicalGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { defineComponents, IgcButtonComponent } from 'igniteui-webcomponents';
 import { SingersData } from './SingersData';
-
 import 'igniteui-webcomponents-grids/grids/combined';
 import 'igniteui-webcomponents-grids/grids/themes/light/bootstrap.css';
+
 
 defineComponents(IgcButtonComponent);
 

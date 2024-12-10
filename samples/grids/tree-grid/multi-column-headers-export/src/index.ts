@@ -3,10 +3,10 @@ import { ComponentRenderer, WebGridDescriptionModule, WebGridToolbarDescriptionM
 import { IgcTreeGridComponent, IgcGridToolbarExporterComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 import { IgcGridComponent, IgcExporterEventArgs } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -24,7 +24,6 @@ export class Sample {
             gridToolbarExporter1.addEventListener("exportStarted", this.webGridExportEventMultiColumnHeaders);
         }
         this._bind();
-
     }
 
     private _employeesFlatDetails: EmployeesFlatDetails = null;

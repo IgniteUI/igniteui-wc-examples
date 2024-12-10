@@ -1,10 +1,9 @@
 import { IgcLegendModule, IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcLegendModule,
@@ -23,7 +22,6 @@ export class Sample {
             chart.dataSource = this.highestGrossingMovies;
         }
         this._bind();
-
     }
 
     private _highestGrossingMovies: HighestGrossingMovies = null;

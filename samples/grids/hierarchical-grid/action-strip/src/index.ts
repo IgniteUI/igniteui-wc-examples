@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent, IgcPinningConfig, RowPinningPosition, IgcActionStripComponent } from 'igniteui-webcomponents-grids/grids';
 import SingersData from './SingersData.json';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -20,6 +20,7 @@ export class Sample {
         }
         return this._pinningConfig1;
     }
+
     private actionStrip: IgcActionStripComponent
     private _bind: () => void;
 
@@ -32,7 +33,6 @@ export class Sample {
             hierarchicalGrid1.pinning = this.pinningConfig1;
         }
         this._bind();
-
     }
 
     private _singersData: any[] = SingersData;

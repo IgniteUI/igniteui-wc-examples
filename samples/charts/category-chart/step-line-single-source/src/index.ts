@@ -1,10 +1,9 @@
 import { IgcCategoryChartModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcCategoryChartModule,
@@ -23,7 +22,6 @@ export class Sample {
             chart.dataSource = this.countryRenewableElectricity;
         }
         this._bind();
-
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;

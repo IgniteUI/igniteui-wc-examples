@@ -3,10 +3,10 @@ import { IgcHierarchicalGridComponent, IgcPaginatorComponent, IgcColumnComponent
 import HierarchicalCustomers from './HierarchicalCustomers.json';
 import { IgcColumnTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -52,14 +52,12 @@ export class Sample {
             column10.headerTemplate = this.hierarchicalGridPinHeaderTemplate;
         }
         this._bind();
-
     }
 
     private _hierarchicalCustomers: any[] = HierarchicalCustomers;
     public get hierarchicalCustomers(): any[] {
         return this._hierarchicalCustomers;
     }
-
 
     public hierarchicalGridPinHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
 

@@ -2,10 +2,9 @@ import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, Ig
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { CountryStatsAfricaItem, CountryStatsAfrica } from './CountryStatsAfrica';
 import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcLegendModule,
@@ -37,6 +36,7 @@ export class Sample {
         }
         return this._sizeScale1;
     }
+
     private bubbleSeries2: IgcBubbleSeriesComponent
     private _sizeScale2: IgcSizeScaleComponent | null = null;
     public get sizeScale2(): IgcSizeScaleComponent {
@@ -51,6 +51,7 @@ export class Sample {
         }
         return this._sizeScale2;
     }
+
     private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
@@ -75,7 +76,6 @@ export class Sample {
             bubbleSeries2.radiusScale = this.sizeScale2;
         }
         this._bind();
-
     }
 
     private _countryStatsAfrica: CountryStatsAfrica = null;

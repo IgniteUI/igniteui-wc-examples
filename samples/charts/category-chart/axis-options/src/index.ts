@@ -1,10 +1,9 @@
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { OlympicMedalsTopCountriesItem, OlympicMedalsTopCountries } from './OlympicMedalsTopCountries';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcCategoryChartModule
@@ -22,7 +21,6 @@ export class Sample {
             chart.dataSource = this.olympicMedalsTopCountries;
         }
         this._bind();
-
     }
 
     private _olympicMedalsTopCountries: OlympicMedalsTopCountries = null;

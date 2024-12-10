@@ -77,7 +77,6 @@ export class Sample {
         toursRowIsland.columnSelection = 'multiple';
         toursRowIsland.rowSelection = 'multiple';
         toursRowIsland.cellSelection = 'multiple';
-
         grid.addEventListener("columnInit", (ev: any) => { this.onColumnInit(ev); });
         saveStateBtn.addEventListener('click', (ev: any) => { this.saveGridState(); });
         restoreStateBtn.addEventListener('click', (ev: any) => { this.restoreGridState(); });
@@ -91,11 +90,10 @@ export class Sample {
             cb.addEventListener("igcChange", (ev: CustomEvent) => { this.onChange(ev, cb.id); });
         });
 
-        window.addEventListener("load", async () => { 
+        window.addEventListener("load", async () => {
             await this.columnsLoaded;
-            this.restoreGridState(); 
+            this.restoreGridState();
         });
-
         window.addEventListener("beforeunload", () => { this.saveGridState(); });
     }
 
@@ -150,7 +148,7 @@ export class Sample {
         window.location.reload();
     }
 
-    private onColumnInit(event: any) { 
+    private onColumnInit(event: any) {
         if(event.detail.index === this.grid.columns.length - 1) {
            this.columnsLoaded = new Promise((resolve) => resolve());
         }

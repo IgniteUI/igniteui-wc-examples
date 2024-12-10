@@ -1,6 +1,6 @@
 import './DockManagerStyles.css'
 import { defineCustomElements } from 'igniteui-dockmanager/loader';
-import { 
+import {
     IgcContentPane,
     IgcDockManagerPaneType,
     IgcSplitPane,
@@ -43,7 +43,7 @@ export class DockManagerAddContentRuntime {
         const addContentPaneBtn = document.getElementById('contentPaneBtn');
         const addTabGroupPaneBtn = document.getElementById('tabGroupPaneBtn');
         const addFloatingPaneBtn = document.getElementById('floatingPaneBtn');
-       
+
         this.dockManager.layout = {
             rootPane: {
                 type: IgcDockManagerPaneType.splitPane,
@@ -139,7 +139,7 @@ export class DockManagerAddContentRuntime {
             };
 
             this.dockManager.layout.rootPane.panes.push(cp);
-        
+
             this.attachPane();
         })
 
@@ -150,9 +150,9 @@ export class DockManagerAddContentRuntime {
               header: `New Document ${this.counter}`,
             };
 
-            let tabGroup = this.docHostRootPane.panes.find((p: IgcDockManagerPane) => 
+            let tabGroup = this.docHostRootPane.panes.find((p: IgcDockManagerPane) =>
                 p.type === IgcDockManagerPaneType.tabGroupPane) as IgcTabGroupPane;
-    
+
             if (tabGroup) {
                 tabGroup.panes.push(cp);
             } else {
@@ -162,7 +162,7 @@ export class DockManagerAddContentRuntime {
                 };
                 this.docHostRootPane.panes.push(tg);
             }
-            
+
             this.attachPane();
         })
 
@@ -183,7 +183,7 @@ export class DockManagerAddContentRuntime {
             }
 
             this.dockManager.layout.floatingPanes!.push(sp);
-        
+
             this.attachPane();
         })
     }
@@ -194,7 +194,6 @@ export class DockManagerAddContentRuntime {
         content.innerHTML = 'This pane is added at runtime';
 
         this.dockManager.appendChild(content);
-    
         this.dockManager.layout = { ...this.dockManager.layout };
         this.counter++;
     }

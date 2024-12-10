@@ -7,11 +7,11 @@ import SingersData from './SingersData.json';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcCellTemplateContext, IgcRowType } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 import "./index.css";
@@ -37,6 +37,7 @@ export class Sample {
         }
         return this._pinningConfig1;
     }
+
     private column1: IgcColumnComponent
     private rowIsland1: IgcRowIslandComponent
     private _pinningConfig2: IgcPinningConfig | null = null;
@@ -51,6 +52,7 @@ export class Sample {
         }
         return this._pinningConfig2;
     }
+
     private column2: IgcColumnComponent
     private rowIsland2: IgcRowIslandComponent
     private _pinningConfig3: IgcPinningConfig | null = null;
@@ -65,6 +67,7 @@ export class Sample {
         }
         return this._pinningConfig3;
     }
+
     private column3: IgcColumnComponent
     private rowIsland3: IgcRowIslandComponent
     private _pinningConfig4: IgcPinningConfig | null = null;
@@ -79,6 +82,7 @@ export class Sample {
         }
         return this._pinningConfig4;
     }
+
     private column4: IgcColumnComponent
     private _bind: () => void;
 
@@ -110,7 +114,6 @@ export class Sample {
             column4.bodyTemplate = this.webHierarchicalGridRowPinCellTemplate;
         }
         this._bind();
-
     }
 
     private _singersData: any[] = SingersData;

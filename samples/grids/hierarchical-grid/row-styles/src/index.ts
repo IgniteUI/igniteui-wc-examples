@@ -3,10 +3,10 @@ import { IgcHierarchicalGridComponent, IgcRowIslandComponent } from 'igniteui-we
 import SingersData from './SingersData.json';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent, IgcRowType } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -24,14 +24,12 @@ export class Sample {
             rowIsland1.rowStyles = this.webHierarchicalGridChildRowStylesHandler;
         }
         this._bind();
-
     }
 
     private _singersData: any[] = SingersData;
     public get singersData(): any[] {
         return this._singersData;
     }
-
 
     public webHierarchicalGridRowStylesHandler = {
         background:(row: IgcRowType) => row.data['HasGrammyAward'] ? '#eeddd3' : '#f0efeb',

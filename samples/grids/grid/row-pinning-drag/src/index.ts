@@ -3,11 +3,11 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcPinningConfig, RowPinningPosition } from 'igniteui-webcomponents-grids/grids';
 import CustomersDataLocal from './CustomersDataLocal.json';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
+
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule
@@ -27,6 +27,7 @@ export class Sample {
         }
         return this._pinningConfig1;
     }
+
     private _bind: () => void;
 
     constructor() {
@@ -37,7 +38,6 @@ export class Sample {
             grid.pinning = this.pinningConfig1;
         }
         this._bind();
-
     }
 
     private _customersDataLocal: any[] = CustomersDataLocal;

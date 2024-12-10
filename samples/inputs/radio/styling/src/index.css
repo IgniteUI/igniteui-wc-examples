@@ -1,11 +1,2 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
-:root {
-    --ig-primary-h: 60deg;
-    --ig-primary-s: 100%;
-    --ig-primary-l: 25%;
-}
-
-igc-radio::part(control) {
-    --size: 18px;
-}

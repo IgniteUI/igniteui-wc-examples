@@ -5,10 +5,9 @@ import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisCompon
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 import { IgcToolCommandEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcToolbarModule,
@@ -64,7 +63,6 @@ export class Sample {
             lineSeries3.dataSource = this.countryRenewableElectricity;
         }
         this._bind();
-
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;
@@ -75,7 +73,6 @@ export class Sample {
         }
         return this._countryRenewableElectricity;
     }
-
 
     public toolbarToggleTooltip(sender: any, args: IgcToolCommandEventArgs): void {
         var target = this.chart;

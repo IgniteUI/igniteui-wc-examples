@@ -3,10 +3,9 @@ import { IgcDataPieChartModule, IgcItemLegendModule } from 'igniteui-webcomponen
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataPieChartDescriptionModule, ItemLegendDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcItemLegendComponent, IgcDataPieChartComponent } from 'igniteui-webcomponents-charts';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
@@ -29,7 +28,6 @@ export class Sample {
             chart.legend = this.legend;
         }
         this._bind();
-
     }
 
     private _energyGlobalDemand: EnergyGlobalDemand = null;

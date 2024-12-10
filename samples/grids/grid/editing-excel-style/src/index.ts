@@ -3,10 +3,10 @@ import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcompone
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import NwindData from './NwindData.json';
 import { IgcGridKeydownEventArgs } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -22,7 +22,6 @@ export class Sample {
             grid1.addEventListener("gridKeydown", this.webGridEditingExcelStyle);
         }
         this._bind();
-
     }
 
     private _nwindData: any[] = NwindData;

@@ -3,10 +3,10 @@ import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteu
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
+
 defineAllComponents();
 
 import "./index.css";
@@ -26,6 +26,7 @@ export class Sample {
         }
         return this._columnPipeArgs1;
     }
+
     private column2: IgcColumnComponent
     private column3: IgcColumnComponent
     private _bind: () => void;
@@ -43,7 +44,6 @@ export class Sample {
             column3.bodyTemplate = this.webGridImageCellTemplate;
         }
         this._bind();
-
     }
 
     private _athletesData: AthletesData = null;
@@ -54,7 +54,6 @@ export class Sample {
         }
         return this._athletesData;
     }
-
 
     public webGridProgressCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div style="width: 4rem">

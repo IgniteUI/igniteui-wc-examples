@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent, IgcSortingExpression, SortingDirection, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -60,6 +60,7 @@ export class Sample {
         }
         return this._sortingExpression1;
     }
+
     private column1: IgcColumnComponent
     private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgcColumnPipeArgs {
@@ -73,6 +74,7 @@ export class Sample {
         }
         return this._columnPipeArgs1;
     }
+
     private _bind: () => void;
 
     constructor() {
@@ -85,7 +87,6 @@ export class Sample {
             column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
-
     }
 
     private _ordersTreeData: OrdersTreeData = null;

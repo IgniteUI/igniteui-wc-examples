@@ -4,10 +4,10 @@ import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcRowType } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -22,7 +22,6 @@ export class Sample {
             treeGrid.rowStyles = this.webTreeGridRowStylesHandler;
         }
         this._bind();
-
     }
 
     private _employeesFlatDetails: EmployeesFlatDetails = null;

@@ -116,7 +116,6 @@ export class DataGridCellEditing {
     public editModeClickActionChanged = (event: any) => {
 
         this.grid.editModeClickAction = event.target.value;
-
     }
 
     public onDeleteRowClick = (e: MouseEvent) => {

@@ -1,10 +1,9 @@
 import { IgcLegendModule, IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
 import { IgcDoughnutChartComponent, IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CompanyMarketSharesItem, CompanyMarketShares } from './CompanyMarketShares';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcLegendModule,
@@ -25,7 +24,6 @@ export class Sample {
             series.dataSource = this.companyMarketShares;
         }
         this._bind();
-
     }
 
     private _companyMarketShares: CompanyMarketShares = null;

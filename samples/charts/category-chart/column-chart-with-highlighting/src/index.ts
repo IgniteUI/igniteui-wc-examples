@@ -25,7 +25,7 @@ export class CategoryChartHighlighting {
         this.chart.legend = this.legend
         this.chart.isItemHighlightingEnabled = false;
         this.chart.isSeriesHighlightingEnabled = true;
-        this.chart.isCategoryHighlightingEnabled = false;    
+        this.chart.isCategoryHighlightingEnabled = false;
         this.chart.highlightingMode = SeriesHighlightingMode.Auto;
         this.chart.highlightingBehavior = SeriesHighlightingBehavior.Auto;
         this.chart.legendHighlightingMode = LegendHighlightingMode.Auto;
@@ -41,7 +41,6 @@ export class CategoryChartHighlighting {
 
         const legendHighlightingMode = document.getElementById("legendHighlightingMode") as HTMLSelectElement;
         legendHighlightingMode!.addEventListener("change", this.onLegendHighlightingModeChanged);
-
     }
 
     public onHighlightingTargetChanged = (e: any) => {
@@ -50,32 +49,33 @@ export class CategoryChartHighlighting {
         if(value == "Series"){
             this.chart.isItemHighlightingEnabled = false;
             this.chart.isSeriesHighlightingEnabled = true;
-            this.chart.isCategoryHighlightingEnabled = false;            
+            this.chart.isCategoryHighlightingEnabled = false;
         }
          else if(value == "Item") {
             this.chart.isItemHighlightingEnabled = true;
             this.chart.isSeriesHighlightingEnabled = false;
-            this.chart.isCategoryHighlightingEnabled = false;                    
+            this.chart.isCategoryHighlightingEnabled = false;
         }
          else if(value == "Category") {
             this.chart.isItemHighlightingEnabled = false;
             this.chart.isSeriesHighlightingEnabled = false;
-            this.chart.isCategoryHighlightingEnabled = true;                    
+            this.chart.isCategoryHighlightingEnabled = true;
         }
          else if(value=="None") {
             this.chart.isItemHighlightingEnabled = false;
             this.chart.isSeriesHighlightingEnabled = false;
-            this.chart.isCategoryHighlightingEnabled = false;        
+            this.chart.isCategoryHighlightingEnabled = false;
         }
-      
-    } 
-    
+    }
+
     public onHighlightingModeChanged(e: any) {
         this.chart.highlightingMode = e.target.value as SeriesHighlightingMode;
     }
+
     public onBehaviorModeChanged(e: any) {
         this.chart.highlightingBehavior = e.target.value as SeriesHighlightingBehavior;
     }
+
     public onLegendHighlightingModeChanged(e: any) {
         this.chart.legendHighlightingMode = e.target.value as LegendHighlightingMode;
     }

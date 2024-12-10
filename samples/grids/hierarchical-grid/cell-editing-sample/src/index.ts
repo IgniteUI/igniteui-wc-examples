@@ -4,10 +4,10 @@ import { IgcHierarchicalGridComponent, IgcColumnComponent } from 'igniteui-webco
 import HGridDndData from './HGridDndData.json';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
+
 defineAllComponents();
 
 import "./index.css";
@@ -33,7 +33,6 @@ export class Sample {
             column3.inlineEditorTemplate = this.hGridCellEditCellTemplate;
         }
         this._bind();
-
     }
 
     private _hGridDndData: any[] = HGridDndData;

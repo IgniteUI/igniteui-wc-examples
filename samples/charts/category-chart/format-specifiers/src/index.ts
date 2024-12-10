@@ -5,10 +5,9 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataLegendDesc
 import { IgcDataLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcNumberFormatSpecifier } from 'igniteui-webcomponents-core';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule,
@@ -37,6 +36,7 @@ export class Sample {
         }
         return this._numberFormatSpecifier1;
     }
+
     private chart: IgcCategoryChartComponent
     private _numberFormatSpecifier3: IgcNumberFormatSpecifier[] | null = null;
     public get numberFormatSpecifier3(): IgcNumberFormatSpecifier[] {
@@ -55,6 +55,7 @@ export class Sample {
         }
         return this._numberFormatSpecifier3;
     }
+
     private _numberFormatSpecifier5: IgcNumberFormatSpecifier[] | null = null;
     public get numberFormatSpecifier5(): IgcNumberFormatSpecifier[] {
         if (this._numberFormatSpecifier5 == null)
@@ -71,6 +72,7 @@ export class Sample {
         }
         return this._numberFormatSpecifier5;
     }
+
     private _bind: () => void;
 
     constructor() {
@@ -85,7 +87,6 @@ export class Sample {
             chart.yAxisLabelFormatSpecifiers = this.numberFormatSpecifier5;
         }
         this._bind();
-
     }
 
     private _highestGrossingMovies: HighestGrossingMovies = null;

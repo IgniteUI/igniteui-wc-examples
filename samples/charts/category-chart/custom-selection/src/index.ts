@@ -2,10 +2,9 @@ import { IgcDataLegendModule, IgcCategoryChartModule, IgcDataChartInteractivityM
 import { IgcDataLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { SelectableDataItem, SelectableData } from './SelectableData';
 import { IgcDomainChartSeriesPointerEventArgs } from 'igniteui-webcomponents-charts';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcDataLegendModule,
@@ -30,7 +29,6 @@ export class Sample {
             chart.seriesPointerDown = this.categoryChartCustomSelectionPointerDown;
         }
         this._bind();
-
     }
 
     private _selectableData: SelectableData = null;
@@ -41,7 +39,6 @@ export class Sample {
         }
         return this._selectableData;
     }
-
 
     public categoryChartCustomSelectionPointerDown(sender: any, args: IgcDomainChartSeriesPointerEventArgs): void {
 

@@ -28,11 +28,11 @@ export class NavDrawerAddMini {
       navDrawer.onclick = (e) => {
         const target = e.target as HTMLElement;
         const drawerItem = target.closest('igc-nav-drawer-item');
-     
+
         if (drawerItem) {
           const iconName = drawerItem.querySelector('igc-icon')!.name;
           const icons = document.querySelectorAll(`igc-icon`);
-          
+
           icons.forEach(icon => {
             const parentItem = icon.parentElement! as IgcNavDrawerItemComponent;
 
@@ -46,7 +46,7 @@ export class NavDrawerAddMini {
       }
 
       registerIconFromText('search', searchIcon);
-      
+
       registerIconFromText('home', homeIcon);
     }
 }

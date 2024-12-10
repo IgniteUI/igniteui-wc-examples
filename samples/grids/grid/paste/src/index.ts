@@ -6,11 +6,11 @@ import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcGridKeydownEventArgs, GridKeydownTargetType } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 import "./index.css";
@@ -40,7 +40,6 @@ export class Sample {
             grid.addEventListener("rendered", this.webGridPasteFromExcel);
         }
         this._bind();
-
     }
 
     private _invoicesData: InvoicesData = null;
@@ -74,6 +73,7 @@ export class Sample {
         this.onKeyDown = this.onKeyDown.bind(this);
         grid.addEventListener("keydown", this.onKeyDown);
     }
+
     public onKeyDown(eventArgs: any): void {
         const ctrl = eventArgs.ctrlKey;
         const key = eventArgs.keyCode;
@@ -99,7 +99,6 @@ export class Sample {
             style.width = "0px";
             style.overflow = "hidden";
             div.appendChild(this.txtArea);
-
             this.txtArea.addEventListener("paste", (eventArgs: any) => { this.onPaste(eventArgs); });
         }
         return this.txtArea;
@@ -157,6 +156,7 @@ export class Sample {
                 }
             });
         }
+
         public updateRecords(processedData: any[]) {
             const grid = this.grid as any;
             const cell = grid.selectedCells[0];

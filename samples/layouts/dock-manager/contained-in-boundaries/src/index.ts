@@ -1,6 +1,6 @@
 import './DockManagerStyles.css'
 import { defineCustomElements } from 'igniteui-dockmanager/loader';
-import { 
+import {
     IgcDockManagerPaneType,
     IgcSplitPane,
     IgcSplitPaneOrientation,

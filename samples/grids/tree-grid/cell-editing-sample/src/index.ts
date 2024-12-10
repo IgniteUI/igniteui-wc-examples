@@ -4,10 +4,10 @@ import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents
 import { RoleplayTreeGridDataItem, RoleplayTreeGridData } from './RoleplayTreeGridData';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
+
 defineAllComponents();
 
 import "./index.css";
@@ -33,7 +33,6 @@ export class Sample {
             column3.inlineEditorTemplate = this.webTreeGridCellEditCellTemplate;
         }
         this._bind();
-
     }
 
     private _roleplayTreeGridData: RoleplayTreeGridData = null;

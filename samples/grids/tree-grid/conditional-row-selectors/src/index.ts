@@ -3,10 +3,10 @@ import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-webcom
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 import { IgcRowSelectionEventArgs, IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -22,7 +22,6 @@ export class Sample {
             treeGrid.addEventListener("rowSelectionChanging", this.webTreeGridRowSelectionConditional);
         }
         this._bind();
-
     }
 
     private _employeesFlatData: EmployeesFlatData = null;

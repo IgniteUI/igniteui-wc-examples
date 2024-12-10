@@ -4,10 +4,10 @@ import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents
 import { FoodsDataItem, FoodsData } from './FoodsData';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -24,7 +24,6 @@ export class Sample {
             column1.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
-
     }
 
     private _foodsData: FoodsData = null;

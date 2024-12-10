@@ -4,10 +4,10 @@ import { IgcTreeGridComponent, IgcPaginatorComponent, IgcPaginatorResourceString
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 import { IgcRowSelectorTemplateContext, IgcGridComponent, IgcHeadSelectorTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -24,6 +24,7 @@ export class Sample {
         }
         return this._paginatorResourceStrings1;
     }
+
     private _bind: () => void;
 
     constructor() {
@@ -37,7 +38,6 @@ export class Sample {
             paginator.resourceStrings = this.paginatorResourceStrings1;
         }
         this._bind();
-
     }
 
     private _employeesFlatData: EmployeesFlatData = null;

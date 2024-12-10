@@ -60,7 +60,7 @@ export class CategoryChartLineChartWithAnimations {
 
     public onTransitionTimeChanged(e: any) {
         this.chart.transitionInDuration = e.target.value;
-        this.transitionLabel.textContent = e.target.value + "ms";            
+        this.transitionLabel.textContent = e.target.value + "ms";
         this.reloadChart();
     }
 

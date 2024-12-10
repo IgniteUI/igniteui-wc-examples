@@ -5,10 +5,10 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcWaterfallSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CompanyIncomeDataItem, CompanyIncomeData } from './CompanyIncomeData';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
-
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 import "./index.css";
@@ -53,7 +53,6 @@ export class Sample {
             waterfallSeries2.dataSource = this.companyIncomeData;
         }
         this._bind();
-
     }
 
     private _companyIncomeData: CompanyIncomeData = null;
