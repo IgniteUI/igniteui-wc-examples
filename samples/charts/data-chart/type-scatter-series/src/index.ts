@@ -69,7 +69,7 @@ export class DataChartTypeScatterSeries {
             series1.xMemberPath = "Population";
             series1.yMemberPath = "GdpTotal";
             series1.dataSource = SampleScatterStats.getCountriesWithHighIncome();
-            
+
             const series2 = new IgcScatterSeriesComponent();
             series2.markerType = MarkerType.Circle;
             series2.showDefaultTooltip = true;
@@ -79,7 +79,7 @@ export class DataChartTypeScatterSeries {
             series2.xMemberPath = "Population";
             series2.yMemberPath = "GdpTotal";
             series2.dataSource = SampleScatterStats.getCountriesWithLowIncome();
-            
+
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
@@ -103,7 +103,7 @@ export class DataChartTypeScatterSeries {
             series2.xMemberPath = "Population";
             series2.yMemberPath = "GdpTotal";
             series2.dataSource = SampleScatterStats.getCountriesWithLowIncome();
-            
+
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
@@ -117,7 +117,7 @@ export class DataChartTypeScatterSeries {
             series1.xMemberPath = "Population";
             series1.yMemberPath = "GdpTotal";
             series1.dataSource = SampleScatterStats.getCountriesWithHighIncome();
-            
+
             const series2 = new IgcScatterSplineSeriesComponent();
             series2.markerType = MarkerType.Circle;
             series2.showDefaultTooltip = true;
@@ -127,7 +127,7 @@ export class DataChartTypeScatterSeries {
             series2.xMemberPath = "Population";
             series2.yMemberPath = "GdpTotal";
             series2.dataSource = SampleScatterStats.getCountriesWithLowIncome();
-            
+
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);

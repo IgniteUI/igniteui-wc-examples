@@ -34,7 +34,6 @@ const summaryCombinations: Item[] = [
     new Item('End', 'navigates to the last summary cell', false, ItemAction.Always)
 ];
 
-
 export class Sample {
 
     private grid: IgcTreeGridComponent;
@@ -54,6 +53,7 @@ export class Sample {
         grid.addEventListener("gridKeydown", this.gridKeydown);
         grid.addEventListener("keydown", this.keydown);
     }
+
     public changeCombinationsCollection(gridSection: GridSection, evt: any) {
         switch (gridSection) {
             case GridSection.THEAD:
@@ -239,7 +239,6 @@ export class Sample {
         const evt = event.detail.event;
        this.keydown(evt);
     }
-
 
     public listTemplate = () => {
         let htmlContent = "";

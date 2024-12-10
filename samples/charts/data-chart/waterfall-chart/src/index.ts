@@ -1,10 +1,9 @@
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcWaterfallSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CompanyIncomeDataItem, CompanyIncomeData } from './CompanyIncomeData';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcDataChartCoreModule,
@@ -37,7 +36,6 @@ export class Sample {
             waterfallSeries2.dataSource = this.companyIncomeData;
         }
         this._bind();
-
     }
 
     private _companyIncomeData: CompanyIncomeData = null;

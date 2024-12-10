@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 import { IgcRowSelectionEventArgs, IgcGridComponent, IgcGridEditEventArgs, IgcGridEditDoneEventArgs } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -37,7 +37,6 @@ export class Sample {
             grid.addEventListener("cellEditExit", this.webGridCellEditExit);
         }
         this._bind();
-
     }
 
     private _employeesFlatData: EmployeesFlatData = null;
@@ -48,7 +47,6 @@ export class Sample {
         }
         return this._employeesFlatData;
     }
-
 
     public webTreeGridRendered(args:any): void {
         const grid = document.getElementById("grid");

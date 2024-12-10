@@ -2,10 +2,9 @@ import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatter
 import { ComponentRenderer, NumberAbbreviatorDescriptionModule, DataChartCoreDescriptionModule, DataChartScatterDescriptionModule, DataChartScatterCoreDescriptionModule, DataChartInteractivityDescriptionModule, DataChartAnnotationDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcValueBrushScaleComponent } from 'igniteui-webcomponents-charts';
 import { WorldStatsItem, WorldStats } from './WorldStats';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcNumberAbbreviatorModule,
@@ -35,6 +34,7 @@ export class Sample {
         }
         return this._sizeScale1;
     }
+
     private _valueBrushScale1: IgcValueBrushScaleComponent | null = null;
     public get valueBrushScale1(): IgcValueBrushScaleComponent {
         if (this._valueBrushScale1 == null)
@@ -49,6 +49,7 @@ export class Sample {
         }
         return this._valueBrushScale1;
     }
+
     private _bind: () => void;
 
     constructor() {
@@ -65,7 +66,6 @@ export class Sample {
             bubbleSeries1.fillScale = this.valueBrushScale1;
         }
         this._bind();
-
     }
 
     private _worldStats: WorldStats = null;

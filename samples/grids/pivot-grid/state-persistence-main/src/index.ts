@@ -27,6 +27,7 @@ export class Sample {
         expansion: true,
         pivotConfiguration: true
     };
+
     private columnsLoaded: Promise<void>;
 
     public totalSale = (members: any, data: any) =>
@@ -35,7 +36,7 @@ export class Sample {
     public totalMin = (members: any, data: any) => {
         return data.map((x: any) => x.ProductUnitPrice * x.NumberOfUnits).reduce((a: any, b: any) => Math.min(a, b));
     };
-    
+
     public totalMax = (members: any, data: any) => {
         return data.map((x: any) => x.ProductUnitPrice * x.NumberOfUnits).reduce((a: any, b: any) => Math.max(a,b));
     };
@@ -198,7 +199,6 @@ export class Sample {
 
         grid.data = this.gridData;
         grid.pivotConfiguration = this.pivotConfiguration;
-
         grid.addEventListener("columnInit", (ev: any) => { this.onColumnInit(ev); });
         grid.addEventListener("valueInit", (ev:any) => this.onValueInit(ev));
         grid.addEventListener("dimensionInit", (ev:any) => this.onDimensionInit(ev));
@@ -214,9 +214,9 @@ export class Sample {
             cb.addEventListener("igcChange", (ev: CustomEvent) => { this.onChange(ev, cb.id); });
         });
 
-        window.addEventListener("load", async () => { 
+        window.addEventListener("load", async () => {
             await this.columnsLoaded;
-            this.restoreGridState(); 
+            this.restoreGridState();
         });
         window.addEventListener("beforeunload", () => { this.saveGridState(); });
     }
@@ -270,7 +270,7 @@ export class Sample {
         window.location.reload();
     }
 
-    private onColumnInit(event: any) { 
+    private onColumnInit(event: any) {
         if(event.detail.index === this.grid.columns.length - 1) {
            this.columnsLoaded = new Promise((resolve) => resolve());
         }

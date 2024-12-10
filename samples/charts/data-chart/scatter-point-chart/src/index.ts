@@ -2,10 +2,9 @@ import { IgcLegendModule, IgcDataChartCoreModule, IgcDataChartScatterModule, Igc
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcScatterSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcLegendModule,
@@ -44,7 +43,6 @@ export class Sample {
             scatterSeries2.dataSource = this.countryDemographicAfrican;
         }
         this._bind();
-
     }
 
     private _countryDemographicEurope: CountryDemographicEurope = null;

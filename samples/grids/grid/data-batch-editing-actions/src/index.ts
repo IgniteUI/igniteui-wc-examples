@@ -8,11 +8,11 @@ import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'ignite
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 import { IgcButtonComponent } from 'igniteui-webcomponents';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 import "./index.css";
@@ -76,7 +76,6 @@ export class Sample {
             column1.bodyTemplate = this.webGridDeleteCellTemplate;
         }
         this._bind();
-
     }
 
     private _nwindData: any[] = NwindData;
@@ -131,7 +130,6 @@ export class Sample {
         var grid = this.grid;
         //grid.endEdit(true);
         //grid.transactions.undo();
-
     }
 
     public webGridRedo(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
@@ -141,7 +139,6 @@ export class Sample {
 
         //grid.endEdit(true);
         //grid.transactions.redo();
-
     }
 
     public webGridCommit(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {

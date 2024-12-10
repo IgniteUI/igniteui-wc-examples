@@ -3,10 +3,10 @@ import { ComponentRenderer, WebGridDescriptionModule, WebGridToolbarDescriptionM
 import { IgcGridComponent, IgcGridToolbarExporterComponent, IgcColumnComponent, IgcColumnGroupComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgcExporterEventArgs } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -56,7 +56,6 @@ export class Sample {
             gridToolbarExporter1.addEventListener("exportStarted", this.webGridExportEventMultiColumnHeaders);
         }
         this._bind();
-
     }
 
     private _customersData: CustomersData = null;

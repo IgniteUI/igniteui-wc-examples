@@ -4,12 +4,11 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents, IgcButtonComponent, IgcInputComponent, IgcSwitchComponent } from 'igniteui-webcomponents';
-defineAllComponents();
 
+defineAllComponents();
 
 export class Sample {
 
@@ -67,6 +66,7 @@ export class Sample {
         }
         return this._employeesFlatDetails;
     }
+
     public webGridClearSelection(args: any): void {
         console.log("TODO" + args);
     	//TODO

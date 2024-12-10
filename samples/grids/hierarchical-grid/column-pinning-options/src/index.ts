@@ -3,10 +3,10 @@ import { IgcHierarchicalGridComponent, IgcColumnComponent } from 'igniteui-webco
 import HierarchicalCustomersData from './HierarchicalCustomersData.json';
 import { IgcColumnTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -83,14 +83,12 @@ export class Sample {
             column21.headerTemplate = this.hierarchicalGridPinHeaderTemplate;
         }
         this._bind();
-
     }
 
     private _hierarchicalCustomersData: any[] = HierarchicalCustomersData;
     public get hierarchicalCustomersData(): any[] {
         return this._hierarchicalCustomersData;
     }
-
 
     public hierarchicalGridPinHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
 

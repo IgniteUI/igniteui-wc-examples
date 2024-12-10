@@ -7,11 +7,11 @@ import SingersData from './SingersData.json';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcSummaryResult, IgcSummaryTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 import "./index.css";
@@ -58,7 +58,6 @@ export class Sample {
             column4.summaryTemplate = this.webRowIslandGridSummaryTemplateStyle;
         }
         this._bind();
-
     }
 
     private _singersData: any[] = SingersData;

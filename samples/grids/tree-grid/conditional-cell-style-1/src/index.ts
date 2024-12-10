@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -24,7 +24,6 @@ export class Sample {
             column2.cellClasses = this.webTreeGridUnitPriceCellClassesHandler;
         }
         this._bind();
-
     }
 
     private _ordersTreeData: OrdersTreeData = null;
@@ -35,7 +34,6 @@ export class Sample {
         }
         return this._ordersTreeData;
     }
-
 
     public allergenItems = ['Frozen Shrimps', 'Wild Salmon Fillets', 'Fresh Cheese', 'Skimmed Milk 1L', 'Butter'];
 

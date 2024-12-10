@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import NwindData from './NwindData.json';
 import { IgcRowType } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -32,14 +32,12 @@ export class Sample {
             grid1.rowClasses = this.webGridRowClassesHandler;
         }
         this._bind();
-
     }
 
     private _nwindData: any[] = NwindData;
     public get nwindData(): any[] {
         return this._nwindData;
     }
-
 
     public webGridRowClassesHandler = {
       activeRow: (row: IgcRowType) => row.index % 2 === 0

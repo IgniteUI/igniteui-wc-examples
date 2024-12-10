@@ -3,10 +3,9 @@ import { IgcNumberFormatSpecifierModule, IgcDateTimeFormatSpecifierModule } from
 import { IgcDataLegendComponent, IgcFinancialChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcNumberFormatSpecifier, IgcDateTimeFormatSpecifier } from 'igniteui-webcomponents-core';
 import { MultipleStocks } from './MultipleStocks';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcFinancialChartModule,
@@ -36,6 +35,7 @@ export class Sample {
         }
         return this._numberFormatSpecifier1;
     }
+
     private chart: IgcFinancialChartComponent
     private _numberFormatSpecifier3: IgcNumberFormatSpecifier[] | null = null;
     public get numberFormatSpecifier3(): IgcNumberFormatSpecifier[] {
@@ -54,6 +54,7 @@ export class Sample {
         }
         return this._numberFormatSpecifier3;
     }
+
     private _numberFormatSpecifier5: IgcNumberFormatSpecifier[] | null = null;
     public get numberFormatSpecifier5(): IgcNumberFormatSpecifier[] {
         if (this._numberFormatSpecifier5 == null)
@@ -70,6 +71,7 @@ export class Sample {
         }
         return this._numberFormatSpecifier5;
     }
+
     private _dateTimeFormatSpecifier1: IgcDateTimeFormatSpecifier[] | null = null;
     public get dateTimeFormatSpecifier1(): IgcDateTimeFormatSpecifier[] {
         if (this._dateTimeFormatSpecifier1 == null)
@@ -84,6 +86,7 @@ export class Sample {
         }
         return this._dateTimeFormatSpecifier1;
     }
+
     private _bind: () => void;
 
     constructor() {
@@ -99,7 +102,6 @@ export class Sample {
             chart.xAxisLabelFormatSpecifiers = this.dateTimeFormatSpecifier1;
         }
         this._bind();
-
     }
 
     private _multipleStocks: MultipleStocks = null;

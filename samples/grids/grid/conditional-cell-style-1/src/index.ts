@@ -4,11 +4,11 @@ import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-gri
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
+
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule
@@ -35,7 +35,6 @@ export class Sample {
             column3.bodyTemplate = this.webGridImageCellTemplate;
         }
         this._bind();
-
     }
 
     private _athletesData: AthletesData = null;
@@ -46,7 +45,6 @@ export class Sample {
         }
         return this._athletesData;
     }
-
 
     public webGridBeatsPerMinuteCellClassesHandler = {
         upFont: (rowData: any, columnKey: any): boolean => rowData[columnKey] > 95,

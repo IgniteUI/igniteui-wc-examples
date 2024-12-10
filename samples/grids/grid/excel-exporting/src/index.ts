@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcGroupingExpression, SortingDirection } from 'igniteui-webcomponents-grids/grids';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -30,6 +30,7 @@ export class Sample {
         }
         return this._groupingExpression1;
     }
+
     private _bind: () => void;
 
     constructor() {
@@ -40,7 +41,6 @@ export class Sample {
             grid.groupingExpressions = this.groupingExpression1;
         }
         this._bind();
-
     }
 
     private _invoicesData: InvoicesData = null;

@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent, IgcPinningConfig, ColumnPinningPosition } from 'igniteui-webcomponents-grids/grids';
 import HierarchicalCustomersData from './HierarchicalCustomersData.json';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -20,6 +20,7 @@ export class Sample {
         }
         return this._pinningConfig1;
     }
+
     private _bind: () => void;
 
     constructor() {
@@ -30,7 +31,6 @@ export class Sample {
             grid.pinning = this.pinningConfig1;
         }
         this._bind();
-
     }
 
     private _hierarchicalCustomersData: any[] = HierarchicalCustomersData;

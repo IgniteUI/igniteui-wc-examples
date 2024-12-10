@@ -5,11 +5,11 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import NwindData from './NwindData.json';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 import "./index.css";
@@ -66,7 +66,6 @@ export class Sample {
             grid.data = this.nwindData;
         }
         this._bind();
-
     }
 
     private _nwindData: any[] = NwindData;
@@ -91,7 +90,6 @@ export class Sample {
         var grid = this.grid;
         //grid.endEdit(true);
         //grid.transactions.undo();
-
     }
 
     public webGridRedo(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
@@ -101,7 +99,6 @@ export class Sample {
 
         //grid.endEdit(true);
         //grid.transactions.redo();
-
     }
 
     public webGridCommit(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {

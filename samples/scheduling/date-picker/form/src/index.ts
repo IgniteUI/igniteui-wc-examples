@@ -24,13 +24,13 @@ export class DatePickerOverview {
             datePickerValue.innerHTML = `Date picker value: ${datePicker.value ? datePicker.value.toLocaleString() : null}`;
             formStatus.innerHTML = `Form valid: ${form.checkValidity()}`;
         });
-    }   
+    }
 
     public reset(){
         let form = document.getElementById('form') as HTMLFormElement;
         let datePickerValue = document.getElementById('datePickerValue') as HTMLElement;
         let formStatus = document.getElementById('formStatus') as HTMLElement;
-        
+
         datePickerValue.innerHTML = "Date picker value: ";
         formStatus.innerHTML = "Form valid: ";
         form.reset();

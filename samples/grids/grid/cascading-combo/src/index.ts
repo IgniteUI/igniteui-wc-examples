@@ -4,10 +4,10 @@ import { WorldCitiesAbove500KItem, WorldCitiesAbove500K } from './WorldCitiesAbo
 import { IgcComboComponent, IgcLinearProgressComponent } from 'igniteui-webcomponents';
 import { IgcCellTemplateContext, IgcRenderFunction } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
+
 defineAllComponents();
 
 import "./index.css";
@@ -35,7 +35,6 @@ export class Sample {
             column3.bodyTemplate = this.webGridCityDropDownTemplate;
         }
         this._bind();
-
     }
 
     private _worldCitiesAbove500K: WorldCitiesAbove500K = null;
@@ -46,7 +45,6 @@ export class Sample {
         }
         return this._worldCitiesAbove500K;
     }
-
 
     public countryNames = [
         'United States',

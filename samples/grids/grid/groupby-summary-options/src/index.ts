@@ -4,11 +4,11 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent, IgcGroupingExpression, SortingDirection, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 import "./index.css";
@@ -39,6 +39,7 @@ export class Sample {
         }
         return this._groupingExpression1;
     }
+
     private column1: IgcColumnComponent
     private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgcColumnPipeArgs {
@@ -52,6 +53,7 @@ export class Sample {
         }
         return this._columnPipeArgs1;
     }
+
     private _bind: () => void;
 
     constructor() {
@@ -70,7 +72,6 @@ export class Sample {
             column1.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
-
     }
 
     private _invoicesData: InvoicesData = null;

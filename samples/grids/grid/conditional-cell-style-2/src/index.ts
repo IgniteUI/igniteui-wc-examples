@@ -4,10 +4,10 @@ import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-gri
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcRowType } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -36,7 +36,6 @@ export class Sample {
             column5.cellStyles = this.webGridCellStylesHandler;
         }
         this._bind();
-
     }
 
     private _athletesData: AthletesData = null;

@@ -2,8 +2,8 @@ import { EditableDataSource } from './EditableDataSource';
 import { IgcDataChartCoreModule, IgcDataChartScatterModule, IgcCategoryXAxisComponent, IgcLineSeriesComponent, IgcDataChartCategoryModule, IgcSeriesViewerComponent, IgcDataChartMouseButtonEventArgs, IgcChartMouseEventArgs, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcPlotAreaMouseButtonEventArgs, IgcPlotAreaMouseEventArgs, IgcLegendModule, IgcAnnotationLayerProxyModule, IgcDataChartScatterCoreModule, IgcNumberAbbreviatorModule, IgcScatterSeriesComponent, IgcPointSeriesComponent } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcScatterLineSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcLegendModule,
@@ -17,7 +17,7 @@ ModuleManager.register(
     IgcNumberAbbreviatorModule
 );
 
-export class Sample {    
+export class Sample {
 
     private lineData: any[];
     private scatterData: any[];
@@ -35,8 +35,8 @@ export class Sample {
 
     private scatterLineEditingActive = false;
     private scatterLineEditingIndex = -1;
-    
-    constructor() {        
+
+    constructor() {
         this.lineData = EditableDataSource.getLineData();
         this.scatterData = EditableDataSource.getScatterData();
 
@@ -49,7 +49,7 @@ export class Sample {
         this.scatterXAxis = document.getElementById('ScatterXAxis') as IgcNumericXAxisComponent;
         this.scatterYAxis = document.getElementById('ScatterYAxis') as IgcNumericYAxisComponent;
 
-        var lineDataSeries = document.getElementById("lineDataSeries") as IgcLineSeriesComponent;    
+        var lineDataSeries = document.getElementById("lineDataSeries") as IgcLineSeriesComponent;
         var lineEditSeries = document.getElementById("lineEditSeries") as IgcPointSeriesComponent;
 
         var scatterDataSeries = document.getElementById("scatterDataSeries") as IgcScatterLineSeriesComponent;
@@ -58,12 +58,12 @@ export class Sample {
         this.lineXAxis.dataSource = this.lineData;
         lineDataSeries.dataSource = this.lineData;
         lineEditSeries.dataSource = this.lineData;
-        
+
         scatterDataSeries.dataSource = this.scatterData;
         scatterEditSeries.dataSource = this.scatterData;
 
         this.lineChart.seriesMouseLeftButtonDown = this.onLineChartMouseDown.bind(this);
-        this.lineChart.plotAreaMouseOver = this.onLineChartMouseMove.bind(this);        
+        this.lineChart.plotAreaMouseOver = this.onLineChartMouseMove.bind(this);
         this.lineChart.plotAreaMouseLeftButtonUp = this.onLineChartMouseUp.bind(this);
 
         this.scatterChart.seriesMouseLeftButtonDown = this.onScatterChartMouseDown.bind(this);
@@ -71,18 +71,16 @@ export class Sample {
         this.scatterChart.plotAreaMouseLeftButtonUp = this.onScatterChartMouseUp.bind(this);
     }
 
-
-
     public onLineChartMouseDown(s: IgcSeriesViewerComponent, e: IgcDataChartMouseButtonEventArgs){
         this.lineSeriesEditingActive = true;
         this.lineSeriesEditingIndex = -1;
 
         var itemData = e.item;
-        
+
         for(var i=0; i<this.lineData.length; i++){
-            
-            var lineDataItem = this.lineData[i];            
-            var newItemData = { Category: lineDataItem.Category, DataValue: lineDataItem.DataValue, EditingValue: lineDataItem.EditingValue };   
+
+            var lineDataItem = this.lineData[i];
+            var newItemData = { Category: lineDataItem.Category, DataValue: lineDataItem.DataValue, EditingValue: lineDataItem.EditingValue };
 
             newItemData.EditingValue = null;
 
@@ -128,11 +126,11 @@ export class Sample {
         this.scatterLineEditingIndex = -1;
 
         var itemData = e.item;
-        
+
         for(var i=0; i<this.scatterData.length; i++){
-            
-            var scatterDataItem = this.scatterData[i];            
-            var newItemData = { X: scatterDataItem.X, Y: scatterDataItem.Y, EditingX: scatterDataItem.EditingX, EditingY: scatterDataItem.EditingY };   
+
+            var scatterDataItem = this.scatterData[i];
+            var newItemData = { X: scatterDataItem.X, Y: scatterDataItem.Y, EditingX: scatterDataItem.EditingX, EditingY: scatterDataItem.EditingY };
 
             newItemData.EditingX = null;
             newItemData.EditingY = null;

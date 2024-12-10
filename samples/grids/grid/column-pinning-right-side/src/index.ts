@@ -3,10 +3,10 @@ import { IgcGridComponent, IgcPinningConfig, ColumnPinningPosition, IgcColumnCom
 import { AthletesDataExtendedItem, AthletesDataExtended } from './AthletesDataExtended';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
+
 defineAllComponents();
 
 import "./index.css";
@@ -25,6 +25,7 @@ export class Sample {
         }
         return this._pinningConfig1;
     }
+
     private column1: IgcColumnComponent
     private column2: IgcColumnComponent
     private _bind: () => void;
@@ -41,7 +42,6 @@ export class Sample {
             column2.bodyTemplate = this.webGridAvatarCellTemplate;
         }
         this._bind();
-
     }
 
     private _athletesDataExtended: AthletesDataExtended = null;
@@ -52,7 +52,6 @@ export class Sample {
         }
         return this._athletesDataExtended;
     }
-
 
     public webGridImageCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div>

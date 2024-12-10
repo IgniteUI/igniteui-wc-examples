@@ -5,11 +5,11 @@ import { IgcGridComponent, IgcPaginatorComponent, IgcPaginatorResourceStrings } 
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgcRowSelectorTemplateContext, IgcHeadSelectorTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
+
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule
@@ -30,6 +30,7 @@ export class Sample {
         }
         return this._paginatorResourceStrings1;
     }
+
     private _bind: () => void;
 
     constructor() {
@@ -43,7 +44,6 @@ export class Sample {
             paginator.resourceStrings = this.paginatorResourceStrings1;
         }
         this._bind();
-
     }
 
     private _customersData: CustomersData = null;

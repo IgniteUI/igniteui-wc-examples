@@ -4,10 +4,10 @@ import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 import { IgcColumnTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -54,7 +54,6 @@ export class Sample {
             column11.headerTemplate = this.webTreeGridPinHeaderTemplate;
         }
         this._bind();
-
     }
 
     private _employeesFlatDetails: EmployeesFlatDetails = null;

@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcColumnComponent, IgcColumnPipeArgs, IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EMPLOYEES_DATA } from './EmployeesData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
     public get columnPipeArgs1(): IgcColumnPipeArgs {

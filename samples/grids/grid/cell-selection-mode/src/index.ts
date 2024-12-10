@@ -4,11 +4,11 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import NwindData from './NwindData.json';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 import "./index.css";
@@ -35,7 +35,6 @@ export class Sample {
             grid.data = this.nwindData;
         }
         this._bind();
-
     }
 
     private _nwindData: any[] = NwindData;

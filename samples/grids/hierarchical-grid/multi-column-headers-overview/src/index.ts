@@ -5,11 +5,11 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcHierarchicalGridComponent } from 'igniteui-webcomponents-grids/grids';
 import HierarchicalCustomers from './HierarchicalCustomers.json';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 import "./index.css";
@@ -42,7 +42,6 @@ export class Sample {
             hierarchicalGrid.data = this.hierarchicalCustomers;
         }
         this._bind();
-
     }
 
     private _hierarchicalCustomers: any[] = HierarchicalCustomers;

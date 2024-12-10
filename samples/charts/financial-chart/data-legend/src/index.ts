@@ -1,10 +1,9 @@
 import { IgcFinancialChartModule, IgcDataChartInteractivityModule, IgcDataLegendModule } from 'igniteui-webcomponents-charts';
 import { IgcDataLegendComponent, IgcFinancialChartComponent } from 'igniteui-webcomponents-charts';
 import { MultipleStocks } from './MultipleStocks';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcFinancialChartModule,
@@ -27,7 +26,6 @@ export class Sample {
             chart.dataSource = this.multipleStocks;
         }
         this._bind();
-
     }
 
     private _multipleStocks: MultipleStocks = null;

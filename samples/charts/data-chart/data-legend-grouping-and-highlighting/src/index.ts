@@ -2,10 +2,9 @@ import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, Ig
 import { ComponentRenderer, LegendDescriptionModule, NumberAbbreviatorDescriptionModule, DataChartCoreDescriptionModule, DataChartCategoryDescriptionModule, DataChartInteractivityDescriptionModule, DataLegendDescriptionModule, DataChartAnnotationDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcDataLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
 import { OlympicMedalsTopCountriesWithTotalsItem, OlympicMedalsTopCountriesWithTotals } from './OlympicMedalsTopCountriesWithTotals';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcLegendModule,
@@ -51,7 +50,6 @@ export class Sample {
             columnSeries3.dataSource = this.olympicMedalsTopCountriesWithTotals;
         }
         this._bind();
-
     }
 
     private _olympicMedalsTopCountriesWithTotals: OlympicMedalsTopCountriesWithTotals = null;

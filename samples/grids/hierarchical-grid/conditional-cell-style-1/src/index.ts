@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import SingersData from './SingersData.json';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -21,14 +21,12 @@ export class Sample {
             column1.cellClasses = this.webGridGrammyNominationsCellClassesHandler;
         }
         this._bind();
-
     }
 
     private _singersData: any[] = SingersData;
     public get singersData(): any[] {
         return this._singersData;
     }
-
 
     public webGridGrammyNominationsCellClassesHandler = {
         downFont: (rowData: any, columnKey: any): boolean => rowData[columnKey] < 5,

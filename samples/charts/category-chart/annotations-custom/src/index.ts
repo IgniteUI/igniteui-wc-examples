@@ -4,10 +4,10 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, CategoryChartD
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { TemperatureAnnotatedDataItem, TemperatureAnnotatedData } from './TemperatureAnnotatedData';
-
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 import "./index.css";
@@ -36,7 +36,6 @@ export class Sample {
             chart.calloutsDataSource = this.temperatureAnnotatedData;
         }
         this._bind();
-
     }
 
     private _temperatureAnnotatedData: TemperatureAnnotatedData = null;

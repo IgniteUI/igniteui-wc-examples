@@ -23,7 +23,6 @@ export class DataGridCellMerging {
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.dropDownValueChanged = this.dropDownValueChanged.bind(this);
 
-
         const vds = new ODataVirtualDataSource();
         vds.baseUri = 'https://services.odata.org/V4/Northwind/Northwind.svc';
         vds.entitySet = 'Orders';
@@ -61,7 +60,6 @@ export class DataGridCellMerging {
                 break;
             }
         }
-
     }
 
 }

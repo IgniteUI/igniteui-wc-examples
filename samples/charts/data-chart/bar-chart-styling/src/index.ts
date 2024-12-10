@@ -1,10 +1,9 @@
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcDataChartVerticalCategoryModule, IgcAnnotationLayerProxyModule, IgcCalloutLayerModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcCategoryHighlightLayerComponent, IgcBarSeriesComponent, IgcCalloutLayerComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { OnlineShoppingSearchesItem, OnlineShoppingSearches } from './OnlineShoppingSearches';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcDataChartCoreModule,
@@ -45,7 +44,6 @@ export class Sample {
             calloutLayer1.dataSource = this.onlineShoppingSearches;
         }
         this._bind();
-
     }
 
     private _onlineShoppingSearches: OnlineShoppingSearches = null;

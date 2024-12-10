@@ -3,10 +3,10 @@ import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 import { IgcRowSelectorTemplateContext, IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -22,7 +22,6 @@ export class Sample {
             treeGrid.headSelectorTemplate = this.webGridHeaderRowSelectorTemplate;
         }
         this._bind();
-
     }
 
     private _employeesFlatData: EmployeesFlatData = null;
@@ -33,7 +32,6 @@ export class Sample {
         }
         return this._employeesFlatData;
     }
-
 
     public webGridRowSelectorTemplate = (ctx: IgcRowSelectorTemplateContext) => {
         if (ctx.implicit.selected) {

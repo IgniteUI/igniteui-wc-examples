@@ -5,11 +5,11 @@ import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteu
 import NwindData from './NwindData.json';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
+
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule
@@ -32,6 +32,7 @@ export class Sample {
         }
         return this._columnPipeArgs1;
     }
+
     private orderDate: IgcColumnComponent
     private _columnPipeArgs2: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs2(): IgcColumnPipeArgs {
@@ -44,6 +45,7 @@ export class Sample {
         }
         return this._columnPipeArgs2;
     }
+
     private discontinued: IgcColumnComponent
     private _bind: () => void;
 
@@ -63,7 +65,6 @@ export class Sample {
             discontinued.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
-
     }
 
     private _nwindData: any[] = NwindData;

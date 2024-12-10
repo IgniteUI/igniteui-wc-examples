@@ -4,10 +4,10 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataChartCateg
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
 import { TemperatureAverageDataLongLabelsItem, TemperatureAverageDataLongLabels } from './TemperatureAverageDataLongLabels';
-
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 import "./index.css";
@@ -47,7 +47,6 @@ export class Sample {
             colSeries1.dataSource = this.temperatureAverageDataLongLabels;
         }
         this._bind();
-
     }
 
     private _temperatureAverageDataLongLabels: TemperatureAverageDataLongLabels = null;
