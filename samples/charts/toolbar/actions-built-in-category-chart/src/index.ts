@@ -1,17 +1,20 @@
 import { IgcLegendModule, IgcCategoryChartModule, IgcCategoryChartToolbarModule } from 'igniteui-webcomponents-charts';
 import { IgcToolbarModule } from 'igniteui-webcomponents-layouts';
+import { IgcCheckboxListModule } from 'igniteui-webcomponents-grids';
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcToolbarComponent } from 'igniteui-webcomponents-layouts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcLegendModule,
     IgcToolbarModule,
     IgcCategoryChartModule,
-    IgcCategoryChartToolbarModule
+    IgcCategoryChartToolbarModule,
+    IgcCheckboxListModule
 );
 
 export class Sample {
@@ -32,6 +35,7 @@ export class Sample {
             chart.legend = this.legend;
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;

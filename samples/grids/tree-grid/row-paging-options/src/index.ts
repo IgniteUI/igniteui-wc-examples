@@ -5,11 +5,11 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcTreeGridComponent, IgcPaginatorComponent, IgcPaginatorResourceStrings } from 'igniteui-webcomponents-grids/grids';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -35,7 +35,6 @@ export class Sample {
         }
         return this._paginatorResourceStrings1;
     }
-
     private _bind: () => void;
 
     constructor() {
@@ -53,6 +52,7 @@ export class Sample {
             paginator.resourceStrings = this.paginatorResourceStrings1;
         }
         this._bind();
+
     }
 
     private _ordersTreeData: OrdersTreeData = null;

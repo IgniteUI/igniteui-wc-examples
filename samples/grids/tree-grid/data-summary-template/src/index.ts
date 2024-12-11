@@ -7,11 +7,11 @@ import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './Employee
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcSummaryResult, IgcSummaryTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -49,6 +49,7 @@ export class Sample {
             column1.summaryTemplate = this.webTreeGridSummaryTemplate;
         }
         this._bind();
+
     }
 
     private _employeesNestedTreeData: EmployeesNestedTreeData = null;

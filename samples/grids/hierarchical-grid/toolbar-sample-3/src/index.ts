@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent } from 'igniteui-webcomponents-grids/grids';
 import SingersData from './SingersData.json';
 import { IgcExporterOptionsBase, IgcGridToolbarExportEventArgs } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -21,12 +21,14 @@ export class Sample {
             hierarchicalGrid1.addEventListener("toolbarExporting", this.webHierarchicalGridToolbarExporting);
         }
         this._bind();
+
     }
 
     private _singersData: any[] = SingersData;
     public get singersData(): any[] {
         return this._singersData;
     }
+
 
     public webHierarchicalGridToolbarExporting(evt: CustomEvent<IgcGridToolbarExportEventArgs>): void {
         const args = evt.detail;
