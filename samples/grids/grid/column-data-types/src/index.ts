@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
 import { InvoicesDataExtendedDates } from './InvoicesDataExtendedDates';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -22,7 +22,6 @@ export class Sample {
         }
         return this._columnPipeArgs1;
     }
-
     private column2: IgcColumnComponent
     private _columnPipeArgs2: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs2(): IgcColumnPipeArgs {
@@ -36,7 +35,6 @@ export class Sample {
         }
         return this._columnPipeArgs2;
     }
-
     private column3: IgcColumnComponent
     private _columnPipeArgs3: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs3(): IgcColumnPipeArgs {
@@ -49,7 +47,6 @@ export class Sample {
         }
         return this._columnPipeArgs3;
     }
-
     private column4: IgcColumnComponent
     private _columnPipeArgs4: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs4(): IgcColumnPipeArgs {
@@ -63,7 +60,6 @@ export class Sample {
         }
         return this._columnPipeArgs4;
     }
-
     private column5: IgcColumnComponent
     private _columnPipeArgs5: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs5(): IgcColumnPipeArgs {
@@ -77,7 +73,6 @@ export class Sample {
         }
         return this._columnPipeArgs5;
     }
-
     private column6: IgcColumnComponent
     private _columnPipeArgs6: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs6(): IgcColumnPipeArgs {
@@ -91,7 +86,6 @@ export class Sample {
         }
         return this._columnPipeArgs6;
     }
-
     private _bind: () => void;
 
     constructor() {
@@ -113,6 +107,7 @@ export class Sample {
             column6.pipeArgs = this.columnPipeArgs6;
         }
         this._bind();
+
     }
 
     private _invoicesDataExtendedDates: InvoicesDataExtendedDates = null;

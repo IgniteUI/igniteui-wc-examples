@@ -3,11 +3,11 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule, WebPaginatorDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcTreeGridComponent, IgcGridToolbarTitleComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 import "./index.css";
-
-
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule
@@ -27,6 +27,7 @@ export class Sample {
             treeGrid.data = this.employeesNestedData;
         }
         this._bind();
+
     }
 
     private _employeesNestedData: EmployeesNestedData = null;

@@ -3,10 +3,10 @@ import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents
 import { EmployeesFlatAvatarsItem, EmployeesFlatAvatars } from './EmployeesFlatAvatars';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
-
 defineAllComponents();
 
 import "./index.css";
@@ -26,6 +26,7 @@ export class Sample {
             column1.bodyTemplate = this.webTreeGridAvatarCellTemplate;
         }
         this._bind();
+
     }
 
     private _employeesFlatAvatars: EmployeesFlatAvatars = null;
@@ -36,6 +37,7 @@ export class Sample {
         }
         return this._employeesFlatAvatars;
     }
+
 
         public webTreeGridAvatarCellTemplate = (ctx: IgcCellTemplateContext) => {
         return html`<div class="cell__inner">

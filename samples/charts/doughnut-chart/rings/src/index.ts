@@ -2,9 +2,10 @@ import { IgcLegendModule, IgcDoughnutChartModule } from 'igniteui-webcomponents-
 import { IgcDoughnutChartComponent, IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CalendarSeasonsItem, CalendarSeasons } from './CalendarSeasons';
 import { CalendarMonthsItem, CalendarMonths } from './CalendarMonths';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcLegendModule,
@@ -28,6 +29,7 @@ export class Sample {
             series2.dataSource = this.calendarMonths;
         }
         this._bind();
+
     }
 
     private _calendarSeasons: CalendarSeasons = null;

@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent } from 'igniteui-webcomponents-grids/grids';
 import HierarchicalCustomersData from './HierarchicalCustomersData.json';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -18,6 +18,7 @@ export class Sample {
             grid.data = this.hierarchicalCustomersData;
         }
         this._bind();
+
     }
 
     private _hierarchicalCustomersData: any[] = HierarchicalCustomersData;
