@@ -1,9 +1,10 @@
 import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { WorldStatsItem, WorldStats } from './WorldStats';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcNumberAbbreviatorModule,
@@ -33,7 +34,6 @@ export class Sample {
         }
         return this._sizeScale1;
     }
-
     private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
@@ -51,6 +51,7 @@ export class Sample {
             bubbleSeries1.dataSource = this.worldStats;
         }
         this._bind();
+
     }
 
     private _worldStats: WorldStats = null;

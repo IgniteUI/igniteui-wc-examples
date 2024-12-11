@@ -3,10 +3,10 @@ import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgcGridMasterDetailContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -21,6 +21,7 @@ export class Sample {
             grid.detailTemplate = this.webGridMasterDetailTemplate;
         }
         this._bind();
+
     }
 
     private _customersData: CustomersData = null;
@@ -31,6 +32,7 @@ export class Sample {
         }
         return this._customersData;
     }
+
 
     public webGridMasterDetailTemplate = (ctx: IgcGridMasterDetailContext) => {
         var data = ctx.implicit;

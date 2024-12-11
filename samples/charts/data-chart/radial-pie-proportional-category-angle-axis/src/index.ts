@@ -1,9 +1,10 @@
 import { IgcDataPieChartCoreModule, IgcDataChartCoreModule, IgcDataChartRadialModule, IgcDataChartRadialCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcProportionalCategoryAngleAxisComponent, IgcNumericRadiusAxisComponent, IgcRadialPieSeriesComponent } from 'igniteui-webcomponents-charts';
 import { RadialProportionalDataItem, RadialProportionalData } from './RadialProportionalData';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcDataPieChartCoreModule,
@@ -35,6 +36,7 @@ export class Sample {
             radialPieSeries1.valueAxis = this.radiusAxis;
         }
         this._bind();
+
     }
 
     private _radialProportionalData: RadialProportionalData = null;

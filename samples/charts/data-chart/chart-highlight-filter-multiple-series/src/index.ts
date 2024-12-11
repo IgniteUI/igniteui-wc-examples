@@ -5,10 +5,10 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 import { CountryRenewableElectricityFilteredItem, CountryRenewableElectricityFiltered } from './CountryRenewableElectricityFiltered';
+
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -60,6 +60,7 @@ export class Sample {
             columnSeries3.highlightedDataSource = this.countryRenewableElectricityFiltered;
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;
