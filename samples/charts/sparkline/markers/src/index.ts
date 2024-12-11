@@ -4,10 +4,10 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescr
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { SparklineProfitDataItem, SparklineProfitData } from './SparklineProfitData';
+
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -45,6 +45,7 @@ export class Sample {
             chart.dataSource = this.sparklineProfitData;
         }
         this._bind();
+
     }
 
     private _sparklineProfitData: SparklineProfitData = null;

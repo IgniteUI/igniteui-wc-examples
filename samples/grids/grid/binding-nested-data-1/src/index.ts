@@ -3,10 +3,10 @@ import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-gri
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
-
 defineAllComponents();
 
 import "./index.css";
@@ -26,6 +26,7 @@ export class Sample {
             column1.bodyTemplate = this.webGridNestedDataCellTemplate;
         }
         this._bind();
+
     }
 
     private _employeesNestedData: EmployeesNestedData = null;
@@ -36,6 +37,7 @@ export class Sample {
         }
         return this._employeesNestedData;
     }
+
 
     public webGridNestedDataCellTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value != null) {

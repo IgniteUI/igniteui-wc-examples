@@ -3,10 +3,10 @@ import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcompone
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import NwindData from './NwindData.json';
 import { IgcSummaryResult } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -34,6 +34,7 @@ export class Sample {
             grid.addEventListener("columnInit", this.webGridCustomSummary);
         }
         this._bind();
+
     }
 
     private _nwindData: any[] = NwindData;

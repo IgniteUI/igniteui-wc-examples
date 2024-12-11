@@ -2,9 +2,10 @@ import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, TreemapDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
 import { CountryTopUrbanPopDataItem, CountryTopUrbanPopData } from './CountryTopUrbanPopData';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcTreemapModule
@@ -22,6 +23,7 @@ export class Sample {
             treemap.dataSource = this.countryTopUrbanPopData;
         }
         this._bind();
+
     }
 
     private _countryTopUrbanPopData: CountryTopUrbanPopData = null;

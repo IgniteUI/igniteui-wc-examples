@@ -3,9 +3,10 @@ import { ComponentRenderer, DataPieChartDescriptionModule } from 'igniteui-webco
 import { IgcDataPieChartComponent } from 'igniteui-webcomponents-charts';
 import { OnlineTrafficHighlightTotalsItem, OnlineTrafficHighlightTotals } from './OnlineTrafficHighlightTotals';
 import { OnlineTrafficHighlightDesktopOnlyItem, OnlineTrafficHighlightDesktopOnly } from './OnlineTrafficHighlightDesktopOnly';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcDataPieChartModule
@@ -24,6 +25,7 @@ export class Sample {
             chart.highlightedDataSource = this.onlineTrafficHighlightDesktopOnly;
         }
         this._bind();
+
     }
 
     private _onlineTrafficHighlightTotals: OnlineTrafficHighlightTotals = null;

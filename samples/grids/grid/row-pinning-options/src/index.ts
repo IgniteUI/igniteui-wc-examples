@@ -5,11 +5,11 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcGridComponent, IgcPinningConfig, RowPinningPosition, IgcActionStripComponent } from 'igniteui-webcomponents-grids/grids';
 import CustomersDataLocal from './CustomersDataLocal.json';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -34,7 +34,6 @@ export class Sample {
         }
         return this._pinningConfig1;
     }
-
     private actionStrip: IgcActionStripComponent
     private _bind: () => void;
 
@@ -53,6 +52,7 @@ export class Sample {
             grid.pinning = this.pinningConfig1;
         }
         this._bind();
+
     }
 
     private _customersDataLocal: any[] = CustomersDataLocal;

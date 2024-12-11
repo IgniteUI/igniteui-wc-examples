@@ -5,11 +5,11 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcHierarchicalGridComponent, IgcPinningConfig, RowPinningPosition, ColumnPinningPosition, IgcActionStripComponent, IgcRowIslandComponent } from 'igniteui-webcomponents-grids/grids';
 import SingersData from './SingersData.json';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -35,7 +35,6 @@ export class Sample {
         }
         return this._pinningConfig1;
     }
-
     private actionStrip1: IgcActionStripComponent
     private rowIsland1: IgcRowIslandComponent
     private _pinningConfig2: IgcPinningConfig | null = null;
@@ -50,7 +49,6 @@ export class Sample {
         }
         return this._pinningConfig2;
     }
-
     private actionStrip2: IgcActionStripComponent
     private _bind: () => void;
 
@@ -74,6 +72,7 @@ export class Sample {
             rowIsland1.pinning = this.pinningConfig2;
         }
         this._bind();
+
     }
 
     private _singersData: any[] = SingersData;

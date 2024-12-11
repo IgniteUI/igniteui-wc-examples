@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -18,6 +18,7 @@ export class Sample {
             grid.data = this.customersData;
         }
         this._bind();
+
     }
 
     private _customersData: CustomersData = null;
