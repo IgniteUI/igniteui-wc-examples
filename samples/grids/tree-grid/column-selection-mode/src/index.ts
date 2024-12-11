@@ -4,11 +4,11 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDes
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { FoodsDataItem, FoodsData } from './FoodsData';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -35,6 +35,7 @@ export class Sample {
             treeGrid.data = this.foodsData;
         }
         this._bind();
+
     }
 
     private _foodsData: FoodsData = null;

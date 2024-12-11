@@ -1,9 +1,10 @@
 import { IgcCategoryChartModule } from 'igniteui-webcomponents-charts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { TemperatureAverageDataItem, TemperatureAverageData } from './TemperatureAverageData';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcCategoryChartModule
@@ -21,6 +22,7 @@ export class Sample {
             chart.dataSource = this.temperatureAverageData;
         }
         this._bind();
+
     }
 
     private _temperatureAverageData: TemperatureAverageData = null;

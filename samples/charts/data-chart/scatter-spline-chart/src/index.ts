@@ -2,9 +2,10 @@ import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, Ig
 import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcScatterSplineSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { HealthDataForGermanyItem, HealthDataForGermany } from './HealthDataForGermany';
 import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFrance';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcLegendModule,
@@ -46,6 +47,7 @@ export class Sample {
             scatterSplineSeries2.dataSource = this.healthDataForFrance;
         }
         this._bind();
+
     }
 
     private _healthDataForGermany: HealthDataForGermany = null;
