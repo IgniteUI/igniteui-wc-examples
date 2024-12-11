@@ -7,11 +7,11 @@ import NwindData from './NwindData.json';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcSummaryResult, IgcSummaryTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -52,6 +52,7 @@ export class Sample {
             column2.summaryTemplate = this.webGridOrderDateSummaryTemplate;
         }
         this._bind();
+
     }
 
     private _nwindData: any[] = NwindData;

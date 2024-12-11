@@ -5,11 +5,11 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -44,6 +44,7 @@ export class Sample {
             treeGrid.data = this.ordersTreeData;
         }
         this._bind();
+
     }
 
     private _ordersTreeData: OrdersTreeData = null;

@@ -2,9 +2,10 @@ import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartAnnotat
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent, IgcCalloutLayerComponent, IgcFinalValueLayerComponent, IgcCrosshairLayerComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcDataChartCoreModule,
@@ -44,6 +45,7 @@ export class Sample {
             calloutLayer1.dataSource = this.countryRenewableCallouts;
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;

@@ -5,11 +5,11 @@ import { IgcGridComponent, IgcPaginatorComponent, IgcPaginatorResourceStrings, I
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -33,7 +33,6 @@ export class Sample {
         }
         return this._paginatorResourceStrings1;
     }
-
     private column1: IgcColumnComponent
     private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgcColumnPipeArgs {
@@ -46,7 +45,6 @@ export class Sample {
         }
         return this._columnPipeArgs1;
     }
-
     private propertyEditor: IgcPropertyEditorPanelComponent
     private sizeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private _bind: () => void;
@@ -68,6 +66,7 @@ export class Sample {
             sizeEditor.changed = this.webGridSetGridSize;
         }
         this._bind();
+
     }
 
     private _athletesData: AthletesData = null;
