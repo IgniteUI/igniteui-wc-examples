@@ -4,10 +4,10 @@ import { IgcGridComponent, IgcColumnGroupComponent } from 'igniteui-webcomponent
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgcColumnTemplateContext, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -27,6 +27,7 @@ export class Sample {
             columnGroup2.headerTemplate = this.webGridColumnGroupHeaderTemplate;
         }
         this._bind();
+
     }
 
     private _customersData: CustomersData = null;

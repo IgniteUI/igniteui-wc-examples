@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcPivotGridComponent, IgcPivotConfiguration, IgcPivotDateDimension, IgcPivotDimension, IgcPivotDateDimensionOptions, SortingDirection, IgcPivotValue, IgcPivotAggregator } from 'igniteui-webcomponents-grids/grids';
 import { PivotDataFlatItem, PivotDataFlat } from './PivotDataFlat';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -80,7 +80,6 @@ export class Sample {
         }
         return this._pivotConfiguration1;
     }
-
     private _bind: () => void;
 
     constructor() {
@@ -91,6 +90,7 @@ export class Sample {
             grid.pivotConfiguration = this.pivotConfiguration1;
         }
         this._bind();
+
     }
 
     private _pivotDataFlat: PivotDataFlat = null;
@@ -101,6 +101,7 @@ export class Sample {
         }
         return this._pivotDataFlat;
     }
+
 
     public pivotDataFlatAggregateSumSale(members: any[], data: any[]): any {
         return data.reduce((accumulator, value) => accumulator + value.ProductUnitPrice * value.NumberOfUnits, 0);

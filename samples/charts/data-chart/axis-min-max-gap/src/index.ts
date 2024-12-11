@@ -1,9 +1,10 @@
 import { IgcDataChartCategoryModule, IgcDataChartAnnotationModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcCategoryHighlightLayerComponent, IgcColumnSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { TemperatureAverageDataItem, TemperatureAverageData } from './TemperatureAverageData';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcDataChartCategoryModule,
@@ -36,6 +37,7 @@ export class Sample {
             columnSeries1.dataSource = this.temperatureAverageData;
         }
         this._bind();
+
     }
 
     private _temperatureAverageData: TemperatureAverageData = null;
