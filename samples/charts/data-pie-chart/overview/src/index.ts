@@ -1,9 +1,10 @@
 import { IgcDataPieChartModule, IgcItemLegendModule } from 'igniteui-webcomponents-charts';
 import { IgcDataPieChartComponent } from 'igniteui-webcomponents-charts';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcDataPieChartModule,
@@ -22,6 +23,7 @@ export class Sample {
             chart.dataSource = this.energyGlobalDemand;
         }
         this._bind();
+
     }
 
     private _energyGlobalDemand: EnergyGlobalDemand = null;

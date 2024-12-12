@@ -3,10 +3,10 @@ import { ComponentRenderer, WebHierarchicalGridDescriptionModule } from 'igniteu
 import { IgcHierarchicalGridComponent, IgcPaginatorComponent } from 'igniteui-webcomponents-grids/grids';
 import SingersData from './SingersData.json';
 import { IgcRowSelectionEventArgs } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -24,6 +24,7 @@ export class Sample {
             hierarchicalGrid.addEventListener("rowSelectionChanging", this.webHierarchicalGridRowSelectionConditional);
         }
         this._bind();
+
     }
 
     private _singersData: any[] = SingersData;
