@@ -3,10 +3,10 @@ import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-gri
 import NwindData from './NwindData.json';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -23,12 +23,14 @@ export class Sample {
             column1.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
+
     }
 
     private _nwindData: any[] = NwindData;
     public get nwindData(): any[] {
         return this._nwindData;
     }
+
 
         public webGridBooleanCellTemplate = (ctx: IgcCellTemplateContext) => {
             if (ctx.cell.value) {

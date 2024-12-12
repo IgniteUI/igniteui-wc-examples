@@ -1,9 +1,10 @@
 import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { IgcTreemapComponent, IgcTreemapNodeStyleMappingComponent } from 'igniteui-webcomponents-charts';
 import { CountyHierarchicalDataItem, CountyHierarchicalData } from './CountyHierarchicalData';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcTreemapModule
@@ -37,6 +38,7 @@ export class Sample {
             treemap.dataSource = this.countyHierarchicalData;
         }
         this._bind();
+
     }
 
     private _countyHierarchicalData: CountyHierarchicalData = null;

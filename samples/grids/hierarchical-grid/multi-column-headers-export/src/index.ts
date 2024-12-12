@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent, IgcGridToolbarExporterComponent } from 'igniteui-webcomponents-grids/grids';
 import MultiColumnsExportData from './MultiColumnsExportData.json';
 import { IgcExporterEventArgs } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -23,12 +23,14 @@ export class Sample {
             hGridToolbarExporter.addEventListener("exportStarted", this.webHierarchicalGridExportMultiColumnHeaders);
         }
         this._bind();
+
     }
 
     private _multiColumnsExportData: any[] = MultiColumnsExportData;
     public get multiColumnsExportData(): any[] {
         return this._multiColumnsExportData;
     }
+
 
     public webHierarchicalGridExportMultiColumnHeaders(args: CustomEvent<IgcExporterEventArgs>): void {
         if (args.detail.options) {

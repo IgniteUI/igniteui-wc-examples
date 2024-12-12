@@ -5,11 +5,11 @@ import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-gri
 import CustomersDataLocal from './CustomersDataLocal.json';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 import "./index.css";
-
-
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule
@@ -30,6 +30,7 @@ export class Sample {
             column1.bodyTemplate = this.webGridRowPinCellTemplate;
         }
         this._bind();
+
     }
 
     private _customersDataLocal: any[] = CustomersDataLocal;

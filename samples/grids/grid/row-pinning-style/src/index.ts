@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule, WebActionStripDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcPinningConfig, RowPinningPosition, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import CustomersDataLocal from './CustomersDataLocal.json';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -21,7 +21,6 @@ export class Sample {
         }
         return this._pinningConfig1;
     }
-
     private company: IgcColumnComponent
     private contactName: IgcColumnComponent
     private contactTitle: IgcColumnComponent
@@ -50,6 +49,7 @@ export class Sample {
             grid.pinning = this.pinningConfig1;
         }
         this._bind();
+
     }
 
     private _customersDataLocal: any[] = CustomersDataLocal;

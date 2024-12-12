@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import SingersData from './SingersData.json';
 import { IgcSummaryResult, IgcSummaryOperand } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -27,12 +27,14 @@ export class Sample {
             column1.summaryFormatter = this.webHierarchicalGridSummaryFormatter;
         }
         this._bind();
+
     }
 
     private _singersData: any[] = SingersData;
     public get singersData(): any[] {
         return this._singersData;
     }
+
 
     public webHierarchicalGridRenderedExpand(args:any): void {
         let debutColumn = this.debutColumn;

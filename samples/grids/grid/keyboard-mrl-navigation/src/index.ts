@@ -3,10 +3,10 @@ import { ComponentRenderer, WebGridDescriptionModule, WebColumnLayoutDescription
 import { IgcGridComponent, IgcColumnLayoutComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { CompanyDataItem, CompanyData } from './CompanyData';
 import { IgcGridKeydownEventArgs } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -52,6 +52,7 @@ export class Sample {
             grid.addEventListener("gridKeydown", this.webGridMRLCustomNavigationEvent);
         }
         this._bind();
+
     }
 
     private _companyData: CompanyData = null;
