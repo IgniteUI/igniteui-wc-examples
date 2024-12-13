@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent, IgcPaginatorComponent, IgcPaginatorResourceStrings } from 'igniteui-webcomponents-grids/grids';
 import SingersData from './SingersData.json';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -21,7 +21,6 @@ export class Sample {
         }
         return this._paginatorResourceStrings1;
     }
-
     private _bind: () => void;
 
     constructor() {
@@ -33,6 +32,7 @@ export class Sample {
             paginator.resourceStrings = this.paginatorResourceStrings1;
         }
         this._bind();
+
     }
 
     private _singersData: any[] = SingersData;

@@ -4,11 +4,11 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgcRowDragEndEventArgs } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 import "./index.css";
-
-
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule
@@ -28,6 +28,7 @@ export class Sample {
             grid.addEventListener("rowDragEnd", this.webGridReorderRowHandler);
         }
         this._bind();
+
     }
 
     private _customersData: CustomersData = null;

@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 import { IgcRowType } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -20,6 +20,7 @@ export class Sample {
             treeGrid1.rowClasses = this.webGridRowClassesHandler;
         }
         this._bind();
+
     }
 
     private _employeesFlatData: EmployeesFlatData = null;
@@ -30,6 +31,7 @@ export class Sample {
         }
         return this._employeesFlatData;
     }
+
 
     public webGridRowClassesHandler = {
       activeRow: (row: IgcRowType) => row.index % 2 === 0

@@ -4,10 +4,10 @@ import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 import { IgcBadgeComponent } from 'igniteui-webcomponents';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
-
 defineAllComponents();
 
 import "./index.css";
@@ -33,6 +33,7 @@ export class Sample {
             column3.bodyTemplate = this.webGridCurrencyCellTemplate;
         }
         this._bind();
+
     }
 
     private _financialDataAll: FinancialDataAll = null;
@@ -43,6 +44,7 @@ export class Sample {
         }
         return this._financialDataAll;
     }
+
 
     public webGridCurrencyCellTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value > 0) {

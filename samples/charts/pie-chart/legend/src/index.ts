@@ -1,9 +1,10 @@
 import { IgcItemLegendModule, IgcPieChartModule } from 'igniteui-webcomponents-charts';
 import { IgcItemLegendComponent, IgcPieChartComponent } from 'igniteui-webcomponents-charts';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcItemLegendModule,
@@ -25,6 +26,7 @@ export class Sample {
             chart.legend = this.legend;
         }
         this._bind();
+
     }
 
     private _energyGlobalDemand: EnergyGlobalDemand = null;

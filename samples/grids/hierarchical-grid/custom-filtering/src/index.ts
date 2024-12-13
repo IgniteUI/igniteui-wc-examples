@@ -3,10 +3,10 @@ import { IgcHierarchicalGridComponent, IgcColumnComponent } from 'igniteui-webco
 import SingersData from './SingersData.json';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -23,12 +23,14 @@ export class Sample {
             column1.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
+
     }
 
     private _singersData: any[] = SingersData;
     public get singersData(): any[] {
         return this._singersData;
     }
+
 
         public webGridBooleanCellTemplate = (ctx: IgcCellTemplateContext) => {
             if (ctx.cell.value) {

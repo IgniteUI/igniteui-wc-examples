@@ -4,10 +4,10 @@ import { IgcGridComponent, IgcGroupingExpression, SortingDirection, IgcColumnCom
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -33,7 +33,6 @@ export class Sample {
         }
         return this._groupingExpression1;
     }
-
     private orderID: IgcColumnComponent
     private shipCountry: IgcColumnComponent
     private orderDate: IgcColumnComponent
@@ -55,7 +54,6 @@ export class Sample {
         }
         return this._columnPipeArgs1;
     }
-
     private quantity: IgcColumnComponent
     private _bind: () => void;
 
@@ -80,6 +78,7 @@ export class Sample {
             unitPrice.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
+
     }
 
     private _invoicesData: InvoicesData = null;

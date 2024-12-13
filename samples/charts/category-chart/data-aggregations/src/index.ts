@@ -7,10 +7,10 @@ import { SalesDataItem, SalesData } from './SalesData';
 import { MarkerType, MarkerType_$type } from 'igniteui-webcomponents-charts';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs, PropertyEditorValueType } from 'igniteui-webcomponents-layouts';
 import { EnumUtil } from 'igniteui-webcomponents-core';
+
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";

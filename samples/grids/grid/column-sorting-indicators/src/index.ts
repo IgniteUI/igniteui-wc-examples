@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcSortingExpression, SortingDirection } from 'igniteui-webcomponents-grids/grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -54,7 +54,6 @@ export class Sample {
         }
         return this._sortingExpression1;
     }
-
     private _bind: () => void;
 
     constructor() {
@@ -65,6 +64,7 @@ export class Sample {
             grid.sortingExpressions = this.sortingExpression1;
         }
         this._bind();
+
     }
 
     private _financialDataAll: FinancialDataAll = null;

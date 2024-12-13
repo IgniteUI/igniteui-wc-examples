@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent, IgcRowIslandComponent } from 'igniteui-webcomponents-grids/grids';
 import SingersData from './SingersData.json';
 import { IgcRowSelectionEventArgs, IgcGridEditEventArgs, IgcGridEditDoneEventArgs } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -51,12 +51,14 @@ export class Sample {
             rowIsland.addEventListener("cellEditExit", this.webRowIslandGridCellEditExit);
         }
         this._bind();
+
     }
 
     private _singersData: any[] = SingersData;
     public get singersData(): any[] {
         return this._singersData;
     }
+
 
     public webHierarchicalGridRendered(args:any): void {
         const hierarchicalGrid = document.getElementById("hierarchicalGrid");
