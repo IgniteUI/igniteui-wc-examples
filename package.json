@@ -53,6 +53,7 @@
     "igniteui-webcomponents-maps": "5.1.1-beta.0",
     "igniteui-webcomponents-spreadsheet": "5.1.1-beta.0",
     "igniteui-webcomponents-spreadsheet-chart-adapter": "5.1.1-beta.0",
+    "igniteui-webcomponents-dashboards": "5.1.1-beta.0",
     "lit": "^3.2.0",
     "lit-html": "^3.2.0"
   },

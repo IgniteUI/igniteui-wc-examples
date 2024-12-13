@@ -1,5 +1,5 @@
 import { IgcColorEditorModule } from 'igniteui-webcomponents-inputs';
-import { IgcColorEditorComponent } from 'igniteui-webcomponents-dashboards';
+import { IgcColorEditorComponent } from 'igniteui-webcomponents-inputs';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
