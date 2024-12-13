@@ -1,10 +1,10 @@
 import { LocalDataItem, LocalData } from './SampleData';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -24,6 +24,7 @@ export class Sample {
             grid.data = this.localData;
         }
         this._bind();
+
     }
 
     private _localData: LocalData = null;

@@ -7,11 +7,11 @@ import { FoodsDataItem, FoodsData } from './FoodsData';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -43,6 +43,7 @@ export class Sample {
             column1.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
+
     }
 
     private _foodsData: FoodsData = null;

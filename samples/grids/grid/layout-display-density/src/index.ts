@@ -5,11 +5,11 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -38,6 +38,7 @@ export class Sample {
             grid.data = this.invoicesData;
         }
         this._bind();
+
     }
 
     private _invoicesData: InvoicesData = null;

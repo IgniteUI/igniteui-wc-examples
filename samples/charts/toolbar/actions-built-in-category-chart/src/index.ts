@@ -3,9 +3,10 @@ import { IgcToolbarModule } from 'igniteui-webcomponents-layouts';
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcToolbarComponent } from 'igniteui-webcomponents-layouts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcLegendModule,
@@ -32,6 +33,7 @@ export class Sample {
             chart.legend = this.legend;
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;

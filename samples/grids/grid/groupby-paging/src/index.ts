@@ -3,10 +3,10 @@ import { IgcGridComponent, IgcGroupingExpression, SortingDirection } from 'ignit
 import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
 import { IgcGroupByRecord, IgcGroupByRowTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -26,7 +26,6 @@ export class Sample {
         }
         return this._groupingExpression1;
     }
-
     private _bind: () => void;
 
     constructor() {
@@ -38,6 +37,7 @@ export class Sample {
             grid.groupRowTemplate = this.webGridGroupByRowTemplate;
         }
         this._bind();
+
     }
 
     private _invoicesWorldData: InvoicesWorldData = null;
@@ -48,6 +48,7 @@ export class Sample {
         }
         return this._invoicesWorldData;
     }
+
 
         public webGridGroupByRowTemplate = (ctx: IgcGroupByRowTemplateContext) => {
 
@@ -64,6 +65,7 @@ export class Sample {
     <igc-badge>${groupRow.records.length}</igc-badge>
     <span style="color:#09f;"> Ordered in 2017:</span><span>${calc2017}</span>
     </div>`;
+
         };
 
 }

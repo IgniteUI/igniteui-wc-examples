@@ -29,8 +29,6 @@ module.exports = env => {
 
     return {
         entry: isLegacy ? [
-            path.resolve(__dirname, 'node_modules/@webcomponents/custom-elements'),
-            path.resolve(__dirname, 'node_modules/@webcomponents/template'),
             path.resolve(__dirname, 'src')
         ] : path.resolve(__dirname, 'src'),
         devtool: isProd ? false : 'source-map',

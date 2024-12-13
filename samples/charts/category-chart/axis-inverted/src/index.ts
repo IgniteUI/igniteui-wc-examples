@@ -4,10 +4,10 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, CategoryChartD
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -37,6 +37,7 @@ export class Sample {
             chart.dataSource = this.countryRenewableElectricity;
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;

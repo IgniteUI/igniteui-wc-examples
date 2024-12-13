@@ -3,10 +3,10 @@ import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-webcom
 import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 import { IgcSummaryResult, IgcSummaryOperand } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -24,6 +24,7 @@ export class Sample {
             column1.summaryFormatter = this.webTreeGridSummaryFormatter;
         }
         this._bind();
+
     }
 
     private _ordersTreeData: OrdersTreeData = null;

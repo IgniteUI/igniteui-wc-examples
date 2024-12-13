@@ -3,10 +3,10 @@ import { IgcHierarchicalGridComponent, IgcColumnComponent } from 'igniteui-webco
 import SingersData from './SingersData.json';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent, IgcRowType } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -38,12 +38,14 @@ export class Sample {
             column6.cellStyles = this.webHierarchicalGridCellStylesHandler;
         }
         this._bind();
+
     }
 
     private _singersData: any[] = SingersData;
     public get singersData(): any[] {
         return this._singersData;
     }
+
 
     public webHierarchicalGridCellStylesHandler = {
         background: (rowData: any, columnKey: any, cellValue: any, rowIndex: any) => rowIndex % 2 === 0 ? "#EFF4FD" : null,

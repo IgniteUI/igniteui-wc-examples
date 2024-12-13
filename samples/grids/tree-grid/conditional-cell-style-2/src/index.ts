@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -30,6 +30,7 @@ export class Sample {
             column4.cellStyles = this.webTreeGridCellStylesHandler;
         }
         this._bind();
+
     }
 
     private _ordersTreeData: OrdersTreeData = null;
@@ -40,6 +41,7 @@ export class Sample {
         }
         return this._ordersTreeData;
     }
+
 
     public webTreeGridCellStylesHandler = {
         background: (rowData: any, columnKey: any, cellValue: any, rowIndex: any) => rowIndex % 2 === 0 ? "#EFF4FD" : null,
