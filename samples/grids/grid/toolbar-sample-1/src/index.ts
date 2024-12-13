@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { AthletesDataItem, AthletesData } from './AthletesData';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -19,6 +19,7 @@ export class Sample {
             grid1.data = this.athletesData;
         }
         this._bind();
+
     }
 
     private _athletesData: AthletesData = null;

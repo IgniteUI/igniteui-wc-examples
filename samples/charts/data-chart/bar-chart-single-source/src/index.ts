@@ -1,9 +1,10 @@
 import { IgcDataChartCoreModule, IgcDataChartCategoryCoreModule, IgcDataChartCategoryModule, IgcDataChartAnnotationModule, IgcDataChartInteractivityModule, IgcDataChartVerticalCategoryModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcCategoryHighlightLayerComponent, IgcBarSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { OnlineShoppingSearchesItem, OnlineShoppingSearches } from './OnlineShoppingSearches';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcDataChartCoreModule,
@@ -39,6 +40,7 @@ export class Sample {
             barSeries1.dataSource = this.onlineShoppingSearches;
         }
         this._bind();
+
     }
 
     private _onlineShoppingSearches: OnlineShoppingSearches = null;

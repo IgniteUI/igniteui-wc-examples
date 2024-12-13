@@ -3,10 +3,10 @@ import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcompone
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgcExporterOptionsBase, IgcGridToolbarExportEventArgs } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -22,6 +22,7 @@ export class Sample {
             grid1.addEventListener("toolbarExporting", this.webGridToolbarExporting);
         }
         this._bind();
+
     }
 
     private _athletesData: AthletesData = null;

@@ -4,10 +4,10 @@ import { IgcTreeGridComponent, IgcPinningConfig, RowPinningPosition, IgcColumnCo
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -23,7 +23,6 @@ export class Sample {
         }
         return this._pinningConfig1;
     }
-
     private column1: IgcColumnComponent
     private _bind: () => void;
 
@@ -37,6 +36,7 @@ export class Sample {
             column1.bodyTemplate = this.webTreeGridRowPinCellTemplate;
         }
         this._bind();
+
     }
 
     private _employeesNestedTreeData: EmployeesNestedTreeData = null;

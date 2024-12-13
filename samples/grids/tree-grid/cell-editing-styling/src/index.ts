@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebPaginatorDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -19,6 +19,7 @@ export class Sample {
             treeGrid.data = this.employeesNestedTreeData;
         }
         this._bind();
+
     }
 
     private _employeesNestedTreeData: EmployeesNestedTreeData = null;

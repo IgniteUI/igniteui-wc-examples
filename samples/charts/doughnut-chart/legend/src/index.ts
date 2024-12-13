@@ -1,9 +1,10 @@
 import { IgcItemLegendModule, IgcDoughnutChartModule } from 'igniteui-webcomponents-charts';
 import { IgcItemLegendComponent, IgcDoughnutChartComponent, IgcRingSeriesComponent } from 'igniteui-webcomponents-charts';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcItemLegendModule,
@@ -27,6 +28,7 @@ export class Sample {
             series.legend = this.legend;
         }
         this._bind();
+
     }
 
     private _energyGlobalDemand: EnergyGlobalDemand = null;

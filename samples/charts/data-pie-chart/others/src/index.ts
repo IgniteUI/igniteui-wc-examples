@@ -4,10 +4,10 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataPieChartDe
 import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
 import { IgcDataPieChartComponent } from 'igniteui-webcomponents-charts';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
+
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -34,6 +34,7 @@ export class Sample {
             chart.dataSource = this.energyGlobalDemand;
         }
         this._bind();
+
     }
 
     private _energyGlobalDemand: EnergyGlobalDemand = null;
