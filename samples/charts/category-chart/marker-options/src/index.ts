@@ -7,10 +7,10 @@ import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { MarkerType, MarkerType_$type } from 'igniteui-webcomponents-charts';
 import { EnumUtil } from 'igniteui-webcomponents-core';
+
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -43,6 +43,7 @@ export class Sample {
             chart.dataSource = this.countryRenewableElectricity;
         }
         this._bind();
+
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;

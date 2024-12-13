@@ -4,10 +4,10 @@ import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
-
 defineAllComponents();
 
 import "./index.css";
@@ -32,6 +32,7 @@ export class Sample {
             column2.inlineEditorTemplate = this.webGridCompositeAddressEditCellTemplate;
         }
         this._bind();
+
     }
 
     private _customersData: CustomersData = null;
@@ -42,6 +43,7 @@ export class Sample {
         }
         return this._customersData;
     }
+
 
     public webGridCompositeContactCellTemplate = (ctx: IgcCellTemplateContext) => {
         var cell = ctx.cell as any;

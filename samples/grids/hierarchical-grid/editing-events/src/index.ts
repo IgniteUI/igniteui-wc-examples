@@ -3,10 +3,10 @@ import { ComponentRenderer, WebHierarchicalGridDescriptionModule, WebPaginatorDe
 import { IgcHierarchicalGridComponent } from 'igniteui-webcomponents-grids/grids';
 import NwindData from './NwindData.json';
 import { IgcGridComponent, IgcGridEditEventArgs } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 import "./index.css";
-
-
 
 export class Sample {
 
@@ -22,6 +22,7 @@ export class Sample {
             grid.addEventListener("cellEdit", this.webGridEditingEventsCellEdit);
         }
         this._bind();
+
     }
 
     private _nwindData: any[] = NwindData;

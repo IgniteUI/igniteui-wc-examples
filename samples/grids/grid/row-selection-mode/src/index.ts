@@ -7,11 +7,11 @@ import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 import { IgcBadgeComponent } from 'igniteui-webcomponents';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 defineAllComponents();
 
 import "./index.css";
@@ -39,7 +39,6 @@ export class Sample {
         }
         return this._columnPipeArgs1;
     }
-
     private column2: IgcColumnComponent
     private _columnPipeArgs2: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs2(): IgcColumnPipeArgs {
@@ -53,7 +52,6 @@ export class Sample {
         }
         return this._columnPipeArgs2;
     }
-
     private column3: IgcColumnComponent
     private _columnPipeArgs3: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs3(): IgcColumnPipeArgs {
@@ -67,7 +65,6 @@ export class Sample {
         }
         return this._columnPipeArgs3;
     }
-
     private column4: IgcColumnComponent
     private column5: IgcColumnComponent
     private column6: IgcColumnComponent
@@ -97,6 +94,7 @@ export class Sample {
             column6.bodyTemplate = this.webGridCurrencyCellTemplate;
         }
         this._bind();
+
     }
 
     private _financialDataAll: FinancialDataAll = null;

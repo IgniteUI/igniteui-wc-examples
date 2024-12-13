@@ -4,11 +4,11 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import NwindData from './NwindData.json';
 import { IgcGridKeydownEventArgs, GridKeydownTargetType } from 'igniteui-webcomponents-grids/grids';
+
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 import "./index.css";
-
-
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule
@@ -40,6 +40,7 @@ export class Sample {
             grid.addEventListener("gridKeydown", this.webGridCustomKBNav);
         }
         this._bind();
+
     }
 
     private _nwindData: any[] = NwindData;

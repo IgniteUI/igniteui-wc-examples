@@ -2,9 +2,10 @@ import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, Ig
 import { IgcDataLegendComponent, IgcDataChartComponent, IgcNumericYAxisComponent, IgcNumericXAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcCrosshairLayerComponent } from 'igniteui-webcomponents-charts';
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import "./index.css";
 
+import { ModuleManager } from 'igniteui-webcomponents-core';
+
+import "./index.css";
 
 ModuleManager.register(
     IgcLegendModule,
@@ -37,7 +38,6 @@ export class Sample {
         }
         return this._sizeScale1;
     }
-
     private bubbleSeries2: IgcBubbleSeriesComponent
     private _sizeScale2: IgcSizeScaleComponent | null = null;
     public get sizeScale2(): IgcSizeScaleComponent {
@@ -52,7 +52,6 @@ export class Sample {
         }
         return this._sizeScale2;
     }
-
     private crosshairLayer: IgcCrosshairLayerComponent
     private _bind: () => void;
 
@@ -77,6 +76,7 @@ export class Sample {
             bubbleSeries2.radiusScale = this.sizeScale2;
         }
         this._bind();
+
     }
 
     private _countryDemographicAfrican: CountryDemographicAfrican = null;
