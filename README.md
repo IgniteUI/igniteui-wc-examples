@@ -93,6 +93,7 @@ Follow these instructions to run all samples locally in a browser application.
 This will install required packages and [Ignite UI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html) packages from npm website:
 
 - [igniteui-webcomponents-core](https://www.npmjs.com/package/igniteui-webcomponents-core)
+- [igniteui-webcomponents-core](https://www.npmjs.com/package/igniteui-webcomponents-dashboards)
 - [igniteui-webcomponents-charts](https://www.npmjs.com/package/igniteui-webcomponents-charts)
 - [igniteui-webcomponents-excel](https://www.npmjs.com/package/igniteui-webcomponents-excel)
 - [igniteui-webcomponents-gauges](https://www.npmjs.com/package/igniteui-webcomponents-gauges)
