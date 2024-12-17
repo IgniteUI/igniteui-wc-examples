@@ -1,4 +1,3 @@
-import { IgcXIconModule } from 'igniteui-webcomponents-inputs';
 import { IgcToolbarModule, IgcToolActionComboModule, IgcToolActionColorEditorModule } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartToolbarModule, IgcDataLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCategoryModule, IgcDataChartCoreModule, IgcDataChartAnnotationModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcToolbarComponent, IgcToolActionColorEditorComponent } from 'igniteui-webcomponents-layouts';
@@ -12,7 +11,6 @@ import { ModuleManager } from 'igniteui-webcomponents-core';
 import "./index.css";
 
 ModuleManager.register(
-    IgcXIconModule,
     IgcToolbarModule,
     IgcToolActionComboModule,
     IgcToolActionColorEditorModule,
