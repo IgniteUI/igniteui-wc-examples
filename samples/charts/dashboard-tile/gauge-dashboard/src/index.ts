@@ -22,7 +22,6 @@ export class Sample {
         var dashboard = this.dashboard = document.getElementById('dashboard') as IgcDashboardTileComponent;
 
         this.dashboardTileGaugeOnInit();
-
     }
 
 
