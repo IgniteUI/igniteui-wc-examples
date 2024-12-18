@@ -45,6 +45,7 @@
             name="yAxis"
             id="yAxis"
             title="GDP per Capita"
+            title-left-margin="5"
             is-logarithmic="true"
             abbreviate-large-numbers="true">
             </igc-numeric-y-axis>
@@ -54,12 +55,15 @@
             title="African Countries"
             x-member-path="population"
             y-member-path="gDP"
-            radius-member-path="population"
+            radius-member-path="workedHours"
+            x-member-as-legend-label="Population"
+            y-member-as-legend-label="GDP"
+            radius-member-as-legend-label="Worked Hours"
             marker-type="Circle"
-            marker-outline="rgba(62, 202, 62, 1)"
-            marker-brush="rgba(69, 179, 224, 1)"
+            marker-outline="rgba(2, 158, 30, 1)"
+            marker-brush="rgba(2, 158, 30, 1)"
             marker-fill-opacity="0.5"
-            marker-thickness="2"
+            marker-thickness="1"
             show-default-tooltip="true">
             </igc-bubble-series>
             <igc-bubble-series
@@ -68,17 +72,33 @@
             title="European Countries"
             x-member-path="population"
             y-member-path="gDP"
-            radius-member-path="population"
+            radius-member-path="workedHours"
+            x-member-as-legend-label="Population"
+            y-member-as-legend-label="GDP"
+            radius-member-as-legend-label="Worked Hours"
             marker-type="Circle"
-            marker-outline="rgba(171, 6, 221, 1)"
-            marker-brush="rgba(135, 156, 235, 1)"
+            marker-outline="rgba(95, 2, 171, 1)"
+            marker-brush="rgba(95, 2, 171, 1)"
             marker-fill-opacity="0.5"
-            marker-thickness="2"
+            marker-thickness="1"
             show-default-tooltip="true">
             </igc-bubble-series>
             <igc-data-tool-tip-layer
             name="dataToolTipLayer"
-            id="dataToolTipLayer">
+            id="dataToolTipLayer"
+            value-row-margin-top="1"
+            label-text-margin-top="1"
+            title-text-margin-top="1"
+            units-text-margin-top="1"
+            value-row-margin-bottom="1"
+            label-text-margin-bottom="1"
+            title-text-margin-bottom="1"
+            units-text-margin-bottom="1"
+            units-text-margin-right="5"
+            value-text-margin-left="10"
+            label-text-margin-left="5"
+            grouping-mode="Grouped"
+            layout-mode="Vertical">
             </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>

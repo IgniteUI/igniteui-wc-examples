@@ -36,9 +36,9 @@
             <igc-numeric-y-axis
             name="yAxis"
             id="yAxis"
-            title="Public Debt"
+            title="Public Debt per GDP (%)"
+            title-left-margin="5"
             is-logarithmic="false"
-            abbreviate-large-numbers="true"
             maximum-value="120">
             </igc-numeric-y-axis>
             <igc-bubble-series
@@ -48,6 +48,9 @@
             y-member-path="publicDebt"
             radius-member-path="gdpPerPerson"
             fill-member-path="gdpPerPerson"
+            x-member-as-legend-label="Population"
+            y-member-as-legend-label="Debt"
+            radius-member-as-legend-label="GDP"
             marker-type="Circle"
             show-default-tooltip="true">
             </igc-bubble-series>
