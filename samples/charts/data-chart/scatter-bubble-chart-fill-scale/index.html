@@ -24,24 +24,26 @@
         id="chart"
         is-horizontal-zoom-enabled="true"
         is-vertical-zoom-enabled="true"
-        chart-title="Public Debt vs. Population"
-        subtitle="GDP per Capita">
+        chart-title="Population vs. Public Debt vs. GDP"
+        title-top-margin="10"
+        title-bottom-margin="0">
             <igc-numeric-x-axis
             name="xAxis"
             id="xAxis"
-            minimum-value="10000"
+            title="Population"
+            minimum-value="100"
             maximum-value="10000000000"
             is-logarithmic="true"
-            abbreviate-large-numbers="true"
-            title="Population">
+            abbreviate-large-numbers="true">
             </igc-numeric-x-axis>
             <igc-numeric-y-axis
             name="yAxis"
             id="yAxis"
             title="Public Debt per GDP (%)"
-            title-left-margin="5"
-            is-logarithmic="false"
-            maximum-value="120">
+            title-left-margin="10"
+            is-logarithmic="true"
+            abbreviate-large-numbers="true"
+            maximum-value="1000">
             </igc-numeric-y-axis>
             <igc-bubble-series
             name="bubbleSeries1"
@@ -50,10 +52,36 @@
             y-member-path="publicDebt"
             radius-member-path="gdpPerPerson"
             fill-member-path="gdpPerPerson"
+            y-member-as-legend-unit="%"
+            y-member-as-legend-label="Debt"
+            x-member-as-legend-label="Population"
+            radius-member-as-legend-label="GDP"
+            title="Country"
             marker-type="Circle"
             marker-outline="black"
+            marker-thickness="1"
             show-default-tooltip="true">
             </igc-bubble-series>
+            <igc-data-tool-tip-layer
+            name="dataToolTipLayer"
+            id="dataToolTipLayer"
+            value-row-margin-top="1"
+            label-text-margin-top="1"
+            title-text-margin-top="1"
+            units-text-margin-top="1"
+            value-row-margin-bottom="1"
+            label-text-margin-bottom="1"
+            title-text-margin-bottom="1"
+            units-text-margin-bottom="1"
+            units-text-margin-right="5"
+            value-text-margin-left="10"
+            label-text-margin-left="1"
+            grouping-mode="Grouped"
+            layout-mode="Vertical"
+            badge-shape="Hidden"
+            included-columns="X, Y, Radius"
+            header-row-visible="false">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>
