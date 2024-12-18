@@ -44,17 +44,21 @@
             <igc-numeric-y-axis
             name="yAxis"
             id="yAxis"
-            title="GDP per Capita"
-            is-logarithmic="true"
-            abbreviate-large-numbers="true">
+            title="Public Debt per GDP (%)"
+            title-left-margin="5"
+            is-logarithmic="false"
+            maximum-value="120">
             </igc-numeric-y-axis>
             <igc-bubble-series
             name="bubbleSeries1"
             id="bubbleSeries1"
             title="African Countries"
             x-member-path="population"
-            y-member-path="gDP"
-            radius-member-path="population"
+            y-member-path="publicDebt"
+            radius-member-path="gdpPerPerson"
+            x-member-as-legend-label="Population"
+            y-member-as-legend-label="Debt"
+            radius-member-as-legend-label="GDP"
             marker-type="Circle"
             show-default-tooltip="true">
             </igc-bubble-series>
@@ -63,8 +67,11 @@
             id="bubbleSeries2"
             title="European Countries"
             x-member-path="population"
-            y-member-path="gDP"
-            radius-member-path="population"
+            y-member-path="publicDebt"
+            radius-member-path="gdpPerPerson"
+            x-member-as-legend-label="Population"
+            y-member-as-legend-label="Debt"
+            radius-member-as-legend-label="GDP"
             marker-type="Circle"
             show-default-tooltip="true">
             </igc-bubble-series>
