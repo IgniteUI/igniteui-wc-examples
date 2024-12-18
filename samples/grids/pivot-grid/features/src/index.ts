@@ -51,25 +51,28 @@ export class Sample {
             pivotValue1.member = "AmountofSale";
             pivotValue1.displayName = "Amount of Sale";
             pivotValue1.enabled = true;
-            var SumOfSale: IgcPivotAggregator = {} as IgcPivotAggregator;
-            SumOfSale.key = "SUM";
-            SumOfSale.label = "Sum of Sale";
-            SumOfSale.aggregator = this.pivotDataFlatAggregateSumSale;
-            SumOfSale.aggregatorName = "SUM";
+            var pivotAggregator1: IgcPivotAggregator = {} as IgcPivotAggregator;
+            pivotAggregator1.key = "SUM";
+            pivotAggregator1.label = "Sum of Sale";
+            pivotAggregator1.aggregator = this.pivotDataFlatAggregateSumSale;
 
-            var MinOfSale: IgcPivotAggregator = {} as IgcPivotAggregator;
-            MinOfSale.key = "MIN";
-            MinOfSale.label = "Minimum of Sale";
-            MinOfSale.aggregator = this.pivotDataFlatAggregateMinSale;
-            MinOfSale.aggregatorName = "MIN";
+            pivotValue1.aggregate = pivotAggregator1;
+            var pivotAggregator2: IgcPivotAggregator = {} as IgcPivotAggregator;
+            pivotAggregator2.key = "SUM";
+            pivotAggregator2.label = "Sum of Sale";
+            pivotAggregator2.aggregator = this.pivotDataFlatAggregateSumSale;
 
-            var MaxOfSale: IgcPivotAggregator = {} as IgcPivotAggregator;
-            MaxOfSale.key = "MAX";
-            MaxOfSale.label = "Maximum of Sale";
-            MaxOfSale.aggregatorName = "MAX";
-            MaxOfSale.aggregator = this.pivotDataFlatAggregateMaxSale;
+            var pivotAggregator3: IgcPivotAggregator = {} as IgcPivotAggregator;
+            pivotAggregator3.key = "MIN";
+            pivotAggregator3.label = "Minimum of Sale";
+            pivotAggregator3.aggregator = this.pivotDataFlatAggregateMinSale;
 
-            pivotValue1.aggregateList = [SumOfSale,MinOfSale,MaxOfSale];
+            var pivotAggregator4: IgcPivotAggregator = {} as IgcPivotAggregator;
+            pivotAggregator4.key = "MAX";
+            pivotAggregator4.label = "Maximum of Sale";
+            pivotAggregator4.aggregator = this.pivotDataFlatAggregateMaxSale;
+
+            pivotValue1.aggregateList = [pivotAggregator2,pivotAggregator3,pivotAggregator4];
 
             pivotConfiguration1.values = [pivotValue1];
 
