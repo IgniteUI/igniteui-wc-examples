@@ -21,10 +21,10 @@
     <div class="container fill">
         <igc-grid
         auto-generate="false"
+        id="grid"
         name="grid"
         id="grid"
         moving="true"
-        display-density="compact"
         allow-filtering="true">
             <igc-grid-toolbar
             >
@@ -56,11 +56,12 @@
             name="GeneralInformation"
             id="GeneralInformation"
             header="General Information"
-            collapsible="true">
+            collapsible="true"
+            expanded="true">
                 <igc-column
-                name="CompanyName"
-                id="CompanyName"
-                field="CompanyName"
+                name="Company"
+                id="Company"
+                field="Company"
                 visible-when-collapsed="true">
                 </igc-column>
                 <igc-column-group
@@ -68,6 +69,7 @@
                 id="PersonalDetails"
                 header="Personal Details"
                 collapsible="true"
+                expanded="false"
                 visible-when-collapsed="false">
                     <igc-column
                     name="ContactName"
@@ -90,6 +92,7 @@
                 id="Location"
                 header="Location"
                 collapsible="true"
+                expanded="false"
                 visible-when-collapsed="true">
                     <igc-column
                     name="Country"

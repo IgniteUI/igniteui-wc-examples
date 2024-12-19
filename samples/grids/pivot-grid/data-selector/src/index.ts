@@ -3,7 +3,6 @@ import { IgcPivotGridComponent, IgcPivotConfiguration, IgcPivotDataSelectorCompo
 import { PivotSalesData } from './PivotSalesData';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
-
 export class Sample {
     private _pivotConfiguration: any | null = null;
     public get pivotConfiguration(): any {
@@ -38,7 +37,7 @@ export class Sample {
                 ],
                 values: [
                     {
-                        member: "SalePrice",
+                        member: "Sales",
                         enabled:false,
                         dataType: 'currency',
                         aggregate: {
@@ -64,6 +63,7 @@ export class Sample {
         }
         return this._pivotConfiguration;
     }
+
     private _bind: () => void;
 
     constructor() {
@@ -75,7 +75,6 @@ export class Sample {
             selector.grid = grid;
         }
         this._bind();
-
     }
 
     private _pivotSalesData: PivotSalesData = null;
@@ -86,8 +85,6 @@ export class Sample {
         }
         return this._pivotSalesData;
     }
-
-
 
 }
 

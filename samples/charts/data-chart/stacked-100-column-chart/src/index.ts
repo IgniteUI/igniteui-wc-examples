@@ -31,15 +31,15 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
-        var stacked100ColumnSeries = this.stacked100ColumnSeries = document.getElementById('Stacked100ColumnSeries') as IgcStacked100ColumnSeriesComponent;
+        var stacked100ColumnSeries = this.stacked100ColumnSeries = document.getElementById('stacked100ColumnSeries') as IgcStacked100ColumnSeriesComponent;
         var s1 = this.s1 = document.getElementById('s1') as IgcStackedFragmentSeriesComponent;
         var s2 = this.s2 = document.getElementById('s2') as IgcStackedFragmentSeriesComponent;
         var s3 = this.s3 = document.getElementById('s3') as IgcStackedFragmentSeriesComponent;
-        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('DataToolTipLayer') as IgcDataToolTipLayerComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('dataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             chart.legend = this.legend;

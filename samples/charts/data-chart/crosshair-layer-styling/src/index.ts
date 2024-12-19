@@ -23,7 +23,6 @@ export class DataChartCrosshairLayerStyling {
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleCategoryData.create();
-
     }
 
 }

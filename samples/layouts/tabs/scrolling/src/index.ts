@@ -8,7 +8,7 @@ export class TabsScrolling {
 
     constructor() {
         this.tabs = document.getElementById('tabs') as IgcTabsComponent;
-        
+
         for(let i = 0; i < 18; i++) {
             this.tabs.insertAdjacentHTML('beforeend',
                 `<igc-tab panel=${i}> Tab ${i + 1}</igc-tab>

@@ -3,7 +3,8 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import NwindData from './NwindData.json';
+import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
@@ -22,7 +23,7 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditor: IgcPropertyEditorPanelComponent
-    private displayDensityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private sizeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private grid: IgcGridComponent
     private productName: IgcColumnComponent
     private quantityPerUnit: IgcColumnComponent
@@ -55,7 +56,8 @@ export class Sample {
 
     constructor() {
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var displayDensityEditor = this.displayDensityEditor = document.getElementById('DisplayDensityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var sizeEditor = this.sizeEditor = document.getElementById('SizeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.webGridSetGridSize = this.webGridSetGridSize.bind(this);
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
         var quantityPerUnit = this.quantityPerUnit = document.getElementById('QuantityPerUnit') as IgcColumnComponent;
@@ -66,6 +68,7 @@ export class Sample {
         this._bind = () => {
             propertyEditor.componentRenderer = this.renderer;
             propertyEditor.target = this.grid;
+            sizeEditor.changed = this.webGridSetGridSize;
             grid.data = this.nwindData;
             unitPrice.pipeArgs = this.columnPipeArgs1;
             orderDate.pipeArgs = this.columnPipeArgs2;
@@ -75,12 +78,8 @@ export class Sample {
 
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
+    private _nwindData: any[] = NwindData;
+    public get nwindData(): any[] {
         return this._nwindData;
     }
 
@@ -95,11 +94,17 @@ export class Sample {
         return this._componentRenderer;
     }
 
+    public webGridSetGridSize(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("grid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
+    }
+
         public webGridBooleanCellTemplate = (ctx: IgcCellTemplateContext) => {
             if (ctx.cell.value) {
-                return html`<img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/active.png" title="Continued" alt="Continued" />`
+                return html`<img src="https://static.infragistics.com/xplatform/images/grid/active.png" title="Continued" alt="Continued" />`
             } else {
-                return html`<img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/expired.png" title="Discontinued" alt="Discontinued" />`;
+                return html`<img src="https://static.infragistics.com/xplatform/images/grid/expired.png" title="Discontinued" alt="Discontinued" />`;
             }
     }
 

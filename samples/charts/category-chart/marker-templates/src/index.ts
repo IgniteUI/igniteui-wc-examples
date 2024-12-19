@@ -65,7 +65,6 @@ export class CategoryChartMarkerTemplates {
                     return;
                 }
 
-
                 const dataItem = renderInfo.data.item;
                 if (dataItem === null) return;
 

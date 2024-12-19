@@ -36,16 +36,16 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var toolbar = this.toolbar = document.getElementById('Toolbar') as IgcToolbarComponent;
+        var toolbar = this.toolbar = document.getElementById('toolbar') as IgcToolbarComponent;
         this.toolbarToggleTooltip = this.toolbarToggleTooltip.bind(this);
         var enableTooltipsLabel = this.enableTooltipsLabel = document.getElementById('EnableTooltipsLabel') as IgcToolActionCheckboxComponent;
-        var zoomResetHidden = this.zoomResetHidden = document.getElementById('ZoomResetHidden') as IgcToolActionLabelComponent;
-        var zoomResetLabel = this.zoomResetLabel = document.getElementById('ZoomResetLabel') as IgcToolActionLabelComponent;
+        var zoomResetHidden = this.zoomResetHidden = document.getElementById('zoomResetHidden') as IgcToolActionLabelComponent;
+        var zoomResetLabel = this.zoomResetLabel = document.getElementById('zoomResetLabel') as IgcToolActionLabelComponent;
         var analyzeMenu = this.analyzeMenu = document.getElementById('AnalyzeMenu') as IgcToolActionIconMenuComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
-        var lineSeries1 = this.lineSeries1 = document.getElementById('LineSeries1') as IgcLineSeriesComponent;
+        var lineSeries1 = this.lineSeries1 = document.getElementById('lineSeries1') as IgcLineSeriesComponent;
         var lineSeries2 = this.lineSeries2 = document.getElementById('LineSeries2') as IgcLineSeriesComponent;
         var lineSeries3 = this.lineSeries3 = document.getElementById('LineSeries3') as IgcLineSeriesComponent;
 

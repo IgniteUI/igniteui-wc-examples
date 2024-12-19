@@ -37,8 +37,10 @@ export class Sample {
 
 
     public webHierarchicalGridRenderedExpand(args:any): void {
-        this.debutColumn.formatter = (value: number) => Math.floor(value / 10) * 10 + 's';
-        this.hierarchicalGrid.expandAll();
+        let debutColumn = this.debutColumn;
+        let hierarchicalGrid = this.hierarchicalGrid;
+        debutColumn.formatter = (value: number) => Math.floor(value / 10) * 10 + 's';
+        hierarchicalGrid.expandAll();
     }
 
     public webHierarchicalGridSummaryFormatter(summary: IgcSummaryResult, summaryOperand: IgcSummaryOperand): string {

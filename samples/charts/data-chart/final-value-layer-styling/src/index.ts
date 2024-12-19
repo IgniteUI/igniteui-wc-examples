@@ -25,7 +25,6 @@ export class DataChartFinalValueLayerStyling {
 
         this.chart = document.getElementById('chart') as IgcDataChartComponent;
         this.chart.dataSource = SampleCategoryData.create();
-
     }
 
 }

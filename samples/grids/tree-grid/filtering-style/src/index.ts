@@ -8,14 +8,14 @@ import "./index.css";
 
 export class Sample {
 
-    private grid: IgcTreeGridComponent
+    private treeGrid: IgcTreeGridComponent
     private _bind: () => void;
 
     constructor() {
-        var grid = this.grid = document.getElementById('grid') as IgcTreeGridComponent;
+        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
 
         this._bind = () => {
-            grid.data = this.ordersData;
+            treeGrid.data = this.ordersData;
         }
         this._bind();
 

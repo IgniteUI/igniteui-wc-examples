@@ -2,7 +2,7 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcColumnComponent, IgcColumnPipeArgs } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import NwindData from './NwindData.json';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
 
@@ -66,12 +66,8 @@ export class Sample {
 
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
+    private _nwindData: any[] = NwindData;
+    public get nwindData(): any[] {
         return this._nwindData;
     }
 
@@ -92,9 +88,9 @@ export class Sample {
 
         public webGridBooleanCellTemplate = (ctx: IgcCellTemplateContext) => {
             if (ctx.cell.value) {
-                return html`<img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/active.png" title="Continued" alt="Continued" />`
+                return html`<img src="https://static.infragistics.com/xplatform/images/grid/active.png" title="Continued" alt="Continued" />`
             } else {
-                return html`<img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/expired.png" title="Discontinued" alt="Discontinued" />`;
+                return html`<img src="https://static.infragistics.com/xplatform/images/grid/expired.png" title="Discontinued" alt="Discontinued" />`;
             }
     }
 

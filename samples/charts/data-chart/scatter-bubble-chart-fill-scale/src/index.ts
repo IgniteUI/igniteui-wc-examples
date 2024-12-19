@@ -1,6 +1,6 @@
 import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, NumberAbbreviatorDescriptionModule, DataChartCoreDescriptionModule, DataChartScatterDescriptionModule, DataChartScatterCoreDescriptionModule, DataChartInteractivityDescriptionModule, DataChartAnnotationDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcValueBrushScaleComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcValueBrushScaleComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { WorldStatsItem, WorldStats } from './WorldStats';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -29,7 +29,7 @@ export class Sample {
             var sizeScale1 = new IgcSizeScaleComponent();
             sizeScale1.isLogarithmic = false;
             sizeScale1.minimumValue = 10;
-            sizeScale1.maximumValue = 120;
+            sizeScale1.maximumValue = 80;
 
             this._sizeScale1 = sizeScale1;
         }
@@ -41,21 +41,23 @@ export class Sample {
         {
             var valueBrushScale1 = new IgcValueBrushScaleComponent();
             valueBrushScale1.isLogarithmic = false;
-            valueBrushScale1.minimumValue = 0;
-            valueBrushScale1.maximumValue = 100000;
-            valueBrushScale1.brushes = ["rgba(26, 161, 226, 1)", "rgba(24, 154, 217, 1)", "rgba(22, 146, 206, 1)", "rgba(19, 133, 188, 1)", "rgba(15, 121, 171, 1)", "rgba(12, 107, 153, 1)", "rgba(9, 94, 136, 1)", "rgba(5, 82, 119, 1)", "rgba(2, 70, 105, 1)", "rgba(0, 63, 94, 1)"];
+            valueBrushScale1.minimumValue = 500;
+            valueBrushScale1.maximumValue = 260000;
+            valueBrushScale1.brushes = ["rgba(150, 189, 250, 1)", "rgba(111, 164, 247, 1)", "rgba(82, 144, 242, 1)", "rgba(19, 94, 212, 1)"];
 
             this._valueBrushScale1 = valueBrushScale1;
         }
         return this._valueBrushScale1;
     }
+    private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
     constructor() {
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcNumericXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
-        var bubbleSeries1 = this.bubbleSeries1 = document.getElementById('BubbleSeries1') as IgcBubbleSeriesComponent;
+        var bubbleSeries1 = this.bubbleSeries1 = document.getElementById('bubbleSeries1') as IgcBubbleSeriesComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('dataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             bubbleSeries1.radiusScale = this.sizeScale1;

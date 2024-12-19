@@ -18,67 +18,68 @@
 
 <div class="container sample">
 
-    <div class="legend-title">
-        Total Population of Selected Countries
-    </div>
-
-    <div class="legend">
-        <igc-legend
-        name="Legend"
-        id="Legend"
-        orientation="Horizontal">
-        </igc-legend>
-    </div>
-
     <div class="container fill">
         <igc-data-chart
         name="chart"
-        id="chart">
+        id="chart"
+        chart-title="Population vs. Public Debt vs. GDP"
+        title-top-margin="10"
+        title-bottom-margin="0">
             <igc-numeric-x-axis
             name="xAxis"
             id="xAxis"
             title="Population"
+            minimum-value="100"
+            maximum-value="10000000000"
             is-logarithmic="true"
             abbreviate-large-numbers="true">
             </igc-numeric-x-axis>
             <igc-numeric-y-axis
             name="yAxis"
             id="yAxis"
-            title="GDP per Capita"
+            title="Public Debt per GDP (%)"
+            title-left-margin="10"
             is-logarithmic="true"
-            abbreviate-large-numbers="true">
+            abbreviate-large-numbers="true"
+            maximum-value="1000">
             </igc-numeric-y-axis>
             <igc-bubble-series
-            name="BubbleSeries1"
-            id="BubbleSeries1"
-            title="African Countries"
+            name="bubbleSeries1"
+            id="bubbleSeries1"
+            title="Country"
             x-member-path="population"
-            y-member-path="gDP"
-            radius-member-path="population"
+            y-member-path="publicDebt"
+            radius-member-path="gdpPerPerson"
+            y-member-as-legend-unit="%"
+            y-member-as-legend-label="Debt"
+            x-member-as-legend-label="Population"
+            radius-member-as-legend-label="GDP"
             marker-type="Circle"
-            marker-outline="rgba(62, 202, 62, 1)"
-            marker-brush="rgba(69, 179, 224, 1)"
+            marker-outline="black"
+            marker-brush="rgba(67, 162, 250, 1)"
             marker-fill-opacity="0.5"
-            marker-thickness="2"
-            show-default-tooltip="true">
-            </igc-bubble-series>
-            <igc-bubble-series
-            name="BubbleSeries2"
-            id="BubbleSeries2"
-            title="European Countries"
-            x-member-path="population"
-            y-member-path="gDP"
-            radius-member-path="population"
-            marker-type="Circle"
-            marker-outline="rgba(171, 6, 221, 1)"
-            marker-brush="rgba(135, 156, 235, 1)"
-            marker-fill-opacity="0.5"
-            marker-thickness="2"
+            marker-thickness="1"
             show-default-tooltip="true">
             </igc-bubble-series>
             <igc-data-tool-tip-layer
-            name="DataToolTipLayer"
-            id="DataToolTipLayer">
+            name="dataToolTipLayer"
+            id="dataToolTipLayer"
+            value-row-margin-top="1"
+            label-text-margin-top="1"
+            title-text-margin-top="1"
+            units-text-margin-top="1"
+            value-row-margin-bottom="1"
+            label-text-margin-bottom="1"
+            title-text-margin-bottom="1"
+            units-text-margin-bottom="1"
+            units-text-margin-right="5"
+            value-text-margin-left="10"
+            label-text-margin-left="1"
+            grouping-mode="Grouped"
+            layout-mode="Vertical"
+            badge-shape="Hidden"
+            included-columns="X, Y, Radius"
+            header-row-visible="false">
             </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>

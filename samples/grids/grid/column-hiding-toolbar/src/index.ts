@@ -14,7 +14,7 @@ export class Sample {
     private contactName: IgcColumnComponent
     private contactTitle: IgcColumnComponent
     private city: IgcColumnComponent
-    private companyName: IgcColumnComponent
+    private company: IgcColumnComponent
     private fax: IgcColumnComponent
     private address: IgcColumnComponent
     private postalCode: IgcColumnComponent
@@ -28,7 +28,7 @@ export class Sample {
         var contactName = this.contactName = document.getElementById('ContactName') as IgcColumnComponent;
         var contactTitle = this.contactTitle = document.getElementById('ContactTitle') as IgcColumnComponent;
         var city = this.city = document.getElementById('City') as IgcColumnComponent;
-        var companyName = this.companyName = document.getElementById('CompanyName') as IgcColumnComponent;
+        var company = this.company = document.getElementById('Company') as IgcColumnComponent;
         var fax = this.fax = document.getElementById('Fax') as IgcColumnComponent;
         var address = this.address = document.getElementById('Address') as IgcColumnComponent;
         var postalCode = this.postalCode = document.getElementById('PostalCode') as IgcColumnComponent;

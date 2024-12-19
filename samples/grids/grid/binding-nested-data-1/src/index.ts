@@ -54,6 +54,7 @@ export class Sample {
         </igc-expansion-panel>
             `;
         }
+        return nothing;
     };
 
 }

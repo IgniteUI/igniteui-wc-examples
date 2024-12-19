@@ -4160,7 +4160,7 @@ export class WorldStats extends Array<WorldStatsItem> {
                     status: `Dependency`,
                     longitude: -53.13,
                     latitude: 3.893,
-                    gdpPerPerson: 4386128,
+                    gdpPerPerson: 4386,
                     rank: 180,
                     unemployment: 3,
                     oilProduction: 0,
@@ -5323,29 +5323,6 @@ export class WorldStats extends Array<WorldStatsItem> {
                 }),
                 new WorldStatsItem(
                 {
-                    code: `ATA`,
-                    name: `Antarctica`,
-                    continent: `Antarctica`,
-                    population: 4050,
-                    gdpTotal: 810,
-                    economy: `Developing`,
-                    region: `Antarctica`,
-                    status: `Indeterminate`,
-                    longitude: 54.592,
-                    latitude: -70.81,
-                    gdpPerPerson: 200000,
-                    rank: 231,
-                    unemployment: 9,
-                    oilProduction: 2,
-                    birthRate: 18,
-                    medianAge: 42,
-                    electricity: 63975,
-                    televisions: 2439,
-                    publicDebt: 45,
-                    internet: 2190
-                }),
-                new WorldStatsItem(
-                {
                     code: `IOT`,
                     name: `British Indian Territory`,
                     continent: `Asia`,
@@ -5437,7 +5414,7 @@ export class WorldStats extends Array<WorldStatsItem> {
                     internet: 1247
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

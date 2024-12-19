@@ -3,7 +3,6 @@ import {
     IgcRadioGroupComponent,
     IgcStepComponent,
     IgcSwitchComponent,
-    IgcFormComponent,
     IgcInputComponent,
     IgcButtonComponent,
     IgcRadioComponent,

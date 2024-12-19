@@ -24,8 +24,10 @@
 
     <div class="legend">
         <igc-data-legend
-        name="Legend"
-        id="Legend">
+        name="legend"
+        id="legend"
+        units-text="%"
+        included-columns="BirthRate, DeathRate">
         </igc-data-legend>
     </div>
 
@@ -33,14 +35,6 @@
         <igc-data-chart
         name="chart"
         id="chart">
-            <igc-numeric-x-axis
-            name="xAxis"
-            id="xAxis"
-            title="Death Rate"
-            interval="1"
-            minimum-value="4"
-            maximum-value="16">
-            </igc-numeric-x-axis>
             <igc-numeric-y-axis
             name="yAxis"
             id="yAxis"
@@ -49,9 +43,17 @@
             minimum-value="0"
             maximum-value="60">
             </igc-numeric-y-axis>
+            <igc-numeric-x-axis
+            name="xAxis"
+            id="xAxis"
+            title="Death Rate"
+            interval="1"
+            minimum-value="4"
+            maximum-value="16">
+            </igc-numeric-x-axis>
             <igc-bubble-series
-            name="BubbleSeries1"
-            id="BubbleSeries1"
+            name="bubbleSeries1"
+            id="bubbleSeries1"
             x-member-path="deathRate"
             y-member-path="birthRate"
             radius-member-path="population"
@@ -61,8 +63,8 @@
             y-member-as-legend-label="Birth Rate: ">
             </igc-bubble-series>
             <igc-bubble-series
-            name="BubbleSeries2"
-            id="BubbleSeries2"
+            name="bubbleSeries2"
+            id="bubbleSeries2"
             x-member-path="deathRate"
             y-member-path="birthRate"
             radius-member-path="population"

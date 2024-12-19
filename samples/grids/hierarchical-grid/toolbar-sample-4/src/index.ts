@@ -2,9 +2,9 @@ import { IgcGridToolbarTemplateContext, IgcHierarchicalGridComponent, IgcRowIsla
 import { defineComponents, IgcButtonComponent, IgcIconComponent, registerIconFromText } from 'igniteui-webcomponents';
 import { SingersData } from './SingersData';
 import { html } from 'lit-html';
-
 import 'igniteui-webcomponents-grids/grids/combined';
 import 'igniteui-webcomponents-grids/grids/themes/light/bootstrap.css';
+
 
 defineComponents(IgcButtonComponent, IgcIconComponent);
 
@@ -18,7 +18,7 @@ export class Sample {
 
         var hGrid1 = this.hGrid1 = document.getElementById('hGrid1') as IgcHierarchicalGridComponent;
         hGrid1.data = this.singersData;
-        
+
         var rowIsland1 = document.getElementById('rowIsland1') as IgcRowIslandComponent;
         rowIsland1.toolbarTemplate = this.rowIslandToolbarTemplate;
 

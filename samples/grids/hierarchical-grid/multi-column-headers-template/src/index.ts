@@ -67,7 +67,7 @@ export class Sample {
 
     public columnGroupStates = new Map<IgcColumnGroupComponent, boolean>();
     public toggleColumnGroup(columnGroup: IgcColumnGroupComponent) {
-        const columns = Array.from(columnGroup.children);
+        const columns = columnGroup.childColumns;
         if (columnGroup.header === 'General Information') {
             const column = columns[1] as IgcColumnComponent;
             column.hidden = !column.hidden;
@@ -75,7 +75,7 @@ export class Sample {
             for (const column of columns) {
                 const col = column as IgcColumnComponent;
                 if (col.header === "Location"){
-                    for (const cl of col.columnChildren) {
+                    for (const cl of col.childColumns) {
                         const c = cl as IgcColumnComponent;
                         if (c.field !== "Address"){
                             c.hidden = !c.hidden;
@@ -83,7 +83,7 @@ export class Sample {
                     }
                 }
                 else if (col.header === "Contact Information"){
-                    const c = col.columnChildren[1] as IgcColumnComponent;
+                    const c = col.childColumns[1] as IgcColumnComponent;
                     c.hidden = !c.hidden;
                 }
             }

@@ -10,7 +10,7 @@ import "./index.css";
 
 export class Sample {
 
-    private grid: IgcTreeGridComponent
+    private treeGrid: IgcTreeGridComponent
     private _pinningConfig1: IgcPinningConfig | null = null;
     public get pinningConfig1(): IgcPinningConfig {
         if (this._pinningConfig1 == null)
@@ -26,14 +26,14 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var grid = this.grid = document.getElementById('grid') as IgcTreeGridComponent;
+        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
         this.webTreeGridPinRowOnRendered = this.webTreeGridPinRowOnRendered.bind(this);
         var actionStrip = this.actionStrip = document.getElementById('actionStrip') as IgcActionStripComponent;
 
         this._bind = () => {
-            grid.data = this.employeesNestedTreeData;
-            grid.addEventListener("rendered", this.webTreeGridPinRowOnRendered);
-            grid.pinning = this.pinningConfig1;
+            treeGrid.data = this.employeesNestedTreeData;
+            treeGrid.addEventListener("rendered", this.webTreeGridPinRowOnRendered);
+            treeGrid.pinning = this.pinningConfig1;
         }
         this._bind();
 

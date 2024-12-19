@@ -49,11 +49,13 @@ export class TreeMapEvents {
             this.hoveredNodeValue.innerText = population;
         }
     }
+
     private onNodePointerLeave(sender: IgcTreemapComponent, args: IgcTreemapNodePointerEventArgs) {
         this.hoveredNodeParent.innerText = "None";
         this.hoveredNodeName.innerText = "None";
         this.hoveredNodeValue.innerText = "None";
     }
+
     private onNodePointerPressed(sender: IgcTreemapComponent, args: IgcTreemapNodePointerEventArgs) {
         if (!args.item) {
             return;

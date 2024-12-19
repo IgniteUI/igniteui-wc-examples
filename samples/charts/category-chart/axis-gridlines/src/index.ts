@@ -22,6 +22,8 @@ export class Sample {
 
     private legend: IgcLegendComponent
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private xAxisStroke: IgcPropertyEditorPropertyDescriptionComponent
+    private xAxisMajorStroke: IgcPropertyEditorPropertyDescriptionComponent
     private yAxisStroke: IgcPropertyEditorPropertyDescriptionComponent
     private yAxisMajorStroke: IgcPropertyEditorPropertyDescriptionComponent
     private yAxisMinorStroke: IgcPropertyEditorPropertyDescriptionComponent
@@ -29,8 +31,10 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var xAxisStroke = this.xAxisStroke = document.getElementById('XAxisStroke') as IgcPropertyEditorPropertyDescriptionComponent;
+        var xAxisMajorStroke = this.xAxisMajorStroke = document.getElementById('XAxisMajorStroke') as IgcPropertyEditorPropertyDescriptionComponent;
         var yAxisStroke = this.yAxisStroke = document.getElementById('YAxisStroke') as IgcPropertyEditorPropertyDescriptionComponent;
         var yAxisMajorStroke = this.yAxisMajorStroke = document.getElementById('YAxisMajorStroke') as IgcPropertyEditorPropertyDescriptionComponent;
         var yAxisMinorStroke = this.yAxisMinorStroke = document.getElementById('YAxisMinorStroke') as IgcPropertyEditorPropertyDescriptionComponent;

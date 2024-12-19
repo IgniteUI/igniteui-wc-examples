@@ -31,7 +31,7 @@ export class Sample {
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
-        var lineSeries1 = this.lineSeries1 = document.getElementById('LineSeries1') as IgcLineSeriesComponent;
+        var lineSeries1 = this.lineSeries1 = document.getElementById('lineSeries1') as IgcLineSeriesComponent;
         var calloutLayer1 = this.calloutLayer1 = document.getElementById('CalloutLayer1') as IgcCalloutLayerComponent;
         var finalValueLayer = this.finalValueLayer = document.getElementById('FinalValueLayer') as IgcFinalValueLayerComponent;
         var crosshairLayer = this.crosshairLayer = document.getElementById('CrosshairLayer') as IgcCrosshairLayerComponent;

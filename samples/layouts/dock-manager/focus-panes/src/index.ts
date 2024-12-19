@@ -1,6 +1,6 @@
 import './DockManagerStyles.css'
 import { defineCustomElements } from 'igniteui-dockmanager/loader';
-import { 
+import {
     IgcDockManagerPaneType,
     IgcSplitPane,
     IgcSplitPaneOrientation,
@@ -39,7 +39,7 @@ export class DockManagerAddContentRuntime {
         const focusFloatingPaneBtn = document.getElementById('focusFloating');
         const focusUnpinnedPaneBtn = document.getElementById('focusUnpinned');
         const focusRegularPaneBtn = document.getElementById('focusRegular');
-       
+
         this.dockManager.layout = {
             rootPane: {
                 type: IgcDockManagerPaneType.splitPane,

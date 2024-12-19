@@ -2,7 +2,7 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcPinningConfig, RowPinningPosition, IgcActionStripComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import NwindData from './NwindData.json';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -56,12 +56,8 @@ export class Sample {
 
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
+    private _nwindData: any[] = NwindData;
+    public get nwindData(): any[] {
         return this._nwindData;
     }
 

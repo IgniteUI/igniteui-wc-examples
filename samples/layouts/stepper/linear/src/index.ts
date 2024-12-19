@@ -1,7 +1,7 @@
 import { defineComponents, IgcStepperComponent, IgcStepComponent, IgcInputComponent, IgcButtonComponent, IgcRadioComponent, IgcSwitchComponent } from "igniteui-webcomponents";
-
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./StepperLinear.css";
+
 
 defineComponents(IgcStepperComponent, IgcInputComponent, IgcButtonComponent, IgcRadioComponent, IgcSwitchComponent);
 
@@ -29,7 +29,7 @@ export class StepperLinear {
 
     private linearChange() {
         document.querySelector("igc-switch")!.addEventListener("igcChange", (e: CustomEvent) => {
-            this.stepper.linear = e.detail;
+            this.stepper.linear = e.detail.checked;
 
             document.querySelectorAll("igc-button.next").forEach((button) => {
                 const igcButton = button as unknown as IgcButtonComponent;
@@ -43,10 +43,10 @@ export class StepperLinear {
         if (this.activeStep!.optional || !this.nextButton) {
             return;
         }
-    
+
         const form = this.activeStep!.querySelector("form") as HTMLFormElement;
         const isFormInvalid = !form.checkValidity();
-    
+
         this.activeStep!.invalid = isFormInvalid;
         this.nextButton.disabled = this.stepper.linear ? isFormInvalid : false;
     }
