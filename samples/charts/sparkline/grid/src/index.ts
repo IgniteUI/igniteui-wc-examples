@@ -24,7 +24,7 @@ export class SparklineGrid {
         this.data = Products.getData();
 
         this.onUpdatingHistoryColumn = this.onUpdatingHistoryColumn.bind(this);
-        
+
         this.grid = document.getElementById('grid') as IgcDataGridComponent;
         this.grid.dataSource = this.data;
 
@@ -45,7 +45,7 @@ export class SparklineGrid {
             chart.labelMemberPath = 'Week';
             chart.displayType = SparklineDisplayType.Line;
             chart.brush = 'rgb(21, 190, 6)';
-            
+
             let container = document.createElement("div") as HTMLDivElement;
             container.style.width = "100%";
             container.style.height = "70px";

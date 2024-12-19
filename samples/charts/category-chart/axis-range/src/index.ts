@@ -31,7 +31,7 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var legend = this.legend = document.getElementById('Legend') as IgcLegendComponent;
+        var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
         var yAxisMinimumValue = this.yAxisMinimumValue = document.getElementById('YAxisMinimumValue') as IgcPropertyEditorPropertyDescriptionComponent;
         this.editorChangeUpdateYAxisMinimumValue = this.editorChangeUpdateYAxisMinimumValue.bind(this);

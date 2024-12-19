@@ -25,7 +25,7 @@ export class Sample {
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
     private summaryRowHeightEditor: IgcPropertyEditorPropertyDescriptionComponent
     private toggleSummariesEditor: IgcPropertyEditorPropertyDescriptionComponent
-    private displayDensityEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private sizeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private hierarchicalGrid: IgcHierarchicalGridComponent
     private column1: IgcColumnComponent
     private column2: IgcColumnComponent
@@ -38,7 +38,8 @@ export class Sample {
         var summaryRowHeightEditor = this.summaryRowHeightEditor = document.getElementById('SummaryRowHeightEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var toggleSummariesEditor = this.toggleSummariesEditor = document.getElementById('ToggleSummariesEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webHierarchicalGridHasSummariesChange = this.webHierarchicalGridHasSummariesChange.bind(this);
-        var displayDensityEditor = this.displayDensityEditor = document.getElementById('DisplayDensityEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var sizeEditor = this.sizeEditor = document.getElementById('SizeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        this.webHierarchicalGridSetGridSize = this.webHierarchicalGridSetGridSize.bind(this);
         var hierarchicalGrid = this.hierarchicalGrid = document.getElementById('hierarchicalGrid') as IgcHierarchicalGridComponent;
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
         var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
@@ -49,6 +50,7 @@ export class Sample {
             propertyEditorPanel1.componentRenderer = this.renderer;
             propertyEditorPanel1.target = this.hierarchicalGrid;
             toggleSummariesEditor.changed = this.webHierarchicalGridHasSummariesChange;
+            sizeEditor.changed = this.webHierarchicalGridSetGridSize;
             hierarchicalGrid.data = this.singersData;
             column1.summaries = this.singerSummary;
             column2.summaryTemplate = this.webHierarchicalGridSummaryTemplateStyle;
@@ -85,6 +87,12 @@ export class Sample {
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
         column3.hasSummary = newValue;
+    }
+
+    public webHierarchicalGridSetGridSize(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("hierarchicalGrid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
     public webHierarchicalGridSummaryTemplateStyle = (ctx: IgcSummaryTemplateContext) => {

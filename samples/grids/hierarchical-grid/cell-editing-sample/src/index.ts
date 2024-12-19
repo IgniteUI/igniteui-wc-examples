@@ -55,7 +55,8 @@ export class Sample {
     public hGridCellEditCellTemplate = (ctx: IgcCellTemplateContext) => {
         let cellValues: any = [];
         let uniqueValues: any = [];
-        for(const i of (this.hGridDndData as any)){
+        let hGridDndData = this.hierarchicalGrid1.data;
+        for(const i of (hGridDndData as any)){
             const field: string = ctx.cell.column.field;
             if(uniqueValues.indexOf(i[field]) === -1 )
             {
@@ -66,7 +67,7 @@ export class Sample {
             }
         }
         return html`
-        <igc-select style="width:100%; height:100%" size="large" @igcChange=${(e: any) => ctx.cell.editValue = e.detail.value}>
+        <igc-select style="width:100%; height:100%; --ig-size: var(--ig-size-large);" @igcChange=${(e: any) => ctx.cell.editValue = e.detail.value}>
               ${cellValues}
         </igc-select>
     `;

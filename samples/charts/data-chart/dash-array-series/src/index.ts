@@ -1,10 +1,9 @@
 import { IgcLegendModule, IgcDataChartCategoryModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { IgcLegendComponent, IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcLegendModule,
@@ -46,7 +45,6 @@ export class Sample {
             lineSeries3.dataSource = this.countryRenewableElectricity;
         }
         this._bind();
-
     }
 
     private _countryRenewableElectricity: CountryRenewableElectricity = null;

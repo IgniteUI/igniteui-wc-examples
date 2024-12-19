@@ -13,7 +13,7 @@ export class EmployeesFlatDetailsItem {
     public Name: string;
     public ParentID: number;
     public Phone: string;
-    public PostalCode: string;
+    public PostalCode: number;
     public Title: string;
     public LastName: string;
     public FullAddress: string;
@@ -37,7 +37,7 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Name: `Johnathan Winchester`,
                     ParentID: -1,
                     Phone: `030-0074321`,
-                    PostalCode: `12209`,
+                    PostalCode: 12209,
                     Title: `Development Manager`,
                     LastName: `Winchester`,
                     FullAddress: `Obere Str. 57, Berlin, Germany`
@@ -48,13 +48,13 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Age: 42,
                     City: `México D.F.`,
                     Country: `Mexico`,
-                    Fax: `(5) 555-3745`,
+                    Fax: `(51) 555-3745`,
                     HireDate: `2014-01-22`,
                     ID: 4,
                     Name: `Ana Sanders`,
                     ParentID: -1,
                     Phone: `(5) 555-4729`,
-                    PostalCode: `05021`,
+                    PostalCode: 5021,
                     Title: `CEO`,
                     LastName: `Sanders`,
                     FullAddress: `Avda. de la Constitución 2222, México D.F., Mexico`
@@ -71,7 +71,7 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Name: `Victoria Lincoln`,
                     ParentID: -1,
                     Phone: `(5) 555-3932`,
-                    PostalCode: `05023`,
+                    PostalCode: 5023,
                     Title: `Accounting Manager`,
                     LastName: `Lincoln`,
                     FullAddress: `Mataderos 2312, México D.F., Mexico`
@@ -88,7 +88,7 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Name: `Yang Wang`,
                     ParentID: -1,
                     Phone: `(171) 555-7788`,
-                    PostalCode: `WA1 1DP`,
+                    PostalCode: 39000,
                     Title: `Localization Manager`,
                     LastName: `Wang`,
                     FullAddress: `120 Hanover Sq., London, UK`
@@ -105,7 +105,7 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Name: `Michael Burke`,
                     ParentID: 1,
                     Phone: `0921-12 34 65`,
-                    PostalCode: `S-958 22`,
+                    PostalCode: 29000,
                     Title: `Senior Software Developer`,
                     LastName: `Burke`,
                     FullAddress: `Berguvsvägen 8, Luleå, Sweden`
@@ -122,7 +122,7 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Name: `Thomas Anderson`,
                     ParentID: 1,
                     Phone: `0621-08460`,
-                    PostalCode: `68306`,
+                    PostalCode: 68306,
                     Title: `Senior Software Developer`,
                     LastName: `Anderson`,
                     FullAddress: `Forsterstr. 57, Mannheim, Germany`
@@ -139,7 +139,7 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Name: `Monica Reyes`,
                     ParentID: 1,
                     Phone: `88.60.15.31`,
-                    PostalCode: `67000`,
+                    PostalCode: 67000,
                     Title: `Software Development Team Lead`,
                     LastName: `Reyes`,
                     FullAddress: `24, place Kléber, Strasbourg, France`
@@ -150,13 +150,13 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Age: 35,
                     City: `Madrid`,
                     Country: `Spain`,
-                    Fax: `(91) 555 91 99`,
+                    Fax: `(911) 555 91 99`,
                     HireDate: `2015-09-17`,
                     ID: 6,
                     Name: `Roland Mendel`,
                     ParentID: 11,
                     Phone: `(91) 555 22 82`,
-                    PostalCode: `28023`,
+                    PostalCode: 28023,
                     Title: `Senior Software Developer`,
                     LastName: `Mendel`,
                     FullAddress: `C/ Araquil, 67, Madrid, Spain`
@@ -173,7 +173,7 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Name: `Sven Cooper`,
                     ParentID: 11,
                     Phone: `91.24.45.40`,
-                    PostalCode: `13008`,
+                    PostalCode: 13008,
                     Title: `Senior Software Developer`,
                     LastName: `Cooper`,
                     FullAddress: `12, rue des Bouchers, Marseille, France`
@@ -190,7 +190,7 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Name: `Laurence Johnson`,
                     ParentID: 4,
                     Phone: `(604) 555-4729`,
-                    PostalCode: `T2F 8M4`,
+                    PostalCode: 19000,
                     Title: `Director`,
                     LastName: `Johnson`,
                     FullAddress: `23 Tsawassen Blvd., Tsawassen, Canada`
@@ -201,13 +201,13 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Age: 25,
                     City: `London`,
                     Country: `UK`,
-                    Fax: `(5) 555-3798`,
+                    Fax: `(125) 555-3798`,
                     HireDate: `2017-11-9`,
                     ID: 5,
                     Name: `Elizabeth Richards`,
                     ParentID: 4,
                     Phone: `(171) 555-1212`,
-                    PostalCode: `EC2 5NT`,
+                    PostalCode: 30000,
                     Title: `Vice President`,
                     LastName: `Richards`,
                     FullAddress: `Fauntleroy Circus, London, UK`
@@ -218,13 +218,13 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Age: 39,
                     City: `Buenos Aires`,
                     Country: `Argentina`,
-                    Fax: `(1) 135-4892`,
+                    Fax: `(121) 135-4892`,
                     HireDate: `2010-03-22`,
                     ID: 13,
                     Name: `Trevor Ashworth`,
                     ParentID: 5,
                     Phone: `(1) 135-5555`,
-                    PostalCode: `1010`,
+                    PostalCode: 1010,
                     Title: `Director`,
                     LastName: `Ashworth`,
                     FullAddress: `Cerrito 333, Buenos Aires, Argentina`
@@ -235,13 +235,13 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Age: 44,
                     City: `México D.F.`,
                     Country: `Mexico`,
-                    Fax: `(5) 555-7293`,
+                    Fax: `(153) 555-7293`,
                     HireDate: `2014-04-04`,
                     ID: 17,
                     Name: `Antonio Moreno`,
                     ParentID: 18,
                     Phone: `(5) 555-3392`,
-                    PostalCode: `05022`,
+                    PostalCode: 5022,
                     Title: `Senior Accountant`,
                     LastName: `Moreno`,
                     FullAddress: `Sierras de Granada 9993, México D.F., Mexico`
@@ -252,13 +252,13 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Age: 50,
                     City: `Sao Paulo`,
                     Country: `Brazil`,
-                    Fax: `(5) 555-6691`,
+                    Fax: `(531) 555-6691`,
                     HireDate: `2007-11-18`,
                     ID: 7,
                     Name: `Pedro Rodriguez`,
                     ParentID: 10,
                     Phone: `0452-076545`,
-                    PostalCode: `3012`,
+                    PostalCode: 3012,
                     Title: `Senior Localization Developer`,
                     LastName: `Rodriguez`,
                     FullAddress: `Hauptstr. 29, Sao Paulo, Brazil`
@@ -269,13 +269,13 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Age: 27,
                     City: `Bern`,
                     Country: `Switzerland`,
-                    Fax: ``,
+                    Fax: `(271) 335-357`,
                     HireDate: `2016-02-19`,
                     ID: 8,
                     Name: `Casey Harper`,
                     ParentID: 10,
                     Phone: `(11) 555-7647`,
-                    PostalCode: `05432-043`,
+                    PostalCode: 40000,
                     Title: `Senior Localization`,
                     LastName: `Harper`,
                     FullAddress: `Av. dos Lusíadas, 23, Bern, Switzerland`
@@ -292,7 +292,7 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Name: `Patricia Simpson`,
                     ParentID: 7,
                     Phone: `(171) 555-2282`,
-                    PostalCode: `WX1 6LT`,
+                    PostalCode: 26000,
                     Title: `Localization Intern`,
                     LastName: `Simpson`,
                     FullAddress: `Berkeley Gardens 12, London, UK`
@@ -309,7 +309,7 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Name: `Francisco Chang`,
                     ParentID: 7,
                     Phone: `0241-039123`,
-                    PostalCode: `52066`,
+                    PostalCode: 52066,
                     Title: `Localization Intern`,
                     LastName: `Chang`,
                     FullAddress: `Walserweg 21, Aachen, Germany`
@@ -326,13 +326,13 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     Name: `Peter Lewis`,
                     ParentID: 7,
                     Phone: `(171) 555-0297`,
-                    PostalCode: `WX3 6FW`,
+                    PostalCode: 48000,
                     Title: `Localization Intern`,
                     LastName: `Lewis`,
                     FullAddress: `35 King George, London, UK`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

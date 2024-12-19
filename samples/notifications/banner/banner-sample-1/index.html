@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <title>Banner Sample 1</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="gallery__wrapper">
+      <div class="gallery__content">
+        <igc-navbar>
+          <h1>Gallery</h1>
+          <igc-icon name="refresh" slot="end" onclick="banner.show()"></igc-icon>
+        </igc-navbar>
+        
+        <igc-banner id="banner" class="offline-banner">
+          You are currently offline.
+        </igc-banner>
+
+        <igc-card class="gallery__item" elevated>
+            <div>
+              <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/media/the_red_ice_forest.jpg">
+            </div>
+        </igc-card>
+        <igc-card class="gallery__item" elevated>
+            <div>
+              <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/media/yosemite.jpg">
+            </div>
+        </igc-card>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>

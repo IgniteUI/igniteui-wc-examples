@@ -4,11 +4,11 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents, registerIconFromText } from 'igniteui-webcomponents';
 import "./index.css";
+
 defineAllComponents();
 
 export class Sample {
@@ -19,6 +19,7 @@ export class Sample {
   public clickedCell: any = null;
   public copiedData: any;
   public multiCellSelection: { data: any[] } = { data: [] };
+
   public multiCellArgs: any;
 
   constructor() {
@@ -50,13 +51,13 @@ export class Sample {
     eventArgs.event.preventDefault();
     this.multiCellArgs = {};
     if (this.multiCellSelection) {
-      const node = eventArgs.cell.selectionNode;
+      const node = eventArgs.cell;
       const isCellWithinRange = this.grid.getSelectedRanges().some((range) => {
         if (
-          node.column >= range.columnStart &&
-          node.column <= range.columnEnd &&
-          node.row >= range.rowStart &&
-          node.row <= range.rowEnd
+          node.columnIndex >= range.columnStart &&
+          node.columnIndex <= range.columnEnd &&
+          node.rowIndex >= range.rowStart &&
+          node.rowIndex <= range.rowEnd
         ) {
           return true;
         }
@@ -85,7 +86,7 @@ export class Sample {
   }
 
   public copySelectedRowData() {
-    const selectedData = this.grid.getRowData(this.clickedCell.id.rowID);
+    const selectedData = this.grid.getRowData(this.clickedCell.cellID.rowID);
     this.copyData(selectedData);
     const selectedDataArea = document.getElementById('selectedArea');
     selectedDataArea.innerText = JSON.stringify(selectedData);
@@ -99,7 +100,6 @@ export class Sample {
     selectedDataArea.innerText = JSON.stringify(selectedData);
     this.toggleContextMenu();
   }
-
 
   public copySelectedData() {
     const selectedData = this.grid.getSelectedData();

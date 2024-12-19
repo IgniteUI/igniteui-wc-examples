@@ -18,7 +18,7 @@ export class MapTypeScatterPolylineSeries {
 
         this.onDataLoaded = this.onDataLoaded.bind(this);
 
-        this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;        
+        this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.updateZoomWindow({ left: 0.195, top: 0.325, width: 0.2, height: 0.1 });
 
         // loading a shapefile with geographic shapes

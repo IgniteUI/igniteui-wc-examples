@@ -4,12 +4,11 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents, IgcButtonComponent, IgcInputComponent, IgcSwitchComponent } from 'igniteui-webcomponents';
-defineAllComponents();
 
+defineAllComponents();
 
 export class Sample {
 
@@ -17,6 +16,7 @@ export class Sample {
     private clipboardHeadersEditor: IgcPropertyEditorPropertyDescriptionComponent
     private clipboardFormattersEditor: IgcPropertyEditorPropertyDescriptionComponent
     private treeGrid: IgcTreeGridComponent
+    private defaultSeparator: string;
 
     constructor() {
         var clipboardEnabledEditor = this.clipboardEnabledEditor = document.getElementById('ClipboardEnabledEditor') as IgcPropertyEditorPropertyDescriptionComponent;
@@ -30,17 +30,17 @@ export class Sample {
         grid.addEventListener("columnInit", this.webGridClipboardOperationsColumnInit);
         var copyBehaviorSwitch = document.getElementById("copy") as IgcSwitchComponent;
         copyBehaviorSwitch.addEventListener("igcChange", (ev: CustomEvent) => {
-            grid.clipboardOptions.enabled = ev.detail;
+            grid.clipboardOptions.enabled = ev.detail.checked;
         });
 
         var copyHeaderSwitch = document.getElementById("headerCopy") as IgcSwitchComponent;
         copyHeaderSwitch.addEventListener("igcChange", (ev: CustomEvent) => {
-            grid.clipboardOptions.copyHeaders = ev.detail;
+            grid.clipboardOptions.copyHeaders = ev.detail.checked;
         });
 
         var formatterSwitch = document.getElementById("formatterCopy") as IgcSwitchComponent;
         formatterSwitch.addEventListener("igcChange", (ev: CustomEvent) => {
-            grid.clipboardOptions.copyFormatters = ev.detail;
+            grid.clipboardOptions.copyFormatters = ev.detail.checked;
         });
 
         var selectionClearBtn = document.getElementById("selectionClear") as IgcButtonComponent;
@@ -51,7 +51,10 @@ export class Sample {
 
         var input = document.getElementById("input") as IgcInputComponent;
         input.addEventListener("igcChange", (ev: CustomEvent) => {
-            grid.clipboardOptions.separator = ev.detail;
+            if (!this.defaultSeparator) {
+                this.defaultSeparator = grid.clipboardOptions.separator;
+            }
+            grid.clipboardOptions.separator = ev.detail || this.defaultSeparator;
         });
     }
 
@@ -63,6 +66,7 @@ export class Sample {
         }
         return this._employeesFlatDetails;
     }
+
     public webGridClearSelection(args: any): void {
         console.log("TODO" + args);
     	//TODO

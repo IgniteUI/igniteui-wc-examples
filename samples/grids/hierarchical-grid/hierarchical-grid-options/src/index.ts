@@ -8,7 +8,7 @@ import "./index.css";
 
 export class Sample {
 
-    private hierarchicalGrid1: IgcHierarchicalGridComponent
+    private grid: IgcHierarchicalGridComponent
     private paginator: IgcPaginatorComponent
     private _paginatorResourceStrings1: IgcPaginatorResourceStrings | null = null;
     public get paginatorResourceStrings1(): IgcPaginatorResourceStrings {
@@ -24,11 +24,11 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var hierarchicalGrid1 = this.hierarchicalGrid1 = document.getElementById('hierarchicalGrid1') as IgcHierarchicalGridComponent;
+        var grid = this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent;
         var paginator = this.paginator = document.getElementById('paginator') as IgcPaginatorComponent;
 
         this._bind = () => {
-            hierarchicalGrid1.data = this.singersData;
+            grid.data = this.singersData;
             paginator.resourceStrings = this.paginatorResourceStrings1;
         }
         this._bind();

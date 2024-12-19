@@ -595,6 +595,6 @@ export class SalesPerson {
     PercentChange!: number;
     YearToDateSales!: number;
     DateValue!: Date;
-} 
+}
 
 new DataGridPerformance();

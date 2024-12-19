@@ -19,14 +19,12 @@ export class Sample {
             pivotDimension1.memberName = "Country";
             pivotDimension1.enabled = true;
 
-            pivotConfiguration1.columns = []
-            pivotConfiguration1.columns.push(pivotDimension1);
+            pivotConfiguration1.columns = [pivotDimension1];
             var pivotDimension2: IgcPivotDimension = {} as IgcPivotDimension;
             pivotDimension2.memberName = "Product";
             pivotDimension2.enabled = true;
 
-            pivotConfiguration1.rows = []
-            pivotConfiguration1.rows.push(pivotDimension2);
+            pivotConfiguration1.rows = [pivotDimension2];
             var pivotValue1: IgcPivotValue = {} as IgcPivotValue;
             pivotValue1.member = "Sales";
             pivotValue1.enabled = true;
@@ -36,8 +34,7 @@ export class Sample {
 
             pivotValue1.aggregate = pivotAggregator1;
 
-            pivotConfiguration1.values = []
-            pivotConfiguration1.values.push(pivotValue1);
+            pivotConfiguration1.values = [pivotValue1];
 
             this._pivotConfiguration1 = pivotConfiguration1;
         }

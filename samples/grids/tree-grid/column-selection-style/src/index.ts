@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -18,7 +18,6 @@ export class Sample {
             treeGrid.data = this.employeesFlatDetails;
         }
         this._bind();
-
     }
 
     private _employeesFlatDetails: EmployeesFlatDetails = null;
