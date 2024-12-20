@@ -10,10 +10,10 @@ import "./index.css";
 export class Sample {
     private grid: IgcGridComponent;
     private _bind: () => void;
-    public _advancedFiltering: boolean;
-    public _hiding: boolean;
-    public _pinning: boolean;
-    public _exporter: boolean;
+    public _advancedFiltering: boolean = true;
+    public _hiding: boolean = true;
+    public _pinning: boolean = true;
+    public _exporter: boolean = true;
     private advancedFilteringCheckbox: HTMLInputElement;
     private hidingCheckbox: HTMLInputElement;
     private pinningCheckbox: HTMLInputElement;
@@ -21,15 +21,20 @@ export class Sample {
 
     constructor() {
         var grid1 = (this.grid = document.getElementById("grid1") as IgcGridComponent);
-        this._advancedFiltering = true;
-        this._hiding = true;
-        this._pinning = true;
-        this._exporter = true;
 
         this.advancedFilteringCheckbox = document.getElementById("toggleAdvancedFiltering") as HTMLInputElement;
         this.hidingCheckbox = document.getElementById("toggleHiding") as HTMLInputElement;
         this.pinningCheckbox = document.getElementById("togglePinning") as HTMLInputElement;
         this.exporterCheckbox = document.getElementById("toggleExporter") as HTMLInputElement;
+
+        this.advancedFilteringCheckbox.value = this._advancedFiltering.toString();
+        this.advancedFilteringCheckbox.checked = this._advancedFiltering;
+        this.hidingCheckbox.value = this._hiding.toString();
+        this.hidingCheckbox.checked = this._hiding;
+        this.pinningCheckbox.value = this._pinning.toString();
+        this.pinningCheckbox.checked = this._pinning;
+        this.exporterCheckbox.value = this._exporter.toString();
+        this.exporterCheckbox.checked = this._exporter;
 
         this.advancedFilteringCheckbox.addEventListener("change", (e) => {
             this._advancedFiltering = (e.target as HTMLInputElement).checked;
