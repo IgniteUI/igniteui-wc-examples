@@ -7,7 +7,7 @@ ModuleManager.register(IgcBulletGraphModule);
 
 export class BulletGraphAnimation {
 
-    private gauge: IgcBulletGraphComponent;    
+    private gauge: IgcBulletGraphComponent;
 
     constructor() {
 

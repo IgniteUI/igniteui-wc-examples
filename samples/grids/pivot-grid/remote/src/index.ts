@@ -56,6 +56,7 @@ export class Sample {
         }
         return this._pivotConfiguration;
     }
+
     private _bind: () => void;
 
     constructor() {

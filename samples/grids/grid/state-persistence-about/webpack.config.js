@@ -35,7 +35,7 @@ module.exports = env => {
         ] : path.resolve(__dirname, 'src'),
         devtool: isProd ? false : 'source-map',
         output: {
-            filename: '[name].[fullhash].bundle.js',
+            filename: isProd ? '[fullhash].bundle.js' : '[fullhash].bundle.js',
             globalObject: 'this',
             path: path.resolve(__dirname, 'dist'),
         },
@@ -96,8 +96,8 @@ module.exports = env => {
                 'process.env.NODE_ENV': JSON.stringify(nodeEnv)
             }),
             new HtmlWebpackPlugin({
-                title: 'index-cs',
-                template: 'index.html',
+                title: 'for-cs',
+                template: 'index.html'
             }),
             new ForkTsCheckerWebpackPlugin()
         ]

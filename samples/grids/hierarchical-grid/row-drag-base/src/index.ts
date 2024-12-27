@@ -1,10 +1,10 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcHierarchicalGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { SingersDataItem, SingersDataItem_ToursItem, SingersDataItem_AlbumsItem, SingersDataItem_AlbumsItem_SongsItem, SingersData } from './SingersData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -19,8 +19,8 @@ export class Sample {
         this._bind = () => {
             hierarchicalGrid1.data = this.singersData;
             this.hierarchicalGrid2.data = [];
-            this.hierarchicalGrid2.emptyGridMessage = "Drag and Drop a row from the left grid to this grid";            
-            hierarchicalGrid1.addEventListener("rowDragEnd", this.onGridRowDragEnd.bind(this));            
+            this.hierarchicalGrid2.emptyGridMessage = "Drag and Drop a row from the left grid to this grid";
+            hierarchicalGrid1.addEventListener("rowDragEnd", this.onGridRowDragEnd.bind(this));
         }
         this._bind();
     }
@@ -30,12 +30,12 @@ export class Sample {
 
         if (ghostElement != null) {
 
-            const dragElementPos = ghostElement.getBoundingClientRect();            
+            const dragElementPos = ghostElement.getBoundingClientRect();
 
-            const gridPosition = this.hierarchicalGrid2.getBoundingClientRect();            
+            const gridPosition = this.hierarchicalGrid2.getBoundingClientRect();
             const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
             const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;
-            if (withinXBounds && withinYBounds) {                
+            if (withinXBounds && withinYBounds) {
                 this.hierarchicalGrid2.addRow(args.detail.dragData.data);
             }
         }

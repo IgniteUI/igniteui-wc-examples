@@ -12,7 +12,7 @@ export class Sample {
     private chart: IgcCategoryChartComponent;
     public includedProperties: string[] = ["Year", "USA"];
     public data: any[] = [];
-    
+
     constructor() {
 
         this.onCrosshairsVisible = this.onCrosshairsVisible.bind(this);
@@ -38,7 +38,7 @@ export class Sample {
         let checkbox4 = document.getElementById('checkbox4');
         checkbox4!.addEventListener('change', this.onMarkersVisible);
     }
-   
+
     public initData() {
         this.data = [
             { Year: "2009", USA: 19 },
@@ -53,7 +53,7 @@ export class Sample {
             { Year: "2018", USA: 34 },
             { Year: "2019", USA: 38 },
         ];
-        
+
         let idx: number = 0;
 
         for (const item of this.data) {

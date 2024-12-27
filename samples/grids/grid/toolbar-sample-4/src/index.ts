@@ -4,8 +4,8 @@ import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { defineComponents, IgcButtonComponent, IgcIconComponent, registerIconFromText } from "igniteui-webcomponents";
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
 
 defineComponents(IgcButtonComponent, IgcIconComponent);
 export class Sample {

@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcCellType, IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindData } from './NwindData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -15,31 +15,30 @@ export class Sample {
 
     constructor() {
         var grid1 = this.grid1 = document.getElementById('grid1') as IgcGridComponent;
-    
+
         this._bind = () => {
             grid1.data = this.nwindData;
 
             grid1.addEventListener('activeNodeChange', (event: any) => {
                 grid1.endEdit();
                 (grid1.getElementsByClassName("igx-grid__tbody-content")[0] as any).focus();
-
             });
             grid1.addEventListener('keydown', (event: KeyboardEvent) => {
                 var code = event.code;
                 var activeElem = grid1.selectedCells[0];
 
-                if ((event.code >= 'Digit0' && event.code <= 'Digit9') || 
+                if ((event.code >= 'Digit0' && event.code <= 'Digit9') ||
                     (event.code >= 'KeyA' && event.code <= 'KeyZ') ||
-                    (event.code >= 'Numpad0' && event.code <= 'Numpad9') && 
+                    (event.code >= 'Numpad0' && event.code <= 'Numpad9') &&
                      event.code !== 'Enter' && event.code !== 'NumpadEnter') {
-        
+
                     if (activeElem && activeElem.editMode === false) {
                         activeElem.editMode = true;
                         activeElem.editValue = event.key;
                         this.shouldAppendValue = true;
                         grid1.markForCheck();
                     } else
-                    
+
                     if (activeElem && activeElem.editMode && this.shouldAppendValue) {
                         event.preventDefault();
                         activeElem.editValue = activeElem.editValue + event.key;
@@ -52,28 +51,26 @@ export class Sample {
                         return;
                     }
                     const rowIndex = activeElem.row.index;
-                    const columnKey = activeElem.column.field; 
-            
+                    const columnKey = activeElem.column.field;
+
                     grid1.data[rowIndex][columnKey] = '';
                     grid1.markForCheck();
-
                 }
-    
+
                 if (code === 'Enter') {
-                    
+
                     if(activeElem == null) {
                         return;
                     }
 
                     const thisRow = activeElem.row.index;
                     const dataView = this.grid1.dataView;
-                    const nextRowIndex = this.getNextEditableRowIndex(thisRow, dataView, event.shiftKey);    
+                    const nextRowIndex = this.getNextEditableRowIndex(thisRow, dataView, event.shiftKey);
 
                     grid1.navigateTo(nextRowIndex, activeElem.column.visibleIndex, (obj: any) => {
-                        grid1.clearCellSelection(); 
-                        obj.target.activate(); 
+                        grid1.clearCellSelection();
+                        obj.target.activate();
                     });
-
                 }
         });
     }
@@ -113,7 +110,6 @@ export class Sample {
         }
         return dataView.findIndex((rec, index) => index > currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
       }
-  
 
     private isEditableDataRecordAtIndex(rowIndex: number, dataView: any[]): boolean {
         const rec = dataView[rowIndex];

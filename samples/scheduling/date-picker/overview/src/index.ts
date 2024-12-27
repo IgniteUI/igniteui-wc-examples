@@ -8,7 +8,7 @@ export class DatePickerOverview {
         let datePicker = document.getElementById('date-picker') as IgcDatePickerComponent;
         const date = new Date();
         datePicker.value = date;
-    }   
+    }
 }
 
 new DatePickerOverview();

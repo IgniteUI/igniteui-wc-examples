@@ -6,7 +6,7 @@ defineComponents(IgcDatePickerComponent, IgcInputComponent);
 
 export class DatePickerDialogMode {
     constructor() {
-    }   
+    }
 }
 
 new DatePickerDialogMode();

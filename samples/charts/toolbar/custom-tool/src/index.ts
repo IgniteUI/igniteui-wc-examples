@@ -1,9 +1,9 @@
 import { IgcLegendModule, IgcCategoryChartModule, IgcCategoryChartToolbarModule } from 'igniteui-webcomponents-charts';
 import { IgcToolbarModule } from 'igniteui-webcomponents-layouts';
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcToolbarComponent } from 'igniteui-webcomponents-layouts';
+import { IgcToolbarComponent, IgcToolActionLabelComponent } from 'igniteui-webcomponents-layouts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
-import { IgcToolActionLabelComponent, IgcToolActionComponent, IgcToolCommandEventArgs } from 'igniteui-webcomponents-layouts';
+import { IgcToolActionComponent, IgcToolCommandEventArgs } from 'igniteui-webcomponents-layouts';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -20,12 +20,14 @@ export class Sample {
 
     private legend: IgcLegendComponent
     private toolbar: IgcToolbarComponent
+    private customIconName: IgcToolActionLabelComponent
     private chart: IgcCategoryChartComponent
     private _bind: () => void;
 
     constructor() {
         var legend = this.legend = document.getElementById('legend') as IgcLegendComponent;
         var toolbar = this.toolbar = document.getElementById('toolbar') as IgcToolbarComponent;
+        var customIconName = this.customIconName = document.getElementById('CustomIconName') as IgcToolActionLabelComponent;
         var chart = this.chart = document.getElementById('chart') as IgcCategoryChartComponent;
 
         this._bind = () => {

@@ -1,9 +1,9 @@
 import { IgcGridCreatedEventArgs, IgcHierarchicalGridComponent, IgcPaginatorComponent, IgcRowIslandComponent } from 'igniteui-webcomponents-grids/grids';
-
 import 'igniteui-webcomponents-grids/grids/combined';
 import 'igniteui-webcomponents-grids/grids/themes/light/bootstrap.css';
 import { html } from 'lit-html';
 import { RemotePagingService } from './RemoteService';
+
 
 export class Sample {
 
@@ -13,10 +13,11 @@ export class Sample {
     public pager: IgcPaginatorComponent;
     public hierarchicalGrid: IgcHierarchicalGridComponent;
     private remoteService: RemotePagingService = new RemotePagingService();
-    
+
     public get perPage(): number {
         return this.pager?.perPage || 10;
     }
+
     public set perPage(val: number) {
         this._perPage = val;
         this.paginate(val);
@@ -48,7 +49,6 @@ export class Sample {
         });
         this.pager.addEventListener("pageChange", ((args: CustomEvent<any>) => {
             this.paginate(args.detail);}) as EventListener);
-        
 
         ordersRowIsland.addEventListener("gridCreated", (event: any) => {
             this.gridCreated(event, "Customers");
@@ -94,7 +94,7 @@ export class Sample {
             if(length !== undefined) {
                 this.pager.totalRecords = length;
             }
-        
+
         this.remoteService.getData(dataState, this.page, this.perPage).then((data: any[]) => {
             context.grid.isLoading = false;
             context.grid.data = data;
@@ -106,7 +106,6 @@ export class Sample {
         this.page = page;
         const skip = this.page * this.perPage;
         const top = this.perPage;
-    
         this.remoteService.getData({ parentID: null, rootLevel: true, key: 'Customers' }, skip, top).then((data:any)=> {
           this.data = data; // Assign received data to this.data
           this.hierarchicalGrid.isLoading = false;

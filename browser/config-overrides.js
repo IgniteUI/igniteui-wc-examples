@@ -1,4 +1,5 @@
 
+//note: I suspect this was copied over from the react browser, and isn't needed here.
 module.exports = function override(config, env) {
     console.log("Running config-overrides.js");
     const paths = require('./node_modules/react-scripts/config/paths');
@@ -41,14 +42,19 @@ module.exports = function override(config, env) {
             name: 'igniteui-webcomponents-grids',
             chunks: 'all',
         },
-        igniteuiMaps: {
+        igniteuiInputs: {
             test: /[\\/]node_modules[\\/](igniteui-webcomponents-inputs)[\\/]/,
             name: 'igniteui-webcomponents-inputs',
             chunks: 'all',
         },
-        igniteuiMaps: {
+        igniteuiLayouts: {
             test: /[\\/]node_modules[\\/](igniteui-webcomponents-layouts)[\\/]/,
             name: 'igniteui-webcomponents-layouts',
+            chunks: 'all',
+        },
+        igniteuiDashboards: {
+            test: /[\\/]node_modules[\\/](igniteui-webcomponents-dashboards)[\\/]/,
+            name: 'igniteui-webcomponents-dashboards',
             chunks: 'all',
         },
         igniteuiMaps: {

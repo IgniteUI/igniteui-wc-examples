@@ -52,7 +52,6 @@ export class Sample {
             });
         }
         this._bind();
-
     }
 
     private _nwindData: NwindData = null;

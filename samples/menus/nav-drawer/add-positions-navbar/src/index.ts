@@ -10,7 +10,7 @@ const searchIcon =
 const homeIcon =
   '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>';
 
-const menuIcon = 
+const menuIcon =
   '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>';
 export class NavDrawerAddPositionsNavbar {
     constructor() {
@@ -53,7 +53,6 @@ export class NavDrawerAddPositionsNavbar {
           navDrawer.position = radio.target.value;
       });
 
-      
       registerIconFromText('home', homeIcon);
       registerIconFromText('menu', menuIcon);
       registerIconFromText('search', searchIcon);
