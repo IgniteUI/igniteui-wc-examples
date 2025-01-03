@@ -27,8 +27,7 @@
       "igniteui-webcomponents-grids/grids": [ "node_modules/igniteui-webcomponents-grids/grids", "node_modules/@infragistics/igniteui-webcomponents-grids/grids" ],
       "igniteui-webcomponents-grids/grids/*": [ "node_modules/igniteui-webcomponents-grids/grids/*", "node_modules/@infragistics/igniteui-webcomponents-grids/grids/*" ],
       "igniteui-webcomponents-grids/grids/combined": [ "node_modules/igniteui-webcomponents-grids/grids/combined", "node_modules/@infragistics/igniteui-webcomponents-grids/grids/combined" ],
-      "igniteui-webcomponents-layouts": [ "node_modules/igniteui-webcomponents-layouts", "node_modules/@infragistics/igniteui-webcomponents-layouts" ],
-      "igniteui-webcomponents-dashboards": [ "node_modules/igniteui-webcomponents-dashboards", "node_modules/@infragistics/igniteui-webcomponents-dashboards" ]
+      "igniteui-webcomponents-layouts": [ "node_modules/igniteui-webcomponents-layouts", "node_modules/@infragistics/igniteui-webcomponents-layouts" ]
     }
   },
   "include": [
