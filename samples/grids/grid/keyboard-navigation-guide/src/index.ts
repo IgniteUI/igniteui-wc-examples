@@ -34,7 +34,6 @@ const summaryCombinations: Item[] = [
     new Item('End', 'navigates to the last summary cell', false, ItemAction.Always)
 ];
 
-
 export class Sample {
 
     private grid: IgcGridComponent
@@ -64,7 +63,6 @@ export class Sample {
             grid.addEventListener("keydown", this.keydown);
         }
         this._bind();
-
     }
 
     public masterDetailTemplate = (ctx: IgcGridMasterDetailContext) => {
@@ -264,7 +262,6 @@ export class Sample {
         const evt = event.detail.event;
        this.keydown(evt);
     }
-
 
     public listTemplate = () => {
         let htmlContent = "";

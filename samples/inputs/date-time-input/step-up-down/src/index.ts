@@ -27,11 +27,11 @@ export class DateTimeInputStepUpDown {
         const up = document.getElementById('up');
         const down = document.getElementById('down');
 
-        up!.addEventListener('click', () => {   
+        up!.addEventListener('click', () => {
             input.stepUp("month" as DatePart);
         });
 
-        down!.addEventListener('click', () => {   
+        down!.addEventListener('click', () => {
             input.stepDown("date" as DatePart);
         });
 

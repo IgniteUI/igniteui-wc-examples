@@ -12,10 +12,10 @@ import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { SparklineDisplayType } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
-ModuleManager.register(    
+ModuleManager.register(
     IgcExcelModule,
     IgcDataGridModule,
-    IgcSparklineModule    
+    IgcSparklineModule
 );
 
 export class ExcelLibrarySparklines {
@@ -38,7 +38,7 @@ export class ExcelLibrarySparklines {
 
     public onOrdersCellUpdating(s: IgcTemplateColumnComponent, e: IgcTemplateCellUpdatingEventArgs) {
         const content = e.content as HTMLDivElement;
-        const info = e.cellInfo as IgcTemplateCellInfo;        
+        const info = e.cellInfo as IgcTemplateCellInfo;
         let sparkline: IgcSparklineComponent | null = null;
 
         if (content.childElementCount === 0) {
@@ -51,13 +51,12 @@ export class ExcelLibrarySparklines {
             sparkline.valueMemberPath = "Freight";
 
             content.appendChild(sparkline);
-
         }
-        else {            
+        else {
             sparkline = content.children[0] as IgcSparklineComponent;
         }
 
-        if (sparkline) {            
+        if (sparkline) {
             sparkline.dataSource = info.rowItem.Orders;
         }
     }

@@ -4,7 +4,6 @@ import { FinancialChartVolumeType } from "igniteui-webcomponents-charts";
 import { FinancialChartType } from "igniteui-webcomponents-charts";
 import { FinancialChartZoomSliderType } from "igniteui-webcomponents-charts";
 import { FinancialIndicatorType } from "igniteui-webcomponents-charts";
-
 import { ModuleManager } from "igniteui-webcomponents-core";
 import { StocksUtility } from "./StocksUtility";
 

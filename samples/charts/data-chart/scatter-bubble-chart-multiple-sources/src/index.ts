@@ -1,5 +1,5 @@
 import { IgcLegendModule, IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent } from 'igniteui-webcomponents-charts';
+import { IgcLegendComponent, IgcDataChartComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcSizeScaleComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { CountryStatsAfricaItem, CountryStatsAfrica } from './CountryStatsAfrica';
 import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
 
@@ -30,7 +30,7 @@ export class Sample {
             var sizeScale1 = new IgcSizeScaleComponent();
             sizeScale1.isLogarithmic = false;
             sizeScale1.minimumValue = 10;
-            sizeScale1.maximumValue = 50;
+            sizeScale1.maximumValue = 80;
 
             this._sizeScale1 = sizeScale1;
         }
@@ -44,12 +44,13 @@ export class Sample {
             var sizeScale2 = new IgcSizeScaleComponent();
             sizeScale2.isLogarithmic = false;
             sizeScale2.minimumValue = 10;
-            sizeScale2.maximumValue = 50;
+            sizeScale2.maximumValue = 80;
 
             this._sizeScale2 = sizeScale2;
         }
         return this._sizeScale2;
     }
+    private dataToolTipLayer: IgcDataToolTipLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -59,6 +60,7 @@ export class Sample {
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
         var bubbleSeries1 = this.bubbleSeries1 = document.getElementById('bubbleSeries1') as IgcBubbleSeriesComponent;
         var bubbleSeries2 = this.bubbleSeries2 = document.getElementById('bubbleSeries2') as IgcBubbleSeriesComponent;
+        var dataToolTipLayer = this.dataToolTipLayer = document.getElementById('dataToolTipLayer') as IgcDataToolTipLayerComponent;
 
         this._bind = () => {
             chart.legend = this.legend;

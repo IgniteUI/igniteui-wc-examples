@@ -45,6 +45,8 @@
             name="yAxis"
             id="yAxis"
             title="GDP per Capita"
+            maximum-value="1000000"
+            title-left-margin="10"
             is-logarithmic="true"
             abbreviate-large-numbers="true">
             </igc-numeric-y-axis>
@@ -54,7 +56,10 @@
             title="African Countries"
             x-member-path="population"
             y-member-path="gDP"
-            radius-member-path="population"
+            radius-member-path="workedHours"
+            x-member-as-legend-label="Population"
+            y-member-as-legend-label="GDP"
+            radius-member-as-legend-label="Work Hours"
             marker-type="Circle"
             show-default-tooltip="true">
             </igc-bubble-series>
@@ -64,10 +69,29 @@
             title="European Countries"
             x-member-path="population"
             y-member-path="gDP"
-            radius-member-path="population"
+            radius-member-path="workedHours"
+            x-member-as-legend-label="Population"
+            y-member-as-legend-label="GDP"
+            radius-member-as-legend-label="Work Hours"
             marker-type="Circle"
             show-default-tooltip="true">
             </igc-bubble-series>
+            <igc-data-tool-tip-layer
+            name="dataToolTipLayer"
+            id="dataToolTipLayer"
+            value-row-margin-top="1"
+            label-text-margin-top="1"
+            title-text-margin-top="1"
+            units-text-margin-top="1"
+            value-row-margin-bottom="1"
+            label-text-margin-bottom="1"
+            title-text-margin-bottom="1"
+            units-text-margin-bottom="1"
+            units-text-margin-right="5"
+            value-text-margin-left="10"
+            label-text-margin-left="1"
+            layout-mode="Vertical">
+            </igc-data-tool-tip-layer>
         </igc-data-chart>
     </div>
 </div>

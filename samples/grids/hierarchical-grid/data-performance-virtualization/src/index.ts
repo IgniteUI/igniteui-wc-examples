@@ -1,8 +1,8 @@
 import { IgcGridCreatedEventArgs, IgcHierarchicalGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { getData } from './RemoteService';
-
 import 'igniteui-webcomponents-grids/grids/combined';
 import 'igniteui-webcomponents-grids/grids/themes/light/bootstrap.css';
+
 
 export class Sample {
     constructor() {
@@ -19,7 +19,6 @@ export class Sample {
         });
 
         hierarchicalGrid.isLoading = true;
-
         getData({ parentID: null, rootLevel: true, key: "Customers" }).then((data: any) => {
             hierarchicalGrid.isLoading = false;
             hierarchicalGrid.data = data;
@@ -37,7 +36,7 @@ export class Sample {
         };
 
         context.grid.isLoading = true;
-        
+
         getData(dataState).then((data: any[]) => {
             context.grid.isLoading = false;
             context.grid.data = data;

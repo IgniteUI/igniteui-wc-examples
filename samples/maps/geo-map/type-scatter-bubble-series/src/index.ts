@@ -19,7 +19,7 @@ export class MapTypeScatterBubbleSeries {
 
     constructor() {
 
-        this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;        
+        this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.6, height: 0.6 });
 
         this.addSeriesWith(WorldLocations.getAll());

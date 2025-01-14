@@ -16,7 +16,6 @@ ModuleManager.register(
 
 export class Sample {
 
-
     private grid1: IgcTreeGridComponent;
     private chart: IgcCategoryChartComponent;
     private _timer: ReturnType<typeof setInterval>;
@@ -52,7 +51,6 @@ export class Sample {
         this.stopUpdate = this.stopUpdate.bind(this);
         document.getElementById('stopButton').addEventListener("click", this.stopUpdate);
 
-
         const sliderRecValueSpan = document.getElementById('slider-rec-value') as HTMLElement;
         const recordsSlider = document.getElementById('records') as IgcSliderComponent;
         recordsSlider.value = 1000;
@@ -61,7 +59,6 @@ export class Sample {
             this.data = FinancialData.generateData(ev.detail);
             this.grid1.data = this.data;
         });
-
 
         const sliderFreqValueSpan = document.getElementById('slider-freq-value') as HTMLElement;
         const freqSlider = document.getElementById('frequency') as IgcSliderComponent;
@@ -153,7 +150,6 @@ export class Sample {
         this.chart.yAxisAbbreviateLargeNumbers = true;
     }
 
-
     public openDialogForRow(e: any, rowData: any) {
         const chart = document.getElementById('chart1') as IgcCategoryChartComponent;
         const chartData = this.grid1.data.filter(item => item.region === rowData.region &&
@@ -167,7 +163,6 @@ export class Sample {
         const chartDialog = document.getElementById('dialog') as IgcDialogComponent;
         chartDialog.show();
     }
-
 
     public priceTemplate = (ctx: IgcCellTemplateContext) => {
         const cell = ctx.cell;

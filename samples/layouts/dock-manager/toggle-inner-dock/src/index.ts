@@ -1,6 +1,6 @@
 import './DockManagerStyles.css'
 import { defineCustomElements } from 'igniteui-dockmanager/loader';
-import { 
+import {
     IgcDockManagerPaneType,
     IgcSplitPane,
     IgcSplitPaneOrientation,
@@ -140,7 +140,7 @@ export class DockManagerToggleInnerDock {
         };
 
         innerDockBtn!.addEventListener('click', () => {
-            this.dockManager.allowInnerDock = !this.dockManager.allowInnerDock;       
+            this.dockManager.allowInnerDock = !this.dockManager.allowInnerDock;
         })
     }
 }

@@ -150,7 +150,7 @@ export class DockManagerHidePanes {
         for (const pane of ev.detail.panes) {
             pane.hidden = true;
             this.setHiddenPane(pane);
-            
+
             if (this.dockManager.maximizedPane)
             {
                 if (this.dockManager.maximizedPane === pane ||

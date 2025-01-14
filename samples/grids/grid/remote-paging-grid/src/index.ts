@@ -4,7 +4,6 @@ import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import "./index.css";
 import { RemotePagingService } from './RemotePagingService';
 
-
 export class Sample {
 
     public data: any[] = [];
@@ -30,11 +29,11 @@ export class Sample {
     this._totalRecordsCount = value;
     this.grid.totalRecords = value;
     }
-  
+
     constructor() {
       this.pager = document.getElementById('paginator') as IgcPaginatorComponent;
       this.grid = document.getElementById('grid') as IgcGridComponent;
-      
+
       this._bind = () => {
         this.remotePagingService.getDataLength().then((length) => {
             this.totalRecordsCount = length;
@@ -57,7 +56,7 @@ export class Sample {
         this.page = page;
         const skip = this.page * this.perPage;
         const top = this.perPage;
-    
+
         this.remotePagingService.getData(skip, top).then((data)=> {
           this.data = data; // Assign received data to this.data
           this.grid.isLoading = false;
@@ -75,8 +74,7 @@ export class Sample {
           this.grid.data = this.data;
       }
   }
-    
+
 }
 
 new Sample();
-  

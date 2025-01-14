@@ -47,7 +47,6 @@ export class MapNavigation {
         this.geoMap.actualWindowRectChanged = this.onMapWindowChanged;
         this.geoMap.zoomable = true;
         this.geoMap.addEventListener('mousemove', this.onMapMouseMove, false);
-
         const usaRegion = { left: -134.5, top: 16.0, width: 70.0, height: 37.0 };
         this.geoMap.zoomToGeographic(usaRegion);
     }

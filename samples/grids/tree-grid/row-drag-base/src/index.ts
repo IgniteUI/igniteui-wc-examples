@@ -3,11 +3,11 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule, WebPaginatorDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcTreeGridComponent, IgcGridToolbarTitleComponent } from 'igniteui-webcomponents-grids/grids';
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
+
 
 ModuleManager.register(
     IgcPropertyEditorPanelModule
@@ -30,23 +30,22 @@ export class Sample {
         this._bind = () => {
             treeGrid.data = this.employeesNestedData;
             treeGrid2.data = [];
-            treeGrid2.emptyGridMessage = "Drag and Drop a row from the left grid to this grid";            
-            treeGrid.addEventListener("rowDragEnd", this.onGridRowDragEnd.bind(this));         
+            treeGrid2.emptyGridMessage = "Drag and Drop a row from the left grid to this grid";
+            treeGrid.addEventListener("rowDragEnd", this.onGridRowDragEnd.bind(this));
         }
         this._bind();
-
     }
 
     public addRowAndChildren(row:EmployeesNestedDataItem, newData:any[]) {
         if(newData.includes(row)){
             return;
         }
-        else if(newData.length>0 && row.Employees){            
+        else if(newData.length>0 && row.Employees){
             for(let i= row.Employees.length;i>=0;i--){
                 if(newData.includes(row.Employees[i])){
-                    let index = newData.findIndex(element => element.ID === row.Employees[i].ID);                    
+                    let index = newData.findIndex(element => element.ID === row.Employees[i].ID);
                     if (index > -1) {
-                        newData.splice(index, 1);                        
+                        newData.splice(index, 1);
                     }
                 }
             }
@@ -58,24 +57,24 @@ export class Sample {
             }
         }
 
-        newData.push(row);           
+        newData.push(row);
       }
-       
+
     public onGridRowDragEnd(args: any): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
 
         if (ghostElement != null) {
 
-            const dragElementPos = ghostElement.getBoundingClientRect();            
+            const dragElementPos = ghostElement.getBoundingClientRect();
 
-            const gridPosition = this.treeGrid2.getBoundingClientRect();            
+            const gridPosition = this.treeGrid2.getBoundingClientRect();
             const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
             const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;
             if (withinXBounds && withinYBounds) {
                 const newData = [...this.treeGrid2.data];
                 const draggedRowData = args.detail.dragData.data;
                 this.addRowAndChildren(draggedRowData, newData);
-                this.treeGrid2.data = newData;  
+                this.treeGrid2.data = newData;
             }
         }
     }

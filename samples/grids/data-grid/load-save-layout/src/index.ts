@@ -86,14 +86,13 @@ export class DataGridLoadSaveLayout {
                 this.loadButton.disabled = true;
             }
         }
-       
+
         this.saveButton = document.getElementById('saveClick') as HTMLButtonElement;
         if (this.saveButton !== null){
             this.saveButton.onclick = this.onSaveClick;
         }
     }
 
-    
 }
 
 new DataGridLoadSaveLayout();

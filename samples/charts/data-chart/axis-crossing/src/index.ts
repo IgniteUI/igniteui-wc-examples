@@ -7,12 +7,12 @@ ModuleManager.register(
     IgcDataChartCoreModule,
     IgcDataChartScatterModule,
     IgcDataChartScatterCoreModule,
-    IgcDataChartInteractivityModule,        
+    IgcDataChartInteractivityModule,
 );
 
 export class DataChartAxisCrossing {
 
-    private chart: IgcDataChartComponent;    
+    private chart: IgcDataChartComponent;
     private xAxis: IgcNumericXAxisComponent;
     private yAxis: IgcNumericYAxisComponent;
     private xAxisCrossLabel: HTMLLabelElement;
@@ -25,9 +25,9 @@ export class DataChartAxisCrossing {
         this.onYAxisSliderChanged = this.onYAxisSliderChanged.bind(this);
 
         this.initData();
-        
-        this.chart = document.getElementById('chart') as IgcDataChartComponent;    
-        
+
+        this.chart = document.getElementById('chart') as IgcDataChartComponent;
+
         this.xAxis = document.getElementById("xAxis") as IgcNumericXAxisComponent;
         this.yAxis = document.getElementById("yAxis") as IgcNumericYAxisComponent;
 
@@ -39,11 +39,11 @@ export class DataChartAxisCrossing {
 
         const xAxisSlider = document.getElementById("xAxisCrossingSlider") as HTMLInputElement;
         xAxisSlider.addEventListener("input", this.onXAxisSliderChanged);
-        
+
         const yAxisSlider = document.getElementById("yAxisCrossingSlider") as HTMLInputElement;
         yAxisSlider.addEventListener("input", this.onYAxisSliderChanged);
 
-        this.chart.dataSource = this.data;        
+        this.chart.dataSource = this.data;
     }
 
     public initData() {

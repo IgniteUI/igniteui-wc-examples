@@ -5,11 +5,11 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 import { ModuleManager } from 'igniteui-webcomponents-core';
+
 defineAllComponents();
 
 ModuleManager.register(
@@ -48,7 +48,6 @@ export class Sample {
             grid1.data = this.customersData
         }
         this._bind();
-
     }
 
     private _customersData: CustomersData = null;
@@ -59,7 +58,6 @@ export class Sample {
         }
         return this._customersData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -72,28 +70,26 @@ export class Sample {
         return this._componentRenderer;
     }
 
-    
     public webGridPasteOptions(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-    
+
         //var grid = this.grid1;
         // grid.transactions.commit(grid.data);
         //dialog.close();
-    
+
         console.log("test");
     }
-        
-    
+
     public webGridExcelDownload(sender: any, args: IgcPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-    
+
         //var grid = this.grid1;
         // grid.transactions.commit(grid.data);
         //dialog.close();
-    
+
         console.log("test");
     }
-        
+
 }
 
 new Sample();

@@ -52,6 +52,7 @@ export class Sample {
         ],
         filters: null
     };
+
     public stateKey = 'pivot-grid-state';
     private _gridState: IgcGridStateComponent;
 
@@ -95,7 +96,7 @@ export class Sample {
     public clearStorage() {
         window.localStorage.removeItem(this.stateKey);
     }
-    
+
     public stateParsedHandler(ev: any) {
         const parsedState = ev.detail;
         parsedState.pivotConfiguration.rowStrategy = IgcNoopPivotDimensionsStrategy.instance();
