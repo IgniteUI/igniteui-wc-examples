@@ -2,10 +2,9 @@ import { IgcDataLegendModule, IgcDataChartCoreModule, IgcDataChartCategoryCoreMo
 import { IgcDataLegendComponent, IgcDataChartComponent, IgcCategoryYAxisComponent, IgcNumericXAxisComponent, IgcBarSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
 import { IgcNumberFormatSpecifier } from 'igniteui-webcomponents-core';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
-
 import { ModuleManager } from 'igniteui-webcomponents-core';
-
 import "./index.css";
+
 
 ModuleManager.register(
     IgcDataLegendModule,
@@ -37,6 +36,7 @@ export class Sample {
         }
         return this._numberFormatSpecifier1;
     }
+
     private chart: IgcDataChartComponent
     private yAxis: IgcCategoryYAxisComponent
     private xAxis: IgcNumericXAxisComponent
@@ -56,6 +56,7 @@ export class Sample {
         }
         return this._numberFormatSpecifier3;
     }
+
     private barSeries1: IgcBarSeriesComponent
     private barSeries2: IgcBarSeriesComponent
     private tooltips: IgcDataToolTipLayerComponent
@@ -76,6 +77,7 @@ export class Sample {
         }
         return this._numberFormatSpecifier5;
     }
+
     private _bind: () => void;
 
     constructor() {
@@ -101,7 +103,6 @@ export class Sample {
             tooltips.valueFormatSpecifiers = this.numberFormatSpecifier5;
         }
         this._bind();
-
     }
 
     private _highestGrossingMovies: HighestGrossingMovies = null;

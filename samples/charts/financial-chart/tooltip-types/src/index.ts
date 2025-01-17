@@ -16,7 +16,7 @@ export class FinancialChartTooltipTypes {
         this.chart = document.getElementById('chart') as IgcFinancialChartComponent;
         this.chart.yAxisMode = FinancialChartYAxisMode.PercentChange;
         this.chart.toolTipType = this.toolTipType;
-        
+
         let toolTipSelect = <HTMLSelectElement>document.getElementById('toolTipSelect');
         toolTipSelect!.addEventListener('change', this.onToolTipTypeChanged);
         toolTipSelect!.value = "Item";

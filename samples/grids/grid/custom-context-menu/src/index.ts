@@ -4,11 +4,11 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents, registerIconFromText } from 'igniteui-webcomponents';
 import "./index.css";
+
 defineAllComponents();
 
 export class Sample {
@@ -19,6 +19,7 @@ export class Sample {
   public clickedCell: any = null;
   public copiedData: any;
   public multiCellSelection: { data: any[] } = { data: [] };
+
   public multiCellArgs: any;
 
   constructor() {
@@ -99,7 +100,6 @@ export class Sample {
     selectedDataArea.innerText = JSON.stringify(selectedData);
     this.toggleContextMenu();
   }
-
 
   public copySelectedData() {
     const selectedData = this.grid.getSelectedData();

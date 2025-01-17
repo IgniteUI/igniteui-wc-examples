@@ -85,7 +85,6 @@ export class DataChartTypeRadialSeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Radial Line Chart') {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgcRadialLineSeriesComponent();
@@ -102,7 +101,6 @@ export class DataChartTypeRadialSeries {
             this.chart.series.clear();
             this.chart.series.add(series1);
             this.chart.series.add(series2);
-
         } else if (seriesType === 'Radial Column Chart') {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgcRadialColumnSeriesComponent();

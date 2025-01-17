@@ -20,7 +20,7 @@ export class MapTypeScatterPolygonSeries {
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.backgroundContent = undefined;
-        // zooming map to region of North America        
+        // zooming map to region of North America
         this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.6, height: 0.6 });
 
         // loading a shapefile with geographic shapes

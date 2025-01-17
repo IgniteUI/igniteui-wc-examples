@@ -39,7 +39,7 @@ export class RadialGaugeAnimation {
 
         if(this.shouldAnimate){
             this.gauge.transitionDuration = 1000;
-        }        
+        }
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 50;
@@ -115,7 +115,7 @@ export class RadialGaugeAnimation {
             range.outerStartExtent = 0.57;
             range.outerEndExtent = 0.57;
         }
-        
+
         this.shouldAnimate = true;
     }
 
@@ -124,7 +124,7 @@ export class RadialGaugeAnimation {
 
         if(this.shouldAnimate){
             this.gauge.transitionDuration = 1000;
-        }        
+        }
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 80;
@@ -183,7 +183,7 @@ export class RadialGaugeAnimation {
 
         if(this.shouldAnimate){
             this.gauge.transitionDuration = 1000;
-        }        
+        }
 
         this.gauge.minimumValue = 100;
         this.gauge.maximumValue = 200;
@@ -248,7 +248,7 @@ export class RadialGaugeAnimation {
 
         if(this.shouldAnimate){
             this.gauge.transitionDuration = 1000;
-        }        
+        }
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 10;

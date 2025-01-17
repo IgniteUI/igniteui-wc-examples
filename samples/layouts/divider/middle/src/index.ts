@@ -5,7 +5,7 @@ import './DividerStyling.css';
 defineComponents(IgcDividerComponent);
 
 export class SelectStyling {
-    constructor() {        
+    constructor() {
     }
 }
 

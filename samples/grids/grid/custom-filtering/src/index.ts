@@ -2,9 +2,7 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent, IgcStringFilteringOperand, IgcFilteringOperand, IgcFilteringOperation, IgcBooleanFilteringOperand } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 
 
 export class Sample {
@@ -33,7 +31,6 @@ export class Sample {
             discontinued.filters = this.booleanFilteringOperand;
         }
         this._bind();
-
     }
 
     private _nwindData: NwindData = null;

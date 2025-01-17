@@ -5,7 +5,6 @@ import "./index.css";
 import { RemotePagingService } from './RemotePagingService';
 import { CustomersWithPageResponseModel } from './CustomersWithPageResponseModel';
 
-
 export class Sample {
 
   public data: any[] = [];
@@ -79,8 +78,7 @@ export class Sample {
       this.updateUI();
     })
   }
-    
+
 }
 
 new Sample();
-  

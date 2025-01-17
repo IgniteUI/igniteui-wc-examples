@@ -33,7 +33,6 @@ export class DataGridCellActivation {
         if (this.enterKeyAfterEditButton !== null){
             this.enterKeyAfterEditButton.onchange = this.enterAfterChanged;
         }
-
     }
 
     public enterModeChanged = (event: any) => {
@@ -42,7 +41,6 @@ export class DataGridCellActivation {
         if (this.grid.enterBehavior === EnterKeyBehaviors.Edit) {
             this.enterKeyAfterEditButton.disabled = false;
             this.grid.editMode = EditModeType.Cell;
-
         }
         else {
             this.enterKeyAfterEditButton.disabled = true;

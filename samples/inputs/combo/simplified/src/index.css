@@ -1,9 +1,2 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
-
-.options {
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px; 
-    gap: 8px;
-}

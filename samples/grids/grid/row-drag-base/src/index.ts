@@ -1,28 +1,28 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { CustomersData } from './CustomersData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 
 export class Sample {
 
     private leftGrid: IgcGridComponent;
     private rightGrid: IgcGridComponent;
 
-    private leftGridData: CustomersData;    
+    private leftGridData: CustomersData;
 
     private _bind: () => void;
 
     constructor() {
-        var leftGrid = this.leftGrid = document.getElementById('leftGrid') as IgcGridComponent;        
-        var rightGrid = this.rightGrid = document.getElementById('rightGrid') as IgcGridComponent;     
-        
+        var leftGrid = this.leftGrid = document.getElementById('leftGrid') as IgcGridComponent;
+        var rightGrid = this.rightGrid = document.getElementById('rightGrid') as IgcGridComponent;
+
         this.onGridRowDragEnd = this.onGridRowDragEnd.bind(this);
 
-        this.leftGridData = new CustomersData();        
+        this.leftGridData = new CustomersData();
 
         this._bind = () => {
-            leftGrid.data = this.leftGridData;            
+            leftGrid.data = this.leftGridData;
             rightGrid.data = [];
             leftGrid.addEventListener("rowDragEnd", this.onGridRowDragEnd);
         }

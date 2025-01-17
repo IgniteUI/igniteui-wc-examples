@@ -1,10 +1,10 @@
 import { IgcGridCreatedEventArgs, IgcHierarchicalGridComponent, IgcPaginatorComponent, IgcRowIslandComponent } from 'igniteui-webcomponents-grids/grids';
-
 import 'igniteui-webcomponents-grids/grids/combined';
 import 'igniteui-webcomponents-grids/grids/themes/light/bootstrap.css';
 import { html } from 'lit-html';
 import { RemotePagingService } from './RemoteService';
 import { CustomersWithPageResponseModel } from './CustomersWithPageResponseModel';
+
 
 export class Sample {
 
@@ -19,6 +19,7 @@ export class Sample {
     public get perPage(): number {
         return this.pager?.perPage || this._perPage;
     }
+
     public set perPage(val: number) {
         this._perPage = val;
     }
