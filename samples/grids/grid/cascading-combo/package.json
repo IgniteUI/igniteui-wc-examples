@@ -24,10 +24,10 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "igniteui-webcomponents": "5.2.1",
-    "igniteui-webcomponents-core": "5.2.0-beta.0",
-    "igniteui-webcomponents-grids": "5.2.0-beta.0",
-    "igniteui-webcomponents-inputs": "5.2.0-beta.0",
-    "igniteui-webcomponents-layouts": "5.2.0-beta.0",
+    "igniteui-webcomponents-core": "5.2.0",
+    "igniteui-webcomponents-grids": "5.2.0",
+    "igniteui-webcomponents-inputs": "5.2.0",
+    "igniteui-webcomponents-layouts": "5.2.0",
     "lit-html": "^3.2.0",
     "tslib": "^2.0.0"
   },
