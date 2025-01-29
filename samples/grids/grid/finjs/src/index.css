@@ -1,2 +1,53 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
+
+.changePos1 > .igx-grid__td-text {
+    border-inline-end: 4px solid rgb(76, 184, 96);
+    padding-inline-end: 15px;
+}
+
+.changePos2 > .igx-grid__td-text {
+    border-inline-end: 4px solid rgb(76, 184, 96);
+    padding-inline-end: 15px;
+}
+
+.changeNeg > .igx-grid__td-text {
+    border-inline-end: 4px solid rgb(255, 20, 75);
+    padding-inline-end: 9px;
+}
+
+.changeNeg1 > .igx-grid__td-text {
+    border-inline-end: 4px solid rgb(255, 20, 75);
+    padding-inline-end: 9px;
+}
+
+.changeNeg2 > .igx-grid__td-text {
+    border-inline-end: 4px solid rgb(255, 20, 75);
+    padding-inline-end: 15px;
+}
+
+.positive {
+    color: rgb(76, 184, 96);
+}
+
+.strongPositive2 > .igx-grid__td-text {
+    border-inline-end: 4px solid rgb(76, 184, 96);
+    padding-inline-end: 15px;
+}
+
+.negative {
+    color: rgb(255, 20, 75);
+}
+
+.strongNegative2 > .igx-grid__td-text {
+    border-inline-end: 4px solid rgb(255, 20, 75);
+    padding-inline-end: 15px;
+}
+
+.gridSize {
+    --ig-size: var(--ig-size-medium);
+}
+
+.size-small {
+    --ig-size: var(--ig-size-small);
+}
