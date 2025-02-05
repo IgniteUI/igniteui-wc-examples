@@ -69,8 +69,9 @@ export class DockManagerEmbeddingFrames {
                             this.geoMapPane ]
                     },
 
-                ]
+                ],
             },
+            floatingPanes: []
         };
     }
 }
