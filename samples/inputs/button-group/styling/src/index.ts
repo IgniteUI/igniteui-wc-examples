@@ -1,6 +1,6 @@
 import { defineComponents, IgcButtonGroupComponent, IgcRippleComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/material.css';
-import './index.css';
+import './ButtonGroupStyle.css'
 
 defineComponents(IgcButtonGroupComponent, IgcRippleComponent);
 export class ButtonGroupStyling {
