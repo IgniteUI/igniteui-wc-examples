@@ -26,20 +26,12 @@
         name="propertyEditorPanel1"
         id="propertyEditorPanel1">
             <igc-property-editor-property-description
-            label="Selection Behavior: "
-            value-type="EnumValue"
-            property-path="SelectionBehavior"
-            name="SelectionBehavior"
-            id="SelectionBehavior"
-            should-override-default-editor="true"
-            drop-down-names="PerDataItemSingleSelect, PerDataItemMultiSelect"
-            drop-down-values="PerDataItemSingleSelect, PerDataItemMultiSelect"
-            primitive-value="PerDataItemSingleSelect">
-            </igc-property-editor-property-description>
-            <igc-property-editor-property-description
-            property-path="SelectionMode"
-            label="Selection Mode: "
-            primitive-value="Brighten">
+            property-path="ReplayTransitionIn"
+            label="Replay Animation"
+            primitive-value="Replay Animation"
+            value-type="Button"
+            name="propertyEditorPropertyDescription1"
+            id="propertyEditorPropertyDescription1">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
@@ -52,12 +44,10 @@
         <igc-data-pie-chart
         name="chart"
         id="chart"
-        highlighting-mode="None"
-        selection-mode="Brighten"
-        selection-behavior="PerDataItemSingleSelect"
-        selection-brush="dodgerblue"
-        focus-brush="black"
-        thickness="3">
+        transition-in-mode="Auto"
+        transition-in-duration="1000"
+        transition-in-speed-type="Random"
+        highlighting-mode="None">
         </igc-data-pie-chart>
     </div>
 </div>
