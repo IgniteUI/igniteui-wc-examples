@@ -1,12 +1,12 @@
 igc-dropdown::part(list) {
-    height: 220px;
+  height: 220px;
 }
 
 igc-dropdown-item[selected] {
-    background: #28a745;
+  background: var(--ig-success-300);
 }
 
 igc-dropdown-group::part(label) {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }

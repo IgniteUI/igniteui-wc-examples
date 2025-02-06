@@ -1,0 +1,8 @@
+igc-checkbox::part(indicator) {
+  stroke: var(--ig-secondary-500-contrast);
+}
+
+igc-checkbox::part(control checked)::after {
+  border-radius: 4px;
+  background: var(--ig-secondary-500);
+}

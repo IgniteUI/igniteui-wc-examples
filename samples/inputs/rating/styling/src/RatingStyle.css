@@ -1,0 +1,7 @@
+igc-rating::part(full) {
+  color: var(--ig-primary-500)
+}
+
+igc-rating::part(empty) {
+  color: var(--ig-secondary-200);
+}

@@ -1,0 +1,9 @@
+igc-step::part(title) {
+  color: var(--ig-primary-500);
+}
+igc-step[active]::part(indicator) {
+  background-color: var(--ig-primary-500);
+}
+igc-step::part(indicator) {
+  background-color: var(--ig-surface-500);
+}

@@ -1,0 +1,8 @@
+igc-button-group::part(group) {
+  background-color: var(--ig-primary-500);
+  padding: 8px;
+}
+
+igc-toggle-button::part(toggle) {
+  color: var(--ig-secondary-300);
+}

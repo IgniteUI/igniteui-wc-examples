@@ -1,6 +1,6 @@
 import { defineComponents, IgcIconComponent, registerIconFromText } from "igniteui-webcomponents";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import './index.css';
+import './IconStyle.css';
 
 defineComponents(IgcIconComponent);
 

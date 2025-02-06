@@ -1,0 +1,9 @@
+igc-mask-input::part(input) {
+  background-color: var(--ig-primary-100);
+  border-color: var(--ig-secondary-500);
+  box-shadow: none;
+}
+
+igc-mask-input::part(input)::placeholder {
+  color: var(--ig-primary-100-contrast);
+}

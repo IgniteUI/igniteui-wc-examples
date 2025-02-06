@@ -1,22 +1,17 @@
-.card-wrapper {
-    max-width: 320px;
-    min-width: 220px;
-}
-
 igc-card {
-    background-color: #011627;
+  background-color: var(--ig-secondary-900);
 }
 
 igc-card-content,
-igc-card-header > *[slot="title"] { 
-    color: #FEFEFE;
+igc-card-header::part(title) { 
+  color: var(--ig-primary-500-contrast);
 }
 
 igc-card-header > *[slot="subtitle"] {
-    color: #ECAA53;
-    opacity: 0.9;
+  color: var(--ig-warn-500);
+  opacity: 0.9;
 }
 
-igc-icon-button+igc-icon-button {
-    margin-left: 10px;
+igc-icon-button::part(base) {
+  background-color: var(--ig-primary-300);
 }
