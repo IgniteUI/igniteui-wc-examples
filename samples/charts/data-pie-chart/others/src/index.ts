@@ -1,9 +1,9 @@
+import { LocalDataItem, LocalData } from './SampleData';
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcDataPieChartModule, IgcItemLegendModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataPieChartDescriptionModule, ItemLegendDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
 import { IgcDataPieChartComponent } from 'igniteui-webcomponents-charts';
-import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
@@ -31,19 +31,19 @@ export class Sample {
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;
             propertyEditorPanel1.target = this.chart;
-            chart.dataSource = this.energyGlobalDemand;
+            chart.dataSource = this.localData;
         }
         this._bind();
 
     }
 
-    private _energyGlobalDemand: EnergyGlobalDemand = null;
-    public get energyGlobalDemand(): EnergyGlobalDemand {
-        if (this._energyGlobalDemand == null)
+    private _localData: LocalData = null;
+    public get localData(): LocalData {
+        if (this._localData == null)
         {
-            this._energyGlobalDemand = new EnergyGlobalDemand();
+            this._localData = new LocalData();
         }
-        return this._energyGlobalDemand;
+        return this._localData;
     }
 
     private _componentRenderer: ComponentRenderer = null;
