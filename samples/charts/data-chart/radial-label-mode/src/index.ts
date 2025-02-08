@@ -50,7 +50,7 @@ export class Sample {
 
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;
-            propertyEditorPanel1.target = this.angleAxis;
+            propertyEditorPanel1.target = this.chart;
             chart.legend = this.legend;
             angleAxis.dataSource = this.footballPlayerStats;
             radialColumnSeries1.dataSource = this.footballPlayerStats;
