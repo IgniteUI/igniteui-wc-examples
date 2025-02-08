@@ -28,19 +28,21 @@
             <igc-property-editor-property-description
             property-path="OthersCategoryType"
             label="Others Type: "
-            primitive-value="Number">
+            primitive-value="Number"
+            value-type="EnumValue">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="OthersCategoryThreshold"
             label="Others Threshold: "
-            should-override-default-editor="true"
             value-type="Slider"
             min="0"
-            max="40">
+            max="50"
+            primitive-value="15">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="OthersCategoryText"
-            label="Others Text: ">
+            label="Others Text: "
+            value-type="StringValue">
             </igc-property-editor-property-description>
         </igc-property-editor-panel>
     </div>
@@ -53,9 +55,8 @@
         <igc-data-pie-chart
         name="chart"
         id="chart"
-        others-category-text="Others"
         others-category-type="Number"
-        others-category-threshold="5">
+        others-category-threshold="15">
         </igc-data-pie-chart>
     </div>
 </div>
