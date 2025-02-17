@@ -1,8 +1,8 @@
-import { defineComponents, IgcTileManagerComponent, IgcTileComponent, IgcTileHeaderComponent, IgcRadioGroupComponent, IgcRadioComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcTileManagerComponent, IgcTileComponent, IgcRadioGroupComponent, IgcRadioComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './layout.css'
 
-defineComponents(IgcTileManagerComponent, IgcTileComponent, IgcTileHeaderComponent, IgcRadioGroupComponent, IgcRadioComponent);
+defineComponents(IgcTileManagerComponent, IgcTileComponent, IgcRadioGroupComponent, IgcRadioComponent);
 
 export class TileManagerDragnDrop {
   constructor() {

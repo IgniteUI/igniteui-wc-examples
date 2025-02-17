@@ -1,8 +1,8 @@
-import { defineComponents, IgcTileManagerComponent, IgcTileComponent, IgcTileHeaderComponent, IgcInputComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcTileManagerComponent, IgcTileComponent, IgcInputComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './layout.css'
 
-defineComponents(IgcTileManagerComponent, IgcTileComponent, IgcTileHeaderComponent, IgcInputComponent);
+defineComponents(IgcTileManagerComponent, IgcTileComponent, IgcInputComponent);
 
 export class TileManagerColumn {
   tileManager = document.querySelector("igc-tile-manager");

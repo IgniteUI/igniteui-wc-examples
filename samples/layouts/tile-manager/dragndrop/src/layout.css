@@ -1,15 +1,15 @@
-igc-tile-header span{
+ span{
   font-size: 30px;
 }
 
-igc-tile-header::part(header) {
+igc-tile::part(header) {
   border-bottom: 2px solid var(--ig-primary-700);
 }
 
 p {
   font-size: 25px;
-  padding: 10px;
-  margin-left: 10px;
+  margin-left: 20px;
+  padding-top: 10px;
 }
 
 igc-radio-group {

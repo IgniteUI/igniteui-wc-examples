@@ -6,10 +6,10 @@ igc-tile::part(content-container) {
   color: var(--ig-secondary-200);
 }
 
-igc-tile-header::part(header) {
+igc-tile::part(header) {
   background-color: var(--ig-gray-300);
 }
 
-igc-tile-header::part(title) {
+igc-tile::part(title) {
   color: var(--ig-primary-400);
 }
