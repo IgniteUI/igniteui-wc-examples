@@ -1,0 +1,38 @@
+igc-header {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px 10px;
+  display: block;
+}
+
+p {
+  font-size: 25px;
+  padding: 10px;
+}
+
+igc-tile-manager {
+  max-width: 1000px;
+  margin-bottom: 20px;
+}
+
+igc-input {
+  width: min-content;
+  --ig-size: var(--ig-size-small);
+  margin-right: 50px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.inputWrapper{
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.sample {
+  overflow: auto;
+}

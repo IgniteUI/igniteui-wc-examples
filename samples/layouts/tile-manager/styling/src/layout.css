@@ -1,0 +1,13 @@
+igc-tile-header span{
+  font-size: 30px;
+}
+
+igc-tile-manager {
+  max-width: 1000px;
+}
+
+p {
+  font-size: 25px;
+  padding: 20px;
+}
+ 
