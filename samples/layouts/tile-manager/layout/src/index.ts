@@ -27,16 +27,13 @@ export class TileManagerLayout {
     document.querySelector('#addT')?.addEventListener('click', () => {
       const tiles = tileManager.querySelectorAll('igc-tile');
       const newTile = document.createElement('igc-tile');
-      const newTileHeader = document.createElement('igc-tile-header');
       const contentHeader = document.createElement('span');
       const content = document.createElement('p');
       contentHeader.textContent = `Tile ${tileManager.tiles.length + 1} header`;
       content.textContent = `Content for Tile ${tileManager.tiles.length + 1}`;
       contentHeader.setAttribute('slot', 'title');
-      newTile.setAttribute('slot', 'header');
       newTile.position = 0;
-      newTileHeader.append(contentHeader);
-      newTile.append(newTileHeader);
+      newTile.append(contentHeader);
       newTile.append(content);
       tileManager.insertBefore(newTile, tiles[3]);
     })

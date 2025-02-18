@@ -17,4 +17,9 @@ igc-button:nth-of-type(-n+3) {
 
 igc-tile-manager {
   max-width: 1000px;
+  margin-bottom: 20px;
+}
+
+.sample {
+  overflow: auto;
 }
