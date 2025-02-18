@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sample | Ignite UI | Web Components | Infragistics</title>
+        <meta charset="UTF-8" />
+
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+        <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    </head>
+
+    <body>
+        <div id="root">
+            <div class="grid-wrapper">
+                <div class="summaries">
+                    <igc-dialog id="dialog" title="Disabled Summaries">
+                        <div class="summaries-dialog-items"></div>
+                        <igc-button id="disableAllBtn" slot="footer" variant="flat">Disable All</igc-button>
+                        <igc-button id="enableAllBtn" slot="footer" variant="flat">Enable All</igc-button>
+                    </igc-dialog>
+                </div>
+
+                <igc-hierarchical-grid auto-generate="false" name="hierarchicalGrid" id="hierarchicalGrid" primary-key="ID">
+                    <igc-column field="Artist" header="Artist" has-summary="true"> </igc-column>
+                    <igc-column field="Photo" header="Photo" data-type="image" has-summary="true"> </igc-column>
+                    <igc-column field="Debut" header="Debut" has-summary="true"> </igc-column>
+                    <igc-column field="GrammyNominations" header="Grammy Nominations" data-type="number" has-summary="true"> </igc-column>
+                    <igc-column field="GrammyAwards" header="Grammy Awards" data-type="number" has-summary="true"> </igc-column>
+                    <igc-row-island child-data-key="Albums" auto-generate="false">
+                        <igc-column field="Album" header="Album" data-type="string" has-summary="true"> </igc-column>
+                        <igc-column field="LaunchDate" header="Launch Date" data-type="date" has-summary="true"> </igc-column>
+                        <igc-column field="BillboardReview" header="Billboard Review" data-type="number" has-summary="true"> </igc-column>
+                        <igc-column field="USBillboard200" header="US Billboard 200" data-type="number" has-summary="true"> </igc-column>
+                        <igc-row-island child-data-key="Songs" auto-generate="false">
+                            <igc-column field="Number" header="No." data-type="string" has-summary="true"> </igc-column>
+                            <igc-column field="Title" header="Title" data-type="string" has-summary="true"> </igc-column>
+                            <igc-column field="Released" header="Released" data-type="date" has-summary="true"> </igc-column>
+                            <igc-column field="Genre" header="Genre" data-type="string" has-summary="true"> </igc-column>
+                        </igc-row-island>
+                    </igc-row-island>
+                    <igc-row-island child-data-key="Tours" auto-generate="false">
+                        <igc-column field="Tour" header="Tour" data-type="string"> </igc-column>
+                        <igc-column field="StartedOn" header="Started on" data-type="string" has-summary="true"> </igc-column>
+                        <igc-column field="Location" header="Location" data-type="string" has-summary="true"> </igc-column>
+                        <igc-column field="Headliner" header="Headliner" data-type="string" has-summary="true"> </igc-column>
+                    </igc-row-island>
+                </igc-hierarchical-grid>
+            </div>
+        </div>
+
+        <!-- This script is needed only for parcel and it will be excluded for webpack -->
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
+</html>
