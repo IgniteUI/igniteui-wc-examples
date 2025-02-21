@@ -1,7 +1,7 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcDataPieChartModule, IgcItemLegendModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataPieChartDescriptionModule, ItemLegendDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
+import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcDataPieChartComponent } from 'igniteui-webcomponents-charts';
 import { DataPieDataItem, DataPieData } from './DataPieData';
 
@@ -21,11 +21,17 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private othersCategoryTypeEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private othersCategoryThresholdEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private othersCategoryTextEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcDataPieChartComponent
     private _bind: () => void;
 
     constructor() {
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var othersCategoryTypeEditor = this.othersCategoryTypeEditor = document.getElementById('OthersCategoryTypeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var othersCategoryThresholdEditor = this.othersCategoryThresholdEditor = document.getElementById('OthersCategoryThresholdEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var othersCategoryTextEditor = this.othersCategoryTextEditor = document.getElementById('OthersCategoryTextEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataPieChartComponent;
 
         this._bind = () => {

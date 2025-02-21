@@ -72,7 +72,7 @@ export class Sample {
 
     	var chart = this.chart;
 
-    	this._timer = setInterval(() => {
+    	this._timer = setTimeout(() => {
     		var data = this.energyRenewableConsumption;
     		let matcher: IgcSeriesMatcher = new IgcSeriesMatcher();
 
