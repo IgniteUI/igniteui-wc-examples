@@ -24,19 +24,41 @@
             name="toolbar"
             id="toolbar"
             orientation="Horizontal">
-                <igc-tool-action-checkbox
-                name="EnableTooltipsLabel"
-                id="EnableTooltipsLabel"
-                title="Enable Tooltips"
-                before-id="ZoomReset"
-                command-id="EnableTooltips">
-                </igc-tool-action-checkbox>
-                <igc-tool-action-label
-                name="zoomResetHidden"
-                id="zoomResetHidden"
-                overlay-id="ZoomReset"
-                visibility="Collapsed">
-                </igc-tool-action-label>
+                <igc-tool-action-icon-menu
+                name="MenuForSubPanelTool"
+                id="MenuForSubPanelTool"
+                icon-collection-name="ChartToolbarIcons"
+                icon-name="analyze">
+                    <igc-tool-action-group-header
+                    name="SubPanelGroup"
+                    id="SubPanelGroup"
+                    close-on-execute="true"
+                    title="Visualizations"
+                    subtitle="Layers">
+                    </igc-tool-action-group-header>
+                    <igc-tool-action-sub-panel
+                    name="CustomSubPanelTools"
+                    id="CustomSubPanelTools">
+                        <igc-tool-action-checkbox
+                        name="EnableTooltipsLabel"
+                        id="EnableTooltipsLabel"
+                        title="Enable Tooltips"
+                        command-id="EnableTooltips">
+                        </igc-tool-action-checkbox>
+                        <igc-tool-action-checkbox
+                        name="EnableCrosshairsLabel"
+                        id="EnableCrosshairsLabel"
+                        title="Enable Crosshairs"
+                        command-id="EnableCrosshairs">
+                        </igc-tool-action-checkbox>
+                        <igc-tool-action-checkbox
+                        name="EnableFinalValuesLabel"
+                        id="EnableFinalValuesLabel"
+                        title="Enable Final Values"
+                        command-id="EnableFinalValues">
+                        </igc-tool-action-checkbox>
+                    </igc-tool-action-sub-panel>
+                </igc-tool-action-icon-menu>
                 <igc-tool-action-label
                 name="zoomResetLabel"
                 id="zoomResetLabel"
@@ -44,7 +66,14 @@
                 after-id="ZoomOut"
                 icon-name="reset"
                 icon-collection-name="ChartToolbarIcons"
-                command-id="ZoomReset">
+                command-id="ZoomReset"
+                is-highlighted="true">
+                </igc-tool-action-label>
+                <igc-tool-action-label
+                name="zoomResetHidden"
+                id="zoomResetHidden"
+                overlay-id="ZoomReset"
+                visibility="Collapsed">
                 </igc-tool-action-label>
                 <igc-tool-action-icon-menu
                 name="AnalyzeMenu"
@@ -52,6 +81,12 @@
                 overlay-id="AnalyzeMenu"
                 visibility="Collapsed">
                 </igc-tool-action-icon-menu>
+                <igc-tool-action-label
+                name="CopyMenu"
+                id="CopyMenu"
+                overlay-id="CopyMenu"
+                visibility="Collapsed">
+                </igc-tool-action-label>
             </igc-toolbar>
         </div>
         <div class="aboveContentRightContainer">

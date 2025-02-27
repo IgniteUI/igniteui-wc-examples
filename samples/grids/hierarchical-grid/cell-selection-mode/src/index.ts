@@ -62,7 +62,9 @@ export class Sample {
     }
 
     public webRowIslandCellSelectionChange(sender: any, args: IgcPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        this.rowIsland.cellSelection = args.newValue.toLocaleLowerCase();
+        var rowIsland = this.rowIsland;
+        if (rowIsland)
+            rowIsland.cellSelection = args.newValue.toLocaleLowerCase();
     }
 
 }
