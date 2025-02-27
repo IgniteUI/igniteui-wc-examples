@@ -1,8 +1,8 @@
-import { defineComponents, IgcTileManagerComponent, IgcTileComponent, IgcButtonComponent, IgcButtonGroupComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcTileManagerComponent, IgcButtonComponent, IgcButtonGroupComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './layout.css'
 
-defineComponents(IgcTileManagerComponent, IgcTileComponent, IgcButtonComponent, IgcButtonGroupComponent);
+defineComponents(IgcTileManagerComponent, IgcButtonComponent, IgcButtonGroupComponent);
 
 export class TileManagerLayout {
 

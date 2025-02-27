@@ -15,22 +15,170 @@
 <body>
   <div id="root">
     <div class="container sample center">
-      <igc-tile-manager id="tile-manager1" column-count="2" gap="20px">
-        <igc-tile>
-          <span slot="title">Tile 1 header</span>
-          <p>Content for Tile 1</p>
+      <igc-tile-manager id="tile-manager1" column-count="3" gap="20px">
+        <igc-tile row-span="2">
+          <h2 slot="title">Order info</h2>
+          <igc-list class="list">
+            <igc-list-item>
+              <igc-avatar slot="start" shape="circle" class="avatar">
+                <span class="material-icons"> list_alt </span>
+              </igc-avatar>
+              <div slot="title" class="content">
+                <p>OrderID</p>
+                <p>10293</p>
+              </div>
+            </igc-list-item>
+            <igc-list-item>
+              <igc-avatar slot="start" shape="circle" class="avatar">
+                <span class="material-icons"> list_alt </span>
+              </igc-avatar>
+              <div slot="title" class="content">
+                <p>Customer Name</p>
+                <p>Tortuga Restaurante</p>
+              </div>
+            </igc-list-item>
+            <igc-list-item>
+              <igc-avatar slot="start" shape="circle" class="avatar">
+                <span class="material-icons"> calendar_month </span>
+              </igc-avatar>
+              <div slot="title" class="content">
+                <p>Order Date</p>
+                <p>August 29, 1996</p>
+              </div>
+            </igc-list-item>
+            <igc-list-item>
+              <igc-avatar slot="start" shape="circle" class="avatar">
+                <span class="material-icons"> calendar_month </span>
+              </igc-avatar>
+              <div slot="title" class="content">
+                <p>Shipped Date</p>
+                <p>September 11, 1996</p>
+              </div>
+            </igc-list-item>
+            <igc-list-item>
+              <igc-avatar slot="start" shape="circle" class="avatar">
+                <span class="material-icons"> list_alt </span>
+              </igc-avatar>
+              <div slot="title" class="content">
+                <p>Product Name</p>
+                <p>Carnavon Tigers</p>
+              </div>
+            </igc-list-item>
+            <igc-list-item>
+              <igc-avatar slot="start" shape="circle" class="avatar">
+                <span class="material-icons"> list_alt </span>
+              </igc-avatar>
+              <div slot="title" class="content">
+                <p>Ship Country</p>
+                <p>Mexico</p>
+              </div>
+            </igc-list-item>
+          </igc-list>
+        </igc-tile>
+        <igc-tile col-span="2">
+          <h2 slot="title">Order Line Items</h2>
+          <div class="group">
+            <igc-card class="card">
+              <div class="group_1">
+                <igc-card-header>
+                  <div slot="thumbnail">
+                    <igc-avatar shape="circle">
+                      <span class="material-icons">
+                        production_quantity_limits
+                      </span>
+                    </igc-avatar>
+                  </div>
+                  <h3 slot="title">Carnavon Tigers</h3>
+                </igc-card-header>
+                <igc-card-content class="column">
+                  <div class="body-content">
+                    <span>Quantity</span> <span>12</span>
+                  </div>
+                  <div class="body-content">
+                    <span>Unit Price</span> <span>$50</span>
+                  </div>
+                </igc-card-content>
+              </div>
+            </igc-card>
+            <igc-card class="card">
+              <div class="group_1">
+                <igc-card-header>
+                  <div slot="thumbnail">
+                    <igc-avatar shape="circle">
+                      <span class="material-icons">
+                        production_quantity_limits
+                      </span>
+                    </igc-avatar>
+                  </div>
+                  <h3 slot="title">Guarana Fantastica</h3>
+                </igc-card-header>
+                <igc-card-content class="column">
+                  <div class="body-content">
+                    <span>Quantity</span> <span>10</span>
+                  </div>
+                  <div class="body-content">
+                    <span>Unit Price</span> <span>$4</span>
+                  </div>
+                </igc-card-content>
+              </div>
+            </igc-card>
+            <igc-card class="card">
+              <div class="group_1">
+                <igc-card-header>
+                  <div slot="thumbnail">
+                    <igc-avatar shape="circle">
+                      <span class="material-icons">
+                        production_quantity_limits
+                      </span>
+                    </igc-avatar>
+                  </div>
+                  <h3 slot="title">Vegie-spread</h3>
+                </igc-card-header>
+                <igc-card-content class="column">
+                  <div class="body-content">
+                    <span>Quantity</span> <span>5</span>
+                  </div>
+                  <div class="body-content">
+                    <span>Unit Price</span> <span>$35</span>
+                  </div>
+                </igc-card-content>
+              </div>
+            </igc-card>
+            <igc-card class="card">
+              <div class="group_1">
+                <igc-card-header>
+                  <div slot="thumbnail">
+                    <igc-avatar shape="circle">
+                      <span class="material-icons">
+                        production_quantity_limits
+                      </span>
+                    </igc-avatar>
+                  </div>
+                  <h3 slot="title">Rhonbrau Klosterbier</h3>
+                </igc-card-header>
+                <igc-card-content class="column">
+                  <div class="body-content">
+                    <span>Quantity</span> <span>7</span>
+                  </div>
+                  <div class="body-content">
+                    <span>Unit Price</span> <span>$6</span>
+                  </div>
+                </igc-card-content>
+              </div>
+            </igc-card>
+          </div>
+        </igc-tile>
+        <igc-tile col-span="1">
+          <h2 slot="title">Order Value</h2>
+          <div class="string">
+            <h1>$8.66K</h1>
+          </div>
         </igc-tile>
         <igc-tile>
-          <span slot="title">Tile 2 header</span>
-          <p>Content for Tile 2</p>
-        </igc-tile>
-        <igc-tile>
-          <span slot="title">Tile 3 header</span>
-          <p>Content for Tile 3</p>
-        </igc-tile>
-        <igc-tile>
-          <span slot="title">Tile 4 header</span>
-          <p>Content for Tile 4</p>
+          <h2 slot="title">Item quantity</h2>
+          <div class="string">
+            <h1>4</h1>
+          </div>
         </igc-tile>
       </igc-tile-manager>
     </div>

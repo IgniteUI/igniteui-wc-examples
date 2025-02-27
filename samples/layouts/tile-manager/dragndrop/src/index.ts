@@ -1,8 +1,8 @@
-import { defineComponents, IgcTileManagerComponent, IgcTileComponent, IgcRadioGroupComponent, IgcRadioComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcTileManagerComponent, IgcRadioGroupComponent, IgcRadioComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './layout.css'
 
-defineComponents(IgcTileManagerComponent, IgcTileComponent, IgcRadioGroupComponent, IgcRadioComponent);
+defineComponents(IgcTileManagerComponent, IgcRadioGroupComponent, IgcRadioComponent);
 
 export class TileManagerDragnDrop {
   constructor() {
@@ -12,10 +12,6 @@ export class TileManagerDragnDrop {
         case 'TileHeader': document.querySelector("igc-tile-manager")?.setAttribute("drag-mode", "tile-header");
           break;
         case 'Tile': document.querySelector("igc-tile-manager")?.setAttribute("drag-mode", "tile");
-          break;
-        case 'Slide': document.querySelector("igc-tile-manager")?.setAttribute("drag-action", "slide");
-          break;
-        case 'Swap': document.querySelector("igc-tile-manager")?.setAttribute("drag-action", "swap");
           break;
       }
     })
