@@ -20,7 +20,7 @@ export class TileManagerActions {
       '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M640-160v-280h160v280H640Zm-240 0v-640h160v640H400Zm-240 0v-440h160v440H160Z"/></svg>';
     registerIconFromText('chart', chart, 'material');
 
-    document.querySelector('#northEast')?.addEventListener('click', (event: Event) => {
+    document.querySelector('#customOne')?.addEventListener('click', (event: Event) => {
 
       const tile = (event.target as HTMLElement).closest('igc-tile');
 
@@ -58,12 +58,37 @@ export class TileManagerActions {
             currentBtn.setAttribute('aria-label', 'expand');
 
             const additionalButtons =
-            actionsSlot.parentElement?.querySelectorAll('.additional-action');
+              actionsSlot.parentElement?.querySelectorAll('.additional-action');
             additionalButtons?.forEach((btn) => btn.remove());
           }
         }
       }
     })
+
+
+
+    document.querySelector('#customTwo')?.addEventListener('click', (event: Event) => {
+      const tile = (event.target as HTMLElement).closest('igc-tile');
+
+      if (tile) {
+        tile.maximized = !tile.maximized;
+
+        const currentBtn = event.target as HTMLElement;
+
+        if (currentBtn) {
+          if (tile.maximized) {
+            currentBtn.setAttribute('name', 'south_west');
+            currentBtn.setAttribute('aria-label', 'collapse');
+          }
+          else {
+            currentBtn.setAttribute('name', 'north_east');
+            currentBtn.setAttribute('aria-label', 'expand');
+          }
+        }
+      }
+    })
+
+    
   }
 }
 
