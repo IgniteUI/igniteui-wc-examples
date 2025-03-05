@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sample | Ignite UI | Web Components | Infragistics</title>
+        <meta charset="UTF-8" />
+
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+        <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    </head>
+
+    <body>
+        <div id="root">
+            <div class="grid-wrapper">
+                <div class="summaries">
+                    <igc-dialog id="dialog" title="Disabled Summaries">
+                        <div class="summaries-dialog-items"></div>
+                        <igc-button id="disableAllBtn" slot="footer" variant="flat">Disable All</igc-button>
+                        <igc-button id="enableAllBtn" slot="footer" variant="flat">Enable All</igc-button>
+                    </igc-dialog>
+                </div>
+
+                <igc-tree-grid auto-generate="false" name="treeGrid" id="treeGrid" primary-key="ID" foreign-key="ParentID">
+                    <igc-column field="ID" header="Order ID" has-summary="true"> </igc-column>
+                    <igc-column field="Name" header="Order Product" has-summary="true"> </igc-column>
+                    <igc-column field="Units" header="Units" data-type="number" has-summary="true"> </igc-column>
+                    <igc-column field="UnitPrice" header="Unit Price" data-type="number" has-summary="true"> </igc-column>
+                    <igc-column field="Price" header="Price" data-type="number" has-summary="true"> </igc-column>
+                    <igc-column field="Delivered" header="Delivered" data-type="boolean" has-summary="true"> </igc-column>
+                    <igc-column field="OrderDate" header="Order Date" data-type="date" has-summary="true"> </igc-column>
+                </igc-tree-grid>
+            </div>
+        </div>
+
+        <!-- This script is needed only for parcel and it will be excluded for webpack -->
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
+</html>
