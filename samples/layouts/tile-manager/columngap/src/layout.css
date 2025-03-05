@@ -1,11 +1,10 @@
 p {
-  font-size: 25px;
+  font-size: 20px;
   padding: 10px;
 }
 
 igc-tile-manager {
-  max-width: 1000px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 igc-input {
@@ -20,12 +19,7 @@ img {
 }
 
 .inputWrapper{
-  width: 1000px;
   display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.sample {
-  overflow: auto;
+  margin-left: 22px;
+  margin-bottom: 12px;
 }

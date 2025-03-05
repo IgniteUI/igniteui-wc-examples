@@ -1,13 +1,13 @@
-import { defineComponents, IgcAvatarComponent, IgcCardComponent, IgcListComponent, IgcTileManagerComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcTileManagerComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './layout.css'
 import './styles.css'
 
-defineComponents(IgcTileManagerComponent, IgcListComponent, IgcAvatarComponent, IgcCardComponent);
+defineComponents(IgcTileManagerComponent);
 
-export class TileManagerStyling {
+export class TileManagerOverview {
   constructor() {
   }
 }
 
-new TileManagerStyling();
+new TileManagerOverview();

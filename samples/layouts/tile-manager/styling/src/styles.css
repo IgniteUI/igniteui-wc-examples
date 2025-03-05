@@ -13,3 +13,12 @@ igc-tile::part(header) {
 igc-tile::part(title) {
   color: var(--ig-primary-400);
 }
+
+igc-tile::part(trigger-side), igc-tile::part(trigger-bottom) {
+  background-color: var(--ig-success-500);
+}
+
+igc-tile::part(trigger) {
+  background-color: var(--ig-error-500);
+}
+ 

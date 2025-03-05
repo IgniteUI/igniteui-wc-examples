@@ -3,19 +3,15 @@ span{
 }
 
 p {
-  font-size: 25px;
+  font-size: 18px;
   padding-left: 20px;
 }
 
 igc-radio-group {
-  margin-left: 20px;
+  margin-left: 22px;
   width: fit-content;
   padding: 4px 15px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   border: 2px solid var(--ig-primary-700);
   background-color: var(--ig-gray-300);
-}
-
-igc-tile-manager {
-  max-width: 1000px;
 }

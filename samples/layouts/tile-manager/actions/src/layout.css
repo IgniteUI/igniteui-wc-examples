@@ -1,6 +1,5 @@
 igc-tile-manager {
-  max-width: 1000px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 igc-tile:nth-child(n + 3):nth-child(-n + 4)::part(actions) {
