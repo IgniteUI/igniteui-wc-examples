@@ -19,7 +19,12 @@
     <div class="container sample">
       <div class="container fill">
 
-        <igc-hierarchical-grid id="hGrid" primary-key="customerId" height="600px">
+        <igc-hierarchical-grid 
+          id="hGrid" 
+          primary-key="customerId" 
+          height="600px" 
+          paging-mode="Remote"
+        >
           <igc-paginator id="paginator">
           </igc-paginator>
           <igc-column field="customerId" hidden="true"></igc-column>

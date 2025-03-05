@@ -1,2 +1,6 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
+igc-icon {
+    --size: 48px;
+    color: olive;
+  }
