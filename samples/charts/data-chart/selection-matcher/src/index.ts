@@ -72,7 +72,7 @@ export class Sample {
 
     	var chart = this.chart;
 
-    	this._timer = setInterval(() => {
+    	this._timer = setTimeout(() => {
     		var data = this.energyRenewableConsumption;
     		let matcher: IgcSeriesMatcher = new IgcSeriesMatcher();
 
@@ -83,11 +83,12 @@ export class Sample {
     		selection.matcher = matcher;
     		chart.selectedSeriesItems.add(selection);
 
+    		let matcher2: IgcSeriesMatcher = new IgcSeriesMatcher();
     		let selection2: IgcChartSelection = new IgcChartSelection();
     		selection2.item = data[2];
-    		matcher.memberPath = "wind";
-    		matcher.memberPathType = "ValueMemberPath";
-    		selection2.matcher = matcher;
+    		matcher2.memberPath = "wind";
+    		matcher2.memberPathType = "ValueMemberPath";
+    		selection2.matcher = matcher2;
 
     		chart.selectedSeriesItems.add(selection2);
 
