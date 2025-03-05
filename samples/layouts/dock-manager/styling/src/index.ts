@@ -205,7 +205,8 @@ export class DockManagerStylePanes {
                     ]
                 }
             ]
-        }
+        },
+        floatingPanes: []
     };
 
     layout2: IgcDockManagerLayout = {
@@ -224,7 +225,8 @@ export class DockManagerStylePanes {
                     panes: [this.popularStocksPane, this.topMoversPane]
                 }
             ]
-        }
+        },
+        floatingPanes: []
     };
 
     layouts:IgcDockManagerLayout[] = [];
