@@ -34,3 +34,6 @@ igc-card-content {
   color: var(--ig-gray-800);
 }
  
+.sample {
+  overflow: auto;
+}
