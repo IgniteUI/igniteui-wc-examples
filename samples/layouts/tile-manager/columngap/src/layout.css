@@ -3,8 +3,8 @@ p {
   padding: 10px;
 }
 
-igc-tile-manager {
-  margin-bottom: 5px;
+.sample {
+  overflow: auto;
 }
 
 igc-input {

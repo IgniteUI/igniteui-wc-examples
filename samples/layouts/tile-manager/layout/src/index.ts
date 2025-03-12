@@ -8,6 +8,7 @@ export class TileManagerLayout {
 
   constructor() {
     let serializedData: string;
+    let index = 4;
     var tileManager = document.querySelector<IgcTileManagerComponent>('#tile-manager1')!;
 
     document.querySelector('#saveL')?.addEventListener('click', () => {
@@ -29,8 +30,9 @@ export class TileManagerLayout {
       const newTile = document.createElement('igc-tile');
       const contentHeader = document.createElement('span');
       const content = document.createElement('p');
-      contentHeader.textContent = `Tile ${tileManager.tiles.length + 1} header`;
-      content.textContent = `Content for Tile ${tileManager.tiles.length + 1}`;
+      index++;
+      contentHeader.textContent = `Tile ${index} header`;
+      content.textContent = `Content for Tile ${index}`;
       contentHeader.setAttribute('slot', 'title');
       newTile.position = 0;
       newTile.append(contentHeader);

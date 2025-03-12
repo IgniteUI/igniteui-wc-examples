@@ -15,11 +15,16 @@
 <body>
   <div id="root">
     <div class="container sample center">
-      <igc-radio-group id="resize" alignment="horizontal">
-        <igc-radio name="resize" value="Always" checked>Always</igc-radio>
-        <igc-radio name="resize" value="Hover">Hover</igc-radio>
-      </igc-radio-group>
-      <igc-tile-manager resize-mode="always" column-count="3" gap="20px">
+      <div class="inputWrapper">
+        <igc-radio-group id="resize" alignment="horizontal">
+          <igc-radio name="resize" value="Always" checked>Always</igc-radio>
+          <igc-radio name="resize" value="Hover">Hover</igc-radio>
+          <igc-radio name="resize" value="None">None</igc-radio>
+        </igc-radio-group>
+        <igc-input label="Minimum Column Width" placeholder="200px" type='string'></igc-input>
+        <igc-input label="Minimum Row Height" placeholder="200px" type='string'></igc-input>
+      </div>
+      <igc-tile-manager resize-mode="always" gap="20px">
         <igc-tile>
           <span slot="title">Tile 1 header</span>
           <p>Content for Tile 1</p>

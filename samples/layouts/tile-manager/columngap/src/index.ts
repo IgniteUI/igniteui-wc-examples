@@ -16,10 +16,6 @@ export class TileManagerColumn {
             break;
           case 'Gap Size': tileManager.gap = fieldInput.value;
             break;
-          case 'Minimum Column Width': tileManager.minColumnWidth = fieldInput.value;;
-            break;
-          case 'Minimum Row Height': tileManager.minRowHeight = fieldInput.value;;
-            break;
         }
       }
     })

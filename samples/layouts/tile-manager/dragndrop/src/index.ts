@@ -13,6 +13,8 @@ export class TileManagerDragnDrop {
           break;
         case 'Tile': document.querySelector("igc-tile-manager")?.setAttribute("drag-mode", "tile");
           break;
+        case 'None': document.querySelector("igc-tile-manager")?.setAttribute("drag-mode", "none");
+          break;
       }
     })
   }
