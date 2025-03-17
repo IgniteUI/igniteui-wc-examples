@@ -1,6 +1,7 @@
 import { defineComponents, registerIconFromText, IgcBannerComponent, IgcIconComponent, IgcCardComponent, IgcNavbarComponent, IgcButtonComponent, IgcRippleComponent, IgcToastComponent } from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./BannerStyling.css";
+import "./layout.css";
 
 defineComponents(IgcBannerComponent, IgcNavbarComponent, IgcIconComponent, IgcCardComponent, IgcButtonComponent, IgcRippleComponent, IgcToastComponent);
 

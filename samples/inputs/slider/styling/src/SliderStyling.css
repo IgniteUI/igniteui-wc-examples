@@ -1,39 +1,31 @@
-igc-slider {
-    padding: 30px 30px  0px 30px;
-}
-
-igc-range-slider {
-    padding: 30px 30px  0px 30px;
-}
-
 igc-slider::part(thumb) {
-background: #28a745;
+  background: var(--ig-success-500);
 }
 
 igc-slider::part(thumb):focus {
-    background: #28a745;
-    box-shadow: 0 0 0 2px #28a74694;
+  background: var(--ig-success-200);
+  box-shadow: 0 0 0 2px var(--ig-success-200);
 }
 
 igc-slider::part(fill) {
-    display: block;
-    background: #28a745;
+  display: block;
+  background: var(--ig-success-500);
 }
 
 igc-range-slider::part(thumb) {
-    background: orange;
+  background: var(--ig-warn-600);
 }
 
 igc-range-slider::part(thumb):focus {
-    background: navy;
-    box-shadow: 0 0 0 2px orange;
+  background: var(--ig-warn-400);
+  box-shadow: 0 0 0 2px var(--ig-warn-500);
 }
 
 igc-range-slider::part(track) {
-    display: block;
-    background: navy;
+  display: block;
+  background: var(--ig-primary-800);
 }
 
 igc-range-slider::part(thumb-label-inner) {
-    background: navy;
+  background: var(--ig-primary-800);
 }

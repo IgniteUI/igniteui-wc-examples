@@ -1,26 +1,17 @@
 igc-select::part(base) {
-    background: rgb(225, 241, 246);
-}
-
-igc-select-item::part(prefix),
-igc-select-item::part(suffix) {
-    color: rgb(1, 42, 74);
+  background: var(--ig-primary-50);
 }
 
 igc-select-item[active] {
-    background: rgb(42, 111, 151);
+  background: var(--ig-secondary-300);
 }
 
-igc-select::part(label) {
-    color: rgb(1, 42, 74);
-}
-
-igc-select::part(input){
-    background-color: rgb(225, 241, 246);
+igc-select::part(input) {
+  background-color: var(--ig-primary-50);
 }
 
 igc-select::part(prefix),
-igc-select::part(suffix){
-    color: white;
-    background: rgb(42, 111, 151);
+igc-select::part(suffix) {
+  color: var(--ig-secondary-500-contrast);
+  background: var(--ig-secondary-500);
 }

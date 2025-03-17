@@ -1,0 +1,17 @@
+igc-combo::part(search-input) {
+  background-color: var(--ig-gray-100);
+  border-radius: 2px;
+}
+
+igc-combo::part(input) {
+  background-color: var(--ig-gray-100);
+}
+
+igc-combo::part(prefix) {
+  background-color: var(--ig-secondary-50);
+  color: var(--ig-primary-500);
+}
+
+igc-combo::part(toggle-icon) {
+  color: var(--ig-primary-500);
+}

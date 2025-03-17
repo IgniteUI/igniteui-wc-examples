@@ -1,10 +1,10 @@
 igc-dialog::part(content) {
-    background: #011627;
-    color:white;
+  background: var(--ig-secondary-800);
+  color: var(--ig-secondary-800-contrast);
 }
 
 igc-dialog::part(title),
 igc-dialog::part(footer) {
-    background: #011627;
-    color:#ECAA53;
+  background: var(--ig-secondary-800);
+  color: var(--ig-warn-500);
 }

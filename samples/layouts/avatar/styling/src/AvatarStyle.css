@@ -1,0 +1,6 @@
+igc-avatar::part(base) {
+  --size: 60px;
+  color: var(--ig-success-500-contrast);
+  background: var(--ig-success-500);;
+  border-radius: 20px;
+}

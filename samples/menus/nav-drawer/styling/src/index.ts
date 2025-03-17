@@ -2,6 +2,7 @@ import { defineComponents, IgcNavDrawerComponent, IgcNavDrawerItemComponent, Igc
          registerIconFromText, IgcIconButtonComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './drawer-styling.css';
+import './layout.css'
 
 defineComponents(IgcNavDrawerComponent, IgcIconComponent, IgcIconButtonComponent);
 
