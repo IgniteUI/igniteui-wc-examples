@@ -1,9 +1,9 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import { IgcDataPieChartModule, IgcItemLegendModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataPieChartDescriptionModule, ItemLegendDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent } from 'igniteui-webcomponents-layouts';
+import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
 import { IgcDataPieChartComponent } from 'igniteui-webcomponents-charts';
-import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
+import { DataPieDataItem, DataPieData } from './DataPieData';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
@@ -21,29 +21,35 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private othersCategoryTypeEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private othersCategoryThresholdEditor: IgcPropertyEditorPropertyDescriptionComponent
+    private othersCategoryTextEditor: IgcPropertyEditorPropertyDescriptionComponent
     private chart: IgcDataPieChartComponent
     private _bind: () => void;
 
     constructor() {
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var othersCategoryTypeEditor = this.othersCategoryTypeEditor = document.getElementById('OthersCategoryTypeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var othersCategoryThresholdEditor = this.othersCategoryThresholdEditor = document.getElementById('OthersCategoryThresholdEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var othersCategoryTextEditor = this.othersCategoryTextEditor = document.getElementById('OthersCategoryTextEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataPieChartComponent;
 
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;
             propertyEditorPanel1.target = this.chart;
-            chart.dataSource = this.energyGlobalDemand;
+            chart.dataSource = this.dataPieData;
         }
         this._bind();
 
     }
 
-    private _energyGlobalDemand: EnergyGlobalDemand = null;
-    public get energyGlobalDemand(): EnergyGlobalDemand {
-        if (this._energyGlobalDemand == null)
+    private _dataPieData: DataPieData = null;
+    public get dataPieData(): DataPieData {
+        if (this._dataPieData == null)
         {
-            this._energyGlobalDemand = new EnergyGlobalDemand();
+            this._dataPieData = new DataPieData();
         }
-        return this._energyGlobalDemand;
+        return this._dataPieData;
     }
 
     private _componentRenderer: ComponentRenderer = null;

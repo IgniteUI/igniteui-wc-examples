@@ -110,6 +110,7 @@ export class DockManagerUpdatingPanes {
                     }
                 ]
             },
+            floatingPanes: []
         };
 
         this.onEmployeeClick(this.employeesDatabase[0]);

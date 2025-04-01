@@ -1,7 +1,7 @@
 import { IgcPropertyEditorPanelModule, IgcToolbarModule } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartToolbarModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartAnnotationModule, IgcDataChartInteractivityModule, IgcAnnotationLayerProxyModule, IgcDataChartCategoryTrendLineModule } from 'igniteui-webcomponents-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, ToolbarDescriptionModule, DataChartToolbarDescriptionModule, DataChartCoreDescriptionModule, DataChartCategoryDescriptionModule, DataChartAnnotationDescriptionModule, DataChartInteractivityDescriptionModule, AnnotationLayerProxyDescriptionModule, DataChartCategoryTrendLineDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcPropertyEditorPanelComponent, IgcToolbarComponent } from 'igniteui-webcomponents-layouts';
+import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent, IgcToolbarComponent } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
@@ -27,6 +27,7 @@ ModuleManager.register(
 export class Sample {
 
     private propertyEditorPanel1: IgcPropertyEditorPanelComponent
+    private baseThemeEditor: IgcPropertyEditorPropertyDescriptionComponent
     private toolbar: IgcToolbarComponent
     private chart: IgcDataChartComponent
     private xAxis: IgcCategoryXAxisComponent
@@ -36,6 +37,7 @@ export class Sample {
 
     constructor() {
         var propertyEditorPanel1 = this.propertyEditorPanel1 = document.getElementById('propertyEditorPanel1') as IgcPropertyEditorPanelComponent;
+        var baseThemeEditor = this.baseThemeEditor = document.getElementById('BaseThemeEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var toolbar = this.toolbar = document.getElementById('toolbar') as IgcToolbarComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;

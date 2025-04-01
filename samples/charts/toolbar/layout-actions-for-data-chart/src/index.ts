@@ -1,10 +1,10 @@
 import { IgcToolbarModule } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartToolbarModule, IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartAnnotationModule, IgcDataChartInteractivityModule, IgcDataChartCategoryTrendLineModule } from 'igniteui-webcomponents-charts';
-import { IgcToolbarComponent, IgcToolActionCheckboxComponent, IgcToolActionLabelComponent, IgcToolActionIconMenuComponent } from 'igniteui-webcomponents-layouts';
+import { IgcToolbarComponent, IgcToolActionIconMenuComponent, IgcToolActionGroupHeaderComponent, IgcToolActionSubPanelComponent, IgcToolActionCheckboxComponent, IgcToolActionLabelComponent } from 'igniteui-webcomponents-layouts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent } from 'igniteui-webcomponents-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 import { IgcToolCommandEventArgs } from 'igniteui-webcomponents-layouts';
-import { IgcSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcSeriesComponent, IgcDataToolTipLayerComponent, IgcCrosshairLayerComponent, IgcFinalValueLayerComponent } from 'igniteui-webcomponents-charts';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -23,10 +23,16 @@ ModuleManager.register(
 export class Sample {
 
     private toolbar: IgcToolbarComponent
+    private menuForSubPanelTool: IgcToolActionIconMenuComponent
+    private subPanelGroup: IgcToolActionGroupHeaderComponent
+    private customSubPanelTools: IgcToolActionSubPanelComponent
     private enableTooltipsLabel: IgcToolActionCheckboxComponent
-    private zoomResetHidden: IgcToolActionLabelComponent
+    private enableCrosshairsLabel: IgcToolActionCheckboxComponent
+    private enableFinalValuesLabel: IgcToolActionCheckboxComponent
     private zoomResetLabel: IgcToolActionLabelComponent
+    private zoomResetHidden: IgcToolActionLabelComponent
     private analyzeMenu: IgcToolActionIconMenuComponent
+    private copyMenu: IgcToolActionLabelComponent
     private chart: IgcDataChartComponent
     private xAxis: IgcCategoryXAxisComponent
     private yAxis: IgcNumericYAxisComponent
@@ -37,11 +43,17 @@ export class Sample {
 
     constructor() {
         var toolbar = this.toolbar = document.getElementById('toolbar') as IgcToolbarComponent;
-        this.toolbarToggleTooltip = this.toolbarToggleTooltip.bind(this);
+        this.toolbarToggleAnnotations = this.toolbarToggleAnnotations.bind(this);
+        var menuForSubPanelTool = this.menuForSubPanelTool = document.getElementById('MenuForSubPanelTool') as IgcToolActionIconMenuComponent;
+        var subPanelGroup = this.subPanelGroup = document.getElementById('SubPanelGroup') as IgcToolActionGroupHeaderComponent;
+        var customSubPanelTools = this.customSubPanelTools = document.getElementById('CustomSubPanelTools') as IgcToolActionSubPanelComponent;
         var enableTooltipsLabel = this.enableTooltipsLabel = document.getElementById('EnableTooltipsLabel') as IgcToolActionCheckboxComponent;
-        var zoomResetHidden = this.zoomResetHidden = document.getElementById('zoomResetHidden') as IgcToolActionLabelComponent;
+        var enableCrosshairsLabel = this.enableCrosshairsLabel = document.getElementById('EnableCrosshairsLabel') as IgcToolActionCheckboxComponent;
+        var enableFinalValuesLabel = this.enableFinalValuesLabel = document.getElementById('EnableFinalValuesLabel') as IgcToolActionCheckboxComponent;
         var zoomResetLabel = this.zoomResetLabel = document.getElementById('zoomResetLabel') as IgcToolActionLabelComponent;
+        var zoomResetHidden = this.zoomResetHidden = document.getElementById('zoomResetHidden') as IgcToolActionLabelComponent;
         var analyzeMenu = this.analyzeMenu = document.getElementById('AnalyzeMenu') as IgcToolActionIconMenuComponent;
+        var copyMenu = this.copyMenu = document.getElementById('CopyMenu') as IgcToolActionLabelComponent;
         var chart = this.chart = document.getElementById('chart') as IgcDataChartComponent;
         var xAxis = this.xAxis = document.getElementById('xAxis') as IgcCategoryXAxisComponent;
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
@@ -51,7 +63,7 @@ export class Sample {
 
         this._bind = () => {
             toolbar.target = this.chart;
-            toolbar.onCommand = this.toolbarToggleTooltip;
+            toolbar.onCommand = this.toolbarToggleAnnotations;
             xAxis.dataSource = this.countryRenewableElectricity;
             lineSeries1.xAxis = this.xAxis;
             lineSeries1.yAxis = this.yAxis;
@@ -77,7 +89,7 @@ export class Sample {
     }
 
 
-    public toolbarToggleTooltip(sender: any, args: IgcToolCommandEventArgs): void {
+    public toolbarToggleAnnotations(sender: any, args: IgcToolCommandEventArgs): void {
         var target = this.chart;
         switch (args.command.commandId)
     	{
@@ -93,6 +105,50 @@ export class Sample {
     				for (var i = 0; i < target.actualSeries.length; i++) {
                         let s = target.actualSeries[i] as IgcSeriesComponent;
     					if (s instanceof IgcDataToolTipLayerComponent)
+    					{
+    						toRemove = s;
+    					}
+    				}
+    				if (toRemove != null)
+    				{
+    					target.series.remove(toRemove);
+    				}
+    			}
+    			break;
+    		case "EnableCrosshairs":
+    			var enable = args.command.argumentsList[0].value as boolean;
+    			if (enable)
+    			{
+    				target.series.add(new IgcCrosshairLayerComponent());
+    			}
+    			else
+    			{
+    				var toRemove = null;
+    				for (var i = 0; i < target.actualSeries.length; i++) {
+    					let s = target.actualSeries[i] as IgcSeriesComponent;
+    					if (s instanceof IgcCrosshairLayerComponent)
+    					{
+    						toRemove = s;
+    					}
+    				}
+    				if (toRemove != null)
+    				{
+    					target.series.remove(toRemove);
+    				}
+    			}
+    			break;
+    		case "EnableFinalValues":
+    			var enable = args.command.argumentsList[0].value as boolean;
+    			if (enable)
+    			{
+    				target.series.add(new IgcFinalValueLayerComponent());
+    			}
+    			else
+    			{
+    				var toRemove = null;
+    				for (var i = 0; i < target.actualSeries.length; i++) {
+    					let s = target.actualSeries[i] as IgcSeriesComponent;
+    					if (s instanceof IgcFinalValueLayerComponent)
     					{
     						toRemove = s;
     					}
