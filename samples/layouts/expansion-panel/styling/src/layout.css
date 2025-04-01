@@ -1,0 +1,19 @@
+igc-button {
+  display: flex;
+  margin-top: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+igc-expansion-panel {
+  width: 500px;
+  border-radius: 8px;
+}

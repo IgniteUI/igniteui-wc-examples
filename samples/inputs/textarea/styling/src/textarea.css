@@ -1,15 +1,15 @@
 igc-textarea::part(input) {
-    background-color: rgb(169, 214, 229);
-    border-color: rgb(42, 111, 151);
+  background-color: var(--ig-info-100);
+  border-color: var(--ig-primary-400);
 }
 
 igc-textarea::part(label) {
-    color: rgb(1, 42, 74);
+  color: var(--ig-gray-800);
 }
 
 igc-textarea::part(prefix),
 igc-textarea::part(suffix) {
-    color: white;
-    border-color: rgb(42, 111, 151);
-    background-color: rgb(70, 143, 175);
+  color: var(--ig-primary-500-contrast);
+  border-color: var(--ig-primary-500);
+  background-color: var(--ig-primary-500);
 }
