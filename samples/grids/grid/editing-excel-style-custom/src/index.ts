@@ -21,7 +21,6 @@ export class Sample {
 
             grid1.addEventListener('activeNodeChange', (event: any) => {
                 grid1.endEdit();
-                (grid1.getElementsByClassName("igx-grid__tbody-content")[0] as any).focus();
             });
             grid1.addEventListener('keydown', (event: KeyboardEvent) => {
                 var code = event.code;
@@ -69,8 +68,11 @@ export class Sample {
                     const nextRowIndex = this.getNextEditableRowIndex(thisRow, dataView, event.shiftKey);    
 
                     grid1.navigateTo(nextRowIndex, activeElem.column.visibleIndex, (obj: any) => {
-                        grid1.clearCellSelection(); 
-                        obj.target.activate(); 
+                        grid1.clearCellSelection();
+                        
+                        requestAnimationFrame(() => {
+                            obj.target.activate();
+                        });
                     });
 
                 }
