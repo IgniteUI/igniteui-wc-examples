@@ -1,10 +1,9 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcBooleanFilteringOperand, IgcColumnComponent, IgcStringFilteringOperand, IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { OrdersDataItem, OrdersData } from './OrdersData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
 
 
 export class Sample {
@@ -29,8 +28,6 @@ export class Sample {
         }
         return this._ordersData;
     }
-    
-
 
 }
 

@@ -91,7 +91,8 @@ var config = {
                 "compact": isProd ? true : false,
                 "presets": presets,
                 "plugins": [
-                  "@babel/plugin-proposal-class-properties",
+                  "@babel/plugin-transform-class-static-block",
+                  "@babel/plugin-transform-class-properties",
                   "@babel/plugin-transform-runtime"
                 ] }
               },
@@ -112,7 +113,8 @@ var config = {
                 "compact": isProd ? true : false,
                 "presets": presets,
                 "plugins": [
-                  "@babel/plugin-proposal-class-properties",
+                  "@babel/plugin-transform-class-static-block",
+                  "@babel/plugin-transform-class-properties",
                   "@babel/plugin-transform-runtime"
                 ] }
               },
@@ -201,6 +203,11 @@ var config = {
         igniteuiLayouts: {
           test: /[\\/]node_modules[\\/](igniteui-webcomponents-layouts)[\\/]/,
           name: 'igniteui-webcomponents-layouts',
+          chunks: 'all',
+        },
+        igniteuiDashboards: {
+          test: /[\\/]node_modules[\\/](igniteui-webcomponents-dashboards)[\\/]/,
+          name: 'igniteui-webcomponents-dashboards',
           chunks: 'all',
         },
         igniteuiDockmanager: {

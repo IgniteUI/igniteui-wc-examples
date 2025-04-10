@@ -26,12 +26,20 @@
         name="propertyEditorPanel1"
         id="propertyEditorPanel1">
             <igc-property-editor-property-description
-            property-path="SelectionBehavior"
             label="Selection Behavior: "
+            value-type="EnumValue"
+            property-path="SelectionBehavior"
+            name="SelectionBehaviorEditor"
+            id="SelectionBehaviorEditor"
+            should-override-default-editor="true"
+            drop-down-names="PerDataItemSingleSelect, PerDataItemMultiSelect"
+            drop-down-values="PerDataItemSingleSelect, PerDataItemMultiSelect"
             primitive-value="PerDataItemSingleSelect">
             </igc-property-editor-property-description>
             <igc-property-editor-property-description
             property-path="SelectionMode"
+            name="SelectionModeEditor"
+            id="SelectionModeEditor"
             label="Selection Mode: "
             primitive-value="Brighten">
             </igc-property-editor-property-description>

@@ -2,10 +2,10 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcCellType, IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindData } from './NwindData';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
-
 import "./index.css";
+
+
 
 export class Sample {
 
@@ -22,7 +22,6 @@ export class Sample {
             grid1.addEventListener('activeNodeChange', (event: any) => {
                 grid1.endEdit();
                 (grid1.getElementsByClassName("igx-grid__tbody-content")[0] as any).focus();
-
             });
             grid1.addEventListener('keydown', (event: KeyboardEvent) => {
                 var code = event.code;

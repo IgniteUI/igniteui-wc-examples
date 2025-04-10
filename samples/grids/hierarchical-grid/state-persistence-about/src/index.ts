@@ -8,7 +8,7 @@ export class Sample {
 
     constructor() {
         var backBtn = document.getElementById("backBtn") as IgcButtonComponent;
-        
+
         this._bind = () => {
             backBtn.addEventListener("click", () => { window.location.replace("./grids/hierarchical-grid/state-persistence-main");});
         }

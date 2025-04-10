@@ -19,12 +19,11 @@ export class MapImagerySources {
         this.onMapTypeSelectionChange = this.onMapTypeSelectionChange.bind(this);
 
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
-
-        this.geoMap.zoomToGeographic({ left: -120, top: 30, width: 45, height: 20 });            
+        this.geoMap.zoomToGeographic({ left: -120, top: 30, width: 45, height: 20 });
 
         let dropDown: HTMLSelectElement = document.getElementById('mapTypeSelect') as HTMLSelectElement;
         dropDown.addEventListener("change", this.onMapTypeSelectionChange);
-        
+
         let openStreetOption: HTMLOptionElement = document.createElement('option') as HTMLOptionElement;
         openStreetOption.textContent = "OpenStreetMaps (default)";
 
@@ -34,7 +33,7 @@ export class MapImagerySources {
         let bingAerialNoLabelsOption: HTMLOptionElement = document.createElement('option') as HTMLOptionElement;
         bingAerialNoLabelsOption.textContent = "Bing Maps Aerial Without Labels";
 
-        let bingAerialLabelsOption: HTMLOptionElement = document.createElement('option') as HTMLOptionElement;        
+        let bingAerialLabelsOption: HTMLOptionElement = document.createElement('option') as HTMLOptionElement;
         bingAerialLabelsOption.textContent = "Bing Maps Aerial With Labels";
 
         dropDown.add(openStreetOption);
@@ -49,17 +48,17 @@ export class MapImagerySources {
             let option: HTMLOptionElement = document.createElement('option') as HTMLOptionElement;
             let style = esriKeys[i];
 
-            option.textContent = "Esri " + style;              
-            option.value = esriVals[i];     
+            option.textContent = "Esri " + style;
+            option.value = esriVals[i];
 
             dropDown.add(option);
         }
     }
 
-    public onMapTypeSelectionChange(e: any){    
+    public onMapTypeSelectionChange(e: any){
         if (this.geoMap === undefined) return;
 
-        let value: string = e.target.value;        
+        let value: string = e.target.value;
 
         if(value.includes("OpenStreetMap")){
             console.log("OSM");

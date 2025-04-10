@@ -156,7 +156,8 @@ export class DockManagerStylePanes {
                     panes: [this.popularStocksPane]
                 }
             ]
-        }
+        },
+        floatingPanes: []
     };
 
     layout1: IgcDockManagerLayout = {
@@ -225,14 +226,14 @@ export class DockManagerStylePanes {
             ]
         }
     };
-    
+
     layouts:IgcDockManagerLayout[] = [];
     index = 0;
     newIndex = -1;
 
     constructor() {
         this.layouts = [this.layout, this.layout1, this.layout2];
-        
+
         this.dockManager = document.getElementById("dockManager") as IgcDockManagerComponent;
         this.handleLayoutViews(document.body.clientWidth);
 

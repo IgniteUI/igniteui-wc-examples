@@ -93,6 +93,7 @@ Follow these instructions to run all samples locally in a browser application.
 This will install required packages and [Ignite UI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html) packages from npm website:
 
 - [igniteui-webcomponents-core](https://www.npmjs.com/package/igniteui-webcomponents-core)
+- [igniteui-webcomponents-core](https://www.npmjs.com/package/igniteui-webcomponents-dashboards)
 - [igniteui-webcomponents-charts](https://www.npmjs.com/package/igniteui-webcomponents-charts)
 - [igniteui-webcomponents-excel](https://www.npmjs.com/package/igniteui-webcomponents-excel)
 - [igniteui-webcomponents-gauges](https://www.npmjs.com/package/igniteui-webcomponents-gauges)
@@ -170,6 +171,20 @@ Next, follow these steps:
 - submit your pull request
 
 
+## Updating Packages in Samples
+
+NOTE Do NOT find replace version of packages in package.json files. 
+
+- open this repo in VS Code
+- open [./browser/tasks/gulp-samples.js](./browser/tasks/gulp-samples.js) file
+- navigate to the `updateIG` function
+- update version of packages in `packageUpgrades` array
+- open terminal window
+- run `cd browser` command
+- run the `gulp updateIG` command
+- run `npm install --legacy-peer-deps` command
+- create AND merge a pull request with changes in all package.json files in this repository
+- create 2nd pull request with similar changes in `/editor-templates/WebComponents/main-template/package.json` of the [igniteui-xplat-examples](https://github.com/IgniteUI/igniteui-xplat-examples) repository.
 
 ## Learn More
 

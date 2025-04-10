@@ -1,5 +1,6 @@
 import { IgcLegendModule, IgcCategoryChartModule, IgcCategoryChartToolbarModule } from 'igniteui-webcomponents-charts';
 import { IgcToolbarModule } from 'igniteui-webcomponents-layouts';
+import { IgcCheckboxListModule } from 'igniteui-webcomponents-grids';
 import { IgcLegendComponent, IgcCategoryChartComponent } from 'igniteui-webcomponents-charts';
 import { IgcToolbarComponent } from 'igniteui-webcomponents-layouts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
@@ -12,7 +13,8 @@ ModuleManager.register(
     IgcLegendModule,
     IgcToolbarModule,
     IgcCategoryChartModule,
-    IgcCategoryChartToolbarModule
+    IgcCategoryChartToolbarModule,
+    IgcCheckboxListModule
 );
 
 export class Sample {

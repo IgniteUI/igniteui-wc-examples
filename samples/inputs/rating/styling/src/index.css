@@ -1,6 +1,5 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
-
 igc-rating {
     --symbol-size: 44px;
     --symbol-full-color: hsla(var(--ig-warn-A400), var(--ig-warn-a));

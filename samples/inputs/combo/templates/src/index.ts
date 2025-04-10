@@ -47,7 +47,6 @@ export class ComboTemplates {
     protected itemTemplate: ComboItemTemplate<City> = ({ item }) => {
         return html` <span><b>${item.name}</b> [${item.id}]</span>`;
     };
-
     protected groupHeaderTemplate: ComboItemTemplate<City> = ({ item }) => {
         return html`<span>Country of ${item.country}</span>`;
     };

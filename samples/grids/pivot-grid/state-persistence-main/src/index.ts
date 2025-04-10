@@ -16,17 +16,18 @@ const refreshIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox
 export class Sample {
     private gridData;
     private grid: IgcPivotGridComponent;
-    private gridState: IgcGridStateComponent;
+    private _gridState: IgcGridStateComponent;
     public stateKey = 'pivot-grid-state';
 
     public options: IgcGridStateOptions = {
         cellSelection: true,
-        rowSelection: true,
+        columnSelection: true,
         filtering: true,
         sorting: true,
         expansion: true,
         pivotConfiguration: true
     };
+
     private columnsLoaded: Promise<void>;
 
     public totalSale = (members: any, data: any) =>
@@ -35,10 +36,17 @@ export class Sample {
     public totalMin = (members: any, data: any) => {
         return data.map((x: any) => x.ProductUnitPrice * x.NumberOfUnits).reduce((a: any, b: any) => Math.min(a, b));
     };
-    
+
     public totalMax = (members: any, data: any) => {
         return data.map((x: any) => x.ProductUnitPrice * x.NumberOfUnits).reduce((a: any, b: any) => Math.max(a,b));
     };
+
+    public get gridState() {
+        if (!this._gridState) {
+            this._gridState = document.getElementById('gridState') as IgcGridStateComponent;
+        }
+        return this._gridState;
+    }
 
     private pivotConfiguration: IgcPivotConfiguration = {
         columns: [
@@ -172,7 +180,6 @@ export class Sample {
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcPivotGridComponent;
         this.gridData = new PivotDataFlat();
-        this.gridState = document.getElementById('gridState') as IgcGridStateComponent;
 
         var saveStateBtn = document.getElementById("saveState") as IgcButtonComponent;
         var restoreStateBtn = document.getElementById("restoreState") as IgcButtonComponent;
@@ -192,7 +199,6 @@ export class Sample {
 
         grid.data = this.gridData;
         grid.pivotConfiguration = this.pivotConfiguration;
-
         grid.addEventListener("columnInit", (ev: any) => { this.onColumnInit(ev); });
         grid.addEventListener("valueInit", (ev:any) => this.onValueInit(ev));
         grid.addEventListener("dimensionInit", (ev:any) => this.onDimensionInit(ev));
@@ -208,9 +214,9 @@ export class Sample {
             cb.addEventListener("igcChange", (ev: CustomEvent) => { this.onChange(ev, cb.id); });
         });
 
-        window.addEventListener("load", async () => { 
+        window.addEventListener("load", async () => {
             await this.columnsLoaded;
-            this.restoreGridState(); 
+            this.restoreGridState();
         });
         window.addEventListener("beforeunload", () => { this.saveGridState(); });
     }
@@ -239,13 +245,14 @@ export class Sample {
         if (action === 'allFeatures') {
             var allCheckboxes = Array.from(document.getElementsByTagName("igc-checkbox"));
             allCheckboxes.forEach(cb => {
-                cb.checked = event.detail;
+                cb.checked = event.detail.checked;
             });
+
             for (const key of Object.keys(this.options)) {
-                (this.gridState.options as any)[key] = event.detail;
-            }
+                (this.gridState.options as any)[key] = event.detail.checked;
+            }        
         } else {
-            (this.gridState.options as any)[action] = event.detail;
+            (this.gridState.options as any)[action] = event.detail.checked;
             var allFeatures = document.getElementById("allFeatures") as IgcCheckboxComponent;
             allFeatures.checked = Object.keys(this.options).every(o => (this.gridState.options as any)[o]);
         }
@@ -264,7 +271,7 @@ export class Sample {
         window.location.reload();
     }
 
-    private onColumnInit(event: any) { 
+    private onColumnInit(event: any) {
         if(event.detail.index === this.grid.columns.length - 1) {
            this.columnsLoaded = new Promise((resolve) => resolve());
         }

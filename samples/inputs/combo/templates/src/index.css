@@ -1,6 +1,5 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
-
 igc-combo::part(header),
 igc-combo::part(footer) {
     padding: 12px 8px;

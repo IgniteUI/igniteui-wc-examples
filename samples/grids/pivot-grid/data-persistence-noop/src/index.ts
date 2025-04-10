@@ -52,12 +52,19 @@ export class Sample {
         ],
         filters: null
     };
+
     public stateKey = 'pivot-grid-state';
-    private gridState: IgcGridStateComponent;
+    private _gridState: IgcGridStateComponent;
+
+    public get gridState() {
+        if (!this._gridState) {
+            this._gridState = document.getElementById('gridState') as IgcGridStateComponent;
+        }
+        return this._gridState;
+    }
 
     constructor() {
         var grid = document.getElementById("grid") as IgcPivotGridComponent;
-        this.gridState = document.getElementById('gridState') as IgcGridStateComponent;
         grid.pivotConfiguration = this.pivotConfiguration;
         PivotNoopData.getData().then((value) => {
             grid.data = value;
@@ -69,8 +76,9 @@ export class Sample {
         saveStateBtn.addEventListener('click', (ev: any) => this.saveGridState());
         restoreStateBtn.addEventListener('click', (ev: any) => this.restoreGridState());
         clearStorageBtn.addEventListener('click', (ev: any) => this.clearStorage());
-
-        this.gridState.addEventListener('stateParsed', (ev:any) => this.stateParsedHandler(ev) );
+        grid.addEventListener("rendered", () => {
+            this.gridState.addEventListener('stateParsed', (ev:any) => this.stateParsedHandler(ev) );
+        });
     }
 
     public saveGridState() {
@@ -88,7 +96,7 @@ export class Sample {
     public clearStorage() {
         window.localStorage.removeItem(this.stateKey);
     }
-    
+
     public stateParsedHandler(ev: any) {
         const parsedState = ev.detail;
         parsedState.pivotConfiguration.rowStrategy = IgcNoopPivotDimensionsStrategy.instance();

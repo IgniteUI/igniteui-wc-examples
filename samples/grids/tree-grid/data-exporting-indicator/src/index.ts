@@ -1,14 +1,14 @@
 import { IgcGridToolbarComponent, IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { defineComponents, IgcButtonComponent } from 'igniteui-webcomponents';
 import { OrdersTreeData } from './OrdersData';
-
 import 'igniteui-webcomponents-grids/grids/combined';
 import 'igniteui-webcomponents-grids/grids/themes/light/bootstrap.css';
+
 
 defineComponents(IgcButtonComponent);
 
 export class Sample {
-    
+
     constructor() {
         const localData: any[] = [];
         for (let i = 0; i < 10000; i += 3) {

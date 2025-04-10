@@ -3,8 +3,8 @@ import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcompone
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 import { IgcSummaryResult } from 'igniteui-webcomponents-grids/grids';
-
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
+
 
 class CustomSummary {
     operate(data: any[], allData: any[] = [], fieldName: string): IgcSummaryResult[] {
@@ -56,7 +56,6 @@ export class Sample {
             grid.addEventListener("columnInit", this.webGridCustomSummary);
         }
         this._bind();
-
     }
 
     private _nwindData: NwindData = null;

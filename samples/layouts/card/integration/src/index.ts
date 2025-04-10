@@ -1,4 +1,4 @@
-import { 
+import {
   defineComponents,
   IgcNavDrawerComponent,
   IgcIconComponent,
@@ -43,11 +43,11 @@ export class CardIntegrationComponent {
   constructor() {
     const btn = document.getElementById('drawerToggle');
     const navDrawer = document.querySelector('igc-nav-drawer') as IgcNavDrawerComponent;
-    
+
     btn!.addEventListener('click', () => {
       navDrawer.toggle();
     });
-    
+
     registerIconFromText('logout', logout);
     registerIconFromText('list', list);
     registerIconFromText('dashboard', dashboard);

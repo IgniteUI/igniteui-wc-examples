@@ -1,5 +1,4 @@
-import { defineComponents, IgcIconComponent, IgcDateTimeInputComponent, registerIconFromText } from 'igniteui-webcomponents';
-import { DatePart, DatePartDeltas } from 'igniteui-webcomponents/components/date-time-input/date-util.js';
+import { defineComponents, IgcIconComponent, IgcDateTimeInputComponent, registerIconFromText, DatePartDeltas, DatePart } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 defineComponents(IgcIconComponent, IgcDateTimeInputComponent);
@@ -28,12 +27,12 @@ export class DateTimeInputStepUpDown {
         const up = document.getElementById('up');
         const down = document.getElementById('down');
 
-        up!.addEventListener('click', () => {   
-            input.stepUp(DatePart.Month);
+        up!.addEventListener('click', () => {
+            input.stepUp("month" as DatePart);
         });
 
-        down!.addEventListener('click', () => {   
-            input.stepDown(DatePart.Date);
+        down!.addEventListener('click', () => {
+            input.stepDown("date" as DatePart);
         });
 
         registerIconFromText("up", upIcon);
