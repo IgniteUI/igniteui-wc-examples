@@ -13,22 +13,22 @@ export class Sample {
     public get pivotConfiguration1(): IgcPivotConfiguration {
         if (this._pivotConfiguration1 == null)
         {
-            var pivotConfiguration1: IgcPivotConfiguration = {} as IgcPivotConfiguration;
+            var pivotConfiguration1 = new IgcPivotConfiguration();
 
-            var pivotDimension1: IgcPivotDimension = {} as IgcPivotDimension;
+            var pivotDimension1 = new IgcPivotDimension();
             pivotDimension1.memberName = "Country";
             pivotDimension1.enabled = true;
 
             pivotConfiguration1.columns = [pivotDimension1];
-            var pivotDimension2: IgcPivotDimension = {} as IgcPivotDimension;
+            var pivotDimension2 = new IgcPivotDimension();
             pivotDimension2.memberName = "Product";
             pivotDimension2.enabled = true;
 
             pivotConfiguration1.rows = [pivotDimension2];
-            var pivotValue1: IgcPivotValue = {} as IgcPivotValue;
+            var pivotValue1 = new IgcPivotValue();
             pivotValue1.member = "Sales";
             pivotValue1.enabled = true;
-            var pivotAggregator1: IgcPivotAggregator = {} as IgcPivotAggregator;
+            var pivotAggregator1 = new IgcPivotAggregator();
             pivotAggregator1.key = "MAX";
             pivotAggregator1.label = "SalesValue";
             pivotAggregator1.aggregator = this.pivotSalesDataAggregateUnitsSold;

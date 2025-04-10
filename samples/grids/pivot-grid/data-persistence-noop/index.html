@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sample | Ignite UI | Web Components | infragistics</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+  <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+</head>
+
+<body>
+  <div id="root">
+    <div class="sampleContainer">
+      <div class="container horizontal">
+        <igc-button id="restoreState" variant="contained">
+          <igc-icon name="restore" collection="material"></igc-icon>
+          Restore
+        </igc-button>
+        <igc-button id="saveState" variant="contained">
+          <igc-icon name="save" collection="material"></igc-icon>
+          Save
+        </igc-button>
+        <igc-button id="clearStorage" variant="contained">
+          <igc-icon name="delete" collection="material"></igc-icon>
+          Clear
+        </igc-button>
+      </div>
+
+      <igc-pivot-grid default-expand-state="true" super-compact-mode="true" show-pivot-configuration-ui="false"
+            height="600px" name="grid" id="grid">
+            <igc-grid-state id="gridState"></igc-grid-state>
+      </igc-pivot-grid>
+    </div>
+</div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+</body>
+
+</html>

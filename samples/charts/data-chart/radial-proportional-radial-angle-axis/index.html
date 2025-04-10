@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+
+    <div class="legend-title">
+        Hydro Consumption in 2019
+    </div>
+
+    <div class="legend">
+        <igc-legend
+        name="legend"
+        id="legend"
+        orientation="Horizontal">
+        </igc-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        name="chart"
+        id="chart"
+        is-horizontal-zoom-enabled="false"
+        is-vertical-zoom-enabled="false">
+            <igc-proportional-category-angle-axis
+            name="angleAxis"
+            id="angleAxis"
+            label="location"
+            value-member-path="hydro"
+            gap="0">
+            </igc-proportional-category-angle-axis>
+            <igc-numeric-radius-axis
+            name="radiusAxis"
+            id="radiusAxis"
+            minimum-value="0"
+            maximum-value="100">
+            </igc-numeric-radius-axis>
+            <igc-radial-pie-series
+            name="RadialPieSeries1"
+            id="RadialPieSeries1"
+            value-member-path="hydro"
+            show-default-tooltip="false"
+            use-item-wise-colors="true"
+            title="Hydro Consumption">
+            </igc-radial-pie-series>
+            <igc-data-tool-tip-layer
+            name="dataToolTipLayer"
+            id="dataToolTipLayer">
+            </igc-data-tool-tip-layer>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
