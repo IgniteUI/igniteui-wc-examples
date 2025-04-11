@@ -46,7 +46,7 @@ export class Sample {
 export class CaseSensitiveFilteringOperand extends IgcStringFilteringOperand {
     private constructor() {
         super();
-        const customOperations = [
+        const customOperations: IgcFilteringOperation[] = [
             {
                 iconName: 'contains',
                 isUnary: false,
@@ -71,7 +71,7 @@ export class CaseSensitiveFilteringOperand extends IgcStringFilteringOperand {
             }
         ];
 
-        const emptyOperators = [
+        const emptyOperators: IgcFilteringOperation[] = [
             // 'Empty'
             this.operations[6],
             // 'Not Empty'
