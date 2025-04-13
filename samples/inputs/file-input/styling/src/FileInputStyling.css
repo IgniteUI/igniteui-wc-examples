@@ -1,0 +1,14 @@
+igc-file-input::part(file-names) {
+  background-color: var(--ig-primary-50);
+  color: var(--ig-gray-400);
+}
+
+igc-file-input::part(suffix) {
+  color: var(--ig-primary-700-contrast);
+  background-color: var(--ig-primary-700);
+  border: 0px
+}
+
+igc-file-input::part(label) {
+  color: var(--ig-gray-600);
+}
