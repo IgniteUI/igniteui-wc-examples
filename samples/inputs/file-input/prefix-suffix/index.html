@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File Input Prefix & Suffix</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample center">
+        <igc-file-input label="Input with slots">
+          <igc-icon name="imageIcon" slot="prefix"></igc-icon>
+          <igc-icon name="uploadFile" slot="suffix"></igc-icon>
+          <span slot="helper-text">Sample helper text.</span>
+          <span slot="file-selector-text">Upload</span>
+          <span slot="value-missing">Please upload file</span>
+        </igc-file-input>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
