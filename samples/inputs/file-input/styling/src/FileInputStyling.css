@@ -1,14 +1,22 @@
 igc-file-input::part(file-names) {
-  background-color: var(--ig-primary-50);
-  color: var(--ig-gray-400);
+    color: var(--ig-gray-400);
 }
 
+igc-file-input::part(file-selector-button),
 igc-file-input::part(suffix) {
-  color: var(--ig-primary-700-contrast);
-  background-color: var(--ig-primary-700);
-  border: 0px
+    --blackground: var(--ig-primary-700);
+    --foreground: var(--ig-primary-700-contrast);
+
+    /* Style the file selector button */
+    --input-prefix-background: var(--blackground);
+    --input-prefix-color: var(--foreground);
+
+    /* Style the custom suffix */
+    --input-suffix-background: var(--blackground);
+    --input-suffix-color: var(--foreground);
 }
 
 igc-file-input::part(label) {
-  color: var(--ig-gray-600);
+    color: var(--ig-gray-600);
 }
+
