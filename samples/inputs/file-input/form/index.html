@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>File Input in Form</title>
+  <meta charset="UTF-8" />
+  
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+  </head>
+
+  <body>
+  <div id="root">
+    <div class="container sample center">
+      <form id='form1' enctype="multipart/form-data">
+        <fieldset>
+          <igc-file-input id="fInput" name="fInput" label="Required field" multiple required>
+            <p slot="helper-text">You can upload any type of file.</p>
+            <p slot="value-missing">You must upload a file</p>
+          </igc-file-input>
+          <igc-button variant="outlined" type="submit">Submit</igc-button>
+          <igc-button variant="outlined" type="reset">Reset</igc-button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+  </body>
+
+</html>

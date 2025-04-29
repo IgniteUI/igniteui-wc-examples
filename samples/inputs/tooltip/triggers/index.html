@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tooltip Triggers</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample center">
+      <div id="triggers-container">
+        <igc-card>
+          <igc-card-header>
+            <h4 slot="title">Default triggers</h4>
+          </igc-card-header>
+          <igc-card-content>
+            <p>
+              Hovering over the button below will display the tooltip using its default configuration: it appears on <strong>pointer enter</strong> and hides on <strong>pointer leave</strong> or <strong>click</strong>.
+            </p>
+            <igc-button variant="outlined" id="triggers-default">Hover over me</igc-button>
+            <igc-tooltip anchor="triggers-default">
+              I am show on pointer enter and hidden on pointer leave and/or click.
+            </igc-tooltip>
+          </igc-card-content>
+        </igc-card>
+
+        <igc-card>
+          <igc-card-header>
+            <h4 slot="title">Focus based</h4>
+          </igc-card-header>
+          <igc-card-content>
+            <p>
+              In this instance, the tooltip is bound to show on its anchor
+              <strong>focus</strong> and will hide when its anchor is
+              <strong>blurred</strong>.
+            </p>
+            <p>Try to navigate with a Tab key to the anchor to see the effect.</p>
+            <igc-button variant="outlined" id="triggers-focus-blur">Focus me</igc-button>
+            <igc-tooltip anchor="triggers-focus-blur" show-delay="0" hide-delay="0" show-triggers="focus"
+              hide-triggers="blur">
+              I am shown on focus and hidden on blur.
+            </igc-tooltip>
+          </igc-card-content>
+        </igc-card>
+
+        <igc-card>
+          <igc-card-header>
+            <h4 slot="title">Same trigger(s) for showing and hiding</h4>
+          </igc-card-header>
+          <igc-card-content>
+            <p>
+              The same trigger can be bound to both show and hide the tooltip. The
+              button below has its tooltip bound to show/hide on
+              <strong>click</strong>.
+            </p>
+            <igc-button variant="outlined" id="triggers-click">Click</igc-button>
+            <igc-tooltip show-delay="0" hide-delay="0" anchor="triggers-click" show-triggers="click" hide-triggers="click">
+              I am show on click and will hide on anchor click.
+            </igc-tooltip>
+          </igc-card-content>
+        </igc-card>
+
+        <igc-card>
+          <igc-card-header>
+            <h4 slot="title">Keyboard interactions</h4>
+          </igc-card-header>
+          <igc-card-content>
+            <p>
+              Keyboard interactions are also supported. The button below has its
+              tooltip bound to show on a <strong>keypress</strong> and hide on a
+              <strong>keypress</strong> or <strong>blur</strong>.
+            </p>
+            <p>Try it out by focusing the button and pressing a key.</p>
+            <igc-button variant="outlined" id="triggers-keypress">Press a key</igc-button>
+            <igc-tooltip anchor="triggers-keypress" show-triggers="keypress" hide-triggers="keypress blur">
+              I am shown on a keypress and will hide on a keypress or blur.
+            </igc-tooltip>
+          </igc-card-content>
+        </igc-card>
+
+        <igc-card>
+          <igc-card-header>
+            <h4 slot="title">Custom events</h4>
+          </igc-card-header>
+          <igc-card-content>
+            <p>
+              The tooltip supports any DOM event, including custom events. Try entering a value in the input below, then "commit" it by either <strong>blurring</strong> the input or pressing <strong>Enter</strong>.
+            </p>
+            <igc-input variant="outlined" id="triggers-custom" label="Username"></igc-input>
+            <igc-tooltip anchor="triggers-custom" show-triggers="igcChange">
+              Value changed!
+            </igc-tooltip>
+          </igc-card-content>
+        </igc-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+  <% } %>
+
+</body>
+</html>
