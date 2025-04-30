@@ -1,10 +1,10 @@
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
 import { ModuleManager, IgcProvideCalculatorEventArgs } from 'igniteui-webcomponents-core';
 import { DataGridSharedData } from './DataGridSharedData';
-import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
-import { IgcColumnSummaryDescription } from 'igniteui-webcomponents-grids'
+import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
+import { IgcColumnSummaryDescription } from 'igniteui-webcomponents-data-grids'
 import { DataSourceSummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, ISummaryResult } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(
