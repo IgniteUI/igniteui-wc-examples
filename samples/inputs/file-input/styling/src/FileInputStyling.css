@@ -1,0 +1,24 @@
+igc-file-input {
+    --blackground: var(--ig-primary-700);
+    --foreground: var(--ig-primary-700-contrast);
+}
+
+igc-file-input:focus::part(suffix),
+igc-file-input::part(file-selector-button),
+igc-file-input::part(suffix) {
+    /* Style the file selector button */
+    --input-prefix-background: var(--blackground);
+    --input-prefix-color: var(--foreground);
+
+    /* Style the custom suffix */
+    --input-suffix-background: var(--blackground);
+    --input-suffix-background--focused: var(--blackground);
+    --input-suffix-background--filled: var(--blackground);
+
+    color: var(--foreground);
+}
+
+igc-file-input::part(label) {
+    color: var(--ig-gray-600);
+}
+
