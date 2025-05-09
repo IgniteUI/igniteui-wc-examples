@@ -26,7 +26,7 @@
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents": "5.4.1",
+    "igniteui-webcomponents": "6.0.0",
     "igniteui-webcomponents-core": "5.4.0",
     "igniteui-webcomponents-grids": "5.4.0",
     "igniteui-webcomponents-inputs": "5.4.0",
