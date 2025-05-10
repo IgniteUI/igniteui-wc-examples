@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Date Range Picker Slots</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v5.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample center">
+      <h3>Actions</h3>
+      <igc-date-range-picker mode="dialog" id="DateRange">
+        <igc-button slot="actions" onclick="DateRange.showWeekNumbers = !DateRange.showWeekNumbers">Toggle Week Numbers
+        </igc-button>
+      </igc-date-range-picker>
+
+      <h3>Custom separator</h3>
+      <igc-date-range-picker use-two-inputs="true">
+        <span slot="separator">till</span>
+      </igc-date-range-picker>
+
+      <h3>Helper text</h3>
+      <igc-date-range-picker>
+        <span slot="helper-text">Helper text goes here.</span>
+      </igc-date-range-picker>
+
+      <h3>Prefix & Suffix</h3>
+      <igc-date-range-picker id="preSuf">
+        <igc-icon slot="prefix" name="downArrowIcon"></igc-icon>
+        <igc-icon slot="suffix" name="uploadIcon"></igc-icon>
+      </igc-date-range-picker>
+
+      <h3>Clear & Calendar icons</h3>
+      <igc-date-range-picker id="clearCal">
+        <igc-icon slot="clear-icon" name="binIcon"></igc-icon>
+        <igc-icon slot="calendar-icon" name="appsIcon"></igc-icon>
+      </igc-date-range-picker>
+
+      <h3>Custom calendar header + title</h3>
+      <igc-date-range-picker mode="dialog">
+        <span slot="title">Custom calendar title goes here.</span>
+        <span slot="header-date">Custom content instead of date goes here.</span>
+      </igc-date-range-picker>
+
+    </div>
+  </div>
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+  <% } %>
+
+</body>
+
+</html>
