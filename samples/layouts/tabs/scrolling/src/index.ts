@@ -11,8 +11,10 @@ export class TabsScrolling {
 
         for(let i = 0; i < 18; i++) {
             this.tabs.insertAdjacentHTML('beforeend',
-                `<igc-tab panel=${i}> Tab ${i + 1}</igc-tab>
-                <igc-tab-panel id=${i}> Tab panel ${i + 1} </igc-tab-panel>`
+                `<igc-tab>
+                    <div slot="label">Tab ${i + 1}</div>
+                    <p>Tab panel ${i + 1}</p>
+                </igc-tab>`
             );
         }
     }
