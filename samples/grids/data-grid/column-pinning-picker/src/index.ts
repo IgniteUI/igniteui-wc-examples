@@ -1,9 +1,9 @@
 import { ModuleManager } from 'igniteui-webcomponents-core';
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
 import { DataGridSharedData } from './DataGridSharedData';
-import { PinnedPositions } from 'igniteui-webcomponents-grids';
+import { PinnedPositions } from 'igniteui-webcomponents-data-grids';
 import { Button } from '@material/mwc-button';
 
 ModuleManager.register(
