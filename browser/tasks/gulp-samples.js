@@ -980,6 +980,7 @@ function updateIG(cb) {
         { version: "5.5.0-beta.0", name: "igniteui-webcomponents-charts" },
         { version: "5.5.0-beta.0", name: "igniteui-webcomponents-excel" },
         { version: "5.5.0-beta.0", name: "igniteui-webcomponents-gauges" },
+        { version: "5.5.0-beta.0", name: "igniteui-webcomponents-data-grids" },
         { version: "6.0.1", name: "igniteui-webcomponents-grids" },
         { version: "5.5.0-beta.0", name: "igniteui-webcomponents-inputs" },
         { version: "5.5.0-beta.0", name: "igniteui-webcomponents-layouts" },
