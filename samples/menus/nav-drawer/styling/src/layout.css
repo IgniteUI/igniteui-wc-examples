@@ -1,0 +1,7 @@
+#button-wrapper {
+  padding: 16px;
+}
+
+igc-icon-button::part(icon) {
+  color: var(--ig-secondary-500);
+}

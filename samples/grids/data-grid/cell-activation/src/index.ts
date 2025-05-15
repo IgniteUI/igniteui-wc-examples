@@ -1,9 +1,9 @@
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
-import { EnterKeyBehaviors } from 'igniteui-webcomponents-grids';
-import { EnterKeyBehaviorAfterEdit } from 'igniteui-webcomponents-grids';
-import { EditModeType } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
+import { EnterKeyBehaviors } from 'igniteui-webcomponents-data-grids';
+import { EnterKeyBehaviorAfterEdit } from 'igniteui-webcomponents-data-grids';
+import { EditModeType } from 'igniteui-webcomponents-data-grids';
 import { DataGridSharedData } from './DataGridSharedData';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 

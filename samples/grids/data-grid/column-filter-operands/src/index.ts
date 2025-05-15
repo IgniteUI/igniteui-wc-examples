@@ -1,10 +1,10 @@
-import { IgcDataGridModule, IgcGridColumnsChangedEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
-import { IgcGridCustomFilterRequestedEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcFilterOperand } from 'igniteui-webcomponents-grids';
-import { FilterUIType } from 'igniteui-webcomponents-grids';
-import { EditorType } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule, IgcGridColumnsChangedEventArgs } from 'igniteui-webcomponents-data-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcGridCustomFilterRequestedEventArgs } from 'igniteui-webcomponents-data-grids';
+import { IgcFilterOperand } from 'igniteui-webcomponents-data-grids';
+import { FilterUIType } from 'igniteui-webcomponents-data-grids';
+import { EditorType } from 'igniteui-webcomponents-data-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { DataGridSharedData } from './DataGridSharedData';
 

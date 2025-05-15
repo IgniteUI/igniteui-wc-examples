@@ -1,11 +1,11 @@
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
-import { IgcImageColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcTextColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcNumericColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcDateTimeColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcImageColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcTextColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcNumericColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcDateTimeColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(

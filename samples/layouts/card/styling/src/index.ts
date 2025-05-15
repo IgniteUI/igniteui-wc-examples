@@ -2,6 +2,7 @@ import { defineComponents, IgcCardComponent, IgcIconButtonComponent, IgcRippleCo
 import { all } from '@igniteui/material-icons-extended';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './CardStyling.css';
+import './layout.css'
 
 defineComponents(IgcCardComponent, IgcIconButtonComponent, IgcRippleComponent);
 export class CardStyling {

@@ -42,6 +42,11 @@ module.exports = function override(config, env) {
             name: 'igniteui-webcomponents-grids',
             chunks: 'all',
         },
+        igniteuiDataGrids: {
+          test: /[\\/]node_modules[\\/](igniteui-webcomponents-data-grids)[\\/]/,
+          name: 'igniteui-webcomponents-data-grids',
+          chunks: 'all',
+        },
         igniteuiInputs: {
             test: /[\\/]node_modules[\\/](igniteui-webcomponents-inputs)[\\/]/,
             name: 'igniteui-webcomponents-inputs',

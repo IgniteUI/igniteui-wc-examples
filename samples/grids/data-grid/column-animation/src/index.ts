@@ -1,13 +1,13 @@
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { DataGridSharedData } from './DataGridSharedData';
-import { ColumnShowingAnimationMode } from 'igniteui-webcomponents-grids';
-import { ColumnExchangingAnimationMode } from 'igniteui-webcomponents-grids';
-import { ColumnHidingAnimationMode } from 'igniteui-webcomponents-grids';
-import { ColumnPropertyUpdatingAnimationMode } from 'igniteui-webcomponents-grids';
-import { ColumnMovingAnimationMode } from 'igniteui-webcomponents-grids';
+import { ColumnShowingAnimationMode } from 'igniteui-webcomponents-data-grids';
+import { ColumnExchangingAnimationMode } from 'igniteui-webcomponents-data-grids';
+import { ColumnHidingAnimationMode } from 'igniteui-webcomponents-data-grids';
+import { ColumnPropertyUpdatingAnimationMode } from 'igniteui-webcomponents-data-grids';
+import { ColumnMovingAnimationMode } from 'igniteui-webcomponents-data-grids';
 
 ModuleManager.register(
     IgcDataGridModule,
