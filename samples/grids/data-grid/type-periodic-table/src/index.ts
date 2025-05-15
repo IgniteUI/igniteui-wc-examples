@@ -1,7 +1,7 @@
 import { PeriodicElements } from './PeriodicElements';
 import './DataGridStyles.css';
-import { IgcDataGridModule, IgcTemplateHeaderComponent, IgcTemplateCellInfo, IgcTemplateColumnComponent, IgcTemplateCellUpdatingEventArgs, IgcTemplateHeaderCellUpdatingEventArgs, IgcGridSelectedCellsChangedEventArgs, IgcGridSelectedKeysChangedEventArgs, IgcGridSelectedItemsChangedEventArgs, IgcGridSelectedCellRangesChangedEventArgs, IgcGridActiveCellChangedEventArgs, IgcTextColumnComponent, IgcNumericColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule, IgcTemplateHeaderComponent, IgcTemplateCellInfo, IgcTemplateColumnComponent, IgcTemplateCellUpdatingEventArgs, IgcTemplateHeaderCellUpdatingEventArgs, IgcGridSelectedCellsChangedEventArgs, IgcGridSelectedKeysChangedEventArgs, IgcGridSelectedItemsChangedEventArgs, IgcGridSelectedCellRangesChangedEventArgs, IgcGridActiveCellChangedEventArgs, IgcTextColumnComponent, IgcNumericColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcDataGridModule);

@@ -1,10 +1,10 @@
 import './DataGridStyles.css';
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-import { IgcColumnChooserModule } from 'igniteui-webcomponents-grids';
-import { IgcColumnChooserComponent } from 'igniteui-webcomponents-grids';
+import { IgcColumnChooserModule } from 'igniteui-webcomponents-data-grids';
+import { IgcColumnChooserComponent } from 'igniteui-webcomponents-data-grids';
 
 ModuleManager.register(
     IgcDataGridModule,

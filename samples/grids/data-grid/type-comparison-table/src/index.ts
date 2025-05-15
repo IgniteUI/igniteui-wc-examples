@@ -1,8 +1,8 @@
-import { IgcDataGridModule, IgcTemplateHeaderComponent, IgcTemplateColumnComponent, IgcTextColumnComponent, IgcNumericColumnComponent, CellContentVerticalAlignment, CellContentHorizontalAlignment } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
-import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
-import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcTemplateHeaderCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule, IgcTemplateHeaderComponent, IgcTemplateColumnComponent, IgcTextColumnComponent, IgcNumericColumnComponent, CellContentVerticalAlignment, CellContentHorizontalAlignment } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcTemplateCellInfo } from 'igniteui-webcomponents-data-grids';
+import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-data-grids';
+import { IgcTemplateHeaderCellUpdatingEventArgs } from 'igniteui-webcomponents-data-grids';
 import { ModuleManager, HorizontalAlignment, VerticalAlignment } from 'igniteui-webcomponents-core';
 
 ModuleManager.register(IgcDataGridModule);

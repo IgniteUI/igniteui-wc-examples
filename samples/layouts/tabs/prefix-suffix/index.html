@@ -15,24 +15,24 @@
     <div id="root">
       <div class="container sample center">
         <igc-tabs>
-          <igc-tab panel="home">
+          <igc-tab>
             <igc-icon slot="prefix" name="home"></igc-icon>
-            <span>Home</span>
+            <span slot="label">Home</span>
+            <p>Home tab panel</p>
             <igc-icon-button slot="suffix" name="close" variant="flat"></igc-icon-button>
           </igc-tab>
-          <igc-tab panel="search">
+          <igc-tab>
             <igc-icon slot="prefix" name="search"></igc-icon>
-            <span>Search</span>
+            <span slot="label">Search</span>
+            <p>Search tab panel</p>
             <igc-icon-button slot="suffix" name="close" variant="flat"></igc-icon-button>
           </igc-tab>
-          <igc-tab panel="favorite">
+          <igc-tab>
             <igc-icon slot="prefix" name="favorite"></igc-icon>
-            <span>Favorite</span>
+            <span slot="label">Favorite</span>
+            <p>Favorite tab panel</p>
             <igc-icon-button slot="suffix" name="close" variant="flat"></igc-icon-button>
           </igc-tab>
-          <igc-tab-panel id="home">Home tab panel</igc-tab-panel>
-          <igc-tab-panel id="search">Search tab panel</igc-tab-panel>
-          <igc-tab-panel id="favorite">Favorite tab panel</igc-tab-panel>
         </igc-tabs>
       </div>
     </div>

@@ -22,14 +22,22 @@
         </igc-radio-group>
 
         <igc-tabs id="tabs">
-          <igc-tab panel="basics">Basics</igc-tab>
-          <igc-tab panel="details">Details</igc-tab>
-          <igc-tab panel="custom">Custom</igc-tab>
-          <igc-tab panel="disabled" disabled>Disabled</igc-tab>
-          <igc-tab-panel id="basics">Basics tab panel</igc-tab-panel>
-          <igc-tab-panel id="details">Details tab panel</igc-tab-panel>
-          <igc-tab-panel id="custom">Custom tab panel</igc-tab-panel>
-          <igc-tab-panel id="disabled">Disabled tab panel won't be displayed</igc-tab-panel>
+          <igc-tab>
+            <div slot="label">Basics</div>
+            <p>Basics tab panel</p>
+          </igc-tab>
+          <igc-tab>
+            <div slot="label">Details</div>
+            <p>Details tab panel</p>
+          </igc-tab>
+          <igc-tab>
+            <div slot="label">Custom</div>
+            <p>Custom tab panel</p>
+          </igc-tab>
+          <igc-tab disabled>
+            <div slot="label">Disabled</div>
+            <p>Disabled tab panel won't be displayed</p>
+          </igc-tab>
         </igc-tabs>
       </div>
     </div>

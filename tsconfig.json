@@ -23,6 +23,7 @@
         "igniteui-webcomponents-excel": ["node_modules/igniteui-webcomponents-excel", "node_modules/@infragistics/igniteui-webcomponents-excel"],
         "igniteui-webcomponents-inputs": ["node_modules/igniteui-webcomponents-inputs", "node_modules/@infragistics/igniteui-webcomponents-inputs"],
         "igniteui-webcomponents-grids": ["node_modules/igniteui-webcomponents-grids", "node_modules/@infragistics/igniteui-webcomponents-grids"],
+        "igniteui-webcomponents-data-grids": ["node_modules/igniteui-webcomponents-data-grids", "node_modules/@infragistics/igniteui-webcomponents-data-grids"],
         "igniteui-webcomponents-maps": ["node_modules/igniteui-webcomponents-maps", "node_modules/@infragistics/igniteui-webcomponents-maps"],
         "igniteui-webcomponents-spreadsheet": ["node_modules/igniteui-webcomponents-spreadsheet", "node_modules/@infragistics/igniteui-webcomponents-spreadsheet"],
         "igniteui-webcomponents-spreadsheet-chart-adapter": ["node_modules/igniteui-webcomponents-spreadsheet-chart-adapter", "node_modules/@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter"],
