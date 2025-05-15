@@ -1,0 +1,7 @@
+igc-tabs::part(headers-content) {
+  background-color: var(--ig-gray-200);
+}
+
+igc-tab::part(content) {
+  color: var(--ig-success-500);
+}
