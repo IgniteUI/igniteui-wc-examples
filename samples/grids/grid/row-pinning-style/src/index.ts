@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule, WebActionStripDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcGridComponent, IgcPinningConfig, RowPinningPosition, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent, IgcPinningConfig, RowPinningPosition } from 'igniteui-webcomponents-grids/grids';
 import CustomersDataLocal from './CustomersDataLocal.json';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
@@ -21,27 +21,11 @@ export class Sample {
         }
         return this._pinningConfig1;
     }
-    private company: IgcColumnComponent
-    private contactName: IgcColumnComponent
-    private contactTitle: IgcColumnComponent
-    private address: IgcColumnComponent
-    private city: IgcColumnComponent
-    private postalCode: IgcColumnComponent
-    private phone: IgcColumnComponent
-    private fax: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         this.webGridPinRowOnRendered = this.webGridPinRowOnRendered.bind(this);
-        var company = this.company = document.getElementById('Company') as IgcColumnComponent;
-        var contactName = this.contactName = document.getElementById('ContactName') as IgcColumnComponent;
-        var contactTitle = this.contactTitle = document.getElementById('ContactTitle') as IgcColumnComponent;
-        var address = this.address = document.getElementById('Address') as IgcColumnComponent;
-        var city = this.city = document.getElementById('City') as IgcColumnComponent;
-        var postalCode = this.postalCode = document.getElementById('PostalCode') as IgcColumnComponent;
-        var phone = this.phone = document.getElementById('Phone') as IgcColumnComponent;
-        var fax = this.fax = document.getElementById('Fax') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.customersDataLocal;
