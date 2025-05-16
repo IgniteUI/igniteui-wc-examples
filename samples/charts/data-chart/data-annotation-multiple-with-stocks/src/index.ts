@@ -1,6 +1,6 @@
 import { StripAnnotationDataItem, StripAnnotationData, LineAnnotationData1Item, LineAnnotationData1, LineAnnotationData2Item, LineAnnotationData2, SliceAnnotationData1Item, SliceAnnotationData1, SliceAnnotationData2Item, SliceAnnotationData2, SliceAnnotationData3Item, SliceAnnotationData3 } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcDataAnnotationStripLayerModule, IgcDataAnnotationSliceLayerModule, IgcDataAnnotationLineLayerModule, IgcNumberAbbreviatorModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent, IgcDataAnnotationStripLayerComponent, IgcDataAnnotationLineLayerComponent, IgcDataAnnotationSliceLayerComponent } from 'igniteui-webcomponents-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -33,6 +33,12 @@ export class Sample {
     private yAxisRight: IgcNumericYAxisComponent
     private series1: IgcFinancialPriceSeriesComponent
     private tooltip: IgcDataToolTipLayerComponent
+    private stripLayer: IgcDataAnnotationStripLayerComponent
+    private lineLayer52WeekRange: IgcDataAnnotationLineLayerComponent
+    private lineLayerGrowthAndDecline: IgcDataAnnotationLineLayerComponent
+    private sliceLayerStockSplit: IgcDataAnnotationSliceLayerComponent
+    private sliceLayerEarningsMissAnnotations: IgcDataAnnotationSliceLayerComponent
+    private sliceLayerEarningsBeatAnnotations: IgcDataAnnotationSliceLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -44,6 +50,12 @@ export class Sample {
         var yAxisRight = this.yAxisRight = document.getElementById('yAxisRight') as IgcNumericYAxisComponent;
         var series1 = this.series1 = document.getElementById('series1') as IgcFinancialPriceSeriesComponent;
         var tooltip = this.tooltip = document.getElementById('Tooltip') as IgcDataToolTipLayerComponent;
+        var stripLayer = this.stripLayer = document.getElementById('StripLayer') as IgcDataAnnotationStripLayerComponent;
+        var lineLayer52WeekRange = this.lineLayer52WeekRange = document.getElementById('LineLayer52WeekRange') as IgcDataAnnotationLineLayerComponent;
+        var lineLayerGrowthAndDecline = this.lineLayerGrowthAndDecline = document.getElementById('LineLayerGrowthAndDecline') as IgcDataAnnotationLineLayerComponent;
+        var sliceLayerStockSplit = this.sliceLayerStockSplit = document.getElementById('SliceLayerStockSplit') as IgcDataAnnotationSliceLayerComponent;
+        var sliceLayerEarningsMissAnnotations = this.sliceLayerEarningsMissAnnotations = document.getElementById('SliceLayerEarningsMissAnnotations') as IgcDataAnnotationSliceLayerComponent;
+        var sliceLayerEarningsBeatAnnotations = this.sliceLayerEarningsBeatAnnotations = document.getElementById('SliceLayerEarningsBeatAnnotations') as IgcDataAnnotationSliceLayerComponent;
 
         this._bind = () => {
             xAxisBottom.dataSource = this.stockTesla;
@@ -52,6 +64,18 @@ export class Sample {
             series1.xAxis = this.xAxis;
             series1.yAxis = this.yAxisLeft;
             series1.dataSource = this.stockTesla;
+            stripLayer.dataSource = this.stripAnnotationData;
+            stripLayer.targetAxis = this.xAxisTop;
+            lineLayer52WeekRange.dataSource = this.lineAnnotationData1;
+            lineLayer52WeekRange.targetAxis = this.yAxisRight;
+            lineLayerGrowthAndDecline.dataSource = this.lineAnnotationData2;
+            lineLayerGrowthAndDecline.targetAxis = this.xAxis;
+            sliceLayerStockSplit.dataSource = this.sliceAnnotationData1;
+            sliceLayerStockSplit.targetAxis = this.xAxisBottom;
+            sliceLayerEarningsMissAnnotations.dataSource = this.sliceAnnotationData2;
+            sliceLayerEarningsMissAnnotations.targetAxis = this.xAxisBottom;
+            sliceLayerEarningsBeatAnnotations.dataSource = this.sliceAnnotationData3;
+            sliceLayerEarningsBeatAnnotations.targetAxis = this.xAxisBottom;
         }
         this._bind();
 

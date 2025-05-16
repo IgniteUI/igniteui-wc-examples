@@ -103,6 +103,27 @@
             included-columns="High, Low, Open, Close"
             layout-mode="Vertical">
             </igc-data-tool-tip-layer>
+            <igc-data-annotation-band-layer
+            name="BandLayer"
+            id="BandLayer"
+            center-label-x-display-mode="Hidden"
+            start-label-x-display-mode="DataLabel"
+            end-label-x-display-mode="DataLabel"
+            brush="purple"
+            outline="purple"
+            overlay-text-color="purple"
+            overlay-text-vertical-margin="20"
+            overlay-text-horizontal-margin="-50"
+            overlay-text-location="InsideTopCenter"
+            overlay-text-member-path="label"
+            start-label-x-member-path="startLabel"
+            end-label-x-member-path="endLabel"
+            start-value-x-member-path="startX"
+            start-value-y-member-path="startY"
+            end-value-x-member-path="endX"
+            end-value-y-member-path="endY"
+            annotation-breadth-member-path="value">
+            </igc-data-annotation-band-layer>
         </igc-data-chart>
     </div>
 </div>
