@@ -61,7 +61,9 @@
             brush="green"
             is-axis-annotation-enabled="true"
             thickness="2"
-            dash-array="2, 4">
+            dash-array="2, 4"
+            overlay-text="OverlayText on ValueOverlay"
+            overlay-text-location="OutsideBottomCenter">
             </igc-value-overlay>
             <igc-value-layer
             name="valueLayer"
@@ -70,8 +72,24 @@
             brush="purple"
             thickness="2"
             dash-array="2, 4"
-            is-axis-annotation-enabled="true">
+            is-axis-annotation-enabled="true"
+            overlay-text="OverlayText on ValueLayer (Average)"
+            overlay-text-location="OutsideBottomCenter">
             </igc-value-layer>
+            <igc-data-annotation-slice-layer
+            name="AnnoLayer"
+            id="AnnoLayer"
+            brush="green"
+            annotation-text-color="white"
+            annotation-label-member-path="label"
+            annotation-value-member-path="value"
+            overlay-text-member-path="label"
+            overlay-text-vertical-margin="20"
+            overlay-text-horizontal-margin="0"
+            overlay-text-location="OutsideBottomCenter"
+            overlay-text="OverlayText on DataAnnotationSliceLayer"
+            thickness="2">
+            </igc-data-annotation-slice-layer>
         </igc-data-chart>
     </div>
 </div>

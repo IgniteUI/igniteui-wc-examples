@@ -92,6 +92,48 @@
             included-columns="High, Low, Open, Close"
             layout-mode="Vertical">
             </igc-data-tool-tip-layer>
+            <igc-data-annotation-line-layer
+            name="LineLayer52WeekRange"
+            id="LineLayer52WeekRange"
+            center-label-x-display-mode="Hidden"
+            start-label-x-display-mode="Hidden"
+            start-label-y-display-mode="DataValue"
+            end-label-x-display-mode="Hidden"
+            end-label-y-display-mode="DataValue"
+            brush="purple"
+            outline="purple"
+            overlay-text-color="purple"
+            overlay-text-vertical-margin="20"
+            overlay-text-horizontal-margin="-50"
+            overlay-text-location="OutsideBottomLeft"
+            overlay-text-member-path="label"
+            start-label-x-member-path="startLabel"
+            end-label-x-member-path="endLabel"
+            start-value-x-member-path="startX"
+            start-value-y-member-path="startY"
+            end-value-x-member-path="endX"
+            end-value-y-member-path="endY">
+            </igc-data-annotation-line-layer>
+            <igc-data-annotation-line-layer
+            name="LineLayerGrowthAndDecline"
+            id="LineLayerGrowthAndDecline"
+            center-label-x-display-mode="Hidden"
+            start-label-x-display-mode="Hidden"
+            end-label-x-display-mode="Hidden"
+            annotation-background-mode="BrightnessShift"
+            brush="purple"
+            outline="purple"
+            overlay-text-color="purple"
+            overlay-text-vertical-margin="-10"
+            overlay-text-horizontal-margin="60"
+            overlay-text-member-path="label"
+            start-label-x-member-path="startLabel"
+            end-label-x-member-path="endLabel"
+            start-value-x-member-path="startX"
+            start-value-y-member-path="startY"
+            end-value-x-member-path="endX"
+            end-value-y-member-path="endY">
+            </igc-data-annotation-line-layer>
         </igc-data-chart>
     </div>
 </div>
