@@ -18,9 +18,7 @@ ModuleManager.register(
 export class Sample {
 
     private grid: IgcGridComponent
-    private productName: IgcColumnComponent
-    private quantityPerUnit: IgcColumnComponent
-    private unitPrice: IgcColumnComponent
+    private column1: IgcColumnComponent
     private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgcColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -32,7 +30,7 @@ export class Sample {
         }
         return this._columnPipeArgs1;
     }
-    private orderDate: IgcColumnComponent
+    private column2: IgcColumnComponent
     private _columnPipeArgs2: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs2(): IgcColumnPipeArgs {
         if (this._columnPipeArgs2 == null)
@@ -44,23 +42,21 @@ export class Sample {
         }
         return this._columnPipeArgs2;
     }
-    private discontinued: IgcColumnComponent
+    private column3: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
-        var quantityPerUnit = this.quantityPerUnit = document.getElementById('QuantityPerUnit') as IgcColumnComponent;
-        var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
-        var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
-        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
+        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
+        var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
+        var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.nwindData;
             grid.excelStyleHeaderIconTemplate = this.webGridFilterAltIconTemplate;
-            unitPrice.pipeArgs = this.columnPipeArgs1;
-            orderDate.pipeArgs = this.columnPipeArgs2;
-            discontinued.bodyTemplate = this.webGridBooleanCellTemplate;
+            column1.pipeArgs = this.columnPipeArgs1;
+            column2.pipeArgs = this.columnPipeArgs2;
+            column3.bodyTemplate = this.webGridBooleanCellTemplate;
         }
         this._bind();
 
