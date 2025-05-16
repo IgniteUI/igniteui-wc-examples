@@ -1,6 +1,6 @@
 import { AnnotationData1Item, AnnotationData1, AnnotationData2Item, AnnotationData2, AnnotationData3Item, AnnotationData3 } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcDataAnnotationSliceLayerModule, IgcNumberAbbreviatorModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent, IgcDataAnnotationSliceLayerComponent } from 'igniteui-webcomponents-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -30,6 +30,9 @@ export class Sample {
     private yAxisRight: IgcNumericYAxisComponent
     private series1: IgcFinancialPriceSeriesComponent
     private tooltip: IgcDataToolTipLayerComponent
+    private sliceLayerStockSplit: IgcDataAnnotationSliceLayerComponent
+    private sliceLayerEarningsMissAnnotations: IgcDataAnnotationSliceLayerComponent
+    private sliceLayerEarningsBeatAnnotations: IgcDataAnnotationSliceLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -40,6 +43,9 @@ export class Sample {
         var yAxisRight = this.yAxisRight = document.getElementById('yAxisRight') as IgcNumericYAxisComponent;
         var series1 = this.series1 = document.getElementById('series1') as IgcFinancialPriceSeriesComponent;
         var tooltip = this.tooltip = document.getElementById('Tooltip') as IgcDataToolTipLayerComponent;
+        var sliceLayerStockSplit = this.sliceLayerStockSplit = document.getElementById('SliceLayerStockSplit') as IgcDataAnnotationSliceLayerComponent;
+        var sliceLayerEarningsMissAnnotations = this.sliceLayerEarningsMissAnnotations = document.getElementById('SliceLayerEarningsMissAnnotations') as IgcDataAnnotationSliceLayerComponent;
+        var sliceLayerEarningsBeatAnnotations = this.sliceLayerEarningsBeatAnnotations = document.getElementById('SliceLayerEarningsBeatAnnotations') as IgcDataAnnotationSliceLayerComponent;
 
         this._bind = () => {
             xAxisBottom.dataSource = this.stockTesla;
@@ -47,6 +53,12 @@ export class Sample {
             series1.xAxis = this.xAxisTop;
             series1.yAxis = this.yAxisLeft;
             series1.dataSource = this.stockTesla;
+            sliceLayerStockSplit.dataSource = this.annotationData1;
+            sliceLayerStockSplit.targetAxis = this.xAxisBottom;
+            sliceLayerEarningsMissAnnotations.dataSource = this.annotationData2;
+            sliceLayerEarningsMissAnnotations.targetAxis = this.xAxisBottom;
+            sliceLayerEarningsBeatAnnotations.dataSource = this.annotationData3;
+            sliceLayerEarningsBeatAnnotations.targetAxis = this.xAxisBottom;
         }
         this._bind();
 

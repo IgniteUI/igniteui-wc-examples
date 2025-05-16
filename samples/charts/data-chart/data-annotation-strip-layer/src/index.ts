@@ -1,6 +1,6 @@
 import { AnnotationDataItem, AnnotationData } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcDataAnnotationStripLayerModule, IgcNumberAbbreviatorModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent, IgcDataAnnotationStripLayerComponent } from 'igniteui-webcomponents-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -30,6 +30,7 @@ export class Sample {
     private yAxisRight: IgcNumericYAxisComponent
     private series1: IgcFinancialPriceSeriesComponent
     private tooltip: IgcDataToolTipLayerComponent
+    private stripLayer: IgcDataAnnotationStripLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -40,6 +41,7 @@ export class Sample {
         var yAxisRight = this.yAxisRight = document.getElementById('yAxisRight') as IgcNumericYAxisComponent;
         var series1 = this.series1 = document.getElementById('series1') as IgcFinancialPriceSeriesComponent;
         var tooltip = this.tooltip = document.getElementById('Tooltip') as IgcDataToolTipLayerComponent;
+        var stripLayer = this.stripLayer = document.getElementById('StripLayer') as IgcDataAnnotationStripLayerComponent;
 
         this._bind = () => {
             xAxisBottom.dataSource = this.stockTesla;
@@ -47,6 +49,8 @@ export class Sample {
             series1.xAxis = this.xAxisBottom;
             series1.yAxis = this.yAxisLeft;
             series1.dataSource = this.stockTesla;
+            stripLayer.dataSource = this.annotationData;
+            stripLayer.targetAxis = this.xAxisTop;
         }
         this._bind();
 

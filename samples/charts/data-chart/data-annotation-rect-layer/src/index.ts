@@ -1,6 +1,6 @@
 import { AnnotationDataItem, AnnotationData } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcDataAnnotationRectLayerModule, IgcNumberAbbreviatorModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent, IgcDataAnnotationRectLayerComponent } from 'igniteui-webcomponents-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -28,6 +28,7 @@ export class Sample {
     private yAxis: IgcNumericYAxisComponent
     private series1: IgcFinancialPriceSeriesComponent
     private tooltip: IgcDataToolTipLayerComponent
+    private rectLayer: IgcDataAnnotationRectLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -36,12 +37,15 @@ export class Sample {
         var yAxis = this.yAxis = document.getElementById('yAxis') as IgcNumericYAxisComponent;
         var series1 = this.series1 = document.getElementById('series1') as IgcFinancialPriceSeriesComponent;
         var tooltip = this.tooltip = document.getElementById('Tooltip') as IgcDataToolTipLayerComponent;
+        var rectLayer = this.rectLayer = document.getElementById('RectLayer') as IgcDataAnnotationRectLayerComponent;
 
         this._bind = () => {
             xAxis.dataSource = this.stockTesla;
             series1.xAxis = this.xAxis;
             series1.yAxis = this.yAxis;
             series1.dataSource = this.stockTesla;
+            rectLayer.dataSource = this.annotationData;
+            rectLayer.targetAxis = this.xAxis;
         }
         this._bind();
 

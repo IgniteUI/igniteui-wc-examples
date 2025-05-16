@@ -1,6 +1,6 @@
 import { AnnotationDataItem, AnnotationData } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcAnnotationLayerProxyModule, IgcDataChartAnnotationModule, IgcDataAnnotationSliceLayerModule, IgcNumberAbbreviatorModule, IgcValueOverlayModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent, IgcValueOverlayComponent, IgcValueLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent, IgcValueOverlayComponent, IgcValueLayerComponent, IgcDataAnnotationSliceLayerComponent } from 'igniteui-webcomponents-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -28,6 +28,7 @@ export class Sample {
     private series1: IgcLineSeriesComponent
     private valueOverlay: IgcValueOverlayComponent
     private valueLayer: IgcValueLayerComponent
+    private annoLayer: IgcDataAnnotationSliceLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -37,6 +38,7 @@ export class Sample {
         var series1 = this.series1 = document.getElementById('series1') as IgcLineSeriesComponent;
         var valueOverlay = this.valueOverlay = document.getElementById('valueOverlay') as IgcValueOverlayComponent;
         var valueLayer = this.valueLayer = document.getElementById('valueLayer') as IgcValueLayerComponent;
+        var annoLayer = this.annoLayer = document.getElementById('AnnoLayer') as IgcDataAnnotationSliceLayerComponent;
 
         this._bind = () => {
             xAxis.dataSource = this.stockTesla;
@@ -45,6 +47,8 @@ export class Sample {
             series1.dataSource = this.stockTesla;
             valueOverlay.axis = this.yAxis;
             valueLayer.targetAxis = this.yAxis;
+            annoLayer.dataSource = this.annotationData;
+            annoLayer.targetAxis = this.yAxis;
         }
         this._bind();
 

@@ -1,6 +1,6 @@
 import { AnnotationData1Item, AnnotationData1, AnnotationData2Item, AnnotationData2 } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcDataAnnotationLineLayerModule, IgcNumberAbbreviatorModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
+import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent, IgcDataAnnotationLineLayerComponent } from 'igniteui-webcomponents-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
@@ -29,6 +29,8 @@ export class Sample {
     private yAxisRight: IgcNumericYAxisComponent
     private series1: IgcFinancialPriceSeriesComponent
     private tooltip: IgcDataToolTipLayerComponent
+    private lineLayer52WeekRange: IgcDataAnnotationLineLayerComponent
+    private lineLayerGrowthAndDecline: IgcDataAnnotationLineLayerComponent
     private _bind: () => void;
 
     constructor() {
@@ -38,12 +40,18 @@ export class Sample {
         var yAxisRight = this.yAxisRight = document.getElementById('yAxisRight') as IgcNumericYAxisComponent;
         var series1 = this.series1 = document.getElementById('series1') as IgcFinancialPriceSeriesComponent;
         var tooltip = this.tooltip = document.getElementById('Tooltip') as IgcDataToolTipLayerComponent;
+        var lineLayer52WeekRange = this.lineLayer52WeekRange = document.getElementById('LineLayer52WeekRange') as IgcDataAnnotationLineLayerComponent;
+        var lineLayerGrowthAndDecline = this.lineLayerGrowthAndDecline = document.getElementById('LineLayerGrowthAndDecline') as IgcDataAnnotationLineLayerComponent;
 
         this._bind = () => {
             xAxis.dataSource = this.stockTesla;
             series1.xAxis = this.xAxis;
             series1.yAxis = this.yAxisLeft;
             series1.dataSource = this.stockTesla;
+            lineLayer52WeekRange.dataSource = this.annotationData1;
+            lineLayer52WeekRange.targetAxis = this.yAxisRight;
+            lineLayerGrowthAndDecline.dataSource = this.annotationData2;
+            lineLayerGrowthAndDecline.targetAxis = this.xAxis;
         }
         this._bind();
 
