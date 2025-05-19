@@ -33,16 +33,8 @@ export class Sample {
         }
         return this._groupingExpression1;
     }
-    private orderID: IgcColumnComponent
-    private shipCountry: IgcColumnComponent
-    private orderDate: IgcColumnComponent
-    private postalCode: IgcColumnComponent
-    private discontinued: IgcColumnComponent
-    private shipName: IgcColumnComponent
-    private shipCity: IgcColumnComponent
-    private shipperName: IgcColumnComponent
-    private salesperson: IgcColumnComponent
-    private unitPrice: IgcColumnComponent
+    private column1: IgcColumnComponent
+    private column2: IgcColumnComponent
     private _columnPipeArgs1: IgcColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgcColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -54,28 +46,18 @@ export class Sample {
         }
         return this._columnPipeArgs1;
     }
-    private quantity: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        var orderID = this.orderID = document.getElementById('OrderID') as IgcColumnComponent;
-        var shipCountry = this.shipCountry = document.getElementById('ShipCountry') as IgcColumnComponent;
-        var orderDate = this.orderDate = document.getElementById('OrderDate') as IgcColumnComponent;
-        var postalCode = this.postalCode = document.getElementById('PostalCode') as IgcColumnComponent;
-        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
-        var shipName = this.shipName = document.getElementById('ShipName') as IgcColumnComponent;
-        var shipCity = this.shipCity = document.getElementById('ShipCity') as IgcColumnComponent;
-        var shipperName = this.shipperName = document.getElementById('ShipperName') as IgcColumnComponent;
-        var salesperson = this.salesperson = document.getElementById('Salesperson') as IgcColumnComponent;
-        var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
-        var quantity = this.quantity = document.getElementById('Quantity') as IgcColumnComponent;
+        var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
+        var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
 
         this._bind = () => {
             grid.data = this.invoicesData;
             grid.groupingExpressions = this.groupingExpression1;
-            discontinued.bodyTemplate = this.webGridBooleanCellTemplate;
-            unitPrice.pipeArgs = this.columnPipeArgs1;
+            column1.bodyTemplate = this.webGridBooleanCellTemplate;
+            column2.pipeArgs = this.columnPipeArgs1;
         }
         this._bind();
 
