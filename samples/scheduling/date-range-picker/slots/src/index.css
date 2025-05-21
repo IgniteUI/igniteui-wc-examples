@@ -1,0 +1,14 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+h3 {
+  margin: 2rem 0 0.5rem 0;
+}
+
+h3:nth-of-type(1) {
+  margin-top: unset;
+}
+
+igc-date-range-picker {
+  max-width: 562px;
+}
