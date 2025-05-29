@@ -1,7 +1,7 @@
-import { AnnotationDataItem, AnnotationData } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartInteractivityModule, IgcAnnotationLayerProxyModule, IgcDataChartAnnotationModule, IgcDataAnnotationSliceLayerModule, IgcNumberAbbreviatorModule, IgcValueOverlayModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcLineSeriesComponent, IgcValueOverlayComponent, IgcValueLayerComponent, IgcDataAnnotationSliceLayerComponent } from 'igniteui-webcomponents-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationSliceMultiOverlayDataItem, AnnotationSliceMultiOverlayData } from './AnnotationSliceMultiOverlayData';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -47,20 +47,11 @@ export class Sample {
             series1.dataSource = this.stockTesla;
             valueOverlay.axis = this.yAxis;
             valueLayer.targetAxis = this.yAxis;
-            annoLayer.dataSource = this.annotationData;
+            annoLayer.dataSource = this.annotationSliceMultiOverlayData;
             annoLayer.targetAxis = this.yAxis;
         }
         this._bind();
 
-    }
-
-    private _annotationData: AnnotationData = null;
-    public get annotationData(): AnnotationData {
-        if (this._annotationData == null)
-        {
-            this._annotationData = new AnnotationData();
-        }
-        return this._annotationData;
     }
 
     private _stockTesla: StockTesla = null;
@@ -70,6 +61,15 @@ export class Sample {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationSliceMultiOverlayData: AnnotationSliceMultiOverlayData = null;
+    public get annotationSliceMultiOverlayData(): AnnotationSliceMultiOverlayData {
+        if (this._annotationSliceMultiOverlayData == null)
+        {
+            this._annotationSliceMultiOverlayData = new AnnotationSliceMultiOverlayData();
+        }
+        return this._annotationSliceMultiOverlayData;
     }
 
 }
