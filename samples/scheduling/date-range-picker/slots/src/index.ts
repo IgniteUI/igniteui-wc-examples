@@ -14,13 +14,13 @@ const Upload = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0
 
 export class DateRangePickerOverview {
   constructor() {
-    let preSuf = document.getElementById('preSuf') as IgcDateRangePickerComponent;
-    let clearCal = document.getElementById('clearCal') as IgcDateRangePickerComponent;
+    let prefixSuffix = document.getElementById('prefixSuffix') as IgcDateRangePickerComponent;
+    let icons = document.getElementById('icons') as IgcDateRangePickerComponent;
     const today: Date = new Date();
     let tomorrow: Date = new Date();
     tomorrow.setDate(today.getDate() + 1);
-    preSuf.value = { start: today, end: tomorrow }
-    clearCal.value = { start: today, end: tomorrow }
+    prefixSuffix.value = { start: today, end: tomorrow }
+    icons.value = { start: today, end: tomorrow }
 
     registerIconFromText("appsIcon", Apps);
     registerIconFromText("binIcon", Bin);

@@ -13,14 +13,13 @@ export class DateRangePickerForm {
     })
 
     function showDialog(data: HTMLFormElement) {
-      console.log(data.DateRange.value)
-      var filePath = data.DateRange.value
+      var dateRange = data.DateRange.value
       const dialog = document.createElement('igc-dialog');
       dialog.title = 'Range submission result';
       dialog.addEventListener('igcClosed', () => dialog.remove());
 
       const dump = document.createElement('pre');
-      dump.innerHTML = `<b>Start</b>: ${filePath.start} \n<b>End</b>: ${filePath.end}`;
+      dump.innerHTML = `<b>Start</b>: ${dateRange.start} \n<b>End</b>: ${dateRange.end}`;
 
       dialog.appendChild(dump);
       document.body.appendChild(dialog);
