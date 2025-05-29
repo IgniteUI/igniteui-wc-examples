@@ -2,7 +2,7 @@ import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionComponent } from 'igniteui-webcomponents-layouts';
-import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import NwindData from './NwindData.json';
 import { IgcPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-webcomponents-layouts';
 
@@ -25,16 +25,6 @@ export class Sample {
     private propertyEditorPropertyDescription2: IgcPropertyEditorPropertyDescriptionComponent
     private propertyEditorPropertyDescription3: IgcPropertyEditorPropertyDescriptionComponent
     private grid: IgcGridComponent
-    private productID: IgcColumnComponent
-    private productName: IgcColumnComponent
-    private unitPrice: IgcColumnComponent
-    private unitsOnOrder: IgcColumnComponent
-    private unitsInStock: IgcColumnComponent
-    private quantityPerUnit: IgcColumnComponent
-    private reorderLevel: IgcColumnComponent
-    private supplierID: IgcColumnComponent
-    private categoryID: IgcColumnComponent
-    private discontinued: IgcColumnComponent
     private _bind: () => void;
 
     constructor() {
@@ -46,16 +36,6 @@ export class Sample {
         var propertyEditorPropertyDescription3 = this.propertyEditorPropertyDescription3 = document.getElementById('propertyEditorPropertyDescription3') as IgcPropertyEditorPropertyDescriptionComponent;
         this.webGridCommit = this.webGridCommit.bind(this);
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
-        var productID = this.productID = document.getElementById('ProductID') as IgcColumnComponent;
-        var productName = this.productName = document.getElementById('ProductName') as IgcColumnComponent;
-        var unitPrice = this.unitPrice = document.getElementById('UnitPrice') as IgcColumnComponent;
-        var unitsOnOrder = this.unitsOnOrder = document.getElementById('UnitsOnOrder') as IgcColumnComponent;
-        var unitsInStock = this.unitsInStock = document.getElementById('UnitsInStock') as IgcColumnComponent;
-        var quantityPerUnit = this.quantityPerUnit = document.getElementById('QuantityPerUnit') as IgcColumnComponent;
-        var reorderLevel = this.reorderLevel = document.getElementById('ReorderLevel') as IgcColumnComponent;
-        var supplierID = this.supplierID = document.getElementById('SupplierID') as IgcColumnComponent;
-        var categoryID = this.categoryID = document.getElementById('CategoryID') as IgcColumnComponent;
-        var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
 
         this._bind = () => {
             propertyEditorPanel1.componentRenderer = this.renderer;

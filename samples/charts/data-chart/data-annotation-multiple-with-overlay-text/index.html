@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+
+    <div class="container fill">
+        <igc-data-chart
+        name="chart"
+        id="chart"
+        plot-area-margin-bottom="50"
+        chart-title="This sample demonstrates the DataAnnotationSliceLayer with overlay text compared against the value layers in the DataChart.">
+            <igc-category-x-axis
+            name="xAxis"
+            id="xAxis"
+            label="date"
+            label-left-margin="0"
+            label-top-margin="5"
+            label-right-margin="0"
+            label-bottom-margin="15">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis
+            name="yAxis"
+            id="yAxis"
+            label-extent="60"
+            label-horizontal-alignment="Center"
+            label-left-margin="0"
+            label-top-margin="0"
+            label-right-margin="5"
+            label-bottom-margin="0"
+            minimum-value="0"
+            maximum-value="550">
+            </igc-numeric-y-axis>
+            <igc-line-series
+            name="series1"
+            id="series1"
+            title="Stock Price"
+            value-member-path="open"
+            show-default-tooltip="true"
+            marker-type="None"
+            brush="black">
+            </igc-line-series>
+            <igc-value-overlay
+            name="valueOverlay"
+            id="valueOverlay"
+            value="435"
+            brush="green"
+            is-axis-annotation-enabled="true"
+            thickness="2"
+            dash-array="2, 4"
+            overlay-text="OverlayText on ValueOverlay"
+            overlay-text-location="OutsideBottomCenter">
+            </igc-value-overlay>
+            <igc-value-layer
+            name="valueLayer"
+            id="valueLayer"
+            value-mode="Average"
+            brush="purple"
+            thickness="2"
+            dash-array="2, 4"
+            is-axis-annotation-enabled="true"
+            overlay-text="OverlayText on ValueLayer (Average)"
+            overlay-text-location="OutsideBottomCenter">
+            </igc-value-layer>
+            <igc-data-annotation-slice-layer
+            name="AnnoLayer"
+            id="AnnoLayer"
+            brush="green"
+            annotation-text-color="white"
+            annotation-label-member-path="label"
+            annotation-value-member-path="value"
+            overlay-text-member-path="label"
+            overlay-text-vertical-margin="20"
+            overlay-text-horizontal-margin="0"
+            overlay-text-location="OutsideBottomCenter"
+            overlay-text="OverlayText on DataAnnotationSliceLayer"
+            thickness="2">
+            </igc-data-annotation-slice-layer>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

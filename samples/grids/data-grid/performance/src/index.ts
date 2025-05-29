@@ -1,18 +1,18 @@
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-import { IgcNumericColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
-import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcCellStyleRequestedEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
-import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcDataGridColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcDefinitionBaseComponent} from 'igniteui-webcomponents-grids';
-import { IgcColumnWidth } from 'igniteui-webcomponents-grids';
-import { DataGridSelectionMode } from 'igniteui-webcomponents-grids';
-import { HeaderClickAction } from 'igniteui-webcomponents-grids';
+import { IgcNumericColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcTemplateCellInfo } from 'igniteui-webcomponents-data-grids';
+import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-data-grids';
+import { IgcCellStyleRequestedEventArgs } from 'igniteui-webcomponents-data-grids';
+import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
+import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcDefinitionBaseComponent} from 'igniteui-webcomponents-data-grids';
+import { IgcColumnWidth } from 'igniteui-webcomponents-data-grids';
+import { DataGridSelectionMode } from 'igniteui-webcomponents-data-grids';
+import { HeaderClickAction } from 'igniteui-webcomponents-data-grids';
 
 ModuleManager.register(IgcDataGridModule);
 

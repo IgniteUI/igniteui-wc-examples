@@ -26,6 +26,10 @@ IF EXIST @infragistics\igniteui-webcomponents-grids (
  MOVE /y @infragistics\igniteui-webcomponents-grids igniteui-webcomponents-grids
 )
 
+IF EXIST @infragistics\igniteui-webcomponents-data-grids (
+ MOVE /y @infragistics\igniteui-webcomponents-data-grids igniteui-webcomponents-data-grids
+)
+
 IF EXIST @infragistics\igniteui-webcomponents-excel (
  MOVE /y @infragistics\igniteui-webcomponents-excel igniteui-webcomponents-excel
 )

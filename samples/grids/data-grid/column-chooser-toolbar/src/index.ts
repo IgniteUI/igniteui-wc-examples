@@ -1,10 +1,10 @@
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-import { IgcTextColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcDataGridToolbarModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridToolbarComponent } from 'igniteui-webcomponents-grids';
+import { IgcTextColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridToolbarModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridToolbarComponent } from 'igniteui-webcomponents-data-grids';
 
 ModuleManager.register(
     IgcDataGridModule,

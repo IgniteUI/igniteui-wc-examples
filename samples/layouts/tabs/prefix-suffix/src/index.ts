@@ -1,4 +1,4 @@
-import { defineComponents, IgcTabComponent, IgcTabPanelComponent, IgcTabsComponent, registerIconFromText } from 'igniteui-webcomponents';
+import { defineComponents, IgcTabComponent, IgcTabsComponent, registerIconFromText } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import "./index.css";
 
@@ -24,15 +24,10 @@ export class TabsPrefixSuffix {
         );
 
         const tabs = Array.from(document.querySelectorAll('igc-tab')) as IgcTabComponent[];
-        const panels = Array.from(document.querySelectorAll('igc-tab-panel')) as IgcTabPanelComponent[];
         const iconButtons = document.getElementsByTagName('igc-icon-button');
 
         for (let i = 0; i < iconButtons.length; i++) {
             iconButtons[i].addEventListener('click', function handleClick(event) {
-                const panel = panels.find((panel) => panel.id === tabs[i].panel);
-                if (panel) {
-                    panel.remove();
-                }
                 tabs[i].remove();
             });
         }
