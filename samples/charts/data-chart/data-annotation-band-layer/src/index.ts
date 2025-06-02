@@ -1,7 +1,7 @@
-import { AnnotationDataItem, AnnotationData } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcDataAnnotationBandLayerModule, IgcNumberAbbreviatorModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent, IgcDataAnnotationBandLayerComponent } from 'igniteui-webcomponents-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationBandDataItem, AnnotationBandData } from './AnnotationBandData';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -49,20 +49,11 @@ export class Sample {
             series1.xAxis = this.xAxis;
             series1.yAxis = this.yAxisLeft;
             series1.dataSource = this.stockTesla;
-            bandLayer.dataSource = this.annotationData;
+            bandLayer.dataSource = this.annotationBandData;
             bandLayer.targetAxis = this.xAxisBottom;
         }
         this._bind();
 
-    }
-
-    private _annotationData: AnnotationData = null;
-    public get annotationData(): AnnotationData {
-        if (this._annotationData == null)
-        {
-            this._annotationData = new AnnotationData();
-        }
-        return this._annotationData;
     }
 
     private _stockTesla: StockTesla = null;
@@ -72,6 +63,15 @@ export class Sample {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationBandData: AnnotationBandData = null;
+    public get annotationBandData(): AnnotationBandData {
+        if (this._annotationBandData == null)
+        {
+            this._annotationBandData = new AnnotationBandData();
+        }
+        return this._annotationBandData;
     }
 
 }
