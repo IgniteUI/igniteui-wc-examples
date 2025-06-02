@@ -1,7 +1,7 @@
-import { AnnotationDataItem, AnnotationData } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcDataAnnotationStripLayerModule, IgcNumberAbbreviatorModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent, IgcDataAnnotationStripLayerComponent } from 'igniteui-webcomponents-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationStripDataItem, AnnotationStripData } from './AnnotationStripData';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -49,20 +49,11 @@ export class Sample {
             series1.xAxis = this.xAxisBottom;
             series1.yAxis = this.yAxisLeft;
             series1.dataSource = this.stockTesla;
-            stripLayer.dataSource = this.annotationData;
+            stripLayer.dataSource = this.annotationStripData;
             stripLayer.targetAxis = this.xAxisTop;
         }
         this._bind();
 
-    }
-
-    private _annotationData: AnnotationData = null;
-    public get annotationData(): AnnotationData {
-        if (this._annotationData == null)
-        {
-            this._annotationData = new AnnotationData();
-        }
-        return this._annotationData;
     }
 
     private _stockTesla: StockTesla = null;
@@ -72,6 +63,15 @@ export class Sample {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationStripData: AnnotationStripData = null;
+    public get annotationStripData(): AnnotationStripData {
+        if (this._annotationStripData == null)
+        {
+            this._annotationStripData = new AnnotationStripData();
+        }
+        return this._annotationStripData;
     }
 
 }

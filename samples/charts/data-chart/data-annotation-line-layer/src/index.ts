@@ -1,7 +1,8 @@
-import { AnnotationData1Item, AnnotationData1, AnnotationData2Item, AnnotationData2 } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcDataAnnotationLineLayerModule, IgcNumberAbbreviatorModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent, IgcDataAnnotationLineLayerComponent } from 'igniteui-webcomponents-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationLineData1Item, AnnotationLineData1 } from './AnnotationLineData1';
+import { AnnotationLineData2Item, AnnotationLineData2 } from './AnnotationLineData2';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -48,31 +49,13 @@ export class Sample {
             series1.xAxis = this.xAxis;
             series1.yAxis = this.yAxisLeft;
             series1.dataSource = this.stockTesla;
-            lineLayer52WeekRange.dataSource = this.annotationData1;
+            lineLayer52WeekRange.dataSource = this.annotationLineData1;
             lineLayer52WeekRange.targetAxis = this.yAxisRight;
-            lineLayerGrowthAndDecline.dataSource = this.annotationData2;
+            lineLayerGrowthAndDecline.dataSource = this.annotationLineData2;
             lineLayerGrowthAndDecline.targetAxis = this.xAxis;
         }
         this._bind();
 
-    }
-
-    private _annotationData1: AnnotationData1 = null;
-    public get annotationData1(): AnnotationData1 {
-        if (this._annotationData1 == null)
-        {
-            this._annotationData1 = new AnnotationData1();
-        }
-        return this._annotationData1;
-    }
-
-    private _annotationData2: AnnotationData2 = null;
-    public get annotationData2(): AnnotationData2 {
-        if (this._annotationData2 == null)
-        {
-            this._annotationData2 = new AnnotationData2();
-        }
-        return this._annotationData2;
     }
 
     private _stockTesla: StockTesla = null;
@@ -82,6 +65,24 @@ export class Sample {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationLineData1: AnnotationLineData1 = null;
+    public get annotationLineData1(): AnnotationLineData1 {
+        if (this._annotationLineData1 == null)
+        {
+            this._annotationLineData1 = new AnnotationLineData1();
+        }
+        return this._annotationLineData1;
+    }
+
+    private _annotationLineData2: AnnotationLineData2 = null;
+    public get annotationLineData2(): AnnotationLineData2 {
+        if (this._annotationLineData2 == null)
+        {
+            this._annotationLineData2 = new AnnotationLineData2();
+        }
+        return this._annotationLineData2;
     }
 
 }
