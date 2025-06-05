@@ -1,7 +1,9 @@
-import { AnnotationData1Item, AnnotationData1, AnnotationData2Item, AnnotationData2, AnnotationData3Item, AnnotationData3 } from './SampleData';
 import { IgcDataChartCoreModule, IgcDataChartCategoryModule, IgcDataChartCategoryCoreModule, IgcDataChartFinancialCoreModule, IgcDataChartFinancialModule, IgcDataChartFinancialOverlaysModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule, IgcDataAnnotationSliceLayerModule, IgcNumberAbbreviatorModule, IgcAnnotationLayerProxyModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryXAxisComponent, IgcNumericYAxisComponent, IgcFinancialPriceSeriesComponent, IgcDataToolTipLayerComponent, IgcDataAnnotationSliceLayerComponent } from 'igniteui-webcomponents-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationSliceStockSplitDataItem, AnnotationSliceStockSplitData } from './AnnotationSliceStockSplitData';
+import { AnnotationSliceEarningsMissDataItem, AnnotationSliceEarningsMissData } from './AnnotationSliceEarningsMissData';
+import { AnnotationSliceEarningsBeatDataItem, AnnotationSliceEarningsBeatData } from './AnnotationSliceEarningsBeatData';
 
 import { ModuleManager } from 'igniteui-webcomponents-core';
 
@@ -53,42 +55,15 @@ export class Sample {
             series1.xAxis = this.xAxisTop;
             series1.yAxis = this.yAxisLeft;
             series1.dataSource = this.stockTesla;
-            sliceLayerStockSplit.dataSource = this.annotationData1;
+            sliceLayerStockSplit.dataSource = this.annotationSliceStockSplitData;
             sliceLayerStockSplit.targetAxis = this.xAxisBottom;
-            sliceLayerEarningsMissAnnotations.dataSource = this.annotationData2;
+            sliceLayerEarningsMissAnnotations.dataSource = this.annotationSliceEarningsMissData;
             sliceLayerEarningsMissAnnotations.targetAxis = this.xAxisBottom;
-            sliceLayerEarningsBeatAnnotations.dataSource = this.annotationData3;
+            sliceLayerEarningsBeatAnnotations.dataSource = this.annotationSliceEarningsBeatData;
             sliceLayerEarningsBeatAnnotations.targetAxis = this.xAxisBottom;
         }
         this._bind();
 
-    }
-
-    private _annotationData1: AnnotationData1 = null;
-    public get annotationData1(): AnnotationData1 {
-        if (this._annotationData1 == null)
-        {
-            this._annotationData1 = new AnnotationData1();
-        }
-        return this._annotationData1;
-    }
-
-    private _annotationData2: AnnotationData2 = null;
-    public get annotationData2(): AnnotationData2 {
-        if (this._annotationData2 == null)
-        {
-            this._annotationData2 = new AnnotationData2();
-        }
-        return this._annotationData2;
-    }
-
-    private _annotationData3: AnnotationData3 = null;
-    public get annotationData3(): AnnotationData3 {
-        if (this._annotationData3 == null)
-        {
-            this._annotationData3 = new AnnotationData3();
-        }
-        return this._annotationData3;
     }
 
     private _stockTesla: StockTesla = null;
@@ -98,6 +73,33 @@ export class Sample {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationSliceStockSplitData: AnnotationSliceStockSplitData = null;
+    public get annotationSliceStockSplitData(): AnnotationSliceStockSplitData {
+        if (this._annotationSliceStockSplitData == null)
+        {
+            this._annotationSliceStockSplitData = new AnnotationSliceStockSplitData();
+        }
+        return this._annotationSliceStockSplitData;
+    }
+
+    private _annotationSliceEarningsMissData: AnnotationSliceEarningsMissData = null;
+    public get annotationSliceEarningsMissData(): AnnotationSliceEarningsMissData {
+        if (this._annotationSliceEarningsMissData == null)
+        {
+            this._annotationSliceEarningsMissData = new AnnotationSliceEarningsMissData();
+        }
+        return this._annotationSliceEarningsMissData;
+    }
+
+    private _annotationSliceEarningsBeatData: AnnotationSliceEarningsBeatData = null;
+    public get annotationSliceEarningsBeatData(): AnnotationSliceEarningsBeatData {
+        if (this._annotationSliceEarningsBeatData == null)
+        {
+            this._annotationSliceEarningsBeatData = new AnnotationSliceEarningsBeatData();
+        }
+        return this._annotationSliceEarningsBeatData;
     }
 
 }
