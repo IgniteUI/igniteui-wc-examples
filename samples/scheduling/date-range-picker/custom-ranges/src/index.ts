@@ -8,7 +8,7 @@ export class DateRangePickerCustomRanges {
   constructor() {
 
     const dateRange = document.querySelector('igc-date-range-picker') as IgcDateRangePickerComponent;
-    const today: Date = new Date();
+    const today = new Date();
 
     const previousWeek = new Date(
       today.getFullYear(),

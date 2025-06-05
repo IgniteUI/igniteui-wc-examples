@@ -13,9 +13,8 @@ export class DateRangePickerForm {
     })
 
     function showDialog(data: HTMLFormElement) {
-      var dateRange = data.DateRange.value
-      const dialog = document.createElement('igc-dialog');
-      dialog.title = 'Range submission result';
+      var dateRange = data.DateRange.value;
+      const dialog = document.createElement('igc-dialog') as IgcDialogComponent;
       dialog.addEventListener('igcClosed', () => dialog.remove());
 
       const dump = document.createElement('pre');
