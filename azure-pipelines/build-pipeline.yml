@@ -35,7 +35,7 @@ stages:
         displayName: 'Install Node'
         inputs:
           versionSource: 'spec'
-          versionSpec: '18.x'
+          versionSpec: '20.x'
 
       - task: Npm@1
         displayName: 'Register licensed npm registry in .npmrc'

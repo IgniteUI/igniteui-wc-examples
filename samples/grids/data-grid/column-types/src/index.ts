@@ -1,17 +1,17 @@
 import { DataGridSharedData } from './DataGridSharedData';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
-import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
-import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcTemplateCellInfo } from 'igniteui-webcomponents-grids';
-import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcImageColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
+import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcTemplateCellInfo } from 'igniteui-webcomponents-data-grids';
+import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-data-grids';
+import { IgcImageColumnComponent } from 'igniteui-webcomponents-data-grids';
 import { IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { IgcSparklineComponent } from 'igniteui-webcomponents-charts';
 import { SparklineDisplayType } from 'igniteui-webcomponents-charts';
-import { IgcComboBoxColumnComponent } from 'igniteui-webcomponents-grids';
-import { IgcGridCellValueChangingEventArgs } from 'igniteui-webcomponents-grids';
+import { IgcComboBoxColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcGridCellValueChangingEventArgs } from 'igniteui-webcomponents-data-grids';
 
 ModuleManager.register(
     IgcDataGridModule,

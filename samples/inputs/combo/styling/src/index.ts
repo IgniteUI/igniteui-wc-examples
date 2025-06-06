@@ -1,6 +1,6 @@
 import { defineComponents, registerIconFromText, IgcComboComponent } from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import "./index.css";
+import "./ComboStyle.css";
 
 defineComponents(IgcComboComponent);
 

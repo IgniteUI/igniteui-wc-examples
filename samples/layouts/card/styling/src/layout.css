@@ -1,0 +1,8 @@
+.card-wrapper {
+  max-width: 320px;
+  min-width: 220px;
+}
+
+igc-icon-button+igc-icon-button {
+  margin-left: 10px;
+}

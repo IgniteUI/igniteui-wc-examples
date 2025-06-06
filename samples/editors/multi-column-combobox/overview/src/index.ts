@@ -1,7 +1,7 @@
-import { IgcMultiColumnComboBoxModule } from 'igniteui-webcomponents-grids';
-import { IgcMultiColumnComboBoxComponent } from 'igniteui-webcomponents-grids';
-import { IgcColumnWidth } from 'igniteui-webcomponents-grids';
-import { SortMode } from 'igniteui-webcomponents-grids';
+import { IgcMultiColumnComboBoxModule } from 'igniteui-webcomponents-data-grids';
+import { IgcMultiColumnComboBoxComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcColumnWidth } from 'igniteui-webcomponents-data-grids';
+import { SortMode } from 'igniteui-webcomponents-data-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { SampleComboData } from './SampleComboData';
 

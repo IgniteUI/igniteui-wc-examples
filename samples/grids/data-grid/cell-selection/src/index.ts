@@ -1,14 +1,14 @@
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
 import { ModuleManager } from 'igniteui-webcomponents-core';
 import { DataGridSharedData } from './DataGridSharedData';
-import { DataGridSelectionMode } from 'igniteui-webcomponents-grids';
-import { GridActivationMode } from 'igniteui-webcomponents-grids';
-import { IgcGridSelectedItemsChangedEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcGridSelectedKeysChangedEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcGridSelectedCellsChangedEventArgs } from 'igniteui-webcomponents-grids';
-import { IgcGridSelectedCellRangesChangedEventArgs } from 'igniteui-webcomponents-grids';
+import { DataGridSelectionMode } from 'igniteui-webcomponents-data-grids';
+import { GridActivationMode } from 'igniteui-webcomponents-data-grids';
+import { IgcGridSelectedItemsChangedEventArgs } from 'igniteui-webcomponents-data-grids';
+import { IgcGridSelectedKeysChangedEventArgs } from 'igniteui-webcomponents-data-grids';
+import { IgcGridSelectedCellsChangedEventArgs } from 'igniteui-webcomponents-data-grids';
+import { IgcGridSelectedCellRangesChangedEventArgs } from 'igniteui-webcomponents-data-grids';
 
 ModuleManager.register(
     IgcDataGridModule,

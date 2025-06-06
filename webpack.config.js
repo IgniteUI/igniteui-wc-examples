@@ -170,6 +170,11 @@ var config = {
           name: 'igniteui-webcomponents-grids',
           chunks: 'all',
         },
+        igniteuiDataGrids: {
+          test: /[\\/]node_modules[\\/](igniteui-webcomponents-data-grids)[\\/]/,
+          name: 'igniteui-webcomponents-data-grids',
+          chunks: 'all',
+        },
         igniteuiMaps: {
           test: /[\\/]node_modules[\\/](igniteui-webcomponents-maps)[\\/]/,
           name: 'igniteui-webcomponents-maps',

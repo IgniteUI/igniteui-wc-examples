@@ -1,11 +1,11 @@
-import { IgcDataGridModule } from 'igniteui-webcomponents-grids';
-import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
 import { ModuleManager} from 'igniteui-webcomponents-core';
 import { DataGridSharedData } from './DataGridSharedData';
-import { IgcColumnGroupDescription } from 'igniteui-webcomponents-grids';
-import { IgcColumnSummaryDescription } from 'igniteui-webcomponents-grids';
-import { IgcComboBoxColumnComponent } from 'igniteui-webcomponents-grids';
+import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
+import { IgcColumnSummaryDescription } from 'igniteui-webcomponents-data-grids';
+import { IgcComboBoxColumnComponent } from 'igniteui-webcomponents-data-grids';
 import { DataSourceSummaryOperand } from 'igniteui-webcomponents-core';
 import { Localization } from 'igniteui-webcomponents-core';
 import { DataGridLocalizationJa } from './DataGridLocaleJa';
