@@ -46,6 +46,7 @@ var sampleSources = [
     // igConfig.SamplesCopyPath + '/charts/data-chart/chart-performance/package.json',
     // igConfig.SamplesCopyPath + '/charts/financial-chart/high-frequency/package.json',
     // igConfig.SamplesCopyPath + '/charts/financial-chart/high-volume/package.json',
+    // igConfig.SamplesCopyPath + '/charts/data-chart/data-annotation-multiple-with-stocks/package.json',
 
     // including all samples for all components:
     igConfig.SamplesCopyPath + '/**/package.json',
@@ -728,6 +729,7 @@ function updateCodeViewer(cb) {
 
         var content = "{\r\n \"sampleFiles\":\r\n";
         var contentItems = [];
+        var dataFiles = [];
 
         var tsItem = new CodeViewer(sample.SampleFilePath, sample.SampleFileSourceCode, "ts", "ts", true);
 
@@ -739,19 +741,40 @@ function updateCodeViewer(cb) {
                 var cssItem = new CodeViewer(file, cssContent, "css", "css", true);
                 contentItems.push(cssItem);
             }
-            else if (file.indexOf(".ts") > 0 && file.indexOf(sample.SampleFileName) == -1) {
-
-                var isIndex = file.indexOf("index.ts") > 0;
-                var tsContent = fs.readFileSync(file, "utf8");
-                var tsItem = new CodeViewer(file, tsContent, "ts", "ts", true);
-                tsItem.fileHeader = isIndex ? "ts" : "DATA";
-                contentItems.push(tsItem);
-            }
             else if (file.indexOf(".html") > 0) {
                 var tsContent = fs.readFileSync(file, "utf8");
                 var tsItem = new CodeViewer(file, tsContent, "html", "html", true);
                 contentItems.push(tsItem);
             }
+            else if (file.indexOf(".ts") > 0 && file.indexOf(sample.SampleFileName) == -1) {
+
+                var tsContent = fs.readFileSync(file, "utf8");
+                var tsItem = new CodeViewer(file, tsContent, "ts", "ts", true);
+
+                if (file.indexOf("index.ts") > 0) {
+                    tsItem.fileHeader = "ts";
+                    contentItems.push(tsItem);
+                } else {
+                    tsItem.fileHeader = "DATA";
+                    dataFiles.push(tsItem); 
+                }
+            }
+        }
+
+        if (dataFiles.length === 1) {
+            contentItems.push(dataFiles[0]);
+        } else if (dataFiles.length > 1) {
+            // combining multiple data files into one data source
+            var dataPath = dataFiles[0].path;
+            var dataFolder = dataPath.substring(0, dataPath.lastIndexOf("/"));
+            var dataContent = "// NOTE this file contains multiple data sources:";
+            for (let i = 0; i < dataFiles.length; i++) {
+                const data = dataFiles[i];
+                dataContent += "\r\n\r\n" + "// Data Source #" + (i+1) + "\r\n";
+                dataContent += data.content + "\r\n";
+            }
+            var dataItem = new CodeViewer(dataFolder + "/DataSources.ts", dataContent, "ts", "DATA", true);
+            contentItems.push(dataItem);
         }
 
         content += JSON.stringify(contentItems, null, ' ');
