@@ -1031,10 +1031,10 @@ class CodeViewer {
         // jsonContent = jsonContent.replace(/\/\//g, "/");
 
         this.hasRelativeAssetsUrls = false;
-        this.path = filePath;
-        this.content = jsonContent;
         this.isMain = isMain;
         this.fileExtension = fileExtension;
         this.fileHeader = fileHeader;
+        this.path = filePath;
+        this.content = jsonContent;
     }
 }
