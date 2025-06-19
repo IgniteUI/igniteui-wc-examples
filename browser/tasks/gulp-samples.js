@@ -1013,7 +1013,7 @@ function updateIG(cb) {
         { version: "6.0.0", name: "igniteui-webcomponents-datasources" },
         { version: "6.0.0", name: "igniteui-webcomponents-dashboards" },
         // these IG packages are sometimes updated:
-        { version: "6.0.0" , name: "igniteui-webcomponents" },
+        { version: "6.1.0" , name: "igniteui-webcomponents" },
         { version: "1.16.0", name: "igniteui-dockmanager" },
         // other packages:
         { version: "^5.96.1", name: "webpack" },
