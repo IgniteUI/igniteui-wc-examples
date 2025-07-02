@@ -1,0 +1,5 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+@import "tailwindcss";
+@import 'igniteui-webcomponents/themes/light/bootstrap.css';
+@import "../node_modules/igniteui-theming/tailwind/theme.css";
