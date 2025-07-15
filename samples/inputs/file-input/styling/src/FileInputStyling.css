@@ -1,24 +1,24 @@
-igc-file-input {
-    --blackground: var(--ig-primary-700);
-    --foreground: var(--ig-primary-700-contrast);
-}
-
-igc-file-input:focus::part(suffix),
-igc-file-input::part(file-selector-button),
-igc-file-input::part(suffix) {
-    /* Style the file selector button */
-    --input-prefix-background: var(--blackground);
-    --input-prefix-color: var(--foreground);
-
-    /* Style the custom suffix */
-    --input-suffix-background: var(--blackground);
-    --input-suffix-background--focused: var(--blackground);
-    --input-suffix-background--filled: var(--blackground);
-
-    color: var(--foreground);
-}
-
 igc-file-input::part(label) {
     color: var(--ig-gray-600);
 }
 
+igc-file-input::part(suffix) {
+    background: var(--ig-primary-700);
+    color: var(--ig-primary-700-contrast);
+}
+
+igc-file-input::part(file-names) {
+    --file-names-foreground: var(--ig-gray-400);
+    --file-names-foreground--filled: var(--ig-gray-900);
+
+    background: var(--ig-primary-50);
+}
+
+igc-file-input::part(file-selector-button) {
+    --file-selector-button-foreground: var(--ig-primary-700-contrast);
+    --file-selector-button-background: var(--ig-primary-700);
+    --file-selector-button-foreground--focused: var(--ig-primary-900-contrast);
+    --file-selector-button-background--focused: var(--ig-primary-900);
+    --file-selector-button-foreground--filled: var(--ig-primary-700-contrast);
+    --file-selector-button-background--filled: var(--ig-primary-700);
+}
