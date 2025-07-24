@@ -52,9 +52,4 @@ export class AdvancedTooltips {
 }
 
 new AdvancedTooltips();
-
-
-
-
-
-
+ 
