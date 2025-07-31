@@ -13,157 +13,181 @@
 </head>
 
 <body>
-    <div id="root">
-        <div class="container sample center">
-            <igc-list class="trigger" id="trigger1">
-                <igc-list-item>
-                    <h2 slot="start">Credits</h2>
-                    <span slot="end">($2.4T)</span>
-                </igc-list-item>
-            </igc-list>
-            <igc-tooltip class="list" anchor="trigger1" placement="right" hide-delay="0" show-delay="0" offset="20">
-                <igc-list>
-                    <p>Credits</p>
-                    <igc-list-item><igc-icon name="dollar"></igc-icon>Amount - 1,678,345</igc-list-item>
-                    <div class="toolsWrapper">
-                        <igc-list-header>Tools</igc-list-header>
-                        <igc-list-item><igc-icon name="filter"></igc-icon>Filter</igc-list-item>
-                        <igc-list-item><igc-icon name="link"></igc-icon>Retail Banking</igc-list-item>
-                        <igc-list-item><igc-icon name="info"></igc-icon>More Info</igc-list-item>
-                    </div>
-                </igc-list>
-            </igc-tooltip>
-            <igc-list class="trigger" id="trigger2">
-                <igc-list-item>
-                    <h2 slot="start">Individual Income Taxes</h2>
-                    <span slot="end">($2.4T)</span>
-                </igc-list-item>
-            </igc-list>
-            <igc-tooltip class="chart" anchor="trigger2" placement="right" hide-delay="0" show-delay="0" offset="20">
-                <p class="title">Individual Income Taxes</p>
-                <igc-category-chart name="chart" id="chart" chart-type="SplineArea" included-properties="year, revenue"
-                    y-axis-title="IFT" y-axis-title-left-margin="10" y-axis-title-right-margin="5"
-                    y-axis-label-left-margin="0" marker-types="none" tool-tip-type="none" is-horizontal-zoom-enabled="false"
-                    is-vertical-zoom-enabled="false">
-                </igc-category-chart>
-                <p class="content">In fiscal year (FY) 2024, the largest source of federal revenue was Individual Income
-                    Taxes (49.3% of total revenue). So far in fiscal year 2025, the largest source of federal revenue is
-                    Individual Income Taxes (50.6% of total revenue).</p>
-            </igc-tooltip>
-            <igc-list class="trigger" id="trigger3">
-                <igc-list-item>
-                    <div class="avatarWrapper" slot="start">
-                        <igc-avatar id="avatar"
-                            src="https://www.infragistics.com/angular-demos-lob/assets/images/avatar/10.jpg" shape="circle">
-                        </igc-avatar>
-                        <igc-badge>
-                            <igc-icon name="block"></igc-icon>
-                        </igc-badge>
-                    </div>
-                    <div class="textWrapper">
-                        <p class="title">Eliza Morales</p>
-                    </div>
-                </igc-list-item>
-            </igc-list>
-            <igc-tooltip class="employee" anchor="trigger3" placement="right" hide-delay="0" show-delay="0" offset="20">
-                <div class="avatarWrapper">
-                    <igc-avatar id="avatar" src="https://www.infragistics.com/angular-demos-lob/assets/images/avatar/10.jpg"
-                        shape="circle">
-                    </igc-avatar>
-                    <igc-badge>
-                        <igc-icon name="block"></igc-icon>
-                    </igc-badge>
-                </div>
-                <div class="textWrapper">
-                    <p class="title">Eliza Morales</p>
-                    <p class="occupation">Software Engineer</p>
-                    <p class="status">In a meeting</p>
-                    <p class="availability">Available at 2:00 pm</p>
-                </div>
-            </igc-tooltip>
-            <igc-list class="trigger" id="trigger4">
-                <igc-list-item>
-                    <div class="avatarWrapper" slot="start">
-                        <igc-avatar id="avatar"
-                            src="https://www.infragistics.com/angular-demos-lob/assets/images/avatar/5.jpg" shape="circle">
-                        </igc-avatar>
-                        <igc-badge>
-                            <igc-icon name="block"></igc-icon>
-                        </igc-badge>
-                    </div>
-                    <div class="textWrapper">
-                        <p class="title">Aron Watson</p>
-                    </div>
-                </igc-list-item>
-            </igc-list>
-            <igc-tooltip class="multiline" anchor="trigger4" placement="right" hide-delay="0" show-delay="0" offset="20">
+  <div id="root">
+    <div class="container sample center">
+      <igc-card class="triggerWrapper">
+        <igc-card-header>
+          <p slot="title">Containing list</p>
+        </igc-card-header>
+        <igc-list class="trigger" id="trigger1">
+          <igc-list-item>
+            <p slot="start">Credits</p>
+            <span slot="end">($2.4T)</span>
+          </igc-list-item>
+        </igc-list>
+      </igc-card>
+      <igc-tooltip class="list" anchor="trigger1" placement="bottom" hide-delay="0" show-delay="0">
+        <igc-list>
+          <h6>Credits</h6>
+          <igc-list-item><igc-icon name="dollar"></igc-icon>Amount - 1,678,345</igc-list-item>
+          <div class="toolsWrapper">
+            <igc-list-header>Tools</igc-list-header>
+            <igc-list-item><igc-icon name="filter"></igc-icon>Filter</igc-list-item>
+            <igc-list-item><igc-icon name="link"></igc-icon>Retail Banking</igc-list-item>
+            <igc-list-item><igc-icon name="info"></igc-icon>More Info</igc-list-item>
+          </div>
+        </igc-list>
+      </igc-tooltip>
+      <igc-card class="triggerWrapper">
+        <igc-card-header>
+          <h3 slot="title">Containing chart</h3>
+        </igc-card-header>
+        <igc-list class="trigger" id="trigger2">
+          <igc-list-item>
+            <p slot="start">Individual Income Taxes</p>
+            <span slot="end">($2.4T)</span>
+          </igc-list-item>
+        </igc-list>
+      </igc-card>
+      <igc-tooltip class="chart" anchor="trigger2" placement="bottom" hide-delay="0" show-delay="0" >
+        <h6>Individual Income Taxes</h6>
+        <igc-category-chart name="chart" id="chart" chart-type="SplineArea" included-properties="year, revenue"
+          y-axis-title="IFT" y-axis-title-left-margin="10" y-axis-title-right-margin="5"
+          y-axis-label-left-margin="0" marker-types="none" tool-tip-type="none" is-horizontal-zoom-enabled="false"
+          is-vertical-zoom-enabled="false">
+        </igc-category-chart>
+        <p class="content">In fiscal year (FY) 2024, the largest source of federal revenue was Individual Income
+          Taxes (49.3% of total revenue). So far in fiscal year 2025, the largest source of federal revenue is
+          Individual Income Taxes (50.6% of total revenue).</p>
+      </igc-tooltip>
+      <igc-card class="triggerWrapper">
+        <igc-card-header>
+          <h3 slot="title">Containing badge</h3>
+        </igc-card-header>
+        <igc-list class="trigger" id="trigger3">
+          <igc-list-item>
+            <div class="avatarWrapper" slot="start">
+              <igc-avatar id="avatar" src="https://www.infragistics.com/angular-demos-lob/assets/images/avatar/10.jpg"
+                shape="circle">
+              </igc-avatar>
+              <igc-badge>
                 <igc-icon name="block"></igc-icon>
-                <p>Notifications are silenced while I focus. Please reach out only for urgent matters.</p>
-            </igc-tooltip>
-            <igc-list class="trigger" id="trigger5">
-                <igc-list-item>
-                    <div class="headingWrapper" slot="start">
-                        <igc-icon name="btc"></igc-icon>
-                        <h2 class="heading">BTC</h2>
-                    </div>
-                    <p slot="end" class="secondary">Daily: + $45</p>
-                </igc-list-item>
-            </igc-list>
-            <igc-tooltip class="btcBtn" anchor="trigger5" placement="right" hide-delay="0" show-delay="0" offset="20">
-                <igc-card class="contentWrapper">
-                    <div class="titleWrapper">
-                        <p>BTC</p>
-                        <igc-icon name="btc"></igc-icon>
-                    </div>
-                    <div class="exchangeWrapper">
-                        <p class="detail">Exchange Balance</p>
-                        <p class="subtitle">USD 356.12.45</p>
-                    </div>
-                    <div class="assetsWrapper">
-                        <p class="detail">Assets Balance</p>
-                        <p class="subtitle">USD 46.28.79</p>
-                    </div>
-                </igc-card>
-                <div class="footerWrapper">
-                    <igc-button variant="flat">Deposit</igc-button>
-                    <igc-button variant="flat">Withdraw</igc-button>
-                </div>
-            </igc-tooltip>
-            <igc-list class="trigger">
-                <igc-list-item>
-                    <div class="headingWrapper" slot="start">
-                        <igc-icon name="btc"></igc-icon>
-                        <h2 class="heading">BTC</h2>
-                    </div>
-                    <p slot="end" class="secondary">Daily: + 2,6%</p>
-                    <div class="clickArea" id="trigger6"></div>
-                </igc-list-item>
-            </igc-list>
-            <p class="helper">Click to view details</p>
-            <igc-tooltip class="btc" anchor="trigger6" show-triggers="click" sticky placement="right"
-                hide-delay="0" show-delay="0" offset="20">
-                <igc-card class="contentWrapper">
-                    <div class="titleWrapper">
-                        <p>BTC</p>
-                        <igc-icon name="btc"></igc-icon>
-                    </div>
-                    <div class="exchangeWrapper">
-                        <p class="detail">Exchange Balance</p>
-                        <p class="subtitle">USD 356.12.45</p>
-                    </div>
-                    <div class="assetsWrapper">
-                        <p class="detail">Assets Balance</p>
-                        <p class="subtitle">USD 46.28.79</p>
-                    </div>
-                </igc-card>
-            </igc-tooltip>
+              </igc-badge>
+           </div>
+           <p slot="title">Eliza Morales</p>
+          </igc-list-item>
+        </igc-list>
+      </igc-card>
+      <igc-tooltip class="employee" anchor="trigger3" placement="bottom" hide-delay="0" show-delay="0">
+        <div class="avatarWrapper">
+          <igc-avatar id="avatar" src="https://www.infragistics.com/angular-demos-lob/assets/images/avatar/10.jpg"
+            shape="circle">
+          </igc-avatar>
+          <igc-badge>
+            <igc-icon name="block"></igc-icon>
+          </igc-badge>
         </div>
+        <div class="textWrapper">
+          <h6>Eliza Morales</h6>
+          <p class="occupation">Software Engineer</p>
+          <p class="status">In a meeting</p>
+          <p class="availability">Available at 2:00 pm</p>
+        </div>
+      </igc-tooltip>
+      <igc-card class="triggerWrapper">
+        <igc-card-header>
+          <h3 slot="title">Containing icon</h3>
+        </igc-card-header>
+        <igc-list class="trigger" id="trigger4">
+          <igc-list-item>
+            <div class="avatarWrapper" slot="start">
+              <igc-avatar id="avatar" src="https://www.infragistics.com/angular-demos-lob/assets/images/avatar/5.jpg"
+                shape="circle">
+              </igc-avatar>
+              <igc-badge>
+                <igc-icon name="block"></igc-icon>
+              </igc-badge>
+            </div>
+            <p slot="title">Aron Watson</p>
+            </igc-list-item>
+        </igc-list>
+      </igc-card>
+      <igc-tooltip class="multiline" anchor="trigger4" placement="bottom" hide-delay="0" show-delay="0">
+        <igc-icon name="block"></igc-icon>
+        <p>Notifications are silenced while I focus. Please reach out only for urgent matters.</p>
+      </igc-tooltip>
+      <igc-card class="triggerWrapper">
+        <igc-card-header>
+          <h3 slot="title">Containing buttons</h3>
+        </igc-card-header>
+        <igc-list class="trigger" id="trigger5">
+          <igc-list-item>
+            <div class="headingWrapper" slot="start">
+              <igc-icon slot="start" name="btc"></igc-icon>
+              <h6 slot="title" class="heading">BTC</h6>
+            </div>
+            <p slot="end" class="secondary">Daily: + $45</p>
+          </igc-list-item>
+        </igc-list>
+      </igc-card>
+      <igc-tooltip class="btcBtn" anchor="trigger5" placement="bottom" hide-delay="0" show-delay="0">
+        <igc-card class="contentWrapper">
+          <div class="titleWrapper">
+            <h6>BTC</h6>
+            <igc-icon name="btc"></igc-icon>
+          </div>
+          <div class="exchangeWrapper">
+            <p class="detail">Exchange Balance</p>
+            <p class="subtitle">USD 356.12.45</p>
+          </div>
+          <div class="assetsWrapper">
+            <p class="detail">Assets Balance</p>
+            <p class="subtitle">USD 46.28.79</p>
+          </div>
+        </igc-card>
+        <div class="footerWrapper">
+          <igc-button variant="flat">Deposit</igc-button>
+          <igc-button variant="flat">Withdraw</igc-button>
+        </div>
+      </igc-tooltip>
+      <igc-card class="triggerWrapper">
+        <igc-card-header>
+          <h3 slot="title">Advanced sticky tooltip</h3>
+        </igc-card-header>
+        <igc-list class="trigger" id="trigger6">
+          <igc-list-item>
+            <div class="headingWrapper" slot="start">
+              <igc-icon slot="start" name="btc"></igc-icon>
+              <h6 slot="title" class="heading">BTC</h6>
+            </div>
+            <p slot="end" class="secondary">Daily: + 2,6%</p>
+          </igc-list-item>
+        </igc-list>
+      </igc-card>
+      <igc-tooltip class="btc" anchor="trigger6" sticky placement="bottom"
+        hide-delay="0" show-delay="0">
+        <igc-card class="contentWrapper">
+          <div class="titleWrapper">
+            <h6>BTC</h6>
+            <igc-icon name="btc"></igc-icon>
+          </div>
+          <div class="exchangeWrapper">
+            <p class="detail">Exchange Balance</p>
+            <p class="subtitle">USD 356.12.45</p>
+          </div>
+          <div class="assetsWrapper">
+            <p class="detail">Assets Balance</p>
+            <p class="subtitle">USD 46.28.79</p>
+          </div>
+        </igc-card>
+      </igc-tooltip>
     </div>
+  </div>
 
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %>
-        <script src="src/index.ts"></script>
-        <% } %>
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+  <% } %>
 
 </body>
 
