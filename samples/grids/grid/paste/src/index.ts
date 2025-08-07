@@ -5,7 +5,6 @@ import { IgcPropertyEditorPanelComponent, IgcPropertyEditorPropertyDescriptionCo
 import { IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 import { IgcPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-webcomponents-layouts';
-import { IgcGridKeydownEventArgs, GridKeydownTargetType } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -69,8 +68,8 @@ export class Sample {
         (this as any)["pasteMode"] = newVal === "NewRecords" ? "Paste data as new records" : "Paste starting from active cell";
     }
 
-    public webGridPasteFromExcel() {
-        const grid = document.getElementById("grid") as any;
+    public webGridPasteFromExcel(e: CustomEvent<any>) {
+        const grid = e.target as IgcGridComponent;
         this.onKeyDown = this.onKeyDown.bind(this);
         grid.addEventListener("keydown", this.onKeyDown);
     }
