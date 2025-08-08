@@ -162,7 +162,7 @@
 					{
 						"Number": 1,
 						"Title": "Intro",
-						"Released": false,
+						"Released": "10 Sep 2019",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
@@ -183,7 +183,7 @@
 					{
 						"Number": 4,
 						"Title": "Future past",
-						"Released": false,
+						"Released": "20 Sep 2011",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
@@ -204,14 +204,14 @@
 					{
 						"Number": 7,
 						"Title": "Stay where you are",
-						"Released": false,
+						"Released": "14 Sep 2013",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
 					{
 						"Number": 8,
 						"Title": "Imaginarium",
-						"Released": false,
+						"Released": "20 Sep 2021",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
@@ -225,21 +225,21 @@
 					{
 						"Number": 10,
 						"Title": "Shredded into pieces",
-						"Released": false,
+						"Released": "11 Sep 2015",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
 					{
 						"Number": 11,
 						"Title": "Capture this moment",
-						"Released": false,
+						"Released": "13 Sep 2016",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
 					{
 						"Number": 12,
 						"Title": "Dream Driven",
-						"Released": false,
+						"Released": "14 Sep 2014",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					}
