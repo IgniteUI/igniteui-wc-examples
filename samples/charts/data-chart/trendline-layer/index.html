@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+
+    <div class="legend">
+        <igc-data-legend
+        name="legend"
+        id="legend"
+        header-row-visible="true"
+        summary-type="None"
+        value-row-visible="true"
+        value-text-color="rgba(0, 0, 0, 0)"
+        header-text="European Renewable Energy (2009-2018)">
+        </igc-data-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        name="chart"
+        id="chart"
+        computed-plot-area-margin-mode="Series">
+            <igc-category-x-axis
+            name="xAxis"
+            id="xAxis"
+            label-location="OutsideBottom"
+            label="year">
+            </igc-category-x-axis>
+            <igc-numeric-y-axis
+            name="yAxis"
+            id="yAxis"
+            label-location="OutsideLeft">
+            </igc-numeric-y-axis>
+            <igc-line-series
+            name="lineSeries1"
+            id="lineSeries1"
+            title="EU Energy"
+            marker-type="Circle"
+            value-member-path="europe"
+            show-default-tooltip="true">
+            </igc-line-series>
+            <igc-trend-line-layer
+            name="trendLine1"
+            id="trendLine1"
+            title="Logarithmic Trend"
+            use-index="true"
+            trend-line-type="LogarithmicFit"
+            trend-line-period="10"
+            use-legend="true"
+            legend-item-badge-mode="MatchSeries">
+            </igc-trend-line-layer>
+            <igc-trend-line-layer
+            name="trendLine2"
+            id="trendLine2"
+            title="Cubic Trend"
+            use-index="true"
+            trend-line-type="CubicFit"
+            trend-line-period="10"
+            use-legend="true"
+            legend-item-badge-mode="MatchSeries">
+            </igc-trend-line-layer>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
