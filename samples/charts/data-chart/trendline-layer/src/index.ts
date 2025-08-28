@@ -38,7 +38,6 @@ export class Sample {
 
         this._bind = () => {
             legend.target = this.chart;
-            chart.legend = this.legend;
             xAxis.dataSource = this.countryRenewableElectricity;
             lineSeries1.xAxis = this.xAxis;
             lineSeries1.yAxis = this.yAxis;
