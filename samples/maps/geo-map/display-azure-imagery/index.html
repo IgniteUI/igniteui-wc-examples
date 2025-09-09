@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MapDisplayImageryAzureTiles</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container horizontal" >
+    <igc-button onclick="dialog.show()" variant="contained">Show Dialog</igc-button>
+
+
+    <igc-dialog id="dialog" title="Confirmation" >
+      <igc-input label="AzureKey" id="azurekeyInput" inputmode="text"></igc-input>
+
+      <div slot="footer">
+        <igc-button id="cancelButton" variant="flat" onclick="dialog.hide()"><span>Cancel</span></igc-button>
+        <igc-button id="submitButton" variant="flat"><span>OK</span></igc-button>
+      </div>
+    </igc-dialog>
+    <igc-geographic-map id="mapWeather" class="container" height="100%" width="100%"></igc-geographic-map>
+    <igc-geographic-map id="mapAerial" class="container" height="100%" width="100%"></igc-geographic-map>
+    <igc-geographic-map id="mapRoad" class="container" height="100%" width="100%"></igc-geographic-map>
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
