@@ -124,7 +124,18 @@ var config = {
         ]
       },
       { test: /\.html$/, use: 'html-loader' },
-      { test: /\.css$/, sideEffects: true, use: ['style-loader', 'css-loader'] },
+      {
+        test: /\.css$/,
+        sideEffects: true,
+        use: [
+            'style-loader',
+            {
+            loader: 'css-loader',
+            options: { importLoaders: 1 }
+            },
+            'postcss-loader'
+        ]
+      },
       { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
       { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
       { test: /\.xml$/, use: ['xml-loader'] }
@@ -132,7 +143,7 @@ var config = {
   },
   resolve: {
     mainFields: ['esm2015', 'module', 'main'],
-    extensions: ['.ts', '.js', 'json'],
+    extensions: ['.ts', '.js', '.json'],
     plugins: [new TsconfigPathsPlugin({
       configFile: './tsconfig.json',
       extensions: ['.ts', '.js'],
