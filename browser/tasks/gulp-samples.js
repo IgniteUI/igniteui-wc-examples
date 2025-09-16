@@ -72,7 +72,7 @@ var sampleSources = [
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-styles/package.json',  // BUG webTreeGridRowStylesHandler does not export
     //'!' + igConfig.SamplesCopyPath + '/grids/tree-grid/row-reorder/package.json', // BUG Property 'dragElement' does not exist on type 'IgcRowDragStartEventArgs'
-   
+
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/editing-lifecycle/package.json', // BUG TS2339: Property 'cancel' does not exist on type 'IgcGridEditEventArgs'.
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-export/package.json', // BUG Module '"igniteui-webcomponents-grids/grids"' has no exported member 'IgcExporterEventEventArgs'.
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/multi-column-headers-overview/package.json', // BUG Property 'treegrid' does not exist on type 'TreeGridMultiColumnHeadersOverview'. Did you mean 'treeGrid'?
@@ -464,14 +464,14 @@ function updateReadme(cb) {
 
         let readmePath = sampleOutputFolder + sample.SampleFolderPath + "/ReadMe.md";
         makeDirectoryFor(readmePath);
-        
+
         let readmeNewFile = Transformer.updateReadme(sample, template);
-        
-        let readmeOldFile = ""; 
+
+        let readmeOldFile = "";
         if (fs.existsSync(readmePath)) {
-            readmeOldFile = fs.readFileSync(readmePath).toString(); 
+            readmeOldFile = fs.readFileSync(readmePath).toString();
         }
-        
+
         if (readmeNewFile !== readmeOldFile) {
             console.log('UPDATED: ' + readmePath)
             changeFilesCount++;
@@ -756,7 +756,7 @@ function updateCodeViewer(cb) {
                     contentItems.push(tsItem);
                 } else {
                     tsItem.fileHeader = "DATA";
-                    dataFiles.push(tsItem); 
+                    dataFiles.push(tsItem);
                 }
             }
         }
@@ -980,7 +980,7 @@ function sortByKeys(dependencies)
 {
     let keys = Object.keys(dependencies);
     keys.sort();
- 
+
     var sorted = {};
     for (const key of keys) {
         sorted[key] = dependencies[key];
@@ -999,22 +999,22 @@ function updateIG(cb) {
     // { version: "3.2.12",  name:               "igniteui-webcomponents-core" },   // PUBLIC NPM
     let packageUpgrades = [
         // these IG packages are often updated:
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-core" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-charts" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-excel" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-gauges" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-data-grids" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-inputs" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-layouts" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-maps" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-spreadsheet-chart-adapter" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-spreadsheet" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-datasources" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-dashboards" },
-        // these IG packages are sometimes updated:        
-        { version: "6.0.3", name: "igniteui-webcomponents-grids" },
-        { version: "6.1.2" , name: "igniteui-webcomponents" },
-        { version: "1.16.0", name: "igniteui-dockmanager" },
+        { version: "^6.0.1", name: "igniteui-webcomponents-core" },
+        { version: "^6.0.1", name: "igniteui-webcomponents-charts" },
+        { version: "^6.0.1", name: "igniteui-webcomponents-excel" },
+        { version: "^6.0.1", name: "igniteui-webcomponents-gauges" },
+        { version: "^6.0.1", name: "igniteui-webcomponents-data-grids" },
+        { version: "^6.0.1", name: "igniteui-webcomponents-inputs" },
+        { version: "^6.0.1", name: "igniteui-webcomponents-layouts" },
+        { version: "^6.0.1", name: "igniteui-webcomponents-maps" },
+        { version: "^6.0.1", name: "igniteui-webcomponents-spreadsheet-chart-adapter" },
+        { version: "^6.0.1", name: "igniteui-webcomponents-spreadsheet" },
+        { version: "^6.0.1", name: "igniteui-webcomponents-datasources" },
+        { version: "^6.0.1", name: "igniteui-webcomponents-dashboards" },
+        // these IG packages are sometimes updated:
+        { version: "~6.0.7", name: "igniteui-webcomponents-grids" },
+        { version: "6.3.0-RC.0" , name: "igniteui-webcomponents" },
+        { version: "~1.17.0", name: "igniteui-dockmanager" },
         // other packages:
         { version: "^5.96.1", name: "webpack" },
         { version: "^4.10.0", name: "webpack-cli" },
@@ -1028,7 +1028,7 @@ function updateIG(cb) {
         './samples/**/package.json',
         // './samples/charts/**/package.json',
         // './samples/gauges/**/package.json',
-        
+
         // skip packages in node_modules folders
         '!./samples/**/node_modules/**/package.json',
         '!./samples/**/node_modules/**',
@@ -1075,17 +1075,17 @@ function updateIG(cb) {
             }
         }
 
-        let newContent = fileLines.join('\n'); 
+        let newContent = fileLines.join('\n');
         let jsonPackages = JSON.parse(newContent);
         // sort package dependencies by their names
         let sortPackages = sortByKeys(jsonPackages.dependencies);
         if (JSON.stringify(sortPackages) !== JSON.stringify(jsonPackages.dependencies)) {
             jsonPackages.dependencies = sortPackages;
-            jsonPackages.devDependencies = sortByKeys(jsonPackages.devDependencies); 
+            jsonPackages.devDependencies = sortByKeys(jsonPackages.devDependencies);
             newContent = JSON.stringify(jsonPackages, null, '  ') + '\n';
             fileChanged = true;
         }
-        
+
         if (fileChanged || fileContent !== newContent) {
             // let newContent = fileLines.join('\n'); // newContent !== fileContent
             updatedPackages++;

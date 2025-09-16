@@ -23,7 +23,7 @@
         "@webcomponents/template": "^1.4.2",
         "babel-runtime": "^6.26.0",
         "core-js": "^3.6.5",
-    "igniteui-webcomponents": "6.1.2",
+    "igniteui-webcomponents": "6.3.0-RC.0",
     "lit": "^3.2.0",
     "lit-html": "^3.2.0",
         "tslib": "^2.0.0"
