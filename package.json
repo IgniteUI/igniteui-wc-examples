@@ -77,7 +77,7 @@
     "csv-loader": "^3.0.2",
     "del": "^6.0.0",
     "ejs-loader": "^0.3.0",
-    "eslint": "^5.4.0",
+    "eslint": "^9.32.0",
     "event-stream": "^4.0.1",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^7.2.13",
