@@ -42,7 +42,7 @@ const plugins = [
       }
     }
   }),
-  new ForkTsCheckerWebpackPlugin({ typescript: { configFile: path.join(__dirname, 'tsconfig.json') } })
+  new ForkTsCheckerWebpackPlugin({ typescript: { configFile: path.join(__dirname, 'tsconfig.json'), memoryLimit: 4096 } })
 ];
 
 const presets = [
