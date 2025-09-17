@@ -43,7 +43,7 @@
     "dompurify": "^3.2.6",
     "file-saver": "^2.0.2",
     "igniteui-dockmanager": "1.16.0",
-    "igniteui-webcomponents": "6.3.0-beta.1",
+    "igniteui-webcomponents": "6.3.0-RC.0",
     "igniteui-webcomponents-charts": "6.0.1-beta.1",
     "igniteui-webcomponents-core": "6.0.1-beta.1",
     "igniteui-webcomponents-dashboards": "6.0.1-beta.1",
