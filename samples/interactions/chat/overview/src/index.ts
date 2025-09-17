@@ -1,8 +1,7 @@
-import { defineComponents, IgcAvatarComponent, IgcChatComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcAvatarComponent, IgcChatComponent, IgcChatOptions } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './layout.css'
-import { html } from 'lit-html';
-import './ChatStyle.css';
+import { html, nothing } from 'lit-html';
 
 defineComponents(IgcAvatarComponent, IgcChatComponent);
 
@@ -14,25 +13,25 @@ export class ChatOverview {
       id: '1',
       text: `Hi, I have a question about my recent order, #7890.`,
       sender: 'user',
-      timestamp: new Date(Date.now() - 3500000)
+      timestamp: (Date.now() - 3500000).toString()
     },
     {
       id: '2',
       text: `Hello! I can help with that. What is your question regarding order #7890?`,
       sender: 'support',
-      timestamp: new Date(Date.now() - 3400000)
+      timestamp: (Date.now() - 3400000).toString()
     },
     {
       id: '3',
       text: `The tracking status shows 'delivered', but I haven't received it yet. Can you confirm the delivery location?`,
       sender: 'user',
-      timestamp: new Date(Date.now() - 3300000)
+      timestamp: (Date.now() - 3300000).toString()
     },
     {
       id: '4',
       text: `I've reviewed the delivery details. It seems the package was left in a different spot. Here's a photo from our delivery driver showing where it was placed. Please check your porch and side door.`,
       sender: 'support',
-      timestamp: new Date(Date.now() - 3200000),
+      timestamp: (Date.now() - 3200000).toString(),
       attachments: [
         {
           id: 'delivery-location-image',
@@ -44,18 +43,18 @@ export class ChatOverview {
     },
   ];
 
-  private options = {
+  private options: IgcChatOptions = {
     disableAutoScroll: false,
     disableInputAttachments: false,
     suggestions: [`It's there. Thanks.`, `It's not there.`],
     inputPlaceholder: 'Type your message here...',
     headerText: 'Customer Support',
     renderers: {
-      messageHeader: (ctx: any) => this.messageHeaderTemplate(ctx.param, ctx),
+      messageHeader: (ctx) => this.messageHeaderTemplate(ctx.message),
     }
   };
 
-  private messageHeaderTemplate = (msg: any, ctx: any) => {
+  private messageHeaderTemplate = (msg: any) => {
     return msg.sender !== 'user'
       ? html`
           <div>
@@ -71,7 +70,7 @@ export class ChatOverview {
             >
           </div>
         `
-      : ctx.defaults.messageHeader(ctx);
+      : nothing;
   };
 
   constructor() {
@@ -82,18 +81,26 @@ export class ChatOverview {
   }
 
   public onMessageCreated = (e: CustomEvent) => {
+    e.preventDefault();
     const newMessage = e.detail;
     this.messages.push(newMessage);
-    this.chat.options = { ...this.chat.options, suggestions: [] };
+    this.chat.options = { ...this.chat.options, isTyping: true, suggestions: [] };
+
+    const messageText = e.detail.text.toLowerCase();
+    const responseText = messageText.includes('not there') 
+      ? `We're sorry to hear that. Checking with the delivery service for more details.`
+      : messageText.includes('it\'s there') 
+        ? `Glad to hear that! If you have any more questions or need further assistance, feel free to ask. We're here to help!`
+        : `Our support team is currently unavailable. We'll get back to you as soon as possible.`;
 
     const responseMessage = {
       id: Date.now().toString(),
-      text: `Our support team is currently unavailable. We'll get back to you as soon as possible.`,
+      text: responseText,
       sender: 'support',
-      timestamp: new Date()
+      timestamp: Date.now().toString(),
     };
     this.messages.push(responseMessage);
-    this.chat.messages = [...this.chat.messages];
+    this.chat.options = { ...this.chat.options, isTyping: false};
   }
 }
 
