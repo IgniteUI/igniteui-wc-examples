@@ -101,9 +101,9 @@ igc-avatar::part(base) {
   }
 
   public onMessageCreated = (e: CustomEvent) => {
-    this.chat.options = { ...this.chat.options, isTyping: true, suggestions: [] };
-
     e.preventDefault();
+
+    this.chat.options = { ...this.chat.options, isTyping: true, suggestions: [] };
     const newMessage = e.detail;
     this.messages.push(newMessage);
 
@@ -114,6 +114,7 @@ igc-avatar::part(base) {
       timestamp: Date.now().toString(),
     };
     this.messages.push(responseMessage);
+    this.chat.draftMessage = { text: '', attachments: [] };
     this.chat.options = { ...this.chat.options, isTyping: false};
   }
 }
