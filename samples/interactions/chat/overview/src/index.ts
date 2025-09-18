@@ -7,50 +7,136 @@ defineComponents(IgcAvatarComponent, IgcChatComponent);
 
 export class ChatOverview {
   private chat: IgcChatComponent;
-
+  private flows = ['Order tracking', `Returns`, 'Talk to agent'];
   private messages = [
     {
       id: '1',
-      text: `Hi, I have a question about my recent order, #7890.`,
-      sender: 'user',
+      text: `Hi there! What would you like to do today — check your order status, request a return, or talk to one of our agents?`,
+      sender: 'support',
       timestamp: (Date.now() - 3500000).toString()
     },
+  ];
+
+  // --- Order Tracking Flow ---
+  private orderTrackingMessages = [
     {
       id: '2',
-      text: `Hello! I can help with that. What is your question regarding order #7890?`,
-      sender: 'support',
+      text: `Order tracking`,
+      sender: 'user',
       timestamp: (Date.now() - 3400000).toString()
     },
     {
       id: '3',
-      text: `The tracking status shows 'delivered', but I haven't received it yet. Can you confirm the delivery location?`,
-      sender: 'user',
+      text: `Sure! Please provide your order number and I’ll look it up.`,
+      sender: 'support',
       timestamp: (Date.now() - 3300000).toString()
     },
     {
       id: '4',
-      text: `I've reviewed the delivery details. It seems the package was left in a different spot. Here's a photo from our delivery driver showing where it was placed. Please check your porch and side door.`,
+      text: `It’s #7890.`,
+      sender: 'user',
+      timestamp: (Date.now() - 3200000).toString()
+    },
+    {
+      id: '5',
+      text: `Got it — order #7890 was delivered yesterday. Here’s the driver’s photo showing the delivery location.`,
       sender: 'support',
-      timestamp: (Date.now() - 3200000).toString(),
+      timestamp: (Date.now() - 3100000).toString(),
       attachments: [
         {
-          id: 'delivery-location-image',
+          id: 'delivery-photo',
           name: 'Delivery location',
           url: 'https://media.istockphoto.com/id/1207972183/photo/merchandise-delivery-from-online-ordering.jpg?s=612x612&w=0&k=20&c=cGcMqd_8FALv4Tueh7sllYZuDXurkfkqoJf6IAIWhJk=',
           type: 'image'
-        },
-      ],
+        }
+      ]
+    },
+    {
+      id: '6',
+      text: `Thanks. Found it!`,
+      sender: 'user',
+      timestamp: (Date.now() - 3000000).toString()
+    },
+    {
+      id: '7',
+      text: `Glad to hear that! Is there something else I can do for you?`,
+      sender: 'support',
+      timestamp: (Date.now() - 3200000).toString()
+    },
+  ];
+
+  // --- Returns Flow ---
+  private returnMessages = [
+    {
+      id: '6',
+      text: `Returns`,
+      sender: 'user',
+      timestamp: (Date.now() - 3000000).toString()
+    },
+    {
+      id: '7',
+      text: `No problem. Which item would you like to return? You can paste the product name or order number.`,
+      sender: 'support',
+      timestamp: (Date.now() - 2900000).toString()
+    },
+    {
+      id: '8',
+      text: `I want to return the blue headphones from my last order.`,
+      sender: 'user',
+      timestamp: (Date.now() - 2800000).toString()
+    },
+    {
+      id: '9',
+      text: `Thanks. I’ve generated a prepaid return label for you — just print it and drop off the package.`,
+      sender: 'support',
+      timestamp: (Date.now() - 2700000).toString(),
+      attachments: [
+        {
+          id: 'return-label',
+          name: 'Return label (PDF).pdf',
+          url: 'https://placehold.co/600x400?text=Return+Label',
+          type: 'file'
+        }
+      ]
+    },
+    {
+      id: '10',
+      text: `Thanks`,
+      sender: 'user',
+      timestamp: (Date.now() - 2600000).toString()
+    },
+    {
+      id: '11',
+      text: `You're welcome! Is there something else I can do for you?`,
+      sender: 'support',
+      timestamp: (Date.now() - 2500000).toString()
+    },
+  ];
+
+  // --- Talk to Agent Flow ---
+  private talkToAgentMessages = [
+    {
+      id: '10',
+      text: `Talk to agent`,
+      sender: 'user',
+      timestamp: (Date.now() - 2600000).toString()
+    },
+    {
+      id: '11',
+      text: `Okay, I’ll connect you with a live support agent. Please hold for a moment...`,
+      sender: 'support',
+      timestamp: (Date.now() - 2500000).toString()
     },
   ];
 
   private options: IgcChatOptions = {
     disableAutoScroll: false,
     disableInputAttachments: false,
-    suggestions: [`It's there. Thanks.`, `It's not there.`],
     inputPlaceholder: 'Type your message here...',
     headerText: 'Customer Support',
     renderers: {
       messageHeader: (ctx) => this.messageHeaderTemplate(ctx.message),
+      messageContent: (ctx) => this.messageContentTemplate(ctx.message)
     }
   };
 
@@ -73,6 +159,37 @@ export class ChatOverview {
       : nothing;
   };
 
+  private messageContentTemplate = (msg: any) => {
+    return msg.sender === 'support' && (msg.text.includes('Hi there') || msg.text.includes('something else'))
+      ? html`
+        <style>
+          igc-chip::part(base) {
+            min-height: 2.25rem;
+            border-radius: 1rem;
+            padding: .5rem 1rem;
+            font-size: 1rem;
+            color: var(--message-color);
+          }
+        </style>
+        <div>
+          <p>${msg.text}</p>
+          <div style="display: flex; padding-top: 10px; gap: 10px;">
+            ${this.flows.map(flow => 
+              html`
+              <igc-chip
+                @click=${() => this.onMessageCreated(new CustomEvent('igcMessageCreated', { detail: { id: (Date.now() - 2600000).toString(), text: flow, sender: 'user' }, cancelable: true }))}>
+                <p>${flow}</p>
+              </igc-chip>`)}
+          </div>
+
+        </div>
+        `
+      : html`
+        <div>
+          <p>${msg.text}</p>
+        </div>`;
+  };
+
   constructor() {
     this.chat = document.querySelector('igc-chat') as IgcChatComponent;
     this.chat.messages = this.messages;
@@ -83,26 +200,43 @@ export class ChatOverview {
   public onMessageCreated = (e: CustomEvent) => {
     e.preventDefault();
     const newMessage = e.detail;
-    this.messages.push(newMessage);
-    this.chat.options = { ...this.chat.options, isTyping: true, suggestions: [] };
+    
+    switch (newMessage.text) {
+      case 'Order tracking':
+        this.loadMessageFlow(this.orderTrackingMessages);
+        break;  
+      case 'Returns':
+        this.loadMessageFlow(this.returnMessages);
+        break;  
+      case 'Talk to agent':
+        this.loadMessageFlow(this.talkToAgentMessages);
+        break;  
+      default:
+        this.simulateResponse();
+    }
 
-    const messageText = e.detail.text.toLowerCase();
-    const responseText = messageText.includes('not there') 
-      ? `We're sorry to hear that. Checking with the delivery service for more details.`
-      : messageText.includes('it\'s there') 
-        ? `Glad to hear that! If you have any more questions or need further assistance, feel free to ask. We're here to help!`
-        : `Our support team is currently unavailable. We'll get back to you as soon as possible.`;
-
-    const responseMessage = {
-      id: Date.now().toString(),
-      text: responseText,
-      sender: 'support',
-      timestamp: Date.now().toString(),
-    };
-    this.messages.push(responseMessage);
     this.chat.draftMessage = { text: '', attachments: [] };
-    this.chat.options = { ...this.chat.options, isTyping: false};
   }
+
+  private loadMessageFlow(messages: any[]) {
+    messages.forEach((m, i) => {
+      setTimeout(() => {
+        this.messages = [...this.messages, m];
+        this.chat.messages = [...this.messages];
+        const isTyping = i !== messages.length - 1;
+        this.chat.options = { ...this.chat.options, isTyping, suggestions: isTyping ? [] : this.options.suggestions };
+      }, 1500 * i)
+    });
+  }
+  
+  simulateResponse() {
+    this.messages = [...this.messages, { 
+      id: '1000',
+      text: `Our support team is currently unavailable. We'll get back to you as soon as possible.`,
+      sender: 'support',
+      timestamp: Date.now().toString() 
+    }];
+  } 
 }
 
 new ChatOverview();
