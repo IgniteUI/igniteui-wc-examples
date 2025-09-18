@@ -7,6 +7,7 @@ defineComponents(IgcAvatarComponent, IgcChatComponent);
 
 export class ChatOverview {
   private chat: IgcChatComponent;
+  private flows = ['Order tracking', `Returns`, 'Talk to agent'];
   private messages = [
     {
       id: '1',
@@ -50,6 +51,18 @@ export class ChatOverview {
         }
       ]
     },
+    {
+      id: '6',
+      text: `Thanks. Found it!`,
+      sender: 'user',
+      timestamp: (Date.now() - 3000000).toString()
+    },
+    {
+      id: '7',
+      text: `Glad to hear that! Is there something else I can do for you?`,
+      sender: 'support',
+      timestamp: (Date.now() - 3200000).toString()
+    },
   ];
 
   // --- Returns Flow ---
@@ -86,6 +99,18 @@ export class ChatOverview {
         }
       ]
     },
+    {
+      id: '10',
+      text: `Thanks`,
+      sender: 'user',
+      timestamp: (Date.now() - 2600000).toString()
+    },
+    {
+      id: '11',
+      text: `You're welcome! Is there something else I can do for you?`,
+      sender: 'support',
+      timestamp: (Date.now() - 2500000).toString()
+    },
   ];
 
   // --- Talk to Agent Flow ---
@@ -107,12 +132,11 @@ export class ChatOverview {
   private options: IgcChatOptions = {
     disableAutoScroll: false,
     disableInputAttachments: false,
-    suggestions: ['Order tracking', `Returns`, 'Talk to agent'],
     inputPlaceholder: 'Type your message here...',
     headerText: 'Customer Support',
     renderers: {
       messageHeader: (ctx) => this.messageHeaderTemplate(ctx.message),
-      messageActions: () => nothing
+      messageContent: (ctx) => this.messageContentTemplate(ctx.message)
     }
   };
 
@@ -133,6 +157,37 @@ export class ChatOverview {
           </div>
         `
       : nothing;
+  };
+
+  private messageContentTemplate = (msg: any) => {
+    return msg.sender === 'support' && (msg.text.includes('Hi there') || msg.text.includes('something else'))
+      ? html`
+        <style>
+          igc-chip::part(base) {
+            min-height: 2.25rem;
+            border-radius: 1rem;
+            padding: .5rem 1rem;
+            font-size: 1rem;
+            color: var(--message-color);
+          }
+        </style>
+        <div>
+          <p>${msg.text}</p>
+          <div style="display: flex; padding-top: 10px; gap: 10px;">
+            ${this.flows.map(flow => 
+              html`
+              <igc-chip
+                @click=${() => this.onMessageCreated(new CustomEvent('igcMessageCreated', { detail: { id: (Date.now() - 2600000).toString(), text: flow, sender: 'user' }, cancelable: true }))}>
+                <p>${flow}</p>
+              </igc-chip>`)}
+          </div>
+
+        </div>
+        `
+      : html`
+        <div>
+          <p>${msg.text}</p>
+        </div>`;
   };
 
   constructor() {
@@ -160,7 +215,6 @@ export class ChatOverview {
         this.simulateResponse();
     }
 
-    // this.chat.options = { ...this.chat.options, isTyping: true, suggestions: this.options.suggestions};
     this.chat.draftMessage = { text: '', attachments: [] };
   }
 
