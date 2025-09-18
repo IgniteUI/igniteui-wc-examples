@@ -57,7 +57,7 @@ export class ChatOverview {
   private messageHeaderTemplate = (msg: any) => {
     return msg.sender !== 'user'
       ? html`
-          <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
             <igc-avatar
               shape="circle"
               src="https://www.infragistics.com/angular-demos/assets/images/men/1.jpg"
@@ -65,7 +65,7 @@ export class ChatOverview {
             >
             </igc-avatar>
             <span
-              style="color: #c00000; font-weight: bold; position: absolute; margin: 8px"
+              style="color: #c00000; font-weight: bold; margin: 8px"
               >Customer Support</span
             >
           </div>
@@ -100,6 +100,7 @@ export class ChatOverview {
       timestamp: Date.now().toString(),
     };
     this.messages.push(responseMessage);
+    this.chat.draftMessage = { text: '', attachments: [] };
     this.chat.options = { ...this.chat.options, isTyping: false};
   }
 }
