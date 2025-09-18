@@ -999,28 +999,28 @@ function updateIG(cb) {
     // { version: "3.2.12",  name:               "igniteui-webcomponents-core" },   // PUBLIC NPM
     let packageUpgrades = [
         // these IG packages are often updated:
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-core" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-charts" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-excel" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-gauges" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-data-grids" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-inputs" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-layouts" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-maps" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-spreadsheet-chart-adapter" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-spreadsheet" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-datasources" },
-        { version: "6.0.1-beta.1", name: "igniteui-webcomponents-dashboards" },
+        { version: "6.0.2-beta.0", name: "igniteui-webcomponents-core" },
+        { version: "6.0.2-beta.0", name: "igniteui-webcomponents-charts" },
+        { version: "6.0.2-beta.0", name: "igniteui-webcomponents-excel" },
+        { version: "6.0.2-beta.0", name: "igniteui-webcomponents-gauges" },
+        { version: "6.0.2-beta.0", name: "igniteui-webcomponents-data-grids" },
+        { version: "6.0.2-beta.0", name: "igniteui-webcomponents-inputs" },
+        { version: "6.0.2-beta.0", name: "igniteui-webcomponents-layouts" },
+        { version: "6.0.2-beta.0", name: "igniteui-webcomponents-maps" },
+        { version: "6.0.2-beta.0", name: "igniteui-webcomponents-spreadsheet-chart-adapter" },
+        { version: "6.0.2-beta.0", name: "igniteui-webcomponents-spreadsheet" },
+        { version: "6.0.2-beta.0", name: "igniteui-webcomponents-datasources" },
+        { version: "6.0.2-beta.0", name: "igniteui-webcomponents-dashboards" },
         // these IG packages are sometimes updated:        
         { version: "6.0.3", name: "igniteui-webcomponents-grids" },
-        { version: "6.1.2" , name: "igniteui-webcomponents" },
+        { version: "^6.3.1" , name: "igniteui-webcomponents" },
         { version: "1.16.0", name: "igniteui-dockmanager" },
         // other packages:
-        { version: "^5.96.1", name: "webpack" },
-        { version: "^4.10.0", name: "webpack-cli" },
-        { version: "^4.11.1", name: "webpack-dev-server" },
+        { version: "^5.101.3", name: "webpack" },
+        { version: "^6.0.1", name: "webpack-cli" },
+        { version: "^5.2.2", name: "webpack-dev-server" },
         { version: "^3.2.0", name: "lit" },
-        { version: "^3.2.0", name: "lit-html" },
+        { version: "^3.3.1", name: "lit-html" },
     ];
 
     var packagePaths = [
