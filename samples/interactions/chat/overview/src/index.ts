@@ -83,7 +83,7 @@ export class ChatOverview {
   public onMessageCreated = (e: CustomEvent) => {
     e.preventDefault();
     const newMessage = e.detail;
-    this.messages.push(newMessage);
+    this.messages = [ ...this.messages, newMessage];
     this.chat.options = { ...this.chat.options, isTyping: true, suggestions: [] };
 
     const messageText = e.detail.text.toLowerCase();
@@ -99,7 +99,9 @@ export class ChatOverview {
       sender: 'support',
       timestamp: Date.now().toString(),
     };
-    this.messages.push(responseMessage);
+    
+    this.messages = [ ...this.messages, responseMessage];
+
     this.chat.draftMessage = { text: '', attachments: [] };
     this.chat.options = { ...this.chat.options, isTyping: false};
   }

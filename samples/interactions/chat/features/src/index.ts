@@ -105,7 +105,7 @@ igc-avatar::part(base) {
 
     this.chat.options = { ...this.chat.options, isTyping: true, suggestions: [] };
     const newMessage = e.detail;
-    this.messages.push(newMessage);
+    this.messages = [ ...this.messages, newMessage];
 
     const responseMessage = {
       id: Date.now().toString(),
@@ -113,7 +113,8 @@ igc-avatar::part(base) {
       sender: 'support',
       timestamp: Date.now().toString(),
     };
-    this.messages.push(responseMessage);
+    this.messages = [ ...this.messages, responseMessage];
+
     this.chat.draftMessage = { text: '', attachments: [] };
     this.chat.options = { ...this.chat.options, isTyping: false};
   }
