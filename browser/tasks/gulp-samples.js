@@ -1013,14 +1013,14 @@ function updateIG(cb) {
         { version: "6.0.2-beta.0", name: "igniteui-webcomponents-dashboards" },
         // these IG packages are sometimes updated:        
         { version: "6.0.3", name: "igniteui-webcomponents-grids" },
-        { version: "6.3.0-RC.0" , name: "igniteui-webcomponents" },
+        { version: "^6.3.1" , name: "igniteui-webcomponents" },
         { version: "1.16.0", name: "igniteui-dockmanager" },
         // other packages:
-        { version: "^5.96.1", name: "webpack" },
-        { version: "^4.10.0", name: "webpack-cli" },
-        { version: "^4.11.1", name: "webpack-dev-server" },
+        { version: "^5.101.3", name: "webpack" },
+        { version: "^6.0.1", name: "webpack-cli" },
+        { version: "^5.2.2", name: "webpack-dev-server" },
         { version: "^3.2.0", name: "lit" },
-        { version: "^3.2.0", name: "lit-html" },
+        { version: "^3.3.1", name: "lit-html" },
     ];
 
     var packagePaths = [

@@ -58,17 +58,14 @@ export class ChatOverview {
   private messageHeaderTemplate = (msg: any) => {
     return msg.sender !== 'user'
       ? html`
-          <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
             <igc-avatar
               shape="circle"
               src="https://www.infragistics.com/angular-demos/assets/images/men/1.jpg"
               style="position: relative;"
             >
             </igc-avatar>
-            <span
-              style="color: #c00000; font-weight: bold; position: absolute; margin: 8px"
-              >Customer Support</span
-            >
+            <span>Customer Support</span>
           </div>
         `
       : nothing;
@@ -78,22 +75,6 @@ export class ChatOverview {
     this.chat = document.querySelector('igc-chat') as IgcChatComponent;
     this.chat.messages = this.messages;
     this.chat.options = this.options;
-    this.chat.addEventListener('igcMessageCreated', this.onMessageCreated)
-  }
-
-  public onMessageCreated = (e: CustomEvent) => {
-    e.preventDefault();
-    const newMessage = e.detail;
-    this.messages.push(newMessage);
-    this.chat.options = { ...this.chat.options, suggestions: [] };
-
-    const responseMessage = {
-      id: Date.now().toString(),
-      text: `Our support team is currently unavailable. We'll get back to you as soon as possible.`,
-      sender: 'support',
-      timestamp: Date.now().toString(),
-    };
-    this.messages.push(responseMessage);
   }
 }
 
