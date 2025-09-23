@@ -23,8 +23,8 @@
     "@webcomponents/template": "^1.4.2",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
-    "igniteui-webcomponents-core": "6.0.2-beta.0",
-    "igniteui-webcomponents-gauges": "6.0.2-beta.0",
+    "igniteui-webcomponents-core": "6.0.2-beta.5",
+    "igniteui-webcomponents-gauges": "6.0.2-beta.5",
     "lit-html": "^3.3.1",
     "tslib": "^2.8.1"
   },
