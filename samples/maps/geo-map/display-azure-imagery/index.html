@@ -3,38 +3,74 @@
   <head>
     <title>MapDisplayImageryAzureTiles</title>
     <meta charset="UTF-8" />
-
-    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
     <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+    <style>
+        igc-combo {
+            width: 100%; /* set a fixed width if needed */
+        }
 
-  </head>
+        igc-combo::part(input) {
+            text-align: center;
+        }
 
-  <body>
-    <div id="root">
+        igc-combo::part(selected-item) {
+            justify-content: center;
+        }
 
-<div class="container horizontal" >
-    <igc-button onclick="dialog.show()" variant="contained">Show Dialog</igc-button>
+        #mapStyleSelect::part(clear-icon) {
+            display: none;
+        }
+    </style>
+</head>
 
+<body>
+<div id="root">
+  <div class="container sample center" style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
 
-    <igc-dialog id="dialog" title="Confirmation" >
-      <igc-input label="AzureKey" id="azurekeyInput" inputmode="text"></igc-input>
+    <!-- Button to open Azure key dialog -->
+    <igc-button onclick="azureDialog.show()" id="openDialogBtn" variant="contained" style="width: 300px;">
+      Enter your Azure Maps API Key
+    </igc-button>
 
-      <div slot="footer">
-        <igc-button id="cancelButton" variant="flat" onclick="dialog.hide()"><span>Cancel</span></igc-button>
-        <igc-button id="submitButton" variant="flat"><span>OK</span></igc-button>
-      </div>
+    <!-- Select box for choosing imagery -->
+    <igc-select id="mapStyleSelect" placeholder="Choose Azure Imagery">
+    </igc-select>
+
+    <!-- Azure Key Dialog -->
+    <igc-dialog id="azureDialog" title="Azure Key">
+      <form id="form" method="dialog" style="display: flex; flex-direction: column; gap: 10px;">
+        <igc-input id="azureKeyInput" label="Azure Key">
+          <igc-icon name="password" slot="prefix"></igc-icon>
+        </igc-input>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <igc-button id="resetButton" type="reset" variant="flat">Reset</igc-button>
+          <igc-button id="submitButton" type="button" variant="flat">Submit</igc-button>
+        </div>
+      </form>
     </igc-dialog>
-    <igc-geographic-map id="mapWeather" class="container" height="100%" width="100%"></igc-geographic-map>
-    <igc-geographic-map id="mapAerial" class="container" height="100%" width="100%"></igc-geographic-map>
-    <igc-geographic-map id="mapRoad" class="container" height="100%" width="100%"></igc-geographic-map>
+
+    <!-- Map / placeholder container -->
+    <div id="mapContainer" style="width: 100%; display: flex; justify-content: center;">
+      <!-- Placeholder image -->
+      <img id="mapImage" src="images/azure_satellite.png" alt="Map Imagery" />
+    </div>
+
+    <!-- Azure Map initially hidden -->
+    <igc-geographic-map id="azureMap" width="100%" height="100%" hidden></igc-geographic-map>
+
+  </div>
 </div>
 
-    </div>
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
 
-  </body>
+</body>
+
 </html>
