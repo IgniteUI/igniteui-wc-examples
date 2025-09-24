@@ -12,8 +12,7 @@ import {
     IgcAzureMapsImagery, 
     IgcGeographicMapComponent, 
     IgcGeographicMapModule, 
-    IgcGeographicTileSeriesComponent,
-    IgcTileSeriesComponent
+    IgcGeographicTileSeriesComponent
 } from 'igniteui-webcomponents-maps';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { MapRegion, MapUtils } from './MapUtils';
@@ -159,16 +158,28 @@ export class MapDisplayImageryAzureTiles {
             style === AzureMapsImageryStyle.Road ||
             style === AzureMapsImageryStyle.DarkGrey
         ) {
-            this.map.series.clear();
+            this.imagerySeries.tileImagery = tileSource;//no additional background
+        }
+        else if (
+            style === AzureMapsImageryStyle.TrafficDelayOverlay ||
+            style === AzureMapsImageryStyle.TrafficAbsoluteOverlay ||
+            style === AzureMapsImageryStyle.TrafficReducedOverlay ||
+            style === AzureMapsImageryStyle.TrafficRelativeOverlay ||
+            style === AzureMapsImageryStyle.WeatherInfraredOverlay ||
+            style === AzureMapsImageryStyle.WeatherRadarOverlay
+        ) {
+            const bgImagery = new IgcAzureMapsImagery();
+            bgImagery.imageryStyle = AzureMapsImageryStyle.DarkGrey;
+            bgImagery.apiKey = this.apiKey ?? '';
             this.imagerySeries.tileImagery = tileSource;
-            this.map.series.add(this.imagerySeries);
+            this.map.backgroundContent = bgImagery; //background dark grey
         }
         else {
             const bgImagery = new IgcAzureMapsImagery();
-            bgImagery.imageryStyle = AzureMapsImageryStyle.Road;
+            bgImagery.imageryStyle = AzureMapsImageryStyle.Satellite;
             bgImagery.apiKey = this.apiKey ?? '';
             this.imagerySeries.tileImagery = tileSource;
-            this.map.backgroundContent = bgImagery;
+            this.map.backgroundContent = bgImagery; //background satellite
         }
     }
 }
