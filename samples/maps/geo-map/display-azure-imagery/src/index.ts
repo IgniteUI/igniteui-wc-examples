@@ -41,7 +41,7 @@ export class MapDisplayImageryAzureTiles {
         Road: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_road.png",
         DarkGrey: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_darkgrey.png",
         TerraOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_terra_overlay.png",
-        HybridRoadOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_hybridroad.png",
+        HybridRoadOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/AzureHybridRoad.png",
         HybridDarkGreyOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_hybriddarkgrey.png",
         LabelsRoadOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsroad.png",
         LabelsDarkGreyOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsdarkgrey.png",
