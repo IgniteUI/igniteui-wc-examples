@@ -164,7 +164,9 @@ export class MapDisplayImageryAzureTiles {
             style === AzureMapsImageryStyle.TrafficDelayOverlay ||
             style === AzureMapsImageryStyle.TrafficAbsoluteOverlay ||
             style === AzureMapsImageryStyle.TrafficReducedOverlay ||
-            style === AzureMapsImageryStyle.TrafficRelativeOverlay
+            style === AzureMapsImageryStyle.TrafficRelativeOverlay ||
+            style === AzureMapsImageryStyle.WeatherInfraredOverlay ||
+            style === AzureMapsImageryStyle.WeatherRadarOverlay
         ) {
             const bgImagery = new IgcAzureMapsImagery();
             bgImagery.imageryStyle = AzureMapsImageryStyle.DarkGrey;
