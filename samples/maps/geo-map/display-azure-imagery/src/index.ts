@@ -11,7 +11,9 @@ import {
     AzureMapsImageryStyle, 
     IgcAzureMapsImagery, 
     IgcGeographicMapComponent, 
-    IgcGeographicMapModule 
+    IgcGeographicMapModule, 
+    IgcGeographicTileSeriesComponent,
+    IgcTileSeriesComponent
 } from 'igniteui-webcomponents-maps';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { MapRegion, MapUtils } from './MapUtils';
@@ -26,28 +28,29 @@ const passwordIcon = `<svg width="24px" height="24px" viewBox="0 0 24 24" fill="
 
 export class MapDisplayImageryAzureTiles {
     private map!: IgcGeographicMapComponent;
+    private imagerySeries!: IgcGeographicTileSeriesComponent;
     private dialog!: IgcDialogComponent;
     private azureKeyInput!: IgcInputComponent;
     private submitButton!: IgcButtonComponent;
     private mapImage!: HTMLImageElement;
     private apiKey?: string;
     private mapStyleSelect!: IgcSelectComponent;
-
+    
     private readonly placeholderImages: Record<string, string> = {
-        Satellite: "images/azure_satellite.png",
-        Road: "images/azure_road.png",
-        DarkGrey: "images/azure_darkgrey.png",
-        HybridRoadOverlay: "images/azurehybridroad.png",
-        HybridDarkGreyOverlay: "images/azurehybriddarkgrey.png",
-        LabelsRoadOverlay: "images/azure_labelsroad.png",
-        LabelsDarkGreyOverlay: "images/azure_labelsdarkgrey.png",
-        TrafficDelayOverlay: "images/azure_trafficdelay.png",
-        TerraOverlay: "images/azure_terra_overlay.png",
-        TrafficAbsoluteOverlay: "images/azure_traffic_absolute.png",
-        TrafficReducedOverlay: "images/azure_traffic_light.png",
-        TrafficRelativeOverlay: "images/azure_traffic_relative.png",
-        WeatherInfraredOverlay: "images/azure_weather_infrared_road.png",
-        WeatherRadarOverlay: "images/azure_weather_radar.png"
+        Satellite: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_satellite.png",
+        Road: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_road.png",
+        DarkGrey: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_darkgrey.png",
+        TerraOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_terra_overlay.png",
+        HybridRoadOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_hybridroad.png",
+        HybridDarkGreyOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_hybriddarkgrey.png",
+        LabelsRoadOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsroad.png",
+        LabelsDarkGreyOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsdarkgrey.png",
+        TrafficDelayOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_trafficdelay.png",
+        TrafficAbsoluteOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_absolute.png",
+        TrafficReducedOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_light.png",
+        TrafficRelativeOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_relative.png",
+        WeatherInfraredOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_Infrared_road.png",
+        WeatherRadarOverlay: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_radar.png"
     };
 
     constructor() {
@@ -58,6 +61,7 @@ export class MapDisplayImageryAzureTiles {
         this.submitButton = document.getElementById('submitButton') as IgcButtonComponent;
         this.mapImage = document.getElementById('mapImage') as HTMLImageElement;
         this.map = document.getElementById('azureMap') as IgcGeographicMapComponent;
+        this.imagerySeries = document.getElementById('imagerySeries') as IgcGeographicTileSeriesComponent;
         this.mapStyleSelect = document.getElementById('mapStyleSelect') as IgcSelectComponent;
 
         this.populateSelect();
@@ -133,8 +137,7 @@ export class MapDisplayImageryAzureTiles {
         const tileSource = new IgcAzureMapsImagery();
         tileSource.apiKey = this.apiKey ?? '';
         tileSource.imageryStyle = style;
-        this.map.backgroundContent = tileSource;
-
+        
         if (
             style === AzureMapsImageryStyle.TrafficDelayOverlay ||
             style === AzureMapsImageryStyle.TrafficAbsoluteOverlay ||
@@ -149,6 +152,23 @@ export class MapDisplayImageryAzureTiles {
             });
         } else {
             MapUtils.navigateTo(this.map, MapRegion.UnitedStates);
+        }
+
+        if (
+            style === AzureMapsImageryStyle.Satellite ||
+            style === AzureMapsImageryStyle.Road ||
+            style === AzureMapsImageryStyle.DarkGrey
+        ) {
+            this.map.series.clear();
+            this.imagerySeries.tileImagery = tileSource;
+            this.map.series.add(this.imagerySeries);
+        }
+        else {
+            const bgImagery = new IgcAzureMapsImagery();
+            bgImagery.imageryStyle = AzureMapsImageryStyle.Road;
+            bgImagery.apiKey = this.apiKey ?? '';
+            this.imagerySeries.tileImagery = tileSource;
+            this.map.backgroundContent = bgImagery;
         }
     }
 }
