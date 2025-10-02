@@ -48,7 +48,7 @@ export class AdvancedTooltips {
     this._bind();
   }
 
-  private _incomeTaxes: IncomeTaxes = null;
+  private _incomeTaxes?: IncomeTaxes;
   public get incomeTaxes(): IncomeTaxes {
     if (this._incomeTaxes == null) {
       this._incomeTaxes = new IncomeTaxes();
