@@ -33,7 +33,7 @@ export class TooltipPlacement {
   
     ${Positions.map(
       (pos) => html`
-        <igc-tooltip anchor="tooltip-position" show-triggers="click" show-delay="0" hide-delay="0" sticky .placement=${pos}>
+        <igc-tooltip anchor="tooltip-position" show-triggers="click" show-delay="0" hide-delay="0" sticky with-arrow .placement=${pos}>
           <div>
             <strong>${pos}</strong>
           </div>
