@@ -1,56 +1,51 @@
 
 // samples
-import { 
-    IgcDataChartCoreModule, 
-    IgcDataChartCategoryModule, 
-    IgcDataChartCategoryCoreModule, 
+// import { 
+//     IgcDataChartCoreModule, 
+//     IgcDataChartCategoryModule, 
+//     IgcDataChartCategoryCoreModule, 
 
-    IgcDataChartFinancialCoreModule, 
-    IgcDataChartFinancialModule, 
-    IgcDataChartFinancialOverlaysModule, 
+//     IgcDataChartFinancialCoreModule, 
+//     IgcDataChartFinancialModule, 
+//     IgcDataChartFinancialOverlaysModule, 
 
-    IgcDataChartInteractivityModule, 
-    IgcDataChartAnnotationModule, 
-    // IgcDataAnnotationStripLayerModule, 
-    // IgcDataAnnotationSliceLayerModule, 
-    // IgcDataAnnotationLineLayerModule, 
-    IgcNumberAbbreviatorModule, 
-    IgcDataLegendModule,
-    IgcDataLegendComponent,
-    IgcAnnotationLayerProxyModule 
-} from 'igniteui-webcomponents-charts';
-import { 
-    IgcDataChartComponent, 
-    IgcCategoryXAxisComponent, 
-    IgcNumericYAxisComponent, 
-    IgcFinancialPriceSeriesComponent, 
-    IgcDataToolTipLayerComponent, 
-    // IgcDataAnnotationStripLayerComponent, 
-    // IgcDataAnnotationLineLayerComponent, 
-    // IgcDataAnnotationSliceLayerComponent 
-} from 'igniteui-webcomponents-charts';
+//     IgcDataChartInteractivityModule, 
+//     IgcDataChartAnnotationModule, 
+//     // IgcDataAnnotationStripLayerModule, 
+//     // IgcDataAnnotationSliceLayerModule, 
+//     // IgcDataAnnotationLineLayerModule, 
+//     IgcNumberAbbreviatorModule, 
+//     IgcAnnotationLayerProxyModule 
+// } from 'igniteui-webcomponents-charts';
+// import { 
+//     IgcDataChartComponent, 
+//     IgcCategoryXAxisComponent, 
+//     IgcNumericYAxisComponent, 
+//     IgcFinancialPriceSeriesComponent, 
+//     IgcDataToolTipLayerComponent, 
+//     // IgcDataAnnotationStripLayerComponent, 
+//     // IgcDataAnnotationLineLayerComponent, 
+//     // IgcDataAnnotationSliceLayerComponent 
+// } from 'igniteui-webcomponents-charts';
 
 // dev
-// import { IgcDataLegendModule } from 'igniteui-charts/igc-data-legend-module';
-// import { IgcDataLegendComponent } from 'igniteui-charts/igc-data-legend-component';
-
-// import { IgcDataChartCoreModule } from 'igniteui-charts/igc-data-chart-core-module';
-// import { IgcDataChartCategoryModule } from 'igniteui-charts/igc-data-chart-category-module';
-// import { IgcDataChartCategoryCoreModule } from 'igniteui-charts/igc-data-chart-category-core-module';
-// import { IgcDataChartFinancialCoreModule }   from 'igniteui-charts/igc-data-chart-financial-core-module';
-// import { IgcDataChartFinancialModule } from 'igniteui-charts/igc-data-chart-financial-module';
-// import { IgcDataChartFinancialOverlaysModule } from 'igniteui-charts/igc-data-chart-financial-overlays-module';
-// import { IgcDataChartInteractivityModule } from 'igniteui-charts/igc-data-chart-interactivity-module';
-// import { IgcDataChartAnnotationModule } from 'igniteui-charts/igc-data-chart-annotation-module';
-// import { IgcNumberAbbreviatorModule } from 'igniteui-charts/igc-number-abbreviator-module';
-// import { IgcAnnotationLayerProxyModule } from 'igniteui-charts/igc-annotation-layer-proxy-module';
-// import { IgcDataToolTipLayerComponent } from 'igniteui-charts/igc-data-tool-tip-layer-component';
-// import { IgcFinancialPriceSeriesComponent } from 'igniteui-charts/igc-financial-price-series-component';
-// import { IgcCategoryXAxisComponent } from 'igniteui-charts/igc-category-x-axis-component';
-// import { IgcNumericYAxisComponent } from 'igniteui-charts/igc-numeric-y-axis-component';
-// import { IgcDataChartComponent } from 'igniteui-charts/igc-data-chart-component';
-// import { IgcDataLegendComponent } from 'igniteui-charts/igc-data-legend-component';
-// import { IgcDataLegendModule } from 'igniteui-charts/igc-data-legend-module';
+import { IgcDataChartCoreModule } from 'igniteui-charts/igc-data-chart-core-module';
+import { IgcDataChartCategoryModule } from 'igniteui-charts/igc-data-chart-category-module';
+import { IgcDataChartCategoryCoreModule } from 'igniteui-charts/igc-data-chart-category-core-module';
+import { IgcDataChartFinancialCoreModule }   from 'igniteui-charts/igc-data-chart-financial-core-module';
+import { IgcDataChartFinancialModule } from 'igniteui-charts/igc-data-chart-financial-module';
+import { IgcDataChartFinancialOverlaysModule } from 'igniteui-charts/igc-data-chart-financial-overlays-module';
+import { IgcDataChartInteractivityModule } from 'igniteui-charts/igc-data-chart-interactivity-module';
+import { IgcDataChartAnnotationModule } from 'igniteui-charts/igc-data-chart-annotation-module';
+import { IgcNumberAbbreviatorModule } from 'igniteui-charts/igc-number-abbreviator-module';
+import { IgcAnnotationLayerProxyModule } from 'igniteui-charts/igc-annotation-layer-proxy-module';
+import { IgcDataToolTipLayerComponent } from 'igniteui-charts/igc-data-tool-tip-layer-component';
+import { IgcFinancialPriceSeriesComponent } from 'igniteui-charts/igc-financial-price-series-component';
+import { IgcCategoryXAxisComponent } from 'igniteui-charts/igc-category-x-axis-component';
+import { IgcNumericYAxisComponent } from 'igniteui-charts/igc-numeric-y-axis-component';
+import { IgcDataChartComponent } from 'igniteui-charts/igc-data-chart-component';
+import { IgcDataLegendComponent } from 'igniteui-charts/igc-data-legend-component';
+import { IgcDataLegendModule } from 'igniteui-charts/igc-data-legend-module';
 
 
 
@@ -76,7 +71,6 @@ ModuleManager.register(
     IgcDataChartFinancialOverlaysModule,
     IgcDataChartInteractivityModule,
     IgcDataChartAnnotationModule,
-    IgcDataLegendModule,
     // IgcDataAnnotationStripLayerModule,
     // IgcDataAnnotationSliceLayerModule,
     // IgcDataAnnotationLineLayerModule,
@@ -93,7 +87,6 @@ export class Sample {
     private yAxisLeft: IgcNumericYAxisComponent
     // private yAxisRight: IgcNumericYAxisComponent
     private series1: IgcFinancialPriceSeriesComponent
-    private series2: IgcFinancialPriceSeriesComponent
     // private tooltip: IgcDataToolTipLayerComponent
     // private stripLayer: IgcDataAnnotationStripLayerComponent
     // private lineLayer52WeekRange: IgcDataAnnotationLineLayerComponent
@@ -111,7 +104,6 @@ export class Sample {
         var yAxisLeft = this.yAxisLeft = document.getElementById('yAxisLeft') as IgcNumericYAxisComponent;
         // var yAxisRight = this.yAxisRight = document.getElementById('yAxisRight') as IgcNumericYAxisComponent;
         var series1 = this.series1 = document.getElementById('series1') as IgcFinancialPriceSeriesComponent;
-        var series2 = this.series2 = document.getElementById('series2') as IgcFinancialPriceSeriesComponent;
         // var tooltip = this.tooltip = document.getElementById('Tooltip') as IgcDataToolTipLayerComponent;
         // var stripLayer = this.stripLayer = document.getElementById('StripLayer') as IgcDataAnnotationStripLayerComponent;
         // var lineLayer52WeekRange = this.lineLayer52WeekRange = document.getElementById('LineLayer52WeekRange') as IgcDataAnnotationLineLayerComponent;
@@ -120,19 +112,13 @@ export class Sample {
         // var sliceLayerEarningsMissAnnotations = this.sliceLayerEarningsMissAnnotations = document.getElementById('SliceLayerEarningsMissAnnotations') as IgcDataAnnotationSliceLayerComponent;
         // var sliceLayerEarningsBeatAnnotations = this.sliceLayerEarningsBeatAnnotations = document.getElementById('SliceLayerEarningsBeatAnnotations') as IgcDataAnnotationSliceLayerComponent;
 
-let legend = document.getElementById("legend") as IgcDataLegendComponent;
         this._bind = () => {
-legend.target = chart;
             // xAxisBottom.dataSource = this.stockTesla;
             xAxis.dataSource = this.stockTesla;
             // xAxisTop.dataSource = this.stockTesla;
             series1.xAxis = this.xAxis;
             series1.yAxis = this.yAxisLeft;
             series1.dataSource = this.stockTesla;
-
-            // series2.xAxis = this.xAxis;
-            // series2.yAxis = this.yAxisLeft;
-            // series2.dataSource = this.stockTesla;
             // stripLayer.dataSource = this.annotationStripData;
             // stripLayer.targetAxis = this.xAxisTop;
             // lineLayer52WeekRange.dataSource = this.annotationLineData1;
