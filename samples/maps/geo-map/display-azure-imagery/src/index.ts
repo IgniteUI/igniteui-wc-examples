@@ -32,6 +32,7 @@ export class MapDisplayImageryAzureTiles {
     private dialog!: IgcDialogComponent;
     private azureKeyInput!: IgcInputComponent;
     private submitButton!: IgcButtonComponent;
+    private resetButton!: IgcButtonComponent;
     private mapImage!: HTMLImageElement;
     private mapStyleSelect!: IgcSelectComponent;
 
@@ -75,6 +76,7 @@ export class MapDisplayImageryAzureTiles {
         this.dialog = document.getElementById('azureDialog') as IgcDialogComponent;
         this.azureKeyInput = document.getElementById('azureKeyInput') as IgcInputComponent;
         this.submitButton = document.getElementById('submitButton') as IgcButtonComponent;
+        this.resetButton = document.getElementById('resetButton') as IgcButtonComponent;
         this.mapImage = document.getElementById('mapImage') as HTMLImageElement;
         this.map = document.getElementById('azureMap') as IgcGeographicMapComponent;
         this.imagerySeries = document.getElementById('imagerySeries') as IgcGeographicTileSeriesComponent;
@@ -101,6 +103,8 @@ export class MapDisplayImageryAzureTiles {
 
         // Event handlers
         this.submitButton.addEventListener('click', () => this.onSubmit());
+        this.resetButton.addEventListener('click', () => this.onReset());
+
         this.mapStyleSelect.addEventListener('igcChange', (evt: any) => this.onStyleChange(evt.detail.value));
     }
 
@@ -134,9 +138,40 @@ export class MapDisplayImageryAzureTiles {
         this.dialog.hide();
     }
 
-    private onStyleChange(value: string) {
-        const cfg = this.styleConfig[value]; if (!cfg || !this.apiKey) return;
+    private onReset() 
+    {
+        // Clear the key and reset Azure sources
+        this.apiKey = undefined;
+        this.azureTileSource.apiKey = "";
+        this.azureBackground.apiKey = "";
+
+        // Fade out live map and restore placeholder image
+        requestAnimationFrame(() => {
+            this.map.style.opacity = '0';
+            this.map.style.pointerEvents = 'none';
+            this.mapImage.hidden = false;
+        });
+
+        // Reset placeholder to current style or default Satellite
+        const styleName = this.mapStyleSelect.value || "Satellite";
+        const cfg = this.styleConfig[styleName];
         this.mapImage.src = cfg.placeholder;
+
+        // Optionally reopen the dialog to prompt again
+        this.azureKeyInput.value = "";
+        this.dialog.show();
+    }
+
+    private onStyleChange(value: string) {
+        const cfg = this.styleConfig[value];
+        if (!cfg) return;
+
+        // Always update placeholder image
+        this.mapImage.src = cfg.placeholder;
+
+        // If no API key yet, only show placeholder (don't switch to Azure tiles)
+        if (!this.apiKey) return;
+
         if (this.styleChangeTimeout) clearTimeout(this.styleChangeTimeout);
         this.styleChangeTimeout = window.setTimeout(() => this.updateAzureMap(value), 30);
     }
