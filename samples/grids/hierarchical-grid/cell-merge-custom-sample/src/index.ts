@@ -35,7 +35,6 @@ export class Sample {
             grid.sortingExpressions = sortExpr;
             rowIsland.sortingExpressions = sortExpr;
 
-            // Apply custom merge strategy to root and child grids
             (grid as any).mergeStrategy = new PerCountryMergeStrategy();
             (rowIsland as any).mergeStrategy = new PerCountryMergeStrategy();
             (grid as any).cellMergeMode = 'always';

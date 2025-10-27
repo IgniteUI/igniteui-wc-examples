@@ -20,8 +20,8 @@ export class Sample {
 
         this._bind = (): void => {
             grid.data = this.localData;
-            grid.sortingExpressions = [ { fieldName: 'ContactTitle', dir: SortingDirection.Asc } ];
-            rowIsland.sortingExpressions = [ { fieldName: 'ContactTitle', dir: SortingDirection.Asc } ];
+            grid.sortingExpressions = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
+            rowIsland.sortingExpressions = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
 
             const mergeSelectRoot = document.getElementById('mergeSelectRoot') as IgcSelectComponent;
             mergeSelectRoot?.addEventListener('igcChange', (e: CustomEvent) => {
