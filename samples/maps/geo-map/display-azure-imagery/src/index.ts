@@ -33,6 +33,7 @@ export class MapDisplayImageryAzureTiles {
     private azureKeyInput!: IgcInputComponent;
     private submitButton!: IgcButtonComponent;
     private resetButton!: IgcButtonComponent;
+
     private mapImage!: HTMLImageElement;
     private mapStyleSelect!: IgcSelectComponent;
 
@@ -77,6 +78,7 @@ export class MapDisplayImageryAzureTiles {
         this.azureKeyInput = document.getElementById('azureKeyInput') as IgcInputComponent;
         this.submitButton = document.getElementById('submitButton') as IgcButtonComponent;
         this.resetButton = document.getElementById('resetButton') as IgcButtonComponent;
+
         this.mapImage = document.getElementById('mapImage') as HTMLImageElement;
         this.map = document.getElementById('azureMap') as IgcGeographicMapComponent;
         this.imagerySeries = document.getElementById('imagerySeries') as IgcGeographicTileSeriesComponent;
@@ -104,7 +106,6 @@ export class MapDisplayImageryAzureTiles {
         // Event handlers
         this.submitButton.addEventListener('click', () => this.onSubmit());
         this.resetButton.addEventListener('click', () => this.onReset());
-
         this.mapStyleSelect.addEventListener('igcChange', (evt: any) => this.onStyleChange(evt.detail.value));
     }
 
