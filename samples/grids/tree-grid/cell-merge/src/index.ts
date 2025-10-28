@@ -11,32 +11,27 @@ import './index.css';
 
 export class Sample {
     private treeGrid: IgcTreeGridComponent;
-    private _bind: () => void;
 
     constructor() {
         const treeGrid = (this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent);
 
-        this._bind = (): void => {
-            treeGrid.data = this.data;
-            treeGrid.sortingExpressions = [{ fieldName: 'Country', dir: SortingDirection.Asc }];
-            (treeGrid as any).mergeStrategy = new IgcDefaultTreeGridMergeStrategy();
-            (treeGrid as any).cellMergeMode = 'always';
+        treeGrid.data = this.data;
+        treeGrid.sortingExpressions = [{ fieldName: 'Country', dir: SortingDirection.Asc }];
+        (treeGrid as any).mergeStrategy = new IgcDefaultTreeGridMergeStrategy();
+        (treeGrid as any).cellMergeMode = 'always';
 
-            const mergeModeSelect = document.getElementById('mergeModeSelect') as IgcSelectComponent;
-            mergeModeSelect?.addEventListener('igcChange', (e: CustomEvent) => {
-                const value = (e as any).detail.value as 'always' | 'onSort';
-                (treeGrid as any).cellMergeMode = value;
-            });
+        const mergeModeSelect = document.getElementById('mergeModeSelect') as IgcSelectComponent;
+        mergeModeSelect?.addEventListener('igcChange', (e: CustomEvent) => {
+            const value = (e as any).detail.value as 'always' | 'onSort';
+            (treeGrid as any).cellMergeMode = value;
+        });
 
-            const mergeStrategySelect = document.getElementById('mergeStrategySelect') as IgcSelectComponent;
-            mergeStrategySelect?.addEventListener('igcChange', (e: CustomEvent) => {
-                const name = (e as any).detail.value as string;
-                const strategy = name === 'By Level Strategy' ? new IgcByLevelTreeGridMergeStrategy() : new IgcDefaultTreeGridMergeStrategy();
-                (treeGrid as any).mergeStrategy = strategy;
-            });
-        };
-
-        this._bind();
+        const mergeStrategySelect = document.getElementById('mergeStrategySelect') as IgcSelectComponent;
+        mergeStrategySelect?.addEventListener('igcChange', (e: CustomEvent) => {
+            const name = (e as any).detail.value as string;
+            const strategy = name === 'By Level Strategy' ? new IgcByLevelTreeGridMergeStrategy() : new IgcDefaultTreeGridMergeStrategy();
+            (treeGrid as any).mergeStrategy = strategy;
+        });
     }
 
     private _data: EmployeesFlatDetails | null = null;

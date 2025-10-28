@@ -25,19 +25,14 @@ class CustomTreeGridMergeStrategy extends IgcDefaultTreeGridMergeStrategy {
 
 export class Sample {
     private treeGrid: IgcTreeGridComponent;
-    private _bind: () => void;
 
     constructor() {
         const treeGrid = (this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent);
 
-        this._bind = (): void => {
-            treeGrid.data = this.data;
-            treeGrid.sortingExpressions = [{ fieldName: 'Country', dir: SortingDirection.Asc }];
-            (treeGrid as any).mergeStrategy = new CustomTreeGridMergeStrategy();
-            (treeGrid as any).cellMergeMode = 'always';
-        };
-
-        this._bind();
+        treeGrid.data = this.data;
+        treeGrid.sortingExpressions = [{ fieldName: 'Country', dir: SortingDirection.Asc }];
+        (treeGrid as any).mergeStrategy = new CustomTreeGridMergeStrategy();
+        (treeGrid as any).cellMergeMode = 'always';
     }
 
     private _data: any[] | null = null;

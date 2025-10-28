@@ -12,31 +12,27 @@ import './index.css';
 export class Sample {
     private grid: IgcHierarchicalGridComponent;
     private rowIsland: IgcRowIslandComponent;
-    private _bind: () => void;
 
     constructor() {
         const grid = (this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent);
         const rowIsland = (this.rowIsland = document.getElementById('rowIsland') as IgcRowIslandComponent);
 
-        this._bind = (): void => {
-            grid.data = this.localData;
-            grid.sortingExpressions = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
-            rowIsland.sortingExpressions = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
+        grid.data = this.localData;
+        grid.sortingExpressions = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
+        rowIsland.sortingExpressions = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
 
-            const mergeSelectRoot = document.getElementById('mergeSelectRoot') as IgcSelectComponent;
-            mergeSelectRoot?.addEventListener('igcChange', (e: CustomEvent) => {
-                const value = (e as any).detail.value as 'always' | 'onSort';
-                (grid as any).cellMergeMode = value;
-            });
+        const mergeSelectRoot = document.getElementById('mergeSelectRoot') as IgcSelectComponent;
+        mergeSelectRoot?.addEventListener('igcChange', (e: CustomEvent) => {
+            const value = (e as any).detail.value as 'always' | 'onSort';
+            (grid as any).cellMergeMode = value;
+        });
 
-            const mergeSelectChild = document.getElementById('mergeSelectChild') as IgcSelectComponent;
-            mergeSelectChild?.addEventListener('igcChange', (e: CustomEvent) => {
-                const value = (e as any).detail.value as 'always' | 'onSort';
-                (rowIsland as any).cellMergeMode = value;
-            });
-        };
+        const mergeSelectChild = document.getElementById('mergeSelectChild') as IgcSelectComponent;
+        mergeSelectChild?.addEventListener('igcChange', (e: CustomEvent) => {
+            const value = (e as any).detail.value as 'always' | 'onSort';
+            (rowIsland as any).cellMergeMode = value;
+        });
 
-        this._bind();
     }
 
     private _localData: any[] = MultiColumnsExportData as any[];

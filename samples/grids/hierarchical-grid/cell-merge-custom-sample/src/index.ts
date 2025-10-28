@@ -23,25 +23,20 @@ class PerCountryMergeStrategy extends IgcDefaultMergeStrategy {
 export class Sample {
     private grid: IgcHierarchicalGridComponent;
     private rowIsland: IgcRowIslandComponent;
-    private _bind: () => void;
 
     constructor() {
         const grid = (this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent);
         const rowIsland = (this.rowIsland = document.getElementById('rowIsland') as IgcRowIslandComponent);
 
-        this._bind = (): void => {
-            grid.data = this.localData;
-            const sortExpr = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
-            grid.sortingExpressions = sortExpr;
-            rowIsland.sortingExpressions = sortExpr;
+        grid.data = this.localData;
+        const sortExpr = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
+        grid.sortingExpressions = sortExpr;
+        rowIsland.sortingExpressions = sortExpr;
 
-            (grid as any).mergeStrategy = new PerCountryMergeStrategy();
-            (rowIsland as any).mergeStrategy = new PerCountryMergeStrategy();
-            (grid as any).cellMergeMode = 'always';
-            (rowIsland as any).cellMergeMode = 'always';
-        };
-
-        this._bind();
+        (grid as any).mergeStrategy = new PerCountryMergeStrategy();
+        (rowIsland as any).mergeStrategy = new PerCountryMergeStrategy();
+        (grid as any).cellMergeMode = 'always';
+        (rowIsland as any).cellMergeMode = 'always';
     }
 
     private _localData: any[] = MultiColumnsExportData as any[];

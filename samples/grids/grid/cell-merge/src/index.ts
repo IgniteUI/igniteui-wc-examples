@@ -12,23 +12,18 @@ import "./index.css";
 
 export class Sample {
     private grid: IgcGridComponent;
-    private _bind: () => void;
 
     constructor() {
         const grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
-        this._bind = (): void => {
-            grid.data = this.invoicesData;
-            grid.addEventListener('columnInit', this.onColumnInit);
+        grid.data = this.invoicesData;
+        grid.addEventListener('columnInit', this.onColumnInit);
 
-            const mergeSelect = document.getElementById('mergeSelect') as IgcSelectComponent;
-            mergeSelect?.addEventListener('igcChange', (e: CustomEvent) => {
-                const value = (e as any).detail.value as 'always' | 'onSort';
-                (grid as any).cellMergeMode = value;
-            });
-        };
-
-        this._bind();
+        const mergeSelect = document.getElementById('mergeSelect') as IgcSelectComponent;
+        mergeSelect?.addEventListener('igcChange', (e: CustomEvent) => {
+            const value = (e as any).detail.value as 'always' | 'onSort';
+            (grid as any).cellMergeMode = value;
+        });
     }
 
     private _invoicesData: InvoicesData = null;

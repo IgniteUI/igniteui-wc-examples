@@ -31,18 +31,13 @@ class PerProjectMergeStrategy extends IgcDefaultMergeStrategy {
 
 export class Sample {
   private grid: IgcGridComponent;
-  private _bind: () => void;
 
   constructor() {
     const grid = (this.grid = document.getElementById('grid') as IgcGridComponent);
 
-    this._bind = () => {
-      grid.data = this.data;
-      (grid as any).mergeStrategy = new PerProjectMergeStrategy();
-      (grid as any).cellMergeMode = 'always';
-    };
-
-    this._bind();
+    grid.data = this.data;
+    (grid as any).mergeStrategy = new PerProjectMergeStrategy();
+    (grid as any).cellMergeMode = 'always';
   }
 
   private _data: RecordType[] | null = null;
