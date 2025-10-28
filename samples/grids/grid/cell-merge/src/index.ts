@@ -14,15 +14,15 @@ export class Sample {
     private grid: IgcGridComponent;
 
     constructor() {
-        const grid = this.grid = document.getElementById('grid') as IgcGridComponent;
+        this.grid = document.getElementById('grid') as IgcGridComponent;
 
-        grid.data = this.invoicesData;
-        grid.addEventListener('columnInit', this.onColumnInit);
+        this.grid.data = this.invoicesData;
+        this.grid.addEventListener('columnInit', this.onColumnInit);
 
         const mergeSelect = document.getElementById('mergeSelect') as IgcSelectComponent;
         mergeSelect?.addEventListener('igcChange', (e: CustomEvent) => {
-            const value = (e as any).detail.value as 'always' | 'onSort';
-            (grid as any).cellMergeMode = value;
+            const value = e.detail.value as 'always' | 'onSort';
+            this.grid.cellMergeMode = value;
         });
     }
 

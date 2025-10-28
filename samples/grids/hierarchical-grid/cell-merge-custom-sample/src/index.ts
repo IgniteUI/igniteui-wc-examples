@@ -25,18 +25,18 @@ export class Sample {
     private rowIsland: IgcRowIslandComponent;
 
     constructor() {
-        const grid = (this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent);
-        const rowIsland = (this.rowIsland = document.getElementById('rowIsland') as IgcRowIslandComponent);
+        this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent;
+        this.rowIsland = document.getElementById('rowIsland') as IgcRowIslandComponent;
 
-        grid.data = this.localData;
+        this.grid.data = this.localData;
         const sortExpr = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
-        grid.sortingExpressions = sortExpr;
-        rowIsland.sortingExpressions = sortExpr;
+        this.grid.sortingExpressions = sortExpr;
+        this.rowIsland.sortingExpressions = sortExpr;
 
-        (grid as any).mergeStrategy = new PerCountryMergeStrategy();
-        (rowIsland as any).mergeStrategy = new PerCountryMergeStrategy();
-        (grid as any).cellMergeMode = 'always';
-        (rowIsland as any).cellMergeMode = 'always';
+        (this.grid as any).mergeStrategy = new PerCountryMergeStrategy();
+        (this.rowIsland as any).mergeStrategy = new PerCountryMergeStrategy();
+        this.grid.cellMergeMode = 'always';
+        this.rowIsland.cellMergeMode = 'always';
     }
 
     private _localData: any[] = MultiColumnsExportData as any[];

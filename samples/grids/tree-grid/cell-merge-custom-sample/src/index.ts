@@ -27,12 +27,12 @@ export class Sample {
     private treeGrid: IgcTreeGridComponent;
 
     constructor() {
-        const treeGrid = (this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent);
+        this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
 
-        treeGrid.data = this.data;
-        treeGrid.sortingExpressions = [{ fieldName: 'Country', dir: SortingDirection.Asc }];
-        (treeGrid as any).mergeStrategy = new CustomTreeGridMergeStrategy();
-        (treeGrid as any).cellMergeMode = 'always';
+        this.treeGrid.data = this.data;
+        this.treeGrid.sortingExpressions = [{ fieldName: 'Country', dir: SortingDirection.Asc }];
+        (this.treeGrid as any).mergeStrategy = new CustomTreeGridMergeStrategy();
+        this.treeGrid.cellMergeMode = 'always';
     }
 
     private _data: any[] | null = null;

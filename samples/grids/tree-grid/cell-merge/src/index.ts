@@ -13,24 +13,24 @@ export class Sample {
     private treeGrid: IgcTreeGridComponent;
 
     constructor() {
-        const treeGrid = (this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent);
+        this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
 
-        treeGrid.data = this.data;
-        treeGrid.sortingExpressions = [{ fieldName: 'Country', dir: SortingDirection.Asc }];
-        (treeGrid as any).mergeStrategy = new IgcDefaultTreeGridMergeStrategy();
-        (treeGrid as any).cellMergeMode = 'always';
+        this.treeGrid.data = this.data;
+        this.treeGrid.sortingExpressions = [{ fieldName: 'Country', dir: SortingDirection.Asc }];
+        (this.treeGrid as any).mergeStrategy = new IgcDefaultTreeGridMergeStrategy();
+        this.treeGrid.cellMergeMode = 'always';
 
         const mergeModeSelect = document.getElementById('mergeModeSelect') as IgcSelectComponent;
         mergeModeSelect?.addEventListener('igcChange', (e: CustomEvent) => {
-            const value = (e as any).detail.value as 'always' | 'onSort';
-            (treeGrid as any).cellMergeMode = value;
+            const value = e.detail.value as 'always' | 'onSort';
+            this.treeGrid.cellMergeMode = value;
         });
 
         const mergeStrategySelect = document.getElementById('mergeStrategySelect') as IgcSelectComponent;
         mergeStrategySelect?.addEventListener('igcChange', (e: CustomEvent) => {
             const name = (e as any).detail.value as string;
             const strategy = name === 'By Level Strategy' ? new IgcByLevelTreeGridMergeStrategy() : new IgcDefaultTreeGridMergeStrategy();
-            (treeGrid as any).mergeStrategy = strategy;
+            (this.treeGrid as any).mergeStrategy = strategy;
         });
     }
 

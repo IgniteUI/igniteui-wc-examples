@@ -14,23 +14,23 @@ export class Sample {
     private rowIsland: IgcRowIslandComponent;
 
     constructor() {
-        const grid = (this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent);
-        const rowIsland = (this.rowIsland = document.getElementById('rowIsland') as IgcRowIslandComponent);
+        this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent;
+        this.rowIsland = document.getElementById('rowIsland') as IgcRowIslandComponent;
 
-        grid.data = this.localData;
-        grid.sortingExpressions = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
-        rowIsland.sortingExpressions = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
+        this.grid.data = this.localData;
+        this.grid.sortingExpressions = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
+        this.rowIsland.sortingExpressions = [{ fieldName: 'ContactTitle', dir: SortingDirection.Asc }];
 
         const mergeSelectRoot = document.getElementById('mergeSelectRoot') as IgcSelectComponent;
         mergeSelectRoot?.addEventListener('igcChange', (e: CustomEvent) => {
-            const value = (e as any).detail.value as 'always' | 'onSort';
-            (grid as any).cellMergeMode = value;
+            const value = e.detail.value as 'always' | 'onSort';
+            this.grid.cellMergeMode = value;
         });
 
         const mergeSelectChild = document.getElementById('mergeSelectChild') as IgcSelectComponent;
         mergeSelectChild?.addEventListener('igcChange', (e: CustomEvent) => {
-            const value = (e as any).detail.value as 'always' | 'onSort';
-            (rowIsland as any).cellMergeMode = value;
+            const value = e.detail.value as 'always' | 'onSort';
+            this.rowIsland.cellMergeMode = value;
         });
 
     }

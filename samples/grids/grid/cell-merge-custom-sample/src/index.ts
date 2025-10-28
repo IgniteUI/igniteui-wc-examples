@@ -33,11 +33,11 @@ export class Sample {
   private grid: IgcGridComponent;
 
   constructor() {
-    const grid = (this.grid = document.getElementById('grid') as IgcGridComponent);
+    this.grid = document.getElementById('grid') as IgcGridComponent;
 
-    grid.data = this.data;
-    (grid as any).mergeStrategy = new PerProjectMergeStrategy();
-    (grid as any).cellMergeMode = 'always';
+    this.grid.data = this.data;
+    (this.grid as any).mergeStrategy = new PerProjectMergeStrategy();
+    this.grid.cellMergeMode = 'always';
   }
 
   private _data: RecordType[] | null = null;
