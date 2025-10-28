@@ -20,13 +20,8 @@ export class Sample {
     private pinRightBtn: IgcButtonComponent | null = null;
     private unpinBtn: IgcButtonComponent | null = null;
 
-    /* private _pinningConfig: IgcPinningConfig | null = null;
-    public get pinningConfig(): IgcPinningConfig {
-        return this._pinningConfig;
-    } */
-
     constructor() {
-        const grid = (this.grid = document.getElementById('grid') as IgcGridComponent);
+        this.grid = document.getElementById('grid') as IgcGridComponent;
         this.pinLeftBtn = document.getElementById('pinLeft') as unknown as IgcButtonComponent;
         this.pinRightBtn = document.getElementById('pinRight') as unknown as IgcButtonComponent;
         this.unpinBtn = document.getElementById('unpin') as unknown as IgcButtonComponent;
@@ -34,17 +29,17 @@ export class Sample {
         const pinningConfig = {} as IgcPinningConfig;
         pinningConfig.columns = ColumnPinningPosition.End;
 
-        grid.data = this.customersData;
-        grid.pinning = pinningConfig;
+        this.grid.data = this.customersData;
+        this.grid.pinning = pinningConfig;
 
         const contactName = document.getElementById('colContactName') as IgcColumnComponent | null;
         if (contactName) {
-            (contactName as any).pinningPosition = ColumnPinningPosition.Start;
+            contactName.pinningPosition = ColumnPinningPosition.Start;
             contactName.pinned = true;
         }
         const contactTitle = document.getElementById('colContactTitle') as IgcColumnComponent | null;
         if (contactTitle) {
-            (contactTitle as any).pinningPosition = ColumnPinningPosition.End;
+            contactTitle.pinningPosition = ColumnPinningPosition.End;
             contactTitle.pinned = true;
         }
 
@@ -63,14 +58,14 @@ export class Sample {
 
     private handlePinLeft = () => {
         this.grid.selectedColumns().forEach((col: IgcColumnComponent) => {
-            (col as any).pinningPosition = ColumnPinningPosition.Start;
+            col.pinningPosition = ColumnPinningPosition.Start;
             col.pinned = true;
         });
     };
 
     private handlePinRight = () => {
         this.grid.selectedColumns().forEach((col: IgcColumnComponent) => {
-            (col as any).pinningPosition = ColumnPinningPosition.End;
+            col.pinningPosition = ColumnPinningPosition.End;
             col.pinned = true;
         });
     };
