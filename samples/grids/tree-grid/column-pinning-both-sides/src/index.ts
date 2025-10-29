@@ -16,28 +16,27 @@ import './index.css';
 
 export class Sample {
   private grid: IgcTreeGridComponent;
-  private pinLeftBtn: IgcButtonComponent | null = null;
-  private pinRightBtn: IgcButtonComponent | null = null;
-  private unpinBtn: IgcButtonComponent | null = null;
+  private pinLeftBtn: IgcButtonComponent;
+  private pinRightBtn: IgcButtonComponent;
+  private unpinBtn: IgcButtonComponent;
 
   constructor() {
     this.grid = document.getElementById('grid') as IgcTreeGridComponent;
-    this.pinLeftBtn = document.getElementById('pinLeft') as unknown as IgcButtonComponent;
-    this.pinRightBtn = document.getElementById('pinRight') as unknown as IgcButtonComponent;
-    this.unpinBtn = document.getElementById('unpin') as unknown as IgcButtonComponent;
+    this.pinLeftBtn = document.getElementById('pinLeft') as IgcButtonComponent;
+    this.pinRightBtn = document.getElementById('pinRight') as IgcButtonComponent;
+    this.unpinBtn = document.getElementById('unpin') as IgcButtonComponent;
 
-    const pinningConfig = {} as IgcPinningConfig;
-    pinningConfig.columns = ColumnPinningPosition.End;
+    const pinningConfig = { columns: ColumnPinningPosition.End };
 
-    this.grid.data = this.employeesData;
+    this.grid.data = new EmployeesFlatDetails();
     this.grid.pinning = pinningConfig;
 
-    const nameCol = document.getElementById('colName') as IgcColumnComponent | null;
+    const nameCol = document.getElementById('colName') as IgcColumnComponent;
     if (nameCol) {
       nameCol.pinningPosition = ColumnPinningPosition.Start;
       nameCol.pinned = true;
     }
-    const titleCol = document.getElementById('colTitle') as IgcColumnComponent | null;
+    const titleCol = document.getElementById('colTitle') as IgcColumnComponent;
     if (titleCol) {
       titleCol.pinned = true;
     }
@@ -45,14 +44,6 @@ export class Sample {
     this.pinLeftBtn?.addEventListener('click', this.handlePinLeft);
     this.pinRightBtn?.addEventListener('click', this.handlePinRight);
     this.unpinBtn?.addEventListener('click', this.handleUnpin);
-  }
-
-  private _employeesData: EmployeesFlatDetails | null = null;
-  public get employeesData(): EmployeesFlatDetails {
-    if (this._employeesData == null) {
-      this._employeesData = new EmployeesFlatDetails();
-    }
-    return this._employeesData;
   }
 
   private handlePinLeft = () => {

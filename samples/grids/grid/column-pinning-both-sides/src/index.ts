@@ -2,7 +2,6 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import {
     IgcGridComponent,
     IgcColumnComponent,
-    IgcPinningConfig,
     ColumnPinningPosition,
 } from 'igniteui-webcomponents-grids/grids';
 import { CustomersData } from './CustomersData';
@@ -16,28 +15,27 @@ import './index.css';
 
 export class Sample {
     private grid: IgcGridComponent;
-    private pinLeftBtn: IgcButtonComponent | null = null;
-    private pinRightBtn: IgcButtonComponent | null = null;
-    private unpinBtn: IgcButtonComponent | null = null;
+    private pinLeftBtn: IgcButtonComponent;
+    private pinRightBtn: IgcButtonComponent;
+    private unpinBtn: IgcButtonComponent;
 
     constructor() {
         this.grid = document.getElementById('grid') as IgcGridComponent;
-        this.pinLeftBtn = document.getElementById('pinLeft') as unknown as IgcButtonComponent;
-        this.pinRightBtn = document.getElementById('pinRight') as unknown as IgcButtonComponent;
-        this.unpinBtn = document.getElementById('unpin') as unknown as IgcButtonComponent;
+        this.pinLeftBtn = document.getElementById('pinLeft') as IgcButtonComponent;
+        this.pinRightBtn = document.getElementById('pinRight') as IgcButtonComponent;
+        this.unpinBtn = document.getElementById('unpin') as IgcButtonComponent;
 
-        const pinningConfig = {} as IgcPinningConfig;
-        pinningConfig.columns = ColumnPinningPosition.End;
+        const pinningConfig = { columns: ColumnPinningPosition.End };
 
-        this.grid.data = this.customersData;
+        this.grid.data = new CustomersData();
         this.grid.pinning = pinningConfig;
 
-        const contactName = document.getElementById('colContactName') as IgcColumnComponent | null;
+        const contactName = document.getElementById('colContactName') as IgcColumnComponent;
         if (contactName) {
             contactName.pinningPosition = ColumnPinningPosition.Start;
             contactName.pinned = true;
         }
-        const contactTitle = document.getElementById('colContactTitle') as IgcColumnComponent | null;
+        const contactTitle = document.getElementById('colContactTitle') as IgcColumnComponent;
         if (contactTitle) {
             contactTitle.pinningPosition = ColumnPinningPosition.End;
             contactTitle.pinned = true;
@@ -46,14 +44,6 @@ export class Sample {
         this.pinLeftBtn?.addEventListener('click', this.handlePinLeft);
         this.pinRightBtn?.addEventListener('click', this.handlePinRight);
         this.unpinBtn?.addEventListener('click', this.handleUnpin);
-    }
-
-    private _customersData: CustomersData | null = null;
-    public get customersData(): CustomersData {
-        if (this._customersData == null) {
-            this._customersData = new CustomersData();
-        }
-        return this._customersData;
     }
 
     private handlePinLeft = () => {

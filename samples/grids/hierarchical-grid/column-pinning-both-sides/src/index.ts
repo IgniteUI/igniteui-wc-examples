@@ -2,7 +2,6 @@ import 'igniteui-webcomponents-grids/grids/combined';
 import {
   IgcHierarchicalGridComponent,
   IgcColumnComponent,
-  IgcPinningConfig,
   ColumnPinningPosition,
   IgcGridCreatedEventArgs,
 } from 'igniteui-webcomponents-grids/grids';
@@ -17,28 +16,27 @@ import './index.css';
 
 export class Sample {
   private grid: IgcHierarchicalGridComponent;
-  private pinLeftBtn: IgcButtonComponent | null = null;
-  private pinRightBtn: IgcButtonComponent | null = null;
-  private unpinBtn: IgcButtonComponent | null = null;
+  private pinLeftBtn: IgcButtonComponent;
+  private pinRightBtn: IgcButtonComponent;
+  private unpinBtn: IgcButtonComponent;
 
   constructor() {
     this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent;
-    this.pinLeftBtn = document.getElementById('pinLeft') as unknown as IgcButtonComponent;
-    this.pinRightBtn = document.getElementById('pinRight') as unknown as IgcButtonComponent;
-    this.unpinBtn = document.getElementById('unpin') as unknown as IgcButtonComponent;
+    this.pinLeftBtn = document.getElementById('pinLeft') as IgcButtonComponent;
+    this.pinRightBtn = document.getElementById('pinRight') as IgcButtonComponent;
+    this.unpinBtn = document.getElementById('unpin') as IgcButtonComponent;
 
-    const pinningConfig = {} as IgcPinningConfig;
-    pinningConfig.columns = ColumnPinningPosition.End;
+    const pinningConfig = { columns: ColumnPinningPosition.End };
 
-    this.grid.data = this.hierarchicalCustomersData;
+    this.grid.data = HierarchicalCustomersData;
     this.grid.pinning = pinningConfig;
 
-    const companyCol = document.getElementById('colCompany') as IgcColumnComponent | null;
+    const companyCol = document.getElementById('colCompany') as IgcColumnComponent;
     if (companyCol) {
       companyCol.pinningPosition = ColumnPinningPosition.Start;
       companyCol.pinned = true;
     }
-    const contactNameCol = document.getElementById('colContactName') as IgcColumnComponent | null;
+    const contactNameCol = document.getElementById('colContactName') as IgcColumnComponent;
     if (contactNameCol) {
       contactNameCol.pinned = true;
     }
@@ -48,25 +46,20 @@ export class Sample {
       const ctx = ev.detail;
       const childGrid = ctx.grid;
       childGrid.pinning = pinningConfig;
-      const orderDateCol = document.getElementById('colOrderDate') as IgcColumnComponent | null;
+      const orderDateCol = document.getElementById('colOrderDate') as IgcColumnComponent;
       if (orderDateCol) {
         orderDateCol.pinningPosition = ColumnPinningPosition.Start;
         orderDateCol.pinned = true;
       }
-      const shipNameCol = document.getElementById('colShipName') as IgcColumnComponent | null;
+      const shipNameCol = document.getElementById('colShipName') as IgcColumnComponent;
       if (shipNameCol) shipNameCol.pinned = true;
-      const shipViaCol = document.getElementById('colShipVia') as IgcColumnComponent | null;
+      const shipViaCol = document.getElementById('colShipVia') as IgcColumnComponent;
       if (shipViaCol) shipViaCol.pinned = true;
     });
 
     this.pinLeftBtn?.addEventListener('click', this.handlePinLeft);
     this.pinRightBtn?.addEventListener('click', this.handlePinRight);
     this.unpinBtn?.addEventListener('click', this.handleUnpin);
-  }
-
-  private _hierarchicalCustomersData: any[] = HierarchicalCustomersData as any[];
-  public get hierarchicalCustomersData(): any[] {
-    return this._hierarchicalCustomersData;
   }
 
   private handlePinLeft = () => {
