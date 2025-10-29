@@ -19,13 +19,13 @@
                     <igc-tree-grid id="treeGrid" auto-generate="false" primary-key="ID" foreign-key="ParentID" width="100%" height="800px" cell-merge-mode="always">
                         <igc-grid-toolbar>
                             <igc-select id="mergeModeSelect" value="always">
-                                <label>Select Merge Mode</label>
+                                <igc-select-header>Select Merge Mode</igc-select-header>
                                 <igc-select-item value="always">Always</igc-select-item>
                                 <igc-select-item value="onSort">On Sort</igc-select-item>
                             </igc-select>
 
                             <igc-select id="mergeStrategySelect" value="Default Strategy">
-                                <label>Select Merge Strategy</label>
+                                <igc-select-header>Select Merge Strategy</igc-select-header>
                                 <igc-select-item value="Default Strategy">Default Strategy</igc-select-item>
                                 <igc-select-item value="By Level Strategy">By Level Strategy</igc-select-item>
                             </igc-select>
