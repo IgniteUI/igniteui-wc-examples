@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+      "noImplicitReturns": true,
+      "esModuleInterop": true,
+      "noImplicitAny": true,
+      "declarationDir": "dist/types",
+      "moduleResolution": "node",
+      "declaration": true,
+      "target": "es2015",
+      "module": "es2015",
+      "strict": true,
+      "strictNullChecks": false,
+  },
+  "include": [
+      "src/**/*"
+  ],
+  "exclude": [
+      "node_modules",
+      "dist"
+  ]
+}

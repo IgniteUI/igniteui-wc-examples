@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sample | Ignite UI | Web Components | infragistics</title>
+        <meta charset="UTF-8" />
+
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+        <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    </head>
+
+    <body>
+        <div id="root">
+            <div class="container sample ig-typography">
+                <div class="container fill">
+                    <igc-tree-grid id="treeGrid" auto-generate="false" primary-key="ID" foreign-key="ParentID" width="100%" height="800px" cell-merge-mode="always">
+                        <igc-grid-toolbar></igc-grid-toolbar>
+
+                        <igc-column field="Name" data-type="string" width="250px" editable="true"></igc-column>
+                        <igc-column field="Title" data-type="string" width="250px" merge="true" editable="true" sortable="true"></igc-column>
+                        <igc-column field="HireDate" data-type="date" width="200px"></igc-column>
+                        <igc-column field="Country" data-type="string" width="200px" merge="true" editable="true" sortable="true"></igc-column>
+                        <igc-column field="City" data-type="string" width="200px" merge="true" editable="true" sortable="true"></igc-column>
+                        <igc-column field="Age" data-type="number" width="200px" editable="true"></igc-column>
+                        <igc-column field="Address" data-type="string" width="200px" editable="true"></igc-column>
+                        <igc-column field="Fax" data-type="string" width="200px"></igc-column>
+                        <igc-column field="PostalCode" data-type="string" width="200px"></igc-column>
+                        <igc-column field="Phone" data-type="string" width="200px"></igc-column>
+                    </igc-tree-grid>
+                </div>
+            </div>
+        </div>
+
+        <!-- This script is needed only for parcel and it will be excluded for webpack -->
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
+</html>
