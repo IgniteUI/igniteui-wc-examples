@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Cell Merge Custom | Ignite UI | Web Components</title>
+        <meta charset="UTF-8" />
+
+        <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+        <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+        <link rel="stylesheet" href="/src/index.css" type="text/css" />
+    </head>
+    <body>
+        <div id="root">
+            <div class="container sample ig-typography">
+                <div class="container fill">
+                    <igc-grid auto-generate="false" id="grid" cell-merge-mode="always" width="100%" height="570px">
+                        <igc-column field="ActionID" header="Action ID" hidden="true"></igc-column>
+                        <igc-column field="ProjectName" header="Project Name" merge="true"></igc-column>
+                        <igc-column field="Type" header="Type" merge="true"></igc-column>
+                        <igc-column field="Priority" header="Priority" merge="true"></igc-column>
+                        <igc-column field="Status" header="Status" merge="true"></igc-column>
+                        <igc-column field="ActionName" header="Action"></igc-column>
+                        <igc-column field="Created" header="Created" data-type="date"></igc-column>
+                    </igc-grid>
+                </div>
+            </div>
+        </div>
+
+        <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+    </body>
+</html>
