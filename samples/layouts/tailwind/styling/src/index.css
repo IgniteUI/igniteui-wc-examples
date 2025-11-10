@@ -1,0 +1,11 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+@import "tailwindcss";
+@import "igniteui-theming/tailwind/theme";
+@import "igniteui-theming/tailwind/presets/bootstrap-light";
+
+main {
+    width: 800px;
+    height: 300px;
+    margin: 50px auto;
+}
