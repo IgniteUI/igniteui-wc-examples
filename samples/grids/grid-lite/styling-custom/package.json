@@ -8,6 +8,7 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
+    "igniteui-theming": "^22.1.0",
     "igc-grid-lite": "1.0.0-alpha.5",
     "lit": "^2.7.4"
   },

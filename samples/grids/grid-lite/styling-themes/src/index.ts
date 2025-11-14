@@ -8,14 +8,14 @@ import { customElement, state } from "lit/decorators.js";
 import { Base } from "./base";
 import { IgcGridLite, ColumnConfiguration } from "igc-grid-lite";
 import type { ProductInfo } from "./mock-data";
-import darkBootstrap from "../node_modules/igniteui-webcomponents/themes/dark/bootstrap.css?inline";
-import darkFluent from "../node_modules/igniteui-webcomponents/themes/dark/fluent.css?inline";
-import darkMaterial from "../node_modules/igniteui-webcomponents/themes/dark/material.css?inline";
-import darkIndigo from "../node_modules/igniteui-webcomponents/themes/dark/indigo.css?inline";
-import Bootstrap from "../node_modules/igniteui-webcomponents/themes/light/bootstrap.css?inline"
-import Fluent from "../node_modules/igniteui-webcomponents/themes/light/fluent.css?inline";
-import Material from "../node_modules/igniteui-webcomponents/themes/light/material.css?inline";
-import Indigo from "../node_modules/igniteui-webcomponents/themes/light/indigo.css?inline";
+import darkBootstrap from "igniteui-webcomponents/themes/dark/bootstrap.css?inline";
+import darkFluent from "igniteui-webcomponents/themes/dark/fluent.css?inline";
+import darkMaterial from "igniteui-webcomponents/themes/dark/material.css?inline";
+import darkIndigo from "igniteui-webcomponents/themes/dark/indigo.css?inline";
+import Bootstrap from "igniteui-webcomponents/themes/light/bootstrap.css?inline"
+import Fluent from "igniteui-webcomponents/themes/light/fluent.css?inline";
+import Material from "igniteui-webcomponents/themes/light/material.css?inline";
+import Indigo from "igniteui-webcomponents/themes/light/indigo.css?inline";
 
 IgcGridLite.register();
 defineComponents(IgcSelectItemComponent, IgcSelectComponent);
@@ -34,7 +34,7 @@ const themeMap = {
 type Theme = keyof typeof themeMap;
 
 @customElement("styling-config-themes")
-export class extends Base {
+export class Sample extends Base {
   static styles = [
     css`
       :host {

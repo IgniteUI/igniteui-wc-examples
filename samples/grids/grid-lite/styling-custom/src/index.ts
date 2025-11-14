@@ -6,14 +6,14 @@ import { css, html } from "lit";
 import { customElement, state } from "lit/decorators.js";
 import { classMap } from 'lit/directives/class-map.js';
 import { IgcGridLite } from "igc-grid-lite";
-import styles from '../src/custom.scss?inline';
+import styles from './custom.scss?inline';
 import { Base } from "./base";
 
 IgcGridLite.register();
 defineComponents(IgcSwitchComponent);
 
 @customElement("styling-custom-theme")
-export class extends Base {
+export class Sample extends Base {
   static styles = [
     css`
       :host {
