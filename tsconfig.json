@@ -4,7 +4,7 @@
     "resolveJsonModule": true,
     "moduleResolution": "node",
     "declaration": true,
-    "target": "es5",
+    "target": "es2015",
     "module": "esNext",
     "sourceMap": true,
     "experimentalDecorators": true,

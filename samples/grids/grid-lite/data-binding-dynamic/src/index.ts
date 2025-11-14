@@ -14,7 +14,7 @@ IgcGridLite.register();
 type DataSources = ProductInfo & UserSimple;
 
 @customElement("data-binding-dynamic")
-export class extends LitElement {
+export class Sample extends LitElement {
   static styles = [
     css`
       :host {
@@ -43,7 +43,7 @@ export class extends LitElement {
     ) as DataSources[];
   }
 
-  @query(IgcGridLite.is)
+  @query(IgcGridLite.tagName)
   protected grid!: IgcGridLite<DataSources>;
 
   @state()
