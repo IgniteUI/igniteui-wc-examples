@@ -37,6 +37,11 @@ module.exports = function override(config, env) {
             name: 'igniteui-webcomponents-gauges',
             chunks: 'all',
         },
+        igniteuiGridLite: {
+            test: /[\\/]node_modules[\\/](igc-grid-lite)[\\/]/,
+            name: 'igc-grid-lite',
+            chunks: 'all',
+        },
         igniteuiGrids: {
             test: /[\\/]node_modules[\\/](igniteui-webcomponents-grids)[\\/]/,
             name: 'igniteui-webcomponents-grids',

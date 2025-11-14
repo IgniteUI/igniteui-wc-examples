@@ -1,0 +1,22 @@
+{
+  "name": "grid-lite-styling-themes",
+  "version": "1.0.0",
+  "description": "This project provides example of Themes using Grid Lite",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "vite",
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "igc-grid-lite": "1.0.0-alpha.5",
+    "lit": "^2.7.4"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.1",
+    "sass": "^1.62.1",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.6"
+  },
+  "license": "",
+  "homepage": "."
+}
