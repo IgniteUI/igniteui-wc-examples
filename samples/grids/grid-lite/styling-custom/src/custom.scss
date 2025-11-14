@@ -1,0 +1,26 @@
+@use '../node_modules/igniteui-theming' as *;
+@use '../node_modules/igniteui-theming/sass/typography/presets' as *;
+
+$my_dark_palette: palette(
+  $primary: #ddd020,
+  $secondary: #d5896f,
+  $surface: #031d44,
+  $gray: #04395e,
+);
+
+$my-light-palette: palette(
+  $primary: #c1292e,
+  $secondary: #f1d302,
+  $surface: #fdfffc,
+  $gray: #235789,
+);
+
+.custom-light {
+  @include palette($my_light_palette);
+  @include typography('"Roboto", sans-serif', $bootstrap-type-scale);
+}
+
+.custom-dark {
+  @include palette($my_dark_palette);
+  @include typography('"Merriweather Sans", sans-serif', $bootstrap-type-scale);
+}

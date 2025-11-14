@@ -1015,6 +1015,7 @@ function updateIG(cb) {
         { version: "6.2.0", name: "igniteui-webcomponents-grids" },
         { version: "^6.3.1" , name: "igniteui-webcomponents" },
         { version: "1.16.0", name: "igniteui-dockmanager" },
+        { version: "^1.0.0-alpha.5", name: "igc-grid-lite" },
         // other packages:
         { version: "^5.101.3", name: "webpack" },
         { version: "^6.0.1", name: "webpack-cli" },
