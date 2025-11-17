@@ -47,7 +47,7 @@ export class ColumnConfigurationDynamic extends ColumnConfigurationBasic {
     `
   ];
 
-  @query(IgcGridLite.is)
+  @query(IgcGridLite.tagName)
   protected grid!: IgcGridLite<ProductInfo>;
 
   @query(IgcDropdownComponent.tagName)

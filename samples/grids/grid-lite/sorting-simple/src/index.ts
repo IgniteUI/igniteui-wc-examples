@@ -8,7 +8,7 @@ IgcGridLite.register();
 
 @customElement("sort-config-simple")
 export class extends Base {
-  @query(IgcGridLite.is)
+  @query(IgcGridLite.tagName)
   protected grid!: IgcGridLite<ProductInfo>;
 
   firstUpdated() {

@@ -34,7 +34,7 @@ export class HeadersDynamic extends ColumnConfigurationBasic {
     `
   ];
 
-  @query(IgcGridLite.is)
+  @query(IgcGridLite.tagName)
   protected grid!: IgcGridLite<ProductInfo>;
 
   @query(IgcSelectComponent.tagName)
