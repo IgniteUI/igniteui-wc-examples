@@ -1,5 +1,7 @@
 // @ts-nocheck
-import samplesMetadata from './samples-metadata.json';
+import Navigo from 'navigo';
+import { html, render } from 'lit';
+import samplesMetadata from './samples-metadata.json?url';
 
 interface SampleInfo {
   name: string;
@@ -15,7 +17,9 @@ class SamplesBrowser {
   private sampleTitle: HTMLElement;
   private toggleNavBtn: HTMLElement;
   private samples: SampleInfo[] = [];
-  private currentSample: string | null = null;
+  private router: Navigo;
+  private sampleModules = import.meta.glob('/src/samples/**/index.ts');
+  private isEmbeddedMode = false;
 
   constructor() {
     this.navSidebar = document.getElementById('nav-sidebar')!;
@@ -23,10 +27,19 @@ class SamplesBrowser {
     this.sampleContainer = document.getElementById('sample-container')!;
     this.sampleTitle = document.getElementById('sample-title')!;
     this.toggleNavBtn = document.getElementById('toggle-nav')!;
-
-    this.samples = samplesMetadata as SampleInfo[];
     
-    this.init();
+    this.router = new Navigo('/', { hash: false });
+    this.loadMetadata();
+  }
+
+  private async loadMetadata() {
+    try {
+      const response = await fetch(samplesMetadata);
+      this.samples = await response.json();
+      this.init();
+    } catch (error) {
+      console.error('Failed to load samples metadata:', error);
+    }
   }
 
   private init() {
@@ -38,11 +51,25 @@ class SamplesBrowser {
     // Build navigation
     this.buildNavigation();
 
-    // Setup routing
-    this.setupRouting();
+    // Setup router
+    this.setupRouter();
 
-    // Load initial route
-    this.navigateToRoute(window.location.pathname);
+    // Preserve route on Vite reload
+    window.addEventListener('beforeunload', () => {
+      const currentPath = this.router.getCurrentLocation().url;
+      if (currentPath && currentPath !== '/') {
+        sessionStorage.setItem('vite-current-route', currentPath);
+      }
+    });
+
+    // Restore saved route or resolve current
+    const savedRoute = sessionStorage.getItem('vite-current-route');
+    if (savedRoute) {
+      sessionStorage.removeItem('vite-current-route');
+      this.router.navigate(savedRoute);
+    } else {
+      this.router.resolve();
+    }
   }
 
   private buildNavigation() {
@@ -70,7 +97,8 @@ class SamplesBrowser {
           sampleDiv.dataset.samplePath = sample.path;
           
           sampleDiv.addEventListener('click', () => {
-            this.navigateTo(`/${sample.path}`);
+            const normalizedPath = sample.path.replace(/\\/g, '/');
+            this.router.navigate(`/samples/${normalizedPath}`);
           });
           
           samplesDiv.appendChild(sampleDiv);
@@ -126,29 +154,59 @@ class SamplesBrowser {
       .join(' ');
   }
 
-  private setupRouting() {
-    window.addEventListener('popstate', () => {
-      this.navigateToRoute(window.location.pathname);
+  private setupRouter() {
+    // Home route
+    this.router.on('/', () => {
+      this.setEmbeddedMode(false);
+      this.showWelcome();
+    });
+
+    // Sample route with navigation panel (default)
+    this.router.on('/samples/:category/:subcategory/:sample', ({ data }) => {
+      this.setEmbeddedMode(false);
+      const samplePath = `${data.category}/${data.subcategory}/${data.sample}`;
+      this.loadSampleByPath(samplePath);
+    });
+
+    // Sample route without navigation panel (embedded mode)
+    this.router.on('/:category/:subcategory/:sample', ({ data }) => {
+      this.setEmbeddedMode(true);
+      const samplePath = `${data.category}/${data.subcategory}/${data.sample}`;
+      this.loadSampleByPath(samplePath);
+    });
+
+    // Fallback for other path structures
+    this.router.notFound(() => {
+      this.setEmbeddedMode(false);
+      this.showWelcome();
     });
   }
 
-  private navigateTo(path: string) {
-    window.history.pushState({}, '', path);
-    this.navigateToRoute(path);
+  private setEmbeddedMode(enabled: boolean) {
+    this.isEmbeddedMode = enabled;
+    
+    const toolbar = document.getElementById('toolbar');
+    
+    if (enabled) {
+      this.navSidebar.style.display = 'none';
+      if (toolbar) {
+        toolbar.style.display = 'none';
+      }
+    } else {
+      this.navSidebar.style.display = '';
+      if (toolbar) {
+        toolbar.style.display = '';
+      }
+    }
   }
 
-  private async navigateToRoute(route: string) {
-    // Remove leading slash and normalize
-    const normalizedRoute = route.replace(/^\//, '').replace(/\/$/, '');
-    
-    if (!normalizedRoute) {
-      this.showWelcome();
-      return;
-    }
+  private async loadSampleByPath(path: string) {
+    // Find sample with normalized path
+    const sample = this.samples.find(s => {
+      const normalizedSamplePath = s.path.replace(/\\/g, '/');
+      return normalizedSamplePath === path;
+    });
 
-    // Find the sample
-    const sample = this.samples.find(s => s.path === normalizedRoute);
-    
     if (sample) {
       await this.loadSample(sample);
     } else {
@@ -157,12 +215,13 @@ class SamplesBrowser {
   }
 
   private async loadSample(sample: SampleInfo) {
-    this.currentSample = sample.path;
     this.sampleTitle.textContent = this.formatSampleName(sample.name);
     
     // Update active state in nav
+    const normalizedPath = sample.path.replace(/\\/g, '/');
     document.querySelectorAll('.nav-sample').forEach(el => {
-      if (el.dataset.samplePath === sample.path) {
+      const elPath = el.dataset.samplePath?.replace(/\\/g, '/');
+      if (elPath === normalizedPath) {
         el.classList.add('active');
       } else {
         el.classList.remove('active');
@@ -176,11 +235,14 @@ class SamplesBrowser {
       // Create container with the HTML content
       this.sampleContainer.innerHTML = sample.htmlContent || '<div id="root"><div class="container sample"></div></div>';
       
-      // Dynamically import the sample module
-      const modulePath = `/src/samples/${sample.path}/index.ts`;
+      // Load the sample module
+      const modulePath = `/src/samples/${normalizedPath}/index.ts`;
       
-      // Import and initialize the sample
-      await import(/* @vite-ignore */ modulePath);
+      if (this.sampleModules[modulePath]) {
+        await this.sampleModules[modulePath]();
+      } else {
+        throw new Error(`Module not found: ${modulePath}`);
+      }
       
     } catch (error) {
       console.error('Error loading sample:', error);

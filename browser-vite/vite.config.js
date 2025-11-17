@@ -3,7 +3,7 @@ import path from 'path';
 
 export default defineConfig({
   root: '.',
-  base: '/',
+  base: './',
   publicDir: 'public',
   build: {
     outDir: 'dist',
@@ -11,6 +11,9 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html')
       }
+    },
+    modulePreload: {
+      polyfill: false
     }
   },
   server: {
