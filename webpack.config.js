@@ -126,6 +126,12 @@ var config = {
       { test: /\.html$/, use: 'html-loader' },
       {
         test: /\.css$/,
+        resourceQuery: /inline/,
+        type: 'asset/source'
+      },
+      {
+        test: /\.css$/,
+        resourceQuery: { not: [/inline/] },
         sideEffects: true,
         use: [
             'style-loader',
