@@ -1,0 +1,30 @@
+{
+  "name": "browser-vite",
+  "version": "1.0.0",
+  "description": "Vite-based Samples Browser for Ignite UI Web Components",
+  "type": "module",
+  "scripts": {
+    "copy-samples": "node scripts/copy-samples.js",
+    "dev": "npm run copy-samples && vite",
+    "build": "npm run copy-samples && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "Infragistics",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2"
+  },
+  "dependencies": {
+    "igniteui-webcomponents": "^6.3.6",
+    "igniteui-webcomponents-charts": "^6.2.1",
+    "igniteui-webcomponents-core": "^6.2.1",
+    "igniteui-webcomponents-gauges": "^6.2.1",
+    "igniteui-webcomponents-grids": "^6.2.1",
+    "igniteui-webcomponents-inputs": "^6.2.1",
+    "igniteui-webcomponents-layouts": "^6.2.1",
+    "igniteui-webcomponents-maps": "^6.2.1",
+    "lit-html": "^3.3.1"
+  }
+}
