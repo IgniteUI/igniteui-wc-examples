@@ -5,6 +5,7 @@ interface SampleInfo {
   name: string;
   path: string;
   description: string;
+  htmlContent: string;
 }
 
 class SamplesBrowser {
@@ -172,11 +173,11 @@ class SamplesBrowser {
     this.sampleContainer.innerHTML = '<div class="loader">Loading sample...</div>';
     
     try {
+      // Create container with the HTML content
+      this.sampleContainer.innerHTML = sample.htmlContent || '<div id="root"><div class="container sample"></div></div>';
+      
       // Dynamically import the sample module
       const modulePath = `/src/samples/${sample.path}/index.ts`;
-      
-      // Create a container for the sample
-      this.sampleContainer.innerHTML = '<div id="sample-root" class="container sample" style="padding: 20px;"></div>';
       
       // Import and initialize the sample
       await import(/* @vite-ignore */ modulePath);

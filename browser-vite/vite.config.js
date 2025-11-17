@@ -3,7 +3,7 @@ import path from 'path';
 
 export default defineConfig({
   root: '.',
-  base: './',
+  base: '/',
   publicDir: 'public',
   build: {
     outDir: 'dist',
@@ -15,7 +15,8 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    open: true
+    host: '0.0.0.0',
+    open: false
   },
   resolve: {
     alias: {

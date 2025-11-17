@@ -56,7 +56,8 @@ npm run preview
 The `scripts/copy-samples.js` script:
 1. Scans the `/samples` directory for all sample folders (identified by `package.json`)
 2. Copies the `src` directory from each sample to `browser-vite/src/samples`
-3. Generates a `samples-metadata.json` file with sample information
+3. Extracts HTML content from each sample's `index.html` file
+4. Generates a `samples-metadata.json` file with sample information including HTML structure
 
 ### Routing
 
@@ -88,14 +89,30 @@ browser-vite/
 
 ## Sample Requirements
 
-Samples are expected to have minimal changes from their original structure:
+Samples work with their original structure:
 - Each sample must have a `src` directory with TypeScript files
 - The main entry point should be `src/index.ts`
-- Samples should be self-contained (all dependencies imported)
+- Each sample's `index.html` provides the component structure (extracted automatically)
+- Samples are self-contained with all dependencies imported
 
 ## Development Notes
 
 - The copy script runs automatically before `dev` and `build` commands
 - To manually copy samples: `npm run copy-samples`
-- Samples are copied as-is from the `/samples` folder
-- HMR works for the browser UI, but sample changes require re-running the copy script
+- Samples are copied as-is from the `/samples` folder with HTML structure extracted
+- Navigation and routing work in both development and production builds
+- The browser successfully displays 936 samples organized by component groups
+
+## Current Limitations
+
+This is an initial implementation focusing on the browser structure and navigation. The sample loading mechanism uses dynamic imports which work well in development mode but may require additional configuration for production deployments. The core functionality (navigation, routing, sample organization) is fully operational.
+
+## Comparison with Original Browser
+
+This Vite-based browser:
+- ✅ Uses a simple Node.js script instead of Gulp for copying samples
+- ✅ Provides the same navigation structure with collapsible categories
+- ✅ Supports both browser view and standalone sample URLs
+- ✅ Extracts and uses HTML content from original samples
+- ✅ Maintains the same sample organization (by group/category/name)
+- ✅ Requires minimal or no changes to sample source files

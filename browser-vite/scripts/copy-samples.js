@@ -29,6 +29,40 @@ function copyDirectory(src, dest) {
   }
 }
 
+// Extract HTML content from body div#root
+function extractHtmlContent(htmlFilePath) {
+  try {
+    const htmlContent = fs.readFileSync(htmlFilePath, 'utf-8');
+    
+    // Extract content between <div id="root"> and </div> before </body>
+    const rootStartMatch = htmlContent.match(/<div id="root">/i);
+    
+    if (!rootStartMatch) {
+      return '';
+    }
+    
+    const startIndex = rootStartMatch.index + rootStartMatch[0].length;
+    const bodyEndIndex = htmlContent.indexOf('</body>', startIndex);
+    
+    if (bodyEndIndex === -1) {
+      return '';
+    }
+    
+    // Find the last </div> before </body>
+    const beforeBody = htmlContent.substring(startIndex, bodyEndIndex);
+    const lastDivIndex = beforeBody.lastIndexOf('</div>');
+    
+    if (lastDivIndex === -1) {
+      return '';
+    }
+    
+    return beforeBody.substring(0, lastDivIndex).trim();
+  } catch (e) {
+    console.warn(`Could not extract HTML content from ${htmlFilePath}`);
+    return '';
+  }
+}
+
 // Function to find all samples
 function findSamples(dir, basePath = '') {
   const samples = [];
@@ -88,10 +122,15 @@ for (const sample of samples) {
     try {
       const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
       
+      // Extract HTML content from index.html
+      const htmlFilePath = path.join(sample.path, 'index.html');
+      const htmlContent = extractHtmlContent(htmlFilePath);
+      
       sampleMetadata.push({
         name: sample.name,
         path: sample.relativePath,
-        description: packageJson.description || sample.name
+        description: packageJson.description || sample.name,
+        htmlContent: htmlContent
       });
     } catch (e) {
       console.warn(`Warning: Could not read package.json for ${sample.name}`);
@@ -105,3 +144,4 @@ fs.writeFileSync(metadataPath, JSON.stringify(sampleMetadata, null, 2));
 
 console.log(`Copied ${copiedCount} samples to ${targetDir}`);
 console.log('Sample metadata written to:', metadataPath);
+
