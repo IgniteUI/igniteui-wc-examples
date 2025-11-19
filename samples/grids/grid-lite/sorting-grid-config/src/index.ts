@@ -1,7 +1,7 @@
 import { defineComponents, IgcSwitchComponent } from "igniteui-webcomponents";
 import { IgcGridLite, GridSortConfiguration } from "igc-grid-lite";
 import { css, html } from "lit";
-import { customElement, state } from "lit/decorators.js";
+import { customElement } from "lit/decorators.js";
 import { Base } from "./base";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 
@@ -9,7 +9,7 @@ IgcGridLite.register();
 defineComponents(IgcSwitchComponent);
 
 @customElement("sort-config-grid")
-export class extends Base {
+export class SortConfigGrid extends Base {
   static styles = [
     ...Base.styles,
     css`
@@ -19,10 +19,16 @@ export class extends Base {
     `
   ];
 
-  #updateConfig(event: CustomEvent<boolean>) {
+  protected sortConfig: GridSortConfiguration = {
+    multiple: true,
+    triState: true
+  };
+
+  private updateConfig(event: CustomEvent<boolean>) {
     const target = event.target as Element;
     const [prop, value] = [target.getAttribute("id") ?? "", event.detail];
     Object.assign(this.sortConfig, { [prop]: value });
+    this.requestUpdate();
   }
 
   protected renderConfigPanel() {
@@ -30,23 +36,17 @@ export class extends Base {
       <igc-switch
         id="multiple"
         .checked=${this.sortConfig.multiple}
-        @igcChange=${this.#updateConfig}
+        @igcChange=${this.updateConfig}
         >Enable multi-sort</igc-switch
       >
       <igc-switch
         id="triState"
         .checked=${this.sortConfig.triState}
-        @igcChange=${this.#updateConfig}
+        @igcChange=${this.updateConfig}
         >Enable tri-state sorting</igc-switch
       >
     </section>`;
   }
-
-  @state()
-  protected sortConfig: GridSortConfiguration = {
-    multiple: true,
-    triState: true
-  };
 
   protected render() {
     return html`${this.renderConfigPanel()}<igc-grid-lite

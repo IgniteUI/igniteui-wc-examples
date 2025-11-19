@@ -42,7 +42,18 @@ const plugins = [
       }
     }
   }),
-  new ForkTsCheckerWebpackPlugin({ typescript: { configFile: path.join(__dirname, 'tsconfig.json'), memoryLimit: 4096 } })
+  // new ForkTsCheckerWebpackPlugin({ typescript: { configFile: path.join(__dirname, 'tsconfig.json'), memoryLimit: 4096 } }),
+  new ForkTsCheckerWebpackPlugin({
+    typescript: {
+      configFile: path.resolve('./samples/grids/grid-lite/tsconfig.json'),
+      memoryLimit: 4096
+    },
+    issue: {
+      include: [
+        { file: "**/samples/grids/grid-lite/**/*" }
+      ]
+    }
+  })
 ];
 
 const presets = [
@@ -99,6 +110,30 @@ var config = {
               { loader: 'source-map-loader' }
             ]
           },
+          {
+            test: /\.tsx?$/,
+            include: [
+              path.resolve(__dirname, "browser/src/samples/grids/grid-lite")
+            ],
+            use: [
+              {
+                loader: "babel-loader",
+                options: {
+                  compact: isProd,
+                  presets,
+                  plugins: [
+                    ["@babel/plugin-proposal-decorators", { version: "2023-05" }],
+                    ["@babel/plugin-transform-class-properties", { loose: false }],
+                    "@babel/plugin-transform-class-static-block",
+                    "@babel/plugin-transform-private-methods",
+                    "@babel/plugin-transform-private-property-in-object",
+                  ]
+                }
+              },
+              { loader: "source-map-loader" }
+            ]
+          },
+          // ⬇ existing TS rule for all OTHER samples
           {
             enforce: 'pre',
             test: /\.tsx?$/,

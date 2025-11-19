@@ -20,12 +20,12 @@ export class Base extends LitElement {
     `,
   ];
 
-  @state()
+  // @state()
   protected data: ProductInfo[] = Array.from({ length: 100 }, () =>
     createProductInfo()
   );
 
-  @state()
+  // @state()
   protected columns: ColumnConfiguration<ProductInfo>[] = [
     { key: "name", headerText: "Name", sort: true },
     { key: "price", type: "number", headerText: "Price", sort: true },

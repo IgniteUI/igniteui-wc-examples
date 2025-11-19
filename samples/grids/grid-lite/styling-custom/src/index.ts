@@ -3,7 +3,7 @@ import {
   IgcSwitchComponent
 } from "igniteui-webcomponents";
 import { css, html } from "lit";
-import { customElement, state } from "lit/decorators.js";
+import { customElement } from "lit/decorators.js";
 import { classMap } from 'lit/directives/class-map.js';
 import { IgcGridLite } from "igc-grid-lite";
 import styles from './custom.scss?inline';
@@ -29,7 +29,6 @@ export class Sample extends Base {
     `,
   ];
 
-  @state()
   protected theme: 'dark' | 'light' = 'dark';
 
   protected render() {
@@ -42,7 +41,7 @@ export class Sample extends Base {
       </style>
       <section>
         <igc-switch
-          @igcChange=${() => (this.theme = nextTheme)}
+          @igcChange=${() => { this.theme = nextTheme; this.requestUpdate(); }}
           label-position="before"
           >Switch to ${nextTheme} theme</igc-switch
         >

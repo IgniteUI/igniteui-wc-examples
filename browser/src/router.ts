@@ -1,16 +1,5 @@
 // AutoRouterImportStart
-import { RouterCharts } from "./samples/charts/router";
-import { RouterEditors } from "./samples/editors/router";
-import { RouterExcel } from "./samples/excel/router";
-import { RouterGauges } from "./samples/gauges/router";
 import { RouterGrids } from "./samples/grids/router";
-import { RouterInputs } from "./samples/inputs/router";
-import { RouterInteractions } from "./samples/interactions/router";
-import { RouterLayouts } from "./samples/layouts/router";
-import { RouterMaps } from "./samples/maps/router";
-import { RouterMenus } from "./samples/menus/router";
-import { RouterNotifications } from "./samples/notifications/router";
-import { RouterScheduling } from "./samples/scheduling/router";
 // AutoRouterImportEnd
 
 export class Router {
@@ -96,41 +85,8 @@ export class Router {
         // console.log("SB matching " + route);
 
 // AutoRouterConditionStart
-        if (route.indexOf("/charts/") >= 0) {
-            this.displaySample(await RouterCharts.get(route));
-        }
-        else if (route.indexOf("/editors/") >= 0) {
-            this.displaySample(await RouterEditors.get(route));
-        }
-        else if (route.indexOf("/excel/") >= 0) {
-            this.displaySample(await RouterExcel.get(route));
-        }
-        else if (route.indexOf("/gauges/") >= 0) {
-            this.displaySample(await RouterGauges.get(route));
-        }
-        else if (route.indexOf("/grids/") >= 0) {
+        if (route.indexOf("/grids/") >= 0) {
             this.displaySample(await RouterGrids.get(route));
-        }
-        else if (route.indexOf("/inputs/") >= 0) {
-            this.displaySample(await RouterInputs.get(route));
-        }
-        else if (route.indexOf("/interactions/") >= 0) {
-            this.displaySample(await RouterInteractions.get(route));
-        }
-        else if (route.indexOf("/layouts/") >= 0) {
-            this.displaySample(await RouterLayouts.get(route));
-        }
-        else if (route.indexOf("/maps/") >= 0) {
-            this.displaySample(await RouterMaps.get(route));
-        }
-        else if (route.indexOf("/menus/") >= 0) {
-            this.displaySample(await RouterMenus.get(route));
-        }
-        else if (route.indexOf("/notifications/") >= 0) {
-            this.displaySample(await RouterNotifications.get(route));
-        }
-        else if (route.indexOf("/scheduling/") >= 0) {
-            this.displaySample(await RouterScheduling.get(route));
         }
 // AutoRouterConditionEnd
         else if (route !== "/" && route !== "/index") {

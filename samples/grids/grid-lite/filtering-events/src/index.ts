@@ -1,14 +1,15 @@
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { IgcGridLite, IgcFilteredEvent, IgcFilteringEvent } from "igc-grid-lite";
 import { css, html } from "lit";
-import { customElement, query, state } from "lit/decorators.js";
+import { PropertyValues } from "lit";
+import { customElement } from "lit/decorators.js";
 import { User } from "./mock-data";
 import { Base } from "./base";
 
 IgcGridLite.register();
 
 @customElement("filter-config-events")
-export class extends Base {
+export class FilterConfigEvents extends Base {
   static styles = [
     ...Base.styles,
     css`
@@ -24,50 +25,53 @@ export class extends Base {
     `
   ];
 
-  get #time() {
+  protected logRef!: HTMLDivElement;
+  protected log: string[] = [];
+
+  protected firstUpdated(changedProperties: PropertyValues) {
+    super.firstUpdated(changedProperties);
+    this.logRef = this.renderRoot.querySelector("#log") as HTMLDivElement;
+  }
+
+  private get time() {
     return `[${new Date().toLocaleTimeString()}]`;
   }
 
-  #updateLog(message: string) {
+  private updateLog(message: string) {
     if (this.log.length > 10) {
       this.log.shift();
     }
     this.log = [...this.log, message];
+    this.requestUpdate();
   }
 
-  async #scrollLog() {
+  private async scrollLog() {
     await this.updateComplete;
     this.logRef.scrollTo({ top: this.logRef.scrollHeight, behavior: "smooth" });
   }
-
-  @query("#log")
-  protected logRef!: HTMLDivElement;
-
-  @state()
-  protected log: string[] = [];
 
   protected async handleFiltering(
     event: CustomEvent<IgcFilteringEvent<User>>
   ) {
     const { expressions, type } = event.detail;
-    this.#updateLog(
-      `${this.#time} :: Event \`${
+    this.updateLog(
+      `${this.time} :: Event \`${
         event.type
       }\` :: Filter operation of type '${type}' for column '${
         expressions[0].key
       }'`
     );
 
-    await this.#scrollLog();
+    await this.scrollLog();
   }
 
   protected async handleFiltered(event: CustomEvent<IgcFilteredEvent<User>>) {
-    this.#updateLog(
-      `${this.#time} :: Event \`${event.type}\` for column '${
+    this.updateLog(
+      `${this.time} :: Event \`${event.type}\` for column '${
         event.detail.key
       }'`
     );
-    await this.#scrollLog();
+    await this.scrollLog();
   }
 
   protected render() {

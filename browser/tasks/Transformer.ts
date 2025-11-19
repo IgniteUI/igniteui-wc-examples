@@ -35,6 +35,7 @@ class SampleInfo {
     public SampleFileSourceCode: string; // source code from /src/MapBindingDataCSV.ts file
     public SampleFileBrowserCode: string; // source code for a sample in browser
     public SampleFileSourceClass: string; // MapBindingDataCSV
+    public SampleFileOriginalDecorator: string;
     public SampleFileOriginalClass: string; // MapBindingDataCSV
 
     public SampleImportLines: string[];
@@ -432,6 +433,10 @@ class Transformer {
             code = Strings.replace(code, "// AutoInsertImports", codeImports);
             code = Strings.replace(code, "// AutoInsertClassBody", codeClassBody);
             code = Strings.replace(code, "AutoInsertHtml", info.HtmlFileRoot);
+
+            if (info.SampleFileOriginalDecorator !== "") {
+                code = Strings.replace(code, info.SampleFileOriginalDecorator.trim(), "");
+            }
             code = Strings.replace(code, "AutoInsertClassName", info.SampleFileSourceClass);
             // removing CodeSandbox's workaround for creating WC element:
             code = Strings.replace(code, "new " + info.SampleFileSourceClass + "();", "");
@@ -446,6 +451,18 @@ class Transformer {
             // console.log(info.HtmlFileCode);
             // console.log(" ------------------------------ ");
             // console.log(info.HtmlFileRoot);
+
+            let isGridLite = info.SampleFileSourceCode.indexOf("IgcGridLite.register()") >= 0;
+            let isImportingColumnConfigBasic = info.SampleFileSourceCode.indexOf("import { ColumnConfigurationBasic") >= 0;
+            // let isBaseClass = info.SampleFileSourceCode.indexOf("class Base") >= 0;
+            if (isGridLite) {
+                // console.log("  found GridLite in " + info.SampleFilePath);
+                if (isImportingColumnConfigBasic) {
+                    code = Strings.replace(code, "extends SampleBase {", "extends ColumnConfigurationBasic {");
+                } else {
+                    code = Strings.replace(code, "extends SampleBase {", "extends Base {");
+                }
+            }
         }
         if (code.trim() === "") {
             console.log("ERROR cannot transform " + info.SampleFileSourcePath)
@@ -509,6 +526,7 @@ class Transformer {
                         info.HtmlFileRoot = info.HtmlFileRoot.substring(0, divLast);
                     }
                     info.HtmlFileRoot = info.HtmlFileRoot.trim();
+                    console.log(info.HtmlFileRoot);
                 }
 
                 if (filePath.indexOf('index.ts') > 0) {
@@ -545,6 +563,10 @@ class Transformer {
                 orgClassName = orgClassName.replace(' {', '');
                 orgClassName = Strings.replace(orgClassName, ' ', '');
                 info.SampleFileOriginalClass = orgClassName;
+
+                let decoratorPattern = "@customElement\\(\".*\"\\)(\\r\\n|\\r|\\n)";
+                let orgDecoratorExp = new RegExp(decoratorPattern, 'g');
+                info.SampleFileOriginalDecorator = info.SampleFileSourceCode.match(orgDecoratorExp)?.[0] || "";
 
                 // using folder names to make sure each sample has unique class name
                 let className = info.ComponentFolder + "-" + info.SampleFolderName;

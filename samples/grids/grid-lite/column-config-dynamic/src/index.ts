@@ -5,11 +5,12 @@ import {
   IgcSwitchComponent
 } from "igniteui-webcomponents";
 import { css, html } from "lit";
-import { customElement, query, state } from "lit/decorators.js";
+import { PropertyValues } from "lit";
 import { IgcGridLite, ColumnConfiguration } from "igc-grid-lite";
 import type { ProductInfo } from "./mock-data";
 import { ColumnConfigurationBasic } from "./simple";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
+import { customElement } from "lit/decorators.js";
 
 IgcGridLite.register();
 defineComponents(
@@ -47,24 +48,26 @@ export class ColumnConfigurationDynamic extends ColumnConfigurationBasic {
     `
   ];
 
-  @query(IgcGridLite.tagName)
   protected grid!: IgcGridLite<ProductInfo>;
-
-  @query(IgcDropdownComponent.tagName)
   protected dropdown!: IgcDropdownComponent;
-
-  @state()
   protected hasFormatters = true;
-
-  @state()
   protected columns = [
-    { key: "id", hidden: true, headerText: "ID" },
-    ...super.columns
+    { key: "id", hidden: false, headerText: "ID" },
+    // ...super.columns
   ].map((each) =>
     Object.assign(each, { width: "15rem" })
   ) as ColumnConfiguration<ProductInfo>[];
 
-  #handleFormattersChange({ detail }: CustomEvent<boolean>) {
+  protected firstUpdated(changedProperties: PropertyValues) {
+    super.firstUpdated(changedProperties);
+    this.grid = this.renderRoot.querySelector(IgcGridLite.tagName)!;
+    this.dropdown = this.renderRoot.querySelector(IgcDropdownComponent.tagName)!;
+  }
+
+  private handleFormattersChange({ detail }: CustomEvent<boolean>) {
+    this.hasFormatters = detail;
+    this.requestUpdate();
+
     this.grid.updateColumns(
       ["price", "total"].map((key) => ({
         key,
@@ -73,7 +76,7 @@ export class ColumnConfigurationDynamic extends ColumnConfigurationBasic {
     );
   }
 
-  #renderCheckbox(
+  private renderCheckbox(
     prop: keyof ColumnConfiguration<ProductInfo>,
     config: ColumnConfiguration<ProductInfo>
   ) {
@@ -89,7 +92,7 @@ export class ColumnConfigurationDynamic extends ColumnConfigurationBasic {
     `;
   }
 
-  #renderDropdownItem = (config: ColumnConfiguration<ProductInfo>) => {
+  private renderDropdownItem = (config: ColumnConfiguration<ProductInfo>) => {
     const content: Array<keyof typeof config> = [
       "hidden",
       "resizable",
@@ -101,29 +104,29 @@ export class ColumnConfigurationDynamic extends ColumnConfigurationBasic {
       <igc-dropdown-item>
         <div class="config">
           <span class="config-key">${config.headerText ?? config.key}</span>
-          ${content.map((prop) => this.#renderCheckbox(prop, config))}
+          ${content.map((prop) => this.renderCheckbox(prop, config))}
         </div>
       </igc-dropdown-item>
     `;
   };
 
-  #renderPanel() {
+  private renderPanel() {
     return html`
       <section id="panel">
         <igc-dropdown
           keep-open-on-select
           flip
-          @igcChange=${() => this.dropdown.clearSelection()}
+          @igcChange=${() => this.dropdown?.clearSelection()}
         >
           <igc-button slot="target" variant="outlined"
             >Column properties</igc-button
           >
-          ${this.columns.map(this.#renderDropdownItem)}
+          ${this.columns.map(this.renderDropdownItem)}
         </igc-dropdown>
         <igc-switch
           label-position="before"
           ?checked=${this.hasFormatters}
-          @igcChange=${this.#handleFormattersChange}
+          @igcChange=${this.handleFormattersChange}
           >Value formatters:</igc-switch
         >
       </section>
@@ -133,7 +136,7 @@ export class ColumnConfigurationDynamic extends ColumnConfigurationBasic {
   protected render() {
     return html`
       <section>
-        ${this.#renderPanel()}
+        ${this.renderPanel()}
         <igc-grid-lite .columns=${this.columns} .data=${this.data}></igc-grid-lite>
       </section>
     `;

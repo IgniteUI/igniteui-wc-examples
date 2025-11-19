@@ -28,12 +28,10 @@ abstract class Base extends LitElement {
 
   protected format = (params: any) => formatter.format(params.value);
 
-  @state()
   protected data: ProductInfo[] = Array.from({ length: 50 }, () =>
     createProductInfo()
   );
 
-  @state()
   protected columns: ColumnConfiguration<ProductInfo>[] = [
     { key: "name", headerText: "Product Name" },
     {

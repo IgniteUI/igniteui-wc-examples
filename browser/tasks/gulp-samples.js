@@ -33,7 +33,9 @@ var sampleSources = [
     // igConfig.SamplesCopyPath + '/maps/geo-map/display-heat-imagery/package.json',
     // igConfig.SamplesCopyPath + '/charts/pie-chart/overview/package.json',
     // igConfig.SamplesCopyPath + '/gauges/radial-gauge/labels/package.json',
-    // igConfig.SamplesCopyPath + '/grids/list/overview/package.json',
+    igConfig.SamplesCopyPath + '/grids/list/overview/package.json',
+    igConfig.SamplesCopyPath + '/grids/grid-lite/**/package.json',
+    '!' + igConfig.SamplesCopyPath + '/grids/grid-lite/styling**/package.json',
     // igConfig.SamplesCopyPath + '/layouts/card/overview/package.json',
     // igConfig.SamplesCopyPath + '/scheduling/calendar/overview/package.json',
     // igConfig.SamplesCopyPath + '/menus/nav-bar/overview/package.json',
@@ -49,7 +51,7 @@ var sampleSources = [
     // igConfig.SamplesCopyPath + '/charts/data-chart/data-annotation-multiple-with-stocks/package.json',
 
     // including all samples for all components:
-    igConfig.SamplesCopyPath + '/**/package.json',
+    // igConfig.SamplesCopyPath + '/**/package.json',
 
     // uncomment to exclude samples for specific components:
     // '!' + igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
@@ -67,6 +69,7 @@ var sampleSources = [
     // '!' + igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/data-grid/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/grids/grid-lite/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/list/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/grids/tree-grid/**/package.json',

@@ -1,7 +1,8 @@
 import { IgcGridLite } from "igc-grid-lite";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { css, html, LitElement } from "lit";
-import { customElement, query, state } from "lit/decorators.js";
+import { PropertyValues } from "lit";
+import { customElement } from "lit/decorators.js";
 import {
   createProductInfo,
   createUserSimple,
@@ -28,13 +29,22 @@ export class Sample extends LitElement {
     `,
   ];
 
+  protected grid!: IgcGridLite<DataSources>;
   protected dataType: "products" | "users" = "products";
   protected generators = {
     products: createProductInfo,
     users: createUserSimple,
   };
+  protected data: DataSources[] = Array.from({ length: 50 }, () =>
+    createProductInfo()
+  ) as DataSources[];
 
-  #switchData() {
+  protected firstUpdated(changedProperties: PropertyValues) {
+    super.firstUpdated(changedProperties);
+    this.grid = this.renderRoot.querySelector(IgcGridLite.tagName) as IgcGridLite<DataSources>;
+  }
+
+  private switchData() {
     this.dataType = this.dataType === "products" ? "users" : "products";
     const generator = this.generators[this.dataType];
     this.grid.columns = [];
@@ -43,17 +53,9 @@ export class Sample extends LitElement {
     ) as DataSources[];
   }
 
-  @query(IgcGridLite.tagName)
-  protected grid!: IgcGridLite<DataSources>;
-
-  @state()
-  protected data: DataSources[] = Array.from({ length: 50 }, () =>
-    createProductInfo()
-  ) as DataSources[];
-
   protected render() {
     return html`<section>
-      <igc-button @click=${this.#switchData}>Switch data</igc-button>
+      <igc-button @click=${this.switchData}>Switch data</igc-button>
       <igc-grid-lite auto-generate .data=${this.data}></igc-grid-lite>;
     </section>`;
   }

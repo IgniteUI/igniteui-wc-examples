@@ -6,7 +6,7 @@ import {
 } from "igc-grid-lite";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { css, html } from "lit";
-import { customElement, state } from "lit/decorators.js";
+import { customElement } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { User } from "./mock-data";
 import { Base } from "./base";
@@ -26,7 +26,7 @@ function groupBy<T extends object>(arr: T[], key: keyof T) {
 }
 
 @customElement("filter-config-remote")
-export class extends Base {
+export class FilterConfigRemote extends Base {
   static styles = [
     ...Base.styles,
     css`
@@ -58,10 +58,7 @@ export class extends Base {
     `
   ];
 
-  @state()
   protected inOperation = false;
-
-  @state()
   protected qs: string = "";
 
   protected config: DataPipelineConfiguration<User> = {
@@ -70,6 +67,7 @@ export class extends Base {
       this.buildUri(grid.filterExpressions);
       await new Promise((resolve) => setTimeout(resolve, 250));
       this.inOperation = false;
+      this.requestUpdate();
       return data;
     }
   };
@@ -92,6 +90,7 @@ export class extends Base {
       out.push(`${key}(${this.mapExpressions(exprs)})`);
     }
     this.qs = `GET: /data?filter=${out.join("&")}`;
+    this.requestUpdate();
   }
 
   protected render() {

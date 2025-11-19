@@ -5,7 +5,8 @@ import {
   IgcRatingComponent
 } from "igniteui-webcomponents";
 import { css, html } from "lit";
-import { customElement, query, state } from "lit/decorators.js";
+import { PropertyValues } from "lit";
+import { customElement } from "lit/decorators.js";
 import { IgcGridLite, ColumnConfiguration } from "igc-grid-lite";
 import type { ProductInfo } from "./mock-data";
 import { ColumnConfigurationBasic } from "./simple";
@@ -34,20 +35,9 @@ export class HeadersDynamic extends ColumnConfigurationBasic {
     `
   ];
 
-  @query(IgcGridLite.tagName)
   protected grid!: IgcGridLite<ProductInfo>;
-
-  @query(IgcSelectComponent.tagName)
-  protected select!: IgcSelectItemComponent;
-
-  @state()
+  protected select!: IgcSelectComponent;
   protected currentColumn!: keyof ProductInfo;
-
-  get #currentColumnText() {
-    return this.grid?.getColumn(this.currentColumn)?.headerText ?? "";
-  }
-
-  @state()
   protected columns: ColumnConfiguration<ProductInfo>[] = [
     { key: "name", headerText: "Product Name" },
     {
@@ -71,11 +61,21 @@ export class HeadersDynamic extends ColumnConfigurationBasic {
     }
   ];
 
-  #handleSelection({ detail }: CustomEvent<IgcSelectItemComponent>) {
+  protected firstUpdated(changedProperties: PropertyValues) {
+    super.firstUpdated(changedProperties);
+    this.grid = this.renderRoot.querySelector(IgcGridLite.tagName) as IgcGridLite<ProductInfo>;
+    this.select = this.renderRoot.querySelector(IgcSelectComponent.tagName) as IgcSelectComponent;
+  }
+
+  private get currentColumnText() {
+    return this.grid?.getColumn(this.currentColumn)?.headerText ?? "";
+  }
+
+  private handleSelection({ detail }: CustomEvent<IgcSelectItemComponent>) {
     this.currentColumn = detail.value as keyof ProductInfo;
   }
 
-  #handleInput({ detail }: CustomEvent<string>) {
+  private handleInput({ detail }: CustomEvent<string>) {
     this.grid.updateColumns({
       key: this.currentColumn,
       headerText: detail || undefined
@@ -85,10 +85,10 @@ export class HeadersDynamic extends ColumnConfigurationBasic {
     this.select.requestUpdate();
   }
 
-  #renderPanel() {
+  private renderPanel() {
     return html`<section>
       <igc-select
-        @igcChange=${this.#handleSelection}
+        @igcChange=${this.handleSelection}
         label="Select a column to edit:"
         flip
       >
@@ -101,17 +101,17 @@ export class HeadersDynamic extends ColumnConfigurationBasic {
         )}
       </igc-select>
       <igc-input
-        @igcChange=${this.#handleInput}
+        @igcChange=${this.handleInput}
         label="Change the header text value to see it reflected in the grid
           below"
-        .value=${this.#currentColumnText}
+        .value=${this.currentColumnText}
       >
       </igc-input>
     </section>`;
   }
 
   protected render() {
-    return html` ${this.#renderPanel()}
+    return html` ${this.renderPanel()}
       <igc-grid-lite .columns=${this.columns} .data=${this.data}></igc-grid-lite>`;
   }
 }

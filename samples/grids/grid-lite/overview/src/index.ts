@@ -6,7 +6,7 @@ import {
   IgcAvatarComponent,
 } from "igniteui-webcomponents";
 import { LitElement, css, html } from "lit";
-import { customElement, state } from "lit/decorators.js";
+import { customElement } from "lit/decorators.js";
 import { IgcGridLite, ColumnConfiguration } from "igc-grid-lite";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { User, createUser } from "./mock-data";
@@ -35,10 +35,7 @@ export class Main extends LitElement {
     }
   `;
 
-  @state()
   protected data: User[] = Array.from({ length: 1e3 }, () => createUser());
-
-  @state()
   protected columns: ColumnConfiguration<User>[] = [
     {
       key: "avatar",

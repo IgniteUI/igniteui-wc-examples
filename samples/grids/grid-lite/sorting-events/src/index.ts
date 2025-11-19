@@ -1,13 +1,14 @@
 import { IgcGridLite, SortExpression } from "igc-grid-lite";
 import { css, html } from "lit";
-import { customElement, query, state } from "lit/decorators.js";
+import { PropertyValues } from "lit";
+import { customElement } from "lit/decorators.js";
 import type { ProductInfo } from "./mock-data";
 import { Base } from "./base";
 
 IgcGridLite.register();
 
 @customElement("sort-config-events")
-export class extends Base {
+export class SortConfigEvents extends Base {
   static styles = [
     ...Base.styles,
     css`
@@ -23,27 +24,30 @@ export class extends Base {
     `
   ];
 
-  get #time() {
+  protected logRef!: HTMLDivElement;
+  protected log: string[] = [];
+
+  protected firstUpdated(changedProperties: PropertyValues) {
+    super.firstUpdated(changedProperties);
+    this.logRef = this.renderRoot.querySelector("#log") as HTMLDivElement;
+  }
+
+  private get time() {
     return `[${new Date().toLocaleTimeString()}]`;
   }
 
-  #updateLog(message: string) {
+  private updateLog(message: string) {
     if (this.log.length > 10) {
       this.log.shift();
     }
     this.log = [...this.log, message];
+    this.requestUpdate();
   }
 
-  async #scrollLog() {
+  private async scrollLog() {
     await this.updateComplete;
     this.logRef.scrollTo({ top: this.logRef.scrollHeight, behavior: "smooth" });
   }
-
-  @query("#log")
-  protected logRef!: HTMLDivElement;
-
-  @state()
-  protected log: string[] = [];
 
   protected async handleSorting(
     event: CustomEvent<SortExpression<ProductInfo>>
@@ -51,33 +55,33 @@ export class extends Base {
     const { detail, type } = event;
     if (!["price", "total", "sold"].includes(detail.key)) {
       event.preventDefault();
-      this.#updateLog(
+      this.updateLog(
         `${
-          this.#time
+          this.time
         } :: Event \`${type}\` :: Sort operation was prevented for column '${
           detail.key
         }'`
       );
     } else {
-      this.#updateLog(
-        `${this.#time} :: Event \`${type}\` :: Column '${
+      this.updateLog(
+        `${this.time} :: Event \`${type}\` :: Column '${
           detail.key
         }' is being sorted with expression: ${JSON.stringify(detail)}`
       );
     }
-    await this.#scrollLog();
+    await this.scrollLog();
   }
 
   protected async handleSorted(
     event: CustomEvent<SortExpression<ProductInfo>>
   ) {
     const { detail, type } = event;
-    this.#updateLog(
-      `${this.#time} :: Event \`${type}\` :: Column '${
+    this.updateLog(
+      `${this.time} :: Event \`${type}\` :: Column '${
         detail.key
       }' was sorted with expression: ${JSON.stringify(detail)}`
     );
-    await this.#scrollLog();
+    await this.scrollLog();
   }
 
   protected render() {

@@ -16,10 +16,10 @@ export class Base extends LitElement {
     `,
   ];
 
-  @state()
+  // @state()
   protected data: User[] = Array.from({ length: 50 }, () => createUser());
 
-  @state()
+  // @state()
   protected columns: ColumnConfiguration<User>[] = [
     { key: "firstName", headerText: "First name", filter: true },
     { key: "lastName", headerText: "Last name", filter: true },

@@ -4,7 +4,7 @@ import {
   IgcSelectItemComponent
 } from "igniteui-webcomponents";
 import { css, html } from "lit";
-import { customElement, state } from "lit/decorators.js";
+import { customElement } from "lit/decorators.js";
 import { Base } from "./base";
 import { IgcGridLite, ColumnConfiguration } from "igc-grid-lite";
 import type { ProductInfo } from "./mock-data";
@@ -52,10 +52,7 @@ export class Sample extends Base {
     `
   ];
 
-  @state()
   protected theme: Theme = "Bootstrap";
-
-  @state()
   protected columns: ColumnConfiguration<ProductInfo>[] = [
     { key: "name", headerText: "Product", sort: true, filter: true },
     {
@@ -90,8 +87,9 @@ export class Sample extends Base {
     }
   ];
 
-  #updateTheme({ detail }: CustomEvent<IgcSelectItemComponent>) {
+  private updateTheme({ detail }: CustomEvent<IgcSelectItemComponent>) {
     this.theme = detail.value as Theme;
+    this.requestUpdate();
   }
 
   protected get activeTheme() {
@@ -110,7 +108,7 @@ export class Sample extends Base {
           flip
           .value=${this.theme}
           label="Select a theme:"
-          @igcChange=${this.#updateTheme}
+          @igcChange=${this.updateTheme}
         >
           ${themes.map(
             (theme) =>

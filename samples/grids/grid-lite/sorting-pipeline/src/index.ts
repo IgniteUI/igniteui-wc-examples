@@ -4,7 +4,7 @@ import {
 } from "igniteui-webcomponents";
 import { IgcGridLite, DataPipelineConfiguration, SortExpression } from "igc-grid-lite";
 import { css, html } from "lit";
-import { customElement, state } from "lit/decorators.js";
+import { customElement } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import type { ProductInfo } from "./mock-data";
 import { Base } from "./base";
@@ -13,7 +13,7 @@ IgcGridLite.register();
 defineComponents(IgcCircularProgressComponent);
 
 @customElement("sort-config-pipeline")
-export class extends Base {
+export class SortConfigPipeline extends Base {
   static styles = [
     ...Base.styles,
     css`
@@ -45,10 +45,7 @@ export class extends Base {
     `
   ];
 
-  @state()
   protected inOperation = false;
-
-  @state()
   protected qs = "";
 
   protected buildUri(state: SortExpression<ProductInfo>[]) {
@@ -74,6 +71,7 @@ export class extends Base {
         : "";
       await new Promise((resolve) => setTimeout(resolve, 250));
       this.inOperation = false;
+      this.requestUpdate();
       return data;
     }
   };
