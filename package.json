@@ -76,6 +76,7 @@
     "gulp-flatten": "^0.4.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.6.4",
+    "igniteui-grid-lite": "^1.0.0-alpha.9",
     "igniteui-webcomponents": "^6.3.1",
     "igniteui-webcomponents-charts": "6.3.0-beta.0",
     "igniteui-webcomponents-core": "6.3.0-beta.0",
