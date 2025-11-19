@@ -1011,7 +1011,8 @@ function updateIG(cb) {
         { version: "6.3.0-beta.0", name: "igniteui-webcomponents-spreadsheet" },
         { version: "6.3.0-beta.0", name: "igniteui-webcomponents-datasources" },
         { version: "6.3.0-beta.0", name: "igniteui-webcomponents-dashboards" },
-        // these IG packages are sometimes updated:        
+        // these IG packages are sometimes updated:
+        { version: "^1.0.0-alpha.9", name: "igniteui-grid-lite" },
         { version: "6.2.0", name: "igniteui-webcomponents-grids" },
         { version: "^6.3.1" , name: "igniteui-webcomponents" },
         { version: "1.16.0", name: "igniteui-dockmanager" },
