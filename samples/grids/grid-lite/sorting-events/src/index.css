@@ -1,0 +1,17 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+#grid {
+    --ig-size: 2;
+    min-height: 65vh;
+}
+
+#log {
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    min-height: 1rem;
+    font-size: 0.75rem;
+    max-height: 5rem;
+    overflow-y: auto;
+}

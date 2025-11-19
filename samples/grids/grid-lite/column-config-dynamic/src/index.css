@@ -1,0 +1,18 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+#grid {
+    --ig-size: 2;
+    min-height: 65vh;
+}
+
+#panel {
+    margin: 1rem 0;
+}
+
+#control-panel {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}

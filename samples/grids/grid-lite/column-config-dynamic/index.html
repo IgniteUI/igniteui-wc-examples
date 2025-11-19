@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container fill">
+        <section>
+            <div id="panel"></div>
+            <igc-grid
+            auto-generate="false"
+            id="grid"
+            name="grid">
+                <igc-column
+                field="id"
+                header="ID"
+                data-type="string"
+                hidden="true">
+                </igc-column>
+                <igc-column
+                field="name"
+                header="Product Name"
+                data-type="string"
+                width="15rem">
+                </igc-column>
+                <igc-column
+                field="price"
+                header="Price"
+                data-type="number"
+                width="15rem"
+                name="priceColumn"
+                id="priceColumn">
+                </igc-column>
+                <igc-column
+                field="sold"
+                header="Units sold"
+                data-type="number"
+                width="15rem">
+                </igc-column>
+                <igc-column
+                field="total"
+                header="Total sold"
+                data-type="number"
+                width="15rem"
+                name="totalColumn"
+                id="totalColumn">
+                </igc-column>
+                <igc-column
+                field="rating"
+                header="Customer rating"
+                data-type="number"
+                width="15rem"
+                name="ratingColumn"
+                id="ratingColumn">
+                </igc-column>
+            </igc-grid>
+        </section>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

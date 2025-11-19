@@ -1,0 +1,13 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+#grid {
+    --ig-size: 2;
+    min-height: 400px;
+}
+
+#controls {
+    display: flex;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
