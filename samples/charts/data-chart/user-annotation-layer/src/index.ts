@@ -31,10 +31,10 @@ export class Sample {
     private xAxis: IgcCategoryXAxisComponent
     private yAxis: IgcNumericYAxisComponent
     private annotationInput: IgcInputComponent;    
-    private annotationTextArea: IgcTextareaComponent;
+    private annotationDetails: IgcTextareaComponent;
     private annotationBadgeColorEditor: IgcColorEditorComponent;
     private annotationMainColorEditor: IgcColorEditorComponent;
-    private currentAnnotationInfo: IgcUserAnnotationInformation;
+    private annotationInfo: IgcUserAnnotationInformation;
 
     private _bind: () => void;
 
@@ -47,7 +47,7 @@ export class Sample {
         var lineSeries2 = document.getElementById('lineSeries2') as IgcLineSeriesComponent;
         var lineSeries3 = document.getElementById('lineSeries3') as IgcLineSeriesComponent;  
         this.annotationInput = document.getElementById('annotationInput') as IgcInputComponent;
-        this.annotationTextArea = document.getElementById('annotationTextArea') as IgcTextareaComponent;
+        this.annotationDetails = document.getElementById('annotationDetails') as IgcTextareaComponent;
         this.annotationMainColorEditor = document.getElementById('annotationMainColorEditor') as IgcColorEditorComponent;
         this.annotationBadgeColorEditor = document.getElementById('annotationBadgeColorEditor') as IgcColorEditorComponent;
 
@@ -58,7 +58,7 @@ export class Sample {
         this.chart.userAnnotationToolTipContentUpdating = this.onUserAnnotationToolTipContentUpdating.bind(this);
 
         doneButton.onclick = this.onDoneBtnClick.bind(this);
-        cancelButton.onclick = this.onCancelBtnClick.bind(this);        
+        cancelButton.onclick = this.onCancelBtnClick.bind(this);
 
         this._bind = () => {
             toolbar.target = this.chart;
@@ -77,8 +77,8 @@ export class Sample {
         this._bind();
     }
 
-    public onUserAnnotationInformationRequested(s: IgcSeriesViewerComponent, e: IgcUserAnnotationInformationEventArgs){        
-        this.currentAnnotationInfo = e.annotationInfo;
+    public onUserAnnotationInformationRequested(s: IgcSeriesViewerComponent, e: IgcUserAnnotationInformationEventArgs) {
+        this.annotationInfo = e.annotationInfo;
         this.toggleDialogState(true);
     }
 
@@ -88,6 +88,7 @@ export class Sample {
         if (e.content.children.length == 0) {
             var element = document.createElement("div");
             element.textContent = tooltipText;
+            element.style = "color: white";
             e.content.appendChild(element);
         }
         else {
@@ -98,27 +99,32 @@ export class Sample {
 
     public onDoneBtnClick() {
 
-        this.currentAnnotationInfo.label = this.annotationInput.value;
-        this.currentAnnotationInfo.annotationData = this.annotationTextArea.value;
-        this.currentAnnotationInfo.mainColor = this.annotationMainColorEditor.value;
-        this.currentAnnotationInfo.badgeColor = this.annotationBadgeColorEditor.value;
+        this.annotationInfo.label = this.annotationInput.value;
+        this.annotationInfo.annotationData = this.annotationDetails.value;
+        this.annotationInfo.mainColor = this.annotationMainColorEditor.value;
+        this.annotationInfo.badgeColor = this.annotationBadgeColorEditor.value;
 
-        this.chart.finishAnnotationFlow(this.currentAnnotationInfo);
+        this.chart.finishAnnotationFlow(this.annotationInfo);
         this.toggleDialogState(false);
     }
 
-    public onCancelBtnClick(){        
-        this.chart.cancelAnnotationFlow(this.currentAnnotationInfo.annotationId);
+    public onCancelBtnClick() {
+
+        if (this.annotationInfo !== undefined && this.annotationInfo.annotationId !== undefined)
+        { 
+            this.chart.cancelAnnotationFlow(this.annotationInfo.annotationId);
+        }
+
         this.toggleDialogState(false);
     }
 
     public toggleDialogState(open: boolean) : void{
-        var popup = document.getElementsByClassName('annotationPopup')[0] as HTMLDivElement;
+        var popup = document.getElementById('annotationPopup') as HTMLDivElement;
         
-        if(open){
-            popup.style.display = "block";
+        if (open) {
+            popup.style.display = "flex";
         }
-        else{
+        else {
             popup.style.display = "none";
         }
     }
