@@ -1,0 +1,8 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+#grid {
+    --ig-size: 1;
+    min-height: 65vh;
+    margin-top: 1rem;
+}
