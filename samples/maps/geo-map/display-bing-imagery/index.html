@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>MapDisplayImageryBingTiles</title>
     <meta charset="UTF-8" />
 
-    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" type="text/css" />
+</head>
 
-  </head>
+<body>
+    <div class="container sample center" style="display:flex; flex-direction:column; gap:12px;">
 
-  <body>
-    <div id="root">
+        <!-- Button -->
+        <div style="width: 100%; display: flex; justify-content: center; margin-top: 8px;">
+            <igc-button
+                id="enterKeyBtn"
+                variant="contained"
+                style="min-width: 200px;"
+            >
+                Enter Enterprise Key
+            </igc-button>
+        </div>
 
-<div class="container horizontal" >
-    <igc-geographic-map id="map1" class="container" height="100%" width="100%"></igc-geographic-map>
-    <igc-geographic-map id="map2" class="container" height="100%" width="100%"></igc-geographic-map>
-    <igc-geographic-map id="map3" class="container" height="100%" width="100%"></igc-geographic-map>
-</div>
+        <!-- Enterprise Key Dialog -->
+        <igc-dialog id="bingDialog" title="Bing Maps Enterprise Key">
+            <p>
+                Bing Maps Basic has been retired.<br />
+                Please enter your <b>Bing Maps Enterprise Key</b>.
+            </p>
+            <br/>
+            <igc-input id="bingKeyInput" placeholder=""></igc-input>
+            
+            <div slot="footer" style="display:flex; justify-content:flex-end; gap:8px;">
+                <igc-button id="cancelBtn" variant="flat">Cancel</igc-button>
+                <igc-button id="applyBtn" variant="flat">Apply</igc-button>
+            </div>
+        </igc-dialog>
+
+        <!-- Geographic Map -->
+        <igc-geographic-map id="bingMap" width="100%" height="100%">
+        </igc-geographic-map>
 
     </div>
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %><script src="src/index.ts"></script><% } %>
 
-  </body>
+    <% if (false) { %>
+      <script src="src/index.ts"></script>
+    <% } %>
+</body>
 </html>
