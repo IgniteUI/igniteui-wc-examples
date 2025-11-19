@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        id="grid"
+        name="grid"
+        allow-filtering="true"
+        filter-mode="excelStyleFilter">
+            <igc-column
+            field="avatar"
+            header="Avatar"
+            data-type="string"
+            name="avatarColumn"
+            id="avatarColumn">
+            </igc-column>
+            <igc-column
+            field="firstName"
+            header="First name"
+            data-type="string"
+            sortable="true"
+            filterable="true"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="lastName"
+            header="Last name"
+            data-type="string"
+            sortable="true"
+            filterable="true"
+            resizable="true">
+            </igc-column>
+            <igc-column
+            field="email"
+            header="Email Address"
+            data-type="string">
+            </igc-column>
+            <igc-column
+            field="priority"
+            header="Priority"
+            data-type="string"
+            width="12rem"
+            sortable="true"
+            name="priorityColumn"
+            id="priorityColumn">
+            </igc-column>
+            <igc-column
+            field="satisfaction"
+            header="Satisfaction rating"
+            data-type="number"
+            sortable="true"
+            filterable="true"
+            name="satisfactionColumn"
+            id="satisfactionColumn">
+            </igc-column>
+            <igc-column
+            field="registeredAt"
+            header="Registered @"
+            data-type="date"
+            sortable="true"
+            name="registeredAtColumn"
+            id="registeredAtColumn">
+            </igc-column>
+            <igc-column
+            field="active"
+            header="Active"
+            data-type="boolean"
+            name="activeColumn"
+            id="activeColumn">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
