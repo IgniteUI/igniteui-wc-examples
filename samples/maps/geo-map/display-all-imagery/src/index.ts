@@ -1,102 +1,162 @@
-import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
-import { IgcGeographicMapComponent, IgcOpenStreetMapImagery, IgcBingMapsMapImagery, IgcArcGISOnlineMapImagery, BingMapsImageryStyle  } from 'igniteui-webcomponents-maps';
+import {
+    IgcGeographicMapModule,
+    IgcGeographicMapComponent,
+    IgcOpenStreetMapImagery,
+    IgcArcGISOnlineMapImagery,
+    IgcAzureMapsImagery,
+    AzureMapsImageryStyle
+} from 'igniteui-webcomponents-maps';
+
 import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
 import { ModuleManager } from 'igniteui-webcomponents-core';
-import { EsriStyle } from './EsriUtility';
-import { MapUtils } from './MapUtils';
 
-ModuleManager.register(
-    IgcDataChartInteractivityModule,
-    IgcGeographicMapModule
-);
+import {
+    IgcDialogComponent,
+    IgcButtonComponent,
+    IgcInputComponent,
+    defineComponents
+} from "igniteui-webcomponents";
+
+import { EsriStyle } from './EsriUtility';
+import { MapUtils, MapRegion } from './MapUtils';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+
+ModuleManager.register(IgcDataChartInteractivityModule, IgcGeographicMapModule);
+
+defineComponents(IgcDialogComponent, IgcButtonComponent, IgcInputComponent);
 
 export class MapImagerySources {
 
-    private geoMap: IgcGeographicMapComponent;
+    private geoMap!: IgcGeographicMapComponent;
+    private dialog!: IgcDialogComponent;
+    private keyInput!: IgcInputComponent;
+    private azureButton!: IgcButtonComponent;
+    private azureFallback!: HTMLImageElement;
+
+    private azureKey = "";
+
+    private azureStyles: Record<string, AzureMapsImageryStyle> = {
+        "AzureMaps Satellite": AzureMapsImageryStyle.Satellite,
+        "AzureMaps Road": AzureMapsImageryStyle.Road,
+        "AzureMaps DarkGrey": AzureMapsImageryStyle.DarkGrey,
+        "AzureMaps TerraOverlay": AzureMapsImageryStyle.TerraOverlay
+    };
+
+    private azureFallbackImages: Record<string, string> = {
+        "AzureMaps Satellite": "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_satellite.png",
+        "AzureMaps Road": "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_road.png",
+        "AzureMaps DarkGrey": "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_darkgrey.png",
+        "AzureMaps TerraOverlay": "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_terra_overlay.png"
+    };
 
     constructor() {
 
-        this.onMapTypeSelectionChange = this.onMapTypeSelectionChange.bind(this);
+        this.geoMap = document.getElementById("geoMap") as IgcGeographicMapComponent;
+        this.dialog = document.getElementById("enterpriseDialog") as IgcDialogComponent;
+        this.keyInput = document.getElementById("enterpriseInput") as IgcInputComponent;
+        this.azureButton = document.getElementById("enterAzureKeyBtn") as IgcButtonComponent;
+        this.azureFallback = document.getElementById("placeholderImage") as HTMLImageElement;
 
-        this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
-        this.geoMap.zoomToGeographic({ left: -120, top: 30, width: 45, height: 20 });
+        this.azureButton.disabled = true;
 
-        let dropDown: HTMLSelectElement = document.getElementById('mapTypeSelect') as HTMLSelectElement;
-        dropDown.addEventListener("change", this.onMapTypeSelectionChange);
+        const select = document.getElementById("mapTypeSelect") as HTMLSelectElement;
+        select.addEventListener("change", (e) => this.onMapTypeSelectionChange(e));
 
-        let openStreetOption: HTMLOptionElement = document.createElement('option') as HTMLOptionElement;
-        openStreetOption.textContent = "OpenStreetMaps (default)";
+        this.azureButton.addEventListener("click", () => this.dialog.show());
 
-        let bingOption: HTMLOptionElement = document.createElement('option') as HTMLOptionElement;
-        bingOption.textContent = "Bing Maps Road";
+        const applyBtn = document.getElementById("applyKeyBtn") as IgcButtonComponent;
+        applyBtn.addEventListener("click", () => this.applyKey());
 
-        let bingAerialNoLabelsOption: HTMLOptionElement = document.createElement('option') as HTMLOptionElement;
-        bingAerialNoLabelsOption.textContent = "Bing Maps Aerial Without Labels";
+        this.populateImageryList(select);
 
-        let bingAerialLabelsOption: HTMLOptionElement = document.createElement('option') as HTMLOptionElement;
-        bingAerialLabelsOption.textContent = "Bing Maps Aerial With Labels";
+        this.showMapOnly();
+        this.geoMap.backgroundContent = new IgcOpenStreetMapImagery();
+    }
 
-        dropDown.add(openStreetOption);
-        dropDown.add(bingOption);
-        dropDown.add(bingAerialNoLabelsOption);
-        dropDown.add(bingAerialLabelsOption);
+    private populateImageryList(select: HTMLSelectElement) {
+        select.add(new Option("OpenStreetMaps (default)"));
 
-        const esriKeys = Object.keys(EsriStyle);
-        const esriVals = Object.values(EsriStyle);
+        for (const key of Object.keys(this.azureStyles)) {
+            select.add(new Option(key));
+        }
 
-        for (let i=0; i<esriKeys.length; i++) {
-            let option: HTMLOptionElement = document.createElement('option') as HTMLOptionElement;
-            let style = esriKeys[i];
+        for (const key of Object.keys(EsriStyle)) {
+            select.add(new Option("Esri " + key, EsriStyle[key as keyof typeof EsriStyle]));
+      }
+    }
 
-            option.textContent = "Esri " + style;
-            option.value = esriVals[i];
+    private applyKey() {
+        const key = (this.keyInput.value || "").trim();
+        if (key) this.azureKey = key;
 
-            dropDown.add(option);
+        this.dialog.hide();
+
+        const select = document.getElementById("mapTypeSelect") as HTMLSelectElement;
+        const text = select.selectedOptions[0].textContent;
+
+        if (text.startsWith("AzureMaps")) {
+            this.applyAzureImagery(text);
         }
     }
 
-    public onMapTypeSelectionChange(e: any){
-        if (this.geoMap === undefined) return;
+    public onMapTypeSelectionChange(e: any) {
+        const text = e.target.selectedOptions[0].textContent;
+        const value = e.target.value;
 
-        let value: string = e.target.value;
+        this.azureButton.disabled = !text.startsWith("AzureMaps");
 
-        if(value.includes("OpenStreetMap")){
-            console.log("OSM");
+        // OSM
+        if (text.includes("OpenStreetMap")) {
+            this.showMapOnly();
             this.geoMap.backgroundContent = new IgcOpenStreetMapImagery();
         }
-        else if(value.includes("Bing Maps")){
-            if(value.includes("Aerial Without Labels")){
-                this.geoMap.backgroundContent = this.getBingMapsImagery(BingMapsImageryStyle.Aerial);
-            }
-            else if(value.includes("Aerial")){
-                this.geoMap.backgroundContent = this.getBingMapsImagery(BingMapsImageryStyle.AerialWithLabels);
-            }
-            else{
-                this.geoMap.backgroundContent = this.getBingMapsImagery(BingMapsImageryStyle.Road);
+
+        // Azure
+        else if (text.startsWith("AzureMaps")) {
+
+            if (!this.azureKey) {
+                let url = this.azureFallbackImages[text];
+                if (location.protocol !== "https:") {
+                    url = url.replace("https:", "http:");
+                }
+
+                this.showAzureFallback(url);
+            } else {
+                this.applyAzureImagery(text);
             }
         }
+
+        // ESRI
         else {
-            let uri = value;
-            const tileSource = new IgcArcGISOnlineMapImagery();
-            tileSource.mapServerUri = uri;
-            this.geoMap.backgroundContent = tileSource;
+            this.showMapOnly();
+            const esri = new IgcArcGISOnlineMapImagery();
+            esri.mapServerUri = value;
+            this.geoMap.backgroundContent = esri;
         }
     }
 
-    public getBingMapsImagery(mapStyle: BingMapsImageryStyle): IgcBingMapsMapImagery {
-        const tileSource = new IgcBingMapsMapImagery();
-        tileSource.apiKey = MapUtils.getBingKey();
-        tileSource.imageryStyle = mapStyle;
-        // resolving BingMaps uri based on HTTP protocol of hosting website
-        let tileUri = tileSource.actualBingImageryRestUri;
-        let isHttpSecured = window.location.toString().startsWith("https:");
-        if (isHttpSecured) {
-            tileSource.bingImageryRestUri = tileUri.replace("http:", "https:");
-        } else {
-            tileSource.bingImageryRestUri = tileUri.replace("https:", "http:");
-        }
+    private applyAzureImagery(text: string) {
+        this.showMapOnly();
 
-        return tileSource;
+        const style = this.azureStyles[text];
+        const imagery = new IgcAzureMapsImagery();
+        imagery.apiKey = this.azureKey;
+        imagery.imageryStyle = style;
+
+        this.geoMap.backgroundContent = imagery;
+
+        MapUtils.navigateTo(this.geoMap, MapRegion.UnitedStates);
+    }
+
+    private showAzureFallback(url: string) {
+        this.azureFallback.src = url;
+        this.azureFallback.classList.remove("hidden");
+        this.geoMap.classList.add("hidden");
+    }
+
+    private showMapOnly() {
+        this.azureFallback.classList.add("hidden");
+        this.geoMap.classList.remove("hidden");
     }
 }
 
