@@ -65,12 +65,19 @@
         </igc-geographic-map>
 
         <!-- Azure Key Dialog -->
-        <igc-dialog id="enterpriseDialog" title="Azure Enterprise Key">
-          <igc-input id="enterpriseInput" placeholder="Enter Azure Maps Key"></igc-input>
+        <igc-dialog id="enterpriseDialog" title="Azure Maps Key">
+            <igc-input id="enterpriseInput"
+                      placeholder="Enter Azure Maps Key">
+            </igc-input>
 
-          <div slot="footer" style="display:flex;justify-content:flex-end;gap:8px;">
-            <igc-button id="applyKeyBtn" variant="flat">Apply</igc-button>
-          </div>
+            <div slot="footer" style="display:flex; justify-content:flex-end; gap:8px;">
+                <igc-button id="cancelKeyBtn" variant="flat">
+                    Cancel
+                </igc-button>
+                <igc-button id="applyKeyBtn" variant="flat">
+                    Apply
+                </igc-button>
+            </div>
         </igc-dialog>
 
       </div>
