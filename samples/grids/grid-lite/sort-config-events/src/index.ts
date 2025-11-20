@@ -84,6 +84,7 @@ export class Sample {
         this.logElement.innerHTML = this.log
             .map(entry => `<p><code>${entry}</code></p>`)
             .join('');
+        this.logElement.scrollTop = this.logElement.scrollHeight;
     }
 
     private handleSorting(event: any) {
