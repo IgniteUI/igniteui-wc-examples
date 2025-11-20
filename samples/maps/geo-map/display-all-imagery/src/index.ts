@@ -80,12 +80,9 @@ export class MapImagerySources {
             select.add(new Option(key));
         }
 
-        const esriKeys = Object.keys(EsriStyle);
-        const esriVals = Object.values(EsriStyle);
-
-        for (let i = 0; i < esriKeys.length; i++) {
-            select.add(new Option("Esri " + esriKeys[i], esriVals[i]));
-        }
+        for (const key of Object.keys(EsriStyle)) {
+            select.add(new Option("Esri " + key, EsriStyle[key as keyof typeof EsriStyle]));
+      }
     }
 
     private applyKey() {
@@ -116,10 +113,14 @@ export class MapImagerySources {
         }
 
         // Azure
-        if (text.startsWith("AzureMaps")) {
+        else if (text.startsWith("AzureMaps")) {
 
             if (!this.azureKey) {
-                const url = this.azureFallbackImages[text];
+                var url = this.azureFallbackImages[text];
+                if (location.protocol !== "https:") {
+                    url = url.replace("https:", "http:");
+                }
+            
                 this.showAzureFallback(url);
                 return;
             }
