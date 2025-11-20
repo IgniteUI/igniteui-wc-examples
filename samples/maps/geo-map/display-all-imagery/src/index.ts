@@ -109,31 +109,30 @@ export class MapImagerySources {
         if (text.includes("OpenStreetMap")) {
             this.showMapOnly();
             this.geoMap.backgroundContent = new IgcOpenStreetMapImagery();
-            return;
         }
 
         // Azure
         else if (text.startsWith("AzureMaps")) {
 
             if (!this.azureKey) {
-                var url = this.azureFallbackImages[text];
+                let url = this.azureFallbackImages[text];
                 if (location.protocol !== "https:") {
                     url = url.replace("https:", "http:");
                 }
-            
-                this.showAzureFallback(url);
-                return;
-            }
 
-            this.applyAzureImagery(text);
-            return;
+                this.showAzureFallback(url);
+            } else {
+                this.applyAzureImagery(text);
+            }
         }
 
         // ESRI
-        this.showMapOnly();
-        const esri = new IgcArcGISOnlineMapImagery();
-        esri.mapServerUri = value;
-        this.geoMap.backgroundContent = esri;
+        else {
+            this.showMapOnly();
+            const esri = new IgcArcGISOnlineMapImagery();
+            esri.mapServerUri = value;
+            this.geoMap.backgroundContent = esri;
+        }
     }
 
     private applyAzureImagery(text: string) {
