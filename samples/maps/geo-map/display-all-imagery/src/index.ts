@@ -31,7 +31,7 @@ export class MapImagerySources {
     private dialog!: IgcDialogComponent;
     private keyInput!: IgcInputComponent;
     private azureButton!: IgcButtonComponent;
-    private placeholder!: HTMLImageElement;
+    private azureFallback!: HTMLImageElement;
 
     private azureKey = "";
 
@@ -42,7 +42,7 @@ export class MapImagerySources {
         "AzureMaps TerraOverlay": AzureMapsImageryStyle.TerraOverlay
     };
 
-    private placeholderMap: Record<string, string> = {
+    private azureFallbackImages: Record<string, string> = {
         "AzureMaps Satellite": "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_satellite.png",
         "AzureMaps Road": "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_road.png",
         "AzureMaps DarkGrey": "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_darkgrey.png",
@@ -55,7 +55,7 @@ export class MapImagerySources {
         this.dialog = document.getElementById("enterpriseDialog") as IgcDialogComponent;
         this.keyInput = document.getElementById("enterpriseInput") as IgcInputComponent;
         this.azureButton = document.getElementById("enterAzureKeyBtn") as IgcButtonComponent;
-        this.placeholder = document.getElementById("placeholderImage") as HTMLImageElement;
+        this.azureFallback = document.getElementById("placeholderImage") as HTMLImageElement;
 
         this.azureButton.disabled = true;
 
@@ -119,8 +119,8 @@ export class MapImagerySources {
         if (text.startsWith("AzureMaps")) {
 
             if (!this.azureKey) {
-                const url = this.placeholderMap[text];
-                this.showPlaceholder(url);
+                const url = this.azureFallbackImages[text];
+                this.showAzureFallback(url);
                 return;
             }
 
@@ -148,14 +148,14 @@ export class MapImagerySources {
         MapUtils.navigateTo(this.geoMap, MapRegion.UnitedStates);
     }
 
-    private showPlaceholder(url: string) {
-        this.placeholder.src = url;
-        this.placeholder.classList.remove("hidden");
+    private showAzureFallback(url: string) {
+        this.azureFallback.src = url;
+        this.azureFallback.classList.remove("hidden");
         this.geoMap.classList.add("hidden");
     }
 
     private showMapOnly() {
-        this.placeholder.classList.add("hidden");
+        this.azureFallback.classList.add("hidden");
         this.geoMap.classList.remove("hidden");
     }
 }
