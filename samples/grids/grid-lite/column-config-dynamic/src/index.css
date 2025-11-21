@@ -1,20 +1,30 @@
-.controls-wrapper {
-    margin-bottom: 1rem;
+#panel {
+    margin: 1rem 0;
     display: flex;
-    gap: 0.5rem;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.sample-button {
+.config-key {
+    flex: 2 1 25% !important;
+    font-weight: bold;
+}
+
+.config {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.config * {
+    flex: 1;
+}
+
+igc-dropdown-item {
     padding: 0.5rem 1rem;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-}
-
-.sample-button:hover {
-    background-color: #0056b3;
 }
 
 .grid-lite-wrapper {
