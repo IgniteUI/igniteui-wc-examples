@@ -1,28 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Grid Lite Dynamic Column Config | Ignite UI | Web Components</title>
-    <meta charset="UTF-8" />
-    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
-    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
-    <link rel="stylesheet" href="/src/index.css" type="text/css" />
-  </head>
 
-  <body>
-    <div id="root">
-      <div class="container sample ig-typography">
-        <div class="controls-wrapper">
-          <button id="addColumn" class="sample-button">Add Column</button>
-          <button id="removeColumn" class="sample-button">Remove Last Column</button>
-        </div>
-        <div class="grid-lite-wrapper">
-          <igc-grid-lite id="grid-lite"></igc-grid-lite>
-        </div>
+<head>
+  <title>Grid Lite Dynamic Column Config | Ignite UI | Web Components</title>
+  <meta charset="UTF-8" />
+  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample ig-typography">
+      <section id="panel">
+        <igc-dropdown id="dropdown" keep-open-on-select flip>
+          <igc-button slot="target" variant="outlined">Column properties</igc-button>
+          <igc-dropdown-item role="option" id="id">
+            <div class="config">
+              <span class="config-key">ID</span>
+              <igc-checkbox class="hidden-checkbox" label-position="before" checked>Hidden</igc-checkbox>
+              <igc-checkbox class="resizable-checkbox" label-position="before">Resizable</igc-checkbox>
+              <igc-checkbox class="filter-checkbox" label-position="before">Filter</igc-checkbox>
+              <igc-checkbox class="sort-checkbox" label-position="before">Sort</igc-checkbox>
+            </div>
+          </igc-dropdown-item>
+          <igc-dropdown-item role="option" id="name">
+            <div class="config">
+              <span class="config-key">Product Name</span>
+              <igc-checkbox class="hidden-checkbox" label-position="before">Hidden</igc-checkbox>
+              <igc-checkbox class="resizable-checkbox" label-position="before">Resizable</igc-checkbox>
+              <igc-checkbox class="filter-checkbox" label-position="before">Filter</igc-checkbox>
+              <igc-checkbox class="sort-checkbox" label-position="before">Sort</igc-checkbox>
+            </div>
+          </igc-dropdown-item>
+          <igc-dropdown-item role="option" id="price">
+            <div class="config">
+              <span class="config-key">Price</span>
+              <igc-checkbox class="hidden-checkbox" label-position="before">Hidden</igc-checkbox>
+              <igc-checkbox class="resizable-checkbox" label-position="before">Resizable</igc-checkbox>
+              <igc-checkbox class="filter-checkbox" label-position="before">Filter</igc-checkbox>
+              <igc-checkbox class="sort-checkbox" label-position="before">Sort</igc-checkbox>
+            </div>
+          </igc-dropdown-item>
+          <igc-dropdown-item role="option" id="sold">
+            <div class="config">
+              <span class="config-key">Units sold</span>
+              <igc-checkbox class="hidden-checkbox" label-position="before">Hidden</igc-checkbox>
+              <igc-checkbox class="resizable-checkbox" label-position="before">Resizable</igc-checkbox>
+              <igc-checkbox class="filter-checkbox" label-position="before">Filter</igc-checkbox>
+              <igc-checkbox class="sort-checkbox" label-position="before">Sort</igc-checkbox>
+            </div>
+          </igc-dropdown-item>
+          <igc-dropdown-item role="option" id="total">
+            <div class="config">
+              <span class="config-key">Total sold</span>
+              <igc-checkbox class="hidden-checkbox" label-position="before">Hidden</igc-checkbox>
+              <igc-checkbox class="resizable-checkbox" label-position="before">Resizable</igc-checkbox>
+              <igc-checkbox class="filter-checkbox" label-position="before">Filter</igc-checkbox>
+              <igc-checkbox class="sort-checkbox" label-position="before">Sort</igc-checkbox>
+            </div>
+          </igc-dropdown-item>
+          <igc-dropdown-item role="option" id="rating">
+            <div class="config">
+              <span class="config-key">Customer rating</span>
+              <igc-checkbox class="hidden-checkbox" label-position="before">Hidden</igc-checkbox>
+              <igc-checkbox class="resizable-checkbox" label-position="before">Resizable</igc-checkbox>
+              <igc-checkbox class="filter-checkbox" label-position="before">Filter</igc-checkbox>
+              <igc-checkbox class="sort-checkbox" label-position="before">Sort</igc-checkbox>
+            </div>
+          </igc-dropdown-item>
+        </igc-dropdown>
+        <igc-switch id="formattersSwitch" label-position="before" checked="true">Value formatters:</igc-switch>
+      </section>
+      <div class="grid-lite-wrapper">
+        <igc-grid-lite id="grid-lite"></igc-grid-lite>
       </div>
     </div>
-    <% if (false) { %><script src="src/index.ts"></script><% } %>
-  </body>
+  </div>
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+</body>
+
 </html>

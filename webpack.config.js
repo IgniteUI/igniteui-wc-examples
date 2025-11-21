@@ -156,7 +156,18 @@ var config = {
     compress: true,
     port: 4200,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    client: {
+      overlay: {
+        runtimeErrors: (error) => {
+          if (error.message === 'ResizeObserver loop limit exceeded' || 
+              error.message === 'ResizeObserver loop completed with undelivered notifications.') {
+            return false;
+          }
+          return true;
+        },
+      },
+    },
   },
   optimization: {
     splitChunks: {

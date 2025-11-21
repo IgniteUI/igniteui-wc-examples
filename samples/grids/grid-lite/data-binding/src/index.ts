@@ -1,4 +1,5 @@
 import { IgcGridLite } from 'igniteui-grid-lite';
+import { IgcButtonComponent } from 'igniteui-webcomponents';
 import { GridLiteDataService, User } from './GridLiteDataService';
 
 import "igniteui-webcomponents/themes/light/bootstrap.css";
@@ -9,48 +10,35 @@ IgcGridLite.register();
 export class Sample {
     private dataService: GridLiteDataService;
     private gridLite: any;
-    private data: User[] = [];
+    private switchButton: IgcButtonComponent | null = null;
+    private showingProducts = true;
 
     constructor() {
         this.dataService = new GridLiteDataService();
-        this.gridLite = document.getElementById('grid-lite') as any;
-        
-        const columns = [
-            { key: 'firstName', headerText: 'First Name' },
-            { key: 'lastName', headerText: 'Last Name' },
-            { key: 'age', headerText: 'Age', type: 'number' },
-            { key: 'email', headerText: 'Email' },
-            { key: 'priority', headerText: 'Priority' }
-        ];
+        this.gridLite = document.getElementById('grid-lite') as IgcGridLite<User>;
+        this.switchButton = document.querySelector('igc-button');
 
-        this.gridLite.columns = columns;
-        this.gridLite.data = this.data;
+        this.gridLite.data = this.dataService.generateProducts(50);
+
+        window.addEventListener('error', (e) => {
+            if (e.message === 'ResizeObserver loop completed with undelivered notifications.') {
+                e.stopImmediatePropagation();
+            }
+        });
 
         // Setup button handlers
-        document.getElementById('loadMore')?.addEventListener('click', () => this.loadMoreData());
-        document.getElementById('clearData')?.addEventListener('click', () => this.clearData());
-
-        // Load initial data
-        this.loadMoreData();
+        this.switchButton.addEventListener('click', () => this.switchData());
     }
 
-    private loadMoreData() {
-        const newData = this.dataService.generateUsers(20);
-        this.data = [...this.data, ...newData];
-        this.gridLite.data = this.data;
-        this.updateRecordCount();
-    }
+    private switchData() {
+        this.gridLite.columns = []
 
-    private clearData() {
-        this.data = [];
-        this.gridLite.data = this.data;
-        this.updateRecordCount();
-    }
-
-    private updateRecordCount() {
-        const countElement = document.getElementById('recordCount');
-        if (countElement) {
-            countElement.textContent = `Records: ${this.data.length}`;
+        if (this.showingProducts) {
+            this.gridLite.data = this.dataService.generateUsers(50);
+            this.showingProducts = false;
+        } else {
+            this.gridLite.data = this.dataService.generateProducts(50);
+            this.showingProducts = true;
         }
     }
 }
