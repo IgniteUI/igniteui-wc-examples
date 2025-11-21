@@ -8,11 +8,16 @@ IgcGridLite.register();
 
 export class Sample {
     private dataService: GridLiteDataService;
-    private eventLog: HTMLElement;
+    private log: string[] = [];
+    private logElement: HTMLElement;
+
+    get time() {
+        return `[${new Date().toLocaleTimeString()}]`;
+    }
 
     constructor() {
         this.dataService = new GridLiteDataService();
-        this.eventLog = document.getElementById('eventLog')!;
+        this.logElement = document.getElementById('log')!;
         
         const gridLite = document.getElementById('grid-lite') as any;
         const data: User[] = this.dataService.generateUsers(50);
@@ -28,21 +33,28 @@ export class Sample {
         gridLite.data = data;
 
         // Listen to filter events
-        gridLite.addEventListener('filterChanged', (e: any) => {
-            this.logEvent(`Filter changed: ${JSON.stringify(e.detail)}`);
+        gridLite.addEventListener('filtering', (e: any) => {
+            const { expressions, type } = e.detail;
+            this.updateLog(`${this.time} :: Event \`${e.type}\` :: Filter operation of type '${type}' for column '${expressions[0].key}'`);
+        });
+        gridLite.addEventListener('filtered', (e: any) => {
+            this.updateLog( `${this.time} :: Event \`${e.type}\` for column '${e.detail.key}'`);
         });
     }
 
-    private logEvent(message: string) {
-        const logEntry = document.createElement('div');
-        logEntry.className = 'log-entry';
-        logEntry.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
-        this.eventLog.insertBefore(logEntry, this.eventLog.firstChild);
-        
-        // Keep only last 10 entries
-        while (this.eventLog.children.length > 10) {
-            this.eventLog.removeChild(this.eventLog.lastChild!);
+    private updateLog(message: string) {
+        if (this.log.length > 10) {
+            this.log.shift();
         }
+        this.log.push(message);
+        this.renderLog();
+    }
+
+    private renderLog() {
+        this.logElement.innerHTML = this.log
+            .map(entry => `<p><code>${entry}</code></p>`)
+            .join('');
+        this.logElement.scrollTop = this.logElement.scrollHeight;
     }
 }
 
