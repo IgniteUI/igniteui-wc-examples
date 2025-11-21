@@ -1,92 +1,98 @@
-import { MapUtils, MapRegion } from './MapUtils';
-import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
-import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
-import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { BingMapsImageryStyle } from 'igniteui-webcomponents-maps';
-import { IgcBingMapsMapImagery } from 'igniteui-webcomponents-maps';
-import { ModuleManager } from 'igniteui-webcomponents-core';
+import {
+    defineComponents,
+    IgcDialogComponent,
+    IgcButtonComponent,
+    IgcInputComponent
+} from "igniteui-webcomponents";
 
-ModuleManager.register(
-    IgcDataChartInteractivityModule,
-    IgcGeographicMapModule
+import {
+    IgcGeographicMapModule,
+    IgcGeographicMapComponent,
+    IgcBingMapsMapImagery,
+    BingMapsImageryStyle
+} from "igniteui-webcomponents-maps";
+import {
+    IgcOpenStreetMapImagery
+} from "igniteui-webcomponents-maps";
+import { MapUtils, MapRegion } from "./MapUtils";
+import "igniteui-webcomponents/themes/light/bootstrap.css";
+import { ModuleManager } from "igniteui-webcomponents-core";
+
+defineComponents(
+    IgcDialogComponent,
+    IgcButtonComponent,
+    IgcInputComponent
 );
+
+ModuleManager.register(IgcGeographicMapModule);
 
 export class MapDisplayImageryBingTiles {
 
-    private geoMap1: IgcGeographicMapComponent;
-    private geoMap2: IgcGeographicMapComponent;
-    private geoMap3: IgcGeographicMapComponent;
+    private map!: IgcGeographicMapComponent;
+    private dialog!: IgcDialogComponent;
+    private keyInput!: IgcInputComponent;
+
+    private imagery!: IgcBingMapsMapImagery;
+    private enterpriseKey = "";
 
     constructor() {
 
-        this.geoMap1 = document.getElementById('map1') as IgcGeographicMapComponent;
-        this.geoMap2 = document.getElementById('map2') as IgcGeographicMapComponent;
-        this.geoMap3 = document.getElementById('map3') as IgcGeographicMapComponent;
+        // element refs
+        this.map = document.getElementById("bingMap") as IgcGeographicMapComponent;
+        this.dialog = document.getElementById("bingDialog") as IgcDialogComponent;
+        this.keyInput = document.getElementById("bingKeyInput") as IgcInputComponent;
 
-        this.createMap1(this.geoMap1);
-        this.createMap2(this.geoMap2);
-        this.createMap3(this.geoMap3);
+        const btnOpen = document.getElementById("enterKeyBtn") as IgcButtonComponent;
+        const btnCancel = document.getElementById("cancelBtn") as IgcButtonComponent;
+        const btnApply = document.getElementById("applyBtn") as IgcButtonComponent;
+
+        // map setup
+        this.imagery = new IgcBingMapsMapImagery();
+        this.imagery.imageryStyle = BingMapsImageryStyle.AerialWithLabels;
+        this.map.backgroundContent = this.imagery;
+
+        // initial zoom
+        MapUtils.navigateTo(this.map, MapRegion.Caribbean);
+
+        // show dialog automatically on startup
+        requestAnimationFrame(() => {
+            this.dialog.open = true;
+        });
+
+        // manual open
+        btnOpen.addEventListener("click", () => {
+            this.dialog.open = true;
+        });
+
+        // cancel dialog
+        btnCancel.addEventListener("click", () => {
+            this.dialog.open = false;
+        });
+
+        // apply key
+        btnApply.addEventListener("click", () => {
+            const key = (this.keyInput.value || "").trim();
+            if (key.length > 0) {
+                this.enterpriseKey = key;
+                this.applyKey();
+            }
+            this.dialog.open = false;
+        });
     }
 
-    createMap1(map: IgcGeographicMapComponent) {
-        map.zoomable = true;
+    private applyKey() {
+        this.imagery.apiKey = this.enterpriseKey;
 
-        const tileSource = new IgcBingMapsMapImagery();
-        tileSource.apiKey = MapUtils.getBingKey();
-        tileSource.imageryStyle = BingMapsImageryStyle.Aerial;
-        // resolving BingMaps uri based on HTTP protocol of hosting website
-        let tileUri = tileSource.actualBingImageryRestUri;
-        let isHttpSecured = window.location.toString().startsWith('https:');
-        if (isHttpSecured) {
-            tileSource.bingImageryRestUri = tileUri.replace('http:', 'https:');
+        // protocol correction like Angular/React
+        const uri = this.imagery.actualBingImageryRestUri;
+
+        if (location.protocol === "https:") {
+            this.imagery.bingImageryRestUri = uri.replace("http:", "https:");
         } else {
-            tileSource.bingImageryRestUri = tileUri.replace('https:', 'http:');
+            this.imagery.bingImageryRestUri = uri.replace("https:", "http:");
         }
 
-        map.backgroundContent = tileSource;
-
-        // optional - navigating to a map region
-        MapUtils.navigateTo(map, MapRegion.Caribbean);
-    }
-
-    createMap2(map: IgcGeographicMapComponent) {
-        map.zoomable = true;
-        const tileSource = new IgcBingMapsMapImagery();
-        tileSource.apiKey = MapUtils.getBingKey();
-        tileSource.imageryStyle = BingMapsImageryStyle.AerialWithLabels;
-        // resolving BingMaps uri based on HTTP protocol of hosting website
-        let tileUri = tileSource.actualBingImageryRestUri;
-        let isHttpSecured = window.location.toString().startsWith('https:');
-        if (isHttpSecured) {
-            tileSource.bingImageryRestUri = tileUri.replace('http:', 'https:');
-        } else {
-            tileSource.bingImageryRestUri = tileUri.replace('https:', 'http:');
-        }
-
-        map.backgroundContent = tileSource;
-
-        // optional - navigating to a map region
-        MapUtils.navigateTo(map, MapRegion.Caribbean);
-    }
-
-    createMap3(map: IgcGeographicMapComponent) {
-        map.zoomable = true;
-        const tileSource = new IgcBingMapsMapImagery();
-        tileSource.apiKey = MapUtils.getBingKey();
-        tileSource.imageryStyle = BingMapsImageryStyle.Road;
-        // resolving BingMaps uri based on HTTP protocol of hosting website
-        let tileUri = tileSource.actualBingImageryRestUri;
-        let isHttpSecured = window.location.toString().startsWith('https:');
-        if (isHttpSecured) {
-            tileSource.bingImageryRestUri = tileUri.replace('http:', 'https:');
-        } else {
-            tileSource.bingImageryRestUri = tileUri.replace('https:', 'http:');
-        }
-
-        map.backgroundContent = tileSource;
-
-        // optional - navigating to a map region
-        MapUtils.navigateTo(map, MapRegion.Caribbean);
+        this.map.backgroundContent = this.imagery;
     }
 }
 
