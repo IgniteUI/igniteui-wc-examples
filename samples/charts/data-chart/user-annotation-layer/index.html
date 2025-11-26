@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">    
+        <div class="container sample">
+    
+             <div class="display: flex; flex-direction: row">
+                <igc-toolbar name="toolbar" id="toolbar" orientation="Horizontal">
+                </igc-toolbar>
+            </div>
+    
+            <div class="container fill">
+
+                <igc-data-chart is-horizontal-zoom-enabled="true" is-vertical-zoom-enabled="true"
+                    computed-plot-area-margin-mode="Series" name="chart" id="chart" is-user-annotations-enabled="true">
+                    <igc-category-x-axis name="xAxis" id="xAxis" label="year"></igc-category-x-axis>
+                    <igc-numeric-y-axis name="yAxis" id="yAxis" title="TWh"></igc-numeric-y-axis>
+
+                    <igc-line-series name="lineSeries1" id="lineSeries1" title="Electricity" value-member-path="america"></igc-line-series>
+                    <igc-line-series name="lineSeries2" id="lineSeries2" title="Electricity" value-member-path="europe"></igc-line-series>
+                    <igc-line-series name="lineSeries3" id="lineSeries3" title="Electricity" value-member-path="china"></igc-line-series>
+                </igc-data-chart>
+    
+                <div class="container vertical options" id="annotationPopup"     
+                style="position: fixed; display: none;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 13rem;
+                    height: 21rem;
+                    background-color: white;
+                    border: 1px black solid;
+                    border-radius: 0.25rem;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    box-shadow: 0.05rem 0.05rem 0.5rem 0.05rem gray;">
+                    
+                    <label>Label:</label>
+                    <igc-input id="annotationInput" value="Enter Label" display-type="text" style="width: calc(100% - 0.4rem);" ></igc-input>
+             
+                    <label>Details:</label>
+                    <igc-textarea id="annotationDetails" value="Enter Details" style="width: calc(100% - 0.25rem); height: 4rem; resize: none;"></igc-textarea>
+              
+                    <label>Badge Color:</label>
+                    <igc-color-editor id="annotationBadgeColorEditor" value="black"></igc-color-editor>
+    
+                    <label>Main Color:</label>
+                    <igc-color-editor id="annotationMainColorEditor" value="black"></igc-color-editor>
+            
+                    <div class="container horizontal" style="height: auto; justify-content: center; align-items: center; padding: 1rem; gap: 1rem;">
+                        <button id="doneButton">Done</button>
+                        <button id="cancelButton">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
