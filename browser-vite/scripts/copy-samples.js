@@ -1,147 +1,164 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import fs from "fs/promises";
+import { existsSync } from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const projectRoot = path.resolve(__dirname, '../..');
-const samplesDir = path.join(projectRoot, 'samples');
-const targetDir = path.join(__dirname, '..', 'src', 'samples');
+const PATHS = {
+  projectRoot: path.resolve(__dirname, "../.."),
+  get samples() {
+    return path.join(this.projectRoot, "samples");
+  },
+  get target() {
+    return path.join(__dirname, "..", "src", "samples");
+  },
+  get metadata() {
+    return path.join(__dirname, "..", "src", "samples-metadata.json");
+  },
+};
 
-// Function to recursively copy directory
-function copyDirectory(src, dest) {
-  if (!fs.existsSync(dest)) {
-    fs.mkdirSync(dest, { recursive: true });
-  }
+async function copyDirectory(src, dest) {
+  await fs.mkdir(dest, { recursive: true });
+  const entries = await fs.readdir(src, { withFileTypes: true });
 
-  const entries = fs.readdirSync(src, { withFileTypes: true });
+  await Promise.all(
+    entries.map(async (entry) => {
+      const srcPath = path.join(src, entry.name);
+      const destPath = path.join(dest, entry.name);
 
-  for (const entry of entries) {
-    const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
-
-    if (entry.isDirectory()) {
-      copyDirectory(srcPath, destPath);
-    } else {
-      fs.copyFileSync(srcPath, destPath);
-    }
-  }
+      if (entry.isDirectory()) {
+        await copyDirectory(srcPath, destPath);
+      } else {
+        await fs.copyFile(srcPath, destPath);
+      }
+    })
+  );
 }
 
-// Extract HTML content from body div#root
-function extractHtmlContent(htmlFilePath) {
+async function cleanDirectory(dir) {
+  if (existsSync(dir)) {
+    await fs.rm(dir, { recursive: true, force: true });
+  }
+  await fs.mkdir(dir, { recursive: true });
+}
+
+async function readJsonFile(filePath) {
+  const content = await fs.readFile(filePath, "utf-8");
+  return JSON.parse(content);
+}
+
+async function writeJsonFile(filePath, data) {
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+}
+
+async function extractHtmlContent(htmlFilePath) {
   try {
-    const htmlContent = fs.readFileSync(htmlFilePath, 'utf-8');
-    
-    // Extract content between <div id="root"> and </div> before </body>
+    const htmlContent = await fs.readFile(htmlFilePath, "utf-8");
+
     const rootStartMatch = htmlContent.match(/<div id="root">/i);
-    
-    if (!rootStartMatch) {
-      return '';
-    }
-    
+    if (!rootStartMatch) return "";
+
     const startIndex = rootStartMatch.index + rootStartMatch[0].length;
-    const bodyEndIndex = htmlContent.indexOf('</body>', startIndex);
-    
-    if (bodyEndIndex === -1) {
-      return '';
-    }
-    
-    // Find the last </div> before </body>
+    const bodyEndIndex = htmlContent.indexOf("</body>", startIndex);
+    if (bodyEndIndex === -1) return "";
+
     const beforeBody = htmlContent.substring(startIndex, bodyEndIndex);
-    const lastDivIndex = beforeBody.lastIndexOf('</div>');
-    
-    if (lastDivIndex === -1) {
-      return '';
-    }
-    
+    const lastDivIndex = beforeBody.lastIndexOf("</div>");
+    if (lastDivIndex === -1) return "";
+
     return beforeBody.substring(0, lastDivIndex).trim();
-  } catch (e) {
+  } catch {
     console.warn(`Could not extract HTML content from ${htmlFilePath}`);
-    return '';
+    return "";
   }
 }
 
-// Function to find all samples
-function findSamples(dir, basePath = '') {
-  const samples = [];
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
+async function findSamples(dir, basePath = "") {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const directories = entries.filter((entry) => entry.isDirectory());
 
-  for (const entry of entries) {
-    if (!entry.isDirectory()) continue;
+  const nestedSamples = await Promise.all(
+    directories.map(async (entry) => {
+      const fullPath = path.join(dir, entry.name);
+      const relativePath = path.join(basePath, entry.name);
+      const packageJsonPath = path.join(fullPath, "package.json");
 
-    const fullPath = path.join(dir, entry.name);
-    const relativePath = path.join(basePath, entry.name);
-    
-    // Check if this directory contains a package.json (indicating it's a sample)
-    const packageJsonPath = path.join(fullPath, 'package.json');
-    if (fs.existsSync(packageJsonPath)) {
-      samples.push({
-        name: entry.name,
-        path: fullPath,
-        relativePath: relativePath
-      });
-    } else {
-      // Recurse into subdirectories
-      samples.push(...findSamples(fullPath, relativePath));
-    }
+      // If package.json exists, this is a sample directory
+      if (existsSync(packageJsonPath)) {
+        return [
+          {
+            name: entry.name,
+            path: fullPath,
+            relativePath,
+          },
+        ];
+      }
+
+      // Otherwise, recurse into subdirectory
+      return findSamples(fullPath, relativePath);
+    })
+  );
+
+  return nestedSamples.flat();
+}
+
+async function processSample(sample) {
+  const srcPath = path.join(sample.path, "src");
+
+  if (!existsSync(srcPath)) {
+    return null;
   }
 
-  return samples;
-}
+  const targetPath = path.join(PATHS.target, sample.relativePath);
 
-// Clean target directory
-console.log('Cleaning samples directory...');
-if (fs.existsSync(targetDir)) {
-  fs.rmSync(targetDir, { recursive: true, force: true });
-}
-fs.mkdirSync(targetDir, { recursive: true });
+  // Copy sample source files
+  await copyDirectory(srcPath, targetPath);
 
-// Find all samples
-console.log('Finding samples...');
-const samples = findSamples(samplesDir);
-console.log(`Found ${samples.length} samples`);
+  // Build metadata
+  try {
+    const packageJsonPath = path.join(sample.path, "package.json");
+    const htmlFilePath = path.join(sample.path, "index.html");
 
-// Copy samples
-console.log('Copying samples...');
-let copiedCount = 0;
-const sampleMetadata = [];
+    const [packageJson, htmlContent] = await Promise.all([
+      readJsonFile(packageJsonPath),
+      extractHtmlContent(htmlFilePath),
+    ]);
 
-for (const sample of samples) {
-  const targetPath = path.join(targetDir, sample.relativePath);
-  const srcPath = path.join(sample.path, 'src');
-  
-  // Copy only the src directory content
-  if (fs.existsSync(srcPath)) {
-    copyDirectory(srcPath, targetPath);
-    copiedCount++;
-    
-    // Read package.json for metadata
-    const packageJsonPath = path.join(sample.path, 'package.json');
-    try {
-      const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
-      
-      // Extract HTML content from index.html
-      const htmlFilePath = path.join(sample.path, 'index.html');
-      const htmlContent = extractHtmlContent(htmlFilePath);
-      
-      sampleMetadata.push({
-        name: sample.name,
-        path: sample.relativePath,
-        description: packageJson.description || sample.name,
-        htmlContent: htmlContent
-      });
-    } catch (e) {
-      console.warn(`Warning: Could not read package.json for ${sample.name}`);
-    }
+    return {
+      name: sample.name,
+      path: sample.relativePath,
+      description: packageJson.description || sample.name,
+      htmlContent,
+    };
+  } catch {
+    console.warn(`Warning: Could not read package.json for ${sample.name}`);
+    return null;
   }
 }
 
-// Generate samples metadata file
-const metadataPath = path.join(__dirname, '..', 'src', 'samples-metadata.json');
-fs.writeFileSync(metadataPath, JSON.stringify(sampleMetadata, null, 2));
+async function main() {
+  console.log("Cleaning samples directory...");
+  await cleanDirectory(PATHS.target);
 
-console.log(`Copied ${copiedCount} samples to ${targetDir}`);
-console.log('Sample metadata written to:', metadataPath);
+  console.log("Finding samples...");
+  const samples = await findSamples(PATHS.samples);
+  console.log(`Found ${samples.length} samples`);
 
+  console.log("Copying samples...");
+  const results = await Promise.all(samples.map(processSample));
+
+  // Filter out null results (samples without src directories or failed reads)
+  const sampleMetadata = results.filter(Boolean);
+
+  await writeJsonFile(PATHS.metadata, sampleMetadata);
+
+  console.log(`Copied ${sampleMetadata.length} samples to ${PATHS.target}`);
+  console.log("Sample metadata written to:", PATHS.metadata);
+}
+
+main().catch((error) => {
+  console.error("Error:", error);
+  process.exit(1);
+});
