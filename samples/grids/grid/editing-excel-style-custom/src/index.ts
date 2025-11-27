@@ -1,6 +1,6 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcCellType, IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcCellType, IgcGridComponent, IgcGridKeydownEventArgs } from 'igniteui-webcomponents-grids/grids';
 import { NwindData } from './NwindData';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import "./index.css";
@@ -19,10 +19,16 @@ export class Sample {
         this._bind = () => {
             grid1.data = this.nwindData;
 
-            grid1.addEventListener('activeNodeChange', (event: any) => {
-                grid1.endEdit();
-                (grid1.getElementsByClassName("igx-grid__tbody-content")[0] as any).focus();
+            grid1.addEventListener('gridKeydown', (args: IgcGridKeydownEventArgs) => {
+                if(args.detail.event.code === "Enter" || args.detail.event.code === "NumpadEnter") {
+                    args.detail.cancel = true; w
+                }
             });
+
+            grid1.addEventListener('activeNodeChange', (event: CustomEvent) => {
+                grid1.endEdit();
+            });
+            
             grid1.addEventListener('keydown', (event: KeyboardEvent) => {
                 var code = event.code;
                 var activeElem = grid1.selectedCells[0];
