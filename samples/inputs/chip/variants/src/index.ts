@@ -7,7 +7,7 @@ export class ChipVariants {
   constructor() {
     const chips = document.querySelectorAll('igc-chip[removable]');
     chips.forEach(chip => {
-      chip.addEventListener('igcRemove', this.onRemove);
+      chip.addEventListener('igcRemove', (e) => this.onRemove(e));
     });
 
     registerIconFromText(
