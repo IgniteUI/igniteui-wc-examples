@@ -79,9 +79,9 @@ export class Sample {
     public webTreeGridPinHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
 
         const column = (ctx as any).column;
-        return html`<div>
-                     <span style="float:left">${column.field}</span>
-                     <span style="float:right" @pointerdown=${(e: any) => this.toggleColumnPin(column.field)}>📌</span>
+        return html`<div style="display:flex;">
+                     <span>${column.field}</span>
+                     <span style="margin-left: auto;" @pointerdown=${(e: any) => this.toggleColumnPin(column.field)}>📌</span>
                    </div>`;
         };
 
