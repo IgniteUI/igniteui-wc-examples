@@ -73,12 +73,12 @@ export class WorldLocations {
             { cap: false, pop:  0.750, lat: 50.6225280761719, lon: 5.56943559646606, country: "Belgium", name: "Liege" },
             { cap: true,  pop:  2.900, lat: 50.4481582641602, lon: 30.5021114349365, country: "Ukraine", name: "Kiev" },
             { cap: false, pop:  1.855, lat: 50.129997253418, lon: 8.66816711425781, country: "Germany", name: "Frankfurt am Main" },
-            { cap: true,  pop:  1.325, lat: 50.1058959960938, lon: 14.4565200805664, country: "Czech Repub", name: "Prague" },
+            { cap: true,  pop:  1.325, lat: 50.1058959960938, lon: 14.4565200805664, country: "Czechia", name: "Prague" },
             { cap: false, pop:  0.828, lat: 50.0622406005859, lon: 19.9450569152832, country: "Poland", name: "Krakow" },
             { cap: false, pop:  0.625, lat: 49.9211692810059, lon: -97.1244430541992, country: "Canada", name: "Winnipeg" },
             { cap: false, pop:  0.614, lat: 49.879207611084, lon: 73.20263671875, country: "Kazakhstan", name: "Karaganda" },
             { cap: false, pop:  0.790, lat: 49.8373107910156, lon: 24.0345211029053, country: "Ukraine", name: "Lvov" },
-            { cap: false, pop:  0.450, lat: 49.2029800415039, lon: 16.6162452697754, country: "Czech Repub", name: "Brno" },
+            { cap: false, pop:  0.450, lat: 49.2029800415039, lon: 16.6162452697754, country: "Czechia", name: "Brno" },
             { cap: true,  pop:  9.775, lat: 48.8815536499023, lon: 2.43283271789551, country: "France", name: "Paris" },
             { cap: false, pop:  1.360, lat: 48.7102470397949, lon: 44.4836311340332, country: "Russia", name: "Volgograd" },
             { cap: false, pop:  0.400, lat: 48.5834350585938, lon: 7.76799440383911, country: "France", name: "Strasbourg" },
@@ -644,7 +644,7 @@ export class WorldLocations {
 
     // gets path to image file with specified country name (without file extension)
     public static getFlagImage(countryName: string): string {
-        return "https://static.infragistics.com/xplatform/images/flags/" + countryName + ".png";
+        return "https://dl.infragistics.com/x/img/flags/" + countryName + ".png";
     }
 
 }

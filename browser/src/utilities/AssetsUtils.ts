@@ -29,12 +29,12 @@
 
     // // gets path to image file with specified country name (without file extension)
     // public static getFlagImage(countryName: string): string {
-    //     return this.getAssetsPath() + "https://static.infragistics.com/xplatform/images/flags/" + countryName + ".png";
+    //     return this.getAssetsPath() + "https://dl.infragistics.com/x/img/flags/" + countryName + ".png";
     // }
 
     // // gets path to image file with specified gender type  (without file extension)
     // public static getGenderImage(gender: string): string {
-    //     return this.getAssetsPath() + "https://static.infragistics.com/xplatform/images/genders/" + gender.toLowerCase() + ".png";
+    //     return this.getAssetsPath() + "https://dl.infragistics.com/x/img/genders/" + gender.toLowerCase() + ".png";
     // }
 
     // // gets path to image file with specified person ID (without file extension)

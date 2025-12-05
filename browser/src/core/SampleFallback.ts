@@ -20,7 +20,7 @@ export class SampleFallback extends SampleBase {
 
         this.innerHTML = `
         <div class="container sample vertical" style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden;">
-              <img style="max-height: calc(100% - 6rem); max-width: 30rem" src="https://static.infragistics.com/xplatform/images/browsers/comingSoon.svg" >
+              <img style="max-height: calc(100% - 6rem); max-width: 30rem" src="https://dl.infragistics.com/x/img/browsers/comingSoon.svg" >
 
               <div style="background: #f2f2f2; width: 100%; padding-bottom: 1rem; margin-top: -0.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden;">
                     <div style="font-size: 1.5rem; font-weight: bold; text-align: center;">Coming Soon</div>
