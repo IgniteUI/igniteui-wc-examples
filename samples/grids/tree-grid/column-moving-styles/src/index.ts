@@ -11,7 +11,7 @@ import "./index.css";
 
 export class Sample {
 
-    private grid: IgcTreeGridComponent
+    private treeGrid: IgcTreeGridComponent
     private column1: IgcColumnComponent
     private column2: IgcColumnComponent
     private column3: IgcColumnComponent
@@ -26,7 +26,7 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var grid = this.grid = document.getElementById('grid') as IgcTreeGridComponent;
+        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
         var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
         var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
@@ -40,7 +40,7 @@ export class Sample {
         var column11 = this.column11 = document.getElementById('column11') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.employeesFlatDetails;
+            treeGrid.data = this.employeesFlatDetails;
             column1.headerTemplate = this.webTreeGridPinHeaderTemplate;
             column2.headerTemplate = this.webTreeGridPinHeaderTemplate;
             column3.headerTemplate = this.webTreeGridPinHeaderTemplate;
@@ -86,7 +86,7 @@ export class Sample {
         };
 
     public toggleColumnPin(field: string) {
-        var grid = this.grid;
+        var grid = this.treeGrid;
         var col = grid.getColumnByName(field);
         col.pinned = !col.pinned;
         grid.markForCheck();
