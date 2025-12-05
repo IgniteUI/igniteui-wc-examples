@@ -53,6 +53,9 @@ export class Sample {
 
     public webGridReorderRowHandler(args: CustomEvent<IgcRowDragEndEventArgs>): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
+        if (!ghostElement) {
+            return;
+        }
         const dragElementPos = ghostElement.getBoundingClientRect();
         const grid = this.grid;
         const rows = Array.prototype.slice.call(document.getElementsByTagName("igx-grid-row"));

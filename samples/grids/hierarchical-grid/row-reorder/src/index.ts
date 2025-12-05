@@ -32,6 +32,9 @@ export class Sample {
 
     public webHierarchicalGridReorderRowHandler(args: CustomEvent<IgcRowDragEndEventArgs>): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
+        if (!ghostElement) {
+            return;
+        }
         const dragElementPos = ghostElement.getBoundingClientRect();
         const grid = this.hierarchicalGrid;
         const rows = Array.prototype.slice.call(document.getElementsByTagName("igx-hierarchical-grid-row"));

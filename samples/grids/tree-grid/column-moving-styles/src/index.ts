@@ -11,7 +11,7 @@ import "./index.css";
 
 export class Sample {
 
-    private treeGrid: IgcTreeGridComponent
+    private grid: IgcTreeGridComponent
     private column1: IgcColumnComponent
     private column2: IgcColumnComponent
     private column3: IgcColumnComponent
@@ -26,7 +26,7 @@ export class Sample {
     private _bind: () => void;
 
     constructor() {
-        var treeGrid = this.treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
+        var grid = this.grid = document.getElementById('grid') as IgcTreeGridComponent;
         var column1 = this.column1 = document.getElementById('column1') as IgcColumnComponent;
         var column2 = this.column2 = document.getElementById('column2') as IgcColumnComponent;
         var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
@@ -40,7 +40,7 @@ export class Sample {
         var column11 = this.column11 = document.getElementById('column11') as IgcColumnComponent;
 
         this._bind = () => {
-            treeGrid.data = this.employeesFlatDetails;
+            grid.data = this.employeesFlatDetails;
             column1.headerTemplate = this.webTreeGridPinHeaderTemplate;
             column2.headerTemplate = this.webTreeGridPinHeaderTemplate;
             column3.headerTemplate = this.webTreeGridPinHeaderTemplate;
@@ -79,14 +79,14 @@ export class Sample {
     public webTreeGridPinHeaderTemplate = (ctx: IgcColumnTemplateContext) => {
 
         const column = (ctx as any).column;
-        return html`<div>
-                     <span style="float:left">${column.field}</span>
-                     <span style="float:right" @pointerdown=${(e: any) => this.toggleColumnPin(column.field)}>📌</span>
+        return html`<div style="display:flex;">
+                     <span>${column.field}</span>
+                     <span style="margin-left: auto;" @pointerdown=${(e: any) => this.toggleColumnPin(column.field)}>📌</span>
                    </div>`;
         };
 
     public toggleColumnPin(field: string) {
-        var grid = this.treeGrid;
+        var grid = this.grid;
         var col = grid.getColumnByName(field);
         col.pinned = !col.pinned;
         grid.markForCheck();
