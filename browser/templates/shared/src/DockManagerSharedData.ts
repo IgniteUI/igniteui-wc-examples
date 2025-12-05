@@ -290,7 +290,7 @@ export class DockManagerSharedData {
     //         return this.getRandomItem(this.citiesJP);
     //     } else if (country === "Germany") {
     //         return this.getRandomItem(this.citiesGR);
-    //     } else { // if (country === "United Kingdom") {
+    //     } else { // if (country === "United-Kingdom") {
     //         return this.getRandomItem(this.citiesUK);
     //     }
     // }
