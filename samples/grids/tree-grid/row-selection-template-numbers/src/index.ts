@@ -51,7 +51,7 @@ export class Sample {
 
     public webGridHeaderRowSelectorTemplate = (ctx: any) => {
         return html`<div style="width: 70px;height: 60px;display: flex;">
-    <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/avatars/igLogo.png" class="header-image">
+    <img src="https://dl.infragistics.com/x/img/browser/ig.png" class="header-image">
     </div>`;
     };
 
