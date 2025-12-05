@@ -75,16 +75,6 @@ export class DataGridColumnChooserToolbar {
         return 'https://dl.infragistics.com/x/img/flags/' + countryName + '.png';
     }
 
-    // gets path to image file with specified gender type  (without file extension)
-    public getGenderImage(gender: string): string {
-        return 'https://dl.infragistics.com/x/img/genders/' + gender.toLowerCase() + '.png';
-    }
-
-    // gets path to image file with specified person ID (without file extension)
-    public getPersonImage(personID: string): string {
-        return 'https://static.infragistics.com/xplatform/people/' + personID + '.png';
-    }
-
     public getRandomDate(): Date {
         const today: Date = new Date();
         const year: number = today.getFullYear();
