@@ -19,14 +19,15 @@ ModuleManager.register(IgcDataGridModule);
 export class DataGridPerformance {
 
     private grid: IgcDataGridComponent;
-    private _kpiColumns: string[] = [];
+    private kpiColumn: string[] = [];
+    private kpiColumnCount: number = 43;
     private data: SalesPerson[];
-    private good_color = '#4EB862';
-    private bad_color = '#FF134A';
-    private _badBorder = '4px solid #FF134A';
-    private _goodBorder = '4px solid #4EB862';
-    private _lastDataUpdate: Date = new Date();
-    private _interval: number = 100;
+    private goodColor = '#4EB862';
+    private badColor = '#FF134A';
+    private badBorder = '4px solid #FF134A';
+    private goodBorder = '4px solid #4EB862';
+    private lastDataUpdate: Date = new Date();
+    private updateInterval: number = 100;
 
     constructor() {
 
@@ -41,8 +42,8 @@ export class DataGridPerformance {
         this.onPricePercentCellUpdating = this.onPricePercentCellUpdating.bind(this);
         this.onPricePercentStyleKey = this.onPricePercentStyleKey.bind(this);
 
-        for (let i = 0; i < 43; i++) {
-            this._kpiColumns.push('KPI_' + i);
+        for (let i = 0; i < this.kpiColumnCount; i++) {
+            this.kpiColumn.push('KPI_' + i);
         }
 
         this.data = this.generateSalesPeople(8000);
@@ -65,9 +66,9 @@ export class DataGridPerformance {
 
         this.grid.dataSource = this.data;
 
-        for (let i = 0; i < this._kpiColumns.length; i++) {
+        for (let i = 0; i < this.kpiColumn.length; i++) {
             const column = new IgcNumericColumnComponent();
-            column.field = this._kpiColumns[i];
+            column.field = this.kpiColumn[i];
             let width = new IgcColumnWidth();
             width.isStarSized = false;
             width.value = 110;
@@ -84,7 +85,7 @@ export class DataGridPerformance {
         g.field = 'Territory';
         this.grid.groupDescriptions.add(g);
 
-        for (let i = 0; i < 43; i++) {
+        for (let i = 0; i < this.kpiColumnCount; i++) {
             (() => {
                 let currVal = i;
                 this.grid.forColumnsWithPropertyPath('KPI_' + currVal, (col: IgcDataGridColumnComponent) => {
@@ -101,13 +102,13 @@ export class DataGridPerformance {
                         let value = args.resolvedValue;
                         if (value < 20.0) {
                             if (args.cellInfo.background !== 'red') {
-                                args.cellInfo.background = this.bad_color;
+                                args.cellInfo.background = this.badColor;
                             }
                         }
 
                         if (value > 80.0) {
                             if (args.cellInfo.background !== 'green') {
-                                args.cellInfo.background = this.good_color;
+                                args.cellInfo.background = this.goodColor;
                             }
                         }
                     };
@@ -187,7 +188,7 @@ export class DataGridPerformance {
     public onPriceCellUpdating(grid: IgcTemplateColumnComponent, args: IgcTemplateCellUpdatingEventArgs) {
         let row = args.cellInfo.rowItem;
         let priceShiftUp = row.Change >= 0;
-        let templ = args.cellInfo as IgcTemplateCellInfo;
+        let template = args.cellInfo as IgcTemplateCellInfo;
 
         let content = args.content as HTMLDivElement;
         let sp: HTMLSpanElement | null = null;
@@ -210,19 +211,19 @@ export class DataGridPerformance {
             icon.style.verticalAlign = 'center';
         }
 
-        sp.textContent = '$' + (+templ.value).toFixed(2);
+        sp.textContent = '$' + (+template.value).toFixed(2);
 
         if ((sp as any).__isUp === undefined ||
             (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
             if (priceShiftUp) {
                 // icon.textContent = 'trending_up';
-                icon.style.color = this.good_color;
-                sp.style.color = this.good_color;
+                icon.style.color = this.goodColor;
+                sp.style.color = this.goodColor;
             } else {
                 // icon.textContent = 'trending_down';
-                icon.style.color = this.bad_color;
-                sp.style.color = this.bad_color;
+                icon.style.color = this.badColor;
+                sp.style.color = this.badColor;
             }
         }
     }
@@ -236,8 +237,8 @@ export class DataGridPerformance {
     }
 
     public onPriceAmountCellUpdating(grid: IgcTemplateColumnComponent, args: IgcTemplateCellUpdatingEventArgs) {
-        let templ = args.cellInfo as IgcTemplateCellInfo;
-        let priceShiftUp = templ.value >= 0;
+        let template = args.cellInfo as IgcTemplateCellInfo;
+        let priceShiftUp = template.value >= 0;
 
         let content = args.content as HTMLDivElement;
         let sp: HTMLSpanElement | null = null;
@@ -252,19 +253,19 @@ export class DataGridPerformance {
             content.appendChild(sp);
         }
 
-        sp.textContent = (+templ.value).toFixed(2);
+        sp.textContent = (+template.value).toFixed(2);
 
         if ((sp as any).__isUp === undefined ||
             (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
             if (priceShiftUp) {
                 sp.style.paddingRight = '5px';
-                sp.style.borderRight = this._goodBorder;
-                // sp.style.color = this.good_color;
+                sp.style.borderRight = this.goodBorder;
+                // sp.style.color = this.goodColor;
             } else {
                 sp.style.paddingRight = '5px';
-                sp.style.borderRight = this._badBorder;
-                // sp.style.color = this.bad_color;
+                sp.style.borderRight = this.badBorder;
+                // sp.style.color = this.badColor;
             }
         }
     }
@@ -278,8 +279,8 @@ export class DataGridPerformance {
     }
 
     public onPricePercentCellUpdating(grid: IgcTemplateColumnComponent, args: IgcTemplateCellUpdatingEventArgs) {
-        let templ = args.cellInfo as IgcTemplateCellInfo;
-        let priceShiftUp = templ.value >= 0;
+        let template = args.cellInfo as IgcTemplateCellInfo;
+        let priceShiftUp = template.value >= 0;
 
         let content = args.content as HTMLDivElement;
         let sp: HTMLSpanElement | null = null;
@@ -294,18 +295,18 @@ export class DataGridPerformance {
             content.appendChild(sp);
         }
 
-        sp.textContent = (+templ.value).toFixed(2) + '%';
+        sp.textContent = (+template.value).toFixed(2) + '%';
         if ((sp as any).__isUp === undefined ||
             (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
             if (priceShiftUp) {
                 sp.style.paddingRight = '5px';
-                sp.style.borderRight = this._goodBorder;
-                // sp.style.color = this.good_color;
+                sp.style.borderRight = this.goodBorder;
+                // sp.style.color = this.goodColor;
             } else {
                 sp.style.paddingRight = '5px';
-                sp.style.borderRight = this._badBorder;
-                // sp.style.color = this.bad_color;
+                sp.style.borderRight = this.badBorder;
+                // sp.style.color = this.badColor;
             }
         }
     }
@@ -332,7 +333,7 @@ export class DataGridPerformance {
 
         let now = new Date();
         let intervalElapsed = false;
-        if ((+now - +this._lastDataUpdate) > this._interval) {
+        if ((+now - +this.lastDataUpdate) > this.updateInterval) {
             intervalElapsed = true;
         }
 
@@ -347,7 +348,7 @@ export class DataGridPerformance {
 
         let changing = false;
         if (intervalElapsed) {
-            this._lastDataUpdate = new Date();
+            this.lastDataUpdate = new Date();
             for (let i = 0; i < toChange; i++) {
                 let index = Math.round(Math.random() * this.data.length - 1);
                 while (toChangeIndexes[index.toString()] !== undefined) {
@@ -420,126 +421,18 @@ export class DataGridPerformance {
 
     private generateSalesPeople(num: number) {
         let firstNames = [
-            'Kyle',
-            'Gina',
-            'Irene',
-            'Katie',
-            'Michael',
-            'Oscar',
-            'Ralph',
-            'Torrey',
-            'William',
-            'Bill',
-            'Daniel',
-            'Frank',
-            'Brenda',
-            'Danielle',
-            'Fiona',
-            'Howard',
-            'Jack',
-            'Larry',
-            'Holly',
-            'Jennifer',
-            'Liz',
-            'Pete',
-            'Steve',
-            'Vince',
-            'Zeke'
+            "Kyle", "Gina", "Irene", "Katie", "Michael", "Oscar", "Ralph", "Frank", "William", "Bill",
+            "Daniel", "Frank", "Brenda", "Henry", "Fiona", "Howard", "Jack", "Larry", "Holly",
+            "Bob", "Liz", "Pete", "Steve", "Mark", "Henry"
         ];
 
-        let lastNames = [
-            'Adams',
-            'Crowley',
-            'Ellis',
-            'Gable',
-            'Irvine',
-            'Keefe',
-            'Mendoza',
-            'Owens',
-            'Rooney',
-            'Waddell',
-            'Thomas',
-            'Betts',
-            'Doran',
-            'Fitzgerald',
-            'Holmes',
-            'Jefferson',
-            'Landry',
-            'Newberry',
-            'Perez',
-            'Spencer',
-            'Vargas',
-            'Grimes',
-            'Edwards',
-            'Stark',
-            'Cruise',
-            'Fitz',
-            'Chief',
-            'Blanc',
-            'Perry',
-            'Stone',
-            'Williams',
-            'Lane',
-            'Jobs'
-        ];
-
-        let genders = [
-            'GUY',
-            'GIRL',
-            'GIRL',
-            'GIRL',
-            'GUY',
-            'GUY',
-            'GUY',
-            'GUY',
-            'GUY',
-            'GUY',
-            'GUY',
-            'GUY',
-            'GIRL',
-            'GIRL',
-            'GIRL',
-            'GUY',
-            'GUY',
-            'GUY',
-            'GIRL',
-            'GIRL',
-            'GIRL',
-            'GUY',
-            'GUY',
-            'GUY',
-            'GUY'
-        ];
+        let lastNames = ['Smith', 'Johnson', 'Mendoza', 'Brown', 'Spencer', 'Stone', 'Stark', 'Rooney'];;
 
         let territories = [
-            'Australia',
-            'Canada',
-            'Egypt',
-            'Greece',
-            'Italy',
-            'Kenya',
-            'Mexico',
-            'Oman',
-            'Qatar',
-            'Sweden',
-            'Uruguay',
-            'Yemen',
-            'Bulgaria',
-            'Denmark',
-            'France',
-            'Hungary',
-            'Japan',
-            'Latvia',
-            'Netherlands',
-            'Portugal',
-            'Russia',
-            'Turkey',
-            'Venezuela',
-            'Zimbabwe'
+            "Australia", "Canada", "Egypt", "Greece", "Italy", "Kenya", "Mexico", "Oman", "Qatar",
+            "Sweden", "Uruguay", "Yemen", "Bulgaria", "Denmark", "France", "Hungary", "Japan",
+            "Latvia", "Netherlands", "Portugal", "Russia", "Turkey", "Venezuela", "Zimbabwe"
         ];
-
-        // let min = 10;
-        // let max = 35;
 
         let items = [];
         for (let i = 0; i < num; i++) {
@@ -554,10 +447,7 @@ export class DataGridPerformance {
             if (randomIndex === 0)
                 randomIndex = 1;
 
-            let value = randomIndex.toString();
-            if (randomIndex < 10)
-            value = '0' + value;
-            item.ImageName = ''; // this.createUri(genders[firstIndex] + value + '.png');
+
             item.Territory = territories[Math.round(Math.random() * (territories.length - 1))];
             item.AvgSale = Math.round(Math.random() * 800) + 200.0;
             item.Change = Math.random() * 40.0 - 20.0;
@@ -567,8 +457,9 @@ export class DataGridPerformance {
             item.DateValue = new Date();
             item.DateValue.setDate(item.DateValue.getDate() + Math.round(Math.random() * 500))
 
-            for (let j = 0; j < 43; j++) {
-                (item as any)['KPI_' + j] = Math.round(Math.random() * 100.0);
+            for (let j = 0; j < this.kpiColumnCount; j++) {
+                let kpi: string = "KPI_" + j;
+                item[kpi] = Math.round(Math.random() * 100.0);
             }
 
             items.push(item);
@@ -576,17 +467,13 @@ export class DataGridPerformance {
 
         return items;
     }
-
-    private createUri(val: string): string {
-        return 'http://localhost/People/' + val;
-    }
 }
 
 export class SalesPerson {
+    [key: string]: any;
     FirstName!: string;
     LastName!: string;
     Name!: string;
-    ImageName!: string;
     Territory!: string;
     Index!: number;
     AvgSale!: number;
