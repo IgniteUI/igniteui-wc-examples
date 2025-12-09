@@ -24,11 +24,10 @@ export class MapTypeScatterPolygonSeries {
         this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.6, height: 0.6 });
 
         // loading a shapefile with geographic shapes
-        const url = 'https://static.infragistics.com/xplatform';
         const sds = new IgcShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
-        sds.shapefileSource = url + '/shapes/WorldCountries.shp';
-        sds.databaseSource  = url + '/shapes/WorldCountries.dbf';
+        sds.shapefileSource = 'https://static.infragistics.com/xplatform/shapes/WorldCountries.shp';
+        sds.databaseSource  = 'https://static.infragistics.com/xplatform/shapes/WorldCountries.dbf';
         sds.dataBind();
     }
 
