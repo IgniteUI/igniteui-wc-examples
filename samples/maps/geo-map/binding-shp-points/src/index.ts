@@ -25,12 +25,11 @@ export class MapBindingShapefilePoints {
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.6, height: 0.6 });
 
-        const url = 'https://static.infragistics.com/xplatform';
         // loading a shapefile with geographic points
         const sds = new IgcShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
-        sds.shapefileSource = url + '/shapes/WorldCities.shp';
-        sds.databaseSource  = url + '/shapes/WorldCities.dbf';
+        sds.shapefileSource = 'https://static.infragistics.com/xplatform/shapes/WorldCities.shp';
+        sds.databaseSource  = 'https://static.infragistics.com/xplatform/shapes/WorldCities.dbf';
         sds.dataBind();
     }
 
