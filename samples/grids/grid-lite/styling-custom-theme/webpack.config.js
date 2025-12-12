@@ -65,6 +65,9 @@ module.exports = env => {
                             options: {
                                 sassOptions: {
                                     silenceDeprecations: ['color-functions', 'if-function'],
+                                    loadPaths: [
+                                        path.resolve(__dirname, 'node_modules'),
+                                    ]
                                 }
                             }
                         }
