@@ -22,11 +22,10 @@ export class MapTypeScatterPolylineSeries {
         this.geoMap.updateZoomWindow({ left: 0.195, top: 0.325, width: 0.2, height: 0.1 });
 
         // loading a shapefile with geographic shapes
-        const url = 'https://static.infragistics.com/xplatform';
         const sds = new IgcShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
-        sds.shapefileSource = url + '/shapes/AmericanRoads.shp';
-        sds.databaseSource = url + '/shapes/AmericanRoads.dbf';
+        sds.shapefileSource = 'https://static.infragistics.com/xplatform/shapes/AmericanRoads.shp';
+        sds.databaseSource =  'https://static.infragistics.com/xplatform/shapes/AmericanRoads.dbf';
         sds.dataBind();
     }
 

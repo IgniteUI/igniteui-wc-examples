@@ -13,7 +13,7 @@ export class SpreadsheetConditionalFormatting {
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
 
-        let path = 'https://static.infragistics.com/xplatform/excel/ConditionalData.xlsx';
+        let path = 'https://dl.infragistics.com/x/excel/ConditionalData.xlsx';
         ExcelUtility.loadFromUrl(path).then((w) => {
             this.spreadsheet.workbook = w;
         });

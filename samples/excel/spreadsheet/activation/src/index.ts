@@ -21,7 +21,7 @@ export class SpreadsheetActivation {
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
         this.spreadsheet.activeCellChanged = this.onSpreadsheetActiveCellChanged;
 
-        let path = 'https://static.infragistics.com/xplatform/excel/SalesData.xlsx';
+        let path = 'https://dl.infragistics.com/x/excel/SalesData.xlsx';
         ExcelUtility.loadFromUrl(path).then((w) => {
             this.spreadsheet.workbook = w;
         });

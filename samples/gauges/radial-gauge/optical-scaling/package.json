@@ -24,8 +24,8 @@
     "babel-runtime": "^6.26.0",
     "core-js": "^3.45.1",
     "deasync": "^0.1.30",
-    "igniteui-webcomponents-core": "6.3.0",
-    "igniteui-webcomponents-gauges": "6.3.0",
+    "igniteui-webcomponents-core": "6.3.1",
+    "igniteui-webcomponents-gauges": "6.3.1",
     "lit-html": "^3.3.1",
     "tslib": "^2.8.1"
   },

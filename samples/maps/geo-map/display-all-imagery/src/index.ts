@@ -59,38 +59,38 @@ export class MapImagerySources {
     // Matching placeholders for all Azure styles
     private azureFallbackImages: Record<string, string> = {
         "AzureMaps Satellite":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_satellite.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_satellite.png",
         "AzureMaps Road":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_road.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_road.png",
         "AzureMaps DarkGrey":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_darkgrey.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_darkgrey.png",
         "AzureMaps TerraOverlay":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_terra_overlay.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_terra_overlay.png",
 
         "AzureMaps LabelsRoadOverlay":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsroad.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_labelsroad.png",
         "AzureMaps LabelsDarkGreyOverlay":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsdarkgrey.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_labelsdarkgrey.png",
         "AzureMaps HybridRoadOverlay":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_hybridroad.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_hybridroad.png",
         "AzureMaps HybridDarkGreyOverlay":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/AzureHybridDarkGrey.png",
+            "https://https://dl.infragistics.com/x/img/maps/AzureHybridDarkGrey.png",
 
         "AzureMaps TrafficAbsoluteOverlay":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_absolute.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_traffic_absolute.png",
         "AzureMaps TrafficDelayOverlay":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_delay.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_traffic_delay.png",
         "AzureMaps TrafficReducedOverlay":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_light.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_traffic_light.png",
         "AzureMaps TrafficRelativeOverlay":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_relative.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_traffic_relative.png",
         "AzureMaps TrafficRelativeDarkOverlay":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_relative_dark.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_traffic_relative_dark.png",
 
         "AzureMaps WeatherRadarOverlay":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_radar.png",
+            "https://https://dl.infragistics.com/x/img/maps/azure_weather_radar.png",
         "AzureMaps WeatherInfraredOverlay":
-            "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_Infrared_road.png"
+            "https://https://dl.infragistics.com/x/img/maps/azure_weather_Infrared_road.png"
     };
 
     constructor() {

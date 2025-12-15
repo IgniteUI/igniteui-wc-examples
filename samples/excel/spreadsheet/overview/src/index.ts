@@ -15,7 +15,7 @@ export class SpreadsheetOverview {
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
 
-        let path = 'https://static.infragistics.com/xplatform/excel/SalesData.xlsx';
+        let path = 'https://dl.infragistics.com/x/excel/SalesData.xlsx';
         ExcelUtility.loadFromUrl(path).then((w) => {
             this.spreadsheet.workbook = w;
         });

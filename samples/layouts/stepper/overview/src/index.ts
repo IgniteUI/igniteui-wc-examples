@@ -39,7 +39,7 @@ export class StepperOverview {
         const cards: any[] = [
             {
                 id: "card-blue",
-                img: "https://www.infragistics.com/angular-demos/assets/images/stepper/card-blue.png",
+                img: "https://dl.infragistics.com/x/img/stepper/card-blue.png",
                 price: 400,
                 offer: "STATEMENT CREDIT OFFER",
                 type: "Business Customized Advanced",
@@ -47,7 +47,7 @@ export class StepperOverview {
             },
             {
                 id: "card-red",
-                img: "https://www.infragistics.com/angular-demos/assets/images/stepper/card-red.png",
+                img: "https://dl.infragistics.com/x/img/stepper/card-red.png",
                 price: 600,
                 offer: "STATEMENT CREDIT OFFER",
                 type: "Business Travel Advanced",
@@ -55,7 +55,7 @@ export class StepperOverview {
             },
             {
                 id: "card-gold",
-                img: "https://www.infragistics.com/angular-demos/assets/images/stepper/card-gold.png",
+                img: "https://dl.infragistics.com/x/img/stepper/card-gold.png",
                 price: 500,
                 offer: "STATEMENT CREDIT OFFER",
                 type: "Business Golden",

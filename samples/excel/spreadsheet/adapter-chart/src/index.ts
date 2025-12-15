@@ -22,7 +22,7 @@ export class SpreadsheetAdapter {
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
         this.spreadsheet.chartAdapter = new SpreadsheetChartAdapter();
 
-        let path = 'https://static.infragistics.com/xplatform/excel/ChartData.xlsx';
+        let path = 'https://dl.infragistics.com/x/excel/ChartData.xlsx';
         ExcelUtility.loadFromUrl(path).then((w) => {
             this.spreadsheet.workbook = w;
 
