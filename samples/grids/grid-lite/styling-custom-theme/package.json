@@ -9,16 +9,16 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
-    "build:dev": "webpack --mode development --config ./webpack.config.js --progress --color --display-error-details",
-    "build:prod": "webpack --env.NODE_ENV=production --mode production --config ./webpack.config.js  --progress  --color --display-error-details --bail",
+    "build:dev": "webpack --mode development --config ./webpack.config.js --progress --color",
+    "build:prod": "webpack --env NODE_ENV=production --mode production --config ./webpack.config.js  --progress  --color --bail",
     "serve:dev": "node --max-old-space-size=8192 node_modules/webpack-dev-server/bin/webpack-dev-server.js --mode development --config ./webpack.config.js --hot --progress --open",
-    "serve:prod": "webpack-dev-server --env.NODE_ENV=production  --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --progress --open --content-base dist/",
+    "serve:prod": "webpack-dev-server --env NODE_ENV=production  --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --progress --open --content-base dist/",
     "start": "npm run serve:dev",
     "build:legacy": "npm run build:prod:legacy",
-    "build:dev:legacy": "webpack --env.legacy=true  --mode development --config ./webpack.config.js --progress --color --display-error-details",
-    "build:prod:legacy": "webpack --env.NODE_ENV=production --env.legacy=true  --mode production --config ./webpack.config.js  --progress  --color --display-error-details --bail",
-    "serve:dev:legacy": "node --max-old-space-size=8192 node_modules/webpack-dev-server/bin/webpack-dev-server.js --env.legacy=true --mode development --config ./webpack.config.js --hot --progress --open",
-    "serve:prod:legacy": "webpack-dev-server --env.NODE_ENV=production --env.legacy=true --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --progress --open --content-base dist/",
+    "build:dev:legacy": "webpack --env legacy=true  --mode development --config ./webpack.config.js --progress --color",
+    "build:prod:legacy": "webpack --env NODE_ENV=production --env legacy=true  --mode production --config ./webpack.config.js  --progress  --color --bail",
+    "serve:dev:legacy": "node --max-old-space-size=8192 node_modules/webpack-dev-server/bin/webpack-dev-server.js --env legacy=true --mode development --config ./webpack.config.js --hot --progress --open",
+    "serve:prod:legacy": "webpack-dev-server --env NODE_ENV=production --env legacy=true --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --progress --open --content-base dist/",
     "start:legacy": "npm run serve:dev:legacy"
   },
   "dependencies": {
