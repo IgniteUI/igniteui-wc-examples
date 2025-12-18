@@ -42,7 +42,7 @@
     "core-js": "^3.6.5",
     "dompurify": "^3.2.6",
     "file-saver": "^2.0.2",
-    "igniteui-dockmanager": "^1.18.0",
+    "igniteui-dockmanager": "2.0.0-RC.1",
     "igniteui-grid-lite": "^0.0.1",
     "igniteui-theming": "19.1.1",
     "igniteui-webcomponents": "^6.3.6",
