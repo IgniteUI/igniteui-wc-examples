@@ -44,20 +44,20 @@ export class MapDisplayImageryAzureTiles {
     private styleChangeTimeout?: number;
 
     private readonly styleConfig: Record<string, { placeholder: string; background?: AzureMapsImageryStyle; zoom: () => void }> = {
-        Satellite: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_satellite.png", zoom: () => this.zoomUS() },
-        Road: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_road.png", zoom: () => this.zoomUS() },
-        DarkGrey: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_darkgrey.png", zoom: () => this.zoomUS() },
-        TerraOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_terra_overlay.png", background: AzureMapsImageryStyle.Satellite, zoom: () => this.zoomUS() },
-        HybridRoadOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/AzureHybridRoad.png", background: AzureMapsImageryStyle.Satellite, zoom: () => this.zoomUS() },
-        HybridDarkGreyOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_hybriddarkgrey.png", background: AzureMapsImageryStyle.Satellite, zoom: () => this.zoomUS() },
-        LabelsRoadOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsroad.png", background: AzureMapsImageryStyle.Satellite, zoom: () => this.zoomUS() },
-        LabelsDarkGreyOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsdarkgrey.png", background: AzureMapsImageryStyle.Satellite, zoom: () => this.zoomUS() },
-        TrafficDelayOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_trafficdelay.png", background: AzureMapsImageryStyle.DarkGrey, zoom: () => this.zoomNY() },
-        TrafficAbsoluteOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_absolute.png", background: AzureMapsImageryStyle.DarkGrey, zoom: () => this.zoomNY() },
-        TrafficReducedOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_light.png", background: AzureMapsImageryStyle.DarkGrey, zoom: () => this.zoomNY() },
-        TrafficRelativeOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_relative.png", background: AzureMapsImageryStyle.DarkGrey, zoom: () => this.zoomNY() },
-        WeatherInfraredOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_Infrared_road.png", background: AzureMapsImageryStyle.DarkGrey, zoom: () => this.zoomUS() },
-        WeatherRadarOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_radar.png", background: AzureMapsImageryStyle.DarkGrey, zoom: () => this.zoomUS() }
+        Satellite: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_satellite.png", zoom: () => this.zoomUS() },
+        Road: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_road.png", zoom: () => this.zoomUS() },
+        DarkGrey: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_darkgrey.png", zoom: () => this.zoomUS() },
+        TerraOverlay: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_terra_overlay.png", background: AzureMapsImageryStyle.Satellite, zoom: () => this.zoomUS() },
+        HybridRoadOverlay: { placeholder: "https://https://dl.infragistics.com/x/img/maps/AzureHybridRoad.png", background: AzureMapsImageryStyle.Satellite, zoom: () => this.zoomUS() },
+        HybridDarkGreyOverlay: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_hybriddarkgrey.png", background: AzureMapsImageryStyle.Satellite, zoom: () => this.zoomUS() },
+        LabelsRoadOverlay: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_labelsroad.png", background: AzureMapsImageryStyle.Satellite, zoom: () => this.zoomUS() },
+        LabelsDarkGreyOverlay: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_labelsdarkgrey.png", background: AzureMapsImageryStyle.Satellite, zoom: () => this.zoomUS() },
+        TrafficDelayOverlay: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_trafficdelay.png", background: AzureMapsImageryStyle.DarkGrey, zoom: () => this.zoomNY() },
+        TrafficAbsoluteOverlay: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_traffic_absolute.png", background: AzureMapsImageryStyle.DarkGrey, zoom: () => this.zoomNY() },
+        TrafficReducedOverlay: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_traffic_light.png", background: AzureMapsImageryStyle.DarkGrey, zoom: () => this.zoomNY() },
+        TrafficRelativeOverlay: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_traffic_relative.png", background: AzureMapsImageryStyle.DarkGrey, zoom: () => this.zoomNY() },
+        WeatherInfraredOverlay: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_weather_Infrared_road.png", background: AzureMapsImageryStyle.DarkGrey, zoom: () => this.zoomUS() },
+        WeatherRadarOverlay: { placeholder: "https://https://dl.infragistics.com/x/img/maps/azure_weather_radar.png", background: AzureMapsImageryStyle.DarkGrey, zoom: () => this.zoomUS() }
     };
 
     constructor() {

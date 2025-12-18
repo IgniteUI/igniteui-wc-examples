@@ -67,7 +67,7 @@ export class MapCustomTooltips {
         const lat = WorldUtils.toStringLat(dataItem.lat);
         const lon = WorldUtils.toStringLon(dataItem.lon);
         const svg = dataItem.isoCode.toLowerCase() + '.svg';
-        const scr = 'https://static.infragistics.com/xplatform/images/flags/' + svg;
+        const scr = 'https://dl.infragistics.com/x/img/flags/' + svg;
 
         let tooltip = html`<div>
         <div class='tooltipFlagBoarder'>

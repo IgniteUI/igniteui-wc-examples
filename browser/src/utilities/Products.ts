@@ -8,7 +8,7 @@ export class Products {
         "Samsung SSD", "WD SSD", "Seagate SSD", "Intel SSD", "Asus SSD",
         "Samsung Monitor", "Asus Monitor", "LG Monitor", "HP Monitor" ];
 
-    public static countries: string[] = ["USA", "UK", "France", "Canada", "Poland",
+    public static countries: string[] = ["United-States", "United-Kingdom", "France", "Canada", "Poland",
             "Denmark", "Croatia", "Australia", "Seychelles",
             "Sweden", "Germany", "Japan", "Ireland",
             "Barbados", "Jamaica", "Cuba", "Spain" ];
@@ -61,17 +61,7 @@ export class Products {
 
     // gets path to image file with specified country name (without file extension)
     public static getFlagImage(countryName: string): string {
-        return "https://static.infragistics.com/xplatform/images/flags/" + countryName + ".png";
-    }
-
-    // gets path to image file with specified gender type  (without file extension)
-    public getGenderImage(gender: string): string {
-        return "https://static.infragistics.com/xplatform/images/genders/" + gender.toLowerCase() + ".png";
-    }
-
-    // gets path to image file with specified person ID (without file extension)
-    public getPersonImage(personID: string): string {
-        return "https://static.infragistics.com/xplatform/people/" + personID + ".png";
+        return "https://dl.infragistics.com/x/img/flags/" + countryName + ".png";
     }
 
     public static getOrderHistory(weekCount?: number): any[] {

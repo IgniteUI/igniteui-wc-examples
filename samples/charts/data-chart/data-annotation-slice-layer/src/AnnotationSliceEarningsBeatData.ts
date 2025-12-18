@@ -15,7 +15,7 @@ export class AnnotationSliceEarningsBeatData extends Array<AnnotationSliceEarnin
             const newItems = [
                 new AnnotationSliceEarningsBeatDataItem({ value: 155, label: `Earnings Beat` }),
                 new AnnotationSliceEarningsBeatDataItem({ value: 86, label: `Earnings Beat` }),
-                new AnnotationSliceEarningsBeatDataItem({ value: 28, label: `Earnings Miss` }),
+                new AnnotationSliceEarningsBeatDataItem({ value: 28, label: `Earnings Beat` }),
             ];
             super(...newItems.slice(0));
         }

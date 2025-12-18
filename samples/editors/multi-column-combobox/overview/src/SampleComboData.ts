@@ -55,7 +55,7 @@ export class SampleComboData {
             { Country: "Cuba", Pop: 11253665, ID: "Cuba", Continent: "Central America" },
             { Country: "Curacao", Pop: 145619, ID: "Curacao", Continent: "Central America" },
             { Country: "Cyprus", Pop: 1116564, ID: "Cyprus", Continent: "Europe" },
-            { Country: "Czech Republic", Pop: 10496088, ID: "Czech Republic", Continent: "Europe" },
+            { Country: "Czechia", Pop: 10496088, ID: "Czechia", Continent: "Europe" },
             { Country: "Denmark", Pop: 5570572, ID: "Denmark", Continent: "Europe" },
             { Country: "Djibouti", Pop: 905564, ID: "Djibouti", Continent: "Africa" },
             { Country: "Dominica", Pop: 67675, ID: "Dominica", Continent: "Central America" },

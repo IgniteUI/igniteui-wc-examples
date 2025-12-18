@@ -24,19 +24,17 @@ export class MapBindingMultipleShapes {
         this.geoMap.backgroundContent = undefined;
         this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.6, height: 0.6 });
 
-        const url: string = "https://static.infragistics.com/xplatform";
-
         const sdsPolygons: IgcShapeDataSource = new IgcShapeDataSource();
         sdsPolygons.importCompleted = this.onPolygonsLoaded;
-        sdsPolygons.shapefileSource = url + "/shapes/WorldCountries.shp";
-        sdsPolygons.databaseSource  = url + "/shapes/WorldCountries.dbf";
+        sdsPolygons.shapefileSource = "https://static.infragistics.com/xplatform/shapes/WorldCountries.shp";
+        sdsPolygons.databaseSource  = "https://static.infragistics.com/xplatform/shapes/WorldCountries.dbf";
         sdsPolygons.dataBind();
 
         // // loading a shapefile with geographic points
         const sdsPoints: IgcShapeDataSource = new IgcShapeDataSource();
         sdsPoints.importCompleted = this.onPointsLoaded;
-        sdsPoints.shapefileSource = url + "/shapes/WorldCities.shp";
-        sdsPoints.databaseSource  = url + "/shapes/WorldCities.dbf";
+        sdsPoints.shapefileSource = "https://static.infragistics.com/xplatform/shapes/WorldCities.shp";
+        sdsPoints.databaseSource  = "https://static.infragistics.com/xplatform/shapes/WorldCities.dbf";
         sdsPoints.dataBind();
     }
 
