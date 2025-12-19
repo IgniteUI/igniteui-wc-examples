@@ -16,27 +16,26 @@
 }
 
 .christmas-title {
-    align-self: anchor-center;
-    color:  white; 
-    font-size: 2rem;  
-    font-family: 'Berkshire Swash', 'Titillium Web', serif;
+  align-self: anchor-center;
+  color:  white; 
+  padding-bottom: 0.5rem;
+  font-size: 2rem;  
+  font-family: 'Berkshire Swash', 'Titillium Web', serif;
  
   text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff4500; /* Red glow */
   animation: christmas-blink 1.5s infinite alternate
 }
 
 .christmas-stats-lbl {
-  /* padding-left: 1rem; */
-  /* padding-right: 1rem; */
-    font-size: 0.75rem;  
-    color:  white; 
+  font-size: 0.75rem;  
+  color:  white; 
 }
 
 .christmas-stats-val {
   padding-left: 0.25rem;
   padding-right: 1rem;
-    font-size: 0.75rem;  
-    color:  white; 
+  font-size: 0.75rem;  
+  color:  white; 
 }
 
 @keyframes christmas-blink {
