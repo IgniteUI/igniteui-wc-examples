@@ -1,0 +1,70 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+
+.christmas-info {
+    align-self: anchor-center;
+    color:  white; 
+    font-size: 0.75rem;  
+    font-family: 'Titillium Web', serif; 
+}
+
+.christmas-info > a { 
+  color:  rgb(2, 134, 234); 
+  /* padding-left: 1rem; */
+  padding-right: 1rem;  
+}
+
+.christmas-title {
+  align-self: anchor-center;
+  color:  white; 
+  padding-bottom: 0.5rem;
+  font-size: 2rem;  
+  font-family: 'Berkshire Swash', 'Titillium Web', serif;
+ 
+  text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff4500; /* Red glow */
+  animation: christmas-blink 1.5s infinite alternate
+}
+
+.christmas-stats-lbl {
+  font-size: 0.75rem;  
+  color:  white; 
+}
+
+.christmas-stats-val {
+  padding-left: 0.25rem;
+  padding-right: 1rem;
+  font-size: 0.75rem;  
+  color:  white; 
+}
+
+@keyframes christmas-blink {
+  from { text-shadow: 0 0 5px #00096a; }
+  to { text-shadow: 0 0 10px #ff1500, 0 0 20px #00096a; }
+}
+
+@keyframes christmas-blink2 {
+  0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #f00, 0 0 30px #f00; }
+  50% { text-shadow: 0 0 8px #fff, 0 0 15px #fff, 0 0 25px #ff0, 0 0 40px #ff0; }
+  100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #f00, 0 0 30px #f00; }
+}
+
+.christmas-background {
+        /* background: linear-gradient(0deg, #003366, #0f52ba);
+-webkit-background: linear-gradient(0deg, #003366, #0f52ba);
+   -moz-background: linear-gradient(0deg, #003366, #0f52ba); */
+
+   background: black;
+}
+
+.ig-tooltip-container, .igc-tooltip-container,
+.ui-tooltip-container
+{
+  --tooltip-container-background-color: #2b2a2a;
+  --tooltip-container-background-color: #787777;
+  --tooltip-container-background-color: #1c1c1c;
+  --tooltip-container-text-color: black;
+  --tooltip-container-text-color: white;
+  /* background: #484848; */
+  border: #cf0202;
+}
