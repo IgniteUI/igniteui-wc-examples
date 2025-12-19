@@ -13,7 +13,7 @@ export class SpreadsheetHyperlinks {
 
         this.spreadsheet = document.getElementById('spreadsheet') as IgcSpreadsheetComponent;
 
-        let path = 'https://static.infragistics.com/xplatform/excel/Hyperlinks.xlsx';
+        let path = 'https://dl.infragistics.com/x/excel/Hyperlinks.xlsx';
         ExcelUtility.loadFromUrl(path).then((w) => {
             this.spreadsheet.workbook = w;
         });

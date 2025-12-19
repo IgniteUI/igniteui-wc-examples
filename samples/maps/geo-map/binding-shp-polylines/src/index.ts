@@ -23,12 +23,11 @@ export class MapBindingShapefilePolylines {
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.6, height: 0.6 });
 
-        const url = 'https://static.infragistics.com/xplatform';
         // loading a shapefile with geographic polygons
         const sds = new IgcShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
-        sds.shapefileSource = url + '/shapes/WorldCableRoutes.shp';
-        sds.databaseSource  = url + '/shapes/WorldCableRoutes.dbf';
+        sds.shapefileSource = 'https://static.infragistics.com/xplatform/shapes/WorldCableRoutes.shp';
+        sds.databaseSource  = 'https://static.infragistics.com/xplatform/shapes/WorldCableRoutes.dbf';
         sds.dataBind();
     }
 
