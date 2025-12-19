@@ -182,9 +182,9 @@ export class WorldFlightMap {
         // this.addGridlineSeries();
         this.addAirportConnections();
         this.addFlightPathSeries();
-
+ 
         this.addAirportLocationSeries();
-
+ 
         // christmas effects in geo-map
         this.addSantaSeries();
         this.addSnowSeries();
@@ -193,6 +193,16 @@ export class WorldFlightMap {
         this.statsVisitedLabel = document.getElementById('statsVisitedLabel') as HTMLLabelElement;
         this.statsDistanceLabel = document.getElementById('statsDistanceLabel') as HTMLLabelElement;
  
+        // let appInfo = document.getElementById('appInfo') as HTMLLabelElement;
+        if (this.statsSnowLabel) {
+            this.statsSnowLabel.style = "color: white" 
+        } 
+        if (this.statsVisitedLabel) {
+            this.statsVisitedLabel.style = "color: white" 
+        } 
+        if (this.statsDistanceLabel) {
+            this.statsDistanceLabel.style = "color: white" 
+        } 
         this.setupInterval();
     }
 
@@ -706,18 +716,20 @@ export class WorldFlightMap {
                         this.santaFlight.progress = 0;
                                 
                         if (this.statsVisitedLabel)
-                            this.statsVisitedLabel.textContent = ' ' + this.santaVisits.toString() + '   ' ;
+                            this.statsVisitedLabel.textContent = 'Visited Cities: ' + this.santaVisits.toString() + '   ' ;
  
                         if (this.statsDistanceLabel)
-                            this.statsDistanceLabel.textContent = ' ' + this.santaDistance.toLocaleString('en-US') + ' KM';
+                            this.statsDistanceLabel.textContent = 'Traveled Distance: ' + this.santaDistance.toLocaleString('en-US') + ' KM';
                         
                         break;
                     }
                     
                 }
 
-                if (!foundConnection || this.santaVisits > 1500) {
+                if (!foundConnection || this.santaVisits > 1000) {
                     this.stopAnimation(this.santaUpdateID);
+                    this.stopAnimation(this.snowUpdateID);
+                    this.stopAnimation(this.airportUpdateID);
                 }
 
             } else {
@@ -733,18 +745,21 @@ export class WorldFlightMap {
     public santaVisits: number = 0;
     public santaDistance: number = 0;
 
-    public interval: number = -1; 
+    public snowUpdateID: number = -1; 
     public santaUpdateID: number = -1;
+    public airportUpdateID: number = -1;
     public refreshMilliseconds: number = 50;
     public setupInterval(): void {
-        if (this.interval >= 0) {
-            window.clearInterval(this.interval);
-            this.interval = -1;
-        }
+        // if (this.interval >= 0) {
+        //     window.clearInterval(this.interval);
+        //     this.interval = -1;
+        // }
+        this.stopAnimation(this.airportUpdateID);
+        this.stopAnimation(this.snowUpdateID);
         this.stopAnimation(this.santaUpdateID);
 
-        this.interval = window.setInterval(() => this.onTickSnow(), this.refreshMilliseconds);
-        this.interval = window.setInterval(() => this.onTickAirport(), this.refreshMilliseconds * 10);
+        this.airportUpdateID = window.setInterval(() => this.onTickAirport(), this.refreshMilliseconds * 10);
+        this.snowUpdateID = window.setInterval(() => this.onTickSnow(), this.refreshMilliseconds);
         this.santaUpdateID = window.setInterval(() => this.onTickSanta(), this.santaUpdateInterval);
     }
 
@@ -837,7 +852,7 @@ export class WorldFlightMap {
                 
                 this.snowFlakesFallen++;
                 if (this.statsSnowLabel)
-                    this.statsSnowLabel.textContent = this.snowFlakesFallen.toLocaleString('en-US') + '';
+                    this.statsSnowLabel.textContent = 'Snow Flakes Landed: ' + this.snowFlakesFallen.toLocaleString('en-US') + '';
  
             }
 

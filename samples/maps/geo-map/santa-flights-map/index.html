@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="christmas-background">
   <head>
     <title>WorldFlightMap</title>
     <meta charset="UTF-8" />
@@ -14,29 +14,28 @@
     
   </head>
 
-  <body>
-    <div id="root">
+  <body class="christmas-background">
+    <div id="root" style="background: black">
 
 <div class="container sample christmas-background"  >
 
-    <label id="blinking-text" style="color: #fff; " class="christmas-title"> Merry Christmas and Happy New Year from Infragistics</label>
+    <label id="blinking-text" class="christmas-title"> Merry Christmas and Happy New Year from Infragistics</label>
 
     <igc-geographic-map id="geoMap" width="100%" height="100%">
     </igc-geographic-map>
 
-    <div class="horizontal christmas-info"  >
+    <div class="vertical christmas-info"  >
        <div class="horizontal"  >
+          <!-- <label class="christmas-stats-lbl">Visited Cities: </label> -->
+          <label class="christmas-stats-val" style="color: #000; " id="statsVisitedLabel" >Visited Cities: 0</label>
+          <!-- <label class="christmas-stats-lbl">Distance: </label> -->
+          <label class="christmas-stats-val" style="color: #000; " id="statsDistanceLabel" >Traveled Distance: 0</label>
+          <!-- <label class="christmas-stats-lbl">Snow Flakes Landed: </label> -->
+          <label class="christmas-stats-val" id="statsSnowLabel" >Snow Flakes Landed: 0</label>
       </div>
       
-      <label class="christmas-stats-lbl">Visited Cities: </label>
-      <label class="christmas-stats-val" id="statsVisitedLabel" >0</label>
-      <label class="christmas-stats-lbl">Distance: </label>
-      <label class="christmas-stats-val" id="statsDistanceLabel" >0</label>
+      <label class="christmas-info" style="color: white" id="appInfo">All effects were created in <a href="https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/geo-map" target="_blank" rel="noopener noreferrer"> Geo-Map</a></label>
 
-      <label class="christmas-info">All effects were created in <a href="https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/geo-map" target="_blank" rel="noopener noreferrer"> Geo-Map</a></label>
-
-      <label class="christmas-stats-lbl">Snow Flakes Fallen: </label>
-      <label class="christmas-stats-val" id="statsSnowLabel" >0</label>
     </div>
   
 </div>
