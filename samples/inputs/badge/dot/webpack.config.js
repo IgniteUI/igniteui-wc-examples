@@ -29,6 +29,8 @@ module.exports = env => {
 
     return {
         entry: isLegacy ? [
+            path.resolve(__dirname, 'node_modules/@webcomponents/custom-elements'),
+            path.resolve(__dirname, 'node_modules/@webcomponents/template'),
             path.resolve(__dirname, 'src')
         ] : path.resolve(__dirname, 'src'),
         devtool: isProd ? false : 'source-map',
@@ -54,25 +56,6 @@ module.exports = env => {
                 { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
                 { test: /\.xml$/, use: ['xml-loader'] },
                 { test: /\.css$/, sideEffects: true, use: ['style-loader', 'css-loader'] },
-                { 
-                    test: /\.scss$/, 
-                    sideEffects: true, 
-                    use: [
-                        'style-loader', 
-                        'css-loader', 
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                sassOptions: {
-                                    silenceDeprecations: ['color-functions', 'if-function'],
-                                    loadPaths: [
-                                        path.resolve(__dirname, 'node_modules'),
-                                    ]
-                                }
-                            }
-                        }
-                    ] 
-                },
                 {
                     test: /worker\.(ts|js)$/,
                     use: [
@@ -119,20 +102,6 @@ module.exports = env => {
                 template: 'index.html'
             }),
             new ForkTsCheckerWebpackPlugin()
-        ],
-
-        devServer: {
-            client: {
-                overlay: {
-                    runtimeErrors: (error) => {
-                        if (error.message === 'ResizeObserver loop limit exceeded' || 
-                            error.message === 'ResizeObserver loop completed with undelivered notifications.') {
-                            return false;
-                        }
-                        return true;
-                    },
-                },
-            },
-        }
+        ]
     };
 };

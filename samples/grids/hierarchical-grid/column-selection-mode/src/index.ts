@@ -26,7 +26,7 @@ export class Sample {
 
     constructor() {
         var propertyEditor = this.propertyEditor = document.getElementById('PropertyEditor') as IgcPropertyEditorPanelComponent;
-        var columnSelectionEditor = this.columnSelectionEditor = document.getElementById('columnSelectionEditor') as IgcPropertyEditorPropertyDescriptionComponent;
+        var columnSelectionEditor = this.columnSelectionEditor = document.getElementById('ColumnSelectionEditor') as IgcPropertyEditorPropertyDescriptionComponent;
         var hierarchicalGrid = this.hierarchicalGrid = document.getElementById('hierarchicalGrid') as IgcHierarchicalGridComponent;
 
         this._bind = () => {
