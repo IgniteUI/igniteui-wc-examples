@@ -3,7 +3,7 @@ import { defineComponents, IgcRatingComponent } from 'igniteui-webcomponents';
 import { GridLiteDataService, ProductInfo } from './GridLiteDataService';
 
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import "./index.css";
+import "./index.scss";
 
 IgcGridLite.register();
 defineComponents(IgcRatingComponent);
