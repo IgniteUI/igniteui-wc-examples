@@ -62,7 +62,7 @@ export class WorldHierarchicalData {
             { name:  "Cuba", pop:  11253665, id: "Cuba", parent: "Central_America_and_the_Caribbean" },
             { name:  "Curacao", pop:  145619, id: "Curacao", parent: "Central_America_and_the_Caribbean" },
             { name:  "Cyprus", pop:  1116564, id: "Cyprus", parent: "Europe" },
-            { name:  "Czech Republic", pop:  10496088, id: "Czech_Republic", parent: "Europe" },
+            { name:  "Czechia", pop:  10496088, id: "Czechia", parent: "Europe" },
             { name:  "Denmark", pop:  5570572, id: "Denmark", parent: "Europe" },
             { name:  "Djibouti", pop:  905564, id: "Djibouti", parent: "Africa" },
             { name:  "Dominica", pop:  67675, id: "Dominica", parent: "Central_America_and_the_Caribbean" },
