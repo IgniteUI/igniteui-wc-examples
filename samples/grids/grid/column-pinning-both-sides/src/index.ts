@@ -48,21 +48,25 @@ export class Sample {
 
     private handlePinLeft = () => {
         this.grid.selectedColumns().forEach((col: IgcColumnComponent) => {
-            col.pinningPosition = ColumnPinningPosition.Start;
-            col.pinned = true;
+            if (col.pinned) {
+                col.unpin();
+            }
+            col.pin(undefined, ColumnPinningPosition.Start);
         });
     };
 
     private handlePinRight = () => {
         this.grid.selectedColumns().forEach((col: IgcColumnComponent) => {
-            col.pinningPosition = ColumnPinningPosition.End;
-            col.pinned = true;
+            if (col.pinned) {
+                col.unpin();
+            }
+            col.pin(undefined, ColumnPinningPosition.End);
         });
     };
 
     private handleUnpin = () => {
         this.grid.selectedColumns().forEach((col: IgcColumnComponent) => {
-            col.pinned = false;
+            col.unpin();
         });
     };
 }
