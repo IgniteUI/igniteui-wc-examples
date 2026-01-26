@@ -10,7 +10,7 @@
   "scripts": {
     "build": "npm run build:prod",
     "build:dev": "webpack --mode development --config ./webpack.config.js --progress --color --display-error-details",
-    "build:prod": "webpack --env.NODE_ENV=production --mode production --config ./webpack.config.js  --progress  --color --display-error-details --bail",
+    "build:prod": "webpack --mode production --config ./webpack.config.js  --progress  --color --bail",
     "serve:dev": "node --max-old-space-size=8192 node_modules/webpack-dev-server/bin/webpack-dev-server.js --mode development --config ./webpack.config.js --hot --progress --open",
     "serve:prod": "webpack-dev-server --env.NODE_ENV=production  --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --progress --open --content-base dist/",
     "start": "npm run serve:dev",
@@ -23,10 +23,10 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
-    "igniteui-webcomponents-core": "6.3.0-beta.0",
-    "igniteui-webcomponents-grids": "6.2.0",
-    "igniteui-webcomponents-inputs": "6.3.0-beta.0",
-    "igniteui-webcomponents-layouts": "6.3.0-beta.0",
+    "igniteui-webcomponents-core": "6.3.1",
+    "igniteui-webcomponents-grids": "6.3.0-alpha.1",
+    "igniteui-webcomponents-inputs": "6.3.1",
+    "igniteui-webcomponents-layouts": "6.3.1",
     "lit-html": "^3.3.1",
     "tslib": "^2.8.1"
   },

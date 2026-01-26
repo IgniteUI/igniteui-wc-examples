@@ -1,0 +1,48 @@
+import { IgcGridLite } from 'igniteui-grid-lite';
+import { GridLiteDataService, User } from './GridLiteDataService';
+
+import "igniteui-webcomponents/themes/light/bootstrap.css";
+import "./index.css";
+
+IgcGridLite.register();
+
+export class Sample {
+    private dataService: GridLiteDataService;
+
+    constructor() {
+        this.dataService = new GridLiteDataService();
+        const gridLite = document.getElementById('grid-lite') as any;
+        const data: User[] = this.dataService.generateUsers(50);
+        
+        const columns = [
+            { 
+                key: 'id', 
+                headerText: '🆔 ID',
+                width: '150px'
+            },
+            { 
+                key: 'firstName', 
+                headerText: '👤 First Name'
+            },
+            { 
+                key: 'lastName', 
+                headerText: '👤 Last Name'
+            },
+            { 
+                key: 'age', 
+                headerText: '🎂 Age',
+                type: 'number',
+                width: '100px'
+            },
+            { 
+                key: 'email', 
+                headerText: '📧 Email'
+            }
+        ];
+
+        gridLite.columns = columns;
+        gridLite.data = data;
+    }
+}
+
+new Sample();

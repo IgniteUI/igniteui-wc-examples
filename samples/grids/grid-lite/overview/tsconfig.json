@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "noImplicitAny": true,
+    "declarationDir": "dist/types",
+    "moduleResolution": "node",
+    "declaration": true,
+    "target": "es2015",
+    "module": "es2015",
+    "strict": true,
+    "strictNullChecks": false,
+    "baseUrl": ".",
+    "paths": {
+      "igniteui-webcomponents": [ "node_modules/igniteui-webcomponents"],
+      "igniteui-webcomponents-core": [ "node_modules/igniteui-webcomponents-core", "node_modules/@infragistics/igniteui-webcomponents-core" ],
+      "igniteui-webcomponents": [ "node_modules/igniteui-webcomponents", "node_modules/@infragistics/igniteui-webcomponents" ],
+      "igniteui-grid-lite": [ "node_modules/igniteui-grid-lite", "node_modules/@infragistics/igniteui-grid-lite" ]
+    }
+  },
+  "include": [
+      "src/**/*"
+  ],
+  "exclude": [
+      "node_modules",
+      "dist"
+  ]
+}

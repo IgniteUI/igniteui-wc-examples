@@ -136,6 +136,25 @@ var config = {
             'postcss-loader'
         ]
       },
+      {
+        test: /\.scss$/,
+        sideEffects: true,
+        use: [
+            'style-loader',
+            'css-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                sassOptions: {
+                  silenceDeprecations: ['color-functions', 'if-function'],
+                  loadPaths: [
+                    path.resolve(__dirname, 'node_modules'),
+                  ]
+                }
+              }
+            }
+        ]
+      },
       { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
       { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
       { test: /\.xml$/, use: ['xml-loader'] }
@@ -156,7 +175,18 @@ var config = {
     compress: true,
     port: 4200,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    client: {
+      overlay: {
+        runtimeErrors: (error) => {
+          if (error.message === 'ResizeObserver loop limit exceeded' || 
+              error.message === 'ResizeObserver loop completed with undelivered notifications.') {
+            return false;
+          }
+          return true;
+        },
+      },
+    },
   },
   optimization: {
     splitChunks: {

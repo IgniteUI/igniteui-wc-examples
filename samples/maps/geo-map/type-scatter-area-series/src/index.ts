@@ -23,12 +23,10 @@ export class MapTypeScatterAreaSeries {
         this.geoMap = document.getElementById('geoMap') as IgcGeographicMapComponent;
         this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.6, height: 0.6 });
 
-        const url = 'https://static.infragistics.com/xplatform';
-
         const sfc = new ShapefileConverter();
         sfc.importCompleted = this.onDataLoaded;
-        sfc.shapefileSource = url + '/shapes/WorldTemperatures.shp';
-        sfc.databaseSource  = url + '/shapes/WorldTemperatures.dbf';
+        sfc.shapefileSource = 'https://static.infragistics.com/xplatform/shapes/WorldTemperatures.shp';
+        sfc.databaseSource  = 'https://static.infragistics.com/xplatform/shapes/WorldTemperatures.dbf';
     }
 
     public onDataLoaded(sds: ShapefileConverter, e: any) {
