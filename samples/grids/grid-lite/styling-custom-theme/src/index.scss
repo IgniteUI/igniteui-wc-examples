@@ -1,5 +1,5 @@
 @use 'igniteui-theming' as *;
-@use '../node_modules/igniteui-theming/sass/typography/presets/bootstrap' as bootstrap;
+@use 'igniteui-theming/sass/typography/presets/bootstrap' as bootstrap;
 
 $custom-palette: palette(
     $primary: #ddd020,
