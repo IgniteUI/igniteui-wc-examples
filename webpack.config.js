@@ -125,6 +125,22 @@ var config = {
       },
       { test: /\.html$/, use: 'html-loader' },
       {
+        test: /\.scss$/,
+        sideEffects: true,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                silenceDeprecations: ['color-functions', 'if-function'],
+              }
+            }
+          }
+        ]
+      },
+      {
         test: /\.css$/,
         sideEffects: true,
         use: [
@@ -163,6 +179,9 @@ var config = {
   resolve: {
     mainFields: ['esm2015', 'module', 'main'],
     extensions: ['.ts', '.js', '.json'],
+    alias: {
+      'igniteui-theming': path.resolve(__dirname, 'node_modules/igniteui-theming')
+    },
     plugins: [new TsconfigPathsPlugin({
       configFile: './tsconfig.json',
       extensions: ['.ts', '.js'],
