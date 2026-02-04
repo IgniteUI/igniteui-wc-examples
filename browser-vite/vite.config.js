@@ -27,7 +27,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@samples': path.resolve(__dirname, 'src/samples')
+      '@samples': path.resolve(__dirname, 'src/samples'),
+      'igniteui-theming': path.resolve(__dirname, '..', 'node_modules', 'igniteui-theming')
     }
   },
   css: {
