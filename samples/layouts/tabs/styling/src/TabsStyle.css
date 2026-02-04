@@ -1,16 +1,16 @@
 igc-tab::part(tab-header),
 igc-tabs::part(inner)::after {
-    background-color: var(--ig-surface-600);
+    --item-background: var(--ig-surface-600);
     --border-color: var(--ig-success-300);
 }
 
 igc-tab::part(tab-body),
 igc-tab[selected] igc-icon {
-    color: var(--ig-success-300);
+    --item-active-icon-color: var(--ig-success-300);
 }
 
 igc-tab:not([selected]) igc-icon {
-    color: var(--ig-gray-500);
+    --item-icon-color: var(--ig-gray-500);
 }
 
 igc-tabs::part(start-scroll-button),
