@@ -25,5 +25,16 @@ export default defineConfig({
     alias: {
       '@samples': path.resolve(__dirname, 'src/samples')
     }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+        loadPaths: [
+          path.resolve(__dirname, 'node_modules'),
+          path.resolve(__dirname, 'src')
+        ]
+      }
+    }
   }
 });
