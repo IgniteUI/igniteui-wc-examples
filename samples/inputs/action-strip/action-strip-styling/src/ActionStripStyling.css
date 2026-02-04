@@ -1,0 +1,40 @@
+.igx-action-strip__actions {
+    display: flex;
+    flex-direction: column;
+    max-height: 72px;
+}
+
+igc-action-strip {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+    --ig-action-strip-background: rgba(236, 236, 236, 0.4);
+    --ig-action-strip-actions-background: rgba(255, 255, 255, 0.8);
+    --ig-action-strip-actions-border-radius: 0;
+}
+
+igc-button::part(base) {
+    background-color: rgb(233, 233, 233);
+    color: #005EEC;
+}
+
+igc-button::part(base):hover {
+    background-color: rgb(240, 240, 240);
+}
+
+.parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: auto;
+    min-width: 700px;
+    max-width: 1000px;
+    position: relative;
+}
+
+.text-strike-through {
+    text-decoration: line-through;
+}
