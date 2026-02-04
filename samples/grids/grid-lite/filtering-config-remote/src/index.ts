@@ -1,5 +1,6 @@
 import { DataPipelineConfiguration, FilterExpression, FilterOperation, IgcGridLite } from 'igniteui-grid-lite';
 import { GridLiteDataService, User } from './GridLiteDataService';
+import { html, render } from 'lit-html';
 
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
@@ -20,26 +21,47 @@ function groupBy<T extends object>(arr: T[], key: keyof T) {
 
 export class Sample {
     private dataService: GridLiteDataService;
-    private gridLite: any;
+    private gridLite: IgcGridLite | null = null;
     private codeElement: HTMLElement;
     private allData: User[] = [];
 
     constructor() {
         this.dataService = new GridLiteDataService();
-        this.gridLite = document.getElementById('grid-lite') as any;
         this.allData = this.dataService.generateUsers(100);
         this.codeElement = document.getElementById('queryString')!;
 
-        const columns = [
-            { key: 'firstName', headerText: 'First name', filter: true },
-            { key: 'lastName', headerText: 'Last name', filter: true },
-            { key: 'age', headerText: 'Age', filter: true, type: 'number' },
-            { key: 'email', headerText: 'Email' }
-        ];
-
-        this.gridLite.columns = columns;
-        this.gridLite.data = this.allData;
-        this.gridLite.dataPipelineConfiguration = this.config;
+        const container = document.getElementById('grid-lite');
+        
+        const template = html`
+          <igc-grid-lite .data=${this.allData}>
+            <igc-grid-lite-column 
+              field="firstName" 
+              header="First name" 
+              filterable
+            ></igc-grid-lite-column>
+            <igc-grid-lite-column 
+              field="lastName" 
+              header="Last name" 
+              filterable
+            ></igc-grid-lite-column>
+            <igc-grid-lite-column 
+              field="age" 
+              header="Age" 
+              filterable
+              data-type="number"
+            ></igc-grid-lite-column>
+            <igc-grid-lite-column 
+              field="email" 
+              header="Email"
+            ></igc-grid-lite-column>
+          </igc-grid-lite>
+        `;
+        
+        render(template, container!);
+        
+        // Get reference to the grid after rendering
+        this.gridLite = container!.querySelector('igc-grid-lite');
+        this.gridLite!.dataPipelineConfiguration = this.config;
     }
 
     protected config: DataPipelineConfiguration<User> = {
