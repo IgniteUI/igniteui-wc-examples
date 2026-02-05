@@ -1,9 +1,7 @@
 import "./DockManagerStyles.css";
 import { MenuComponent } from "./menu-component";
-import { defineCustomElements } from "igniteui-dockmanager/loader";
 import { IgcContentPane, IgcDockManagerComponent, IgcDockManagerLayout, IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
 
-defineCustomElements();
 window.customElements.define("menu-component", MenuComponent);
 
 import {
@@ -42,7 +40,8 @@ defineComponents(
     IgcCardActionsComponent,
     IgcRippleComponent,
     IgcIconButtonComponent,
-    IgcIconComponent
+    IgcIconComponent,
+    IgcDockManagerComponent
 );
 
 export class DockManagerStylePanes {

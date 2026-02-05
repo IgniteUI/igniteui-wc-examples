@@ -2,10 +2,11 @@ import './DockManagerStyles.css'
 import { DockManagerSharedData } from './DockManagerSharedData';
 import { WorldUtils } from './WorldUtils';
 import { html } from 'lit-html';
-import { defineCustomElements } from 'igniteui-dockmanager/loader';
-import { IgcDockManagerComponent } from 'igniteui-dockmanager';
-import { IgcDockManagerPaneType, IgcContentPane } from 'igniteui-dockmanager';
-import { IgcSplitPaneOrientation } from 'igniteui-dockmanager';
+import {
+    IgcDockManagerComponent,
+    IgcDockManagerPaneType, IgcContentPane,
+    IgcSplitPaneOrientation, defineComponents
+} from 'igniteui-dockmanager';
 // import { IgcLinearGaugeModule } from 'igniteui-webcomponents-gauges';
 // import { IgcLinearGaugeComponent } from 'igniteui-webcomponents-gauges';
 // import { IgcLinearGraphRangeComponent } from 'igniteui-webcomponents-gauges';
@@ -26,8 +27,7 @@ ModuleManager.register(
     // IgcLinearGaugeModule,
     IgcCategoryChartModule
 );
-defineCustomElements();
-//
+defineComponents(IgcDockManagerComponent);
 
 export class DockManagerUpdatingPanes {
 
@@ -97,7 +97,7 @@ export class DockManagerUpdatingPanes {
                         type: IgcDockManagerPaneType.splitPane,
                         orientation: IgcSplitPaneOrientation.vertical,
                         size: 100,
-                        panes: [ this.employeeListPane ]
+                        panes: [this.employeeListPane]
                     },
                     {
                         type: IgcDockManagerPaneType.splitPane,
@@ -132,8 +132,8 @@ export class DockManagerUpdatingPanes {
         this.productivityChart.transitionDuration = 100;
         this.productivityChart.transitionInDuration = 1000;
         this.productivityChart.isSeriesHighlightingEnabled = true;
-        this.productivityChart.crosshairsAnnotationEnabled  = true;
-        this.productivityChart.crosshairsSnapToData  = true;
+        this.productivityChart.crosshairsAnnotationEnabled = true;
+        this.productivityChart.crosshairsSnapToData = true;
         this.productivityChart.toolTipType = ToolTipType.Item;
 
         this.productivityChart.transitionInMode = CategoryTransitionInMode.AccordionFromBottom;
@@ -225,9 +225,9 @@ export class DockManagerUpdatingPanes {
         const lat = WorldUtils.toStringLat(dataItem.Latitude);
         const lon = WorldUtils.toStringLon(dataItem.Longitude);
 
-    // <div class='tooltipFlagBoarder'> ${context.series.markerOutline}
-    //     <img class='tooltipFlagImage' src='${scr}' />
-    // </div>
+        // <div class='tooltipFlagBoarder'> ${context.series.markerOutline}
+        //     <img class='tooltipFlagImage' src='${scr}' />
+        // </div>
         let tooltip = html`<div  class='tooltipHorizontal'>
             <img class='tooltipFlagImage' src='${scr}' />
             <div style='marginLeft: 5px'>
