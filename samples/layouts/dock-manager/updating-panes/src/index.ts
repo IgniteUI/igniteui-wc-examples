@@ -3,9 +3,11 @@ import { DockManagerSharedData } from './DockManagerSharedData';
 import { WorldUtils } from './WorldUtils';
 import { html } from 'lit-html';
 import {
+    IgcDockManagerPaneType,
+    IgcContentPane,
+    IgcSplitPaneOrientation,
     IgcDockManagerComponent,
-    IgcDockManagerPaneType, IgcContentPane,
-    IgcSplitPaneOrientation, defineComponents
+    defineComponents
 } from 'igniteui-dockmanager';
 // import { IgcLinearGaugeModule } from 'igniteui-webcomponents-gauges';
 // import { IgcLinearGaugeComponent } from 'igniteui-webcomponents-gauges';
