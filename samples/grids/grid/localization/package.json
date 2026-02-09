@@ -24,7 +24,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "igniteui-i18n-resources": "^1.0.2",
-    "igniteui-webcomponents": "6.5.1",
+    "igniteui-webcomponents": "^6.3.6",
     "igniteui-webcomponents-core": "6.3.1",
     "igniteui-webcomponents-grids": "6.3.0-rc.0",
     "igniteui-webcomponents-inputs": "6.3.1",

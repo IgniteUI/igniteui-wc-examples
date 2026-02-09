@@ -1013,7 +1013,7 @@ function updateIG(cb) {
         { version: "6.3.1", name: "igniteui-webcomponents-dashboards" },
         // these IG packages are sometimes updated:
         { version: "^0.0.1", name: "igniteui-grid-lite" },
-        { version: "^6.2.2", name: "igniteui-webcomponents-grids" },
+        { version: "6.3.0-rc.0", name: "igniteui-webcomponents-grids" },
         { version: "^6.3.6" , name: "igniteui-webcomponents" },
         { version: "^2.0.1", name: "igniteui-dockmanager" },
         // other packages:
