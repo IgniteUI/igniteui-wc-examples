@@ -118,10 +118,14 @@ class SamplesBrowser {
 
   private restoreOrResolveRoute() {
     const savedRoute = sessionStorage.getItem("vite-current-route");
-    if (savedRoute) {
+    const currentPath = window.location.pathname;
+    const isRoot = currentPath === "/" || currentPath.endsWith("/index.html");
+
+    if (savedRoute && isRoot) {
       sessionStorage.removeItem("vite-current-route");
       this.router.navigate(savedRoute);
     } else {
+      sessionStorage.removeItem("vite-current-route");
       this.router.resolve();
     }
   }
