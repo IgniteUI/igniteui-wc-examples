@@ -1,6 +1,6 @@
 import './DockManagerStyles.css'
-import { defineCustomElements } from 'igniteui-dockmanager/loader';
 import {
+    defineComponents,
     IgcContentPane,
     IgcDockManagerPaneType,
     IgcSplitPane,
@@ -10,7 +10,7 @@ import {
     IgcDockManagerPane
 } from 'igniteui-dockmanager';
 
-defineCustomElements();
+defineComponents(IgcDockManagerComponent);
 
 export class DockManagerAddContentRuntime {
     private dockManager: IgcDockManagerComponent;
