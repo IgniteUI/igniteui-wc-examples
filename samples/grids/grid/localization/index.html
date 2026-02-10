@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="grid-wrapper">
+        <igc-grid
+          id="grid"
+          auto-generate="false"
+          allow-filtering="true"
+          row-editable="true"
+          primary-key="ProductID"
+          height="700px"
+          width="100%">
+          
+          <igc-grid-toolbar>
+            <igc-grid-toolbar-title>Grid with Localization</igc-grid-toolbar-title>
+            <igc-select id="localeSelect" max-height="30px">
+              <igc-select-item value="hi">HI</igc-select-item>
+              <igc-select-item value="bg">BG</igc-select-item>
+              <igc-select-item value="cs">CS</igc-select-item>
+              <igc-select-item value="da">DA</igc-select-item>
+              <igc-select-item value="de">DE</igc-select-item>
+              <igc-select-item value="en">EN</igc-select-item>
+              <igc-select-item value="es">ES</igc-select-item>
+              <igc-select-item value="fr">FR</igc-select-item>
+              <igc-select-item value="hu">HU</igc-select-item>
+              <igc-select-item value="it">IT</igc-select-item>
+              <igc-select-item value="ja">JA</igc-select-item>
+              <igc-select-item value="ko">KO</igc-select-item>
+              <igc-select-item value="nb">NB</igc-select-item>
+              <igc-select-item value="nl">NL</igc-select-item>
+              <igc-select-item value="pl">PL</igc-select-item>
+              <igc-select-item value="pt">PT</igc-select-item>
+              <igc-select-item value="ro">RO</igc-select-item>
+              <igc-select-item value="sv">SV</igc-select-item>
+              <igc-select-item value="tr">TR</igc-select-item>
+              <igc-select-item value="zh-Hans">zh-Hans</igc-select-item>
+              <igc-select-item value="zh-Hant">zh-Hant</igc-select-item>
+            </igc-select>
+          </igc-grid-toolbar>
+
+          <igc-column field="ProductName" header="Product Name" groupable></igc-column>
+          <igc-column field="QuantityPerUnit" header="Quantity Per Unit" groupable></igc-column>
+          <igc-column
+            field="UnitPrice"
+            header="Unit Price"
+            data-type="currency"
+            sortable
+            has-summary
+            groupable>
+          </igc-column>
+          <igc-column
+            field="OrderDate"
+            header="Order Date"
+            data-type="date"
+            groupable>
+          </igc-column>
+          <igc-column
+            field="Discontinued"
+            header="Discontinued"
+            data-type="boolean"
+            groupable>
+          </igc-column>
+      
+        </igc-grid>
+      </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
