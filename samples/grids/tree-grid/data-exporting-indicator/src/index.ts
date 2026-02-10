@@ -11,10 +11,18 @@ export class Sample {
 
     constructor() {
         const localData: any[] = [];
+        let idOffset = 0;
         for (let i = 0; i < 10000; i += 3) {
             for (let c = 0; c < this.ordersTreeData.length; c++) {
-                localData.push(this.ordersTreeData[c]);
+                const item = this.ordersTreeData[c];
+                const newItem = {
+                    ...item,
+                    ID: item.ID + idOffset,
+                    ParentID: item.ParentID === -1 ? -1 : item.ParentID + idOffset
+                };
+                localData.push(newItem);
             }
+            idOffset += 10000;
         }
 
         var treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
@@ -30,7 +38,7 @@ export class Sample {
         });
     }
 
-    private _ordersTreeData: OrdersTreeData = null;
+    private _ordersTreeData: OrdersTreeData | null = null;
     public get ordersTreeData(): OrdersTreeData {
         if (this._ordersTreeData == null)
         {
