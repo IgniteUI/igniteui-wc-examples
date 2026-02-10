@@ -17,6 +17,13 @@
 
     body {
       font-family: 'Kanit', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    #app {
       display: flex;
       height: 100vh;
       overflow: hidden;
@@ -183,30 +190,7 @@
   </style>
 </head>
 <body>
-  <div id="nav-sidebar">
-    <div id="nav-header">
-      <h1>Samples Browser</h1>
-      <p>Vite Edition</p>
-    </div>
-    <div id="nav-content"></div>
-  </div>
-
-  <div id="main-content">
-    <div id="toolbar">
-      <button id="toggle-nav">☰ Toggle Nav</button>
-      <span id="sample-title">Select a sample from the sidebar</span>
-    </div>
-    <div id="sample-container">
-      <div id="welcome-message">
-        <h2>Welcome to Ignite UI Web Components Samples</h2>
-        <p>
-          Select a sample from the sidebar to view it. This browser is powered by Vite
-          for fast development and hot module replacement.
-        </p>
-      </div>
-    </div>
-  </div>
-
+  <div id="app"></div>
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

@@ -8,6 +8,27 @@ interface SampleInfo {
   htmlContent: string;
 }
 
+const fullBrowserHtml = `
+  <div id="nav-sidebar">
+    <div id="nav-header">
+      <h1>Samples Browser</h1>
+      <p>Vite Edition</p>
+    </div>
+    <div id="nav-content"></div>
+  </div>
+  <div id="main-content">
+    <div id="toolbar">
+      <button id="toggle-nav">☰ Toggle Nav</button>
+      <span id="sample-title">Select a sample from the sidebar</span>
+    </div>
+    <div id="sample-container"></div>
+  </div>
+`;
+
+const embeddedBrowserHtml = `
+  <div id="sample-container"></div>
+`;
+
 const welcomeHtml = `
   <div id="welcome-message">
     <h2>Welcome to Ignite UI Web Components Samples</h2>
@@ -63,27 +84,52 @@ function groupSamples(
 }
 
 class SamplesBrowser {
-  private navSidebar: HTMLElement;
-  private navContent: HTMLElement;
-  private sampleContainer: HTMLElement;
-  private sampleTitle: HTMLElement;
-  private toggleNavBtn: HTMLElement;
-  private toolbar: HTMLElement | null;
+  private appContainer: HTMLElement;
+  private navSidebar: HTMLElement | null = null;
+  private navContent: HTMLElement | null = null;
+  private sampleContainer: HTMLElement | null = null;
+  private sampleTitle: HTMLElement | null = null;
+  private toggleNavBtn: HTMLElement | null = null;
+  private toolbar: HTMLElement | null = null;
   private samples: SampleInfo[] = [];
   private router: Navigo;
   private sampleModules = import.meta.glob("/src/samples/**/index.ts");
   private isEmbeddedMode = false;
+  private uiInitialized = false;
 
   constructor() {
-    this.navSidebar = document.getElementById("nav-sidebar")!;
-    this.navContent = document.getElementById("nav-content")!;
-    this.sampleContainer = document.getElementById("sample-container")!;
-    this.sampleTitle = document.getElementById("sample-title")!;
-    this.toggleNavBtn = document.getElementById("toggle-nav")!;
-    this.toolbar = document.getElementById("toolbar");
-
-    this.router = new Navigo("/", { hash: false });
+    this.appContainer = document.getElementById("app")!;
+    this.router = new Navigo(import.meta.env.BASE_URL, { hash: false });
+    this.determineInitialMode();
     this.loadMetadata();
+  }
+
+  private determineInitialMode() {
+    const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+    const fullPath = window.location.pathname;
+    const pathWithoutBase = fullPath.replace(baseUrl, "") || "/";
+    
+    // Check if path starts with /samples/ (full browser mode)
+    const isFullBrowserMode = pathWithoutBase === "/" || pathWithoutBase.startsWith("/samples/");
+    this.isEmbeddedMode = !isFullBrowserMode;
+    
+    // Inject appropriate HTML structure
+    if (this.isEmbeddedMode) {
+      this.appContainer.innerHTML = embeddedBrowserHtml;
+    } else {
+      this.appContainer.innerHTML = fullBrowserHtml;
+    }
+    
+    // Cache element references based on mode
+    this.sampleContainer = document.getElementById("sample-container");
+    
+    if (!this.isEmbeddedMode) {
+      this.navSidebar = document.getElementById("nav-sidebar");
+      this.navContent = document.getElementById("nav-content");
+      this.sampleTitle = document.getElementById("sample-title");
+      this.toggleNavBtn = document.getElementById("toggle-nav");
+      this.toolbar = document.getElementById("toolbar");
+    }
   }
 
   private async loadMetadata() {
@@ -97,13 +143,19 @@ class SamplesBrowser {
   }
 
   private init() {
-    this.toggleNavBtn.addEventListener("click", () => {
-      this.navSidebar.classList.toggle("hidden");
-    });
+    if (!this.isEmbeddedMode && this.toggleNavBtn && this.navSidebar) {
+      this.toggleNavBtn.addEventListener("click", () => {
+        this.navSidebar!.classList.toggle("hidden");
+      });
+      this.buildNavigation();
+    }
 
-    this.buildNavigation();
     this.setupRouter();
-    this.setupRoutePreservation();
+    
+    if (!this.isEmbeddedMode) {
+      this.setupRoutePreservation();
+    }
+    
     this.restoreOrResolveRoute();
   }
 
@@ -118,8 +170,16 @@ class SamplesBrowser {
 
   private restoreOrResolveRoute() {
     const savedRoute = sessionStorage.getItem("vite-current-route");
-    const currentPath = window.location.pathname;
-    const isRoot = currentPath === "/" || currentPath.endsWith("/index.html");
+    const currentLocation = this.router.getCurrentLocation();
+    const currentPath = currentLocation.url || "";
+    const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, ""); // Remove trailing slash
+    const fullPath = window.location.pathname;
+    
+    // Check if we're at the root (accounting for base URL)
+    const isRoot = fullPath === baseUrl + "/" || 
+                   fullPath === baseUrl || 
+                   fullPath === "/" || 
+                   fullPath.endsWith("/index.html");
 
     if (savedRoute && isRoot) {
       sessionStorage.removeItem("vite-current-route");
@@ -131,6 +191,8 @@ class SamplesBrowser {
   }
 
   private buildNavigation() {
+    if (!this.navContent) return;
+    
     const groupedSamples = groupSamples(this.samples);
 
     for (const [group, categories] of Object.entries(groupedSamples)) {
@@ -150,6 +212,8 @@ class SamplesBrowser {
     category: string,
     samples: SampleInfo[]
   ) {
+    if (!this.navContent) return;
+    
     const categoryDiv = document.createElement("div");
     categoryDiv.className = "nav-category";
     categoryDiv.textContent = formatName(category);
@@ -209,11 +273,34 @@ class SamplesBrowser {
   }
 
   private setEmbeddedMode(enabled: boolean) {
+    if (this.isEmbeddedMode === enabled) return; // Already in the correct mode
+    
     this.isEmbeddedMode = enabled;
-    this.navSidebar.style.display = enabled ? "none" : "";
-    if (this.toolbar) {
-      this.toolbar.style.display = enabled ? "none" : "";
+    
+    // Re-inject the appropriate HTML structure
+    if (enabled) {
+      this.appContainer.innerHTML = embeddedBrowserHtml;
+    } else {
+      this.appContainer.innerHTML = fullBrowserHtml;
+      // Rebuild navigation in full browser mode
+      this.navContent = document.getElementById("nav-content");
+      if (this.navContent) {
+        this.buildNavigation();
+      }
+      // Re-attach toggle button event
+      this.toggleNavBtn = document.getElementById("toggle-nav");
+      this.navSidebar = document.getElementById("nav-sidebar");
+      if (this.toggleNavBtn && this.navSidebar) {
+        this.toggleNavBtn.addEventListener("click", () => {
+          this.navSidebar!.classList.toggle("hidden");
+        });
+      }
     }
+    
+    // Update element references
+    this.sampleContainer = document.getElementById("sample-container");
+    this.sampleTitle = document.getElementById("sample-title");
+    this.toolbar = document.getElementById("toolbar");
   }
 
   private async loadSampleByPath(path: string) {
@@ -229,13 +316,21 @@ class SamplesBrowser {
   private async loadSample(sample: SampleInfo) {
     const normalizedPath = normalizePath(sample.path);
 
-    this.sampleTitle.textContent = formatName(sample.name);
+    if (this.sampleTitle) {
+      this.sampleTitle.textContent = formatName(sample.name);
+    }
+    
     this.updateActiveNavItem(normalizedPath);
-    this.sampleContainer.innerHTML = loadingHtml;
+    
+    if (this.sampleContainer) {
+      this.sampleContainer.innerHTML = loadingHtml;
+    }
 
     try {
       // Render HTML content from the sample
-      this.sampleContainer.innerHTML = sample.htmlContent || defaultSampleHtml;
+      if (this.sampleContainer) {
+        this.sampleContainer.innerHTML = sample.htmlContent || defaultSampleHtml;
+      }
 
       // Load and execute the sample module
       const modulePath = `/src/samples/${normalizedPath}/index.ts`;
@@ -247,7 +342,9 @@ class SamplesBrowser {
       }
     } catch (error) {
       console.error("Error loading sample:", error);
-      this.sampleContainer.innerHTML = errorHtml(sample.name, error);
+      if (this.sampleContainer) {
+        this.sampleContainer.innerHTML = errorHtml(sample.name, error);
+      }
     }
   }
 
@@ -261,8 +358,12 @@ class SamplesBrowser {
   }
 
   private showWelcome() {
-    this.sampleTitle.textContent = "Select a sample from the sidebar";
-    this.sampleContainer.innerHTML = welcomeHtml;
+    if (this.sampleTitle) {
+      this.sampleTitle.textContent = "Select a sample from the sidebar";
+    }
+    if (this.sampleContainer) {
+      this.sampleContainer.innerHTML = welcomeHtml;
+    }
     this.updateActiveNavItem("");
   }
 }

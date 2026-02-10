@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   root: path.resolve(__dirname),
-  base: './',
+  base: '/webcomponents-demos-new',
   publicDir: 'public',
   build: {
     outDir: 'dist',
