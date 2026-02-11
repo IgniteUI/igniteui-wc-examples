@@ -25,7 +25,7 @@
     "core-js": "^3.6.5",
     "igniteui-webcomponents-charts": "6.3.1",
     "igniteui-webcomponents-core": "6.3.1",
-    "igniteui-webcomponents-grids": "6.3.0-alpha.1",
+    "igniteui-webcomponents-grids": "^6.3.0-rc.0",
     "igniteui-webcomponents-inputs": "6.3.1",
     "igniteui-webcomponents-layouts": "6.3.1",
     "lit-html": "^3.3.1",

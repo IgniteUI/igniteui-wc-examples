@@ -1,8 +1,7 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 @import "tailwindcss";
-@import "igniteui-theming/tailwind/theme";
-@import "igniteui-theming/tailwind/presets/bootstrap-light";
+@import "igniteui-theming/tailwind/themes/light/bootstrap";
 
 main {
     width: 800px;

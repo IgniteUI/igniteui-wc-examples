@@ -9,9 +9,10 @@
     "sourceMap": true,
     "experimentalDecorators": true,
     "outDir": "dist",
-    "lib": ["es2017", "dom", "DOM.Iterable"],
+    "lib": ["es2022", "dom", "DOM.Iterable"],
     "noImplicitAny": false,
     "removeComments": true,
+    "types": ["vite/client", "jasmine", "node"],
     "baseUrl": ".",
     "paths": {
         "igniteui-dockmanager": ["node_modules/igniteui-dockmanager", "node_modules/@infragistics/igniteui-dockmanager/dist"],
