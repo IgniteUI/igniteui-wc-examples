@@ -15,8 +15,7 @@
     "types": ["vite/client", "jasmine", "node"],
     "baseUrl": ".",
     "paths": {
-        "igniteui-dockmanager": ["node_modules/igniteui-dockmanager", "node_modules/@infragistics/igniteui-dockmanager"],
-        "igniteui-dockmanager/*": ["node_modules/igniteui-dockmanager/*", "node_modules/@infragistics/igniteui-dockmanager/*"],
+        "igniteui-dockmanager": ["node_modules/igniteui-dockmanager", "node_modules/@infragistics/igniteui-dockmanager/dist"],
         "igniteui-webcomponents-core": ["node_modules/igniteui-webcomponents-core", "node_modules/@infragistics/igniteui-webcomponents-core"],
         "igniteui-webcomponents-charts": ["node_modules/igniteui-webcomponents-charts", "node_modules/@infragistics/igniteui-webcomponents-charts"],
         "igniteui-webcomponents-gauges": ["node_modules/igniteui-webcomponents-gauges", "node_modules/@infragistics/igniteui-webcomponents-gauges"],
