@@ -94,4 +94,6 @@ export class LinearGaugeTypeMultiRange {
 
 }
 
-new LinearGaugeTypeMultiRange();
+export function initialize() {
+  return new LinearGaugeTypeMultiRange();
+}

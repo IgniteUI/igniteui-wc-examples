@@ -199,4 +199,6 @@ export class DockManagerHidePanes {
     }
 }
 
-new DockManagerHidePanes();
+export function initialize() {
+  return new DockManagerHidePanes();
+}

@@ -7,4 +7,6 @@ export class BadgeOutlined {
     }
 }
 
-new BadgeOutlined();
+export function initialize() {
+  return new BadgeOutlined();
+}

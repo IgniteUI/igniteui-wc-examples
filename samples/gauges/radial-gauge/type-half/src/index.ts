@@ -83,4 +83,6 @@ export class RadialGaugeTypeHalf {
     }
 }
 
-new RadialGaugeTypeHalf();
+export function initialize() {
+  return new RadialGaugeTypeHalf();
+}

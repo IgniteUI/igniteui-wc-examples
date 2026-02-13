@@ -15,4 +15,6 @@ export class SelectItem {
     }
 }
 
-new SelectItem();
+export function initialize() {
+  return new SelectItem();
+}

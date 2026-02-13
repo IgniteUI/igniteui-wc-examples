@@ -980,4 +980,6 @@ export class DataGridBindingLiveData {
     Price: number | number = 0;
 }
 
-new DataGridBindingLiveData();
+export function initialize() {
+  return new DataGridBindingLiveData();
+}

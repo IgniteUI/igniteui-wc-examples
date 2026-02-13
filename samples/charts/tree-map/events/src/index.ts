@@ -74,4 +74,6 @@ export class TreeMapEvents {
     }
 }
 
-new TreeMapEvents();
+export function initialize() {
+  return new TreeMapEvents();
+}

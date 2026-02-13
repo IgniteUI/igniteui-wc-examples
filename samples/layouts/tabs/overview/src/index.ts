@@ -20,4 +20,6 @@ export class TabsOverview {
     }
 }
 
-new TabsOverview();
+export function initialize() {
+  return new TabsOverview();
+}

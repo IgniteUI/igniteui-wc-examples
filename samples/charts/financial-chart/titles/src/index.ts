@@ -19,4 +19,6 @@ export class FinancialChartTitles {
     }
 }
 
-new FinancialChartTitles();
+export function initialize() {
+  return new FinancialChartTitles();
+}

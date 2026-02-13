@@ -77,4 +77,6 @@ export class DataChartTypeFinancialSeries {
     }
 }
 
-new DataChartTypeFinancialSeries();
+export function initialize() {
+  return new DataChartTypeFinancialSeries();
+}

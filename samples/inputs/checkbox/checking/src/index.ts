@@ -7,4 +7,6 @@ export class CheckboxChecking {
     }
 }
 
-new CheckboxChecking();
+export function initialize() {
+  return new CheckboxChecking();
+}

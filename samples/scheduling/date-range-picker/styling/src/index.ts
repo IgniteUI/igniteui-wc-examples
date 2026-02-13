@@ -15,4 +15,6 @@ export class DateRangePickerStyling {
   }
 }
 
-new DateRangePickerStyling();
+export function initialize() {
+  return new DateRangePickerStyling();
+}

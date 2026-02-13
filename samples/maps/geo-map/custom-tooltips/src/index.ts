@@ -103,4 +103,6 @@ export class MapCustomTooltips {
     }
 }
 
-new MapCustomTooltips();
+export function initialize() {
+  return new MapCustomTooltips();
+}

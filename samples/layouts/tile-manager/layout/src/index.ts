@@ -50,4 +50,6 @@ export class TileManagerLayout {
   }
 }
 
-new TileManagerLayout();
+export function initialize() {
+  return new TileManagerLayout();
+}

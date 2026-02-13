@@ -21,4 +21,6 @@ export class CalendarSize {
     }
 }
 
-new CalendarSize();
+export function initialize() {
+  return new CalendarSize();
+}

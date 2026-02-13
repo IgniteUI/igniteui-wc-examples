@@ -8,4 +8,6 @@ export class ButtonStyling {
     }
 }
 
-new ButtonStyling();
+export function initialize() {
+  return new ButtonStyling();
+}

@@ -10,4 +10,6 @@ export class RadialGaugeScale {
 
 }
 
-new RadialGaugeScale();
+export function initialize() {
+  return new RadialGaugeScale();
+}

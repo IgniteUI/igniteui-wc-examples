@@ -23,4 +23,6 @@ export class DateTimeInputMinMaxValue {
     }
 }
 
-new DateTimeInputMinMaxValue();
+export function initialize() {
+  return new DateTimeInputMinMaxValue();
+}

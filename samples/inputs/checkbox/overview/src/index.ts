@@ -7,4 +7,6 @@ export class CheckboxOverview {
     }
 }
 
-new CheckboxOverview();
+export function initialize() {
+  return new CheckboxOverview();
+}

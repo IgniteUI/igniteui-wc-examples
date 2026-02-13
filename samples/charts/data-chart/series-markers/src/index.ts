@@ -101,4 +101,6 @@ export class DataChartSeriesMarkers {
     }
 }
 
-new DataChartSeriesMarkers();
+export function initialize() {
+  return new DataChartSeriesMarkers();
+}

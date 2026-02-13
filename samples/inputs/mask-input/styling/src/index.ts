@@ -13,4 +13,6 @@ export class MaskInputStyling {
     }
 }
 
-new MaskInputStyling();
+export function initialize() {
+  return new MaskInputStyling();
+}

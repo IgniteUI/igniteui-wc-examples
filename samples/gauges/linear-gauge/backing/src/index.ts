@@ -9,4 +9,6 @@ export class LinearGaugeBacking {
     }
 }
 
-new LinearGaugeBacking();
+export function initialize() {
+  return new LinearGaugeBacking();
+}

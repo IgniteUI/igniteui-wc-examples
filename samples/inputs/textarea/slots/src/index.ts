@@ -12,4 +12,6 @@ export class TextareaSlots {
     }
 }
 
-new TextareaSlots();
+export function initialize() {
+  return new TextareaSlots();
+}

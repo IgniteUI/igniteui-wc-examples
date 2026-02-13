@@ -8,4 +8,6 @@ export class RippleColor {
     }
 }
 
-new RippleColor();
+export function initialize() {
+  return new RippleColor();
+}

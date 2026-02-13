@@ -59,4 +59,6 @@ export class CardIntegrationComponent {
   }
 }
 
-new CardIntegrationComponent();
+export function initialize() {
+  return new CardIntegrationComponent();
+}

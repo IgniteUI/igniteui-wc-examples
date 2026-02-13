@@ -38,4 +38,6 @@ export class DataChartLegends {
     }
 }
 
-new DataChartLegends();
+export function initialize() {
+  return new DataChartLegends();
+}

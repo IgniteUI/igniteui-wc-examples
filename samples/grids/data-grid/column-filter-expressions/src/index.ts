@@ -79,4 +79,6 @@ export class DataGridColumnFilterExpressions {
     }
 }
 
-new DataGridColumnFilterExpressions();
+export function initialize() {
+  return new DataGridColumnFilterExpressions();
+}

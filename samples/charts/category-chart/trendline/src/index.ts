@@ -48,4 +48,6 @@ export class CategoryChartTrendline {
     }
 }
 
-new CategoryChartTrendline();
+export function initialize() {
+  return new CategoryChartTrendline();
+}

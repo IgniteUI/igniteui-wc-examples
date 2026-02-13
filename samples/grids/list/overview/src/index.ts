@@ -16,4 +16,6 @@ export class ListOverview {
     }
 }
 
-new ListOverview();
+export function initialize() {
+  return new ListOverview();
+}

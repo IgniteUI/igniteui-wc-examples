@@ -130,4 +130,6 @@ export class DataChartSeriesTooltips {
     }
 }
 
-new DataChartSeriesTooltips();
+export function initialize() {
+  return new DataChartSeriesTooltips();
+}

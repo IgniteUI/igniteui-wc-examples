@@ -188,4 +188,6 @@ export class ExcelLibrarySparklines {
     }
 }
 
-new ExcelLibrarySparklines();
+export function initialize() {
+  return new ExcelLibrarySparklines();
+}

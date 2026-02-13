@@ -230,4 +230,6 @@ export class DataChartAxisTypes {
     }
 }
 
-new DataChartAxisTypes();
+export function initialize() {
+  return new DataChartAxisTypes();
+}

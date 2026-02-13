@@ -30,4 +30,6 @@ export class CarouselComponents {
     }
 }
 
-new CarouselComponents();
+export function initialize() {
+  return new CarouselComponents();
+}

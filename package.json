@@ -12,6 +12,7 @@
     "url": "https://github.com/IgniteUI/igniteui-wc-examples"
   },
   "license": "ISC",
+  "type": "module",
   "main": "browser/src/index.ts",
   "scripts": {
     "build": "npm run build:prod",

@@ -228,4 +228,6 @@ export class DataGridTypeMatrixTable {
     }
 }
 
-new DataGridTypeMatrixTable();
+export function initialize() {
+  return new DataGridTypeMatrixTable();
+}

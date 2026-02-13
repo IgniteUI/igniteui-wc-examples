@@ -8,4 +8,6 @@ export class DividerOverview {
     }
 }
 
-new DividerOverview();
+export function initialize() {
+  return new DividerOverview();
+}

@@ -7,4 +7,6 @@ export class ContainedButton {
     }
 }
 
-new ContainedButton();
+export function initialize() {
+  return new ContainedButton();
+}

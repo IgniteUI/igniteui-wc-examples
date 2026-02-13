@@ -13,4 +13,6 @@ export class DateRangePickerOverview {
   }
 }
 
-new DateRangePickerOverview();
+export function initialize() {
+  return new DateRangePickerOverview();
+}

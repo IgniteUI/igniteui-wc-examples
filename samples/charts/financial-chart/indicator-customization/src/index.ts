@@ -64,4 +64,6 @@ export class FinancialChartIndicatorCustom {
 
 }
 
-new FinancialChartIndicatorCustom();
+export function initialize() {
+  return new FinancialChartIndicatorCustom();
+}

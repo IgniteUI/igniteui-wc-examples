@@ -74,4 +74,6 @@ export class MapBindingMultipleSources {
     }
 }
 
-new MapBindingMultipleSources();
+export function initialize() {
+  return new MapBindingMultipleSources();
+}

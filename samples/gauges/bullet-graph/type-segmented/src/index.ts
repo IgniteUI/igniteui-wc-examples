@@ -91,4 +91,6 @@ export class BulletGraphTypeSegmented {
     }
 }
 
-new BulletGraphTypeSegmented();
+export function initialize() {
+  return new BulletGraphTypeSegmented();
+}

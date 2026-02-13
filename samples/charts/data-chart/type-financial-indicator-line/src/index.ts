@@ -276,4 +276,6 @@ export class DataChartTypeFinancialIndicatorLine {
     }
 }
 
-new DataChartTypeFinancialIndicatorLine();
+export function initialize() {
+  return new DataChartTypeFinancialIndicatorLine();
+}

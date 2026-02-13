@@ -10,4 +10,6 @@ export class BulletGraphTickmarks {
 
 }
 
-new BulletGraphTickmarks();
+export function initialize() {
+  return new BulletGraphTickmarks();
+}

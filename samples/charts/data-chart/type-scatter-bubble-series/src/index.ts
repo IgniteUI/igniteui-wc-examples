@@ -85,4 +85,6 @@ export class DataChartTypeScatterBubbleSeries {
     }
 }
 
-new DataChartTypeScatterBubbleSeries();
+export function initialize() {
+  return new DataChartTypeScatterBubbleSeries();
+}

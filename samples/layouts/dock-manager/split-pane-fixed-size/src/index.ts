@@ -81,4 +81,6 @@ export class DockManagerSplitPaneFixedSize {
     }
 }
 
-new DockManagerSplitPaneFixedSize();
+export function initialize() {
+  return new DockManagerSplitPaneFixedSize();
+}

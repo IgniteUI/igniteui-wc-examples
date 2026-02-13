@@ -9,4 +9,6 @@ export class LinearGaugeRanges {
     }
 }
 
-new LinearGaugeRanges();
+export function initialize() {
+  return new LinearGaugeRanges();
+}

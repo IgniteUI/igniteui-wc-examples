@@ -26,4 +26,6 @@ export class ButtonSizing {
     }
 }
 
-new ButtonSizing();
+export function initialize() {
+  return new ButtonSizing();
+}

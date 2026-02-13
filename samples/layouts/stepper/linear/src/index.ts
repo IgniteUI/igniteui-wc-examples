@@ -52,4 +52,6 @@ export class StepperLinear {
     }
 }
 
-new StepperLinear();
+export function initialize() {
+  return new StepperLinear();
+}

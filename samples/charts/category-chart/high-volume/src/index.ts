@@ -51,4 +51,6 @@ export class CategoryChartHighVolume {
     }
 }
 
-new CategoryChartHighVolume();
+export function initialize() {
+  return new CategoryChartHighVolume();
+}

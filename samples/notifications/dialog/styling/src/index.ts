@@ -8,4 +8,6 @@ export class DialogStyling {
     }
 }
 
-new DialogStyling();
+export function initialize() {
+  return new DialogStyling();
+}

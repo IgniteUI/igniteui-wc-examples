@@ -7,4 +7,6 @@ export class SimpleLinearProgress {
     }
 }
 
-new SimpleLinearProgress();
+export function initialize() {
+  return new SimpleLinearProgress();
+}

@@ -8,4 +8,6 @@ export class CarouselOverview {
     constructor() {}
 }
 
-new CarouselOverview();
+export function initialize() {
+  return new CarouselOverview();
+}

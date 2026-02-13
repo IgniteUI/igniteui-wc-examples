@@ -94,4 +94,6 @@ export class DataGridColumnChooserPicker {
 
 }
 
-new DataGridColumnChooserPicker();
+export function initialize() {
+  return new DataGridColumnChooserPicker();
+}

@@ -64,4 +64,6 @@ export class DataGridCellMerging {
 
 }
 
-new DataGridCellMerging();
+export function initialize() {
+  return new DataGridCellMerging();
+}

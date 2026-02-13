@@ -141,4 +141,6 @@ export class DockManagerHidePaneHeaders {
     }
 }
 
-new DockManagerHidePaneHeaders();
+export function initialize() {
+  return new DockManagerHidePaneHeaders();
+}

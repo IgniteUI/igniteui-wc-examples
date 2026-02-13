@@ -70,4 +70,6 @@ export class MapDisplayImageryEsriTiles {
     }
 }
 
-new MapDisplayImageryEsriTiles();
+export function initialize() {
+  return new MapDisplayImageryEsriTiles();
+}

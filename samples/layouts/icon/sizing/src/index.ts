@@ -12,4 +12,6 @@ const buildIcon =
   }
 }
 
-new IconSizing();
+export function initialize() {
+  return new IconSizing();
+}

@@ -29,4 +29,6 @@ export class DateRangePickerSlots {
   }
 }
 
-new DateRangePickerSlots();
+export function initialize() {
+  return new DateRangePickerSlots();
+}

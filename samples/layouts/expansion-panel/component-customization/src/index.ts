@@ -27,4 +27,6 @@ export class ExpansionPanelCustomization {
     }
 }
 
-new ExpansionPanelCustomization();
+export function initialize() {
+  return new ExpansionPanelCustomization();
+}

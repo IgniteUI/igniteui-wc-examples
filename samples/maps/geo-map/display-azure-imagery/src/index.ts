@@ -185,4 +185,6 @@ export class MapDisplayImageryAzureTiles {
     }
 }
 
-new MapDisplayImageryAzureTiles();
+export function initialize() {
+  return new MapDisplayImageryAzureTiles();
+}

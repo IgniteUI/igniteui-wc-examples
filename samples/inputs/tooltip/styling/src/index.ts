@@ -8,4 +8,6 @@ export class TooltipStyling {
   }
 }
 
-new TooltipStyling();
+export function initialize() {
+  return new TooltipStyling();
+}

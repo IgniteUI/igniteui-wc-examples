@@ -285,4 +285,6 @@ export class ZoomSliderOverview {
     }
 }
 
-new ZoomSliderOverview();
+export function initialize() {
+  return new ZoomSliderOverview();
+}

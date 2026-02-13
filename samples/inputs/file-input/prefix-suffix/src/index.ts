@@ -16,4 +16,6 @@ export class FileInputPrefixSuffix {
   }
 }
 
-new FileInputPrefixSuffix();
+export function initialize() {
+  return new FileInputPrefixSuffix();
+}

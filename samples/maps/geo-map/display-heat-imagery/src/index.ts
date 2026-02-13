@@ -81,4 +81,6 @@ export class MapDisplayImageryHeatTiles {
     }
 }
 
-new MapDisplayImageryHeatTiles();
+export function initialize() {
+  return new MapDisplayImageryHeatTiles();
+}

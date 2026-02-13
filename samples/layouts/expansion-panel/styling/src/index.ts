@@ -9,4 +9,6 @@ export class ExpansionPanelStyling {
 	}
 }
 
-new ExpansionPanelStyling();
+export function initialize() {
+  return new ExpansionPanelStyling();
+}

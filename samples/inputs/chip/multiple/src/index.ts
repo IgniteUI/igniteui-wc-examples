@@ -52,4 +52,6 @@ export class ChipMultiple {
   }
 }
 
-new ChipMultiple();
+export function initialize() {
+  return new ChipMultiple();
+}

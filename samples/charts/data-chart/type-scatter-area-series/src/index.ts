@@ -36,4 +36,6 @@ export class DataChartTypeScatterAreaSeries {
     }
 }
 
-new DataChartTypeScatterAreaSeries();
+export function initialize() {
+  return new DataChartTypeScatterAreaSeries();
+}

@@ -27,4 +27,6 @@ export class InputSize {
     }
 }
 
-new InputSize();
+export function initialize() {
+  return new InputSize();
+}

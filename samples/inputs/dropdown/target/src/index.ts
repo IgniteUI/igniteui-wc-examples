@@ -20,4 +20,6 @@ export class DropDownTarget {
     };
 }
 
-new DropDownTarget();
+export function initialize() {
+  return new DropDownTarget();
+}

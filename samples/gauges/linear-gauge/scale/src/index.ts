@@ -10,4 +10,6 @@ export class LinearGaugeScale {
 
 }
 
-new LinearGaugeScale();
+export function initialize() {
+  return new LinearGaugeScale();
+}

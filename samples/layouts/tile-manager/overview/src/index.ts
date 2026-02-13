@@ -21,4 +21,6 @@ export class TileManagerOverview {
   }
 }
 
-new TileManagerOverview();
+export function initialize() {
+  return new TileManagerOverview();
+}

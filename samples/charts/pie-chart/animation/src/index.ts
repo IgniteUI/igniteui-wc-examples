@@ -73,4 +73,6 @@ export class PieChartAnimation {
     }
 }
 
-new PieChartAnimation();
+export function initialize() {
+  return new PieChartAnimation();
+}

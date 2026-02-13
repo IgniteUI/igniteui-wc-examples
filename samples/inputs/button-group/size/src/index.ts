@@ -15,4 +15,6 @@ export class ButtonGroupSize {
   }
 }
 
-new ButtonGroupSize();
+export function initialize() {
+  return new ButtonGroupSize();
+}

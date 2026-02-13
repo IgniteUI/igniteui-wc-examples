@@ -8,4 +8,6 @@ export class CardSemiHorizontal {
     }
 }
 
-new CardSemiHorizontal();
+export function initialize() {
+  return new CardSemiHorizontal();
+}

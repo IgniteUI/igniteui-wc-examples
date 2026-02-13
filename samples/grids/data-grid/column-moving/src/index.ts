@@ -68,4 +68,6 @@ export class DataGridColumnMoving {
     }
 }
 
-new DataGridColumnMoving();
+export function initialize() {
+  return new DataGridColumnMoving();
+}

@@ -38,4 +38,6 @@ export class ExpansionPanelPropertiesAndEvents {
     }
 }
 
-new ExpansionPanelPropertiesAndEvents();
+export function initialize() {
+  return new ExpansionPanelPropertiesAndEvents();
+}

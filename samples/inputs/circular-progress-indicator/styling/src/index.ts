@@ -9,4 +9,6 @@ export class CircularProgressStyling {
     }
 }
 
-new CircularProgressStyling();
+export function initialize() {
+  return new CircularProgressStyling();
+}

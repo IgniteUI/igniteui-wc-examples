@@ -17,4 +17,6 @@ export class DataGridTypeSparklineTable {
 
 }
 
-new DataGridTypeSparklineTable();
+export function initialize() {
+  return new DataGridTypeSparklineTable();
+}

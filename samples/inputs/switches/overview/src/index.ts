@@ -7,4 +7,6 @@ export class SwitchOverview {
     }
 }
 
-new SwitchOverview();
+export function initialize() {
+  return new SwitchOverview();
+}

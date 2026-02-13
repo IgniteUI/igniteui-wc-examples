@@ -96,4 +96,6 @@ export class MapBindingShapefilePolylines {
 
 }
 
-new MapBindingShapefilePolylines();
+export function initialize() {
+  return new MapBindingShapefilePolylines();
+}

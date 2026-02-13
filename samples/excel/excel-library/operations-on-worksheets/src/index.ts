@@ -206,4 +206,6 @@ export class ExcelLibraryWorksheets {
     }
 }
 
-new ExcelLibraryWorksheets();
+export function initialize() {
+  return new ExcelLibraryWorksheets();
+}

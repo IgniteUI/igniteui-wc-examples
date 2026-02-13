@@ -58,4 +58,6 @@ export class BulletGraphTypeVertical {
     }
 }
 
-new BulletGraphTypeVertical();
+export function initialize() {
+  return new BulletGraphTypeVertical();
+}

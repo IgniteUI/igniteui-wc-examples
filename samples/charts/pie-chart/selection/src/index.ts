@@ -43,4 +43,6 @@ export class PieChartSelection {
     }
 }
 
-new PieChartSelection();
+export function initialize() {
+  return new PieChartSelection();
+}

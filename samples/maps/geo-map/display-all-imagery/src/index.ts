@@ -248,4 +248,6 @@ export class MapImagerySources {
     }
 }
 
-new MapImagerySources();
+export function initialize() {
+  return new MapImagerySources();
+}

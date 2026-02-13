@@ -8,4 +8,6 @@ export class ButtonOverview {
     }
 }
 
-new ButtonOverview();
+export function initialize() {
+  return new ButtonOverview();
+}

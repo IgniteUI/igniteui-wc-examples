@@ -90,4 +90,6 @@ export class MapBindingShapefilePolygons {
     }
 }
 
-new MapBindingShapefilePolygons();
+export function initialize() {
+  return new MapBindingShapefilePolygons();
+}

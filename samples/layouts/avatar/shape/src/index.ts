@@ -11,4 +11,6 @@ export class AvatarShape {
     }
 }
 
-new AvatarShape();
+export function initialize() {
+  return new AvatarShape();
+}

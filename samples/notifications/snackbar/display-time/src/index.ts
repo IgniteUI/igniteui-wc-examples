@@ -7,4 +7,6 @@ export class SnackbarDisplayTime {
     }
 }
 
-new SnackbarDisplayTime();
+export function initialize() {
+  return new SnackbarDisplayTime();
+}

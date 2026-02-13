@@ -16,4 +16,6 @@ export class SpreadsheetSortDialog {
     }
 }
 
-new SpreadsheetSortDialog();
+export function initialize() {
+  return new SpreadsheetSortDialog();
+}

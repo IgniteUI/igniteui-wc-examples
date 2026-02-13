@@ -20,4 +20,6 @@ export class TileManagerDragnDrop {
   }
 }
 
-new TileManagerDragnDrop();
+export function initialize() {
+  return new TileManagerDragnDrop();
+}

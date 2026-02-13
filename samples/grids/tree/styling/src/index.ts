@@ -8,4 +8,6 @@ export class TreeStyling {
     }
 }
 
-new TreeStyling();
+export function initialize() {
+  return new TreeStyling();
+}

@@ -11,4 +11,6 @@ export class MaskInputOverview {
     }
 }
 
-new MaskInputOverview();
+export function initialize() {
+  return new MaskInputOverview();
+}

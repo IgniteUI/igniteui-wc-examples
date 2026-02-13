@@ -54,4 +54,6 @@ export class BannerStylingSample {
     }
 }
 
-new BannerStylingSample();
+export function initialize() {
+  return new BannerStylingSample();
+}

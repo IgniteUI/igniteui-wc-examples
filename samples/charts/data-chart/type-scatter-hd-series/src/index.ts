@@ -29,4 +29,6 @@ export class DataChartTypeScatterDensitySeries {
     }
 }
 
-new DataChartTypeScatterDensitySeries();
+export function initialize() {
+  return new DataChartTypeScatterDensitySeries();
+}

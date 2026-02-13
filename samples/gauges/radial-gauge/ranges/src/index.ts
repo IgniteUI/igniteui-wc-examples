@@ -10,4 +10,6 @@ export class RadialGaugeRanges {
 
 }
 
-new RadialGaugeRanges();
+export function initialize() {
+  return new RadialGaugeRanges();
+}

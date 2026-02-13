@@ -39,4 +39,6 @@ export class StepperAnimations {
     }
 }
 
-new StepperAnimations();
+export function initialize() {
+  return new StepperAnimations();
+}

@@ -19,4 +19,6 @@ export class FinancialChartIndexChart {
     }
 }
 
-new FinancialChartIndexChart();
+export function initialize() {
+  return new FinancialChartIndexChart();
+}

@@ -93,4 +93,6 @@ export class AccordionOverview {
     }
 }
 
-new AccordionOverview();
+export function initialize() {
+  return new AccordionOverview();
+}

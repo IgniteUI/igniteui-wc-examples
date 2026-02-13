@@ -29,4 +29,6 @@ export class DataChartFinalValueLayerStyling {
 
 }
 
-new DataChartFinalValueLayerStyling();
+export function initialize() {
+  return new DataChartFinalValueLayerStyling();
+}

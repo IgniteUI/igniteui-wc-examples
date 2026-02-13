@@ -34,4 +34,6 @@ export class TabsPrefixSuffix {
     }
 }
 
-new TabsPrefixSuffix();
+export function initialize() {
+  return new TabsPrefixSuffix();
+}

@@ -27,4 +27,6 @@ export class DataChartCrosshairLayerStyling {
 
 }
 
-new DataChartCrosshairLayerStyling();
+export function initialize() {
+  return new DataChartCrosshairLayerStyling();
+}

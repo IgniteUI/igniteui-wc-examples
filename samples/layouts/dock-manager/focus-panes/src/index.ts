@@ -155,4 +155,6 @@ export class DockManagerAddContentRuntime {
     }
 }
 
-new DockManagerAddContentRuntime();
+export function initialize() {
+  return new DockManagerAddContentRuntime();
+}

@@ -78,4 +78,6 @@ export class ChatOverview {
   }
 }
 
-new ChatOverview();
+export function initialize() {
+  return new ChatOverview();
+}

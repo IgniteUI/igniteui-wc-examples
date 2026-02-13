@@ -7,4 +7,6 @@ export class SwitchChecking {
     }
 }
 
-new SwitchChecking();
+export function initialize() {
+  return new SwitchChecking();
+}

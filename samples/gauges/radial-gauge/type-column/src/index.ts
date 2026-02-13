@@ -77,4 +77,6 @@ export class RadialGaugeTypeColumn {
     }
 }
 
-new RadialGaugeTypeColumn();
+export function initialize() {
+  return new RadialGaugeTypeColumn();
+}

@@ -8,4 +8,6 @@ export class CheckboxLabel {
     }
 }
 
-new CheckboxLabel();
+export function initialize() {
+  return new CheckboxLabel();
+}

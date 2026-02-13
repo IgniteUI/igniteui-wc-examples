@@ -82,4 +82,6 @@ export class LinearGaugeTypeSegmented {
 
 }
 
-new LinearGaugeTypeSegmented();
+export function initialize() {
+  return new LinearGaugeTypeSegmented();
+}

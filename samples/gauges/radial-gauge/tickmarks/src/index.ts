@@ -10,4 +10,6 @@ export class RadialGaugeTickmarks {
 
 }
 
-new RadialGaugeTickmarks();
+export function initialize() {
+  return new RadialGaugeTickmarks();
+}

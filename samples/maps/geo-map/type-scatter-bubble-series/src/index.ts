@@ -58,4 +58,6 @@ export class MapTypeScatterBubbleSeries {
     }
 }
 
-new MapTypeScatterBubbleSeries();
+export function initialize() {
+  return new MapTypeScatterBubbleSeries();
+}

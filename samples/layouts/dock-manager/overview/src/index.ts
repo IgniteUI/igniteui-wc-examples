@@ -142,4 +142,6 @@ export class DockManagerOverview {
     }
 }
 
-new DockManagerOverview();
+export function initialize() {
+  return new DockManagerOverview();
+}

@@ -26,4 +26,6 @@ export class CalendarFormatting {
     }
 }
 
-new CalendarFormatting();
+export function initialize() {
+  return new CalendarFormatting();
+}

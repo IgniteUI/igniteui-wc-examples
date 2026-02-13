@@ -59,4 +59,6 @@ export class MapMarkerType {
 
 }
 
-new MapMarkerType();
+export function initialize() {
+  return new MapMarkerType();
+}

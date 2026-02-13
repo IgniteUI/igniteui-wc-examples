@@ -15,4 +15,6 @@ export class DatePickerEditing {
     }
 }
 
-new DatePickerEditing();
+export function initialize() {
+  return new DatePickerEditing();
+}

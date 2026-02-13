@@ -40,4 +40,6 @@ export class PieChartExplosion {
     }
 }
 
-new PieChartExplosion();
+export function initialize() {
+  return new PieChartExplosion();
+}

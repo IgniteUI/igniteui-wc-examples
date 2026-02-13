@@ -41,4 +41,6 @@ export class DateTimeInputStepUpDown {
     }
 }
 
-new DateTimeInputStepUpDown();
+export function initialize() {
+  return new DateTimeInputStepUpDown();
+}

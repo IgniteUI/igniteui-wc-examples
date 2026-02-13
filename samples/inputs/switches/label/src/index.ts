@@ -8,4 +8,6 @@ export class SwitchLabel {
     }
 }
 
-new SwitchLabel();
+export function initialize() {
+  return new SwitchLabel();
+}

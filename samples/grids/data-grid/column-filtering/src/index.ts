@@ -22,4 +22,6 @@ export class DataGridColumnFiltering {
     }
 }
 
-new DataGridColumnFiltering();
+export function initialize() {
+  return new DataGridColumnFiltering();
+}

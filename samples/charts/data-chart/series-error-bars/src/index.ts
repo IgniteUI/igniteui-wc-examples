@@ -44,4 +44,6 @@ export class DataChartSeriesErrorBars {
     }
 }
 
-new DataChartSeriesErrorBars();
+export function initialize() {
+  return new DataChartSeriesErrorBars();
+}

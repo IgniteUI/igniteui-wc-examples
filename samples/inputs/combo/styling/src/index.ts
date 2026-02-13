@@ -51,4 +51,6 @@ export class ComboStyling {
     }
 }
 
-new ComboStyling();
+export function initialize() {
+  return new ComboStyling();
+}

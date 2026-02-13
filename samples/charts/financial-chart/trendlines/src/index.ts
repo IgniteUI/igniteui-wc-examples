@@ -71,4 +71,6 @@ export class FinancialChartTrendlines {
     }
 }
 
-new FinancialChartTrendlines();
+export function initialize() {
+  return new FinancialChartTrendlines();
+}

@@ -12,4 +12,6 @@ export class DropDownStyling {
     }
 }
 
-new DropDownStyling();
+export function initialize() {
+  return new DropDownStyling();
+}

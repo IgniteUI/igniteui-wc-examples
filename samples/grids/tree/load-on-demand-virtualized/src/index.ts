@@ -125,4 +125,6 @@ export class TreeLoadOnDemandVirtualized {
     }
 }
 
-new TreeLoadOnDemandVirtualized();
+export function initialize() {
+  return new TreeLoadOnDemandVirtualized();
+}

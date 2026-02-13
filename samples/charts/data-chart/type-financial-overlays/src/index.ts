@@ -82,4 +82,6 @@ export class DataChartTypeFinancialOverlays {
     }
 }
 
-new DataChartTypeFinancialOverlays();
+export function initialize() {
+  return new DataChartTypeFinancialOverlays();
+}

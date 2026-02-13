@@ -21,4 +21,6 @@ export class TabsStyling {
     }
 }
 
-new TabsStyling();
+export function initialize() {
+  return new TabsStyling();
+}

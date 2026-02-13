@@ -9,4 +9,6 @@ export class SliderDisabled {
     }
 }
 
-new SliderDisabled();
+export function initialize() {
+  return new SliderDisabled();
+}

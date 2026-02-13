@@ -16,4 +16,6 @@ export class TextareaFormIntegration {
     }
 }
 
-new TextareaFormIntegration();
+export function initialize() {
+  return new TextareaFormIntegration();
+}

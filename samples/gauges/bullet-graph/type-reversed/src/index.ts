@@ -54,4 +54,6 @@ export class BulletGraphTypeReversed {
     }
 }
 
-new BulletGraphTypeReversed();
+export function initialize() {
+  return new BulletGraphTypeReversed();
+}

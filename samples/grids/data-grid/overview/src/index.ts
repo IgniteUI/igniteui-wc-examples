@@ -221,4 +221,6 @@ export class DataGridOverview {
     }
 }
 
-new DataGridOverview();
+export function initialize() {
+  return new DataGridOverview();
+}

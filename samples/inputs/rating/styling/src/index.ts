@@ -8,4 +8,6 @@ export class RatingStyling {
     }
 }
 
-new RatingStyling();
+export function initialize() {
+  return new RatingStyling();
+}

@@ -53,4 +53,6 @@ export class DataGridCellActivation {
     }
 }
 
-new DataGridCellActivation();
+export function initialize() {
+  return new DataGridCellActivation();
+}

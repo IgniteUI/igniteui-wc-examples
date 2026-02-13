@@ -95,4 +95,6 @@ export class DataChartTooltipTemplate {
 
 }
 
-new DataChartTooltipTemplate();
+export function initialize() {
+  return new DataChartTooltipTemplate();
+}

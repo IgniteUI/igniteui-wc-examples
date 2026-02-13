@@ -20,4 +20,6 @@ export class DateTimeInputOverview {
     }
 }
 
-new DateTimeInputOverview();
+export function initialize() {
+  return new DateTimeInputOverview();
+}

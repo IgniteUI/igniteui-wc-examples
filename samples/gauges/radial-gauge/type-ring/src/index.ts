@@ -93,4 +93,6 @@ export class RadialGaugeTypeRing {
     }
 }
 
-new RadialGaugeTypeRing();
+export function initialize() {
+  return new RadialGaugeTypeRing();
+}

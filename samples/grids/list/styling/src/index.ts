@@ -8,4 +8,6 @@ export class ListStyling{
     }
 }
 
-new ListStyling();
+export function initialize() {
+  return new ListStyling();
+}

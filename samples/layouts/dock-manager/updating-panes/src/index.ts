@@ -333,4 +333,6 @@ export class DockManagerUpdatingPanes {
 
 }
 
-new DockManagerUpdatingPanes();
+export function initialize() {
+  return new DockManagerUpdatingPanes();
+}

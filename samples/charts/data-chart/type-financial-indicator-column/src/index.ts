@@ -276,4 +276,6 @@ export class DataChartTypeFinancialIndicatorColumn {
     }
 }
 
-new DataChartTypeFinancialIndicatorColumn();
+export function initialize() {
+  return new DataChartTypeFinancialIndicatorColumn();
+}

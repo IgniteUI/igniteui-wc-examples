@@ -25,4 +25,6 @@ export class FinancialChartIndicatorTypes {
     }
 }
 
-new FinancialChartIndicatorTypes();
+export function initialize() {
+  return new FinancialChartIndicatorTypes();
+}

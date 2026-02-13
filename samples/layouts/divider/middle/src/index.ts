@@ -9,4 +9,6 @@ export class SelectStyling {
     }
 }
 
-new SelectStyling();
+export function initialize() {
+  return new SelectStyling();
+}

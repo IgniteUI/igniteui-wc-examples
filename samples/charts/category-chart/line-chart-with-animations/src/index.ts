@@ -73,4 +73,6 @@ export class CategoryChartLineChartWithAnimations {
     }
 }
 
-new CategoryChartLineChartWithAnimations();
+export function initialize() {
+  return new CategoryChartLineChartWithAnimations();
+}

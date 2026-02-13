@@ -30,4 +30,6 @@ export class MaskInputValueMode {
     }
 }
 
-new MaskInputValueMode();
+export function initialize() {
+  return new MaskInputValueMode();
+}

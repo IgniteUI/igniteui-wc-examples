@@ -11,4 +11,6 @@ export class InitialsAvatar {
     }
 }
 
-new InitialsAvatar();
+export function initialize() {
+  return new InitialsAvatar();
+}

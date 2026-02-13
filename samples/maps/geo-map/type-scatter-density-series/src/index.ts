@@ -71,4 +71,6 @@ export class MapTypeScatterDensitySeries {
 
 }
 
-new MapTypeScatterDensitySeries();
+export function initialize() {
+  return new MapTypeScatterDensitySeries();
+}

@@ -20,4 +20,6 @@ export class DataGridBindingDataService {
     }
 }
 
-new DataGridBindingDataService();
+export function initialize() {
+  return new DataGridBindingDataService();
+}

@@ -98,4 +98,6 @@ export class MapBindingShapefilePoints {
     }
 }
 
-new MapBindingShapefilePoints();
+export function initialize() {
+  return new MapBindingShapefilePoints();
+}

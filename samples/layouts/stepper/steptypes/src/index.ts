@@ -17,4 +17,6 @@ export class StepperStepTypes {
     }
 }
 
-new StepperStepTypes();
+export function initialize() {
+  return new StepperStepTypes();
+}

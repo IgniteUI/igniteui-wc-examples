@@ -156,4 +156,6 @@ export class DataChartPerformance {
     }
 }
 
-new DataChartPerformance();
+export function initialize() {
+  return new DataChartPerformance();
+}

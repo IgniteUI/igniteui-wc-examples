@@ -225,4 +225,6 @@ export class DataGridColumnTypes {
     }
 }
 
-new DataGridColumnTypes();
+export function initialize() {
+  return new DataGridColumnTypes();
+}

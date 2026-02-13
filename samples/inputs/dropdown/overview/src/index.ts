@@ -8,4 +8,6 @@ export class DropDownOverview {
     }
 }
 
-new DropDownOverview();
+export function initialize() {
+  return new DropDownOverview();
+}

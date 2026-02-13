@@ -9,4 +9,6 @@ export class SliderDiscrete {
     }
 }
 
-new SliderDiscrete();
+export function initialize() {
+  return new SliderDiscrete();
+}

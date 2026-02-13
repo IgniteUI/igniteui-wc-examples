@@ -49,4 +49,6 @@ export class MapTriangulatingData {
     }
 }
 
-new MapTriangulatingData();
+export function initialize() {
+  return new MapTriangulatingData();
+}

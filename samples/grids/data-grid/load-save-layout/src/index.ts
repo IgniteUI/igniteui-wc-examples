@@ -95,4 +95,6 @@ export class DataGridLoadSaveLayout {
 
 }
 
-new DataGridLoadSaveLayout();
+export function initialize() {
+  return new DataGridLoadSaveLayout();
+}

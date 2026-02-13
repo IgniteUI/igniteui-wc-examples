@@ -44,4 +44,6 @@ export class DateRangePickerCustomRanges {
   }
 }
 
-new DateRangePickerCustomRanges();
+export function initialize() {
+  return new DateRangePickerCustomRanges();
+}

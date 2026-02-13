@@ -8,4 +8,6 @@ export class ToastOverview {
     }
 }
 
-new ToastOverview();
+export function initialize() {
+  return new ToastOverview();
+}

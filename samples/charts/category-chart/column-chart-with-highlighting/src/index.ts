@@ -100,4 +100,6 @@ export class CategoryChartHighlighting {
 
 }
 
-new CategoryChartHighlighting();
+export function initialize() {
+  return new CategoryChartHighlighting();
+}

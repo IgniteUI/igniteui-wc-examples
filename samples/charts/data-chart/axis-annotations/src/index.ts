@@ -142,4 +142,6 @@ export class DataChartAxisAnnotations {
     }
 }
 
-new DataChartAxisAnnotations();
+export function initialize() {
+  return new DataChartAxisAnnotations();
+}

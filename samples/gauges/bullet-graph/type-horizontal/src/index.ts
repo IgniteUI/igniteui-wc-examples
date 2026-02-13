@@ -58,4 +58,6 @@ export class BulletGraphTypeHorizontal {
     }
 }
 
-new BulletGraphTypeHorizontal();
+export function initialize() {
+  return new BulletGraphTypeHorizontal();
+}

@@ -7,4 +7,6 @@ export class RatingBasic {
     }
 }
 
-new RatingBasic();
+export function initialize() {
+  return new RatingBasic();
+}

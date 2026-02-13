@@ -11,4 +11,6 @@ export class SliderTicks {
     }
 }
 
-new SliderTicks();
+export function initialize() {
+  return new SliderTicks();
+}

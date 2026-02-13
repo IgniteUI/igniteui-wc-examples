@@ -22,4 +22,6 @@ export class SpreadsheetConditionalFormatting {
     }
 }
 
-new SpreadsheetConditionalFormatting();
+export function initialize() {
+  return new SpreadsheetConditionalFormatting();
+}

@@ -7,4 +7,6 @@ export class BadgeShape {
     }
 }
 
-new BadgeShape();
+export function initialize() {
+  return new BadgeShape();
+}

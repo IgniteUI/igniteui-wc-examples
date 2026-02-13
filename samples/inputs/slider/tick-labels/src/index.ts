@@ -9,4 +9,6 @@ export class SliderTickLabels {
     }
 }
 
-new SliderTickLabels();
+export function initialize() {
+  return new SliderTickLabels();
+}

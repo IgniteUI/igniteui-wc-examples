@@ -8,4 +8,6 @@ export class SwitchStyling {
     }
 }
 
-new SwitchStyling();
+export function initialize() {
+  return new SwitchStyling();
+}

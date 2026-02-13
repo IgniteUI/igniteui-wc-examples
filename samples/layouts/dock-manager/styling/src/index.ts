@@ -296,4 +296,6 @@ export class DockManagerStylePanes {
     }
 }
 
-new DockManagerStylePanes();
+export function initialize() {
+  return new DockManagerStylePanes();
+}

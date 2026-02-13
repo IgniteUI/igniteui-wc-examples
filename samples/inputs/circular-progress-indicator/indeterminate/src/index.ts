@@ -9,4 +9,6 @@ export class IndeterminateCircularProgress {
     }
 }
 
-new IndeterminateCircularProgress();
+export function initialize() {
+  return new IndeterminateCircularProgress();
+}

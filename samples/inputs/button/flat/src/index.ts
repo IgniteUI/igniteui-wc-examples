@@ -7,4 +7,6 @@ export class FlatButton {
     }
 }
 
-new FlatButton();
+export function initialize() {
+  return new FlatButton();
+}

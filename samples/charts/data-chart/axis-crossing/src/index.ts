@@ -69,4 +69,6 @@ export class DataChartAxisCrossing {
     }
 }
 
-new DataChartAxisCrossing();
+export function initialize() {
+  return new DataChartAxisCrossing();
+}

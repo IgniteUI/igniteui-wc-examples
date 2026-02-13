@@ -140,4 +140,6 @@ class CustomDomestic extends SummaryCalculator {
     }
 }
 
-new DataGridColumnSummaries();
+export function initialize() {
+  return new DataGridColumnSummaries();
+}

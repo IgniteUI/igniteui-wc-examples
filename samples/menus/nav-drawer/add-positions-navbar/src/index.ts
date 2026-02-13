@@ -59,4 +59,6 @@ export class NavDrawerAddPositionsNavbar {
     }
 }
 
-new NavDrawerAddPositionsNavbar();
+export function initialize() {
+  return new NavDrawerAddPositionsNavbar();
+}

@@ -51,4 +51,6 @@ export class NavDrawerAddMini {
     }
 }
 
-new NavDrawerAddMini();
+export function initialize() {
+  return new NavDrawerAddMini();
+}

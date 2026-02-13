@@ -11,4 +11,6 @@ export class InputPrefixSuffix {
     }
 }
 
-new InputPrefixSuffix();
+export function initialize() {
+  return new InputPrefixSuffix();
+}

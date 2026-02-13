@@ -53,4 +53,6 @@ export class NavDrawerAddItems {
   }
 }
 
-new NavDrawerAddItems();
+export function initialize() {
+  return new NavDrawerAddItems();
+}

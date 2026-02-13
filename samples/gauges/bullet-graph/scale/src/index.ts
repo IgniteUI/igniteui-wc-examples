@@ -10,4 +10,6 @@ export class BulletGraphScale {
 
 }
 
-new BulletGraphScale();
+export function initialize() {
+  return new BulletGraphScale();
+}

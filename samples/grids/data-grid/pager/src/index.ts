@@ -101,4 +101,6 @@ export class DataGridPager {
     // }
 }
 
-new DataGridPager();
+export function initialize() {
+  return new DataGridPager();
+}

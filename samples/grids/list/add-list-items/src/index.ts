@@ -7,4 +7,6 @@ export class AddListItems {
     }
 }
 
-new AddListItems();
+export function initialize() {
+  return new AddListItems();
+}

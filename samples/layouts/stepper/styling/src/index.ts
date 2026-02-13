@@ -13,4 +13,6 @@ export class StepperStyling {
     }
 }
 
-new StepperStyling();
+export function initialize() {
+  return new StepperStyling();
+}

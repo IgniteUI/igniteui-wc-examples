@@ -82,4 +82,6 @@ export class CategoryChartStackColumns {
     }
 }
 
-new CategoryChartStackColumns();
+export function initialize() {
+  return new CategoryChartStackColumns();
+}

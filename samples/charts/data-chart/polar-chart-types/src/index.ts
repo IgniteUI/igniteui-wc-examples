@@ -156,4 +156,6 @@ export class DataChartTypePolarSeries {
     }
 }
 
-new DataChartTypePolarSeries();
+export function initialize() {
+  return new DataChartTypePolarSeries();
+}

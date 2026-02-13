@@ -133,4 +133,6 @@ export class MapNavigation {
     private lblPixelY: HTMLLabelElement;
 }
 
-new MapNavigation();
+export function initialize() {
+  return new MapNavigation();
+}

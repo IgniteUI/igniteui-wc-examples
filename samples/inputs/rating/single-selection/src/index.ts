@@ -8,4 +8,6 @@ export class SingleSelectionRating {
     }
 }
 
-new SingleSelectionRating();
+export function initialize() {
+  return new SingleSelectionRating();
+}

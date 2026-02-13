@@ -7,4 +7,6 @@ export class SwitchDisabled {
     }
 }
 
-new SwitchDisabled();
+export function initialize() {
+  return new SwitchDisabled();
+}

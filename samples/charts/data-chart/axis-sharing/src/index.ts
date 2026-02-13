@@ -35,4 +35,6 @@ export class DataChartAxisSharing {
     }
 }
 
-new DataChartAxisSharing();
+export function initialize() {
+  return new DataChartAxisSharing();
+}

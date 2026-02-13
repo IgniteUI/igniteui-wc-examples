@@ -7,4 +7,6 @@ export class RadioDisabled {
   }
 }
 
-new RadioDisabled();
+export function initialize() {
+  return new RadioDisabled();
+}

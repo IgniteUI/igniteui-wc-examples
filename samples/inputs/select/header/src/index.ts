@@ -8,4 +8,6 @@ export class SelectHeader {
     }
 }
 
-new SelectHeader();
+export function initialize() {
+  return new SelectHeader();
+}

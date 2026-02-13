@@ -184,4 +184,6 @@ export class DataChartSeriesAnnotations {
     }
 }
 
-new DataChartSeriesAnnotations();
+export function initialize() {
+  return new DataChartSeriesAnnotations();
+}

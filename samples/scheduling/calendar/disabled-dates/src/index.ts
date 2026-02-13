@@ -18,4 +18,6 @@ export class CalendarDisabledDates {
     }
 }
 
-new CalendarDisabledDates();
+export function initialize() {
+  return new CalendarDisabledDates();
+}

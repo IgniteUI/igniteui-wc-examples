@@ -7,4 +7,6 @@ export class InputOverview {
     }
 }
 
-new InputOverview();
+export function initialize() {
+  return new InputOverview();
+}

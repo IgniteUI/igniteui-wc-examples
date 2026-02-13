@@ -45,4 +45,6 @@ export class TooltipPlacement {
   }
 }
 
-new TooltipPlacement();
+export function initialize() {
+  return new TooltipPlacement();
+}

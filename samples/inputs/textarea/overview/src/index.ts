@@ -7,4 +7,6 @@ export class TextareaOverview {
     constructor() {}
 }
 
-new TextareaOverview();
+export function initialize() {
+  return new TextareaOverview();
+}

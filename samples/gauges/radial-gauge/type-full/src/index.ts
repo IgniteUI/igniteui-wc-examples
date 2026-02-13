@@ -100,4 +100,6 @@ export class RadialGaugeTypeFull {
     }
 }
 
-new RadialGaugeTypeFull();
+export function initialize() {
+  return new RadialGaugeTypeFull();
+}

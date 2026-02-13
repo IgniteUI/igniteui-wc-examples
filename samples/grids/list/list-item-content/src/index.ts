@@ -7,4 +7,6 @@ export class ListItemContent {
     }
 }
 
-new ListItemContent();
+export function initialize() {
+  return new ListItemContent();
+}

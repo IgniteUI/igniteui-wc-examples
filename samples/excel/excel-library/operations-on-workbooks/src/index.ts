@@ -183,4 +183,6 @@ export class ExcelLibraryWorkbooks {
     }
 }
 
-new ExcelLibraryWorkbooks();
+export function initialize() {
+  return new ExcelLibraryWorkbooks();
+}

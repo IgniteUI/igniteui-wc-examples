@@ -13,4 +13,6 @@ export class IconStyling {
   }
 }
 
-new IconStyling();
+export function initialize() {
+  return new IconStyling();
+}

@@ -24,4 +24,6 @@ export class NavbarStyling {
     }
 }
 
-new NavbarStyling();
+export function initialize() {
+  return new NavbarStyling();
+}

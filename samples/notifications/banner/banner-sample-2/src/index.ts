@@ -20,4 +20,6 @@ export class BannerSample2 {
     }
 }
 
-new BannerSample2();
+export function initialize() {
+  return new BannerSample2();
+}

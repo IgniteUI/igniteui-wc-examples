@@ -54,4 +54,6 @@ export class DoughnutChartSelection {
     }
 }
 
-new DoughnutChartSelection();
+export function initialize() {
+  return new DoughnutChartSelection();
+}

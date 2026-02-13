@@ -58,4 +58,6 @@ export class ComboSimplified {
     }
 }
 
-new ComboSimplified();
+export function initialize() {
+  return new ComboSimplified();
+}

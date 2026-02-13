@@ -98,4 +98,6 @@ export class LinearGaugeTypeHorizontal {
 
 }
 
-new LinearGaugeTypeHorizontal();
+export function initialize() {
+  return new LinearGaugeTypeHorizontal();
+}

@@ -7,4 +7,6 @@ export class CalendarOverview {
     }
 }
 
-new CalendarOverview();
+export function initialize() {
+  return new CalendarOverview();
+}

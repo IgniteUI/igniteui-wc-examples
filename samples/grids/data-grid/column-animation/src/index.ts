@@ -282,4 +282,6 @@ export class DataGridColumnAnimation {
     }
 }
 
-new DataGridColumnAnimation();
+export function initialize() {
+  return new DataGridColumnAnimation();
+}

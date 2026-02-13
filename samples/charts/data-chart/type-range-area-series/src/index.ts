@@ -26,4 +26,6 @@ export class DataChartTypeRangeAreaSeries {
     }
 }
 
-new DataChartTypeRangeAreaSeries();
+export function initialize() {
+  return new DataChartTypeRangeAreaSeries();
+}

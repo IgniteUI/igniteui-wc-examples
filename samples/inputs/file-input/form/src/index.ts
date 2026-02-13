@@ -33,4 +33,6 @@ export class FileInputForm {
   }
 }
 
-new FileInputForm();
+export function initialize() {
+  return new FileInputForm();
+}

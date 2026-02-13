@@ -68,4 +68,6 @@ export class ComboFeatures {
     }
 }
 
-new ComboFeatures();
+export function initialize() {
+  return new ComboFeatures();
+}

@@ -7,4 +7,6 @@ export class CalendarMultipleMonths {
     }
 }
 
-new CalendarMultipleMonths();
+export function initialize() {
+  return new CalendarMultipleMonths();
+}

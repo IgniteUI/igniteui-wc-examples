@@ -166,4 +166,6 @@ export class DataGridCellEditing {
     }
 }
 
-new DataGridCellEditing();
+export function initialize() {
+  return new DataGridCellEditing();
+}
