@@ -68,4 +68,6 @@ export class CategoryChartTooltipTemplate {
     }
 }
 
-new CategoryChartTooltipTemplate();
+export function initialize() {
+  return new CategoryChartTooltipTemplate();
+}

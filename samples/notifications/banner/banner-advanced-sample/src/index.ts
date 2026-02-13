@@ -53,4 +53,6 @@ export class BannerAdvancedSample {
     }
 }
 
-new BannerAdvancedSample();
+export function initialize() {
+  return new BannerAdvancedSample();
+}

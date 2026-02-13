@@ -84,4 +84,6 @@ export class MapTypeScatterPolygonSeries {
 
 }
 
-new MapTypeScatterPolygonSeries();
+export function initialize() {
+  return new MapTypeScatterPolygonSeries();
+}

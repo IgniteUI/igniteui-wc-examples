@@ -99,4 +99,6 @@ export class MapBindingDataModel {
     }
 }
 
-new MapBindingDataModel();
+export function initialize() {
+  return new MapBindingDataModel();
+}

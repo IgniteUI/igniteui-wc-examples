@@ -112,4 +112,6 @@ export class RadialGaugeTypeDirection {
     }
 }
 
-new RadialGaugeTypeDirection();
+export function initialize() {
+  return new RadialGaugeTypeDirection();
+}

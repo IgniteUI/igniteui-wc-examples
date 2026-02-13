@@ -24,4 +24,6 @@ export class DataGridRowPinning {
     }
 }
 
-new DataGridRowPinning();
+export function initialize() {
+  return new DataGridRowPinning();
+}

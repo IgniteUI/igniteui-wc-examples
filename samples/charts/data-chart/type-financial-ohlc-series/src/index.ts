@@ -24,4 +24,6 @@ export class DataChartTypeFinancialOhlcSeries {
     }
 }
 
-new DataChartTypeFinancialOhlcSeries();
+export function initialize() {
+  return new DataChartTypeFinancialOhlcSeries();
+}

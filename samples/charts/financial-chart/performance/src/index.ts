@@ -17,4 +17,6 @@ export class FinancialChartPerformance {
 
 }
 
-new FinancialChartPerformance();
+export function initialize() {
+  return new FinancialChartPerformance();
+}

@@ -9,4 +9,6 @@ export class SimpleCircularProgress {
     }
 }
 
-new SimpleCircularProgress();
+export function initialize() {
+  return new SimpleCircularProgress();
+}

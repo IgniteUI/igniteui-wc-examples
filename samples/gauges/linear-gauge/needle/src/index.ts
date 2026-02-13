@@ -10,4 +10,6 @@ export class LinearGaugeNeedle {
 
 }
 
-new LinearGaugeNeedle();
+export function initialize() {
+  return new LinearGaugeNeedle();
+}

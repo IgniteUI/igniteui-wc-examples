@@ -8,4 +8,6 @@ export class TextareaResize {
     constructor() {}
 }
 
-new TextareaResize();
+export function initialize() {
+  return new TextareaResize();
+}

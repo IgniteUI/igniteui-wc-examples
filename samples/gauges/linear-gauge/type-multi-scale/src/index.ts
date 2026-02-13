@@ -121,4 +121,6 @@ export class LinearGaugeTypeMultiScale {
 
 }
 
-new LinearGaugeTypeMultiScale();
+export function initialize() {
+  return new LinearGaugeTypeMultiScale();
+}

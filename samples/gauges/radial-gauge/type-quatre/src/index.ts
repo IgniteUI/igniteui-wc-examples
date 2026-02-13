@@ -83,4 +83,6 @@ export class RadialGaugeTypeQuatre {
     }
 }
 
-new RadialGaugeTypeQuatre();
+export function initialize() {
+  return new RadialGaugeTypeQuatre();
+}

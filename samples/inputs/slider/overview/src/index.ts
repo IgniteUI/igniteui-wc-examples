@@ -9,4 +9,6 @@ export class SliderOverview {
     }
 }
 
-new SliderOverview();
+export function initialize() {
+  return new SliderOverview();
+}

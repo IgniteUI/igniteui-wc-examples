@@ -11,4 +11,6 @@ export class IconAvatar {
     }
 }
 
-new IconAvatar();
+export function initialize() {
+  return new IconAvatar();
+}

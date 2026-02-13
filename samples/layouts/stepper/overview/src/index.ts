@@ -156,4 +156,6 @@ export class StepperOverview {
     }
 }
 
-new StepperOverview();
+export function initialize() {
+  return new StepperOverview();
+}

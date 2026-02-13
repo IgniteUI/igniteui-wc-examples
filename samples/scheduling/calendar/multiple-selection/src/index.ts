@@ -7,4 +7,6 @@ export class CalendarMultipleSelection {
     }
 }
 
-new CalendarMultipleSelection();
+export function initialize() {
+  return new CalendarMultipleSelection();
+}

@@ -26,4 +26,6 @@ export class DataChartTypeRangeColumnSeries {
     }
 }
 
-new DataChartTypeRangeColumnSeries();
+export function initialize() {
+  return new DataChartTypeRangeColumnSeries();
+}

@@ -27,4 +27,6 @@ export class ChipVariants {
   }
 }
 
-new ChipVariants();
+export function initialize() {
+  return new ChipVariants();
+}

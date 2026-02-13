@@ -64,4 +64,6 @@ export class FinancialChartAxisTypes {
     }
 }
 
-new FinancialChartAxisTypes();
+export function initialize() {
+  return new FinancialChartAxisTypes();
+}

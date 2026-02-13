@@ -119,4 +119,6 @@ export class DataChartSeriesHighlighting {
     }
 }
 
-new DataChartSeriesHighlighting();
+export function initialize() {
+  return new DataChartSeriesHighlighting();
+}

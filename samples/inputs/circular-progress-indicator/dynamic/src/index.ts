@@ -36,4 +36,6 @@ export class DynamicCircularProgress {
     }
 }
 
-new DynamicCircularProgress();
+export function initialize() {
+  return new DynamicCircularProgress();
+}

@@ -69,4 +69,6 @@ export class BulletGraphTypeFilled {
     }
 }
 
-new BulletGraphTypeFilled();
+export function initialize() {
+  return new BulletGraphTypeFilled();
+}

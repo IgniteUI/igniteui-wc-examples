@@ -10,4 +10,6 @@ export class BulletGraphLabels {
 
 }
 
-new BulletGraphLabels();
+export function initialize() {
+  return new BulletGraphLabels();
+}

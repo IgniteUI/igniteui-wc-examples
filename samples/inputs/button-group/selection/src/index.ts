@@ -45,4 +45,6 @@ export class ButtonGroupSelection {
     }
 }
 
-new ButtonGroupSelection();
+export function initialize() {
+  return new ButtonGroupSelection();
+}

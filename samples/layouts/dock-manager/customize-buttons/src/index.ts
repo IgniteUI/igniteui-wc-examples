@@ -142,4 +142,6 @@ export class DockManagerButtonsCustomization {
     }
 }
 
-new DockManagerButtonsCustomization();
+export function initialize() {
+  return new DockManagerButtonsCustomization();
+}

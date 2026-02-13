@@ -74,4 +74,6 @@ export class MapBindingDataCSV {
     }
 }
 
-new MapBindingDataCSV();
+export function initialize() {
+  return new MapBindingDataCSV();
+}

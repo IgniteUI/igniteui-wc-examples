@@ -61,4 +61,6 @@ export class DataChartSeriesAnimations {
     }
 }
 
-new DataChartSeriesAnimations();
+export function initialize() {
+  return new DataChartSeriesAnimations();
+}

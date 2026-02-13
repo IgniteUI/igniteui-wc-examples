@@ -10,4 +10,6 @@ export class BulletGraphHighlightNeedle {
 
 }
 
-new BulletGraphHighlightNeedle();
+export function initialize() {
+  return new BulletGraphHighlightNeedle();
+}

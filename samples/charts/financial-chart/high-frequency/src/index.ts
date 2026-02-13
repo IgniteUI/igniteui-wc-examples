@@ -177,4 +177,6 @@ export class FinancialChartHighFrequency {
     }
 }
 
-new FinancialChartHighFrequency();
+export function initialize() {
+  return new FinancialChartHighFrequency();
+}

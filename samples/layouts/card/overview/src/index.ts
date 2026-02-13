@@ -12,4 +12,6 @@ export class CardOverview {
     }
 }
 
-new CardOverview();
+export function initialize() {
+  return new CardOverview();
+}

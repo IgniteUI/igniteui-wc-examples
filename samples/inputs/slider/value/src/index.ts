@@ -23,4 +23,6 @@ export class SliderValue {
     }
 }
 
-new SliderValue();
+export function initialize() {
+  return new SliderValue();
+}

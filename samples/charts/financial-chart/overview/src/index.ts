@@ -33,4 +33,6 @@ export class FinancialChartOverview {
     }
 }
 
-new FinancialChartOverview();
+export function initialize() {
+  return new FinancialChartOverview();
+}

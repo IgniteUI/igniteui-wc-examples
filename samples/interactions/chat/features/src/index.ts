@@ -119,4 +119,6 @@ igc-avatar::part(base) {
   }
 }
 
-new ChatOverview();
+export function initialize() {
+  return new ChatOverview();
+}

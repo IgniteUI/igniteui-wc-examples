@@ -36,4 +36,6 @@ export class DataGridColumnPinningToolbar {
     }
 }
 
-new DataGridColumnPinningToolbar();
+export function initialize() {
+  return new DataGridColumnPinningToolbar();
+}

@@ -7,4 +7,6 @@ export class CheckboxIndeterminate {
     }
 }
 
-new CheckboxIndeterminate();
+export function initialize() {
+  return new CheckboxIndeterminate();
+}

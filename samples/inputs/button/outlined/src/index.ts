@@ -7,4 +7,6 @@ export class OutlinedButton {
     }
 }
 
-new OutlinedButton();
+export function initialize() {
+  return new OutlinedButton();
+}

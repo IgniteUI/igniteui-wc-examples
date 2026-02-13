@@ -25,4 +25,6 @@ export class FinancialChartHighVolume {
 
 }
 
-new FinancialChartHighVolume();
+export function initialize() {
+  return new FinancialChartHighVolume();
+}

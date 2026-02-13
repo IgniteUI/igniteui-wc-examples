@@ -80,4 +80,6 @@ export class MapTypeScatterAreaSeries {
 
 }
 
-new MapTypeScatterAreaSeries();
+export function initialize() {
+  return new MapTypeScatterAreaSeries();
+}

@@ -50,4 +50,6 @@ export class Sample {
         return this._singersData;
     }
 }
-new Sample();
+export function initialize() {
+  return new Sample();
+}

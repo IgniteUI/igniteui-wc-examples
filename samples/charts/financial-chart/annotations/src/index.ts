@@ -128,4 +128,6 @@ export class FinancialChartAnnotations {
     }
 }
 
-new FinancialChartAnnotations();
+export function initialize() {
+  return new FinancialChartAnnotations();
+}

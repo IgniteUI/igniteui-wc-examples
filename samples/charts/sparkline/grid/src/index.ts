@@ -65,4 +65,6 @@ export class SparklineGrid {
     }
 }
 
-new SparklineGrid();
+export function initialize() {
+  return new SparklineGrid();
+}

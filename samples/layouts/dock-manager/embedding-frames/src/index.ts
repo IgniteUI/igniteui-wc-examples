@@ -79,4 +79,6 @@ export class DockManagerEmbeddingFrames {
     }
 }
 
-new DockManagerEmbeddingFrames();
+export function initialize() {
+  return new DockManagerEmbeddingFrames();
+}

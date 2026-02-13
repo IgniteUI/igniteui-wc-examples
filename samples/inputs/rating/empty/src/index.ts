@@ -15,4 +15,6 @@ export class EmptyStateRating {
     }
 }
 
-new EmptyStateRating();
+export function initialize() {
+  return new EmptyStateRating();
+}

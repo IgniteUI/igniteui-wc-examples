@@ -41,4 +41,6 @@ export class DataGridRowSelection {
 
 }
 
-new DataGridRowSelection();
+export function initialize() {
+  return new DataGridRowSelection();
+}

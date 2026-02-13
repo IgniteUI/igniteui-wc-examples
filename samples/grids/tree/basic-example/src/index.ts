@@ -8,4 +8,6 @@ export class TreeBasic {
     }
 }
 
-new TreeBasic();
+export function initialize() {
+  return new TreeBasic();
+}

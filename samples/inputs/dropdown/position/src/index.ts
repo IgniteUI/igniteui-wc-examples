@@ -15,4 +15,6 @@ export class DropDownPosition {
     }
 }
 
-new DropDownPosition();
+export function initialize() {
+  return new DropDownPosition();
+}

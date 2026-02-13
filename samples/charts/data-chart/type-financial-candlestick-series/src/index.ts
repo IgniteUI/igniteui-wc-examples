@@ -24,4 +24,6 @@ export class DataChartTypeFinancialCandlestickSeries {
     }
 }
 
-new DataChartTypeFinancialCandlestickSeries();
+export function initialize() {
+  return new DataChartTypeFinancialCandlestickSeries();
+}

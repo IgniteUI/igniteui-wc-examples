@@ -20,4 +20,6 @@ export class StepperTitlePositionAndOrientation {
     }
 }
 
-new StepperTitlePositionAndOrientation();
+export function initialize() {
+  return new StepperTitlePositionAndOrientation();
+}

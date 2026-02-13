@@ -16,4 +16,6 @@ export class RadialGaugeLabels {
 
 }
 
-new RadialGaugeLabels();
+export function initialize() {
+  return new RadialGaugeLabels();
+}

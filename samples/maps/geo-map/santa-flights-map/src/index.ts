@@ -864,4 +864,6 @@ export class WorldFlightMap {
     }
 }
 
-new WorldFlightMap();
+export function initialize() {
+  return new WorldFlightMap();
+}

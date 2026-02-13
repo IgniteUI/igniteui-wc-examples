@@ -7,4 +7,6 @@ export class CalendarHeader {
     }
 }
 
-new CalendarHeader();
+export function initialize() {
+  return new CalendarHeader();
+}

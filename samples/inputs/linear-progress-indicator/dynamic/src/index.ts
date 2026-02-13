@@ -34,4 +34,6 @@ export class DynamicLinearProgress {
     }
 }
 
-new DynamicLinearProgress();
+export function initialize() {
+  return new DynamicLinearProgress();
+}

@@ -52,4 +52,6 @@ export class FinancialChartVolumeTypes {
 
 }
 
-new FinancialChartVolumeTypes();
+export function initialize() {
+  return new FinancialChartVolumeTypes();
+}

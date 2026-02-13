@@ -9,4 +9,6 @@ export class ToastProperties {
     }
 }
 
-new ToastProperties();
+export function initialize() {
+  return new ToastProperties();
+}

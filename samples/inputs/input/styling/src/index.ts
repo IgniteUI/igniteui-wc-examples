@@ -12,4 +12,6 @@ export class InputStyling {
     }
 }
 
-new InputStyling();
+export function initialize() {
+  return new InputStyling();
+}

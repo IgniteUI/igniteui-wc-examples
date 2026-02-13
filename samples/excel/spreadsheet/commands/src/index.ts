@@ -35,4 +35,6 @@ export class SpreadsheetCommands {
     }
 }
 
-new SpreadsheetCommands();
+export function initialize() {
+  return new SpreadsheetCommands();
+}

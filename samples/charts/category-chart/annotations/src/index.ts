@@ -153,4 +153,6 @@ export class CategoryChartAnnotations {
     }
 }
 
-new CategoryChartAnnotations();
+export function initialize() {
+  return new CategoryChartAnnotations();
+}

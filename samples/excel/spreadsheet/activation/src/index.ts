@@ -43,4 +43,6 @@ export class SpreadsheetActivation {
     }
 }
 
-new SpreadsheetActivation();
+export function initialize() {
+  return new SpreadsheetActivation();
+}

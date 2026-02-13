@@ -22,4 +22,6 @@ export class ComboOverview {
     }
 }
 
-new ComboOverview();
+export function initialize() {
+  return new ComboOverview();
+}

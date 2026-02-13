@@ -83,4 +83,6 @@ export class DataChartTypeScatterContourSeries {
     }
 }
 
-new DataChartTypeScatterContourSeries();
+export function initialize() {
+  return new DataChartTypeScatterContourSeries();
+}

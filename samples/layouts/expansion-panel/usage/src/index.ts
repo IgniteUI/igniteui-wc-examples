@@ -8,4 +8,6 @@ export class ExpansionPanelUsage {
 	}
 }
 
-new ExpansionPanelUsage();
+export function initialize() {
+  return new ExpansionPanelUsage();
+}

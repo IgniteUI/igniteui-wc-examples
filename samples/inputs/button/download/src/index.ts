@@ -7,4 +7,6 @@ export class DownloadButton {
     }
 }
 
-new DownloadButton();
+export function initialize() {
+  return new DownloadButton();
+}

@@ -22,4 +22,6 @@ export class DataGridRowGrouping {
     }
 }
 
-new DataGridRowGrouping();
+export function initialize() {
+  return new DataGridRowGrouping();
+}

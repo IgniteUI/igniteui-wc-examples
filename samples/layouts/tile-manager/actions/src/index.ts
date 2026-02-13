@@ -92,4 +92,6 @@ export class TileManagerActions {
   }
 }
 
-new TileManagerActions();
+export function initialize() {
+  return new TileManagerActions();
+}

@@ -44,4 +44,6 @@ export class DatePickerRange {
     }
 }
 
-new DatePickerRange();
+export function initialize() {
+  return new DatePickerRange();
+}

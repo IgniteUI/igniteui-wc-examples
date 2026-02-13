@@ -10,4 +10,6 @@ export class RadialGaugeNeedle {
 
 }
 
-new RadialGaugeNeedle();
+export function initialize() {
+  return new RadialGaugeNeedle();
+}

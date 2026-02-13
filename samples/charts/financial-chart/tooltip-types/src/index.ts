@@ -46,4 +46,6 @@ export class FinancialChartTooltipTypes {
     }
 }
 
-new FinancialChartTooltipTypes();
+export function initialize() {
+  return new FinancialChartTooltipTypes();
+}

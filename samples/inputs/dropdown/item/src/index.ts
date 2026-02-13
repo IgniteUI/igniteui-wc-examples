@@ -15,4 +15,6 @@ export class DropDownItem {
     }
 }
 
-new DropDownItem();
+export function initialize() {
+  return new DropDownItem();
+}

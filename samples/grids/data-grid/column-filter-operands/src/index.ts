@@ -75,4 +75,6 @@ export class DataGridColumnFilterOperands {
 
 }
 
-new DataGridColumnFilterOperands();
+export function initialize() {
+  return new DataGridColumnFilterOperands();
+}

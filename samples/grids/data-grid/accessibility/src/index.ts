@@ -101,4 +101,6 @@ export class DataGridAccessibility {
     // }
 }
 
-new DataGridAccessibility();
+export function initialize() {
+  return new DataGridAccessibility();
+}

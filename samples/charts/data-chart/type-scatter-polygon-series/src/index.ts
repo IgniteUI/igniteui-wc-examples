@@ -94,4 +94,6 @@ export class DataChartTypeScatterPolygonSeries {
     }
 }
 
-new DataChartTypeScatterPolygonSeries();
+export function initialize() {
+  return new DataChartTypeScatterPolygonSeries();
+}

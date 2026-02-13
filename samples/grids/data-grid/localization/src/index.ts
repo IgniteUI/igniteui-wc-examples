@@ -124,4 +124,6 @@ export class DataGridLocalization {
     }
 }
 
-new DataGridLocalization();
+export function initialize() {
+  return new DataGridLocalization();
+}

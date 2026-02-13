@@ -12,4 +12,6 @@ export class AvatarSize {
     }
 }
 
-new AvatarSize();
+export function initialize() {
+  return new AvatarSize();
+}

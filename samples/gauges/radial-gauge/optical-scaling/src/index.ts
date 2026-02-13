@@ -40,4 +40,6 @@ export class RadialGaugeOpticalScaling {
     }
 }
 
-new RadialGaugeOpticalScaling();
+export function initialize() {
+  return new RadialGaugeOpticalScaling();
+}

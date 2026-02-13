@@ -7,4 +7,6 @@ export class FileInputOverview {
   }
 }
 
-new FileInputOverview();
+export function initialize() {
+  return new FileInputOverview();
+}

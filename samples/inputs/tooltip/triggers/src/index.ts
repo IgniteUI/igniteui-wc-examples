@@ -8,4 +8,6 @@ export class TooltipTriggers {
   }
 }
 
-new TooltipTriggers();
+export function initialize() {
+  return new TooltipTriggers();
+}

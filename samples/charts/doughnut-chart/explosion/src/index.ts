@@ -45,4 +45,6 @@ export class DoughnutChartExplosion {
     }
 }
 
-new DoughnutChartExplosion();
+export function initialize() {
+  return new DoughnutChartExplosion();
+}

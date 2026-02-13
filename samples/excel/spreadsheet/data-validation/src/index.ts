@@ -95,4 +95,6 @@ export class SpreadsheetDataValidation {
     }
 }
 
-new SpreadsheetDataValidation();
+export function initialize() {
+  return new SpreadsheetDataValidation();
+}

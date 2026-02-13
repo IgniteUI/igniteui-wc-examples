@@ -32,4 +32,6 @@ export class MapOverview {
 
 }
 
-new MapOverview();
+export function initialize() {
+  return new MapOverview();
+}

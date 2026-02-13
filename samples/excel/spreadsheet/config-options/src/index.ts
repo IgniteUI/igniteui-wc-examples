@@ -131,4 +131,6 @@ export class SpreadsheetConfiguring {
     }
 }
 
-new SpreadsheetConfiguring();
+export function initialize() {
+  return new SpreadsheetConfiguring();
+}

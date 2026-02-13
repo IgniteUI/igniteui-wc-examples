@@ -83,4 +83,6 @@ export class SpreadsheetAdapterCombo {
     }
 }
 
-new SpreadsheetAdapterCombo();
+export function initialize() {
+  return new SpreadsheetAdapterCombo();
+}

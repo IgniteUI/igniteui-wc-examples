@@ -82,4 +82,6 @@ export class MapTypeScatterContourSeries {
     }
 }
 
-new MapTypeScatterContourSeries();
+export function initialize() {
+  return new MapTypeScatterContourSeries();
+}

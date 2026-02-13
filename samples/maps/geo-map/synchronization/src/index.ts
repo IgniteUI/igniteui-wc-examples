@@ -52,4 +52,6 @@ export class MapSynchronization {
 
 }
 
-new MapSynchronization();
+export function initialize() {
+  return new MapSynchronization();
+}

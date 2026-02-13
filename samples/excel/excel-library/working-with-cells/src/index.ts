@@ -234,4 +234,6 @@ export class ExcelLibraryCells {
     }
 }
 
-new ExcelLibraryCells();
+export function initialize() {
+  return new ExcelLibraryCells();
+}

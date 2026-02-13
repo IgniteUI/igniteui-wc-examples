@@ -22,4 +22,6 @@ export class SpreadsheetHyperlinks {
     }
 }
 
-new SpreadsheetHyperlinks();
+export function initialize() {
+  return new SpreadsheetHyperlinks();
+}

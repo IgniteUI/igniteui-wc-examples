@@ -502,4 +502,6 @@ export class DataGridTypeMarketingTable {
     }
 }
 
-new DataGridTypeMarketingTable();
+export function initialize() {
+  return new DataGridTypeMarketingTable();
+}

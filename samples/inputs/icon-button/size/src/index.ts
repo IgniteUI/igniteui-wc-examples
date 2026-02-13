@@ -12,4 +12,6 @@ export class IconButtonSize {
     }
 }
 
-new IconButtonSize();
+export function initialize() {
+  return new IconButtonSize();
+}

@@ -15,4 +15,6 @@ export class DropDownHeader {
     }
 }
 
-new DropDownHeader();
+export function initialize() {
+  return new DropDownHeader();
+}

@@ -97,4 +97,6 @@ export class LinearGaugeTypeVertical {
     }
 }
 
-new LinearGaugeTypeVertical();
+export function initialize() {
+  return new LinearGaugeTypeVertical();
+}

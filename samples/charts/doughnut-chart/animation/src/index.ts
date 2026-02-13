@@ -92,4 +92,6 @@ export class DoughnutChartAnimation {
 
 }
 
-new DoughnutChartAnimation();
+export function initialize() {
+  return new DoughnutChartAnimation();
+}

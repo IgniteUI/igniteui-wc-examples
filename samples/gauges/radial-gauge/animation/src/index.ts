@@ -309,4 +309,6 @@ export class RadialGaugeAnimation {
     }
 }
 
-new RadialGaugeAnimation();
+export function initialize() {
+  return new RadialGaugeAnimation();
+}

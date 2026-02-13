@@ -74,4 +74,6 @@ export class ComboSelection {
     }
 }
 
-new ComboSelection();
+export function initialize() {
+  return new ComboSelection();
+}

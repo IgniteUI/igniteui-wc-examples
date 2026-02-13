@@ -22,4 +22,6 @@ export class SpreadsheetOverview {
     }
 }
 
-new SpreadsheetOverview();
+export function initialize() {
+  return new SpreadsheetOverview();
+}

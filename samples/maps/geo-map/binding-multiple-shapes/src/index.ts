@@ -86,4 +86,6 @@ export class MapBindingMultipleShapes {
     }
 }
 
-new MapBindingMultipleShapes();
+export function initialize() {
+  return new MapBindingMultipleShapes();
+}

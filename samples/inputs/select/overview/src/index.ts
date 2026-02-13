@@ -8,4 +8,6 @@ export class SelectOverview {
     }
 }
 
-new SelectOverview();
+export function initialize() {
+  return new SelectOverview();
+}

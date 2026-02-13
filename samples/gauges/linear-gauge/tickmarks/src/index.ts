@@ -10,4 +10,6 @@ export class LinearGaugeTickmarks {
 
 }
 
-new LinearGaugeTickmarks();
+export function initialize() {
+  return new LinearGaugeTickmarks();
+}

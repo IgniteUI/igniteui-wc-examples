@@ -7,4 +7,6 @@ export class CalendarRangeSelection {
     }
 }
 
-new CalendarRangeSelection();
+export function initialize() {
+  return new CalendarRangeSelection();
+}

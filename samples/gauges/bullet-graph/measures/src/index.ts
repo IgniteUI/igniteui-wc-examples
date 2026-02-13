@@ -10,4 +10,6 @@ export class BulletGraphMeasures {
 
 }
 
-new BulletGraphMeasures();
+export function initialize() {
+  return new BulletGraphMeasures();
+}

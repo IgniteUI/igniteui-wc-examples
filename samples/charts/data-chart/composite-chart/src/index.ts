@@ -74,4 +74,6 @@ export class DataChartCompositeChart {
     }
 }
 
-new DataChartCompositeChart();
+export function initialize() {
+  return new DataChartCompositeChart();
+}

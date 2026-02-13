@@ -17,4 +17,6 @@ export class AccordionNestedScenario {
     }
 }
 
-new AccordionNestedScenario();
+export function initialize() {
+  return new AccordionNestedScenario();
+}

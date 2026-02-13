@@ -17,4 +17,6 @@ export class TabsAlignment {
     }
 }
 
-new TabsAlignment();
+export function initialize() {
+  return new TabsAlignment();
+}

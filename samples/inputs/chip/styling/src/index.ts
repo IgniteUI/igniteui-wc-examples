@@ -28,4 +28,6 @@ export class ChipStyling {
   }
 }
 
-new ChipStyling();
+export function initialize() {
+  return new ChipStyling();
+}

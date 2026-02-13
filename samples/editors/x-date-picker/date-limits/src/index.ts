@@ -27,4 +27,6 @@ export class DatePickerDateLimits {
     }
 }
 
-new DatePickerDateLimits();
+export function initialize() {
+  return new DatePickerDateLimits();
+}

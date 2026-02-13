@@ -84,4 +84,6 @@ export class BooleanFilteringOperand extends IgcBooleanFilteringOperand {
     }
 }
 
-new Sample();
+export function initialize() {
+  return new Sample();
+}

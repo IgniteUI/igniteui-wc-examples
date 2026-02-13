@@ -185,4 +185,6 @@ export class DataChartNavigation {
     }
 }
 
-new DataChartNavigation();
+export function initialize() {
+  return new DataChartNavigation();
+}

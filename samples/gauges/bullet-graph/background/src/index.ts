@@ -10,4 +10,6 @@ export class BulletGraphBackground {
 
 }
 
-new BulletGraphBackground();
+export function initialize() {
+  return new BulletGraphBackground();
+}

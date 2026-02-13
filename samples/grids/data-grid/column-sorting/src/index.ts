@@ -49,4 +49,6 @@ export class DataGridColumnSorting {
     }
 }
 
-new DataGridColumnSorting();
+export function initialize() {
+  return new DataGridColumnSorting();
+}

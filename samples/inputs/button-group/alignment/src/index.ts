@@ -8,4 +8,6 @@ export class ButtonGroupAlignment {
     }
 }
 
-new ButtonGroupAlignment();
+export function initialize() {
+  return new ButtonGroupAlignment();
+}

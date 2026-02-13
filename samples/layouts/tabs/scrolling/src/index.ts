@@ -20,4 +20,6 @@ export class TabsScrolling {
     }
 }
 
-new TabsScrolling();
+export function initialize() {
+  return new TabsScrolling();
+}

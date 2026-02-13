@@ -15,4 +15,6 @@ export class CustomRatingSymbol {
     }
 }
 
-new CustomRatingSymbol();
+export function initialize() {
+  return new CustomRatingSymbol();
+}

@@ -69,4 +69,6 @@ export class DataChartAxisLocations {
     }
 }
 
-new DataChartAxisLocations();
+export function initialize() {
+  return new DataChartAxisLocations();
+}

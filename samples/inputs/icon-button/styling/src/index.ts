@@ -12,4 +12,6 @@ export class IconButtonStyling {
     }
 }
 
-new IconButtonStyling();
+export function initialize() {
+  return new IconButtonStyling();
+}

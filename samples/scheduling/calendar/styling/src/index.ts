@@ -8,4 +8,6 @@ export class CalendarStyling {
     }
 }
 
-new CalendarStyling();
+export function initialize() {
+  return new CalendarStyling();
+}

@@ -20,4 +20,6 @@ export class SliderValueFormat {
     }
 }
 
-new SliderValueFormat();
+export function initialize() {
+  return new SliderValueFormat();
+}

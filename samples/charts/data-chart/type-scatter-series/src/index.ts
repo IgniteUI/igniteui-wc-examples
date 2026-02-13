@@ -159,4 +159,6 @@ export class DataChartTypeScatterSeries {
     }
 }
 
-new DataChartTypeScatterSeries();
+export function initialize() {
+  return new DataChartTypeScatterSeries();
+}

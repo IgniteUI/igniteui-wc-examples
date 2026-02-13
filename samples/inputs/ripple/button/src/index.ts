@@ -7,4 +7,6 @@ export class RippleButton {
     }
 }
 
-new RippleButton();
+export function initialize() {
+  return new RippleButton();
+}

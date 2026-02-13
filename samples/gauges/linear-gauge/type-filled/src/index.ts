@@ -78,4 +78,6 @@ export class LinearGaugeTypeFilled {
 
 }
 
-new LinearGaugeTypeFilled();
+export function initialize() {
+  return new LinearGaugeTypeFilled();
+}

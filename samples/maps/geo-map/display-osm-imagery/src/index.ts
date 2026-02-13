@@ -25,4 +25,6 @@ export class MapDisplayImageryOSM {
 
 }
 
-new MapDisplayImageryOSM();
+export function initialize() {
+  return new MapDisplayImageryOSM();
+}

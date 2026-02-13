@@ -23,4 +23,6 @@ export class FinancialChartMultipleData {
     }
 }
 
-new FinancialChartMultipleData();
+export function initialize() {
+  return new FinancialChartMultipleData();
+}

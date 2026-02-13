@@ -11,4 +11,6 @@ export class RichTooltip {
   }
 }
 
-new RichTooltip();
+export function initialize() {
+  return new RichTooltip();
+}

@@ -8,4 +8,6 @@ export class CheckboxStyling {
     }
 }
 
-new CheckboxStyling();
+export function initialize() {
+  return new CheckboxStyling();
+}

@@ -22,4 +22,6 @@ export class TileManagerColumn {
   }
 }
 
-new TileManagerColumn();
+export function initialize() {
+  return new TileManagerColumn();
+}

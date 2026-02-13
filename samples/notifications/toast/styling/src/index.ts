@@ -9,4 +9,6 @@ export class ToastStyling {
     }
 }
 
-new ToastStyling();
+export function initialize() {
+  return new ToastStyling();
+}

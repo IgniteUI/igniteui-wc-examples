@@ -354,4 +354,6 @@ class PeriodicScale {
     }
 }
 
-new DataGridTypePeriodicTable();
+export function initialize() {
+  return new DataGridTypePeriodicTable();
+}

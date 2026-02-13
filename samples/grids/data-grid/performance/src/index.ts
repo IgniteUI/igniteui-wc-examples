@@ -484,4 +484,6 @@ export class SalesPerson {
     DateValue!: Date;
 }
 
-new DataGridPerformance();
+export function initialize() {
+  return new DataGridPerformance();
+}

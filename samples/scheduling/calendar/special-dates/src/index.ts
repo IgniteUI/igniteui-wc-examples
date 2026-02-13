@@ -18,4 +18,6 @@ export class CalendarSpecialDates {
     }
 }
 
-new CalendarSpecialDates();
+export function initialize() {
+  return new CalendarSpecialDates();
+}

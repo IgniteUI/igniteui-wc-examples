@@ -16,4 +16,6 @@ export class DialogForm {
     }
 }
 
-new DialogForm();
+export function initialize() {
+  return new DialogForm();
+}

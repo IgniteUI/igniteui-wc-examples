@@ -28,4 +28,6 @@ export class DataGridBindingRemoteData {
 
 }
 
-new DataGridBindingRemoteData();
+export function initialize() {
+  return new DataGridBindingRemoteData();
+}

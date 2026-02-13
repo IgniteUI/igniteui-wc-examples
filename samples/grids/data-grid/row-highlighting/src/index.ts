@@ -46,4 +46,6 @@ export class DataGridRowHighlighting {
     }
 }
 
-new DataGridRowHighlighting();
+export function initialize() {
+  return new DataGridRowHighlighting();
+}

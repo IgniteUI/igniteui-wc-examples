@@ -87,4 +87,6 @@ export class DataGridColumnOptions {
     }
 }
 
-new DataGridColumnOptions();
+export function initialize() {
+  return new DataGridColumnOptions();
+}

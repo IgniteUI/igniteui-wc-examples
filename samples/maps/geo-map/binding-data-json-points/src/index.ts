@@ -44,4 +44,6 @@ export class MapBindingDataJsonPoints {
     }
 }
 
-new MapBindingDataJsonPoints();
+export function initialize() {
+  return new MapBindingDataJsonPoints();
+}

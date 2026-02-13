@@ -113,4 +113,6 @@ export class LinearGaugeTypeCurve {
 
 }
 
-new LinearGaugeTypeCurve();
+export function initialize() {
+  return new LinearGaugeTypeCurve();
+}

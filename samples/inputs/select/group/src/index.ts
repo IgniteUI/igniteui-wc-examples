@@ -11,4 +11,6 @@ export class SelectGroup {
     }
 }
 
-new SelectGroup();
+export function initialize() {
+  return new SelectGroup();
+}

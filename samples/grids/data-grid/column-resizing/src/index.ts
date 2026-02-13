@@ -72,4 +72,6 @@ export class DataGridColumnResizing {
     }
 }
 
-new DataGridColumnResizing();
+export function initialize() {
+  return new DataGridColumnResizing();
+}

@@ -10,4 +10,6 @@ export class RadialGaugeBacking {
 
 }
 
-new RadialGaugeBacking();
+export function initialize() {
+  return new RadialGaugeBacking();
+}

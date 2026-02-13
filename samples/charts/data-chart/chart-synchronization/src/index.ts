@@ -31,4 +31,6 @@ export class DataChartSynchronization {
 
 }
 
-new DataChartSynchronization();
+export function initialize() {
+  return new DataChartSynchronization();
+}

@@ -103,4 +103,6 @@ export class CategoryChartMarkerTemplates {
     }
 }
 
-new CategoryChartMarkerTemplates();
+export function initialize() {
+  return new CategoryChartMarkerTemplates();
+}

@@ -10,4 +10,6 @@ export class LinearGaugeLabels {
 
 }
 
-new LinearGaugeLabels();
+export function initialize() {
+  return new LinearGaugeLabels();
+}

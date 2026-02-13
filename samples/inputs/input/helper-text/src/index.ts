@@ -11,4 +11,6 @@ export class InputHelperText {
     }
 }
 
-new InputHelperText();
+export function initialize() {
+  return new InputHelperText();
+}

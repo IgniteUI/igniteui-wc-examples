@@ -16,4 +16,6 @@ export class SpreadsheetFilterDialog {
     }
 }
 
-new SpreadsheetFilterDialog();
+export function initialize() {
+  return new SpreadsheetFilterDialog();
+}

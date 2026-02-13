@@ -10,4 +10,6 @@ export class BulletGraphRanges {
 
 }
 
-new BulletGraphRanges();
+export function initialize() {
+  return new BulletGraphRanges();
+}

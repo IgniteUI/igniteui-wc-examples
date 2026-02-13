@@ -62,4 +62,6 @@ export class ComboTemplates {
     }
 }
 
-new ComboTemplates();
+export function initialize() {
+  return new ComboTemplates();
+}

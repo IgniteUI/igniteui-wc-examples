@@ -37,4 +37,6 @@ export class DatePickerOverview {
     }
 }
 
-new DatePickerOverview();
+export function initialize() {
+  return new DatePickerOverview();
+}

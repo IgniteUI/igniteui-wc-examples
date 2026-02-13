@@ -47,4 +47,6 @@ export class MapTypeScatterSymbolSeries {
 
 }
 
-new MapTypeScatterSymbolSeries();
+export function initialize() {
+  return new MapTypeScatterSymbolSeries();
+}

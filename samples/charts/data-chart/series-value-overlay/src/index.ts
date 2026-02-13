@@ -43,4 +43,6 @@ export class DataChartSeriesValueOverlay {
     }
 }
 
-new DataChartSeriesValueOverlay();
+export function initialize() {
+  return new DataChartSeriesValueOverlay();
+}

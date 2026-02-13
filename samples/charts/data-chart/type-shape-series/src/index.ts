@@ -74,4 +74,6 @@ export class DataChartTypeShapeSeries {
     }
 }
 
-new DataChartTypeShapeSeries();
+export function initialize() {
+  return new DataChartTypeShapeSeries();
+}

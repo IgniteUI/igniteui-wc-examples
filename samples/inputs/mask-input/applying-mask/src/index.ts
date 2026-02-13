@@ -12,4 +12,6 @@ export class MaskInputApplyingMask {
     }
 }
 
-new MaskInputApplyingMask();
+export function initialize() {
+  return new MaskInputApplyingMask();
+}

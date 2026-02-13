@@ -12,4 +12,6 @@ export class AvatarStyle {
     }
 }
 
-new AvatarStyle();
+export function initialize() {
+  return new AvatarStyle();
+}

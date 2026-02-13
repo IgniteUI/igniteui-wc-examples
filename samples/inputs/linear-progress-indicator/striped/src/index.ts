@@ -9,4 +9,6 @@ export class ProgressIndicatorStyles {
     }
 }
 
-new ProgressIndicatorStyles();
+export function initialize() {
+  return new ProgressIndicatorStyles();
+}

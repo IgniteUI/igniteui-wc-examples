@@ -7,4 +7,6 @@ export class CalendarWeekNumbers {
     }
 }
 
-new CalendarWeekNumbers();
+export function initialize() {
+  return new CalendarWeekNumbers();
+}

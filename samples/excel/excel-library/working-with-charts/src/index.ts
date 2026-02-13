@@ -132,4 +132,6 @@ export class ExcelLibraryCharts {
     }
 }
 
-new ExcelLibraryCharts();
+export function initialize() {
+  return new ExcelLibraryCharts();
+}

@@ -167,4 +167,6 @@ export class ExcelLibraryOverview {
     }
 }
 
-new ExcelLibraryOverview();
+export function initialize() {
+  return new ExcelLibraryOverview();
+}

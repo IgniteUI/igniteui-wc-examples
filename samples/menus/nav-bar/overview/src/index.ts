@@ -23,4 +23,6 @@ export class NavbarOverview {
     }
 }
 
-new NavbarOverview();
+export function initialize() {
+  return new NavbarOverview();
+}

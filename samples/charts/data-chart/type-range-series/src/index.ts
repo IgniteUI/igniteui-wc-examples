@@ -72,4 +72,6 @@ export class DataChartTypeRangeSeries {
     }
 }
 
-new DataChartTypeRangeSeries();
+export function initialize() {
+  return new DataChartTypeRangeSeries();
+}

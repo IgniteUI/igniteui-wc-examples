@@ -79,4 +79,6 @@ export class RadialGaugeTypeSemi {
     }
 }
 
-new RadialGaugeTypeSemi();
+export function initialize() {
+  return new RadialGaugeTypeSemi();
+}

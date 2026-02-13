@@ -31,4 +31,6 @@ export class TileManagerResize {
   }
 }
 
-new TileManagerResize();
+export function initialize() {
+  return new TileManagerResize();
+}

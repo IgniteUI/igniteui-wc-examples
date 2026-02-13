@@ -25,4 +25,6 @@ export class CarouselAnimations {
     }
 }
 
-new CarouselAnimations();
+export function initialize() {
+  return new CarouselAnimations();
+}

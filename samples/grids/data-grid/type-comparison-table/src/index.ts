@@ -207,4 +207,6 @@ export class DataGridTypeComparisonTable {
 
 }
 
-new DataGridTypeComparisonTable();
+export function initialize() {
+  return new DataGridTypeComparisonTable();
+}

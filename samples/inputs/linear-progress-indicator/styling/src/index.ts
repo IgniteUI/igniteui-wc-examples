@@ -9,4 +9,6 @@ export class LinearProgressStyling {
     }
 }
 
-new LinearProgressStyling();
+export function initialize() {
+  return new LinearProgressStyling();
+}

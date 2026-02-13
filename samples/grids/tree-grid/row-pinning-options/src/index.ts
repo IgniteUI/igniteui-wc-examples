@@ -95,4 +95,6 @@ export class Sample {
 
 }
 
-new Sample();
+export function initialize() {
+  return new Sample();
+}

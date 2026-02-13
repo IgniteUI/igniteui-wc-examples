@@ -7,4 +7,6 @@ export class SnackbarOverview {
     }
 }
 
-new SnackbarOverview();
+export function initialize() {
+  return new SnackbarOverview();
+}

@@ -18,4 +18,6 @@ export class DialogClosingVariations {
     }
 }
 
-new DialogClosingVariations();
+export function initialize() {
+  return new DialogClosingVariations();
+}

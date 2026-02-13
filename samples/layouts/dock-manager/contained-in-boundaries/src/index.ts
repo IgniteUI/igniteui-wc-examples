@@ -146,4 +146,6 @@ export class DockManagerContainedInBoundaries {
     }
 }
 
-new DockManagerContainedInBoundaries();
+export function initialize() {
+  return new DockManagerContainedInBoundaries();
+}

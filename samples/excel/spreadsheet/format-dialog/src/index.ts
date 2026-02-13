@@ -16,4 +16,6 @@ export class SpreadsheetFormatDialog {
     }
 }
 
-new SpreadsheetFormatDialog();
+export function initialize() {
+  return new SpreadsheetFormatDialog();
+}

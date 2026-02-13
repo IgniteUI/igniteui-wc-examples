@@ -145,4 +145,6 @@ export class DockManagerToggleInnerDock {
     }
 }
 
-new DockManagerToggleInnerDock();
+export function initialize() {
+  return new DockManagerToggleInnerDock();
+}

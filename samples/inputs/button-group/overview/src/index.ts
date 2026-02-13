@@ -37,4 +37,6 @@ export class ButtonGroupOverview {
     }
 }
 
-new ButtonGroupOverview();
+export function initialize() {
+  return new ButtonGroupOverview();
+}

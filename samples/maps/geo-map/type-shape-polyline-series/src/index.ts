@@ -79,4 +79,6 @@ export class MapTypeScatterPolylineSeries {
     }
 }
 
-new MapTypeScatterPolylineSeries();
+export function initialize() {
+  return new MapTypeScatterPolylineSeries();
+}

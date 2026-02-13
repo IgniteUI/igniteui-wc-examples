@@ -108,4 +108,6 @@ export class DataChartSeriesMarkerTemplate {
     }
 }
 
-new DataChartSeriesMarkerTemplate();
+export function initialize() {
+  return new DataChartSeriesMarkerTemplate();
+}

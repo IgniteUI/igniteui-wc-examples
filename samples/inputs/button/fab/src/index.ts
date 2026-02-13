@@ -7,4 +7,6 @@ export class FloatingActionButton {
     }
 }
 
-new FloatingActionButton();
+export function initialize() {
+  return new FloatingActionButton();
+}

@@ -8,4 +8,6 @@ export class BadgeStyle {
     }
 }
 
-new BadgeStyle();
+export function initialize() {
+  return new BadgeStyle();
+}

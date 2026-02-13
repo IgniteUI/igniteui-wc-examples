@@ -29,4 +29,6 @@ export class DateRangePickerForm {
   }
 }
 
-new DateRangePickerForm();
+export function initialize() {
+  return new DateRangePickerForm();
+}

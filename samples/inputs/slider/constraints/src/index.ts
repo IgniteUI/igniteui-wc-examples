@@ -9,4 +9,6 @@ export class SliderConstraints {
     }
 }
 
-new SliderConstraints();
+export function initialize() {
+  return new SliderConstraints();
+}

@@ -19,4 +19,6 @@ export class Styling {
     }
 }
 
-new Styling();
+export function initialize() {
+  return new Styling();
+}

@@ -16,4 +16,6 @@ export class RadialGaugeHighlightNeedle {
 
 }
 
-new RadialGaugeHighlightNeedle();
+export function initialize() {
+  return new RadialGaugeHighlightNeedle();
+}

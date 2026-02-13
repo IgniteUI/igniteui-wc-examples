@@ -42,4 +42,6 @@ export class DateTimeInputStyling {
     }
 }
 
-new DateTimeInputStyling();
+export function initialize() {
+  return new DateTimeInputStyling();
+}

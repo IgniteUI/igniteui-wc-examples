@@ -8,4 +8,6 @@ export class SnackbarStyling {
     }
 }
 
-new SnackbarStyling();
+export function initialize() {
+  return new SnackbarStyling();
+}

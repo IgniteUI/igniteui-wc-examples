@@ -20,4 +20,6 @@ export class DataGridHorizontalScrolling {
     }
 }
 
-new DataGridHorizontalScrolling();
+export function initialize() {
+  return new DataGridHorizontalScrolling();
+}

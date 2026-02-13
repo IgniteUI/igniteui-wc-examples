@@ -57,4 +57,6 @@ export class AdvancedTooltips {
   }
 }
 
-new AdvancedTooltips();
+export function initialize() {
+  return new AdvancedTooltips();
+}

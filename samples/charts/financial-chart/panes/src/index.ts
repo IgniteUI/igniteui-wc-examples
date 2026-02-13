@@ -78,4 +78,6 @@ export class FinancialChartPanes {
 }
 
 // tslint:disable-next-line:no-unused-expression
-new FinancialChartPanes();
+export function initialize() {
+  return new FinancialChartPanes();
+}

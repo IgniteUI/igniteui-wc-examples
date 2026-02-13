@@ -7,4 +7,6 @@ export class DialogOverview {
     }
 }
 
-new DialogOverview();
+export function initialize() {
+  return new DialogOverview();
+}

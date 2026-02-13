@@ -22,4 +22,6 @@ export class MultiColumnComboBoxOverview {
     }
 }
 
-new MultiColumnComboBoxOverview();
+export function initialize() {
+  return new MultiColumnComboBoxOverview();
+}

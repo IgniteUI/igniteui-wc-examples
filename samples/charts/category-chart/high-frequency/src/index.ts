@@ -146,4 +146,6 @@ export class CategoryChartHighFrequency {
     }
 }
 
-new CategoryChartHighFrequency();
+export function initialize() {
+  return new CategoryChartHighFrequency();
+}

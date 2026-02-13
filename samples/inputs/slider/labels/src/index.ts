@@ -8,4 +8,6 @@ export class SliderLabels {
     constructor() { }
 }
 
-new SliderLabels();
+export function initialize() {
+  return new SliderLabels();
+}

@@ -8,4 +8,6 @@ export class TooltipOverview {
   }
 }
 
-new TooltipOverview();
+export function initialize() {
+  return new TooltipOverview();
+}

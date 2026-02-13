@@ -26,4 +26,6 @@ export class DatePickerFormat {
     }
 }
 
-new DatePickerFormat();
+export function initialize() {
+  return new DatePickerFormat();
+}

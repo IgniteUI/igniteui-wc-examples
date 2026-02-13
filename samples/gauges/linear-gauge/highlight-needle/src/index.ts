@@ -10,4 +10,6 @@ export class LinearGaugeHighlightNeedle {
 
 }
 
-new LinearGaugeHighlightNeedle();
+export function initialize() {
+  return new LinearGaugeHighlightNeedle();
+}

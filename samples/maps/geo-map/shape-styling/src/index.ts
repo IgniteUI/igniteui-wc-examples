@@ -182,4 +182,6 @@ export class MapShapeStyling {
     }
 }
 
-new MapShapeStyling();
+export function initialize() {
+  return new MapShapeStyling();
+}

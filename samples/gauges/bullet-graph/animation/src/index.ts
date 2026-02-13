@@ -242,4 +242,6 @@ export class BulletGraphAnimation {
 
 }
 
-new BulletGraphAnimation();
+export function initialize() {
+  return new BulletGraphAnimation();
+}

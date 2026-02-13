@@ -13,4 +13,6 @@ export class TextareaStyling {
     }
 }
 
-new TextareaStyling();
+export function initialize() {
+  return new TextareaStyling();
+}

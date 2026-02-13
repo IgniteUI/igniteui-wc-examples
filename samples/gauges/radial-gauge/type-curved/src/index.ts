@@ -121,4 +121,6 @@ export class RadialGaugeTypeCurved {
 
 }
 
-new RadialGaugeTypeCurved();
+export function initialize() {
+  return new RadialGaugeTypeCurved();
+}

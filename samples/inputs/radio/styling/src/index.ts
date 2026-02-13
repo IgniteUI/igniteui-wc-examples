@@ -8,4 +8,6 @@ export class RadioStyling {
   }
 }
 
-new RadioStyling();
+export function initialize() {
+  return new RadioStyling();
+}

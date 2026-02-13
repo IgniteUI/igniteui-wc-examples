@@ -11,4 +11,6 @@ export class DropDownGroup {
     }
 }
 
-new DropDownGroup();
+export function initialize() {
+  return new DropDownGroup();
+}

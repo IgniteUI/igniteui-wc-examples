@@ -7,4 +7,6 @@ export class BadgeDot {
     }
 }
 
-new BadgeDot();
+export function initialize() {
+  return new BadgeDot();
+}

@@ -12,4 +12,6 @@ export class SnackbarActionText {
     }
 }
 
-new SnackbarActionText();
+export function initialize() {
+  return new SnackbarActionText();
+}

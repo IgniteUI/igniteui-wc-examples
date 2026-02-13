@@ -142,4 +142,6 @@ export class DockManagerProximityDock {
     }
 }
 
-new DockManagerProximityDock();
+export function initialize() {
+  return new DockManagerProximityDock();
+}

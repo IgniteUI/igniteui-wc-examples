@@ -65,4 +65,6 @@ export class SpreadsheetAdapter {
     }
 }
 
-new SpreadsheetAdapter();
+export function initialize() {
+  return new SpreadsheetAdapter();
+}

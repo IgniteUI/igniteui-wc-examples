@@ -90,4 +90,6 @@ export class DataChartSeriesTrendlines {
     }
 }
 
-new DataChartSeriesTrendlines();
+export function initialize() {
+  return new DataChartSeriesTrendlines();
+}

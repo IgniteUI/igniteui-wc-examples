@@ -144,4 +144,6 @@ export class TreeLoadOnDemand {
     }
 }
 
-new TreeLoadOnDemand();
+export function initialize() {
+  return new TreeLoadOnDemand();
+}

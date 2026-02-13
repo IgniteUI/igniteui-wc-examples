@@ -337,4 +337,6 @@ export class DataChartTypeStackedSeries {
     }
 }
 
-new DataChartTypeStackedSeries();
+export function initialize() {
+  return new DataChartTypeStackedSeries();
+}

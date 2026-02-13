@@ -13,4 +13,6 @@ export class CardStyling {
     }
 }
 
-new CardStyling();
+export function initialize() {
+  return new CardStyling();
+}

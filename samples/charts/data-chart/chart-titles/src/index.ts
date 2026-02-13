@@ -45,4 +45,6 @@ export class DataChartTitles {
     }
 }
 
-new DataChartTitles();
+export function initialize() {
+  return new DataChartTitles();
+}

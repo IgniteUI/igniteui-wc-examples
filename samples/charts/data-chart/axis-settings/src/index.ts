@@ -39,4 +39,6 @@ export class DataChartAxisSettings {
     }
 }
 
-new DataChartAxisSettings();
+export function initialize() {
+  return new DataChartAxisSettings();
+}

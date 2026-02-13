@@ -59,4 +59,6 @@ export class SparklineDisplayTypes {
     }
 }
 
-new SparklineDisplayTypes();
+export function initialize() {
+  return new SparklineDisplayTypes();
+}

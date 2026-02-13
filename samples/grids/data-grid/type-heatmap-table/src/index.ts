@@ -254,4 +254,6 @@ class HeatScale {
     }
 }
 
-new DataGridTypeHeatmapTable();
+export function initialize() {
+  return new DataGridTypeHeatmapTable();
+}

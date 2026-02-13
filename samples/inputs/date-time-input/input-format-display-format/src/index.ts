@@ -20,4 +20,6 @@ export class DateTimeInputInputFormatDisplayFormat {
     }
 }
 
-new DateTimeInputInputFormatDisplayFormat();
+export function initialize() {
+  return new DateTimeInputInputFormatDisplayFormat();
+}

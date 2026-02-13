@@ -52,4 +52,6 @@ export class NavDrawerStyling {
   }
 }
 
-new NavDrawerStyling();
+export function initialize() {
+  return new NavDrawerStyling();
+}

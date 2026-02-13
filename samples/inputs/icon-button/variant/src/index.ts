@@ -11,4 +11,6 @@ export class IconButtonVariants {
     }
 }
 
-new IconButtonVariants();
+export function initialize() {
+  return new IconButtonVariants();
+}

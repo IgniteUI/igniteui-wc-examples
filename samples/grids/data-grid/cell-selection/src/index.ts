@@ -92,4 +92,6 @@ export class DataGridCellSelection {
     }
 }
 
-new DataGridCellSelection();
+export function initialize() {
+  return new DataGridCellSelection();
+}

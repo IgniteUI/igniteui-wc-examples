@@ -84,4 +84,6 @@ export class RadialGaugeTypeSegmented {
     }
 }
 
-new RadialGaugeTypeSegmented();
+export function initialize() {
+  return new RadialGaugeTypeSegmented();
+}

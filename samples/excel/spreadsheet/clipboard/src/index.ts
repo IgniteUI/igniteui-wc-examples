@@ -41,4 +41,6 @@ export class SpreadsheetClipboard {
     }
 }
 
-new SpreadsheetClipboard();
+export function initialize() {
+  return new SpreadsheetClipboard();
+}

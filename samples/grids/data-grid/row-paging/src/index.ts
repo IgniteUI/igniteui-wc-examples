@@ -17,4 +17,6 @@ export class DataGridRowPaging {
     }
 }
 
-new DataGridRowPaging();
+export function initialize() {
+  return new DataGridRowPaging();
+}

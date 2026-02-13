@@ -28,4 +28,6 @@ export class ChipSize {
   }
 }
 
-new ChipSize();
+export function initialize() {
+  return new ChipSize();
+}

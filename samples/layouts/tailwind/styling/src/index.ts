@@ -4,4 +4,6 @@ export class TailwindStyling {
     constructor() {}
 }
 
-new TailwindStyling();
+export function initialize() {
+  return new TailwindStyling();
+}

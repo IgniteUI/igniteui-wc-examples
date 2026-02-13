@@ -7,4 +7,6 @@ export class RadioGroup {
   }
 }
 
-new RadioGroup();
+export function initialize() {
+  return new RadioGroup();
+}

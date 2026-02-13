@@ -101,4 +101,6 @@ export class DataGridBindingLocalData {
     // }
 }
 
-new DataGridBindingLocalData();
+export function initialize() {
+  return new DataGridBindingLocalData();
+}

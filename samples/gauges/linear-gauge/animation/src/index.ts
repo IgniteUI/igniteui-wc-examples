@@ -263,4 +263,6 @@ export class LinearGaugeAnimation {
     }
 }
 
-new LinearGaugeAnimation();
+export function initialize() {
+  return new LinearGaugeAnimation();
+}

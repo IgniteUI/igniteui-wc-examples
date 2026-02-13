@@ -121,4 +121,6 @@ export class DataChartTypeRadialSeries {
     }
 }
 
-new DataChartTypeRadialSeries();
+export function initialize() {
+  return new DataChartTypeRadialSeries();
+}

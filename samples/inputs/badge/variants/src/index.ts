@@ -7,4 +7,6 @@ export class BadgeVariants {
     }
 }
 
-new BadgeVariants();
+export function initialize() {
+  return new BadgeVariants();
+}

@@ -7,4 +7,6 @@ export class RadioGroupAlignment {
   }
 }
 
-new RadioGroupAlignment();
+export function initialize() {
+  return new RadioGroupAlignment();
+}

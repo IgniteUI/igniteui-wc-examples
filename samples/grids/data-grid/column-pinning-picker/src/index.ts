@@ -85,4 +85,6 @@ export class DataGridColumnPinningPicker {
     }
 }
 
-new DataGridColumnPinningPicker();
+export function initialize() {
+  return new DataGridColumnPinningPicker();
+}

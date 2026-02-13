@@ -8,4 +8,6 @@ export class ProgressIndicatorTypes {
     }
 }
 
-new ProgressIndicatorTypes();
+export function initialize() {
+  return new ProgressIndicatorTypes();
+}

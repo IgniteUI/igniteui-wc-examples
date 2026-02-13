@@ -8,4 +8,6 @@ export class CardHorizontal {
     }
 }
 
-new CardHorizontal();
+export function initialize() {
+  return new CardHorizontal();
+}

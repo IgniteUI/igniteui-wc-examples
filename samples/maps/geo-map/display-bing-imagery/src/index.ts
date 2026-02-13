@@ -96,4 +96,6 @@ export class MapDisplayImageryBingTiles {
     }
 }
 
-new MapDisplayImageryBingTiles();
+export function initialize() {
+  return new MapDisplayImageryBingTiles();
+}

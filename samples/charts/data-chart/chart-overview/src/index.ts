@@ -72,4 +72,6 @@ export class DataChartOverview {
     }
 }
 
-new DataChartOverview();
+export function initialize() {
+  return new DataChartOverview();
+}

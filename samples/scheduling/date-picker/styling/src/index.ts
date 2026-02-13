@@ -9,4 +9,6 @@ export class DatePickerDialogMode {
     }
 }
 
-new DatePickerDialogMode();
+export function initialize() {
+  return new DatePickerDialogMode();
+}
