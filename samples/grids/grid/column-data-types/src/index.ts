@@ -15,7 +15,6 @@ export class Sample {
         if (this._columnPipeArgs1 == null)
         {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs1.currencyCode = "";
             columnPipeArgs1.digitsInfo = "1.4-4";
 
             this._columnPipeArgs1 = columnPipeArgs1;
@@ -29,7 +28,6 @@ export class Sample {
         {
             var columnPipeArgs2: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs2.format = "long";
-            columnPipeArgs2.timezone = "UTC+0";
 
             this._columnPipeArgs2 = columnPipeArgs2;
         }
@@ -54,7 +52,6 @@ export class Sample {
         {
             var columnPipeArgs4: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
             columnPipeArgs4.format = "shortTime";
-            columnPipeArgs4.timezone = "UTC+0";
 
             this._columnPipeArgs4 = columnPipeArgs4;
         }
@@ -66,7 +63,6 @@ export class Sample {
         if (this._columnPipeArgs5 == null)
         {
             var columnPipeArgs5: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs5.currencyCode = "";
             columnPipeArgs5.digitsInfo = "1.4-4";
 
             this._columnPipeArgs5 = columnPipeArgs5;
@@ -79,7 +75,6 @@ export class Sample {
         if (this._columnPipeArgs6 == null)
         {
             var columnPipeArgs6: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs6.currencyCode = "";
             columnPipeArgs6.digitsInfo = "1.4-4";
 
             this._columnPipeArgs6 = columnPipeArgs6;
