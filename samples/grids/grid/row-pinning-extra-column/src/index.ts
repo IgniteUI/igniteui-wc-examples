@@ -51,18 +51,12 @@ export class Sample {
 
         public webGridRowPinCellTemplate = (ctx: IgcCellTemplateContext) => {
             const index = ctx.cell.id.rowIndex;
-            const grid = this.grid;
-            const row = grid.rowList.find((x:any) => x.index === index);
-            if (row && row.pinned && row.disabled) {
-                return html``;
-            }
-            return html`<div class='customIcon'><span class='customIconSpan' @pointerdown=${(e: any) => this.toggleRowPin(index)}>📌</span></div>`
+            return html`<span @pointerdown=${(e: any) => this.toggleRowPin(index)}>📌</span>`
     }
 
     public toggleRowPin(index: number) {
         var grid = this.grid;
         grid.getRowByIndex(index).pinned = !grid.getRowByIndex(index).pinned;
-        grid.markForCheck();
     }
 }
 
