@@ -163,6 +163,9 @@ var config = {
   resolve: {
     mainFields: ['esm2015', 'module', 'main'],
     extensions: ['.ts', '.js', '.json'],
+    alias: {
+      'igniteui-theming': path.resolve(__dirname, 'node_modules/igniteui-theming')
+    },
     plugins: [new TsconfigPathsPlugin({
       configFile: './tsconfig.json',
       extensions: ['.ts', '.js'],
