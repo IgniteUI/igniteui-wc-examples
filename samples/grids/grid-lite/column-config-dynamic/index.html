@@ -15,77 +15,8 @@
   <div id="root">
     <div class="container sample ig-typography">
       <section id="panel">
-        <igc-dropdown id="dropdown" keep-open-on-select flip>
-          <igc-button slot="target" variant="outlined">Column properties</igc-button>
-          <igc-dropdown-item role="option" id="id">
-            <div class="config">
-              <span class="config-key">ID</span>
-              <igc-checkbox class="hidden-checkbox" label-position="before" checked>Hidden</igc-checkbox>
-              <igc-checkbox class="resizable-checkbox" label-position="before">Resizable</igc-checkbox>
-              <igc-checkbox class="filter-checkbox" label-position="before">Filter</igc-checkbox>
-              <igc-checkbox class="sort-checkbox" label-position="before">Sort</igc-checkbox>
-            </div>
-          </igc-dropdown-item>
-          <igc-dropdown-item role="option" id="name">
-            <div class="config">
-              <span class="config-key">Product Name</span>
-              <igc-checkbox class="hidden-checkbox" label-position="before">Hidden</igc-checkbox>
-              <igc-checkbox class="resizable-checkbox" label-position="before">Resizable</igc-checkbox>
-              <igc-checkbox class="filter-checkbox" label-position="before">Filter</igc-checkbox>
-              <igc-checkbox class="sort-checkbox" label-position="before">Sort</igc-checkbox>
-            </div>
-          </igc-dropdown-item>
-          <igc-dropdown-item role="option" id="price">
-            <div class="config">
-              <span class="config-key">Price</span>
-              <igc-checkbox class="hidden-checkbox" label-position="before">Hidden</igc-checkbox>
-              <igc-checkbox class="resizable-checkbox" label-position="before">Resizable</igc-checkbox>
-              <igc-checkbox class="filter-checkbox" label-position="before">Filter</igc-checkbox>
-              <igc-checkbox class="sort-checkbox" label-position="before">Sort</igc-checkbox>
-            </div>
-          </igc-dropdown-item>
-          <igc-dropdown-item role="option" id="sold">
-            <div class="config">
-              <span class="config-key">Units sold</span>
-              <igc-checkbox class="hidden-checkbox" label-position="before">Hidden</igc-checkbox>
-              <igc-checkbox class="resizable-checkbox" label-position="before">Resizable</igc-checkbox>
-              <igc-checkbox class="filter-checkbox" label-position="before">Filter</igc-checkbox>
-              <igc-checkbox class="sort-checkbox" label-position="before">Sort</igc-checkbox>
-            </div>
-          </igc-dropdown-item>
-          <igc-dropdown-item role="option" id="total">
-            <div class="config">
-              <span class="config-key">Total sold</span>
-              <igc-checkbox class="hidden-checkbox" label-position="before">Hidden</igc-checkbox>
-              <igc-checkbox class="resizable-checkbox" label-position="before">Resizable</igc-checkbox>
-              <igc-checkbox class="filter-checkbox" label-position="before">Filter</igc-checkbox>
-              <igc-checkbox class="sort-checkbox" label-position="before">Sort</igc-checkbox>
-            </div>
-          </igc-dropdown-item>
-          <igc-dropdown-item role="option" id="rating">
-            <div class="config">
-              <span class="config-key">Customer rating</span>
-              <igc-checkbox class="hidden-checkbox" label-position="before">Hidden</igc-checkbox>
-              <igc-checkbox class="resizable-checkbox" label-position="before">Resizable</igc-checkbox>
-              <igc-checkbox class="filter-checkbox" label-position="before">Filter</igc-checkbox>
-              <igc-checkbox class="sort-checkbox" label-position="before">Sort</igc-checkbox>
-            </div>
-          </igc-dropdown-item>
-        </igc-dropdown>
-        <igc-switch id="formattersSwitch" label-position="before" checked="true">Value formatters:</igc-switch>
       </section>
-      <div class="grid-lite-wrapper">
-        <igc-grid-lite id="grid-lite">
-          <igc-grid-lite-column key="id" hidden="true" header-text="ID"></igc-grid-lite-column>
-          <igc-grid-lite-column key="name" header-text="Product Name"></igc-grid-lite-column>
-          <igc-grid-lite-column key="price" header-text="Price" type="number"
-            cellTemplate="format"></igc-grid-lite-column>
-          <igc-grid-lite-column key="sold" type="number" header-text="Units sold"></igc-grid-lite-column>
-          <igc-grid-lite-column key="total" header-text="Total sold"
-            cellTemplate="format"></igc-grid-lite-column>
-          <igc-grid-lite-column key="rating" type="number" header-text="Customer rating" cellTemplate="rating"></igc-grid-lite-column>
-        </igc-grid-lite>
-      </div>
+      <div class="grid-lite-wrapper" id="grid-lite"></div>
     </div>
   </div>
   <% if (false) { %>
