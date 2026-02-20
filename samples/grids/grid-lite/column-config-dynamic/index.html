@@ -75,7 +75,16 @@
         <igc-switch id="formattersSwitch" label-position="before" checked="true">Value formatters:</igc-switch>
       </section>
       <div class="grid-lite-wrapper">
-        <igc-grid-lite id="grid-lite"></igc-grid-lite>
+        <igc-grid-lite id="grid-lite">
+          <igc-grid-lite-column key="id" hidden="true" header-text="ID"></igc-grid-lite-column>
+          <igc-grid-lite-column key="name" header-text="Product Name"></igc-grid-lite-column>
+          <igc-grid-lite-column key="price" header-text="Price" type="number"
+            cellTemplate="format"></igc-grid-lite-column>
+          <igc-grid-lite-column key="sold" type="number" header-text="Units sold"></igc-grid-lite-column>
+          <igc-grid-lite-column key="total" header-text="Total sold"
+            cellTemplate="format"></igc-grid-lite-column>
+          <igc-grid-lite-column key="rating" type="number" header-text="Customer rating" cellTemplate="rating"></igc-grid-lite-column>
+        </igc-grid-lite>
       </div>
     </div>
   </div>
