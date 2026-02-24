@@ -1,7 +1,7 @@
 import { IgcPropertyEditorPanelModule } from 'igniteui-webcomponents-layouts';
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcGridComponent, IgcColumnComponent, IgcStringFilteringOperand, IgcFilteringOperand, IgcFilteringOperation, IgcBooleanFilteringOperand } from 'igniteui-webcomponents-grids/grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import NwindData from './NwindData.json';
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
 
@@ -26,20 +26,11 @@ export class Sample {
         var discontinued = this.discontinued = document.getElementById('Discontinued') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.nwindData;
+            grid.data = NwindData;
             productName.filters = this.caseSensitiveFilteringOperand;
             discontinued.filters = this.booleanFilteringOperand;
         }
         this._bind();
-    }
-
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
-        return this._nwindData;
     }
 }
 
