@@ -146,7 +146,7 @@ var config = {
               loader: 'sass-loader',
               options: {
                 sassOptions: {
-                  silenceDeprecations: ['color-functions', 'if-function'],
+                  silenceDeprecations: ['color-functions'],
                   loadPaths: [
                     path.resolve(__dirname, 'node_modules'),
                   ]
@@ -173,6 +173,12 @@ var config = {
     })]
   },
   plugins: plugins,
+  watchOptions: {
+    ignored: [
+      '**/node_modules',
+      path.resolve(__dirname, 'samples'),
+    ],
+  },
   devServer: {
     static: path.join(__dirname, 'browser/dist/'),
     compress: true,
