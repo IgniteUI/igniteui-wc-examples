@@ -70,7 +70,7 @@ export default (_env) => {
                         {
                             loader: 'sass-loader',
                             options: {
-                                implementation: 'sass-embedded',
+                                implementation: 'sass',
                                 sassOptions: {
                                     silenceDeprecations: ['color-functions', 'if-function'],
                                     loadPaths: [
