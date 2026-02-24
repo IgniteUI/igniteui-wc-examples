@@ -1,0 +1,356 @@
+
+html, body, #root {
+  /* NOTE in this style, we define colors for the theme that are re-used by all dev-tools components */
+
+  --mainStroke: #868685;
+
+  --mainBackground: #1f1e1e; 
+  --mainForeground: #ded3c7;
+  /* --mainForeground:  #f40808;  */
+  
+  background: var(--mainBackground) !important;
+  
+  /* these variable are used for coloring charts and maps */
+  --color1: #73C2FB;
+  --color2: #2980B9;
+  --color3: #136296;
+  --color4: #FECB49;
+  --color5: #FD9A30;
+  --color6: #EC6F24;
+  --color7: #51AE5A;
+  --color8: #318A3A;
+  --color9: #574E4E;
+  --color0: #3B3636;
+
+  --chartBrushes:  var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7), var(--color8), var(--color9), var(--color0);
+
+  /* this additional variable is needed since fill scale is reversed in treemap and we cannot re-use chartBrushes variable */
+  --fillScaleBrushes: var(--color8), var(--color7), var(--color6), var(--color5), var(--color4),  var(--color3), var(--color2), var(--color1);
+}
+
+/* ------- CHARTS ----------------------------------- */
+
+.ig-data-chart
+{
+  background: var(--mainBackground);
+
+  --plot-area-background: transparent;
+  --content-background: transparent;
+
+  --brushes:  var(--chartBrushes);
+  --outlines: var(--chartBrushes);
+
+  --marker-brushes:  var(--chartBrushes);
+  --marker-outlines: var(--chartBrushes);
+  
+  --title-top-margin: 5px;
+  --title-text-color:    var(--mainForeground) !important;
+  --subtitle-text-color: var(--mainForeground) !important;
+
+  --axis-stroke: var(--mainStroke);
+  --axis-stroke-thickeness: 10;
+
+  --axis-label-text-color: var(--mainForeground);
+  --axis-title-text-color: var(--mainForeground);
+
+  --axis-major-stroke: var(--mainStroke);
+  --axis-minor-stroke: transparent;
+  
+  --axis-major-stroke-thickeness: 5;
+  --axis-minor-stroke-thickeness: 0;
+ 
+  --axis-title-right-margin: 0;
+  --axis-title-left-margin: 10;
+ 
+  --axis-tick-stroke: var(--mainStroke);
+  --axis-tick-stroke-thickness: 1;
+  --axis-tick-length: 5;
+
+  --category-x-axis-major-stroke-thickness: 0;
+  --category-y-axis-major-stroke-thickness: 0;
+
+  --data-tool-tip-layer-tool-tip-border-thickness: 1;
+  --data-tool-tip-layer-tool-tip-border-brush: var(--mainStroke);
+  --data-tool-tip-layer-tool-tip-background: var(--mainBackground);
+  --data-tool-tip-layer-title-text-color:  var(--mainForeground) !important;
+  --data-tool-tip-layer-group-text-color:  var(--mainForeground);
+  --data-tool-tip-layer-label-text-color:  var(--mainForeground);
+  --data-tool-tip-layer-value-text-color:  var(--mainForeground);
+  --data-tool-tip-layer-units-text-color:  var(--mainForeground);
+  --data-tool-tip-layer-header-text-color: var(--mainForeground);
+
+  --callout-layer-callout-text-color: var(--mainBackground);
+  /* --callout-layer-callout-dark-text-color: var(--mainBackground); */
+  /* --callout-layer-callout-light-text-color: var(--mainForeground); */
+
+  --final-value-layer-axis-annotation-text-color: var(--mainBackground);
+
+}
+
+.ig-data-legend
+{
+  background: var(--mainBackground);
+
+  --content-border-thickness: 0;
+  --content-border-brush: var(--mainStroke);
+  --content-background: transparent;
+  --title-text-color:  var(--mainForeground);
+  --group-text-color:  var(--mainForeground);
+  --label-text-color:  var(--mainForeground);
+  --value-text-color:  var(--mainForeground);
+  --units-text-color:  var(--mainForeground);
+  --header-text-color: var(--mainForeground);
+}
+
+.ig-item-legend, .ig-scale-legend, .ig-legend
+{
+  background: var(--mainBackground);
+
+  --text-color: var(--mainForeground);
+}
+
+.ig-pie-chart
+{
+  background: var(--mainBackground);
+
+  --brushes: var(--chartBrushes);
+  --outlines: var(--chartBrushes);
+
+  --label-outer-color: var(--mainForeground);
+  --label-inner-color: var(--mainBackground);
+
+  --selected-slice-stroke: var(--mainForeground); 
+  --selected-slice-stroke-thickness: 2;
+  --selected-slice-opacity: 1.0;
+
+  --others-category-fill: var(--mainStroke);
+  --others-category-stroke: var(--mainStroke);
+  --others-category-stroke-thickness: 1;
+}
+
+.ig-doughnut-chart {
+  background: var(--mainBackground);
+  
+  --brushes: var(--chartBrushes);
+  --outlines: var(--chartBrushes);
+
+  --label-outer-color: var(--mainForeground); 
+  --label-inner-color: var(--mainBackground);
+
+  --ring-series-outlines: transparent;
+  --ring-series-label-outer-color: var(--mainForeground); 
+  --ring-series-label-inner-color: var(--mainBackground);
+
+  --selected-slice-stroke: var(--mainForeground); 
+  --selected-slice-stroke-thickness: 2;
+  --selected-slice-opacity: 1.0;
+
+  --others-category-fill:   var(--mainStroke);
+  --others-category-stroke: var(--mainStroke);
+  --others-category-stroke-thickness: 1;
+}
+
+.ig-data-pie-chart {
+  background: var(--mainBackground);
+
+  --brushes:  var(--chartBrushes);
+  --outlines: var(--chartBrushes);
+
+  --title-text-color:    var(--mainForeground);
+  --subtitle-text-color: var(--mainForeground);
+
+  /* --outlines: transparent; */
+  --callouts-background: transparent;
+  --callouts-dark-text-color:  var(--mainForeground);
+  --callouts-light-text-color: var(--mainForeground);
+
+  --dark-slice-label-text-color:  var(--mainForeground);
+  --light-slice-label-text-color: var(--mainBackground);
+
+  --data-tooltip-text-color:   var(--mainForeground) !important;
+  --data-tooltip-border-color: var(--mainStroke) !important;
+  --data-tooltip-background-color: var(--mainBackground) !important;
+
+  /* missing in WC - https://github.com/Infragistics-Developer-Tools/dev-tools/issues/3055 */
+  --others-category-brush:   var(--mainStroke);
+  --others-category-outline: var(--mainStroke);
+}
+
+/* ------- MAPS ----------------------------------- */
+
+.ig-treemap {
+  background: var(--mainBackground) !important;
+
+  --text-color: var(--mainForeground);
+  --outline:    var(--mainBackground);
+
+  --header-text-color: var(--mainForeground);
+  --header-background: var(--mainBackground);
+  --overlay-header-background: var(--mainBackground);
+  --overlay-header-text-color: var(--mainForeground);
+
+  --header-label-top-margin: 2;
+  --header-label-left-margin: 5;
+  --header-label-right-margin: 5;
+  --header-label-bottom-margin: 2;
+
+  --fill-brushes: var(--fillScaleBrushes);
+}
+
+.ig-treemap * {
+  background: var(--mainBackground) !important;
+}
+
+.ig-geographic-map {
+  background: var(--mainBackground) !important;
+  
+  --plot-area-background: transparent;
+
+  --brushes:  var(--chartBrushes);
+  --outlines: var(--chartBrushes);
+
+  --marker-brushes:  var(--chartBrushes);
+  --marker-outlines: var(--chartBrushes);
+
+  --geographic-shape-series-outline: var(--mainBackground);
+  /* --geographic-shape-series-brush: #3d3d3d; */
+  --geographic-shape-series-thickness: 0.5;
+
+  --geographic-symbol-series-marker-outline: var(--mainBackground) ;
+  /* --geographic-symbol-series-marker-brush: lime;  */
+  /* --geographic-symbol-series-marker-brush: #bcbcbc;  */
+  --geographic-symbol-series-marker-thickness: 0.5;
+  --geographic-symbol-series-marker-fill-opacity: 1.0;
+
+  --geographic-proportional-symbol-series-marker-outline: var(--mainBackground) ;
+  /* --geographic-proportional-symbol-series-marker-brush: lime;  */
+  /* --geographic-proportional-symbol-series-marker-brush: #bcbcbc;  */
+  --geographic-proportional-symbol-series-marker-thickness: 0.5;
+  --geographic-proportional-symbol-series-marker-fill-opacity: 1.0;
+
+  /* --geographic-polyline-series-outline: green;  */
+  --geographic-polyline-series-outline: var(--mainStroke);
+  --geographic-polyline-series-thickness: 1.5;
+  --geographic-polyline-series-opacity: 0.2;
+}
+
+/* ------- TOOLTIPS ----------------------------------- */
+
+.ig-tooltip-container, .ui-tooltip-container
+{
+  --tooltip-container-text-color:   var(--mainForeground) !important;
+  --tooltip-container-border-color: var(--mainStroke) !important;
+  --tooltip-container-background-color: #1c1c1c !important;
+  color: var(--mainForeground) !important;
+  background: #1c1c1c !important;
+  border-color: var(--mainStroke) !important;
+} 
+
+.ig-tooltip-container *, .ui-tooltip-container *
+{
+  color: var(--mainForeground) !important;
+  background: transparent !important;
+}
+
+.ui-chart-pointer-tooltip-container
+{
+  /* --tooltip-container-text-color: white !important;
+  --tooltip-container-border-color: var(--mainStroke) !important;
+  --tooltip-container-background-color: #1c1c1c !important; */
+  color: var(--mainForeground) !important;
+  background: var(--mainBackground) !important;
+  border-color: var(--mainStroke) !important;
+} 
+
+/* .ui-chart-pointer-tooltip-container *
+{
+  color: white !important;
+  background: orange !important;
+} */
+
+.ui-chart-pointer-tooltip-content-container {
+  color: var(--mainForeground) !important;
+  background: var(--mainBackground) !important;
+  --tooltip-container-background-color: var(--mainBackground) !important;
+}
+
+.ig-tooltip-pointer {
+  background: var(--mainBackground) !important;
+  /* background-color:  black !important; */
+  border-color: var(--mainStroke) !important;
+}
+
+/* ------- GAUGES ----------------------------------- */
+
+.ig-radial-gauge {
+  background: var(--mainBackground) !important;
+  
+  --backing-outline: var(--mainStroke);
+  --backing-brush: transparent;
+  --backing-stroke-thickness: 2;
+
+  --font-brush: var(--mainForeground);
+  --title-brush: var(--mainForeground);
+  --subtitle-brush: var(--mainForeground);
+/* 
+  --needle-brush: white;
+  --needle-outline: gray;
+  --needle-shadow-blur: 5;
+  --needle-shadow-color: black; */
+
+  --scale-brush: var(--color1);
+  --scale-outline: transparent;
+
+  --tick-brush: var(--mainBackground);
+  --tick-stroke-thickness: 2;
+  --tick-contrast-brush: var(--mainForeground);
+
+  --minor-tick-brush: var(--mainBackground);
+  --minor-tick-stroke-thickness: 1; 
+}
+
+.ig-linear-gauge {
+  background: var(--mainBackground) !important;
+  
+  --backing-outline: var(--mainStroke);
+  --backing-brush: transparent;
+  --backing-stroke-thickness: 5;
+
+  --font-brush: var(--mainForeground);
+  --title-brush: var(--mainForeground);
+  --subtitle-brush: var(--mainForeground);
+  
+  --tick-brush: var(--mainStroke);
+  --tick-stroke-thickness: 2;
+  --tick-contrast-brush: var(--mainForeground);
+
+  --needle-brush:   var(--color1);
+  --needle-outline: var(--color1);
+
+  --minor-tick-brush: var(--mainStroke);
+  --minor-tick-stroke-thickness: 1; 
+}
+
+.ig-bullet-graph {
+  background: var(--mainBackground) !important;
+  
+  --backing-outline: var(--mainStroke);
+  --backing-brush: transparent;
+  --backing-stroke-thickness: 5;
+
+  --font-brush: var(--mainForeground);
+  --title-brush: var(--mainForeground);
+  --subtitle-brush: var(--mainForeground);
+  
+  --tick-brush: var(--mainStroke);
+  --tick-stroke-thickness: 2;
+  --tick-contrast-brush: var(--mainForeground);
+
+  --value-outline: var(--color1);
+  --value-brush: var(--color1);
+  --target-value-outline: var(--mainForeground);
+  --target-value-brush: var(--mainForeground);
+
+  --minor-tick-brush: var(--mainStroke);
+  --minor-tick-stroke-thickness: 1; 
+}

@@ -1,0 +1,95 @@
+/* this CSS defines dark theme for React Category Chart */
+
+.ig-data-chart {
+    /* creating variables which will be re-used in custom CSS properties below */
+    --color_semitransparent: rgba(255, 255, 255, 0.06);
+    --color_transparent: rgba(255, 255, 255, 0);
+    --color_001: #FFFFFF;
+    --color_002: #1E1E1E;
+    --color_003: #333333;
+    --color_004: #AAAAAA;
+    --color_005: #444444;
+    --color_006: #888888;
+    --color_007: #212121;
+    --color_008: #272727;
+    --color_009: #1B1B1B;
+    --color_010: #4F4F4F;
+    --color_011: #58358B;  /* accent color for SELECTED/PRESSED/CHECKED elements*/
+    --color_012: #777777;
+    --color_014: #2D2D2D;
+    --color_015: #3C3C3E;
+    --color_016: #DDDDDD;
+    --color_017: #666666;
+    --color_018: #191919;
+    --color_019: #C62828;  /* accent color for ERRORS/NEGATIVE elements*/
+
+    --color_background:  #191919;
+    --color_foreground:  #AAAAAA;
+    --color_axis_labels: #AAAAAA;
+    --color_axis_titles: #AAAAAA;
+    --color_axis_lines:  #666666;
+
+    /* setting regular CSS properties supported by chart */
+    background: var(--color_background);
+    color: var(--color_foreground);
+    /* margin: 0px; */
+    /* padding: 0px; */
+
+    /* setting custom CSS properties for chart's title/subtitle */
+    --title-text-color: var(--color_016);
+    --title-top-margin: 5px;
+    --subtitle-text-color: var(--color_016);
+
+    /* setting custom CSS properties for axes labels/titles */
+    --axis-label-text-color: var(--color_axis_labels);
+    --axis-title-text-color: var(--color_axis_titles);
+    --axis-title-top-margin: 5px;
+    --axis-title-bottom-margin: 5px;
+    --axis-title-left-margin: 5px;
+    --axis-title-right-margin: 5px;
+
+    /* setting custom CSS properties for axes gridlines */
+    --axis-major-stroke: var(--color_axis_lines);
+    --category-x-axis-major-stroke-thickness: 0;
+    --category-y-axis-major-stroke-thickness: 0;
+
+    /* setting custom CSS properties for axes tickmarks */
+    --axis-tick-stroke: var(--color_axis_lines);
+    --axis-tick-stroke-thickness: 1;
+
+    --callout-layer-callout-text-color: black;
+    --final-value-layer-axis-annotation-text-color: black;
+    --crosshair-layer-x-axis-annotation-text-color: black;
+    --crosshair-layer-y-axis-annotation-text-color: black;
+    --crosshair-layer-thickness: 1;
+
+    /* creating variables for series colors: */
+    --color_020: rgb(138, 88, 214); /* #7446B9; */
+    --color_021: rgb(159, 179, 40); /* #9FB328; */
+    --color_022: rgb(249, 98, 50);  /* #F96232; */ /* similar to negative colors; */
+    --color_023: rgb(60, 189, 201); /* #2E9CA6; */
+    --color_024: rgb(220, 63, 118); /* #DC3F76; */ /* similar to negative colors; */
+    --color_025: rgb(255, 152, 0);  /* #FF9800; */ /* similar to negative colors; */
+    --color_026: rgb(78, 98, 207);  /* #3F51B5; */
+    --color_027: rgb(84, 194, 90);  /* #439C47; */
+    --color_028: rgb(121, 85, 72);  /* #795548; */ /* similar to negative colors; */
+    --color_029: rgb(154, 154, 154);/* #9A9A9A; */
+
+    /* all series in the chart will be assigned with one brush from this collection (with warm colors) */
+    --color_series_positive: var(--color_020), var(--color_021), var(--color_022), var(--color_023), var(--color_024), var(--color_025), var(--color_026), var(--color_027), var(--color_028);
+
+    /* setting custom CSS properties for chart's series */
+    --thickness: 1.5;
+    --brushes:  var(--color_series_positive);
+    --outlines: var(--color_series_positive);
+
+    --marker-brushes:  var(--color_background);
+    --marker-outlines: var(--color_series_positive);
+
+    /* setting negative colors for financial series so these elements are easier
+    to read from some series with warnm colors */
+    --financial-series-negative-brush:   #707070;
+    --financial-series-negative-outline: #707070;
+
+    --scatter-polygon-series-outline: #d4d3d3;
+}

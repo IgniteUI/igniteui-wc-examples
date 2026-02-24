@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Theme Gallery</title>
+    <meta charset="UTF-8" />
+ 
+    
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash">
+ 
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+   
+   
+  </head>
+
+  <body >
+    <div id="root" >
+
+<div class="container sample" style="height: 3000px;" >
+
+    
+    <div class="container vertical">
+  <!-- fill-brushes="rgba(78, 98, 207, 1) rgba(138, 88, 214, 1)" -->
+      <div class="container horizontal">
+        <igc-treemap id="treeMap" width="100%" height="100%"
+
+        parent-node-bottom-padding="0"
+        parent-node-left-padding="0"
+        parent-node-right-padding="0"
+        parent-node-top-padding="0"
+
+        header-display-mode="Overlay"
+        fill-scale-mode="Value"
+        fill-scale-minimum-value="0"
+        fill-scale-maximum-value="1500000000"
+        is-fill-scale-logarithmic="true">
+        </igc-treemap>
+
+      </div>
+
+      <div class="container horizontal">
+        <igc-geographic-map id="geoMap1" width="100%" height="100%"></igc-geographic-map>
+        <igc-geographic-map id="geoMap2" width="100%" height="100%"></igc-geographic-map>
+      </div>
+
+
+      <div class="container horizontal">
+        <igc-data-chart id="dataScatterPointChart" width="50%" height="100%" ></igc-data-chart>
+        <igc-data-chart id="dataScatterBubbleChart" width="50%" height="100%" ></igc-data-chart>
+      </div>
+
+      <div class="container horizontal">
+        <igc-data-chart id="dataCalloutChart" width="50%" height="100%" ></igc-data-chart>
+      
+      </div>
+
+      <div class="container horizontal">
+        <div class="container horizontal">
+          <igc-data-chart id="dataColChart" width="100%" height="100%" ></igc-data-chart>
+          <igc-data-legend  id="dataColLegend" style="margin-top: 2rem;margin-right: 2rem;"> </igc-data-legend>
+        </div>
+
+        <div class="container horizontal">
+          <igc-data-chart id="dataBarChart" width="100%" height="100%" ></igc-data-chart>
+          <igc-data-legend  id="dataBarLegend" style="margin-top: 2rem;"> </igc-data-legend>
+        </div>
+      </div>
+
+      <div class="container horizontal">
+        <div class="container vertical">
+          <igc-item-legend id="pieLegend" orientation="Horizontal"> </igc-item-legend>
+          <igc-pie-chart id="pieChart" width="100%" height="100%" ></igc-pie-chart>
+        </div> 
+        
+        <div class="container vertical">
+          <igc-item-legend id="donutLegend" orientation="Horizontal"> </igc-item-legend>
+          <igc-doughnut-chart id="donutChart" width="100%" height="100%" ></igc-doughnut-chart>
+        </div>
+
+        <div class="container vertical">
+          <igc-item-legend id="dataPieLegend" orientation="Horizontal"> </igc-item-legend>
+          <igc-data-pie-chart id="dataPieChart" width="100%" height="100%" ></igc-data-pie-chart>
+        </div>
+      </div>
+   
+      <div class="container horizontal">
+        <div class="container vertical">
+          <igc-bullet-graph id="bulletGauge" width="100%" height="30%" style="margin-top: 1rem;"></igc-bullet-graph>
+          <igc-linear-gauge id="linearGauge" width="100%" height="30%" style="margin-top: 1rem;"></igc-linear-gauge>
+        </div>
+         <igc-radial-gauge id="radialGauge" width="100%" height="100%" ></igc-radial-gauge>
+      </div>
+   
+   
+
+    </div>
+
+   
+    </div>
+  
+</div>
+
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
