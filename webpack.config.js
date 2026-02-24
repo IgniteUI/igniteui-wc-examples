@@ -145,6 +145,7 @@ var config = {
             {
               loader: 'sass-loader',
               options: {
+                implementation: require('sass-embedded'),
                 sassOptions: {
                   silenceDeprecations: ['color-functions'],
                   loadPaths: [
