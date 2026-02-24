@@ -1,10 +1,14 @@
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const path = require('path');
-const webpack = require('webpack');
+import webpack from 'webpack';
+import path from 'node:path';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { fileURLToPath } from 'node:url';
 
-module.exports = env => {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default (_env) => {
     const nodeEnv = process.env.NODE_ENV || 'development';
     const isProd = nodeEnv === 'production';
     const isLegacy = !!process.env.legacy && !(process.env.legacy == "false");
@@ -66,6 +70,7 @@ module.exports = env => {
                         {
                             loader: 'sass-loader',
                             options: {
+                                implementation: 'sass-embedded',
                                 sassOptions: {
                                     silenceDeprecations: ['color-functions', 'if-function'],
                                     loadPaths: [
@@ -87,6 +92,7 @@ module.exports = env => {
                                 "plugins": [
                                     "@babel/plugin-transform-class-static-block",
                                     "@babel/plugin-transform-class-properties",
+                                    "@babel/plugin-transform-private-methods",
                                     "@babel/plugin-transform-runtime"
                                 ]
                             }
@@ -101,6 +107,7 @@ module.exports = env => {
                         "plugins": [
                             "@babel/plugin-transform-class-static-block",
                             "@babel/plugin-transform-class-properties",
+                            "@babel/plugin-transform-private-methods",
                             "@babel/plugin-transform-runtime"
                         ]
                     },
