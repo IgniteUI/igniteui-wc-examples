@@ -1,6 +1,6 @@
 import { IgcGridToolbarComponent, IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
 import { defineComponents, IgcButtonComponent } from 'igniteui-webcomponents';
-import { OrdersTreeData } from './OrdersData';
+import { OrdersTreeData, OrdersTreeDataItem } from './OrdersData';
 import 'igniteui-webcomponents-grids/grids/combined';
 import 'igniteui-webcomponents-grids/grids/themes/light/bootstrap.css';
 
@@ -10,15 +10,8 @@ defineComponents(IgcButtonComponent);
 export class Sample {
 
     constructor() {
-        const localData: any[] = [];
-        for (let i = 0; i < 10000; i += 3) {
-            for (let c = 0; c < this.ordersTreeData.length; c++) {
-                localData.push(this.ordersTreeData[c]);
-            }
-        }
-
         var treeGrid = document.getElementById('treeGrid') as IgcTreeGridComponent;
-        treeGrid.data = localData;
+        treeGrid.data = this.generateData();
 
         var toolbar = document.getElementById('toolbar') as IgcGridToolbarComponent;
         var button = document.getElementById('simulate') as IgcButtonComponent;
@@ -37,6 +30,45 @@ export class Sample {
             this._ordersTreeData = new OrdersTreeData();
         }
         return this._ordersTreeData;
+    }
+
+    
+    generateData() {
+        const localData = [];
+        for (let i = 1; i < 10000; i += 1) {
+
+            const randomId = 1 + Math.floor(Math.random() * 3);
+            let childRows = [];
+            let childIndex = 0;
+            for (let c = 0; c < this.ordersTreeData.length; c ++) {
+                const item = this.ordersTreeData[c];
+                if (item.ParentID == -1 || !item.ID.toString().startsWith(randomId.toString())) {
+                    continue;
+                }
+                childRows.push({
+                    ...item,
+                    ID: parseInt(`${i}0${childIndex}`),
+                    ParentID: i,
+                });
+                childIndex++;
+            }
+
+            localData.push({
+                ID: i,
+                ParentID: -1,
+                Name: `Oder ${i}`,
+                Category: '',
+                Units: childRows.map(row => row.Units).reduce((prev, curr) => prev + curr, 0),
+                Price: childRows.map(row => row.UnitPrice).reduce((prev, curr) => prev + curr, 0),
+                UnitPrice: Math.random() * 1000,
+                OrderDate: '',
+                Delivered: Math.floor(Math.random()) ? true : false,
+                
+            });
+            localData.push(...childRows);
+        }
+
+        return localData;
     }
 }
 
