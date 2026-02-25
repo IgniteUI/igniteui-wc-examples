@@ -34,11 +34,11 @@ export class Sample {
 
     
     generateData() {
-        const localData = [];
+        const localData: OrdersTreeDataItem[] = [];
         for (let i = 1; i < 10000; i += 1) {
 
             const randomId = 1 + Math.floor(Math.random() * 3);
-            let childRows = [];
+            let childRows: OrdersTreeDataItem[] = [];
             let childIndex = 0;
             for (let c = 0; c < this.ordersTreeData.length; c ++) {
                 const item = this.ordersTreeData[c];
