@@ -5,3 +5,14 @@
         --ig-size: var(--ig-size-medium);
     }
 
+    .centered-cell {
+        width:30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .custom-icon {
+        width: 18px;
+        cursor: pointer;
+    }
+

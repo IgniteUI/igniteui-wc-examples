@@ -67,14 +67,14 @@ export class Sample {
     }
 
     public webGridRowSelectorExcelTemplate = (ctx: IgcRowSelectorTemplateContext) => {
-        return html`<span style='display: block;width:30px;'> ${ctx.implicit.index}</span>`;
+        return html`<span class='centered-cell'> ${ctx.implicit.index}</span>`;
     }
 
     public webGridHeaderRowSelectorExcelTemplate = (ctx: IgcHeadSelectorTemplateContext) => {
         if (ctx.implicit.selectedCount > 0 && ctx.implicit.selectedCount === ctx.implicit.totalCount) {
-            return html`<span style='display: block;width:30px;'><i style='color: rgb(239, 184, 209);'>◢</i></span>`;
+            return html`<span class='centered-cell'><i class='custom-icon' style='color: rgb(239, 184, 209);'>◢</i></span>`;
         } else {
-            return html`<span style='display: block;width:30px;'><i>◢</i></span>`;
+            return html`<span class='centered-cell'><i class='custom-icon'>◢</i></span>`;
         }
     };
 
