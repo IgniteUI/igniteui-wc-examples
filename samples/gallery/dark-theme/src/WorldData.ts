@@ -29,6 +29,8 @@ export class WorldTreeNode {
     public name: string = '';
     public code: string = '';
     public parent: any = null;
+    public parentID: number = 0;
+    public childID: number = 0;
     
     public population: number | undefined = 0;
     // public populationAbbr: string = '';
@@ -148,7 +150,9 @@ export class WorldData {
         
         this.countries.sort((a, b) => a.population < b.population ? 1 : -1);
        
+        var populationTotal = 0;
         for (let country of this.countries) {
+            populationTotal += country.population;
             
             let region = country.region;
             if (!regionsLookup[region]) {
@@ -210,22 +214,43 @@ export class WorldData {
             this.continentTreeNodes.push(new WorldTreeNode({
                 name: continent.name,
                 code: continent.name,  
+                    parent: null,
+                    parentID: this.continentTreeNodes.length,
+                    childID: -1,
                 population: undefined,
                 gdpPerPerson: undefined,
                 gdpTotal: undefined
             }));
         }
 
-        var populationTotal = 0;
-        for (let name of Object.keys(continentsLookup)) {
-            let continent = continentsLookup[name];
-            populationTotal += continent.population;
+        this.regions.sort((a, b) => a.population < b.population ? 1 : -1);
+        this.continents.sort((a, b) => a.population < b.population ? 1 : -1);
+
+        for (let i = 0; i < this.regions.length; i++) {
+            this.regions[i].populationPercent = ((this.regions[i].population / populationTotal) * 100).toFixed(1) + "%";
+            this.regions[i].index = i;
+        }
+
+        for (let i = 0; i < this.continents.length; i++) {
+            this.continents[i].populationPercent = ((this.continents[i].population / populationTotal) * 100).toFixed(1) + "%";
+            this.continents[i].index = i;
+        }
+
+        for (let i = 0; i < this.countries.length; i++) {
+            this.countries[i].populationPercent = ((this.countries[i].population / populationTotal) * 100).toFixed(1) + "%";
+            this.countries[i].index = i;
+        }
+
+        for (let continent of this.continents) {
+            // let continent = continentsLookup[name];
 
             for (const country of continent.countries) {
                  this.continentTreeNodes.push(new WorldTreeNode({
                     name: country.name,
                     code: country.name,  
                     parent: country.continent,
+                    parentID: continent.index,
+                    childID: country.index,
                     population: country.population,
                     gdpPerPerson: country.gdpPerPerson,
                     gdpTotal: country.gdpTotal
@@ -247,23 +272,7 @@ export class WorldData {
             }
         }
 
-        this.regions.sort((a, b) => a.population < b.population ? 1 : -1);
-        this.continents.sort((a, b) => a.population < b.population ? 1 : -1);
-
-        for (let i = 0; i < this.regions.length; i++) {
-            this.regions[i].populationPercent = ((this.regions[i].population / populationTotal) * 100).toFixed(1) + "%";
-            this.regions[i].index = i;
-        }
-
-        for (let i = 0; i < this.continents.length; i++) {
-            this.continents[i].populationPercent = ((this.continents[i].population / populationTotal) * 100).toFixed(1) + "%";
-            this.continents[i].index = i;
-        }
-
-        for (let i = 0; i < this.countries.length; i++) {
-            this.countries[i].populationPercent = ((this.countries[i].population / populationTotal) * 100).toFixed(1) + "%";
-            this.countries[i].index = i;
-        }
+    
 
         // raise custom loaded event if assigned
         if (typeof this.loaded === "function") {

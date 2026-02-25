@@ -47,17 +47,22 @@
       </div>
 
 
-      <div class="container horizontal">
+      <div class="container horizontal" style="margin-top: 0rem;">
         <igc-data-chart id="dataScatterPointChart" width="50%" height="100%" ></igc-data-chart>
         <igc-data-chart id="dataScatterBubbleChart" width="50%" height="100%" ></igc-data-chart>
       </div>
 
-      <div class="container horizontal">
-        <igc-data-chart id="dataCalloutChart" width="50%" height="100%" ></igc-data-chart>
-      
+      <div class="container horizontal" style="margin-top: 3rem;">
+         <div class="container horizontal">
+            <igc-data-chart id="dataCalloutChart" width="100%" height="100%" ></igc-data-chart>
+         </div>
+         <div class="container horizontal" >
+          <igc-data-chart id="dataStackedChart" width="100%" height="100%" ></igc-data-chart>
+          <igc-data-legend  id="dataStackedLegend" style="margin-top: 2rem;margin-right: 2rem;"> </igc-data-legend>
+        </div>
       </div>
 
-      <div class="container horizontal">
+      <div class="container horizontal" style="margin-top: 3rem;">
         <div class="container horizontal">
           <igc-data-chart id="dataColChart" width="100%" height="100%" ></igc-data-chart>
           <igc-data-legend  id="dataColLegend" style="margin-top: 2rem;margin-right: 2rem;"> </igc-data-legend>
@@ -69,7 +74,7 @@
         </div>
       </div>
 
-      <div class="container horizontal">
+      <div class="container horizontal" style="margin-top: 3rem;">
         <div class="container vertical">
           <igc-item-legend id="pieLegend" orientation="Horizontal"> </igc-item-legend>
           <igc-pie-chart id="pieChart" width="100%" height="100%" ></igc-pie-chart>
@@ -91,7 +96,7 @@
           <igc-bullet-graph id="bulletGauge" width="100%" height="30%" style="margin-top: 1rem;"></igc-bullet-graph>
           <igc-linear-gauge id="linearGauge" width="100%" height="30%" style="margin-top: 1rem;"></igc-linear-gauge>
         </div>
-         <igc-radial-gauge id="radialGauge" width="100%" height="100%" ></igc-radial-gauge>
+         <igc-radial-gauge id="radialGauge" width="100%" height="80%" ></igc-radial-gauge>
       </div>
    
    

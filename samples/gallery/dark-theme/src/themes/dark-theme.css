@@ -5,12 +5,24 @@ html, body, #root {
   --mainStroke: #868685;
 
   --mainBackground: #1f1e1e; 
-  --mainForeground: #ded3c7;
+  --mainForeground: #efeeee;
   /* --mainForeground:  #f40808;  */
   
   background: var(--mainBackground) !important;
   
   /* these variable are used for coloring charts and maps */
+  --color1: #5a8cc9;
+  --color2: #9ccc64;
+  --color3: #ff8a65;
+  --color4: #a985e9;
+  --color5: #ffb74d;
+  --color6: #f06292;
+  --color7: #64b5f7;
+  --color8: #a1887f;
+  --color9: #86d0b5;
+  --color0: #ded3c7;
+
+  /* alternative colors*/
   --color1: #73C2FB;
   --color2: #2980B9;
   --color3: #136296;
@@ -20,12 +32,13 @@ html, body, #root {
   --color7: #51AE5A;
   --color8: #318A3A;
   --color9: #574E4E;
-  --color0: #3B3636;
+  --color0: #3B3636; 
 
   --chartBrushes:  var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7), var(--color8), var(--color9), var(--color0);
+  --tremapBrushes: var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7), var(--color8);
 
   /* this additional variable is needed since fill scale is reversed in treemap and we cannot re-use chartBrushes variable */
-  --fillScaleBrushes: var(--color8), var(--color7), var(--color6), var(--color5), var(--color4),  var(--color3), var(--color2), var(--color1);
+  /* --tremapBrushes: var(--color8), var(--color7), var(--color6), var(--color5), var(--color4),  var(--color3), var(--color2), var(--color1); */
 }
 
 /* ------- CHARTS ----------------------------------- */
@@ -180,13 +193,15 @@ html, body, #root {
 
 .ig-treemap {
   background: var(--mainBackground) !important;
-
+  
+  --dark-text-color: var(--mainForeground);
   --text-color: var(--mainForeground);
   --outline:    var(--mainBackground);
 
+  --header-dark-text-color: var(--mainBackground);
   --header-text-color: var(--mainForeground);
   --header-background: var(--mainBackground);
-  --overlay-header-background: var(--mainBackground);
+  --overlay-header-background: rgba(0, 0, 0, 0.75);
   --overlay-header-text-color: var(--mainForeground);
 
   --header-label-top-margin: 2;
@@ -194,7 +209,7 @@ html, body, #root {
   --header-label-right-margin: 5;
   --header-label-bottom-margin: 2;
 
-  --fill-brushes: var(--fillScaleBrushes);
+  --fill-brushes: var(--tremapBrushes);
 }
 
 .ig-treemap * {
