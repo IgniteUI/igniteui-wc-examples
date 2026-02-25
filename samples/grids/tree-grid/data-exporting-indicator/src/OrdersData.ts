@@ -3,15 +3,15 @@ export class OrdersTreeDataItem {
         Object.assign(this, init);
     }
 
-    public ID: number;
-    public ParentID: number;
-    public Name: string;
-    public Category: string;
-    public OrderDate: string;
-    public Units: number;
-    public UnitPrice: number;
-    public Price: number;
-    public Delivered: boolean;
+    public ID!: number;
+    public ParentID!: number;
+    public Name!: string;
+    public Category!: string;
+    public OrderDate!: string;
+    public Units!: number;
+    public UnitPrice!: number;
+    public Price!: number;
+    public Delivered!: boolean;
 
 }
 export class OrdersTreeData extends Array<OrdersTreeDataItem> {
