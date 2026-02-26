@@ -33,11 +33,8 @@ export class WorldTreeNode {
     public childID: number = 0;
     
     public population: number | undefined = 0;
-    // public populationAbbr: string = '';
     public gdpTotal: number | undefined = 0;
-    // public gdpTotalAbbr: string = '';
     public gdpPerPerson: number | undefined = 0; 
-    // public gdpPerPersonAbbr: string = '';
 }
 
 export class WorldDataCountry {
@@ -57,7 +54,7 @@ export class WorldDataCountry {
     public gdpTotalAbbr: string = '';
     public gdpPerPerson: number = 0;
     public gdpPerPersonAbbr: string = '';
-    public y: number = 0;
+    public y: number = 0; 
     public x: number = 0; 
     public points: any[][] = [];
 }

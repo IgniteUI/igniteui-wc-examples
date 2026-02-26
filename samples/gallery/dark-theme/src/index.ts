@@ -7,16 +7,23 @@ import { IgcGeographicShapeSeriesComponent } from 'igniteui-webcomponents-maps';
 
 import { IgcBulletGraphComponent, IgcBulletGraphModule, IgcLinearGaugeComponent, IgcLinearGaugeModule, IgcRadialGaugeComponent, IgcRadialGaugeModule } from 'igniteui-webcomponents-gauges';
 
-import { CalloutPlacementPositions, DataToolTipLayer, IgcCalloutLayerComponent, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcDataLegendComponent, IgcDataPieChartComponent, IgcDataPieChartModule, IgcDoughnutChartComponent, IgcDoughnutChartModule, IgcFinalValueLayerComponent, IgcItemLegendComponent, IgcItemLegendModule, IgcLineSeriesComponent, IgcPieChartComponent, IgcPieChartModule, IgcRingSeriesComponent, IgcScatterSeriesComponent, IgcStacked100AreaSeriesComponent, IgcStacked100ColumnSeriesComponent, IgcStackedFragmentSeriesComponent, IgcStackedFragmentSeriesModule, IgcStackedLineSeriesComponent, LabelsPosition, MarkerFillMode, MarkerOutlineMode, TreemapFillScaleMode } from 'igniteui-webcomponents-charts'; 
+import { CellContentHorizontalAlignment, IgcColumnWidth, IgcDataGridComponent, IgcNumericColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
+import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
+import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
+import { IgcColumnSummaryDescription } from 'igniteui-webcomponents-data-grids';
+import { DataSourceSummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, ISummaryResult } from 'igniteui-webcomponents-core';
+
+
+import { CalloutPlacementPositions, DataToolTipLayer, IgcCalloutLayerComponent, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcDataLegendComponent, IgcDataPieChartComponent, IgcDataPieChartModule, IgcDoughnutChartComponent, IgcDoughnutChartModule, IgcFinalValueLayerComponent, IgcFunnelChartComponent, IgcFunnelChartModule, IgcItemLegendComponent, IgcItemLegendModule, IgcLineSeriesComponent, IgcPieChartComponent, IgcPieChartModule, IgcRingSeriesComponent, IgcScatterSeriesComponent, IgcStacked100AreaSeriesComponent, IgcStacked100ColumnSeriesComponent, IgcStackedFragmentSeriesComponent, IgcStackedFragmentSeriesModule, IgcStackedLineSeriesComponent, LabelsPosition, MarkerFillMode, MarkerOutlineMode, TreemapFillScaleMode, TreemapHeaderDisplayMode } from 'igniteui-webcomponents-charts'; 
 import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryYAxisComponent, IgcBarSeriesComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
- 
 import { IgcDataChartCategoryModule, IgcDataChartVerticalCategoryModule } from 'igniteui-webcomponents-charts';
 
 import { IgcColumnSeriesComponent, IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts'; 
 import { IgcSizeScaleComponent, MarkerType } from 'igniteui-webcomponents-charts'; 
 
-import { IgcNumberFormatSpecifier, IgcShapeDataSource, OthersCategoryType } from 'igniteui-webcomponents-core';
+import { HighlightedValueDisplayMode, IgcNumberFormatSpecifier, IgcShapeDataSource, OthersCategoryType, Visibility } from 'igniteui-webcomponents-core';
 import { IgcSeriesViewerComponent} from 'igniteui-webcomponents-charts'
 import { IgcOpenStreetMapImagery } from 'igniteui-webcomponents-maps';
 
@@ -38,6 +45,9 @@ import './themes/dark-theme.css'
 import { WorldData } from './WorldData';
  
 ModuleManager.register(
+    IgcDataGridModule,
+    IgcGridColumnOptionsModule,
+
     IgcDataChartInteractivityModule,
     IgcDataChartCoreModule,
     IgcDataChartCategoryModule,
@@ -51,6 +61,7 @@ ModuleManager.register(
     IgcDataPieChartModule,
     IgcItemLegendModule,
     IgcPieChartModule,
+    IgcFunnelChartModule,
     IgcDoughnutChartModule,
 
     IgcRadialGaugeModule,
@@ -69,29 +80,7 @@ export class ThemeGallery {
     // maps
     private geoMap1: IgcGeographicMapComponent;
     private geoMap2: IgcGeographicMapComponent;
- 
-    // data charts
-    private dataColChart: IgcDataChartComponent;
-    private dataBarChart: IgcDataChartComponent;
 
-    private dataScatterBubbleChart: IgcDataChartComponent;
-    private dataScatterPointChart: IgcDataChartComponent;
-
-    private dataCalloutChart: IgcDataChartComponent;
-    private dataStackedChart: IgcDataChartComponent;
-
-    // radial charts
-    private pieChart: IgcPieChartComponent;
-    private donutChart: IgcDoughnutChartComponent;
-    private donutLegend: IgcItemLegendComponent;
-    private dataPieChart: IgcDataPieChartComponent;
-
-    // gauges
-    private radialGauge: IgcRadialGaugeComponent;
-    private linearGauge: IgcLinearGaugeComponent;
-    private bulletGauge: IgcBulletGraphComponent;
-
-    private treeMap: IgcTreemapComponent;
     constructor() {
 
         this.addGeoSymbolSeries = this.addGeoSymbolSeries.bind(this);
@@ -116,58 +105,29 @@ export class ThemeGallery {
 
         this.geoMap2 = document.getElementById('geoMap2') as IgcGeographicMapComponent;
         this.geoMap2.backgroundContent = hiddenGeoImagery;
-    
-        this.dataScatterPointChart = document.getElementById('dataScatterPointChart') as IgcDataChartComponent;
-        this.dataScatterBubbleChart = document.getElementById('dataScatterBubbleChart') as IgcDataChartComponent;
-        
-        this.dataCalloutChart = document.getElementById('dataCalloutChart') as IgcDataChartComponent;
-        this.dataStackedChart = document.getElementById('dataStackedChart') as IgcDataChartComponent;
-        var dataStackedLegend = document.getElementById('dataStackedLegend') as IgcDataLegendComponent;
-        dataStackedLegend.target = this.dataStackedChart;
+
+        var radialGauge = document.getElementById('radialGauge') as IgcRadialGaugeComponent;
+        radialGauge.value = 50;
+        radialGauge.interval = 10;
+        radialGauge.maximumValue = 80;
+        radialGauge.titleText = "Title";
+        radialGauge.titleDisplaysValue = true;
+        radialGauge.subtitleText = "MPH";
+        radialGauge.subtitleExtent = .60;
+        radialGauge.isNeedleDraggingEnabled = true;
+        radialGauge.isNeedleDraggingConstrained = true;
+
+        var linearGauge = document.getElementById('linearGauge') as IgcLinearGaugeComponent;
+        linearGauge.value = 50;
+        linearGauge.interval = 10;
+        linearGauge.maximumValue = 80;
+        linearGauge.isNeedleDraggingEnabled = true;
  
-        this.dataColChart = document.getElementById('dataColChart') as IgcDataChartComponent;
-        var dataColLegend = document.getElementById('dataColLegend') as IgcDataLegendComponent;
-        dataColLegend.target = this.dataColChart;
-
-        this.dataBarChart = document.getElementById('dataBarChart') as IgcDataChartComponent;
-        var dataBarLegend = document.getElementById('dataBarLegend') as IgcDataLegendComponent;
-        dataBarLegend.target = this.dataBarChart;
-
-        var dataPieLegend = document.getElementById('dataPieLegend') as IgcItemLegendComponent;
-        this.dataPieChart = document.getElementById('dataPieChart') as IgcDataPieChartComponent;
-        this.dataPieChart.legend = dataPieLegend;
-
-        var pieLegend = document.getElementById('pieLegend') as IgcItemLegendComponent;
-        this.pieChart = document.getElementById('pieChart') as IgcPieChartComponent;
-        this.pieChart.legend = pieLegend;
-
-        this.donutLegend = document.getElementById('donutLegend') as IgcItemLegendComponent;
-        this.donutChart = document.getElementById('donutChart') as IgcDoughnutChartComponent;
-
-        this.radialGauge = document.getElementById('radialGauge') as IgcRadialGaugeComponent;
-        this.radialGauge.value = 50;
-        this.radialGauge.interval = 10;
-        this.radialGauge.maximumValue = 80;
-        this.radialGauge.titleText = "Title";
-        this.radialGauge.titleDisplaysValue = true;
-        this.radialGauge.subtitleText = "MPH";
-        this.radialGauge.subtitleExtent = .60;
-        this.radialGauge.isNeedleDraggingEnabled = true;
-        this.radialGauge.isNeedleDraggingConstrained = true;
-     
-        this.linearGauge = document.getElementById('linearGauge') as IgcLinearGaugeComponent;
-        this.linearGauge.value = 50;
-        this.linearGauge.interval = 10;
-        this.linearGauge.maximumValue = 80;
-        this.linearGauge.isNeedleDraggingEnabled = true;  
- 
-        this.bulletGauge = document.getElementById('bulletGauge') as IgcBulletGraphComponent;
-        this.bulletGauge.value = 50;
-        this.bulletGauge.targetValue = 70;
-        this.bulletGauge.interval = 10;
-        this.bulletGauge.maximumValue = 80;
- 
-        this.treeMap = document.getElementById('treeMap') as IgcTreemapComponent;
+        var bulletGauge = document.getElementById('bulletGauge') as IgcBulletGraphComponent;
+        bulletGauge.value = 50;
+        bulletGauge.targetValue = 70;
+        bulletGauge.interval = 10;
+        bulletGauge.maximumValue = 80;
 
         WorldData.loaded = this.onDataLoaded; 
         WorldData.loadData(); 
@@ -175,9 +135,11 @@ export class ThemeGallery {
 
     private onDataLoaded(sds: IgcShapeDataSource, e: any) {
 
+        this.addTreemap1();
+        this.addTreemap2();
+
         // adding series to geo map: 
         this.addGeoShapeSeries();  
-
         this.addGeoConnectionSeries(); 
         this.addGeoSymbolSeries();
  
@@ -190,66 +152,131 @@ export class ThemeGallery {
         this.addBarChart();
         this.addColumnChart();
 
-        this.dataPieChart.valueMemberPath = "population";
-        this.dataPieChart.labelMemberPath = "name";
-        this.dataPieChart.legendLabelMemberPath = "name";
-        this.dataPieChart.valueAxisAbbreviateLargeNumbers = true;
-        this.dataPieChart.othersCategoryType = OthersCategoryType.Percent;
-        this.dataPieChart.othersCategoryThreshold = 5;
-        this.dataPieChart.radiusExtent = 0.75;
-        this.dataPieChart.dataSource = WorldData.continents;
+        var dataGrid = document.getElementById('dataGrid') as IgcDataGridComponent;
+        dataGrid.dataSource = WorldData.countries;
+        dataGrid.cellTextColor = "red";
+        dataGrid.headerTextColor = "red";
+        dataGrid.rowHoverBackground = "rgba(247, 211, 9, 0.313)";
+        dataGrid.rowHoverTextColor = "red";
+        dataGrid.sectionHeaderTextColor = "red";
+        dataGrid.summaryRootValueTextColor = "red";
+dataGrid.cellBackground = "gray";
+dataGrid.headerBackground = "yellow";
+dataGrid.cellSelectedBackground = "rgba(255, 255, 255, 0.2)";
+dataGrid.headerSeparatorBackground = "red"; 
 
-        this.pieChart.valueMemberPath = "population";
-        this.pieChart.labelMemberPath = "populationPercent"; 
-        this.pieChart.legendLabelMemberPath = "name";
-        this.pieChart.othersCategoryType = OthersCategoryType.Percent;
-        this.pieChart.othersCategoryThreshold = 5;
-        this.pieChart.radiusFactor = 0.75;
-        this.pieChart.dataSource = WorldData.continents;
-        this.pieChart.labelsPosition = LabelsPosition.Center;
+
+
+        var dataPieLegend = document.getElementById('dataPieLegend') as IgcItemLegendComponent;
+        var dataPieChart = document.getElementById('dataPieChart') as IgcDataPieChartComponent;
+        dataPieChart.legend = dataPieLegend;
+        dataPieChart.valueMemberPath = "population";
+        dataPieChart.labelMemberPath = "name";    
+        dataPieChart.legendLabelMemberPath = "name";
+        dataPieChart.valueAxisAbbreviateLargeNumbers = true;
+        dataPieChart.othersCategoryType = OthersCategoryType.Percent;
+        dataPieChart.othersCategoryThreshold = 10;
+        dataPieChart.radiusExtent = 0.75; 
+        dataPieChart.transitionInDuration = 0;
+        dataPieChart.dataSource = WorldData.continents;
+
+        var funnelLegend = document.getElementById('funnelLegend') as IgcItemLegendComponent;
+        var funnelChart = document.getElementById('funnelChart') as IgcFunnelChartComponent;
+        funnelChart.legend = funnelLegend;
+        funnelChart.valueMemberPath = "population"; 
+        funnelChart.innerLabelMemberPath = "populationPercent"; 
+        funnelChart.innerLabelVisibility = Visibility.Visible; 
+        funnelChart.outerLabelMemberPath = "name"; 
+        // funnelChart.outerLabelVisibility = Visibility.Visible;      
+        funnelChart.useOuterLabelsForLegend = true;
+        funnelChart.dataSource = WorldData.continents;
+
+        var pieLegend = document.getElementById('pieLegend') as IgcItemLegendComponent;
+        var pieChart = document.getElementById('pieChart') as IgcPieChartComponent;
+        pieChart.legend = pieLegend;
+        pieChart.valueMemberPath = "population";
+        pieChart.labelMemberPath = "populationPercent"; 
+        pieChart.legendLabelMemberPath = "name";
+        pieChart.labelsPosition = LabelsPosition.InsideEnd;
+        pieChart.othersCategoryType = OthersCategoryType.Percent;   
+        pieChart.othersCategoryThreshold = 10;
+        pieChart.radiusFactor = 0.75;
+        pieChart.labelExtent = 0.5;
+        pieChart.dataSource = WorldData.continents;
          
+        let donutLegend = document.getElementById('donutLegend') as IgcItemLegendComponent;
         let donutSeries = new IgcRingSeriesComponent();
         donutSeries.valueMemberPath = "population"; 
         donutSeries.labelMemberPath = "populationPercent"; 
         donutSeries.legendLabelMemberPath = "name";
-        donutSeries.othersCategoryType = OthersCategoryType.Percent;
-        donutSeries.othersCategoryThreshold = 5;
+        donutSeries.labelsPosition = LabelsPosition.InsideEnd; 
+        donutSeries.othersCategoryType = OthersCategoryType.Percent; 
+        donutSeries.othersCategoryThreshold = 10;
+        // donutSeries.othersCategoryFill = "blue"; 
+        // donutSeries.othersCategoryStroke = "red";
         donutSeries.radiusFactor = 0.75;
         donutSeries.dataSource = WorldData.continents;
-        donutSeries.legend = this.donutLegend; 
-        this.donutChart.innerExtent = 0.3;
-        this.donutChart.series.add(donutSeries); 
+        donutSeries.legend = donutLegend; 
+
+        var donutChart = document.getElementById('donutChart') as IgcDoughnutChartComponent;
+        donutChart.innerExtent = 0.3;
+        donutChart.series.add(donutSeries); 
               
-        this.treeMap.rootTitle = "Continents"; 
-        this.treeMap.parentIdMemberPath = "parent";
-        this.treeMap.valueMemberPath = "population";
-        this.treeMap.labelMemberPath = "name";
-        this.treeMap.idMemberPath = "name";  
-        this.treeMap.dataSource = WorldData.continentTreeNodes;
+    }
+   
+    public addTreemap1(): any {
+        var treeMap1 = document.getElementById('treeMap1') as IgcTreemapComponent;
+        treeMap1.rootTitle = "Continents"; 
+        treeMap1.parentIdMemberPath = "parent";
+        treeMap1.valueMemberPath = "population";
+        treeMap1.labelMemberPath = "name"; 
+        treeMap1.idMemberPath = "name";   
+        treeMap1.headerDisplayMode = TreemapHeaderDisplayMode.Overlay;
+        // treeMap1.fillScaleMode = TreemapFillScaleMode.GlobalSum;
+        // treeMap1.fillScaleMinimumValue = 0;
+        // treeMap1.fillScaleMaximumValue = 1500000000;
+        treeMap1.parentNodeRightPadding = 0;
+        treeMap1.parentNodeLeftPadding = 0;
+        treeMap1.parentNodeTopPadding = 0;
+        treeMap1.parentNodeBottomPadding = 0;
+
+        treeMap1.dataSource = WorldData.continentTreeNodes;
         // applying custom styling from reveal insteaf of using fill scale
-        this.treeMap.nodeStyling = (s: IgcTreemapComponent, e: any) => {
+        treeMap1.nodeStyling = (s: IgcTreemapComponent, e: any) => {
             const item = e.item as any; 
-            const brushCount = this.treeMap.fillBrushes.length;
+            const brushCount = treeMap1.fillBrushes.length;
             const parentFillIndex = item.parentID % brushCount;
             const rootFillIndex = item.childID % brushCount; 
             // console.log(brushCount  + " parent: " + item.parentID  + " child: " + item.childID + " styling: " + e.item.name );
-            // e.style.fill = item.childID == -1 ? this.treeMap.fillBrushes[rootFillIndex] : this.treeMap.fillBrushes[parentFillIndex];
-            e.style.fill = this.treeMap.fillBrushes[parentFillIndex];
+            // e.style.fill = item.childID == -1 ? treeMap1.fillBrushes[rootFillIndex] : treeMap1.fillBrushes[parentFillIndex];
+            e.style.fill = treeMap1.fillBrushes[parentFillIndex];
         }
-       
-        //  this.treeMap.textColor = "white"; 
-        //  this.treeMap.darkTextColor = "yellow";    
-        //   this.treeMap.headerDarkTextColor = "blue"; 
-        // this.treeMap.outline = "red";    
- 
-        // this.treeMap.fillBrushes = ["red", "green"];
     }
    
+    public addTreemap2(): any {
+        var treeMap2 = document.getElementById('treeMap2') as IgcTreemapComponent;
+        treeMap2.rootTitle = "Continents"; 
+        treeMap2.parentIdMemberPath = "parent";
+        treeMap2.valueMemberPath = "population";
+        treeMap2.labelMemberPath = "name"; 
+        treeMap2.idMemberPath = "name";   
+        treeMap2.headerDisplayMode = TreemapHeaderDisplayMode.Overlay;
+        treeMap2.parentNodeRightPadding = 0;
+        treeMap2.parentNodeLeftPadding = 0;
+        treeMap2.parentNodeTopPadding = 0;
+        treeMap2.parentNodeBottomPadding = 0;
+        treeMap2.fillScaleMinimumValue = 0; 
+        treeMap2.fillScaleMaximumValue = 1500000000;
+        treeMap2.fillScaleMode = TreemapFillScaleMode.GlobalSum;
+        treeMap2.fillBrushes = [this.getCssVariable('--color2'), this.getCssVariable('--color3')];
+        treeMap2.dataSource = WorldData.countries;      
+         
+    }
+
     public addCountryTooltip(dataContext: any): any {
         // console.log("addCountryTooltip");
         // const dataContext = context.dataContext as DataContext;
-        // if (!dataContext) return null;
-
+        // if (!dataContext) return null; 
         const series = dataContext.series as any;
         if (!series) return null;
 
@@ -324,6 +351,7 @@ export class ThemeGallery {
         sizeScale.minimumValue = 5;
         sizeScale.maximumValue = 40;
 
+        var dataScatterPointChart = document.getElementById('dataScatterPointChart') as IgcDataChartComponent;
         for (const continent of WorldData.continents) {
             const scatterSeries = new IgcScatterSeriesComponent(); 
             scatterSeries.dataSource = continent.countries;
@@ -334,16 +362,16 @@ export class ThemeGallery {
             scatterSeries.xMemberPath = 'population';
             scatterSeries.yMemberPath = 'gdpPerPerson'; 
             scatterSeries.tooltipTemplate = this.addCountryTooltip;
-            this.dataScatterPointChart.series.add(scatterSeries);
+            dataScatterPointChart.series.add(scatterSeries);
         }
         
-        this.dataScatterPointChart.axes.add(xAxis);
-        this.dataScatterPointChart.axes.add(yAxis);
-        this.dataScatterPointChart.chartTitle = "Scatter Point Chart - Population by Continent";
-        this.dataScatterPointChart.titleTextStyle = "10px Verdana, sans-serif";
-        this.dataScatterPointChart.isHorizontalZoomEnabled = true;
-        this.dataScatterPointChart.isVerticalZoomEnabled = true;
-        // this.chart.plotAreaMarginBottom = 10; 
+        dataScatterPointChart.axes.add(xAxis);
+        dataScatterPointChart.axes.add(yAxis);
+        dataScatterPointChart.chartTitle = "Population by Continent";
+        dataScatterPointChart.titleTextStyle = "15px Verdana, sans-serif";
+        dataScatterPointChart.isHorizontalZoomEnabled = true;
+        dataScatterPointChart.isVerticalZoomEnabled = true;
+        // chart.plotAreaMarginBottom = 10; 
     }
 
     private addScatterBubbleChart() {
@@ -369,19 +397,20 @@ export class ThemeGallery {
         bubbleSeries.markerType = MarkerType.Circle;
         bubbleSeries.xAxis = xAxis;
         bubbleSeries.yAxis = yAxis;
-        bubbleSeries.xMemberPath = 'population';
+        bubbleSeries.xMemberPath = 'population'; 
         bubbleSeries.yMemberPath = 'gdpPerPerson'; 
         bubbleSeries.radiusMemberPath = 'gdpTotal';
         bubbleSeries.radiusScale = sizeScale; 
         bubbleSeries.tooltipTemplate = this.addCountryTooltip;
-        
-        this.dataScatterBubbleChart.axes.add(xAxis);
-        this.dataScatterBubbleChart.axes.add(yAxis);
-        this.dataScatterBubbleChart.series.add(bubbleSeries);
-        this.dataScatterBubbleChart.chartTitle = "Scatter Bubble Chart - Population vs GDP per Person";
-        this.dataScatterBubbleChart.titleTextStyle = "10px Verdana, sans-serif";
-        this.dataScatterBubbleChart.isHorizontalZoomEnabled = true;
-        this.dataScatterBubbleChart.isVerticalZoomEnabled = true;
+          
+        var dataScatterBubbleChart = document.getElementById('dataScatterBubbleChart') as IgcDataChartComponent;
+        dataScatterBubbleChart.axes.add(xAxis);
+        dataScatterBubbleChart.axes.add(yAxis);
+        dataScatterBubbleChart.series.add(bubbleSeries);
+        dataScatterBubbleChart.chartTitle = "Population vs GDP per Person";
+        dataScatterBubbleChart.titleTextStyle = "15px Verdana, sans-serif";
+        dataScatterBubbleChart.isHorizontalZoomEnabled = true;
+        dataScatterBubbleChart.isVerticalZoomEnabled = true;
     }
 
     private addBarChart() {
@@ -401,6 +430,8 @@ export class ThemeGallery {
             { "value": "medalsGER", "name": "GER" }
         ];     
 
+        var dataBarChart = document.getElementById('dataBarChart') as IgcDataChartComponent;
+
         for (const country of countries) {
             const series1 = new IgcBarSeriesComponent(); 
             series1.dataSource = WorldData.olympicResult; 
@@ -408,33 +439,37 @@ export class ThemeGallery {
             series1.yAxis = yAxis; 
             series1.valueMemberPath = country.value; 
             series1.title = country.name;
-            this.dataBarChart.series.add(series1);
+            dataBarChart.series.add(series1);
         }
  
-        this.dataBarChart.axes.add(xAxis);
-        this.dataBarChart.axes.add(yAxis);
-        this.dataBarChart.chartTitle = "Bar Chart - Olympic Medals by Country";
-        this.dataBarChart.titleTextStyle = "10px Verdana, sans-serif";
-        this.dataBarChart.isHorizontalZoomEnabled = true;
-        this.dataBarChart.isVerticalZoomEnabled = true;
+        dataBarChart.axes.add(xAxis);
+        dataBarChart.axes.add(yAxis);
+        dataBarChart.chartTitle = "Olympic Medals by Country";
+        dataBarChart.titleTextStyle = "15px Verdana, sans-serif";
+        dataBarChart.isHorizontalZoomEnabled = true;
+        dataBarChart.isVerticalZoomEnabled = true;
                  
         let tooltip = new IgcDataToolTipLayerComponent();
-        this.dataBarChart.series.add(tooltip);
+        dataBarChart.series.add(tooltip);
+
+        var dataBarLegend = document.getElementById('dataBarLegend') as IgcDataLegendComponent;
+        dataBarLegend.target = dataBarChart;
     }
 
-    private addColumnChart() {
+    private addColumnChart() { 
         var xAxis = new IgcCategoryXAxisComponent();
         var yAxis = new IgcNumericYAxisComponent();
 
         xAxis.label = "year";
         xAxis.dataSource = WorldData.olympicResult;
          
-        this.dataColChart.chartTitle = "Column Chart - Olympic Medals by Country";
-        this.dataColChart.titleTextStyle = "10px Verdana, sans-serif";
-        this.dataColChart.isHorizontalZoomEnabled = true;
-        this.dataColChart.isVerticalZoomEnabled = true;
-        this.dataColChart.axes.add(xAxis);
-        this.dataColChart.axes.add(yAxis);
+        var dataColChart = document.getElementById('dataColChart') as IgcDataChartComponent;
+        dataColChart.chartTitle = "Olympic Medals by Country";
+        dataColChart.titleTextStyle = "15px Verdana, sans-serif";
+        dataColChart.isHorizontalZoomEnabled = true;
+        dataColChart.isVerticalZoomEnabled = true;
+        dataColChart.axes.add(xAxis);
+        dataColChart.axes.add(yAxis);
 
         var countries = [ 
             { "value": "medalsUSA", "name": "USA" }, 
@@ -452,11 +487,14 @@ export class ThemeGallery {
             series1.yAxis = yAxis; 
             series1.valueMemberPath = country.value; 
             series1.title = country.name;
-            this.dataColChart.series.add(series1);
+            dataColChart.series.add(series1);
         }
 
         let tooltip = new IgcDataToolTipLayerComponent();
-        this.dataColChart.series.add(tooltip);
+        dataColChart.series.add(tooltip);
+
+        var dataColLegend = document.getElementById('dataColLegend') as IgcDataLegendComponent;
+        dataColLegend.target = dataColChart;
     }
 
      private addStackedChart() {
@@ -466,12 +504,13 @@ export class ThemeGallery {
         xAxis.label = "year";
         xAxis.dataSource = WorldData.olympicResult;
          
-        this.dataStackedChart.chartTitle = "Stacked 100% Column Chart - Olympic Medals";
-        this.dataStackedChart.titleTextStyle = "10px Verdana, sans-serif";
-        this.dataStackedChart.isHorizontalZoomEnabled = true;
-        this.dataStackedChart.isVerticalZoomEnabled = true;
-        this.dataStackedChart.axes.add(xAxis);
-        this.dataStackedChart.axes.add(yAxis);
+        var dataStackedChart = document.getElementById('dataStackedChart') as IgcDataChartComponent;
+        dataStackedChart.chartTitle = "Olympic Medals";
+        dataStackedChart.titleTextStyle = "15px Verdana, sans-serif";
+        dataStackedChart.isHorizontalZoomEnabled = true;
+        dataStackedChart.isVerticalZoomEnabled = true;
+        dataStackedChart.axes.add(xAxis);
+        dataStackedChart.axes.add(yAxis);
 
         var countries = [ 
             { "value": "medalsUSA", "name": "USA" }, 
@@ -482,10 +521,10 @@ export class ThemeGallery {
 
         const series1 = new IgcStacked100ColumnSeriesComponent(); 
         series1.dataSource = WorldData.olympicResult; 
-        series1.xAxis = xAxis; 
+        series1.xAxis = xAxis;  
         series1.yAxis = yAxis;
         // series1.markerType = MarkerType.Circle;
-        this.dataStackedChart.series.add(series1);
+        dataStackedChart.series.add(series1);
 
         for (const country of countries) {
             var fragement1 = new IgcStackedFragmentSeriesComponent();
@@ -495,8 +534,10 @@ export class ThemeGallery {
         }
 
         let tooltip = new IgcDataToolTipLayerComponent();
-        this.dataStackedChart.series.add(tooltip);
+        dataStackedChart.series.add(tooltip);
 
+        var dataStackedLegend = document.getElementById('dataStackedLegend') as IgcDataLegendComponent;
+        dataStackedLegend.target = dataStackedChart;
     }
 
     private addCalloutChart() {
@@ -506,18 +547,19 @@ export class ThemeGallery {
         xAxis.label = "year";
         xAxis.dataSource = WorldData.olympicResult;
          
-        this.dataCalloutChart.chartTitle = "Data Chart with Callout - Olympic Medals";
-        this.dataCalloutChart.titleTextStyle = "10px Verdana, sans-serif";
-        this.dataCalloutChart.isHorizontalZoomEnabled = true;
-        this.dataCalloutChart.isVerticalZoomEnabled = true;
-        this.dataCalloutChart.axes.add(xAxis);
-        this.dataCalloutChart.axes.add(yAxis);
-
-        var countries = [ 
+        var dataCalloutChart = document.getElementById('dataCalloutChart') as IgcDataChartComponent;
+        dataCalloutChart.chartTitle = "Olympic Medals";
+        dataCalloutChart.titleTextStyle = "15px Verdana, sans-serif";
+        dataCalloutChart.isHorizontalZoomEnabled = true; 
+        dataCalloutChart.isVerticalZoomEnabled = true;
+        dataCalloutChart.axes.add(xAxis);
+        dataCalloutChart.axes.add(yAxis);
+ 
+        var countries = [  
             { "value": "medalsUSA", "name": "USA" }, 
             { "value": "medalsCHN", "name": "CHN" }, 
             { "value": "medalsRUS", "name": "RUS" }, 
-            { "value": "medalsSPA", "name": "SPA" },
+            { "value": "medalsSPA", "name": "SPA" },  
         ];    
 
         for (const country of countries) {
@@ -527,7 +569,7 @@ export class ThemeGallery {
             series1.yAxis = yAxis; 
             series1.valueMemberPath = country.value; 
             series1.title = country.name;
-            this.dataCalloutChart.series.add(series1);
+            dataCalloutChart.series.add(series1);
         }
 
         const calloutLayer = new IgcCalloutLayerComponent(); 
@@ -536,69 +578,17 @@ export class ThemeGallery {
         calloutLayer.allowedPositions.add(CalloutPlacementPositions.Top);
         calloutLayer.calloutLeaderBrush = "transparent";
 
-        this.dataCalloutChart.series.add(calloutLayer); 
+        dataCalloutChart.series.add(calloutLayer); 
 
         let tooltip = new IgcDataToolTipLayerComponent();
-        this.dataCalloutChart.series.add(tooltip);
+        dataCalloutChart.series.add(tooltip);
 
-        this.dataCalloutChart.plotAreaMarginTop = 20;
-        this.dataCalloutChart.plotAreaMarginLeft = 20;
-        this.dataCalloutChart.plotAreaMarginRight = 20;
-        this.dataCalloutChart.plotAreaMarginBottom = 0;
+        dataCalloutChart.plotAreaMarginTop = 20;
+        dataCalloutChart.plotAreaMarginLeft = 20;
+        dataCalloutChart.plotAreaMarginRight = 20;
+        dataCalloutChart.plotAreaMarginBottom = 0;
     }
 
-    private addCalloutChart2() {
-        var xAxis = new IgcCategoryXAxisComponent();
-        var yAxis = new IgcNumericYAxisComponent();
- 
-        // yAxis.title = "Population";
-        yAxis.interval = 1000000000;
-        yAxis.abbreviateLargeNumbers = true;
-        xAxis.interval = 1;
-        xAxis.label = "name";
-        xAxis.dataSource = WorldData.continents;
- 
-        const categorySeries = new IgcLineSeriesComponent(); 
-        categorySeries.dataSource = WorldData.continents;
-        categorySeries.xAxis = xAxis; 
-        categorySeries.yAxis = yAxis; 
-        categorySeries.valueMemberPath = 'population'; 
-        categorySeries.title = "Population";
-        categorySeries.markerBrush = "black";
-
-        this.dataCalloutChart.axes.add(xAxis);
-        this.dataCalloutChart.axes.add(yAxis);
-        this.dataCalloutChart.series.add(categorySeries);
-        this.dataCalloutChart.chartTitle = "Line Chart with Callouts - Population by Continent";
-        this.dataCalloutChart.titleTextStyle = "10px Verdana, sans-serif";
-        this.dataCalloutChart.isHorizontalZoomEnabled = true;
-        this.dataCalloutChart.isVerticalZoomEnabled = true;
-
-        var numberFormater = new IgcNumberFormatSpecifier();
-        numberFormater.style = "currency";
-        // numberFormater.currency = "USD";  
-        // numberFormater.currencyDisplay = "symbol";
-        numberFormater.minimumFractionDigits = 0; 
-        numberFormater.useGrouping = true;
-        numberFormater.currencyCode = "USD";
-        var numSpecifier: IgcNumberFormatSpecifier[] = [numberFormater];
-            
-        const calloutLayer = new IgcCalloutLayerComponent(); 
-        // calloutLayer.isAutoCalloutBehaviorEnabled = true;
-        calloutLayer.labelMemberPath = "populationAbbr"; 
-        calloutLayer.xMemberPath = 'index';
-        calloutLayer.yMemberPath = 'population';
-        calloutLayer.dataSource = WorldData.continents;
-        calloutLayer.brush = categorySeries.actualBrush;
-        this.dataCalloutChart.series.add(calloutLayer);
-
-        this.dataCalloutChart.plotAreaMarginLeft = 10;
-        this.dataCalloutChart.plotAreaMarginRight = 10;
- 
-        var final = new IgcFinalValueLayerComponent(); 
-        final.axisAnnotationBackground = categorySeries.actualBrush;
-        this.dataCalloutChart.series.add(final);
-    }
  
     private addGeoShapeSeries() {
 

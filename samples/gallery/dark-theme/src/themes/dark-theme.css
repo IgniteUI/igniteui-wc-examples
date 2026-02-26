@@ -23,7 +23,7 @@ html, body, #root {
   --color0: #ded3c7;
 
   /* alternative colors*/
-  --color1: #73C2FB;
+  /* --color1: #73C2FB;
   --color2: #2980B9;
   --color3: #136296;
   --color4: #FECB49;
@@ -32,13 +32,23 @@ html, body, #root {
   --color7: #51AE5A;
   --color8: #318A3A;
   --color9: #574E4E;
-  --color0: #3B3636; 
+  --color0: #3B3636;  */
 
   --chartBrushes:  var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7), var(--color8), var(--color9), var(--color0);
   --tremapBrushes: var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7), var(--color8);
 
   /* this additional variable is needed since fill scale is reversed in treemap and we cannot re-use chartBrushes variable */
   /* --tremapBrushes: var(--color8), var(--color7), var(--color6), var(--color5), var(--color4),  var(--color3), var(--color2), var(--color1); */
+}
+
+/* ------- CHARTS ----------------------------------- */
+
+.ig-title
+{
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+  color:  var(--mainForeground);
+  align-self: center;
 }
 
 /* ------- CHARTS ----------------------------------- */
@@ -118,8 +128,20 @@ html, body, #root {
 .ig-item-legend, .ig-scale-legend, .ig-legend
 {
   background: var(--mainBackground);
+  align-self: center;
 
   --text-color: var(--mainForeground);
+}
+
+.ig-funnel-chart
+{
+  background: var(--mainBackground);
+
+  --brushes: var(--chartBrushes);
+  --outlines: var(--chartBrushes);
+
+  --outer-label-text-color: var(--mainForeground);
+  --text-color: var(--mainBackground);
 }
 
 .ig-pie-chart
@@ -154,13 +176,13 @@ html, body, #root {
   --ring-series-label-outer-color: var(--mainForeground); 
   --ring-series-label-inner-color: var(--mainBackground);
 
+  --ring-series-others-category-fill: var(--mainStroke);
+  --ring-series-others-category-stroke: var(--mainStroke);
+  --ring-series-others-category-stroke-thickness: 1;
+
   --selected-slice-stroke: var(--mainForeground); 
   --selected-slice-stroke-thickness: 2;
   --selected-slice-opacity: 1.0;
-
-  --others-category-fill:   var(--mainStroke);
-  --others-category-stroke: var(--mainStroke);
-  --others-category-stroke-thickness: 1;
 }
 
 .ig-data-pie-chart {
@@ -194,8 +216,8 @@ html, body, #root {
 .ig-treemap {
   background: var(--mainBackground) !important;
   
-  --dark-text-color: var(--mainForeground);
-  --text-color: var(--mainForeground);
+  --dark-text-color: var(--mainBackground);
+  --text-color: var(--mainBackground);
   --outline:    var(--mainBackground);
 
   --header-dark-text-color: var(--mainBackground);
@@ -209,6 +231,11 @@ html, body, #root {
   --header-label-right-margin: 5;
   --header-label-bottom-margin: 2;
 
+  --parent-node-bottom-padding: 0;
+  --parent-node-left-padding: 0;
+  --parent-node-right-padding: 0;
+  --parent-node-top-padding: 0;
+  
   --fill-brushes: var(--tremapBrushes);
 }
 
@@ -363,8 +390,9 @@ html, body, #root {
 
   --value-outline: var(--color1);
   --value-brush: var(--color1);
-  --target-value-outline: var(--mainForeground);
-  --target-value-brush: var(--mainForeground);
+
+  --target-value-outline: var(--color2);
+  --target-value-brush: var(--color2);
 
   --minor-tick-brush: var(--mainStroke);
   --minor-tick-stroke-thickness: 1; 
