@@ -7,7 +7,7 @@ import { IgcGeographicShapeSeriesComponent } from 'igniteui-webcomponents-maps';
 
 import { IgcBulletGraphComponent, IgcBulletGraphModule, IgcLinearGaugeComponent, IgcLinearGaugeModule, IgcRadialGaugeComponent, IgcRadialGaugeModule } from 'igniteui-webcomponents-gauges';
 
-import { CellContentHorizontalAlignment, IgcColumnWidth, IgcDataGridComponent, IgcNumericColumnComponent } from 'igniteui-webcomponents-data-grids';
+import { CellContentHorizontalAlignment, IgcColumnWidth, IgcDataGridComponent, IgcNumericColumnComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
 import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
@@ -154,17 +154,17 @@ export class ThemeGallery {
 
         var dataGrid = document.getElementById('dataGrid') as IgcDataGridComponent;
         dataGrid.dataSource = WorldData.countries;
-        dataGrid.cellTextColor = "red";
-        dataGrid.headerTextColor = "red";
-        dataGrid.rowHoverBackground = "rgba(247, 211, 9, 0.313)";
-        dataGrid.rowHoverTextColor = "red";
-        dataGrid.sectionHeaderTextColor = "red";
-        dataGrid.summaryRootValueTextColor = "red";
-dataGrid.cellBackground = "gray";
-dataGrid.headerBackground = "yellow";
-dataGrid.cellSelectedBackground = "rgba(255, 255, 255, 0.2)";
-dataGrid.headerSeparatorBackground = "red"; 
-
+//         dataGrid.cellTextColor = "red";
+//         dataGrid.headerTextColor = "red";
+//         dataGrid.rowHoverBackground = "rgba(247, 211, 9, 0.313)";
+//         dataGrid.rowHoverTextColor = "red";
+//         dataGrid.sectionHeaderTextColor = "red";
+//         dataGrid.summaryRootValueTextColor = "red";
+// dataGrid.cellBackground = "gray";
+// dataGrid.headerBackground = "yellow";
+// dataGrid.cellSelectedBackground = "rgba(255, 255, 255, 0.2)";
+// dataGrid.headerSeparatorBackground = "red"; 
+dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
 
 
         var dataPieLegend = document.getElementById('dataPieLegend') as IgcItemLegendComponent;
