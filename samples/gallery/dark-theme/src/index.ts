@@ -40,7 +40,8 @@ import { html } from 'lit-html';
 // import './index.css'     
 import './themes/tooltip-layout.css'     
  
-import './themes/dark-theme.css'
+// Theme will be loaded dynamically based on user selection
+// import './themes/dark-theme.css'
 
 import { WorldData } from './WorldData';
  
@@ -80,8 +81,12 @@ export class ThemeGallery {
     // maps
     private geoMap1: IgcGeographicMapComponent;
     private geoMap2: IgcGeographicMapComponent;
+    private currentThemeLink: HTMLLinkElement | null = null;
 
     constructor() {
+
+        // Initialize theme switcher
+        this.initializeThemeSwitcher();
 
         this.addGeoSymbolSeries = this.addGeoSymbolSeries.bind(this);
         this.addGeoConnectionSeries = this.addGeoConnectionSeries.bind(this);
@@ -131,6 +136,40 @@ export class ThemeGallery {
 
         WorldData.loaded = this.onDataLoaded; 
         WorldData.loadData(); 
+    }
+
+    private initializeThemeSwitcher() {
+        // Load dark theme by default
+        this.loadTheme('dark');
+
+        // Set up theme selector event listener
+        const themeSelector = document.getElementById('themeSelector') as HTMLSelectElement;
+        if (themeSelector) {
+            themeSelector.addEventListener('change', (event) => {
+                console.log('themeSelector change');
+                const selectedTheme = (event.target as HTMLSelectElement).value;
+                this.loadTheme(selectedTheme);
+            });
+        }
+    }
+
+    private loadTheme(theme: string) {
+        // Remove existing theme link if present
+        if (this.currentThemeLink) {
+                console.log('themeSelector remove');
+            this.currentThemeLink.remove();
+        }
+
+        // Create new link element for the theme CSS
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = theme === 'dark' ? './src/themes/dark-theme.css' : './src/themes/light-theme.css';
+        
+                console.log('themeSelector loadTheme=' + link.href);
+        // Add to document head
+        document.head.appendChild(link);
+        this.currentThemeLink = link;
     }
 
     private onDataLoaded(sds: IgcShapeDataSource, e: any) {
