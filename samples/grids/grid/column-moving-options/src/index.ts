@@ -111,9 +111,9 @@ export class Sample {
         const column = (ctx as any).column;
         return html`<div style="display:flex;">
                      <span>${column.field}</span>
-                     <span style="margin-left: auto;" @pointerdown=${(e: any) => this.toggleColumnPin(column.field)}>📌</span>
+                     <span style="margin-left: auto; cursor: pointer;" @pointerdown=${(e: any) => this.toggleColumnPin(column.field)}>📌</span>
                    </div>`;
-        };
+        };
 
     public webGridCurrencyCellTemplate = (ctx: IgcCellTemplateContext) => {
         if (ctx.cell.value > 0) {
