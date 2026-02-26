@@ -39,15 +39,9 @@ import { html } from 'lit-html';
 
 // import './index.css'     
 import './themes/tooltip-layout.css'     
-
-// Dynamically load theme based on URL parameter (?theme=dark or ?theme=light)
-const urlParams = new URLSearchParams(window.location.search);
-const theme = urlParams.get('theme') || 'dark';
-if (theme === 'light') {
-    import('./themes/light-theme.css');
-} else {
-    import('./themes/dark-theme.css');
-}
+  
+// import './themes/dark-theme.css'
+import './themes/light-theme.css'
 
 import { WorldData } from './WorldData';
  
