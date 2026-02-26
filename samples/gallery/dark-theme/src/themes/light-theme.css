@@ -4,8 +4,14 @@ html, body, #root {
 
   --mainStroke: #868685;
 
-  --mainBackground: #efeeee; 
-  --mainForeground: #1f1e1e;
+  --mainBackgroundRBG: 240, 240, 240;
+  /* --mainBackground: #1f1e1e;  */
+  --mainBackground: rgb(var(--mainBackgroundRBG));
+  --mainForegroundRBG: 31, 30, 30;
+  /* --mainForeground: #efeeee; */
+  /* --mainForeground: var(rgb(--mainForegroundRBG)); */
+  --mainForeground: rgb(var(--mainForegroundRBG));
+
   /* --mainForeground:  #f40808;  */
   
   background: var(--mainBackground) !important;
@@ -48,9 +54,43 @@ html, body, #root {
   margin-top: 1rem;
   margin-bottom: 0rem;
   color:  var(--mainForeground);
+  /* color:  black; */
   align-self: center;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
+.igc-data-grid {
+  border-color: transparent !important;
+
+--header-text-color: var(--mainForeground);
+/* --header-text-color: var(--color1); */
+
+--header-background: var(--mainBackground);
+--header-separator-background: var(--mainStroke); 
+
+--header-sort-indicator-color: var(--mainStroke);
+/* --header-sort-indicator-color: var(--color1); */
+
+--row-hover-background: rgba(var(--mainForegroundRBG), 0.2);
+/* --row-hover-background: rgba(223, 17, 17, 0.317); */
+--row-hover-text-color: rgba(var(--mainForegroundRBG), 1.0);
+/* --row-hover-text-color: var(--color1); */
+
+--row-separator-background: var(--mainStroke);
+--row-header-separator-background: blue;
+--row-header-row-separator-background: red;
+--row-header-row-separator-background: red;
+--row-separator-sticky-row-background: red;
+--sticky-row-background: red;
+
+--cell-text-color: rgba(var(--mainForegroundRBG), 0.8);;
+--cell-background: var(--mainBackground);
+/* --cell-selected-background: rgba(255, 255, 255, 0.2); */
+
+--section-header-text-color: var(--mainForeground);
+--summary-root-value-text-color: red;
+
+}
 /* ------- CHARTS ----------------------------------- */
 
 .ig-data-chart
@@ -67,8 +107,12 @@ html, body, #root {
   --marker-outlines: var(--chartBrushes);
   
   --title-top-margin: 5px;
-  --title-text-color:    var(--mainForeground) !important;
+  --title-text-color:    var(--mainForeground);
+  /* --title-text-color:    var(--mainForeground) !important; */
   --subtitle-text-color: var(--mainForeground) !important;
+
+  --title-text-style: 15px Verdana, Tahoma, sans-serif;
+  /* --title-text-style: 15px 'Titillium Web', Verdana, Tahoma, sans-serif; */
 
   --axis-stroke: var(--mainStroke);
   --axis-stroke-thickeness: 10;
@@ -216,9 +260,9 @@ html, body, #root {
 .ig-treemap {
   background: var(--mainBackground) !important;
   
-  --dark-text-color: var(--mainBackground);
-  --text-color: var(--mainBackground);
-  --outline:    var(--mainBackground);
+  --dark-text-color: var(--mainForeground);
+  --text-color: var(--mainForeground);
+  --outline:    var(--mainForeground);
 
   --header-dark-text-color: var(--mainBackground);
   --header-text-color: var(--mainForeground);
@@ -254,17 +298,18 @@ html, body, #root {
   --marker-brushes:  var(--chartBrushes);
   --marker-outlines: var(--chartBrushes);
 
-  --geographic-shape-series-outline: var(--mainBackground);
+  --geographic-shape-series-outline: var(--mainForeground);
+  /* --geographic-shape-series-outline: #3d3d3d; */
   /* --geographic-shape-series-brush: #3d3d3d; */
   --geographic-shape-series-thickness: 0.5;
 
-  --geographic-symbol-series-marker-outline: var(--mainBackground) ;
+  --geographic-symbol-series-marker-outline: var(--mainForeground) ;
   /* --geographic-symbol-series-marker-brush: lime;  */
   /* --geographic-symbol-series-marker-brush: #bcbcbc;  */
   --geographic-symbol-series-marker-thickness: 0.5;
   --geographic-symbol-series-marker-fill-opacity: 1.0;
 
-  --geographic-proportional-symbol-series-marker-outline: var(--mainBackground) ;
+  --geographic-proportional-symbol-series-marker-outline: var(--mainForeground) ;
   /* --geographic-proportional-symbol-series-marker-brush: lime;  */
   /* --geographic-proportional-symbol-series-marker-brush: #bcbcbc;  */
   --geographic-proportional-symbol-series-marker-thickness: 0.5;
@@ -282,9 +327,9 @@ html, body, #root {
 {
   --tooltip-container-text-color:   var(--mainForeground) !important;
   --tooltip-container-border-color: var(--mainStroke) !important;
-  --tooltip-container-background-color: #1c1c1c !important;
+  --tooltip-container-background-color: var(--mainBackground) !important;
   color: var(--mainForeground) !important;
-  background: #1c1c1c !important;
+  background: var(--mainBackground) !important;
   border-color: var(--mainStroke) !important;
 } 
 

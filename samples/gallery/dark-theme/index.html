@@ -21,27 +21,29 @@
 
 <div class="container sample" style="height: 3000px;" >
     
-    <div style="padding: 1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+    <!-- <div style="padding: 1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
         <label for="themeSelector" style="font-weight: bold;">Select Theme:</label>
         <select id="themeSelector" style="padding: 0.5rem; font-size: 14px; border-radius: 4px;">
             <option value="dark">Dark Theme</option>
             <option value="light">Light Theme</option>
         </select>
-    </div>
+    </div> -->
 
-    <igc-data-grid id="dataGrid" width="100%" height="300px" 
+    <igc-data-grid id="dataGrid" width="100%" height="400px" 
     style="margin-bottom: 3rem;"
     row-height="40" 
     is-row-hover-enabled="true" 
     is-column-options-enabled="true"
+        is-group-by-area-visible="true"
+        is-group-collapsable="true"
     auto-generate-columns="false" >
        
-      <igc-numeric-column field="index" header-text="ID" ></igc-numeric-column>
-      <igc-text-column field="name" header-text="Name" width="*>160"></igc-text-column>
+      <igc-numeric-column field="index" header-text="ID" width="60"></igc-numeric-column>
+      <igc-text-column field="name" header-text="Name" width="*>100"></igc-text-column>
       <igc-text-column field="populationAbbr" header-text="Population" horizontal-alignment="right" ></igc-text-column> 
-      <igc-numeric-column show-grouping-separator="true" header-text="Population" field="population" ></igc-numeric-column> 
-      <igc-numeric-column show-grouping-separator="true" header-text="GDP Total" field="gdpTotal" ></igc-numeric-column> 
-      <igc-numeric-column show-grouping-separator="true" header-text="GDP per Person" field="gdpPerPerson" ></igc-numeric-column> 
+      <igc-numeric-column show-grouping-separator="true" header-text="Population" field="population" width="*>160"></igc-numeric-column> 
+      <igc-numeric-column show-grouping-separator="true" header-text="GDP Total" field="gdpTotal" width="*>180"></igc-numeric-column> 
+      <igc-numeric-column show-grouping-separator="true" header-text="GDP Person" field="gdpPerPerson" ></igc-numeric-column> 
       <igc-text-column field="region" header-text="Region" width="*>160"></igc-text-column>
       <igc-text-column field="continent" header-text="Continent" width="*>160"></igc-text-column>
       
@@ -50,11 +52,11 @@
     <div class="container vertical">
       <div class="container horizontal">
         <div class="container vertical" width="50%" style="padding: 1rem;">
-            <label class="ig-title">TreeMap with Global Fill Scale</label>
+            <label class="ig-title">TreeMap with Fill Scale</label>
             <igc-treemap id="treeMap2" width="100%" height="100%"></igc-treemap>
          </div>
         <div class="container vertical" width="50%" style="padding: 1rem;">
-            <label class="ig-title">TreeMap with Reveal Custom Styling</label>
+            <label class="ig-title">TreeMap with Fill Brushes</label>
             <igc-treemap id="treeMap1" width="100%" height="100%"></igc-treemap>
          </div>
       </div>

@@ -11,8 +11,8 @@ import { CellContentHorizontalAlignment, IgcColumnWidth, IgcDataGridComponent, I
 import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
-import { IgcColumnSummaryDescription } from 'igniteui-webcomponents-data-grids';
-import { DataSourceSummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, ISummaryResult } from 'igniteui-webcomponents-core';
+import { IgcColumnSummaryDescription, EditModeType } from 'igniteui-webcomponents-data-grids';
+import { DataSourceSummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, ISummaryResult, ListSortDirection } from 'igniteui-webcomponents-core';
 
 
 import { CalloutPlacementPositions, DataToolTipLayer, IgcCalloutLayerComponent, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcDataLegendComponent, IgcDataPieChartComponent, IgcDataPieChartModule, IgcDoughnutChartComponent, IgcDoughnutChartModule, IgcFinalValueLayerComponent, IgcFunnelChartComponent, IgcFunnelChartModule, IgcItemLegendComponent, IgcItemLegendModule, IgcLineSeriesComponent, IgcPieChartComponent, IgcPieChartModule, IgcRingSeriesComponent, IgcScatterSeriesComponent, IgcStacked100AreaSeriesComponent, IgcStacked100ColumnSeriesComponent, IgcStackedFragmentSeriesComponent, IgcStackedFragmentSeriesModule, IgcStackedLineSeriesComponent, LabelsPosition, MarkerFillMode, MarkerOutlineMode, TreemapFillScaleMode, TreemapHeaderDisplayMode } from 'igniteui-webcomponents-charts'; 
@@ -32,16 +32,16 @@ import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
 
 import { DataContext } from 'igniteui-webcomponents-core';
 import { ModuleManager } from 'igniteui-webcomponents-core'; 
-
+ 
 import { WorldConnections2 } from './WorldConnections2';
 import { WorldUtils2 } from './WorldUtils2';
 import { html } from 'lit-html';
 
 // import './index.css'     
 import './themes/tooltip-layout.css'     
- 
-// Theme will be loaded dynamically based on user selection
+  
 // import './themes/dark-theme.css'
+import './themes/light-theme.css'
 
 import { WorldData } from './WorldData';
  
@@ -86,7 +86,7 @@ export class ThemeGallery {
     constructor() {
 
         // Initialize theme switcher
-        this.initializeThemeSwitcher();
+        // this.initializeThemeSwitcher();
 
         this.addGeoSymbolSeries = this.addGeoSymbolSeries.bind(this);
         this.addGeoConnectionSeries = this.addGeoConnectionSeries.bind(this);
@@ -127,49 +127,22 @@ export class ThemeGallery {
         linearGauge.interval = 10;
         linearGauge.maximumValue = 80;
         linearGauge.isNeedleDraggingEnabled = true;
+        linearGauge.needleBreadth = 15;
+        
  
         var bulletGauge = document.getElementById('bulletGauge') as IgcBulletGraphComponent;
         bulletGauge.value = 50;
         bulletGauge.targetValue = 70;
         bulletGauge.interval = 10;
         bulletGauge.maximumValue = 80;
+        bulletGauge.targetValueBreadth = 15;
+        bulletGauge.targetValueInnerExtent = 0.2;
+        bulletGauge.targetValueOuterExtent = 0.9;
+        bulletGauge.valueInnerExtent = 0.3;
+        bulletGauge.valueOuterExtent = 0.8;
 
         WorldData.loaded = this.onDataLoaded; 
         WorldData.loadData(); 
-    }
-
-    private initializeThemeSwitcher() {
-        // Load dark theme by default
-        this.loadTheme('dark');
-
-        // Set up theme selector event listener
-        const themeSelector = document.getElementById('themeSelector') as HTMLSelectElement;
-        if (themeSelector) {
-            themeSelector.addEventListener('change', (event) => {
-                console.log('themeSelector change');
-                const selectedTheme = (event.target as HTMLSelectElement).value;
-                this.loadTheme(selectedTheme);
-            });
-        }
-    }
-
-    private loadTheme(theme: string) {
-        // Remove existing theme link if present
-        if (this.currentThemeLink) {
-                console.log('themeSelector remove');
-            this.currentThemeLink.remove();
-        }
-
-        // Create new link element for the theme CSS
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = theme === 'dark' ? './src/themes/dark-theme.css' : './src/themes/light-theme.css';
-        
-                console.log('themeSelector loadTheme=' + link.href);
-        // Add to document head
-        document.head.appendChild(link);
-        this.currentThemeLink = link;
     }
 
     private onDataLoaded(sds: IgcShapeDataSource, e: any) {
@@ -177,33 +150,45 @@ export class ThemeGallery {
         this.addTreemap1();
         this.addTreemap2();
 
-        // adding series to geo map: 
-        this.addGeoShapeSeries();  
+        this.addGeoShapeSeries();   
         this.addGeoConnectionSeries(); 
         this.addGeoSymbolSeries();
  
-        this.addScatterPointChart();
+        this.addScatterPointChart(); 
         this.addScatterBubbleChart();
-        
-        this.addCalloutChart();
-        this.addStackedChart();
-
-        this.addBarChart();
+         
+        this.addCalloutChart(); 
+        this.addStackedChart();  
+  
+        this.addBarChart(); 
         this.addColumnChart();
-
+  
         var dataGrid = document.getElementById('dataGrid') as IgcDataGridComponent;
         dataGrid.dataSource = WorldData.countries;
-//         dataGrid.cellTextColor = "red";
-//         dataGrid.headerTextColor = "red";
-//         dataGrid.rowHoverBackground = "rgba(247, 211, 9, 0.313)";
-//         dataGrid.rowHoverTextColor = "red";
-//         dataGrid.sectionHeaderTextColor = "red";
-//         dataGrid.summaryRootValueTextColor = "red";
+        dataGrid.editMode = EditModeType.None;
+        dataGrid.isRowHoverEnabled = true;
+        // let g = new IgcColumnGroupDescription();
+        // g.field = 'continent'; 
+        // g.sortDirection = ListSortDirection.Descending;
+        // dataGrid.groupDescriptions.add(g);
+        
+        // dataGrid.groupHeaderDisplayMode = GroupHeaderDisplayMode.Split;
+        // dataGrid.stickyRowBackground = "rgba(var(--mainForegroundRBG), 0.3)";
+// dataGrid.rowSeparatorStickyRowBackground
+
+        // dataGrid.cellTextColor = "red";
+// dataGrid.border = "1px solid red";  
+// dataGrid.headerTextColor = "red";    
+// dataGrid.rowHoverBackground = "rgba(247, 211, 9, 0.313)";
+// dataGrid.rowHoverTextColor = "red";
+// dataGrid.sectionHeaderTextColor = "red";
+// dataGrid.summaryRootValueTextColor = "red"; 
 // dataGrid.cellBackground = "gray";
 // dataGrid.headerBackground = "yellow";
 // dataGrid.cellSelectedBackground = "rgba(255, 255, 255, 0.2)";
 // dataGrid.headerSeparatorBackground = "red"; 
 dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
+// dataGrid.headerSortIndicatorColor = "yellow";
 
 
         var dataPieLegend = document.getElementById('dataPieLegend') as IgcItemLegendComponent;
@@ -289,7 +274,7 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
             // console.log(brushCount  + " parent: " + item.parentID  + " child: " + item.childID + " styling: " + e.item.name );
             // e.style.fill = item.childID == -1 ? treeMap1.fillBrushes[rootFillIndex] : treeMap1.fillBrushes[parentFillIndex];
             e.style.fill = treeMap1.fillBrushes[parentFillIndex];
-        }
+        } 
     }
    
     public addTreemap2(): any {
@@ -300,7 +285,7 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         treeMap2.labelMemberPath = "name"; 
         treeMap2.idMemberPath = "name";   
         treeMap2.headerDisplayMode = TreemapHeaderDisplayMode.Overlay;
-        treeMap2.parentNodeRightPadding = 0;
+        treeMap2.parentNodeRightPadding = 0; 
         treeMap2.parentNodeLeftPadding = 0;
         treeMap2.parentNodeTopPadding = 0;
         treeMap2.parentNodeBottomPadding = 0;
@@ -437,17 +422,18 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         bubbleSeries.xAxis = xAxis;
         bubbleSeries.yAxis = yAxis;
         bubbleSeries.xMemberPath = 'population'; 
-        bubbleSeries.yMemberPath = 'gdpPerPerson'; 
+        bubbleSeries.yMemberPath = 'gdpPerPerson';  
         bubbleSeries.radiusMemberPath = 'gdpTotal';
-        bubbleSeries.radiusScale = sizeScale; 
+        bubbleSeries.radiusScale = sizeScale;  
         bubbleSeries.tooltipTemplate = this.addCountryTooltip;
           
         var dataScatterBubbleChart = document.getElementById('dataScatterBubbleChart') as IgcDataChartComponent;
-        dataScatterBubbleChart.axes.add(xAxis);
+        dataScatterBubbleChart.axes.add(xAxis);  
         dataScatterBubbleChart.axes.add(yAxis);
         dataScatterBubbleChart.series.add(bubbleSeries);
         dataScatterBubbleChart.chartTitle = "Population vs GDP per Person";
-        dataScatterBubbleChart.titleTextStyle = "15px Verdana, sans-serif";
+        // dataScatterBubbleChart.titleTextColor = "black"; 
+        // dataScatterBubbleChart.titleTextStyle = "15px Verdana, Tahoma, sans-serif"; 
         dataScatterBubbleChart.isHorizontalZoomEnabled = true;
         dataScatterBubbleChart.isVerticalZoomEnabled = true;
     }
@@ -484,7 +470,7 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         dataBarChart.axes.add(xAxis);
         dataBarChart.axes.add(yAxis);
         dataBarChart.chartTitle = "Olympic Medals by Country";
-        dataBarChart.titleTextStyle = "15px Verdana, sans-serif";
+        // dataBarChart.titleTextStyle = "15px Verdana, sans-serif";
         dataBarChart.isHorizontalZoomEnabled = true;
         dataBarChart.isVerticalZoomEnabled = true;
                  
@@ -708,6 +694,40 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         this.geoMap1.series.add(symbolSeries);
     }
     
+
+    private initializeThemeSwitcher() {
+        // Load dark theme by default
+        this.loadTheme('dark');
+
+        // Set up theme selector event listener
+        const themeSelector = document.getElementById('themeSelector') as HTMLSelectElement;
+        if (themeSelector) {
+            themeSelector.addEventListener('change', (event) => {
+                console.log('themeSelector change');
+                const selectedTheme = (event.target as HTMLSelectElement).value;
+                this.loadTheme(selectedTheme);
+            });
+        }
+    }
+
+    private loadTheme(theme: string) {
+        // Remove existing theme link if present
+        if (this.currentThemeLink) {
+                console.log('themeSelector remove');
+            this.currentThemeLink.remove();
+        }
+
+        // Create new link element for the theme CSS
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = theme === 'dark' ? './src/themes/dark-theme.css' : './src/themes/light-theme.css';
+        
+                console.log('themeSelector loadTheme=' + link.href);
+        // Add to document head
+        document.head.appendChild(link);
+        this.currentThemeLink = link;
+    }
 
 }
 
