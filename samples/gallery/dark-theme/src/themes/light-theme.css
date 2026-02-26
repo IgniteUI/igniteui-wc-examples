@@ -4,8 +4,8 @@ html, body, #root {
 
   --mainStroke: #868685;
 
-  --mainBackground: #1f1e1e; 
-  --mainForeground: #efeeee;
+  --mainBackground: #efeeee; 
+  --mainForeground: #1f1e1e;
   /* --mainForeground:  #f40808;  */
   
   background: var(--mainBackground) !important;
