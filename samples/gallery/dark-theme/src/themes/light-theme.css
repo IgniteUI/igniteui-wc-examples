@@ -4,6 +4,10 @@ html, body, #root {
 
   --mainStroke: #868685;
 
+  --mainSelection: #8fbffa; 
+
+  --mainGroupping: #d0d0d0; 
+
   --mainBackgroundRBG: 240, 240, 240;
   /* --mainBackground: #1f1e1e;  */
   --mainBackground: rgb(var(--mainBackgroundRBG));
@@ -12,7 +16,6 @@ html, body, #root {
   /* --mainForeground: var(rgb(--mainForegroundRBG)); */
   --mainForeground: rgb(var(--mainForegroundRBG));
 
-  /* --mainForeground:  #f40808;  */
   
   background: var(--mainBackground) !important;
   
@@ -43,54 +46,71 @@ html, body, #root {
   --chartBrushes:  var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7), var(--color8), var(--color9), var(--color0);
   --tremapBrushes: var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7), var(--color8);
 
-  /* this additional variable is needed since fill scale is reversed in treemap and we cannot re-use chartBrushes variable */
-  /* --tremapBrushes: var(--color8), var(--color7), var(--color6), var(--color5), var(--color4),  var(--color3), var(--color2), var(--color1); */
 }
 
 /* ------- CHARTS ----------------------------------- */
 
 .ig-title
 {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 0rem;
   color:  var(--mainForeground);
-  /* color:  black; */
   align-self: center;
   font-family: Verdana, Tahoma, sans-serif;
 }
 
 .igc-data-grid {
+
   border-color: transparent !important;
+  background-color: var(--mainBackground);
 
---header-text-color: var(--mainForeground);
-/* --header-text-color: var(--color1); */
+  --header-text-color: var(--mainForeground);
+  /* --header-text-color: var(--color1); */
 
---header-background: var(--mainBackground);
---header-separator-background: var(--mainStroke); 
+  --header-background: var(--mainBackground);
+  --header-separator-background: var(--mainStroke); 
 
---header-sort-indicator-color: var(--mainStroke);
-/* --header-sort-indicator-color: var(--color1); */
+  --header-sort-indicator-color: var(--mainStroke);
+  /* --header-sort-indicator-color: var(--color1); */
 
---row-hover-background: rgba(var(--mainForegroundRBG), 0.2);
-/* --row-hover-background: rgba(223, 17, 17, 0.317); */
---row-hover-text-color: rgba(var(--mainForegroundRBG), 1.0);
-/* --row-hover-text-color: var(--color1); */
+  --row-hover-background: rgba(var(--mainForegroundRBG), 0.2);
+  --row-hover-text-color: rgba(var(--mainForegroundRBG), 1.0);
+  /* --row-hover-text-color: var(--color1); */
 
---row-separator-background: var(--mainStroke);
---row-header-separator-background: blue;
---row-header-row-separator-background: red;
---row-header-row-separator-background: red;
---row-separator-sticky-row-background: red;
---sticky-row-background: red;
+  --row-header-separator-background: var(--color1);
+  --row-header-row-separator-background: var(--color1);
 
---cell-text-color: rgba(var(--mainForegroundRBG), 0.8);;
---cell-background: var(--mainBackground);
-/* --cell-selected-background: rgba(255, 255, 255, 0.2); */
+  --row-separator-background: var(--mainStroke); 
+  --row-separator-last-sticky-row-background: var(--mainBackground);
+  --row-separator-pinned-row-background: var(--mainBackground);
+  --row-separator-sticky-row-background: var(--mainBackground);
 
---section-header-text-color: var(--mainForeground);
---summary-root-value-text-color: red;
+  --cell-text-color: rgba(var(--mainForegroundRBG), 0.8);
+  --cell-background: var(--mainBackground);
+  --cell-selected-background: var(--mainSelection);
+  --cell-selected-text-color: var(--mainForeground);
+  
+  --section-header-background: var(--mainGroupping);
+  /* --section-header-background: rgba(var(--mainForegroundRBG), 0.2); */
+  --section-header-text-color: rgba(var(--mainForegroundRBG), 1.0);
+  --section-header-selected-background: var(--mainGroupping);
+  --section-header-selected-text-color: var(--mainForeground);
 
+  --pinned-row-background: var(--mainBackground);
+
+  --column-resizing-separator-background: var(--color1);
+  --column-moving-separator-background: var(--color1);
+  --summary-root-value-text-color: var(--mainForeground);
+
+  --sticky-row-background: var(--color1);
+  --last-sticky-row-background: var(--color1);
 }
+
+.ig-scroll-container > div > div > span {
+  vertical-align: -webkit-baseline-middle;
+  /* background-color: red !important; */
+}
+
 /* ------- CHARTS ----------------------------------- */
 
 .ig-data-chart

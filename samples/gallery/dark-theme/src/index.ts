@@ -34,14 +34,13 @@ import { DataContext } from 'igniteui-webcomponents-core';
 import { ModuleManager } from 'igniteui-webcomponents-core'; 
  
 import { WorldConnections2 } from './WorldConnections2';
-import { WorldUtils2 } from './WorldUtils2';
+import { WorldUtils2 } from './WorldUtils2'; 
 import { html } from 'lit-html';
 
-// import './index.css'     
-import './themes/tooltip-layout.css'     
-  
+import './themes/tooltip-layout.css' 
+
 // import './themes/dark-theme.css'
-import './themes/light-theme.css'
+import './themes/light-theme.css' 
 
 import { WorldData } from './WorldData';
  
@@ -166,21 +165,20 @@ export class ThemeGallery {
         var dataGrid = document.getElementById('dataGrid') as IgcDataGridComponent;
         dataGrid.dataSource = WorldData.countries;
         dataGrid.editMode = EditModeType.None;
-        dataGrid.isRowHoverEnabled = true;
-        // let g = new IgcColumnGroupDescription();
-        // g.field = 'continent'; 
+        dataGrid.isRowHoverEnabled = true; 
+        let g = new IgcColumnGroupDescription(); 
+        g.field = 'continent';   
         // g.sortDirection = ListSortDirection.Descending;
-        // dataGrid.groupDescriptions.add(g);
+        dataGrid.groupDescriptions.add(g);   
         
-        // dataGrid.groupHeaderDisplayMode = GroupHeaderDisplayMode.Split;
-        // dataGrid.stickyRowBackground = "rgba(var(--mainForegroundRBG), 0.3)";
-// dataGrid.rowSeparatorStickyRowBackground
-
+        // dataGrid.groupHeaderDisplayMode = GroupHeaderDisplayMode.Split; 
+// dataGrid.rowSeparatorStickyRowBackground 
+  
         // dataGrid.cellTextColor = "red";
 // dataGrid.border = "1px solid red";  
-// dataGrid.headerTextColor = "red";    
+// dataGrid.headerTextColor = "red";     
 // dataGrid.rowHoverBackground = "rgba(247, 211, 9, 0.313)";
-// dataGrid.rowHoverTextColor = "red";
+// dataGrid.rowHoverTextColor = "red"; 
 // dataGrid.sectionHeaderTextColor = "red";
 // dataGrid.summaryRootValueTextColor = "red"; 
 // dataGrid.cellBackground = "gray";

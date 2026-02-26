@@ -43,18 +43,17 @@ html, body, #root {
   --chartBrushes:  var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7), var(--color8), var(--color9), var(--color0);
   --tremapBrushes: var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7), var(--color8);
 
-  /* this additional variable is needed since fill scale is reversed in treemap and we cannot re-use chartBrushes variable */
-  /* --tremapBrushes: var(--color8), var(--color7), var(--color6), var(--color5), var(--color4),  var(--color3), var(--color2), var(--color1); */
 }
 
 /* ------- CHARTS ----------------------------------- */
 
 .ig-title
 {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 0rem;
   color:  var(--mainForeground);
   align-self: center;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 .igc-data-grid {
