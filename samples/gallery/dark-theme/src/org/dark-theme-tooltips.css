@@ -1,0 +1,26 @@
+.ig-tooltip-container {
+    background: #1E1E1E !important;
+    color: #AAAAAA !important;
+}
+
+/* ISSUE #2 DomainCharts do not support .ig-tooltip-pointer */
+.ig-tooltip-pointer {
+    background-color:  black !important;
+    border-color: gray !important;
+}
+
+/* .ui-chart-pointer-tooltip-content-container {
+    background:  red !important;
+    color: yellow !important;
+    border-color: pink !important;
+}
+.ig-tooltip-pointer-content-container {
+    background:  lime !important;
+    color: lime !important;
+    border-color: pink !important;
+}
+
+/* .ui-tooltip-container {
+  background:  #1E1E1E !important;
+  color: #AAAAAA !important;
+} */

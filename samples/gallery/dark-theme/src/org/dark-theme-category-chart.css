@@ -1,0 +1,101 @@
+/* this CSS defines dark theme for Infragistics Category Chart */
+
+.ig-category-chart {
+
+    /* creating variables that will be re-used in custom CSS properties below */
+    --color_semitransparent: rgba(255, 255, 255, 0.06);
+    --color_transparent: rgba(255, 255, 255, 0);
+    --color_001: #FFFFFF;
+    --color_002: #1E1E1E;
+    --color_003: #333333;
+    --color_004: #AAAAAA;
+    --color_005: #444444;
+    --color_006: #888888;
+    --color_007: #212121;
+    --color_008: #272727;
+    --color_009: #1B1B1B;
+    --color_010: #4F4F4F;
+    --color_011: #58358B;  /* accent color for SELECTED/PRESSED/CHECKED elements*/
+    --color_012: #777777;
+    --color_014: #2D2D2D;
+    --color_015: #3C3C3E;
+    --color_016: #DDDDDD;
+    --color_017: #666666;
+    --color_018: #191919;
+    --color_019: #C62828;  /* accent color for ERRORS/NEGATIVE elements*/
+
+    /* creating a few variables that will be re-used in multiple properties */
+    --color_foreground: rgb(211, 211, 211);
+    --color_background: var(--color_018); /* #191919; */
+    --color_axis_lines: var(--color_017);
+    --color_axis_labels: var(--color_004);
+    --color_axis_titles: var(--color_004);
+
+    /* setting regular CSS properties supported by chart */
+    background: var(--color_background);
+    color: var(--color_foreground);
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    /* setting custom CSS properties for chart's title/subtitle */
+    --title-text-color: var(--color_016);
+    --title-top-margin: 5px;
+    --subtitle-text-color: var(--color_016);
+
+    /* setting custom CSS properties for axes labels/titles */
+    --x-axis-label-text-color: var(--color_axis_labels);
+    --y-axis-label-text-color: var(--color_axis_labels);
+    --x-axis-title-text-color: var(--color_axis_titles);
+    --y-axis-title-text-color: var(--color_axis_titles);
+    --x-axis-title-bottom-margin: 5;
+    --y-axis-title-left-margin: 5;
+
+    /* setting custom CSS properties for axes gridlines */
+    --x-axis-major-stroke: var(--color_axis_lines);
+    --y-axis-major-stroke: var(--color_axis_lines);
+    --x-axis-major-stroke-thickness: 0;
+    --y-axis-major-stroke-thickness: 1;
+    --x-axis-stroke: var(--color_axis_lines);
+    --y-axis-stroke: var(--color_axis_lines);
+    --y-axis-stroke-thickness: 0;
+    --x-axis-stroke-thickness: 1;
+
+    /* setting custom CSS properties for axes tickmarks */
+    --x-axis-tick-stroke: var(--color_axis_lines);
+    --y-axis-tick-stroke: var(--color_axis_lines);
+    --y-axis-tick-stroke-thickness: 1;
+    --x-axis-tick-stroke-thickness: 1;
+    --x-axis-tick-length: 7.5;
+    --y-axis-tick-length: 0;
+
+    /* ISSUE #1 CategoryChart does not support these properties. DarkTheme requires dark text color over bright background that matches series brush*/
+    --final-value-axis-annotation-text-color: black;
+    --crosshair-x-axis-annotation-text-color: black;
+    --crosshair-y-axis-annotation-text-color: black;
+
+    /* creating variables for series colors: */
+    --color_020: rgb(138, 88, 214); /* #7446B9; */
+    --color_021: rgb(159, 179, 40); /* #9FB328; */
+    --color_022: rgb(249, 98, 50);  /* #F96232; */
+    --color_023: rgb(60, 189, 201); /* #2E9CA6; */
+    --color_024: rgb(220, 63, 118); /* #DC3F76; */
+    --color_025: rgb(255, 152, 0);  /* #FF9800; */
+    --color_026: rgb(78, 98, 207);  /* #3F51B5; */
+    --color_027: rgb(84, 194, 90);  /* #439C47; */
+    --color_028: rgb(121, 85, 72);  /* #795548; */
+    --color_029: rgb(154, 154, 154);/* #9A9A9A; */
+
+    /* variable with combined colors into a brush collection */
+    --color_series: var(--color_020), var(--color_021), var(--color_022), var(--color_023), var(--color_024), var(--color_025), var(--color_026), var(--color_027), var(--color_028);
+    /* --color_series: var(--color_020), var(--color_021), var(--color_022), var(--color_023), var(--color_024), var(--color_026), var(--color_027), var(--color_029); */
+
+    /* setting custom CSS properties for chart's series */
+    --thickness: 2;
+    --brushes:  var(--color_series);
+    --outlines: var(--color_series);
+
+    --marker-brushes:  var(--color_background);
+    --marker-outlines: var(--color_series);
+}

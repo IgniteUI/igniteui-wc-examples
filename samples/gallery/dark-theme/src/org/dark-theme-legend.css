@@ -1,0 +1,25 @@
+/* this CSS defines dark theme for Infragistics Legend */
+
+.igr-legend, .igr-item-legend, .igr-scale-legend, .ig-legend {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    /* setting regular CSS properties supported by chart */
+    background-color: #191919;
+    color: #d3d3d3;
+/*
+    --legend-item-background-color: #eeeeee;
+    --legend-item-background-color: #6df84a;
+
+    --legend-list-background-color: #eeeeee;
+    --legend-list-background-color: #fc9292; */
+/*  --legend-item-font: 14px Verdana, Arial, sans-serif; */
+/*  --legend-item-padding: 2px; */
+    --legend-item-margin: 0px;
+}
+
+.ig-chart-legend-item
+{
+    /* background-color: #eeeeee; */
+    /* background-color: black; */
+}
