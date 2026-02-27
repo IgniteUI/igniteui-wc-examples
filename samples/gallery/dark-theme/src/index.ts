@@ -18,7 +18,7 @@ import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
 import { EditModeType } from 'igniteui-webcomponents-data-grids';
 
 // chart imports
-import { IgcDataChartCategoryModule, IgcDataChartVerticalCategoryModule } from 'igniteui-webcomponents-charts';
+import { IgcDataChartCategoryModule, IgcDataChartVerticalCategoryModule, IgcSparklineComponent, IgcSparklineModule } from 'igniteui-webcomponents-charts';
 import { IgcColumnSeriesComponent, IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts'; 
 import { CalloutPlacementPositions, IgcCalloutLayerComponent, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcDataLegendComponent, IgcDataPieChartComponent, IgcDataPieChartModule, IgcDoughnutChartComponent, IgcDoughnutChartModule, IgcFinalValueLayerComponent, IgcFunnelChartComponent, IgcFunnelChartModule, IgcItemLegendComponent, IgcItemLegendModule, IgcLineSeriesComponent, IgcPieChartComponent, IgcPieChartModule, IgcRingSeriesComponent, IgcScatterSeriesComponent, IgcStacked100ColumnSeriesComponent, IgcStackedFragmentSeriesComponent, IgcStackedFragmentSeriesModule, LabelsPosition, MarkerFillMode, MarkerOutlineMode, TreemapFillScaleMode, TreemapHeaderDisplayMode } from 'igniteui-webcomponents-charts'; 
 import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
@@ -28,7 +28,7 @@ import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
 
 // core imports
-import { IgcShapeDataSource, OthersCategoryType, Visibility } from 'igniteui-webcomponents-core';
+import { IgcShapeDataSource, OthersCategoryType, TrendLineType, Visibility } from 'igniteui-webcomponents-core';
 import { DataContext } from 'igniteui-webcomponents-core';
 import { ModuleManager } from 'igniteui-webcomponents-core'; 
  
@@ -43,11 +43,13 @@ import './index.css'
 import './themes/tooltip-layout.css' 
 
 import './themes/dark-theme.css' 
-// import './themes/light-theme.css'  
+// import './themes/light-theme.css'   
  
 ModuleManager.register(
     IgcDataGridModule,
     IgcGridColumnOptionsModule,
+
+    IgcSparklineModule,
 
     IgcDataChartInteractivityModule,
     IgcDataChartCoreModule,
@@ -170,17 +172,55 @@ export class ThemeGallery {
         const numColumn1 = document.getElementById('numColumn1') as IgcTemplateColumnComponent;
         const numColumn2 = document.getElementById('numColumn2') as IgcTemplateColumnComponent;
         const numColumn3 = document.getElementById('numColumn3') as IgcTemplateColumnComponent;
-        for (const numColumn of [numColumn1, numColumn2, numColumn3]) {
+        const numColumns = [numColumn1, numColumn2, numColumn3];
+        for (const numColumn of numColumns) {
             if (numColumn) {
                 numColumn.formatCell = (column, e) => {
                     e.text = WorldUtils2.toStringAbbr(e.value);
                 }
             } 
         }
-            // popColumn.cellUpdating = this.onUpdatingSalesColumn;
+        
+
+        var sparkData = [];
+        var sparkThreshold = 25000
+        for (const country of WorldData.continents) {
+            let value = country.gdpPerPerson - sparkThreshold;
+            sparkData.push({name: country.name, value: value});
+        }
+ 
+        var sparkline1 = document.getElementById('sparkline1') as IgcSparklineComponent;
+        var sparkline2 = document.getElementById('sparkline2') as IgcSparklineComponent;
+        var sparkline3 = document.getElementById('sparkline3') as IgcSparklineComponent;
+        var sparkline4 = document.getElementById('sparkline4') as IgcSparklineComponent;
+        
+        for (const sparkline of [sparkline1, sparkline2, sparkline3, sparkline4]) {
+            sparkline.labelMemberPath = "name";
+            sparkline.valueMemberPath = "value";
+            sparkline.minimum = -sparkThreshold * 3;
+            sparkline.maximum = sparkThreshold * 3;
+            sparkline.normalRangeMinimum = 0;
+            sparkline.normalRangeMaximum = sparkThreshold * 3;
+            // sparkline.normalRangeVisibility = Visibility.Visible;   
+            // sparkline.trendLineType = TrendLineType.LinearFit; 
+            sparkline.dataSource = sparkData;
+        }
+        
+        for (const sparkline of [sparkline1, sparkline2]) {
+            sparkline.lowMarkerSize = 8;
+            sparkline.highMarkerSize = 8;
+            sparkline.firstMarkerSize = 8;   
+            sparkline.lastMarkerSize = 8;
+            sparkline.markerSize = 8;
+            sparkline.markerVisibility = Visibility.Visible;
+            sparkline.lowMarkerVisibility = Visibility.Visible;
+            sparkline.highMarkerVisibility = Visibility.Visible;
+            sparkline.firstMarkerVisibility = Visibility.Visible;
+            sparkline.lastMarkerVisibility = Visibility.Visible;
+        }
 
         var dataPieLegend = document.getElementById('dataPieLegend') as IgcItemLegendComponent;
-        var dataPieChart = document.getElementById('dataPieChart') as IgcDataPieChartComponent;
+        var dataPieChart  = document.getElementById('dataPieChart') as IgcDataPieChartComponent;
         dataPieChart.legend = dataPieLegend;
         dataPieChart.valueMemberPath = "population";
         dataPieChart.labelMemberPath = "name";    
@@ -472,7 +512,7 @@ export class ThemeGallery {
         dataStackedChart.axes.add(xAxis);
         dataStackedChart.axes.add(yAxis);
 
-        var countries = [ 
+        var countries = [  
             { "value": "medalsUSA", "name": "USA" }, 
             { "value": "medalsCHN", "name": "CHN" }, 
             { "value": "medalsRUS", "name": "RUS" }, 

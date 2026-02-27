@@ -30,8 +30,18 @@
       <!-- TODO add sparkline -->
       <!-- TODO add category-chart -->
       <!-- TODO add shape-chart -->
+ 
+    <div class="card container vertical">
+       <label class="ig-title">Sparkline with Line Display Type</label>
+        <igc-sparkline id="sparkline1" height="calc(25% - 2.5rem)" display-type="Line" > </igc-sparkline>
+        <label class="ig-title">Sparkline with Area Display Type</label>
+        <igc-sparkline id="sparkline2" height="calc(25% - 2.5rem)" display-type="Area" > </igc-sparkline>
+        <label class="ig-title">Sparkline with Column Display Type</label>
+        <igc-sparkline id="sparkline3" height="calc(25% - 2.5rem)" display-type="Column" > </igc-sparkline>
+        <label class="ig-title">Sparkline with WinLoss Display Type</label>
+        <igc-sparkline id="sparkline4" height="calc(25% - 2.5rem)" display-type="WinLoss" > </igc-sparkline>
+      </div>
 
-      <!-- <div class="container vertical"> -->
       <div class="card container vertical" style="min-width: 800px; max-width: 800px;">
         <label class="ig-title">Data Grid</label>
         <igc-data-grid id="dataGrid" width="100%" height="100%" row-height="40" is-row-hover-enabled="true"
