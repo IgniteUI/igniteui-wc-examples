@@ -1,48 +1,47 @@
+// geo-map imports
 import { IgcGeographicMapModule } from 'igniteui-webcomponents-maps';
 import { IgcGeographicMapComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicSymbolSeriesComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicProportionalSymbolSeriesComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicPolylineSeriesComponent } from 'igniteui-webcomponents-maps';
 import { IgcGeographicShapeSeriesComponent } from 'igniteui-webcomponents-maps';
+import { IgcOpenStreetMapImagery } from 'igniteui-webcomponents-maps';
 
+// gauge imports
 import { IgcBulletGraphComponent, IgcBulletGraphModule, IgcLinearGaugeComponent, IgcLinearGaugeModule, IgcRadialGaugeComponent, IgcRadialGaugeModule } from 'igniteui-webcomponents-gauges';
 
-import { CellContentHorizontalAlignment, IgcColumnWidth, IgcDataGridComponent, IgcNumericColumnComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
+// data-grid imports
+import { IgcDataGridComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
 import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
-import { IgcColumnSummaryDescription, EditModeType } from 'igniteui-webcomponents-data-grids';
-import { DataSourceSummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, ISummaryResult, ListSortDirection } from 'igniteui-webcomponents-core';
+import { EditModeType } from 'igniteui-webcomponents-data-grids';
 
-
-import { CalloutPlacementPositions, DataToolTipLayer, IgcCalloutLayerComponent, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcDataLegendComponent, IgcDataPieChartComponent, IgcDataPieChartModule, IgcDoughnutChartComponent, IgcDoughnutChartModule, IgcFinalValueLayerComponent, IgcFunnelChartComponent, IgcFunnelChartModule, IgcItemLegendComponent, IgcItemLegendModule, IgcLineSeriesComponent, IgcPieChartComponent, IgcPieChartModule, IgcRingSeriesComponent, IgcScatterSeriesComponent, IgcStacked100AreaSeriesComponent, IgcStacked100ColumnSeriesComponent, IgcStackedFragmentSeriesComponent, IgcStackedFragmentSeriesModule, IgcStackedLineSeriesComponent, LabelsPosition, MarkerFillMode, MarkerOutlineMode, TreemapFillScaleMode, TreemapHeaderDisplayMode } from 'igniteui-webcomponents-charts'; 
+// chart imports
+import { IgcDataChartCategoryModule, IgcDataChartVerticalCategoryModule } from 'igniteui-webcomponents-charts';
+import { IgcColumnSeriesComponent, IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts'; 
+import { CalloutPlacementPositions, IgcCalloutLayerComponent, IgcDataChartInteractivityModule, IgcDataChartStackedModule, IgcDataLegendComponent, IgcDataPieChartComponent, IgcDataPieChartModule, IgcDoughnutChartComponent, IgcDoughnutChartModule, IgcFinalValueLayerComponent, IgcFunnelChartComponent, IgcFunnelChartModule, IgcItemLegendComponent, IgcItemLegendModule, IgcLineSeriesComponent, IgcPieChartComponent, IgcPieChartModule, IgcRingSeriesComponent, IgcScatterSeriesComponent, IgcStacked100ColumnSeriesComponent, IgcStackedFragmentSeriesComponent, IgcStackedFragmentSeriesModule, LabelsPosition, MarkerFillMode, MarkerOutlineMode, TreemapFillScaleMode, TreemapHeaderDisplayMode } from 'igniteui-webcomponents-charts'; 
 import { IgcNumberAbbreviatorModule, IgcDataChartCoreModule, IgcDataChartScatterModule, IgcDataChartScatterCoreModule, IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
 import { IgcDataChartComponent, IgcCategoryYAxisComponent, IgcBarSeriesComponent, IgcNumericXAxisComponent, IgcNumericYAxisComponent, IgcBubbleSeriesComponent, IgcDataToolTipLayerComponent } from 'igniteui-webcomponents-charts';
-import { IgcDataChartCategoryModule, IgcDataChartVerticalCategoryModule } from 'igniteui-webcomponents-charts';
-
-import { IgcColumnSeriesComponent, IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts'; 
 import { IgcSizeScaleComponent, MarkerType } from 'igniteui-webcomponents-charts'; 
-
-import { HighlightedValueDisplayMode, IgcNumberFormatSpecifier, IgcShapeDataSource, OthersCategoryType, Visibility } from 'igniteui-webcomponents-core';
-import { IgcSeriesViewerComponent} from 'igniteui-webcomponents-charts'
-import { IgcOpenStreetMapImagery } from 'igniteui-webcomponents-maps';
-
 import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
 
+// core imports
+import { IgcNumberFormatSpecifier, IgcShapeDataSource, OthersCategoryType, Visibility } from 'igniteui-webcomponents-core';
 import { DataContext } from 'igniteui-webcomponents-core';
 import { ModuleManager } from 'igniteui-webcomponents-core'; 
  
 import { WorldConnections2 } from './WorldConnections2';
 import { WorldUtils2 } from './WorldUtils2'; 
+import { WorldData } from './WorldData';
+
 import { html } from 'lit-html';
 
 import './themes/tooltip-layout.css' 
 
 // import './themes/dark-theme.css'
 import './themes/light-theme.css' 
-
-import { WorldData } from './WorldData';
  
 ModuleManager.register(
     IgcDataGridModule,
@@ -57,6 +56,8 @@ ModuleManager.register(
     IgcDataChartAnnotationModule,
     IgcDataChartVerticalCategoryModule,
     IgcNumberAbbreviatorModule,
+    IgcDataChartStackedModule,
+    IgcStackedFragmentSeriesModule,
     
     IgcDataPieChartModule,
     IgcItemLegendModule,
@@ -67,9 +68,6 @@ ModuleManager.register(
     IgcRadialGaugeModule,
     IgcLinearGaugeModule,
     IgcBulletGraphModule,
-    
-    IgcDataChartStackedModule,
-    IgcStackedFragmentSeriesModule,
 
     IgcTreemapModule, 
     IgcGeographicMapModule
@@ -87,19 +85,18 @@ export class ThemeGallery {
         // Initialize theme switcher
         // this.initializeThemeSwitcher();
 
-        this.addGeoSymbolSeries = this.addGeoSymbolSeries.bind(this);
-        this.addGeoConnectionSeries = this.addGeoConnectionSeries.bind(this);
-        this.addGeoShapeSeries = this.addGeoShapeSeries.bind(this);
+        this.addGeoMapWithSymbolSeries = this.addGeoMapWithSymbolSeries.bind(this);
+        this.addGeoMapWithConnectionSeries = this.addGeoMapWithConnectionSeries.bind(this);
+        this.addGeoMapWithShapeSeries = this.addGeoMapWithShapeSeries.bind(this);
 
-        this.addScatterPointChart = this.addScatterPointChart.bind(this);
-        this.addScatterBubbleChart = this.addScatterBubbleChart.bind(this);
+        this.addScatterChartWithPointSeries = this.addScatterChartWithPointSeries.bind(this);
+        this.addScatterChartWithBubbleSeries = this.addScatterChartWithBubbleSeries.bind(this);
 
-        this.addCountryTooltip = this.addCountryTooltip.bind(this);
-        this.addCityTooltip = this.addCityTooltip.bind(this);
-        this.addHiddenTooltip = this.addHiddenTooltip.bind(this);
+        this.addTooltipForCountry = this.addTooltipForCountry.bind(this);
+        this.addTooltipForCity = this.addTooltipForCity.bind(this);
+        this.addTooltipHidden = this.addTooltipHidden.bind(this);
       
         this.onDataLoaded = this.onDataLoaded.bind(this); 
-        // this.onAirportMarker = this.onAirportMarker.bind(this);
 
         let hiddenGeoImagery = new IgcOpenStreetMapImagery();
         hiddenGeoImagery.opacity = 0.0; 
@@ -127,7 +124,6 @@ export class ThemeGallery {
         linearGauge.maximumValue = 80;
         linearGauge.isNeedleDraggingEnabled = true;
         linearGauge.needleBreadth = 15;
-        
  
         var bulletGauge = document.getElementById('bulletGauge') as IgcBulletGraphComponent;
         bulletGauge.value = 50;
@@ -149,45 +145,27 @@ export class ThemeGallery {
         this.addTreemap1();
         this.addTreemap2();
 
-        this.addGeoShapeSeries();   
-        this.addGeoConnectionSeries(); 
-        this.addGeoSymbolSeries();
+        this.addGeoMapWithShapeSeries();   
+        this.addGeoMapWithConnectionSeries(); 
+        this.addGeoMapWithSymbolSeries();
  
-        this.addScatterPointChart(); 
-        this.addScatterBubbleChart();
+        this.addScatterChartWithPointSeries(); 
+        this.addScatterChartWithBubbleSeries();
          
-        this.addCalloutChart(); 
-        this.addStackedChart();  
+        this.addDataChartWithCalloutSeries(); 
+        this.addDataChartWithStackedSeries();  
   
-        this.addBarChart(); 
-        this.addColumnChart();
+        this.addDataChartWithBarSeries(); 
+        this.addDataChartWithColumnSeries();
   
         var dataGrid = document.getElementById('dataGrid') as IgcDataGridComponent;
         dataGrid.dataSource = WorldData.countries;
         dataGrid.editMode = EditModeType.None;
         dataGrid.isRowHoverEnabled = true; 
+        dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         let g = new IgcColumnGroupDescription(); 
-        g.field = 'continent';   
-        // g.sortDirection = ListSortDirection.Descending;
-        dataGrid.groupDescriptions.add(g);   
-        
-        // dataGrid.groupHeaderDisplayMode = GroupHeaderDisplayMode.Split; 
-// dataGrid.rowSeparatorStickyRowBackground 
-  
-        // dataGrid.cellTextColor = "red";
-// dataGrid.border = "1px solid red";  
-// dataGrid.headerTextColor = "red";     
-// dataGrid.rowHoverBackground = "rgba(247, 211, 9, 0.313)";
-// dataGrid.rowHoverTextColor = "red"; 
-// dataGrid.sectionHeaderTextColor = "red";
-// dataGrid.summaryRootValueTextColor = "red"; 
-// dataGrid.cellBackground = "gray";
-// dataGrid.headerBackground = "yellow";
-// dataGrid.cellSelectedBackground = "rgba(255, 255, 255, 0.2)";
-// dataGrid.headerSeparatorBackground = "red"; 
-dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
-// dataGrid.headerSortIndicatorColor = "yellow";
-
+        g.field = 'continent';
+        // dataGrid.groupDescriptions.add(g);   
 
         var dataPieLegend = document.getElementById('dataPieLegend') as IgcItemLegendComponent;
         var dataPieChart = document.getElementById('dataPieChart') as IgcDataPieChartComponent;
@@ -292,70 +270,10 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         treeMap2.fillScaleMode = TreemapFillScaleMode.GlobalSum;
         treeMap2.fillBrushes = [this.getCssVariable('--color2'), this.getCssVariable('--color3')];
         treeMap2.dataSource = WorldData.countries;      
-         
     }
 
-    public addCountryTooltip(dataContext: any): any {
-        // console.log("addCountryTooltip");
-        // const dataContext = context.dataContext as DataContext;
-        // if (!dataContext) return null; 
-        const series = dataContext.series as any;
-        if (!series) return null;
 
-        const dataItem = dataContext.item as any;
-        if (!dataItem) return null;
-
-        // console.log(dataItem); 
- 
-        const pop = WorldUtils2.toStringAbbr(dataItem.population);
- 
-        return html`<div>
-            <div class='tooltip-box'>
-                <div class='tooltip-row'>
-                    <div class='tooltip-txt'>Country</div>
-                    <div class='tooltip-val'>${dataItem.name}</div>
-                </div>
-                <div class='tooltip-row'>
-                    <div class='tooltip-txt'>Population</div>
-                    <div class='tooltip-val'>${pop}</div>
-                </div>
-                <div class='tooltip-row'>
-                    <div class='tooltip-txt'>Continent</div>
-                    <div class='tooltip-val'>${dataItem.continent}</div>
-                </div>
-            </div>`; 
-    }
-
-    public addCityTooltip(dataContext: any): any {
-        const series = dataContext.series as any;
-        if (!series) return null;
-
-        const dataItem = dataContext.item as any;
-        if (!dataItem) return null;
-
-        return html`<div> 
-            <div class='tooltip-box'>
-                <div class='tooltip-row'>
-                    <div class='tooltip-txt'>City</div>
-                    <div class='tooltip-val'>${dataItem.name}</div>
-                </div> 
-                <div class='tooltip-row'>
-                    <div class='tooltip-txt'>Population</div>
-                    <div class='tooltip-val'>${dataItem.pop} M</div>
-                </div> 
-             </div>`;
-    }
-
-    public addHiddenTooltip(dataContext: any): any {
-        const series = dataContext.series as any;
-        if (!series) return null;
-        
-        series.hideToolTips();
-        return null;
-
-    }
-
-    private addScatterPointChart() {
+    private addScatterChartWithPointSeries() {
         var xAxis = new IgcNumericXAxisComponent();
         var yAxis = new IgcNumericYAxisComponent();
         xAxis.isLogarithmic = true;
@@ -383,7 +301,7 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
             scatterSeries.title = continent.name;
             scatterSeries.xMemberPath = 'population';
             scatterSeries.yMemberPath = 'gdpPerPerson'; 
-            scatterSeries.tooltipTemplate = this.addCountryTooltip;
+            scatterSeries.tooltipTemplate = this.addTooltipForCountry;
             dataScatterPointChart.series.add(scatterSeries);
         }
         
@@ -396,7 +314,7 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         // chart.plotAreaMarginBottom = 10; 
     }
 
-    private addScatterBubbleChart() {
+    private addScatterChartWithBubbleSeries() {
         var xAxis = new IgcNumericXAxisComponent();
         var yAxis = new IgcNumericYAxisComponent();
         xAxis.isLogarithmic = true;
@@ -423,7 +341,7 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         bubbleSeries.yMemberPath = 'gdpPerPerson';  
         bubbleSeries.radiusMemberPath = 'gdpTotal';
         bubbleSeries.radiusScale = sizeScale;  
-        bubbleSeries.tooltipTemplate = this.addCountryTooltip;
+        bubbleSeries.tooltipTemplate = this.addTooltipForCountry;
           
         var dataScatterBubbleChart = document.getElementById('dataScatterBubbleChart') as IgcDataChartComponent;
         dataScatterBubbleChart.axes.add(xAxis);  
@@ -436,7 +354,7 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         dataScatterBubbleChart.isVerticalZoomEnabled = true;
     }
 
-    private addBarChart() {
+    private addDataChartWithBarSeries() {
         var yAxis = new IgcCategoryYAxisComponent();
         var xAxis = new IgcNumericXAxisComponent();
 
@@ -479,7 +397,7 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         dataBarLegend.target = dataBarChart;
     }
 
-    private addColumnChart() { 
+    private addDataChartWithColumnSeries() { 
         var xAxis = new IgcCategoryXAxisComponent();
         var yAxis = new IgcNumericYAxisComponent();
 
@@ -520,7 +438,7 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         dataColLegend.target = dataColChart;
     }
 
-     private addStackedChart() {
+     private addDataChartWithStackedSeries() {
         var xAxis = new IgcCategoryXAxisComponent();
         var yAxis = new IgcNumericYAxisComponent();
 
@@ -563,7 +481,7 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         dataStackedLegend.target = dataStackedChart;
     }
 
-    private addCalloutChart() {
+    private addDataChartWithCalloutSeries() {
         var xAxis = new IgcCategoryXAxisComponent();
         var yAxis = new IgcNumericYAxisComponent();
 
@@ -613,7 +531,7 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
     }
 
  
-    private addGeoShapeSeries() {
+    private addGeoMapWithShapeSeries() {
 
         this.geoMap2.title = "Countries by Region";
         this.geoMap2.titleTextStyle = "10px Verdana, sans-serif";
@@ -627,7 +545,7 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
             // shapeSeries.dataSource = [shape];
             shapeSeries.dataSource = region.countries;
             shapeSeries.shapeMemberPath = 'points';
-            shapeSeries.tooltipTemplate = this.addCountryTooltip;
+            shapeSeries.tooltipTemplate = this.addTooltipForCountry;
             shapeSeries.title = region.name;
             shapeSeries.showDefaultTooltip = true;
 
@@ -642,14 +560,14 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         return getComputedStyle(rootElement).getPropertyValue(cssVariableName);
     }
 
-    private addGeoConnectionSeries() {
+    private addGeoMapWithConnectionSeries() {
           
         this.geoMap1.windowRect = { left: 0.2, top: 0.0, width: 0.6, height: 0.8};
 
         const shapeSeries = new IgcGeographicShapeSeriesComponent(); 
         shapeSeries.dataSource = WorldData.countries;
         shapeSeries.shapeMemberPath = 'points';
-        shapeSeries.tooltipTemplate = this.addCountryTooltip;
+        shapeSeries.tooltipTemplate = this.addTooltipForCountry;
         shapeSeries.brush =   this.getCssVariable('--mainBackground');
         shapeSeries.outline = this.getCssVariable('--mainForeground');
 
@@ -664,11 +582,11 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         connectionSeries.shapeMemberPath = 'points';  
         connectionSeries.showDefaultTooltip = false;
         connectionSeries.outline = this.geoMap1.brushes[3];
-        // connectionSeries.tooltipTemplate = this.addHiddenTooltip;
+        // connectionSeries.tooltipTemplate = this.addTooltipHidden;
         this.geoMap1.series.add(connectionSeries);
     }
   
-    public addGeoSymbolSeries() {
+    public addGeoMapWithSymbolSeries() {
         let symbolLocations = WorldConnections2.getAirportLocations();
 
         const sizeScale = new IgcSizeScaleComponent();
@@ -688,10 +606,70 @@ dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         symbolSeries.markerBrush = this.geoMap1.brushes[1];
         
         symbolSeries.title = "airports"; 
-        symbolSeries.tooltipTemplate = this.addCityTooltip;
+        symbolSeries.tooltipTemplate = this.addTooltipForCity;
         this.geoMap1.series.add(symbolSeries);
     }
     
+
+    public addTooltipForCountry(dataContext: any): any {
+        // console.log("addTooltipForCountry");
+        // const dataContext = context.dataContext as DataContext;
+        // if (!dataContext) return null; 
+        const series = dataContext.series as any;
+        if (!series) return null;
+
+        const dataItem = dataContext.item as any;
+        if (!dataItem) return null;
+
+        // console.log(dataItem); 
+ 
+        const pop = WorldUtils2.toStringAbbr(dataItem.population);
+ 
+        return html`<div>
+            <div class='tooltip-box'>
+                <div class='tooltip-row'>
+                    <div class='tooltip-txt'>Country</div>
+                    <div class='tooltip-val'>${dataItem.name}</div>
+                </div>
+                <div class='tooltip-row'>
+                    <div class='tooltip-txt'>Population</div>
+                    <div class='tooltip-val'>${pop}</div>
+                </div>
+                <div class='tooltip-row'>
+                    <div class='tooltip-txt'>Continent</div>
+                    <div class='tooltip-val'>${dataItem.continent}</div>
+                </div>
+            </div>`; 
+    }
+
+    public addTooltipForCity(dataContext: any): any {
+        const series = dataContext.series as any;
+        if (!series) return null;
+
+        const dataItem = dataContext.item as any;
+        if (!dataItem) return null;
+
+        return html`<div> 
+            <div class='tooltip-box'>
+                <div class='tooltip-row'>
+                    <div class='tooltip-txt'>City</div>
+                    <div class='tooltip-val'>${dataItem.name}</div>
+                </div> 
+                <div class='tooltip-row'>
+                    <div class='tooltip-txt'>Population</div>
+                    <div class='tooltip-val'>${dataItem.pop} M</div>
+                </div> 
+             </div>`;
+    }
+
+    public addTooltipHidden(dataContext: any): any {
+        const series = dataContext.series as any;
+        if (!series) return null;
+        
+        series.hideToolTips();
+        return null;
+
+    }
 
     private initializeThemeSwitcher() {
         // Load dark theme by default

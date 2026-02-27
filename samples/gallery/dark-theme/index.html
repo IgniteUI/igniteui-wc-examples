@@ -4,7 +4,6 @@
     <title>Theme Gallery</title>
     <meta charset="UTF-8" />
  
-    
     <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
@@ -12,8 +11,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash">
  
     <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
-   
-   
   </head>
 
   <body >
@@ -29,7 +26,10 @@
         </select>
     </div> -->
 
-   
+   <!-- TODO add sparkline -->
+   <!-- TODO add category-chart -->
+   <!-- TODO add shape-chart -->
+   <!-- TODO wrap card elements when their min-width exceeds the container -->
 
     <div class="container vertical">
       <div class="container horizontal">
@@ -61,20 +61,20 @@
 
       <div class="container horizontal" style="margin-top: 0rem;">
 
-        <div class="container vertical" width="50%" style="padding: 1rem;">
+        <div class="card container vertical" width="50%" style="padding: 1rem;">
             <label class="ig-title">TreeMap with Fill Scale</label>
             <igc-treemap id="treeMap2" width="100%" height="100%"></igc-treemap>
          </div>
-        <div class="container vertical" width="50%" style="padding: 1rem;">
+        <div class="card container vertical" width="50%" style="padding: 1rem;">
             <label class="ig-title">TreeMap with Fill Brushes</label>
             <igc-treemap id="treeMap1" width="100%" height="100%"></igc-treemap>
          </div>
 
-        <div class="container vertical" width="50%" style="padding: 1rem;">
+        <div class="card container vertical" width="50%" style="padding: 1rem;">
             <label class="ig-title">DataChart with Scatter Point Series</label>
             <igc-data-chart id="dataScatterPointChart" width="100%" height="100%" ></igc-data-chart>
         </div>
-        <div class="container vertical" width="50%" style="padding: 1rem;">
+        <div class="card container vertical" width="50%" style="padding: 1rem;">
             <label class="ig-title">DataChart with Bubble Series</label>
             <igc-data-chart id="dataScatterBubbleChart" width="100%" height="100%" ></igc-data-chart>
        </div>
@@ -83,24 +83,24 @@
 
       <div class="container horizontal" style="margin-top: 3rem;">
         
-        <div class="container vertical" width="50%" style="padding: 1rem;">
+        <div class="card container vertical" width="50%" style="padding: 1rem;">
             <label class="ig-title">DataChart with Callout Layer</label>
             <igc-data-chart id="dataCalloutChart" width="100%" height="100%" ></igc-data-chart>
          </div>
 
-        <div class="container vertical" width="50%" style="padding: 1rem;">
+        <div class="card container vertical" width="50%" style="padding: 1rem;">
             <label class="ig-title">DataChart with Stacked 100% Column Series</label>
             <igc-data-chart id="dataStackedChart" width="100%" height="100%" ></igc-data-chart>
          </div>
          <igc-data-legend  id="dataStackedLegend" style="margin-top: 2rem;margin-right: 2rem;"> </igc-data-legend>
         
-        <div class="container vertical" width="50%" style="padding: 1rem;">
+        <div class="card container vertical" width="50%" style="padding: 1rem;">
             <label class="ig-title">DataChart with Column Series</label>
             <igc-data-chart  id="dataColChart" width="100%" height="100%" ></igc-data-chart>
         </div>
         <igc-data-legend id="dataColLegend" style="margin-top: 2rem;margin-right: 2rem;"> </igc-data-legend>
         
-        <div class="container vertical" width="50%" style="padding: 1rem;">
+        <div class="card container vertical" width="50%" style="padding: 1rem;">
             <label class="ig-title">DataChart with Bar Series</label>
             <igc-data-chart  id="dataBarChart" width="100%" height="100%" ></igc-data-chart>
         </div>
@@ -109,25 +109,25 @@
       </div>
 
       <div class="container horizontal" style="margin-top: 3rem;">
-        <div class="container vertical">
+        <div class="card container vertical">
             <label class="ig-title">Funnel Chart with Legend</label>
           <igc-item-legend  id="funnelLegend" orientation="Horizontal"> </igc-item-legend>
           <igc-funnel-chart id="funnelChart" width="100%" height="65%" style="margin-top: 1rem;"></igc-funnel-chart>
         </div>
 
-        <div class="container vertical">
+        <div class="card container vertical">
             <label class="ig-title">Pie Chart with Legend</label>
           <igc-item-legend id="pieLegend" orientation="Horizontal"> </igc-item-legend>
           <igc-pie-chart   id="pieChart" width="100%" height="100%" ></igc-pie-chart>
         </div> 
         
-        <div class="container vertical">
+        <div class="card container vertical">
             <label class="ig-title">Donut Chart with Legend</label>
           <igc-item-legend    id="donutLegend" orientation="Horizontal"> </igc-item-legend>
           <igc-doughnut-chart id="donutChart" width="100%" height="100%" ></igc-doughnut-chart>
         </div>
 
-        <div class="container vertical">
+        <div class="card container vertical">
             <label class="ig-title">Data Pie Chart with Legend</label>
           <igc-item-legend    id="dataPieLegend" orientation="Horizontal"> </igc-item-legend>
           <igc-data-pie-chart id="dataPieChart" width="100%" height="100%" ></igc-data-pie-chart>
@@ -135,24 +135,24 @@
       </div>
    
       <div class="container horizontal">
-        <div class="container vertical" width="50%" style="padding: 1rem;">
+        <div class="card container vertical" width="50%" style="padding: 1rem;">
             <label class="ig-title">GeoMap with Symbol and PolyLine Series</label>
             <igc-geographic-map id="geoMap1" width="100%" height="100%"></igc-geographic-map>
         </div>
-        <div class="container vertical" width="50%" style="padding: 1rem;">
+        <div class="card container vertical" width="50%" style="padding: 1rem;">
             <label class="ig-title">GeoMap with Shape Series</label>
             <igc-geographic-map id="geoMap2" width="100%" height="100%"></igc-geographic-map>
         </div>
       </div>
 
       <div class="container horizontal">
-        <div class="container vertical">
+        <div class="card container vertical">
             <label class="ig-title">Bullet Graph</label>
             <igc-bullet-graph id="bulletGauge" width="100%" height="30%" style="margin-top: 1rem;"></igc-bullet-graph>
             <label class="ig-title">Linear Gauge</label>
             <igc-linear-gauge id="linearGauge" width="100%" height="30%" style="margin-top: 1rem;"></igc-linear-gauge>
         </div>
-        <div class="container vertical">
+        <div class="card container vertical">
             <label class="ig-title">Radial Gauges</label>
             <igc-radial-gauge id="radialGauge" width="100%" height="80%" ></igc-radial-gauge>
         </div>
