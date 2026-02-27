@@ -102,8 +102,6 @@ export class WorldData {
         this.olympicResult.push(new WorldOlympicResult({ year: 2016, medalsUSA: 121, medalsCHN: 78,  medalsRUS: 56, medalsSPA: 10, medalsFRA: 68, medalsGER: 60 }));
         this.olympicResult.push(new WorldOlympicResult({ year: 2020, medalsUSA: 125, medalsCHN: 82,  medalsRUS: 53, medalsSPA: 24, medalsFRA: 70, medalsGER: 64 }));
         this.olympicResult.push(new WorldOlympicResult({ year: 2024, medalsUSA: 124, medalsCHN: 88,  medalsRUS: 52, medalsSPA: 18, medalsFRA: 75, medalsGER: 68 }));
-        
-        
 
         this.onShapeLoaded = this.onShapeLoaded.bind(this);
         console.log("WorldData loadData");
@@ -122,7 +120,7 @@ export class WorldData {
 
         let regionsLookup: any = {};
         let continentsLookup: any = {};
-
+ 
         // parsing shapefile data
         for (const record of shapeRecords) {
             // using field/column names from .DBF file
@@ -136,7 +134,7 @@ export class WorldData {
                 gdpTotal: record.fieldValues.GDP * 1000000,
             });
             country.gdpPerPerson = Math.round(country.gdpTotal / country.population);
-            country.gdpPerPersonAbbr = WorldUtils2.toStringAbbr(country.gdpPerPerson );
+            country.gdpPerPersonAbbr = WorldUtils2.toStringAbbr(country.gdpPerPerson);
             country.gdpTotalAbbr = WorldUtils2.toStringAbbr(country.gdpTotal);
             country.populationAbbr = WorldUtils2.toStringAbbr(country.population);
 

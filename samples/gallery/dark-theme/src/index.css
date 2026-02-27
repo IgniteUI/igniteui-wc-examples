@@ -1,8 +1,31 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
+.card-container {
+    /* background-color: red; */
+    display: flex;
+    flex-flow: row;
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    box-sizing: border-box;
+}
 
 .card {
-    background-color: blue !important;
-
+    /* background-color: orange !important; */
+    min-width: 400px;
+    min-height: 400px;
+    max-width: 400px;
+    max-height: 400px;
+    margin: 0.5rem;
+}
+ 
+.card-label, .ig-title {
+    margin-bottom: 0.2rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Titillium Web', Verdana, Tahoma, sans-serif;
 }

@@ -50,18 +50,16 @@ html, body, #root {
 
 /* ------- CHARTS ----------------------------------- */
 
-.ig-title
-{
+.ig-title {
   margin-top: 0.5rem;
-  margin-bottom: 0rem;
+  margin-bottom: 0.2rem;
   color:  var(--mainForeground);
   align-self: center;
   font-family: Verdana, Tahoma, sans-serif;
 }
 
 .igc-data-grid {
-
-  border-color: transparent !important;
+  border-color: var(--mainStroke) !important;
   background-color: var(--mainBackground);
 
   --header-text-color: var(--mainForeground);
@@ -127,8 +125,7 @@ html, body, #root {
   --marker-outlines: var(--chartBrushes);
   
   --title-top-margin: 5px;
-  --title-text-color:    var(--mainForeground);
-  /* --title-text-color:    var(--mainForeground) !important; */
+  --title-text-color:    var(--mainForeground) !important;
   --subtitle-text-color: var(--mainForeground) !important;
 
   --title-text-style: 15px Verdana, Tahoma, sans-serif;

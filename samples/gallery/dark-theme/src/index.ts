@@ -11,7 +11,7 @@ import { IgcOpenStreetMapImagery } from 'igniteui-webcomponents-maps';
 import { IgcBulletGraphComponent, IgcBulletGraphModule, IgcLinearGaugeComponent, IgcLinearGaugeModule, IgcRadialGaugeComponent, IgcRadialGaugeModule } from 'igniteui-webcomponents-gauges';
 
 // data-grid imports
-import { IgcDataGridComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent, IgcTemplateColumnComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
 import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
@@ -28,7 +28,7 @@ import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
 
 // core imports
-import { IgcNumberFormatSpecifier, IgcShapeDataSource, OthersCategoryType, Visibility } from 'igniteui-webcomponents-core';
+import { IgcShapeDataSource, OthersCategoryType, Visibility } from 'igniteui-webcomponents-core';
 import { DataContext } from 'igniteui-webcomponents-core';
 import { ModuleManager } from 'igniteui-webcomponents-core'; 
  
@@ -38,10 +38,12 @@ import { WorldData } from './WorldData';
 
 import { html } from 'lit-html';
 
+import './index.css' 
+ 
 import './themes/tooltip-layout.css' 
 
-// import './themes/dark-theme.css'
-import './themes/light-theme.css' 
+import './themes/dark-theme.css' 
+// import './themes/light-theme.css'  
  
 ModuleManager.register(
     IgcDataGridModule,
@@ -76,8 +78,8 @@ ModuleManager.register(
 export class ThemeGallery {
 
     // maps
-    private geoMap1: IgcGeographicMapComponent;
-    private geoMap2: IgcGeographicMapComponent;
+    private geoMap1: IgcGeographicMapComponent | undefined;
+    private geoMap2: IgcGeographicMapComponent | undefined;
     private currentThemeLink: HTMLLinkElement | null = null;
 
     constructor() {
@@ -106,9 +108,9 @@ export class ThemeGallery {
 
         this.geoMap2 = document.getElementById('geoMap2') as IgcGeographicMapComponent;
         this.geoMap2.backgroundContent = hiddenGeoImagery;
-
+  
         var radialGauge = document.getElementById('radialGauge') as IgcRadialGaugeComponent;
-        radialGauge.value = 50;
+        radialGauge.value = 50; 
         radialGauge.interval = 10;
         radialGauge.maximumValue = 80;
         radialGauge.titleText = "Title";
@@ -143,29 +145,39 @@ export class ThemeGallery {
     private onDataLoaded(sds: IgcShapeDataSource, e: any) {
 
         this.addTreemap1();
-        this.addTreemap2();
+        this.addTreemap2();   
 
         this.addGeoMapWithShapeSeries();   
         this.addGeoMapWithConnectionSeries(); 
         this.addGeoMapWithSymbolSeries();
- 
+  
         this.addScatterChartWithPointSeries(); 
         this.addScatterChartWithBubbleSeries();
-         
+          
         this.addDataChartWithCalloutSeries(); 
         this.addDataChartWithStackedSeries();  
   
         this.addDataChartWithBarSeries(); 
         this.addDataChartWithColumnSeries();
-  
+   
         var dataGrid = document.getElementById('dataGrid') as IgcDataGridComponent;
-        dataGrid.dataSource = WorldData.countries;
         dataGrid.editMode = EditModeType.None;
-        dataGrid.isRowHoverEnabled = true; 
         dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
-        let g = new IgcColumnGroupDescription(); 
-        g.field = 'continent';
+        dataGrid.dataSource = WorldData.countries;
+        // let g = new IgcColumnGroupDescription(); 
+        // g.field = 'continent';
         // dataGrid.groupDescriptions.add(g);   
+        const numColumn1 = document.getElementById('numColumn1') as IgcTemplateColumnComponent;
+        const numColumn2 = document.getElementById('numColumn2') as IgcTemplateColumnComponent;
+        const numColumn3 = document.getElementById('numColumn3') as IgcTemplateColumnComponent;
+        for (const numColumn of [numColumn1, numColumn2, numColumn3]) {
+            if (numColumn) {
+                numColumn.formatCell = (column, e) => {
+                    e.text = WorldUtils2.toStringAbbr(e.value);
+                }
+            } 
+        }
+            // popColumn.cellUpdating = this.onUpdatingSalesColumn;
 
         var dataPieLegend = document.getElementById('dataPieLegend') as IgcItemLegendComponent;
         var dataPieChart = document.getElementById('dataPieChart') as IgcDataPieChartComponent;
@@ -187,7 +199,7 @@ export class ThemeGallery {
         funnelChart.innerLabelMemberPath = "populationPercent"; 
         funnelChart.innerLabelVisibility = Visibility.Visible; 
         funnelChart.outerLabelMemberPath = "name"; 
-        // funnelChart.outerLabelVisibility = Visibility.Visible;      
+        // funnelChart.outerLabelVisibility = Visibility.Visible;       
         funnelChart.useOuterLabelsForLegend = true;
         funnelChart.dataSource = WorldData.continents;
 
@@ -203,7 +215,7 @@ export class ThemeGallery {
         pieChart.radiusFactor = 0.75;
         pieChart.labelExtent = 0.5;
         pieChart.dataSource = WorldData.continents;
-         
+           
         let donutLegend = document.getElementById('donutLegend') as IgcItemLegendComponent;
         let donutSeries = new IgcRingSeriesComponent();
         donutSeries.valueMemberPath = "population"; 
@@ -213,15 +225,15 @@ export class ThemeGallery {
         donutSeries.othersCategoryType = OthersCategoryType.Percent; 
         donutSeries.othersCategoryThreshold = 10;
         // donutSeries.othersCategoryFill = "blue"; 
-        // donutSeries.othersCategoryStroke = "red";
-        donutSeries.radiusFactor = 0.75;
+        // donutSeries.othersCategoryStroke = "red";  
+        donutSeries.radiusFactor = 0.75; 
         donutSeries.dataSource = WorldData.continents;
         donutSeries.legend = donutLegend; 
 
         var donutChart = document.getElementById('donutChart') as IgcDoughnutChartComponent;
         donutChart.innerExtent = 0.3;
         donutChart.series.add(donutSeries); 
-              
+               
     }
    
     public addTreemap1(): any {
@@ -236,7 +248,7 @@ export class ThemeGallery {
         // treeMap1.fillScaleMinimumValue = 0;
         // treeMap1.fillScaleMaximumValue = 1500000000;
         treeMap1.parentNodeRightPadding = 0;
-        treeMap1.parentNodeLeftPadding = 0;
+        treeMap1.parentNodeLeftPadding = 0; 
         treeMap1.parentNodeTopPadding = 0;
         treeMap1.parentNodeBottomPadding = 0;
 
@@ -254,6 +266,13 @@ export class ThemeGallery {
     }
    
     public addTreemap2(): any {
+        var fillStartBrush = this.getCssVariable('--color2');
+        var fillEndBrush = this.getCssVariable('--color3');
+
+        var fillBrushes: any = [];
+        if (fillStartBrush) fillBrushes.push(fillStartBrush);
+        if (fillEndBrush) fillBrushes.push(fillEndBrush);
+
         var treeMap2 = document.getElementById('treeMap2') as IgcTreemapComponent;
         treeMap2.rootTitle = "Continents"; 
         treeMap2.parentIdMemberPath = "parent";
@@ -268,7 +287,7 @@ export class ThemeGallery {
         treeMap2.fillScaleMinimumValue = 0; 
         treeMap2.fillScaleMaximumValue = 1500000000;
         treeMap2.fillScaleMode = TreemapFillScaleMode.GlobalSum;
-        treeMap2.fillBrushes = [this.getCssVariable('--color2'), this.getCssVariable('--color3')];
+        treeMap2.fillBrushes = fillBrushes;
         treeMap2.dataSource = WorldData.countries;      
     }
 
@@ -307,7 +326,7 @@ export class ThemeGallery {
         
         dataScatterPointChart.axes.add(xAxis);
         dataScatterPointChart.axes.add(yAxis);
-        dataScatterPointChart.chartTitle = "Population by Continent";
+        // dataScatterPointChart.chartTitle = "Population by Continent";
         dataScatterPointChart.titleTextStyle = "15px Verdana, sans-serif";
         dataScatterPointChart.isHorizontalZoomEnabled = true;
         dataScatterPointChart.isVerticalZoomEnabled = true;
@@ -347,7 +366,7 @@ export class ThemeGallery {
         dataScatterBubbleChart.axes.add(xAxis);  
         dataScatterBubbleChart.axes.add(yAxis);
         dataScatterBubbleChart.series.add(bubbleSeries);
-        dataScatterBubbleChart.chartTitle = "Population vs GDP per Person";
+        // dataScatterBubbleChart.chartTitle = "Population vs GDP per Person";
         // dataScatterBubbleChart.titleTextColor = "black"; 
         // dataScatterBubbleChart.titleTextStyle = "15px Verdana, Tahoma, sans-serif"; 
         dataScatterBubbleChart.isHorizontalZoomEnabled = true;
@@ -385,7 +404,7 @@ export class ThemeGallery {
  
         dataBarChart.axes.add(xAxis);
         dataBarChart.axes.add(yAxis);
-        dataBarChart.chartTitle = "Olympic Medals by Country";
+        // dataBarChart.chartTitle = "Olympic Medals by Country";
         // dataBarChart.titleTextStyle = "15px Verdana, sans-serif";
         dataBarChart.isHorizontalZoomEnabled = true;
         dataBarChart.isVerticalZoomEnabled = true;
@@ -405,7 +424,7 @@ export class ThemeGallery {
         xAxis.dataSource = WorldData.olympicResult;
          
         var dataColChart = document.getElementById('dataColChart') as IgcDataChartComponent;
-        dataColChart.chartTitle = "Olympic Medals by Country";
+        // dataColChart.chartTitle = "Olympic Medals by Country";
         dataColChart.titleTextStyle = "15px Verdana, sans-serif";
         dataColChart.isHorizontalZoomEnabled = true;
         dataColChart.isVerticalZoomEnabled = true;
@@ -446,7 +465,7 @@ export class ThemeGallery {
         xAxis.dataSource = WorldData.olympicResult;
          
         var dataStackedChart = document.getElementById('dataStackedChart') as IgcDataChartComponent;
-        dataStackedChart.chartTitle = "Olympic Medals";
+        // dataStackedChart.chartTitle = "Olympic Medals"; 
         dataStackedChart.titleTextStyle = "15px Verdana, sans-serif";
         dataStackedChart.isHorizontalZoomEnabled = true;
         dataStackedChart.isVerticalZoomEnabled = true;
@@ -479,7 +498,7 @@ export class ThemeGallery {
 
         var dataStackedLegend = document.getElementById('dataStackedLegend') as IgcDataLegendComponent;
         dataStackedLegend.target = dataStackedChart;
-    }
+    } 
 
     private addDataChartWithCalloutSeries() {
         var xAxis = new IgcCategoryXAxisComponent();
@@ -489,7 +508,7 @@ export class ThemeGallery {
         xAxis.dataSource = WorldData.olympicResult;
          
         var dataCalloutChart = document.getElementById('dataCalloutChart') as IgcDataChartComponent;
-        dataCalloutChart.chartTitle = "Olympic Medals";
+        // dataCalloutChart.chartTitle = "Olympic Medals";
         dataCalloutChart.titleTextStyle = "15px Verdana, sans-serif";
         dataCalloutChart.isHorizontalZoomEnabled = true; 
         dataCalloutChart.isVerticalZoomEnabled = true;
@@ -512,7 +531,7 @@ export class ThemeGallery {
             series1.title = country.name;
             dataCalloutChart.series.add(series1);
         }
-
+ 
         const calloutLayer = new IgcCalloutLayerComponent(); 
         calloutLayer.isAutoCalloutBehaviorEnabled = true;
         calloutLayer.allowedPositions.clear();
@@ -530,11 +549,11 @@ export class ThemeGallery {
         dataCalloutChart.plotAreaMarginBottom = 0;
     }
 
- 
     private addGeoMapWithShapeSeries() {
+        if (this.geoMap2 == undefined) return;
 
-        this.geoMap2.title = "Countries by Region";
-        this.geoMap2.titleTextStyle = "10px Verdana, sans-serif";
+        // this.geoMap2.chartTitle = "Countries by Region";
+        // this.geoMap2.titleTextStyle = "10px Verdana, sans-serif"; 
 
         var dataItems = WorldData.continents;
         for (let i = 0; i < dataItems.length; i++) {
@@ -542,7 +561,7 @@ export class ThemeGallery {
          
             const shapeSeries = new IgcGeographicShapeSeriesComponent();
             shapeSeries.name = 'series' + i;
-            // shapeSeries.dataSource = [shape];
+            // shapeSeries.dataSource = [shape]; 
             shapeSeries.dataSource = region.countries;
             shapeSeries.shapeMemberPath = 'points';
             shapeSeries.tooltipTemplate = this.addTooltipForCountry;
@@ -552,7 +571,7 @@ export class ThemeGallery {
             this.geoMap2.series.add(shapeSeries);
         }
 
-        this.geoMap2.windowRect = { left: 0.2, top: 0.0, width: 0.6, height: 0.8};
+        // this.geoMap2.windowRect = { left: 0.2, top: 0.0, width: 0.6, height: 0.8};
 }
 
     private getCssVariable(cssVariableName: string) {
@@ -561,8 +580,9 @@ export class ThemeGallery {
     }
 
     private addGeoMapWithConnectionSeries() {
-          
-        this.geoMap1.windowRect = { left: 0.2, top: 0.0, width: 0.6, height: 0.8};
+        if (this.geoMap1 == undefined) return;
+           
+        // this.geoMap1.windowRect = { left: 0.2, top: 0.0, width: 0.6, height: 0.8};
 
         const shapeSeries = new IgcGeographicShapeSeriesComponent(); 
         shapeSeries.dataSource = WorldData.countries;
@@ -587,6 +607,9 @@ export class ThemeGallery {
     }
   
     public addGeoMapWithSymbolSeries() {
+        if (this.geoMap1 == undefined) return;
+
+        // this.geoMap1.chartTitle = "Countries by Region";
         let symbolLocations = WorldConnections2.getAirportLocations();
 
         const sizeScale = new IgcSizeScaleComponent();
@@ -623,8 +646,6 @@ export class ThemeGallery {
 
         // console.log(dataItem); 
  
-        const pop = WorldUtils2.toStringAbbr(dataItem.population);
- 
         return html`<div>
             <div class='tooltip-box'>
                 <div class='tooltip-row'>
@@ -632,12 +653,20 @@ export class ThemeGallery {
                     <div class='tooltip-val'>${dataItem.name}</div>
                 </div>
                 <div class='tooltip-row'>
-                    <div class='tooltip-txt'>Population</div>
-                    <div class='tooltip-val'>${pop}</div>
-                </div>
-                <div class='tooltip-row'>
                     <div class='tooltip-txt'>Continent</div>
                     <div class='tooltip-val'>${dataItem.continent}</div>
+                </div>
+                <div class='tooltip-row'>
+                    <div class='tooltip-txt'>Population</div>
+                    <div class='tooltip-val'>${dataItem.populationAbbr}</div>
+                </div>
+                <div class='tooltip-row'>
+                    <div class='tooltip-txt'>GDP Total</div>
+                    <div class='tooltip-val'>${dataItem.gdpTotalAbbr}</div>
+                </div>
+                <div class='tooltip-row'>
+                    <div class='tooltip-txt'>GDP Per Person</div>
+                    <div class='tooltip-val'>${dataItem.gdpPerPersonAbbr}</div>
                 </div>
             </div>`; 
     }
