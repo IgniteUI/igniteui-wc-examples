@@ -1011,6 +1011,7 @@ function updateIG(cb) {
         { version: "7.0.0", name: "igniteui-webcomponents-spreadsheet" },
         { version: "7.0.0", name: "igniteui-webcomponents-datasources" },
         { version: "7.0.0", name: "igniteui-webcomponents-dashboards" },
+        { version: "^1.0.2", name: "igniteui-i18n-resources" },
         // these IG packages are sometimes updated:
         { version: "^0.6.0", name: "igniteui-grid-lite" },
         { version: "^7.0.0", name: "igniteui-webcomponents-grids" },
