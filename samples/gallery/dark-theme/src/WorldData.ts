@@ -133,6 +133,17 @@ export class WorldData {
                 population: record.fieldValues.Population,
                 gdpTotal: record.fieldValues.GDP * 1000000,
             });
+
+            if (country.name === "Vatican" ||
+                country.name === "Pitcairn Island" ||
+                country.name === "South Sandwich Islands") {
+                continue;
+            }
+
+            if (country.name === "French Guiana") {
+                country.gdpTotal = country.gdpTotal / 1000;
+            }
+
             country.gdpPerPerson = Math.round(country.gdpTotal / country.population);
             country.gdpPerPersonAbbr = WorldUtils2.toStringAbbr(country.gdpPerPerson);
             country.gdpTotalAbbr = WorldUtils2.toStringAbbr(country.gdpTotal);
