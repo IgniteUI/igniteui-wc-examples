@@ -1,0 +1,22 @@
+# IgcDataToolTipLayerComponent
+
+- group-text-color
+- header-text-color
+- label-text-color
+- summary-label-text-color
+- summary-title-text-color
+- summary-units-text-color
+- summary-value-text-color
+- title-text-color
+- tool-tip-background
+- tool-tip-border-brush
+- tool-tip-border-thickness
+- units-text-color
+- value-text-color
+- brush
+- outline
+- safe-actual-brush
+- selection-brush
+- selection-thickness
+- shadow-blur
+- shadow-color

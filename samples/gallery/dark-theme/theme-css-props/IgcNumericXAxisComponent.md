@@ -1,0 +1,25 @@
+# IgcNumericXAxisComponent
+
+- companion-axis-label-color
+- companion-axis-major-stroke
+- companion-axis-major-stroke-thickness
+- companion-axis-minor-stroke
+- companion-axis-minor-stroke-thickness
+- companion-axis-strip
+- companion-axis-stroke
+- companion-axis-stroke-thickness
+- companion-axis-tick-length
+- companion-axis-tick-stroke
+- companion-axis-tick-stroke-thickness
+- label-text-color
+- major-stroke
+- major-stroke-thickness
+- minor-stroke
+- minor-stroke-thickness
+- strip
+- stroke
+- stroke-thickness
+- tick-length
+- tick-stroke
+- tick-stroke-thickness
+- title-text-color

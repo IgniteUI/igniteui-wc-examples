@@ -1,0 +1,2 @@
+# IgcItemLegendComponent 
+- `text-color`
