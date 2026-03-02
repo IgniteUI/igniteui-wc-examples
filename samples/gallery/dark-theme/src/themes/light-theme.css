@@ -4,16 +4,14 @@ html, body, #root {
 
   --mainStroke: #868685;
 
-  --mainSelection: #8fbffa; 
-
+  --mainSelection: rgba(143, 191, 250, 0.75); 
+  --mainHighlight: #3f91f5;
   --mainGroupping: #d0d0d0; 
 
   --mainBackgroundRBG: 240, 240, 240;
-  /* --mainBackground: #1f1e1e;  */
   --mainBackground: rgb(var(--mainBackgroundRBG));
+
   --mainForegroundRBG: 31, 30, 30;
-  /* --mainForeground: #efeeee; */
-  /* --mainForeground: var(rgb(--mainForegroundRBG)); */
   --mainForeground: rgb(var(--mainForegroundRBG));
 
   
@@ -31,23 +29,10 @@ html, body, #root {
   --color9: #86d0b5;
   --color0: #ded3c7;
 
-  /* alternative colors*/
-  /* --color1: #73C2FB;
-  --color2: #2980B9;
-  --color3: #136296;
-  --color4: #FECB49;
-  --color5: #FD9A30;
-  --color6: #EC6F24;
-  --color7: #51AE5A;
-  --color8: #318A3A;
-  --color9: #574E4E;
-  --color0: #3B3636;  */
-
   --chartBrushes:  var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7), var(--color8), var(--color9), var(--color0);
   --tremapBrushes: var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7), var(--color8);
 
 }
-
 
 .ig-title {
   margin-top: 0.5rem;
@@ -68,9 +53,7 @@ html, body, #root {
 
   --header-background: var(--mainBackground);
   --header-separator-background: var(--mainStroke); 
-
-  --header-sort-indicator-color: var(--mainStroke);
-  /* --header-sort-indicator-color: var(--color1); */
+  --header-sort-indicator-color: var(--mainForeground);
 
   --row-hover-background: rgba(var(--mainForegroundRBG), 0.2);
   --row-hover-text-color: rgba(var(--mainForegroundRBG), 1.0);
@@ -91,9 +74,9 @@ html, body, #root {
   
   --section-header-background: var(--mainGroupping);
   /* --section-header-background: rgba(var(--mainForegroundRBG), 0.2); */
-  --section-header-text-color: rgba(var(--mainForegroundRBG), 1.0);
-  --section-header-selected-background: var(--mainGroupping);
+  --section-header-text-color: var(--mainForeground);
   --section-header-selected-text-color: var(--mainForeground);
+  --section-header-selected-background: var(--mainGroupping);
 
   --pinned-row-background: var(--mainBackground);
 
@@ -101,8 +84,60 @@ html, body, #root {
   --column-moving-separator-background: var(--color1);
   --summary-root-value-text-color: var(--mainForeground);
 
-  --sticky-row-background: var(--color1);
-  --last-sticky-row-background: var(--color1);
+  --sticky-row-background: var(--mainBackground);
+  --last-sticky-row-background: var(--mainBackground);
+
+  --deleted-text-color: red;
+  --column-options-icon-color: var(--mainForeground);
+
+  --summary-root-background: var(--mainGroupping);
+  --summary-root-label-text-color: var(--mainHighlight);
+  --summary-root-value-text-color: var(--mainForeground);
+  --summary-root-selected-background: var(--mainSelection);
+  --summary-section-background: var(--mainGroupping);
+  --summary-section-label-text-color: var(--mainHighlight);
+  --summary-section-value-text-color: var(--mainForeground);
+  --summary-section-selected-background: var(--mainSelection);
+}
+
+.ig-button-content > div > div {
+  /* workaround for bug https://github.com/Infragistics-Developer-Tools/dev-tools/issues/3099 */
+    stroke: var(--mainForeground) !important;
+    fill: var(--mainForeground) !important;
+}
+
+.ui-expansion-indicator-container {
+  /* bug https://github.com/Infragistics-Developer-Tools/dev-tools/issues/3095 */
+  --icon-color: var(--mainForeground) !important;
+  --data-grid-expansion-indicator-component-icon-color: var(--mainForeground) !important;
+}
+
+/* ========== igc-data-grid Group-By Area ========== */
+
+/* group-by area container background and border */
+.igc-data-grid [style*="space-between"] {
+    background-color: var(--mainGroupping) !important;
+    border-color: var(--mainStroke) !important;
+}
+
+/* group-by area title text ("Drag a Column Here") and chip labels */
+.igc-data-grid [style*="space-between"] span {
+    color: rgba(var(--mainForegroundRBG), 0.8) !important;
+}
+
+/* group-by area column chips */
+.igc-data-grid [style*="space-between"] li[style] {
+    background-color: rgba(var(--mainForegroundRBG), 0.15) !important;
+}
+
+.igc-data-grid [style*="space-between"] li[style]:hover {
+    background-color: rgba(var(--mainForegroundRBG), 0.25) !important;
+}
+
+/* group-by area icon colors (sort arrows, remove buttons, group icon) */
+.igc-data-grid [style*="space-between"] svg {
+    color: var(--mainForeground) !important;
+    fill: currentColor !important;
 }
 
 .ig-scroll-container > div > div > span {

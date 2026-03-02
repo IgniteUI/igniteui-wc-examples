@@ -11,7 +11,7 @@ import { IgcOpenStreetMapImagery } from 'igniteui-webcomponents-maps';
 import { IgcBulletGraphComponent, IgcBulletGraphModule, IgcLinearGaugeComponent, IgcLinearGaugeModule, IgcRadialGaugeComponent, IgcRadialGaugeModule } from 'igniteui-webcomponents-gauges';
 
 // data-grid imports
-import { FilterComparisonType, FilterLogicalOperator, FilterUIType, GroupHeaderDisplayMode, IgcColumnChooserModule, IgcColumnSummaryDescription, IgcDataGridComponent, IgcDataGridToolbarComponent, IgcDataGridToolbarModule, IgcNumericColumnComponent, IgcTemplateColumnComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
+import { ColumnOptionsIconBehavior, FilterComparisonType, FilterLogicalOperator, FilterUIType, GroupHeaderDisplayMode, IgcColumnChooserModule, IgcColumnSummaryDescription, IgcDataGridComponent, IgcDataGridToolbarComponent, IgcDataGridToolbarModule, IgcNumericColumnComponent, IgcTemplateColumnComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
 import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
@@ -42,8 +42,8 @@ import './index.css'
  
 import './themes/tooltip-layout.css' 
 
-import './themes/dark-theme.css' 
-// import './themes/light-theme.css'   
+// import './themes/dark-theme.css' 
+import './themes/light-theme.css'   
  
 ModuleManager.register(
     IgcDataGridModule,
@@ -228,13 +228,15 @@ export class ThemeGallery {
         // dataGrid.editMode = EditModeType.None;
         dataGrid.editMode = EditModeType.Cell; 
         dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
-        // dataGrid.filterUIType = FilterUIType.FilterRow;
- 
+        dataGrid.filterUIType = FilterUIType.FilterRow;
+        dataGrid.columnOptionsIconBehavior = ColumnOptionsIconBehavior.AlwaysVisible;
+        dataGrid.columnOptionsIconColor = "blue";
+
         dataGrid.dataSource = WorldData.countries;
 
         let g = new IgcColumnGroupDescription(); 
         g.field = 'continent';
-        // dataGrid.groupDescriptions.add(g);    
+        dataGrid.groupDescriptions.add(g);     
  
         const numColumn1 = document.getElementById('numColumn1') as IgcTemplateColumnComponent;
         const numColumn2 = document.getElementById('numColumn2') as IgcTemplateColumnComponent;
