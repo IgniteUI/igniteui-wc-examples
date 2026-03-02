@@ -68,9 +68,7 @@ html, body, #root {
 
   --header-background: var(--mainBackground);
   --header-separator-background: var(--mainStroke); 
-
-  --header-sort-indicator-color: var(--mainStroke);
-  /* --header-sort-indicator-color: var(--color1); */
+  --header-sort-indicator-color: var(--mainForeground); 
 
   --row-hover-background: rgba(var(--mainForegroundRBG), 0.2);
   --row-hover-text-color: rgba(var(--mainForegroundRBG), 1.0);
@@ -101,23 +99,27 @@ html, body, #root {
   --column-moving-separator-background: var(--color1);
   --summary-root-value-text-color: var(--mainForeground);
 
-  --sticky-row-background: var(--color1);
-  --last-sticky-row-background: var(--color1);
+  --sticky-row-background: var(--mainBackground);
+  --last-sticky-row-background: var(--mainBackground);
 
   --deleted-text-color: red;
   --column-options-icon-color: red;
 
-  
---summary-root-background: var(--mainGroupping);
---summary-root-label-text-color: var(--mainHighlight);
---summary-root-value-text-color: var(--mainForeground);
---summary-root-selected-background: var(--mainSelection);
-/* --summary-section-background: red;
---summary-section-label-text-color: red;
---summary-section-selected-background: red;
---summary-section-value-text-color: red; */
+  --summary-root-background: var(--mainGroupping);
+  --summary-root-label-text-color: var(--mainHighlight);
+  --summary-root-value-text-color: var(--mainForeground);
+  --summary-root-selected-background: var(--mainSelection);
+  --summary-section-background: var(--mainGroupping);
+  --summary-section-label-text-color: var(--mainHighlight);
+  --summary-section-value-text-color: var(--mainForeground);
+  --summary-section-selected-background: var(--mainSelection);
 }
 
+.ui-expansion-indicator-container {
+  /* bug https://github.com/Infragistics-Developer-Tools/dev-tools/issues/3095 */
+  --icon-color: var(--mainForeground) !important;
+  --data-grid-expansion-indicator-component-icon-color: var(--mainForeground) !important;
+}
 
 /* ========== igc-data-grid Group-By Area ========== */
 

@@ -28,33 +28,37 @@
         </div> -->
 
             <!-- TODO add category-chart -->
-            <!-- TODO add shape-chart -->
+            <!-- TODO add shape-chart pinned="left"-->
  
+        <!-- group-header-display-mode="combined" 
+        group-summary-display-mode="List"
+        summary-scope="Root" 
+                    is-row-hover-enabled="true"
+                    is-group-collapsable="true"
+                    is-group-by-area-visible="true" 
+        filter-ui-type="FilterRow"-->
             <div class="card container vertical" style="min-width: 800px; max-width: 800px; min-height: 800px; ">
                 <label class="ig-title">Data Grid</label>
                 <igc-data-grid id="dataGrid" width="100%" height="100%" row-height="40" 
                 
-        group-header-display-mode="combined"
-        group-summary-display-mode="List"
-        summary-scope="Root"
-                    is-row-hover-enabled="true"
+        default-column-min-width="100"
                     is-column-options-enabled="true" 
-                    is-group-by-area-visible="true" 
-                    is-group-collapsable="true"
+                    
                     auto-generate-columns="false">
                     
-                    <igc-numeric-column field="index" header-text="ID" width="130"></igc-numeric-column>
-                    <igc-text-column field="name" header-text="Name" width="*>130"></igc-text-column>
-                    <igc-numeric-column id="numColumn1" show-grouping-separator="true" header-text="Population" field="population"
-                        width="*>140"></igc-numeric-column>
-                    <igc-numeric-column id="numColumn2" show-grouping-separator="true" header-text="GDP Total" field="gdpTotal"
-                        width="*>140"></igc-numeric-column>
+                    <igc-numeric-column id="numColumnID" field="index" header-text="ID" width="130"></igc-numeric-column>
+                    <igc-text-column id="txtColumnName" field="name"   header-text="Name" width="*>130"></igc-text-column>
+                    <igc-numeric-column id="numColumn1" show-grouping-separator="true" header-text="Population" field="population" width="*>140"></igc-numeric-column>
+                    <igc-numeric-column id="numColumn2" show-grouping-separator="true" header-text="GDP Total" field="gdpTotal" width="*>140"></igc-numeric-column>
                     <igc-numeric-column id="numColumn3" show-grouping-separator="true" header-text="GDP Person" field="gdpPerPerson" width="*>140"></igc-numeric-column>
-                    <igc-text-column field="region" header-text="Region" width="*>160"></igc-text-column>
-                    <igc-text-column field="continent" header-text="Continent" width="*>160"></igc-text-column>
+                    <igc-text-column id="txtColumnRegion" field="region" header-text="Region" width="*>160"></igc-text-column>
+                    <igc-text-column id="txtColumnContinent" field="continent" header-text="Continent" width="*>160"></igc-text-column>
                 </igc-data-grid>
             </div>
-            <div class="card container vertical">
+            <!-- <div class="card container vertical">
+                <label class="ig-title">Data Grid Toolbar</label>
+                <igc-data-grid-toolbar id="dataGridToolbar" data-grid="#dataGrid"></igc-data-grid-toolbar>
+            </div> -->
 
             <div class="card container vertical">
                 <label class="ig-title">Sparkline with Line Display Type</label>
