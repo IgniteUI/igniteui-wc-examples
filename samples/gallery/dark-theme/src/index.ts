@@ -11,7 +11,7 @@ import { IgcOpenStreetMapImagery } from 'igniteui-webcomponents-maps';
 import { IgcBulletGraphComponent, IgcBulletGraphModule, IgcLinearGaugeComponent, IgcLinearGaugeModule, IgcRadialGaugeComponent, IgcRadialGaugeModule } from 'igniteui-webcomponents-gauges';
 
 // data-grid imports
-import { IgcDataGridComponent, IgcTemplateColumnComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
+import { IgcDataGridComponent, IgcNumericColumnComponent, IgcTemplateColumnComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
 import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
@@ -79,9 +79,6 @@ ModuleManager.register(
   
 export class ThemeGallery {
 
-    // maps
-    private geoMap1: IgcGeographicMapComponent | undefined;
-    private geoMap2: IgcGeographicMapComponent | undefined;
     private currentThemeLink: HTMLLinkElement | null = null;
 
     constructor() {
@@ -89,28 +86,44 @@ export class ThemeGallery {
         // Initialize theme switcher
         // this.initializeThemeSwitcher();
 
-        this.addGeoMapWithSymbolSeries = this.addGeoMapWithSymbolSeries.bind(this);
-        this.addGeoMapWithConnectionSeries = this.addGeoMapWithConnectionSeries.bind(this);
-        this.addGeoMapWithShapeSeries = this.addGeoMapWithShapeSeries.bind(this);
-
-        this.addScatterChartWithPointSeries = this.addScatterChartWithPointSeries.bind(this);
-        this.addScatterChartWithBubbleSeries = this.addScatterChartWithBubbleSeries.bind(this);
-
         this.addTooltipForCountry = this.addTooltipForCountry.bind(this);
         this.addTooltipForCity = this.addTooltipForCity.bind(this);
         this.addTooltipHidden = this.addTooltipHidden.bind(this);
       
         this.onDataLoaded = this.onDataLoaded.bind(this); 
 
-        let hiddenGeoImagery = new IgcOpenStreetMapImagery();
-        hiddenGeoImagery.opacity = 0.0; 
+        WorldData.loaded = this.onDataLoaded; 
+        WorldData.loadData(); 
+    }
 
-        this.geoMap1 = document.getElementById('geoMap1') as IgcGeographicMapComponent;
-        this.geoMap1.backgroundContent = hiddenGeoImagery;
+    private onDataLoaded(sds: IgcShapeDataSource, e: any) {
 
-        this.geoMap2 = document.getElementById('geoMap2') as IgcGeographicMapComponent;
-        this.geoMap2.backgroundContent = hiddenGeoImagery;
+        this.addDataGrid();
+
+        this.addTreemap1();
+        this.addTreemap2();
+
+        this.addGeoMapWithShapeSeries();
+        this.addGeoMapWithSymbolSeries();
   
+        this.addScatterChartWithPointSeries(); 
+        this.addScatterChartWithBubbleSeries();
+          
+        this.addDataChartWithCalloutSeries(); 
+        this.addDataChartWithStackedSeries();  
+  
+        this.addDataChartWithBarSeries(); 
+        this.addDataChartWithColumnSeries();
+
+        this.addSparklineCharts();
+
+        this.addRadialCharts();
+
+        this.addGagues();
+    }
+   
+    public addGagues() {
+
         var radialGauge = document.getElementById('radialGauge') as IgcRadialGaugeComponent;
         radialGauge.value = 50; 
         radialGauge.interval = 10;
@@ -139,85 +152,9 @@ export class ThemeGallery {
         bulletGauge.targetValueOuterExtent = 0.9;
         bulletGauge.valueInnerExtent = 0.3;
         bulletGauge.valueOuterExtent = 0.8;
-
-        WorldData.loaded = this.onDataLoaded; 
-        WorldData.loadData(); 
     }
-
-    private onDataLoaded(sds: IgcShapeDataSource, e: any) {
-
-        this.addTreemap1();
-        this.addTreemap2();   
-
-        this.addGeoMapWithShapeSeries();   
-        this.addGeoMapWithConnectionSeries(); 
-        this.addGeoMapWithSymbolSeries();
-  
-        this.addScatterChartWithPointSeries(); 
-        this.addScatterChartWithBubbleSeries();
-          
-        this.addDataChartWithCalloutSeries(); 
-        this.addDataChartWithStackedSeries();  
-  
-        this.addDataChartWithBarSeries(); 
-        this.addDataChartWithColumnSeries();
    
-        var dataGrid = document.getElementById('dataGrid') as IgcDataGridComponent;
-        dataGrid.editMode = EditModeType.None;
-        dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
-        dataGrid.dataSource = WorldData.countries;
-        // let g = new IgcColumnGroupDescription(); 
-        // g.field = 'continent';
-        // dataGrid.groupDescriptions.add(g);   
-        const numColumn1 = document.getElementById('numColumn1') as IgcTemplateColumnComponent;
-        const numColumn2 = document.getElementById('numColumn2') as IgcTemplateColumnComponent;
-        const numColumn3 = document.getElementById('numColumn3') as IgcTemplateColumnComponent;
-        const numColumns = [numColumn1, numColumn2, numColumn3];
-        for (const numColumn of numColumns) {
-            if (numColumn) {
-                numColumn.formatCell = (column, e) => {
-                    e.text = WorldUtils2.toStringAbbr(e.value);
-                }
-            } 
-        }
-        
-
-        var sparkData = [];
-        var sparkThreshold = 25000
-        for (const country of WorldData.continents) {
-            let value = country.gdpPerPerson - sparkThreshold;
-            sparkData.push({name: country.name, value: value});
-        }
- 
-        var sparkline1 = document.getElementById('sparkline1') as IgcSparklineComponent;
-        var sparkline2 = document.getElementById('sparkline2') as IgcSparklineComponent;
-        var sparkline3 = document.getElementById('sparkline3') as IgcSparklineComponent;
-        var sparkline4 = document.getElementById('sparkline4') as IgcSparklineComponent;
-        
-        for (const sparkline of [sparkline1, sparkline2, sparkline3, sparkline4]) {
-            sparkline.labelMemberPath = "name";
-            sparkline.valueMemberPath = "value";
-            sparkline.minimum = -sparkThreshold * 3;
-            sparkline.maximum = sparkThreshold * 3;
-            sparkline.normalRangeMinimum = 0;
-            sparkline.normalRangeMaximum = sparkThreshold * 3;
-            // sparkline.normalRangeVisibility = Visibility.Visible;   
-            // sparkline.trendLineType = TrendLineType.LinearFit; 
-            sparkline.dataSource = sparkData;
-        }
-        
-        for (const sparkline of [sparkline1, sparkline2]) {
-            sparkline.lowMarkerSize = 8;
-            sparkline.highMarkerSize = 8;
-            sparkline.firstMarkerSize = 8;   
-            sparkline.lastMarkerSize = 8;
-            sparkline.markerSize = 8;
-            sparkline.markerVisibility = Visibility.Visible;
-            sparkline.lowMarkerVisibility = Visibility.Visible;
-            sparkline.highMarkerVisibility = Visibility.Visible;
-            sparkline.firstMarkerVisibility = Visibility.Visible;
-            sparkline.lastMarkerVisibility = Visibility.Visible;
-        }
+    public addRadialCharts() {
 
         var dataPieLegend = document.getElementById('dataPieLegend') as IgcItemLegendComponent;
         var dataPieChart  = document.getElementById('dataPieChart') as IgcDataPieChartComponent;
@@ -231,6 +168,8 @@ export class ThemeGallery {
         dataPieChart.radiusExtent = 0.75; 
         dataPieChart.transitionInDuration = 0;
         dataPieChart.dataSource = WorldData.continents;
+        // dataPieChart.othersCategoryText = "Others";
+        // dataPieChart.lightSliceLabelColor = "white";
 
         var funnelLegend = document.getElementById('funnelLegend') as IgcItemLegendComponent;
         var funnelChart = document.getElementById('funnelChart') as IgcFunnelChartComponent;
@@ -273,9 +212,30 @@ export class ThemeGallery {
         var donutChart = document.getElementById('donutChart') as IgcDoughnutChartComponent;
         donutChart.innerExtent = 0.3;
         donutChart.series.add(donutSeries); 
-               
     }
    
+    public addDataGrid() {
+        
+        var dataGrid = document.getElementById('dataGrid') as IgcDataGridComponent;
+        dataGrid.editMode = EditModeType.None;
+        dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
+        dataGrid.dataSource = WorldData.countries;
+        // let g = new IgcColumnGroupDescription(); 
+        // g.field = 'continent';
+        // dataGrid.groupDescriptions.add(g);   
+        const numColumn1 = document.getElementById('numColumn1') as IgcTemplateColumnComponent;
+        const numColumn2 = document.getElementById('numColumn2') as IgcTemplateColumnComponent;
+        const numColumn3 = document.getElementById('numColumn3') as IgcTemplateColumnComponent;
+        const numColumns = [numColumn1, numColumn2, numColumn3];
+        for (const numColumn of numColumns) {
+            if (numColumn) {
+                numColumn.formatCell = (column, e) => {
+                    e.text = WorldUtils2.toStringAbbr(e.value);
+                }
+            } 
+        }
+    }
+
     public addTreemap1(): any {
         var treeMap1 = document.getElementById('treeMap1') as IgcTreemapComponent;
         treeMap1.rootTitle = "Continents"; 
@@ -328,7 +288,47 @@ export class ThemeGallery {
         treeMap2.fillScaleMaximumValue = 1500000000;
         treeMap2.fillScaleMode = TreemapFillScaleMode.GlobalSum;
         treeMap2.fillBrushes = fillBrushes;
-        treeMap2.dataSource = WorldData.countries;      
+        treeMap2.dataSource = WorldData.countries;          }
+
+
+    private addSparklineCharts() {
+ 
+        var sparkData = [];
+        var sparkThreshold = 25000
+        for (const country of WorldData.continents) {
+            let value = country.gdpPerPerson - sparkThreshold;
+            sparkData.push({name: country.name, value: value});
+        }
+ 
+        var sparkline1 = document.getElementById('sparkline1') as IgcSparklineComponent;
+        var sparkline2 = document.getElementById('sparkline2') as IgcSparklineComponent;
+        var sparkline3 = document.getElementById('sparkline3') as IgcSparklineComponent;
+        var sparkline4 = document.getElementById('sparkline4') as IgcSparklineComponent;
+        
+        for (const sparkline of [sparkline1, sparkline2, sparkline3, sparkline4]) {
+            sparkline.labelMemberPath = "name";
+            sparkline.valueMemberPath = "value";
+            sparkline.minimum = -sparkThreshold * 3;
+            sparkline.maximum = sparkThreshold * 3;
+            sparkline.normalRangeMinimum = 0;
+            sparkline.normalRangeMaximum = sparkThreshold * 3;
+            // sparkline.normalRangeVisibility = Visibility.Visible;   
+            // sparkline.trendLineType = TrendLineType.LinearFit; 
+            sparkline.dataSource = sparkData;
+        }
+        
+        for (const sparkline of [sparkline1, sparkline2]) {
+            sparkline.lowMarkerSize = 8;
+            sparkline.highMarkerSize = 8;
+            sparkline.firstMarkerSize = 8;   
+            sparkline.lastMarkerSize = 8;
+            sparkline.markerSize = 8;
+            sparkline.markerVisibility = Visibility.Visible;
+            sparkline.lowMarkerVisibility = Visibility.Visible;
+            sparkline.highMarkerVisibility = Visibility.Visible;
+            sparkline.firstMarkerVisibility = Visibility.Visible;
+            sparkline.lastMarkerVisibility = Visibility.Visible;
+        }
     }
 
 
@@ -590,8 +590,13 @@ export class ThemeGallery {
     }
 
     private addGeoMapWithShapeSeries() {
-        if (this.geoMap2 == undefined) return;
+       
+        let hiddenImagery = new IgcOpenStreetMapImagery();
+        hiddenImagery.opacity = 0.0; 
 
+        var geoMap2 = document.getElementById('geoMap2') as IgcGeographicMapComponent;
+        geoMap2.backgroundContent = hiddenImagery;
+  
         // this.geoMap2.chartTitle = "Countries by Region";
         // this.geoMap2.titleTextStyle = "10px Verdana, sans-serif"; 
 
@@ -608,7 +613,7 @@ export class ThemeGallery {
             shapeSeries.title = region.name;
             shapeSeries.showDefaultTooltip = true;
 
-            this.geoMap2.series.add(shapeSeries);
+            geoMap2.series.add(shapeSeries);
         }
 
         // this.geoMap2.windowRect = { left: 0.2, top: 0.0, width: 0.6, height: 0.8};
@@ -619,9 +624,14 @@ export class ThemeGallery {
         return getComputedStyle(rootElement).getPropertyValue(cssVariableName);
     }
 
-    private addGeoMapWithConnectionSeries() {
-        if (this.geoMap1 == undefined) return;
-           
+    public addGeoMapWithSymbolSeries() {
+        
+        let hiddenImagery = new IgcOpenStreetMapImagery();
+        hiddenImagery.opacity = 0.0; 
+
+        var geoMap1 = document.getElementById('geoMap1') as IgcGeographicMapComponent;
+        geoMap1.backgroundContent = hiddenImagery;
+ 
         // this.geoMap1.windowRect = { left: 0.2, top: 0.0, width: 0.6, height: 0.8};
 
         const shapeSeries = new IgcGeographicShapeSeriesComponent(); 
@@ -634,20 +644,16 @@ export class ThemeGallery {
         // shapeSeries.brush = "transparent";
         // shapeSeries.outline = this.geoMap1.brushes[3];
         shapeSeries.showDefaultTooltip = true;
-        this.geoMap1.series.add(shapeSeries);
+        geoMap1.series.add(shapeSeries);
 
         let connectionData = WorldConnections2.getFlights();
         let connectionSeries = new IgcGeographicPolylineSeriesComponent();
         connectionSeries.dataSource = connectionData;
         connectionSeries.shapeMemberPath = 'points';  
         connectionSeries.showDefaultTooltip = false;
-        connectionSeries.outline = this.geoMap1.brushes[3];
+        connectionSeries.outline = geoMap1.brushes[3];
         // connectionSeries.tooltipTemplate = this.addTooltipHidden;
-        this.geoMap1.series.add(connectionSeries);
-    }
-  
-    public addGeoMapWithSymbolSeries() {
-        if (this.geoMap1 == undefined) return;
+        geoMap1.series.add(connectionSeries);
 
         // this.geoMap1.chartTitle = "Countries by Region";
         let symbolLocations = WorldConnections2.getAirportLocations();
@@ -666,13 +672,13 @@ export class ThemeGallery {
         symbolSeries.longitudeMemberPath = 'x';
         symbolSeries.markerOutlineMode = MarkerOutlineMode.Normal;
         symbolSeries.markerFillMode = MarkerFillMode.Normal;
-        symbolSeries.markerBrush = this.geoMap1.brushes[1];
+        symbolSeries.markerBrush = geoMap1.brushes[1];
         
         symbolSeries.title = "airports"; 
         symbolSeries.tooltipTemplate = this.addTooltipForCity;
-        this.geoMap1.series.add(symbolSeries);
+        geoMap1.series.add(symbolSeries);
     }
-    
+  
 
     public addTooltipForCountry(dataContext: any): any {
         // console.log("addTooltipForCountry");
