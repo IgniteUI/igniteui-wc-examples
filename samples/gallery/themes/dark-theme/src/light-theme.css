@@ -136,7 +136,7 @@ html, body, #root {
 
 /* group-by area icon colors (sort arrows, remove buttons, group icon) */
 .igc-data-grid [style*="space-between"] svg {
-    color: var(--mainForeground) !important;
+    color: rgba(var(--mainForegroundRBG), 0.7) !important;
     fill: currentColor !important;
 }
 

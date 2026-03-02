@@ -40,10 +40,10 @@ import { html } from 'lit-html';
 
 import './index.css' 
  
-import './themes/tooltip-layout.css' 
+import './tooltip-layout.css' 
 
-// import './themes/dark-theme.css' 
-import './themes/light-theme.css'   
+// import './dark-theme.css' 
+import './light-theme.css'   
  
 ModuleManager.register(
     IgcDataGridModule,
