@@ -11,7 +11,7 @@ import { IgcOpenStreetMapImagery } from 'igniteui-webcomponents-maps';
 import { IgcBulletGraphComponent, IgcBulletGraphModule, IgcLinearGaugeComponent, IgcLinearGaugeModule, IgcRadialGaugeComponent, IgcRadialGaugeModule } from 'igniteui-webcomponents-gauges';
 
 // data-grid imports
-import { FilterUIType, GroupHeaderDisplayMode, IgcColumnChooserModule, IgcColumnSummaryDescription, IgcDataGridComponent, IgcDataGridToolbarComponent, IgcDataGridToolbarModule, IgcNumericColumnComponent, IgcTemplateColumnComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
+import { FilterComparisonType, FilterLogicalOperator, FilterUIType, GroupHeaderDisplayMode, IgcColumnChooserModule, IgcColumnSummaryDescription, IgcDataGridComponent, IgcDataGridToolbarComponent, IgcDataGridToolbarModule, IgcNumericColumnComponent, IgcTemplateColumnComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
 import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
@@ -42,7 +42,7 @@ import './index.css'
  
 import './themes/tooltip-layout.css' 
 
-// import './themes/dark-theme.css' 
+import './themes/dark-theme.css' 
 // import './themes/light-theme.css'   
  
 ModuleManager.register(
@@ -226,40 +226,41 @@ export class ThemeGallery {
 
         var dataGrid = document.getElementById('dataGrid') as IgcDataGridComponent;
         // dataGrid.editMode = EditModeType.None;
-        // dataGrid.editMode = EditModeType.Cell; 
-        // dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
-        dataGrid.filterUIType = FilterUIType.FilterRow;
+        dataGrid.editMode = EditModeType.Cell; 
+        dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
+        // dataGrid.filterUIType = FilterUIType.FilterRow;
+ 
         dataGrid.dataSource = WorldData.countries;
 
         let g = new IgcColumnGroupDescription(); 
         g.field = 'continent';
         // dataGrid.groupDescriptions.add(g);    
  
-        // const numColumn1 = document.getElementById('numColumn1') as IgcTemplateColumnComponent;
-        // const numColumn2 = document.getElementById('numColumn2') as IgcTemplateColumnComponent;
-        // const numColumn3 = document.getElementById('numColumn3') as IgcTemplateColumnComponent;
-        // const numColumns = [numColumn1, numColumn2, numColumn3];
-        // for (const numColumn of numColumns) {
-        //     if (numColumn) {
-        //         numColumn.formatCell = (column, e) => {
-        //             e.text = WorldUtils2.toStringAbbr(e.value);
-        //         }
-        //     } 
-        // }  
+        const numColumn1 = document.getElementById('numColumn1') as IgcTemplateColumnComponent;
+        const numColumn2 = document.getElementById('numColumn2') as IgcTemplateColumnComponent;
+        const numColumn3 = document.getElementById('numColumn3') as IgcTemplateColumnComponent;
+        const numColumns = [numColumn1, numColumn2, numColumn3];
+        for (const numColumn of numColumns) {
+            if (numColumn) {
+                numColumn.formatCell = (column, e) => {
+                    e.text = WorldUtils2.toStringAbbr(e.value);
+                }
+            } 
+        }  
 
         // dataGrid.summaryDescriptions.add(this.columnMin('population'));
         // dataGrid.summaryDescriptions.add(this.columnMax('population'));
-        // dataGrid.summaryDescriptions.add(this.columnSum('population'));
+        dataGrid.summaryDescriptions.add(this.columnSum('population'));
         // dataGrid.summaryDescriptions.add(this.columnMin('gdpTotal'));
         // dataGrid.summaryDescriptions.add(this.columnMax('gdpTotal'));
-        // dataGrid.summaryDescriptions.add(this.columnSum('gdpTotal'));
+        dataGrid.summaryDescriptions.add(this.columnSum('gdpTotal'));
         // dataGrid.summaryDescriptions.add(this.columnMin('gdpPerPerson'));
         // dataGrid.summaryDescriptions.add(this.columnMax('gdpPerPerson'));
-        // dataGrid.summaryDescriptions.add(this.columnAvg('gdpPerPerson'));
-        // dataGrid.summaryDescriptions.add(this.columnCount('index'));
-        // dataGrid.summaryDescriptions.add(this.columnCount('name'));
-        // dataGrid.summaryDescriptions.add(this.columnCount('region'));
-        // dataGrid.summaryDescriptions.add(this.columnCount('continent')); 
+        dataGrid.summaryDescriptions.add(this.columnAvg('gdpPerPerson'));
+        dataGrid.summaryDescriptions.add(this.columnCount('index'));
+        dataGrid.summaryDescriptions.add(this.columnCount('name'));
+        dataGrid.summaryDescriptions.add(this.columnCount('region'));
+        dataGrid.summaryDescriptions.add(this.columnCount('continent')); 
 
     }
 
