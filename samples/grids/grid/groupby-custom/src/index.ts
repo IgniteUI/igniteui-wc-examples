@@ -72,6 +72,7 @@ export class Sample {
     private handleClick = (event: MouseEvent) => {
        this.groupByMode = (event.target as any).value;
        this.grid.groupingExpressions = this.groupExpression;
+       this.grid.markForCheck();
     };
 
     private _invoicesData: InvoicesData = null;

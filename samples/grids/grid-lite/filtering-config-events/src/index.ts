@@ -1,5 +1,6 @@
 import { IgcGridLite } from 'igniteui-grid-lite';
 import { GridLiteDataService, User } from './GridLiteDataService';
+import { html, render } from 'lit-html';
 
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
@@ -10,6 +11,7 @@ export class Sample {
     private dataService: GridLiteDataService;
     private log: string[] = [];
     private logElement: HTMLElement;
+    private gridLite: IgcGridLite | null = null;
 
     get time() {
         return `[${new Date().toLocaleTimeString()}]`;
@@ -19,25 +21,47 @@ export class Sample {
         this.dataService = new GridLiteDataService();
         this.logElement = document.getElementById('log')!;
         
-        const gridLite = document.getElementById('grid-lite') as any;
         const data: User[] = this.dataService.generateUsers(50);
         
-        const columns = [
-            { key: 'firstName', headerText: 'First name', filter: true },
-            { key: 'lastName', headerText: 'Last name', filter: true },
-            { key: 'age', headerText: 'Age', filter: true, type: 'number' },
-            { key: 'email', headerText: 'Email', filter: true }
-        ];
-
-        gridLite.columns = columns;
-        gridLite.data = data;
-
+        const container = document.getElementById('grid-lite');
+        
+        const template = html`
+          <igc-grid-lite .data=${data}>
+            <igc-grid-lite-column 
+              field="firstName" 
+              header="First name" 
+              filterable
+            ></igc-grid-lite-column>
+            <igc-grid-lite-column 
+              field="lastName" 
+              header="Last name" 
+              filterable
+            ></igc-grid-lite-column>
+            <igc-grid-lite-column 
+              field="age" 
+              header="Age" 
+              filterable
+              data-type="number"
+            ></igc-grid-lite-column>
+            <igc-grid-lite-column 
+              field="email" 
+              header="Email" 
+              filterable
+            ></igc-grid-lite-column>
+          </igc-grid-lite>
+        `;
+        
+        render(template, container!);
+        
+        // Get reference to the grid after rendering
+        this.gridLite = container!.querySelector('igc-grid-lite');
+        
         // Listen to filter events
-        gridLite.addEventListener('filtering', (e: any) => {
+        this.gridLite!.addEventListener('filtering', (e: any) => {
             const { expressions, type } = e.detail;
             this.updateLog(`${this.time} :: Event \`${e.type}\` :: Filter operation of type '${type}' for column '${expressions[0].key}'`);
         });
-        gridLite.addEventListener('filtered', (e: any) => {
+        this.gridLite!.addEventListener('filtered', (e: any) => {
             this.updateLog( `${this.time} :: Event \`${e.type}\` for column '${e.detail.key}'`);
         });
     }

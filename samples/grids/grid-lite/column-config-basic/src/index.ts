@@ -1,6 +1,7 @@
 import { IgcGridLite } from 'igniteui-grid-lite';
 import { defineComponents, IgcRatingComponent } from 'igniteui-webcomponents';
 import { GridLiteDataService, ProductInfo } from './GridLiteDataService';
+import { html, render } from 'lit-html';
 
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
@@ -19,54 +20,42 @@ export class Sample {
       currency: 'EUR'
     });
 
-    const gridLite = document.getElementById('grid-lite') as any;
     const data: ProductInfo[] = this.dataService.generateProducts(50);
     
-    const columns = [
-      { 
-        key: 'name', 
-        headerText: 'Product Name' 
-      },
-      {
-        key: 'price',
-        headerText: 'Price',
-        type: 'number',
-        cellTemplate: (params: any) => {
-          const span = document.createElement('span');
-          span.textContent = this.formatter.format(params.value);
-          return span;
-        }
-      },
-      { 
-        key: 'sold', 
-        type: 'number', 
-        headerText: 'Units sold' 
-      },
-      { 
-        key: 'total', 
-        headerText: 'Total sold',
-        cellTemplate: (params: any) => {
-          const span = document.createElement('span');
-          span.textContent = this.formatter.format(params.value);
-          return span;
-        }
-      },
-      {
-        key: 'rating',
-        type: 'number',
-        headerText: 'Customer rating',
-        cellTemplate: (params: any) => {
-          const rating = document.createElement('igc-rating');
-          rating.setAttribute('readonly', '');
-          rating.setAttribute('step', '0.01');
-          rating.setAttribute('value', params.value.toString());
-          return rating;
-        }
-      }
-    ];
-
-    gridLite.columns = columns;
-    gridLite.data = data;
+    const container = document.getElementById('grid-lite');
+    
+    const template = html`
+      <igc-grid-lite .data=${data}>
+        <igc-grid-lite-column 
+          field="name" 
+          header="Product Name"
+        ></igc-grid-lite-column>
+        <igc-grid-lite-column 
+          field="price" 
+          header="Price" 
+          data-type="number"
+          .cellTemplate=${(params: any) => html`<span>${this.formatter.format(params.value)}</span>`}
+        ></igc-grid-lite-column>
+        <igc-grid-lite-column 
+          field="sold" 
+          header="Units sold" 
+          data-type="number"
+        ></igc-grid-lite-column>
+        <igc-grid-lite-column 
+          field="total" 
+          header="Total sold"
+          .cellTemplate=${(params: any) => html`<span>${this.formatter.format(params.value)}</span>`}
+        ></igc-grid-lite-column>
+        <igc-grid-lite-column 
+          field="rating" 
+          header="Customer rating" 
+          data-type="number"
+          .cellTemplate=${(params: any) => html`<igc-rating readonly step="0.01" value=${params.value}></igc-rating>`}
+        ></igc-grid-lite-column>
+      </igc-grid-lite>
+    `;
+    
+    render(template, container!);
   }
 }
 

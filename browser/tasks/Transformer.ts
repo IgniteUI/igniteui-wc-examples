@@ -585,15 +585,10 @@ class Transformer {
         }
     }
 
-    public static getRelative(path: string): string {
-        if (path.indexOf(igConfig.RepositoryName) > -1) {
-            path = path.split(igConfig.RepositoryName).pop() as string;
-            path = path.split("\\").join("/");
-            return "." + path;
-        }
-
-        console.log("failed on getRelative " + path);
-        return path;
+    public static getRelative(absolutePath: string): string {
+        let relative = require('path').relative(process.cwd(), absolutePath);
+        relative = relative.split("\\").join("/");
+        return "./" + relative;
     }
 
     public static getFileName(relativePath: string): string {

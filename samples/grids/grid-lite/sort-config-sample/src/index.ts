@@ -1,5 +1,6 @@
 import { IgcGridLite } from 'igniteui-grid-lite';
 import { GridLiteDataService, User } from './GridLiteDataService';
+import { html, render } from 'lit-html';
 
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
@@ -11,35 +12,37 @@ export class Sample {
 
     constructor() {
         this.dataService = new GridLiteDataService();
-        const gridLite = document.getElementById('grid-lite') as any;
         const data: User[] = this.dataService.generateUsers(50);
         
-        const columns = [
-            { 
-                key: 'firstName', 
-                headerText: 'First name', 
-                sort: true 
-            },
-            { 
-                key: 'lastName', 
-                headerText: 'Last name', 
-                sort: true 
-            },
-            { 
-                key: 'age', 
-                headerText: 'Age', 
-                sort: true, 
-                type: 'number' 
-            },
-            { 
-                key: 'email', 
-                headerText: 'Email',
-                sort: true
-            }
-        ];
-
-        gridLite.columns = columns;
-        gridLite.data = data;
+        const container = document.getElementById('grid-lite');
+        
+        const template = html`
+          <igc-grid-lite .data=${data}>
+            <igc-grid-lite-column 
+              field="firstName" 
+              header="First name" 
+              sortable
+            ></igc-grid-lite-column>
+            <igc-grid-lite-column 
+              field="lastName" 
+              header="Last name" 
+              sortable
+            ></igc-grid-lite-column>
+            <igc-grid-lite-column 
+              field="age" 
+              header="Age" 
+              sortable
+              data-type="number"
+            ></igc-grid-lite-column>
+            <igc-grid-lite-column 
+              field="email" 
+              header="Email"
+              sortable
+            ></igc-grid-lite-column>
+          </igc-grid-lite>
+        `;
+        
+        render(template, container!);
     }
 }
 
