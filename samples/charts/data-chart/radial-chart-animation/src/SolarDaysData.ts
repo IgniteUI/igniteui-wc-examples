@@ -45,4 +45,23 @@ export class SolarDaysData extends Array<SolarDaysInfo> {
             // super(...newItems.slice(0));
         // }
     }
+
+    // calculate length of day based on latitude and day of the year
+    // https://www.google.com/search?q=calculate+length+of+day+based+on+latitude+and+day+of+the+year&sca_esv=d145af582a4b3e8b&rlz=1C1GCEA_enUS1109US1109&sxsrf=ANbL-n4wRXZATHT-Qg0INhtt9yGuKRFzQQ%3A1769357603457&ei=I0F2aZK_G8GlwbkPnYOgEA&oq=calculate+length+of+day+based+on+latitude+and+day+of+t&gs_lp=Egxnd3Mtd2l6LXNlcnAiNmNhbGN1bGF0ZSBsZW5ndGggb2YgZGF5IGJhc2VkIG9uIGxhdGl0dWRlIGFuZCBkYXkgb2YgdCoCCAEyBRAhGKABMgUQIRigATIFECEYoAEyBRAhGKsCMgUQIRirAkiihwFQvAdYjHFwA3gBkAEAmAGJAaAB5hSqAQQ5LjE2uAEDyAEA-AEBmAIboALdFMICChAAGLADGNYEGEfCAgYQABgNGB7CAgsQABiABBiGAxiKBcICCBAAGIAEGKIEwgIKECEYoAEYwwQYCsICCBAhGKABGMMEwgIFECEYnwXCAgcQIRigARgKmAMAiAYBkAYIkgcEOS4xOKAHrLkBsgcENi4xOLgH0hTCBwY0LjIwLjPIBzaACAA&sclient=gws-wiz-serp
+
+    // https://joe-antognini.github.io/astronomy/daylight#:~:text=Putting%20this%20all%20together%2C%20if,T365d))hr.
+
+    // compare table
+    // https://aa.usno.navy.mil/faq/longest_day 
+    public static calcDayLength(latitude: number): number {
+        // Simplified calculation of day length based on latitude
+        // This is just a placeholder for the actual calculation
+
+// To calculate the day length at \(40^{\circ }\text{N}\) (\(\phi =40\)) on the Summer Solstice (\(N\approx 172\)):
+
+
+        return Math.max(0, 24 - Math.abs(latitude) / 90 * 24);
+
+        
+    }
 }
