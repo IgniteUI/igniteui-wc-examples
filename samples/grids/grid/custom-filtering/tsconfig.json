@@ -3,6 +3,7 @@
       "noImplicitReturns": true,
       "esModuleInterop": true,
       "noImplicitAny": true,
+      "resolveJsonModule": true,
       "declarationDir": "dist/types",
       "moduleResolution": "node",
       "declaration": true,
