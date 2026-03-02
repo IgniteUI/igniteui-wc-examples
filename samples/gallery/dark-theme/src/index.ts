@@ -11,7 +11,7 @@ import { IgcOpenStreetMapImagery } from 'igniteui-webcomponents-maps';
 import { IgcBulletGraphComponent, IgcBulletGraphModule, IgcLinearGaugeComponent, IgcLinearGaugeModule, IgcRadialGaugeComponent, IgcRadialGaugeModule } from 'igniteui-webcomponents-gauges';
 
 // data-grid imports
-import { IgcDataGridComponent, IgcNumericColumnComponent, IgcTemplateColumnComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
+import { GroupHeaderDisplayMode, IgcColumnSummaryDescription, IgcDataGridComponent, IgcNumericColumnComponent, IgcTemplateColumnComponent, SortIndicatorStyle } from 'igniteui-webcomponents-data-grids';
 import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
 import { IgcGridColumnOptionsModule } from 'igniteui-webcomponents-data-grids';
 import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
@@ -27,8 +27,8 @@ import { IgcSizeScaleComponent, MarkerType } from 'igniteui-webcomponents-charts
 import { IgcTreemapModule } from 'igniteui-webcomponents-charts';
 import { IgcTreemapComponent } from 'igniteui-webcomponents-charts';
 
-// core imports
-import { IgcShapeDataSource, OthersCategoryType, TrendLineType, Visibility } from 'igniteui-webcomponents-core';
+// core imports 
+import { DataSourceSummaryOperand, IgcShapeDataSource, OthersCategoryType, TrendLineType, Visibility } from 'igniteui-webcomponents-core';
 import { DataContext } from 'igniteui-webcomponents-core';
 import { ModuleManager } from 'igniteui-webcomponents-core'; 
  
@@ -153,7 +153,7 @@ export class ThemeGallery {
         bulletGauge.valueInnerExtent = 0.3;
         bulletGauge.valueOuterExtent = 0.8;
     }
-   
+    
     public addRadialCharts() {
 
         var dataPieLegend = document.getElementById('dataPieLegend') as IgcItemLegendComponent;
@@ -213,16 +213,34 @@ export class ThemeGallery {
         donutChart.innerExtent = 0.3;
         donutChart.series.add(donutSeries); 
     }
-   
+     
+    onSummaryScopeChanging = (e: any) => {
+        if (this.dataGrid === undefined) return;
+        this.dataGrid.summaryScope = e.target.value;
+    }
+
+    onGroupSummaryDisplayModeChanging = (e: any) => {
+        if (this.dataGrid === undefined) return;
+        this.dataGrid.groupSummaryDisplayMode = e.target.value;
+    }
+
+    private dataGrid: IgcDataGridComponent | undefined;
+
     public addDataGrid() {
+          
+        // this.onSummaryScopeChanging = this.onSummaryScopeChanging.bind(this);
+        // this.onGroupSummaryDisplayModeChanging = this.onGroupSummaryDisplayModeChanging.bind(this);
         
         var dataGrid = document.getElementById('dataGrid') as IgcDataGridComponent;
         dataGrid.editMode = EditModeType.None;
+        // dataGrid.editMode = EditModeType.Cell; 
         dataGrid.headerSortIndicatorStyle = SortIndicatorStyle.FadingSimpleUpDownArrows;
         dataGrid.dataSource = WorldData.countries;
-        // let g = new IgcColumnGroupDescription(); 
-        // g.field = 'continent';
-        // dataGrid.groupDescriptions.add(g);   
+
+        let g = new IgcColumnGroupDescription(); 
+        g.field = 'continent';
+        dataGrid.groupDescriptions.add(g);    
+
         const numColumn1 = document.getElementById('numColumn1') as IgcTemplateColumnComponent;
         const numColumn2 = document.getElementById('numColumn2') as IgcTemplateColumnComponent;
         const numColumn3 = document.getElementById('numColumn3') as IgcTemplateColumnComponent;
@@ -233,7 +251,56 @@ export class ThemeGallery {
                     e.text = WorldUtils2.toStringAbbr(e.value);
                 }
             } 
-        }
+        } 
+
+        dataGrid.summaryDescriptions.add(this.columnMin('population'));
+        dataGrid.summaryDescriptions.add(this.columnMax('population'));
+        dataGrid.summaryDescriptions.add(this.columnSum('population'));
+        dataGrid.summaryDescriptions.add(this.columnMin('gdpTotal'));
+        dataGrid.summaryDescriptions.add(this.columnMax('gdpTotal'));
+        dataGrid.summaryDescriptions.add(this.columnSum('gdpTotal'));
+        dataGrid.summaryDescriptions.add(this.columnMin('gdpPerPerson'));
+        dataGrid.summaryDescriptions.add(this.columnMax('gdpPerPerson'));
+        dataGrid.summaryDescriptions.add(this.columnAvg('gdpPerPerson'));
+        dataGrid.summaryDescriptions.add(this.columnCount('index'));
+        dataGrid.summaryDescriptions.add(this.columnCount('name'));
+        dataGrid.summaryDescriptions.add(this.columnCount('region'));
+        dataGrid.summaryDescriptions.add(this.columnCount('continent')); 
+
+    }
+
+    public columnCount(name: string): IgcColumnSummaryDescription {
+        const summary = new IgcColumnSummaryDescription();
+        summary.field = name; 
+        summary.operand = DataSourceSummaryOperand.Count;
+        return summary;
+    }
+
+    public columnSum(name: string): IgcColumnSummaryDescription {
+        const summary = new IgcColumnSummaryDescription();
+        summary.field = name;
+        summary.operand = DataSourceSummaryOperand.Sum;
+        return summary;
+    }
+
+    public columnMin(name: string): IgcColumnSummaryDescription {
+        const summary = new IgcColumnSummaryDescription();
+        summary.field = name;
+        summary.operand = DataSourceSummaryOperand.Min;
+        return summary;
+    }
+    public columnMax(name: string): IgcColumnSummaryDescription {
+        const summary = new IgcColumnSummaryDescription();
+        summary.field = name;
+        summary.operand = DataSourceSummaryOperand.Max;
+        return summary;
+    }
+
+    public columnAvg(name: string): IgcColumnSummaryDescription {
+        const summary = new IgcColumnSummaryDescription();
+        summary.field = name;
+        summary.operand = DataSourceSummaryOperand.Average;
+        return summary;
     }
 
     public addTreemap1(): any {

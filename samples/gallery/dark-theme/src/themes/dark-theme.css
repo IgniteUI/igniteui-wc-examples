@@ -4,9 +4,10 @@ html, body, #root {
 
   --mainStroke: #868685;
 
-  --mainSelection: #8fbffa; 
+  --mainSelection: rgba(143, 191, 250, 0.75); 
+  --mainHighlight: #3f91f5; 
 
-  --mainGroupping: #d0d0d0; 
+  --mainGroupping: #333232; 
 
   --mainBackgroundRBG: 31, 30, 30;
   /* --mainBackground: #1f1e1e;  */
@@ -62,18 +63,18 @@ html, body, #root {
   border-color: var(--mainStroke) !important;
   background-color: var(--mainBackground);
 
---header-text-color: var(--mainForeground);
-/* --header-text-color: var(--color1); */
+  --header-text-color: var(--mainForeground);
+  /* --header-text-color: var(--color1); */
 
---header-background: var(--mainBackground);
---header-separator-background: var(--mainStroke); 
+  --header-background: var(--mainBackground);
+  --header-separator-background: var(--mainStroke); 
 
---header-sort-indicator-color: var(--mainStroke);
-/* --header-sort-indicator-color: var(--color1); */
+  --header-sort-indicator-color: var(--mainStroke);
+  /* --header-sort-indicator-color: var(--color1); */
 
---row-hover-background: rgba(var(--mainForegroundRBG), 0.2);
---row-hover-text-color: rgba(var(--mainForegroundRBG), 1.0);
-/* --row-hover-text-color: var(--color1); */
+  --row-hover-background: rgba(var(--mainForegroundRBG), 0.2);
+  --row-hover-text-color: rgba(var(--mainForegroundRBG), 1.0);
+  /* --row-hover-text-color: var(--color1); */
 
   --row-header-separator-background: var(--color1);
   --row-header-row-separator-background: var(--color1);
@@ -90,9 +91,9 @@ html, body, #root {
   
   --section-header-background: var(--mainGroupping);
   /* --section-header-background: rgba(var(--mainForegroundRBG), 0.2); */
-  --section-header-text-color: rgba(var(--mainForegroundRBG), 1.0);
-  --section-header-selected-background: var(--mainGroupping);
+  --section-header-text-color: var(--mainForeground);
   --section-header-selected-text-color: var(--mainForeground);
+  --section-header-selected-background: var(--mainGroupping);
 
   --pinned-row-background: var(--mainBackground);
 
@@ -102,6 +103,48 @@ html, body, #root {
 
   --sticky-row-background: var(--color1);
   --last-sticky-row-background: var(--color1);
+
+  --deleted-text-color: red;
+  --column-options-icon-color: red;
+
+  
+--summary-root-background: var(--mainGroupping);
+--summary-root-label-text-color: var(--mainHighlight);
+--summary-root-value-text-color: var(--mainForeground);
+--summary-root-selected-background: var(--mainSelection);
+/* --summary-section-background: red;
+--summary-section-label-text-color: red;
+--summary-section-selected-background: red;
+--summary-section-value-text-color: red; */
+}
+
+
+/* ========== igc-data-grid Group-By Area ========== */
+
+/* group-by area container background and border */
+.igc-data-grid [style*="space-between"] {
+    background-color: var(--mainGroupping) !important;
+    border-color: var(--mainStroke) !important;
+}
+
+/* group-by area title text ("Drag a Column Here") and chip labels */
+.igc-data-grid [style*="space-between"] span {
+    color: rgba(var(--mainForegroundRBG), 0.8) !important;
+}
+
+/* group-by area column chips */
+.igc-data-grid [style*="space-between"] li[style] {
+    background-color: rgba(var(--mainForegroundRBG), 0.15) !important;
+}
+
+.igc-data-grid [style*="space-between"] li[style]:hover {
+    background-color: rgba(var(--mainForegroundRBG), 0.25) !important;
+}
+
+/* group-by area icon colors (sort arrows, remove buttons, group icon) */
+.igc-data-grid [style*="space-between"] svg {
+    color: var(--mainForeground) !important;
+    fill: currentColor !important;
 }
 
 .ig-scroll-container > div > div > span {
