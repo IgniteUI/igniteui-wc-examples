@@ -50,6 +50,9 @@ var sampleSources = [
 
     // including all samples for all components:
     igConfig.SamplesCopyPath + '/**/package.json',
+    
+    // igConfig.SamplesCopyPath + '/maps/**/package.json',
+    // igConfig.SamplesCopyPath + '/gallery/**/package.json',
 
     // uncomment to exclude samples for specific components:
     // '!' + igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
@@ -61,6 +64,7 @@ var sampleSources = [
     // '!' + igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/maps/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/gallery/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
