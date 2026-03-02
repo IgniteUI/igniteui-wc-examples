@@ -2,6 +2,7 @@
 import { RouterCharts } from "./samples/charts/router";
 import { RouterEditors } from "./samples/editors/router";
 import { RouterExcel } from "./samples/excel/router";
+import { RouterGallery } from "./samples/gallery/router";
 import { RouterGauges } from "./samples/gauges/router";
 import { RouterGrids } from "./samples/grids/router";
 import { RouterInputs } from "./samples/inputs/router";
@@ -104,6 +105,9 @@ export class Router {
         }
         else if (route.indexOf("/excel/") >= 0) {
             this.displaySample(await RouterExcel.get(route));
+        }
+        else if (route.indexOf("/gallery/") >= 0) {
+            this.displaySample(await RouterGallery.get(route));
         }
         else if (route.indexOf("/gauges/") >= 0) {
             this.displaySample(await RouterGauges.get(route));

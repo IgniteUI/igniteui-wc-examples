@@ -1,0 +1,271 @@
+/* this CSS defines dark theme for Infragistics Financial Chart */
+
+.ig-financial-chart {
+
+    /* creating variables that will be re-used in custom CSS properties below */
+    --color_semitransparent: rgba(255, 255, 255, 0.06);
+    --color_transparent: rgba(255, 255, 255, 0);
+    --color_001: #FFFFFF;
+    --color_002: #1E1E1E;
+    --color_003: #333333;
+    --color_004: #AAAAAA;
+    --color_005: #444444;
+    --color_006: #888888;
+    --color_007: #212121;
+    --color_008: #272727;
+    --color_009: #1B1B1B;
+    --color_010: #4F4F4F;
+    --color_011: #58358B;  /* accent color for SELECTED/PRESSED/CHECKED elements*/
+    --color_012: #777777;
+    --color_014: #2D2D2D;
+    --color_015: #3C3C3E;
+    --color_016: #DDDDDD;
+    --color_017: #666666;
+    --color_018: #191919;
+    --color_019: #C62828;  /* accent color for ERRORS/NEGATIVE elements*/
+
+    /* creating variables for series colors: */
+    --color_020: rgb(138, 88, 214); /* #7446B9; */
+    --color_021: rgb(159, 179, 40); /* #9FB328; */
+    --color_022: rgb(249, 98, 50);  /* #F96232; */ /* not used b/c too similar to NegativeBrushes; */
+    --color_023: rgb(60, 189, 201); /* #2E9CA6; */
+    --color_024: rgb(220, 63, 118); /* #DC3F76; */ /* not used b/c too similar to NegativeBrushes; */
+    --color_026: rgb(78, 98, 207);  /* #3F51B5; */
+    --color_025: rgb(255, 152, 0);  /* #FF9800; */ /* not used b/c too similar to NegativeBrushes; */
+    --color_027: rgb(84, 194, 90);  /* #439C47; */
+    --color_028: rgb(121, 85, 72);  /* #795548; */
+    --color_029: rgb(154, 154, 154);/* #9A9A9A; */
+
+    /* fill colors similar to series colors (color_020 - color_029) but with 30% opacity */
+    --fills_020: rgba(116, 70, 185, 0.3); /* #7446B9; */
+    --fills_021: rgba(159, 179, 40, 0.3); /* #9FB328; */
+    --fills_022: rgba(249, 98, 50, 0.3);  /* #F96232; */ /* not used b/c too similar to NegativeBrushes; */
+    --fills_023: rgba(46, 156, 166, 0.3); /* #2E9CA6; */
+    --fills_024: rgba(220, 63, 118, 0.3); /* #DC3F76; */ /* not used b/c too similar to NegativeBrushes; */
+    --fills_025: rgba(255, 152, 0, 0.3);  /* #FF9800; */ /* not used b/c too similar to NegativeBrushes; */
+    --fills_026: rgba(63, 81, 181, 0.3);  /* #3F51B5; */
+    --fills_027: rgba(67, 156, 71, 0.3);  /* #439C47; */
+    --fills_028: rgba(121, 85, 72, 0.3);  /* #795548; */
+    --fills_029: rgba(154, 154, 154, 0.3);/* #9A9A9A; */
+
+    /* variable with combined colors into a brush collection */
+    --color_series_positive: var(--color_020), var(--color_021), var(--color_023), var(--color_026), var(--color_027), var(--color_028), var(--color_029);
+    --color_series_overlay:  var(--fills_020), var(--fills_021), var(--fills_023), var(--fills_026), var(--fills_027), var(--fills_028), var(--fills_029);
+    --color_series_negative: var(--color_019);
+
+    --color_foreground: rgb(211, 211, 211);
+    --color_background: var(--color_018); /* #191919; */
+    --color_axis_lines: var(--color_017);
+    --color_axis_labels: var(--color_004);
+    --color_axis_titles: var(--color_004);
+
+    /* setting regular CSS properties supported by chart */
+    background: var(--color_background);
+    color: var(--color_foreground);
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    /* setting custom CSS properties for chart's title/subtitle */
+    --title-text-color: var(--color_016);
+    --title-top-margin: 5px;
+    --subtitle-text-color: var(--color_016);
+
+    /* setting custom CSS properties for axes labels/titles */
+    --x-axis-label-text-color: var(--color_axis_labels);
+    --y-axis-label-text-color: var(--color_axis_labels);
+    --x-axis-title-text-color: var(--color_axis_titles);
+    --y-axis-title-text-color: var(--color_axis_titles);
+    --x-axis-title-bottom-margin: 5;
+    --y-axis-title-left-margin: 5;
+
+    /* setting custom CSS properties for axes gridlines */
+    --x-axis-major-stroke: var(--color_axis_lines);
+    --y-axis-major-stroke: var(--color_axis_lines);
+    --x-axis-major-stroke-thickness: 0;
+    --y-axis-major-stroke-thickness: 1;
+    --x-axis-stroke: var(--color_axis_lines);
+    --y-axis-stroke: var(--color_axis_lines);
+    --y-axis-stroke-thickness: 0;
+    --x-axis-stroke-thickness: 1;
+
+    /* setting custom CSS properties for axes tickmarks */
+    --x-axis-tick-stroke: var(--color_axis_lines);
+    --y-axis-tick-stroke: var(--color_axis_lines);
+    --y-axis-tick-stroke-thickness: 1;
+    --x-axis-tick-stroke-thickness: 1;
+    --x-axis-tick-length: 7.5;
+    --y-axis-tick-length: 0;
+
+    /* ISSUE #1 FinancialChart does not support these properties. DarkTheme requires dark text color over bright background that matches series brush*/
+    --final-value-axis-annotation-text-color: black;
+    --crosshair-x-axis-annotation-text-color: black;
+    --crosshair-y-axis-annotation-text-color: black;
+
+    /* setting custom CSS properties for chart's series */
+    --thickness: 2;
+    --brushes:  var(--color_series_positive);
+    --outlines: var(--color_series_positive);
+    --marker-brushes:  var(--color_background);
+    --marker-outlines: var(--color_series_positive);
+
+    --trend-line-brushes: var(--color_series_positive);
+    --trend-line-thickness: 1;
+
+    --negative_brushes:  var(--color_series_negative);
+    --negative_outlines: var(--color_series_negative);
+
+    --volume-thickness: 2;
+    --volume-brushes:  var(--color_series_positive);
+    --volume-outlines: var(--color_series_positive);
+
+    --indicator-thickness: 2;
+    --indicator-brushes:  var(--color_series_positive);
+    --indicator-negative_brushes:  var(--color_series_negative);
+
+    /* legend properties: */
+    /* --financial-legend-background: var(--color_background); */
+    /* --financial-legend-text-color: var(--color_foreground); */
+    /* --financial-legend-background: #e95757; */
+    /* --financial-legend-text-color: #019701; */
+
+    /* ------------------------------------------------ */
+    /* toolbar general properties: */
+    --financial-toolbar-background: rgba(49, 49, 49, 0.75);
+    --financial-toolbar-border-thickness: 1px;
+    --financial-toolbar-border-color: rgb(66, 66, 66);
+    --financial-toolbar-border-color: rgb(85, 85, 85);
+
+    --financial-toolbar-font-family: "Verdana", Arial, sans-serif;
+    --financial-toolbar-font-size: 12px;
+    --financial-toolbar-text-color: #bebebe;
+
+    --financial-toolbar-icon-color: #888888;
+    --financial-toolbar-icon-color: #f83636;
+
+    /* toolbar indicators selection button: */
+    --financial-toolbar-indicators-background-color: transparent;
+    --financial-toolbar-indicators-label-normal-color: #bebebe;
+    --financial-toolbar-indicators-label-hover-color: #fdfcfc;
+
+    /* note brighter fill color for hovered icons is set inline svg: */
+    --financial-toolbar-indicators-hover-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2055%2055%27%20fill%3D%27%23EEEEEE%27%3E%3Crect%20x%3D%2746.32%27%20y%3D%2716.34%27%20width%3D%275.97%27%20height%3D%2738.47%27%2F%3E%3Cpolygon%20points%3D%2736.73%2054.8%2042.7%2054.8%2042.7%2020.71%2040.34%2020.71%2036.73%2023.92%2036.73%2054.8%27%2F%3E%3Cpolygon%20points%3D%2727.14%2030.07%2027.14%2054.8%2033.11%2054.8%2033.11%2027.15%2028.46%2031.28%2027.14%2030.07%27%2F%3E%3Cpolygon%20points%3D%2730.74%2020.71%2029.62%2020.71%2030.12%2021.22%2030.74%2020.71%27%2F%3E%3Cpolygon%20points%3D%2717.55%2026.49%2017.55%2054.8%2023.52%2054.8%2023.52%2026.76%2020.26%2023.78%2017.55%2026.49%27%2F%3E%3Cpolygon%20points%3D%277.96%2024.97%207.96%2026.49%209.48%2024.97%207.96%2024.97%27%2F%3E%3Cpolygon%20points%3D%277.96%2054.8%2013.93%2054.8%2013.93%2030.11%207.96%2036.08%207.96%2054.8%27%2F%3E%3Cpolygon%20points%3D%2737.29%200.2%2043.23%206.14%2030.12%2016.96%2021.68%208.51%202.5%2027.69%207.29%2032.48%2020.26%2019.52%2028.46%2027.02%2047.33%2010.23%2052.5%2015.4%2052.5%2014.57%2052.5%200.2%2037.29%200.2%27%2F%3E%3C%2Fsvg%3E");
+    --financial-toolbar-chart-bar-hover-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M%203%202%20L%203%204%20L%203%206%20L%203%207%20L%200%207%20L%200%209%20L%203%209%20L%203%2012%20L%205%2012%20L%205%209%20L%205%207%20L%205%206%20L%208%206%20L%208%204%20L%205%204%20L%205%202%20L%203%202%20ZM%2010%200%20L%2010%203%20L%2010%205%20L%2010%2010%20L%207%2010%20L%207%2012%20L%2010%2012%20L%2010%2015%20L%2012%2015%20L%2012%2012%20L%2012%2010%20L%2012%205%20L%2015%205%20L%2015%203%20L%2012%203%20L%2012%200%20L%2010%200%20Z%27%20fill%3D%27%23EEEEEE%27%20%2F%3E%3C%2Fsvg%3E");
+    --financial-toolbar-chart-auto-hover-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2016%2016%27%20%3E%3Cpath%20d%3D%27M%208%203%20L%208%2013%20L%2010%2013%20L%2010%2016%20L%2012%2016%20L%2012%2013%20L%2014%2013%20L%2014%203%20L%2012%203%20L%2012%200%20L%2010%200%20L%2010%203%20L%208%203%20ZM%200%205%20L%200%2012%20L%202%2012%20L%202%2015%20L%204%2015%20L%204%2012%20L%206%2012%20L%206%205%20L%204%205%20L%204%202%20L%202%202%20L%202%205%20L%200%205%20Z%27%20fill%3D%27%23EEEEEE%27%20%2F%3E%3C%2Fsvg%3E");
+    --financial-toolbar-chart-line-hover-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M%200%2011.3333%20L%201.6842%2013%20L%206.5%208.8125%20L%209.5313%2011.3438%20L%2016%205.5%20L%2014%203.5%20L%209.5313%208.1875%20L%206.5%205.625%20L%200%2011.3333%20Z%27%20fill%3D%27%23EEEEEE%27%20%2F%3E%3C%2Fsvg%3E");
+    --financial-toolbar-chart-candle-hover-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2016%2016%27%20%3E%3Cpath%20d%3D%27M%208%203%20L%208%2013%20L%2010%2013%20L%2010%2016%20L%2012%2016%20L%2012%2013%20L%2014%2013%20L%2014%203%20L%2012%203%20L%2012%200%20L%2010%200%20L%2010%203%20L%208%203%20ZM%200%205%20L%200%2012%20L%202%2012%20L%202%2015%20L%204%2015%20L%204%2012%20L%206%2012%20L%206%205%20L%204%205%20L%204%202%20L%202%202%20L%202%205%20L%200%205%20Z%27%20fill%3D%27%23EEEEEE%27%20%2F%3E%3C%2Fsvg%3E");
+    --financial-toolbar-chart-column-hover-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M%200%2016%20L%203%2016%20L%203%2011%20L%200%2011%20L%200%2016%20ZM%2011%2016%20L%2011%202%20L%208%202%20L%208%2016%20L%2011%2016%20ZM%2015%2016%20L%2015%204%20L%2012%204%20L%2012%2016%20L%2015%2016%20ZM%207%2016%20L%207%206%20L%204%206%20L%204%2016%20L%207%2016%20Z%27%20fill%3D%27%23EEEEEE%27%20%2F%3E%3C%2Fsvg%3E");
+
+    /* note darker fill color for normal/un-hovered icons is set inline svg: */
+    --financial-toolbar-indicators-normal-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2055%2055%27%20fill%3D%27%23BEBEBE%27%3E%3Crect%20x%3D%2746.32%27%20y%3D%2716.34%27%20width%3D%275.97%27%20height%3D%2738.47%27%2F%3E%3Cpolygon%20points%3D%2736.73%2054.8%2042.7%2054.8%2042.7%2020.71%2040.34%2020.71%2036.73%2023.92%2036.73%2054.8%27%2F%3E%3Cpolygon%20points%3D%2727.14%2030.07%2027.14%2054.8%2033.11%2054.8%2033.11%2027.15%2028.46%2031.28%2027.14%2030.07%27%2F%3E%3Cpolygon%20points%3D%2730.74%2020.71%2029.62%2020.71%2030.12%2021.22%2030.74%2020.71%27%2F%3E%3Cpolygon%20points%3D%2717.55%2026.49%2017.55%2054.8%2023.52%2054.8%2023.52%2026.76%2020.26%2023.78%2017.55%2026.49%27%2F%3E%3Cpolygon%20points%3D%277.96%2024.97%207.96%2026.49%209.48%2024.97%207.96%2024.97%27%2F%3E%3Cpolygon%20points%3D%277.96%2054.8%2013.93%2054.8%2013.93%2030.11%207.96%2036.08%207.96%2054.8%27%2F%3E%3Cpolygon%20points%3D%2737.29%200.2%2043.23%206.14%2030.12%2016.96%2021.68%208.51%202.5%2027.69%207.29%2032.48%2020.26%2019.52%2028.46%2027.02%2047.33%2010.23%2052.5%2015.4%2052.5%2014.57%2052.5%200.2%2037.29%200.2%27%2F%3E%3C%2Fsvg%3E");
+    --financial-toolbar-chart-bar-normal-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M%203%202%20L%203%204%20L%203%206%20L%203%207%20L%200%207%20L%200%209%20L%203%209%20L%203%2012%20L%205%2012%20L%205%209%20L%205%207%20L%205%206%20L%208%206%20L%208%204%20L%205%204%20L%205%202%20L%203%202%20ZM%2010%200%20L%2010%203%20L%2010%205%20L%2010%2010%20L%207%2010%20L%207%2012%20L%2010%2012%20L%2010%2015%20L%2012%2015%20L%2012%2012%20L%2012%2010%20L%2012%205%20L%2015%205%20L%2015%203%20L%2012%203%20L%2012%200%20L%2010%200%20Z%27%20fill%3D%27%23BEBEBE%27%20%2F%3E%3C%2Fsvg%3E");
+    --financial-toolbar-chart-auto-normal-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2016%2016%27%20%3E%3Cpath%20d%3D%27M%208%203%20L%208%2013%20L%2010%2013%20L%2010%2016%20L%2012%2016%20L%2012%2013%20L%2014%2013%20L%2014%203%20L%2012%203%20L%2012%200%20L%2010%200%20L%2010%203%20L%208%203%20ZM%200%205%20L%200%2012%20L%202%2012%20L%202%2015%20L%204%2015%20L%204%2012%20L%206%2012%20L%206%205%20L%204%205%20L%204%202%20L%202%202%20L%202%205%20L%200%205%20Z%27%20fill%3D%27%23BEBEBE%27%20%2F%3E%3C%2Fsvg%3E");
+    --financial-toolbar-chart-line-normal-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M%200%2011.3333%20L%201.6842%2013%20L%206.5%208.8125%20L%209.5313%2011.3438%20L%2016%205.5%20L%2014%203.5%20L%209.5313%208.1875%20L%206.5%205.625%20L%200%2011.3333%20Z%27%20fill%3D%27%23BEBEBE%27%20%2F%3E%3C%2Fsvg%3E");
+    --financial-toolbar-chart-candle-normal-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2016%2016%27%20%3E%3Cpath%20d%3D%27M%208%203%20L%208%2013%20L%2010%2013%20L%2010%2016%20L%2012%2016%20L%2012%2013%20L%2014%2013%20L%2014%203%20L%2012%203%20L%2012%200%20L%2010%200%20L%2010%203%20L%208%203%20ZM%200%205%20L%200%2012%20L%202%2012%20L%202%2015%20L%204%2015%20L%204%2012%20L%206%2012%20L%206%205%20L%204%205%20L%204%202%20L%202%202%20L%202%205%20L%200%205%20Z%27%20fill%3D%27%23BEBEBE%27%20%2F%3E%3C%2Fsvg%3E");
+    --financial-toolbar-chart-column-normal-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2016%2016%27%3E%3Cpath%20d%3D%27M%200%2016%20L%203%2016%20L%203%2011%20L%200%2011%20L%200%2016%20ZM%2011%2016%20L%2011%202%20L%208%202%20L%208%2016%20L%2011%2016%20ZM%2015%2016%20L%2015%204%20L%2012%204%20L%2012%2016%20L%2015%2016%20ZM%207%2016%20L%207%206%20L%204%206%20L%204%2016%20L%207%2016%20Z%27%20fill%3D%27%23BEBEBE%27%20%2F%3E%3C%2Fsvg%3E");
+
+    /* toolbar dropdown properties: */
+    --financial-toolbar-dropdown-background-color: rgb(49, 49, 49);
+    --financial-toolbar-dropdown-text-color:        #bebebe;
+    --financial-toolbar-dropdown-icon-normal-color: #bebebe;
+    --financial-toolbar-dropdown-item-check-color: #eeeeee;
+    --financial-toolbar-dropdown-item-hover-color: #eeeeee;
+    --financial-toolbar-dropdown-icon-hover-color: #eeeeee;
+    --financial-toolbar-dropdown-item-hover-background: transparent;
+    --financial-toolbar-dropdown-item-check-background: transparent;
+
+    --financial-toolbar-dropdown-top-offset: 2px;
+
+    /* toolbar scrollbar properties */
+    --financial-toolbar-scrollbar-width: 14px;
+    --financial-toolbar-scrollbar-background: #212121;
+    --financial-toolbar-scrollbar-track-background: #424242;
+    --financial-toolbar-scrollbar-track-radius: 1px;
+    --financial-toolbar-scrollbar-track-shadow-color:rgba(0,0,0, 0.0);
+    --financial-toolbar-scrollbar-track-shadow-radius: 6px;
+
+    --financial-toolbar-scrollbar-thumb-background: #6e6e6e;
+    --financial-toolbar-scrollbar-thumb-radius: 10px;
+    --financial-toolbar-scrollbar-thumb-shadow-color:rgba(0,0,0, 0.3);
+    --financial-toolbar-scrollbar-thumb-shadow-radius: 14px;
+
+    /* toolbar data range buttons: */
+    --financial-toolbar-range-button-hover-color: #eeeeee;
+    --financial-toolbar-range-button-hover-background: rgba(80, 79, 79, 0.9);
+    --financial-toolbar-range-button-check-color: #eeeeee;
+    --financial-toolbar-range-button-check-background: rgba(80, 79, 79, 0.9);
+
+    /* toolbar without text selection highting */
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    -o-user-select: none;
+    user-select: none;          /* Likely future */
+}
+
+.financialChartZoomSlider {
+    --color_001: #FFFFFF;
+    --color_002: #1E1E1E;
+    --color_003: #333333;
+    --color_004: #AAAAAA;
+    --color_005: #444444;
+    --color_006: #888888;
+    --color_007: #212121;
+    --color_008: #272727;
+    --color_009: #1B1B1B;
+    --color_010: #4F4F4F;
+    --color_012: #777777;
+    --color_014: #2D2D2D;
+    --color_015: #3C3C3E;
+    --color_016: #DDDDDD;
+    --color_017: #666666;
+    --color_018: #191919;
+    /* Whites with transparency */
+    --color_040: rgba(255, 255, 255, 0.90); /* 90% White */
+    --color_041: rgba(255, 255, 255, 0.75); /* 75% White */
+    --color_042: rgba(255, 255, 255, 0.60); /* 60% White */
+    --color_043: rgba(255, 255, 255, 0.45); /* 45% White */
+    --color_044: rgba(255, 255, 255, 0.30); /* 30% White */
+    --color_045: rgba(255, 255, 255, 0.05); /*  5% White */
+    --color_046: rgba(255, 255, 255, 0.00); /*  0% White */
+    --color_047: rgba(255, 255, 255, 0.15); /* 30% White */
+
+    /* Blacks with transparency */
+    --color_050: rgba(0, 0, 0, 0.90); /*90% Black */
+    --color_051: rgba(0, 0, 0, 0.75); /*75% Black */
+    --color_052: rgba(0, 0, 0, 0.60); /*60% Black */
+    --color_053: rgba(0, 0, 0, 0.45); /*45% Black */
+    --color_054: rgba(0, 0, 0, 0.30); /*30% Black */
+    --color_055: rgba(0, 0, 0, 0.15); /*15% Black */
+    --color_056: rgba(0, 0, 0, 0.10); /*10% Black */
+
+    color: #FFFFFF;
+    background: transparent;
+    --bar-brush:   var(--color_047);
+    --bar-outline: var(--color_047);
+
+    --range-thumb-brush:   var(--color_003);
+    --range-thumb-outline: var(--color_008);
+    --range-thumb-ridges-brush: var(--color_004);
+
+     --lower-shade-brush: var(--color_047);
+    --higher-shade-brush: var(--color_047);
+     --lower-shade-outline: var(--color_047);
+    --higher-shade-outline: var(--color_047);
+
+     --lower-thumb-brush: var(--color_003);
+    --higher-thumb-brush: var(--color_003);
+     --lower-thumb-outline: var(--color_003);
+    --higher-thumb-outline: var(--color_003);
+     --lower-thumb-ridges-brush: var(--color_004);
+    --higher-thumb-ridges-brush: var(--color_004);
+
+     --lower-callout-brush: var(--color_002);
+    --higher-callout-brush: var(--color_002);
+     --lower-callout-outline: var(--color_003);
+    --higher-callout-outline: var(--color_003);
+     --lower-callout-textColor: var(--color_004);
+    --higher-callout-textColor: var(--color_004);
+
+}
