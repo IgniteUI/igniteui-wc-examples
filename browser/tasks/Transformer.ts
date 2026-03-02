@@ -12,45 +12,45 @@ let igConfig = require('./gulp-config.js');
 
 // this class provides information about a sample that is implemented in /samples folder
 class SampleInfo {
-    public ComponentGroup: string;     // maps
-    public ComponentFolder: string;    // geo-map
-    public ComponentName: string;      // Geo Map
-    public ComponentID: string;        // GeoMap
+    public ComponentGroup: string | undefined;     // maps
+    public ComponentFolder: string | undefined;    // geo-map
+    public ComponentName: string | undefined;      // Geo Map
+    public ComponentID: string | undefined;        // GeoMap
 
-    public HtmlFilePath: string;        // /samples/maps/geo-map/binding-csv-points/index.html
-    public HtmlFileCode: string;        // html code of above file
-    public HtmlFileRoot: string;        // root code of above file
+    public HtmlFilePath: string | undefined;        // /samples/maps/geo-map/binding-csv-points/index.html
+    public HtmlFileCode: string | undefined;        // html code of above file
+    public HtmlFileRoot: string | undefined;        // root code of above file
 
-    // public SampleDirOnDisk: string;    // C:\repo\igniteui-web-comp-examples\samples\maps\geo-map\binding-csv-points\
-    public SampleFolderPath: string;     // /samples/maps/geo-map/binding-csv-points/
-    public SampleFilePath: string;       // /samples/maps/geo-map/binding-csv-points/src/MapBindingDataCSV.ts
-    public SampleRouteOld: string;       //         /maps/geo-map-binding-csv-points/
-    public SampleRouteNew: string;       //         /maps/geo-map/binding-csv-points/
-    public SampleFolderName: string;     //                       binding-csv-points
-    public SampleFileName: string;       // MapBindingDataCSV.ts
-    public SampleImportName: string;     // MapBindingDataCSV
-    public SampleImportPath: string;     // ./geo-map/binding-csv-points/MapBindingDataCSV
-    public SampleDisplayName: string;    // Map Binding Data CSV
-    public SampleFileSourcePath: string; // /src/MapBindingDataCSV.ts
-    public SampleFileSourceCode: string; // source code from /src/MapBindingDataCSV.ts file
-    public SampleFileBrowserCode: string; // source code for a sample in browser
-    public SampleFileSourceClass: string; // MapBindingDataCSV
-    public SampleFileOriginalClass: string; // MapBindingDataCSV
+    // public SampleDirOnDisk: string | undefined;    // C:\repo\igniteui-web-comp-examples\samples\maps\geo-map\binding-csv-points\
+    public SampleFolderPath: string | undefined;     // /samples/maps/geo-map/binding-csv-points/
+    public SampleFilePath: string | undefined;       // /samples/maps/geo-map/binding-csv-points/src/MapBindingDataCSV.ts
+    public SampleRouteOld: string | undefined;       //         /maps/geo-map-binding-csv-points/
+    public SampleRouteNew: string | undefined;       //         /maps/geo-map/binding-csv-points/
+    public SampleFolderName: string | undefined;     //                       binding-csv-points
+    public SampleFileName: string | undefined;       // MapBindingDataCSV.ts
+    public SampleImportName: string | undefined;     // MapBindingDataCSV
+    public SampleImportPath: string | undefined;     // ./geo-map/binding-csv-points/MapBindingDataCSV
+    public SampleDisplayName: string | undefined;    // Map Binding Data CSV
+    public SampleFileSourcePath: string | undefined; // /src/MapBindingDataCSV.ts
+    public SampleFileSourceCode: string | undefined; // source code from /src/MapBindingDataCSV.ts file
+    public SampleFileBrowserCode: string | undefined; // source code for a sample in browser
+    public SampleFileSourceClass: string | undefined; // MapBindingDataCSV
+    public SampleFileOriginalClass: string | undefined; // MapBindingDataCSV
 
-    public SampleImportLines: string[];
-    public SampleImportPackages: string[];
-    public SampleImportFiles: string[];
-    public SampleReadMe: string;       // content of ReadMe.md file generated for /samples/maps/geo-map/binding-csv-points/
-    public SampleFilePaths: string[];  // relative paths to files in sample folder: /samples/maps/geo-map/binding-csv-points/
-    public SampleFileNames: string[];  // names of files in sample folder: /samples/maps/geo-map/binding-csv-points/
+    public SampleImportLines: string[] | undefined;
+    public SampleImportPackages: string[] | undefined;
+    public SampleImportFiles: string[] | undefined;
+    public SampleReadMe: string | undefined;       // content of ReadMe.md file generated for /samples/maps/geo-map/binding-csv-points/
+    public SampleFilePaths: string[] | undefined;  // relative paths to files in sample folder: /samples/maps/geo-map/binding-csv-points/
+    public SampleFileNames: string[] | undefined;  // names of files in sample folder: /samples/maps/geo-map/binding-csv-points/
 
-    public DocsUrl: string             // https://infragistics.com/webcomponentssite/components/geo-map.html
+    public DocsUrl: string | undefined;             // https://infragistics.com/webcomponentssite/components/geo-map.html
 
-    public SandboxUrlView: string;     // https://codesandbox.io/embed/github/IgniteUI/igniteui-web-comp-examples/tree/master/samples/maps/geo-map/binding-csv-points
-    public SandboxUrlEdit: string;     //     https://codesandbox.io/s/github/IgniteUI/igniteui-web-comp-examples/tree/master/samples/maps/geo-map/binding-csv-points
-    public SandboxUrlShort: string;    //     https://codesandbox.io/s/github/IgniteUI/igniteui-web-comp-examples/tree/master/samples/maps/geo-map/binding-csv-points
+    public SandboxUrlView: string | undefined;     // https://codesandbox.io/embed/github/IgniteUI/igniteui-web-comp-examples/tree/master/samples/maps/geo-map/binding-csv-points
+    public SandboxUrlEdit: string | undefined;     //     https://codesandbox.io/s/github/IgniteUI/igniteui-web-comp-examples/tree/master/samples/maps/geo-map/binding-csv-points
+    public SandboxUrlShort: string | undefined;    //     https://codesandbox.io/s/github/IgniteUI/igniteui-web-comp-examples/tree/master/samples/maps/geo-map/binding-csv-points
 
-    public PackageFileContent: PackageJson;
+    public PackageFileContent: PackageJson | undefined;
     public PackageDependencies: PackageDependency[];
 
     constructor() {
@@ -62,16 +62,16 @@ class SampleInfo {
     }
 
     public isUsingFileName(name: string): boolean {
-        return this.SampleFileNames.includes(name);
+        return this.SampleFileNames ? this.SampleFileNames.includes(name) : false;
     }
 }
 
 class SampleSourceBlock {
-    public ImportLines: string[];
-    public ImportFiles: string[];
-    public ImportPackages: string[];
-    public ImportCSS: string[];
-    public OtherLines: string[];
+    public ImportLines: string[] | undefined;
+    public ImportFiles: string[] | undefined;
+    public ImportPackages: string[] | undefined;
+    public ImportCSS: string[] | undefined;
+    public OtherLines: string[] | undefined;
 }
 
 class Transformer {
@@ -98,7 +98,7 @@ class Transformer {
     }
 
     public static sort(samples: SampleInfo[]): void {
-        samples.sort((a, b) => a.SampleFolderPath > b.SampleFolderPath ? 1 : -1);
+        samples.sort((a, b) => (a.SampleFolderPath ?? "") > (b.SampleFolderPath ?? "") ? 1 : -1);
     }
 
     public static printNames(samples: SampleInfo[]): void {
@@ -921,10 +921,10 @@ class Transformer {
 
 class SampleGroup {
 
-    public Name: string;
-    public RouterClass: string;
-    public RouterFile: string;
-    public RouterImport: string;
+    public Name: string | undefined;
+    public RouterClass: string | undefined;
+    public RouterFile: string | undefined;
+    public RouterImport: string | undefined;
 
     public Components: SampleComponent[];
 
@@ -935,8 +935,8 @@ class SampleGroup {
 
 class SampleComponent {
 
-    public Name: string;
-    public Group: string;
+    public Name: string | undefined;
+    public Group: string | undefined;
     public Samples: SampleInfo[];
 
     constructor() {
@@ -998,8 +998,8 @@ class PackageJson {
 }
 
 class PackageDependency {
-    public name: string;
-    public version: string;
+    public name: string | undefined;
+    public version: string | undefined;;
 
     public samples?: SampleInfo[];
 
