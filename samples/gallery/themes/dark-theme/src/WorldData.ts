@@ -115,11 +115,25 @@ export class WorldData {
 
     public static onShapeLoaded(sds: IgcShapeDataSource, e: any) {
         // console.log("WorldData onShapeLoaded");
+                
+        this.countries = [];
+        this.regions = [];
+        this.continents = [];
         
-        const shapeRecords = this.sds.getPointData(); 
+        this.top10EuroCountries = [];
+        this.top10AsiaCountries = [];
+        this.top10AfricaCountries = [];
+        this.top10NorthAmericaCountries = [];
+        this.top10SouthAmericaCountries = [];
+        this.top10OceaniaCountries = [];
+
+        this.continentTreeNodes = [];
+        this.regionTreeNodes = []; 
 
         let regionsLookup: any = {};
         let continentsLookup: any = {};
+ 
+        const shapeRecords = this.sds.getPointData(); 
  
         // parsing shapefile data
         for (const record of shapeRecords) {
@@ -286,5 +300,3 @@ export class WorldData {
         }
     }
 }
-
-  

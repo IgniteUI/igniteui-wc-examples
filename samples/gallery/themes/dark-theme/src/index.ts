@@ -42,8 +42,8 @@ import './index.css'
  
 import './tooltip-layout.css' 
 
-// import './dark-theme.css' 
-import './light-theme.css'   
+import './dark-theme.css' 
+// import './light-theme.css'   
  
 ModuleManager.register(
     IgcDataGridModule,
