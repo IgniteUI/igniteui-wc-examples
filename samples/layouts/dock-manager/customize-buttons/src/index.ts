@@ -1,10 +1,12 @@
 import './DockManagerStyles.css'
-import { defineCustomElements } from 'igniteui-dockmanager/loader';
-import { IgcDockManagerPaneType } from 'igniteui-dockmanager';
-import { IgcSplitPaneOrientation } from 'igniteui-dockmanager';
-import { IgcDockManagerComponent } from 'igniteui-dockmanager';
+import {
+    IgcDockManagerPaneType,
+    IgcSplitPaneOrientation,
+    IgcDockManagerComponent,
+    defineComponents
+} from 'igniteui-dockmanager';
 
-defineCustomElements();
+defineComponents(IgcDockManagerComponent);
 
 export class DockManagerButtonsCustomization {
 

@@ -1,9 +1,14 @@
 import "./DockManagerStyles.css";
 import { MenuComponent } from "./menu-component";
-import { defineCustomElements } from "igniteui-dockmanager/loader";
-import { IgcContentPane, IgcDockManagerComponent, IgcDockManagerLayout, IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
+import {
+    IgcContentPane,
+    IgcDockManagerComponent,
+    IgcDockManagerLayout,
+    IgcDockManagerPaneType,
+    IgcSplitPaneOrientation,
+    defineComponents as defineDockManagerComponents
+} from "igniteui-dockmanager";
 
-defineCustomElements();
 window.customElements.define("menu-component", MenuComponent);
 
 import {
@@ -44,6 +49,8 @@ defineComponents(
     IgcIconButtonComponent,
     IgcIconComponent
 );
+
+defineDockManagerComponents(IgcDockManagerComponent)
 
 export class DockManagerStylePanes {
     private dockManager: IgcDockManagerComponent;
@@ -227,7 +234,7 @@ export class DockManagerStylePanes {
         }
     };
 
-    layouts:IgcDockManagerLayout[] = [];
+    layouts: IgcDockManagerLayout[] = [];
     index = 0;
     newIndex = -1;
 

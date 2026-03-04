@@ -1,13 +1,13 @@
 import './DockManagerStyles.css'
-import { defineCustomElements } from 'igniteui-dockmanager/loader';
 import {
     IgcDockManagerPaneType,
     IgcSplitPane,
     IgcSplitPaneOrientation,
-    IgcDockManagerComponent
+    IgcDockManagerComponent,
+    defineComponents
 } from 'igniteui-dockmanager';
 
-defineCustomElements();
+defineComponents(IgcDockManagerComponent);
 
 export class DockManagerHidePaneHeaders {
     private dockManager: IgcDockManagerComponent;

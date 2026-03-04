@@ -1,0 +1,35 @@
+/* ============ layout for custom tooltip  ============ */
+
+.tooltip-box {
+    display: table;
+    table-layout: fixed;
+    font-size: 0.75rem;
+    font-weight: normal; 
+    font-family: 'Titillium Web', Verdana, Tahoma, sans-serif;
+}
+
+.tooltip-title {
+    display: table-caption; 
+    caption-side: top;
+    text-align: center;
+    font-weight: bold;
+    width: 100%; 
+}
+
+.tooltip-row {
+    display: table-row;
+}
+
+.tooltip-val {
+    display: table-cell;
+    text-align: right;
+    font-weight: bold;
+    padding-left: 0.5rem;
+}
+
+.tooltip-txt {
+    display: table-cell;
+    text-align: left;
+}
+
+ 

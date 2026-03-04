@@ -1,10 +1,13 @@
 import './DockManagerStyles.css'
-import { defineCustomElements } from 'igniteui-dockmanager/loader';
-import { IgcDockManagerPaneType } from 'igniteui-dockmanager';
-import { IgcSplitPaneOrientation } from 'igniteui-dockmanager';
-import { IgcDockManagerComponent, IgcContentPane } from 'igniteui-dockmanager';
+import {
+    IgcDockManagerPaneType,
+    IgcSplitPaneOrientation,
+    IgcDockManagerComponent,
+    IgcContentPane,
+    defineComponents
+} from 'igniteui-dockmanager';
 
-defineCustomElements();
+defineComponents(IgcDockManagerComponent);
 
 // <div class='dockManagerFull' slot='financialChartContainer'  >
 // <iframe class='dockManagerFrame' seamless frameBorder='0'

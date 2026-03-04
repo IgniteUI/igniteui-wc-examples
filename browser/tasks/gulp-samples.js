@@ -50,6 +50,9 @@ var sampleSources = [
 
     // including all samples for all components:
     igConfig.SamplesCopyPath + '/**/package.json',
+    
+    // igConfig.SamplesCopyPath + '/maps/**/package.json',
+    // igConfig.SamplesCopyPath + '/gallery/**/package.json',
 
     // uncomment to exclude samples for specific components:
     // '!' + igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
@@ -61,6 +64,7 @@ var sampleSources = [
     // '!' + igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/maps/**/package.json',
+    // '!' + igConfig.SamplesCopyPath + '/gallery/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
     // '!' + igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
@@ -999,23 +1003,24 @@ function updateIG(cb) {
     // { version: "3.2.12",  name:               "igniteui-webcomponents-core" },   // PUBLIC NPM
     let packageUpgrades = [
         // these IG packages are often updated:
-        { version: "6.3.1", name: "igniteui-webcomponents-core" },
-        { version: "6.3.1", name: "igniteui-webcomponents-charts" },
-        { version: "6.3.1", name: "igniteui-webcomponents-excel" },
-        { version: "6.3.1", name: "igniteui-webcomponents-gauges" },
-        { version: "6.3.1", name: "igniteui-webcomponents-data-grids" },
-        { version: "6.3.1", name: "igniteui-webcomponents-inputs" },
-        { version: "6.3.1", name: "igniteui-webcomponents-layouts" },
-        { version: "6.3.1", name: "igniteui-webcomponents-maps" },
-        { version: "6.3.1", name: "igniteui-webcomponents-spreadsheet-chart-adapter" },
-        { version: "6.3.1", name: "igniteui-webcomponents-spreadsheet" },
-        { version: "6.3.1", name: "igniteui-webcomponents-datasources" },
-        { version: "6.3.1", name: "igniteui-webcomponents-dashboards" },
+        { version: "7.0.0", name: "igniteui-webcomponents-core" },
+        { version: "7.0.0", name: "igniteui-webcomponents-charts" },
+        { version: "7.0.0", name: "igniteui-webcomponents-excel" },
+        { version: "7.0.0", name: "igniteui-webcomponents-gauges" },
+        { version: "7.0.0", name: "igniteui-webcomponents-data-grids" },
+        { version: "7.0.0", name: "igniteui-webcomponents-inputs" },
+        { version: "7.0.0", name: "igniteui-webcomponents-layouts" },
+        { version: "7.0.0", name: "igniteui-webcomponents-maps" },
+        { version: "7.0.0", name: "igniteui-webcomponents-spreadsheet-chart-adapter" },
+        { version: "7.0.0", name: "igniteui-webcomponents-spreadsheet" },
+        { version: "7.0.0", name: "igniteui-webcomponents-datasources" },
+        { version: "7.0.0", name: "igniteui-webcomponents-dashboards" },
+        { version: "^1.0.2", name: "igniteui-i18n-resources" },
         // these IG packages are sometimes updated:
-        { version: "^0.0.1", name: "igniteui-grid-lite" },
-        { version: "^6.2.2", name: "igniteui-webcomponents-grids" },
-        { version: "^6.3.6" , name: "igniteui-webcomponents" },
-        { version: "^1.18.0", name: "igniteui-dockmanager" },
+        { version: "^0.6.0", name: "igniteui-grid-lite" },
+        { version: "^7.0.0", name: "igniteui-webcomponents-grids" },
+        { version: "^7.0.0" , name: "igniteui-webcomponents" },
+        { version: "^2.0.1", name: "igniteui-dockmanager" },
         // other packages:
         { version: "^5.101.3", name: "webpack" },
         { version: "^6.0.1", name: "webpack-cli" },

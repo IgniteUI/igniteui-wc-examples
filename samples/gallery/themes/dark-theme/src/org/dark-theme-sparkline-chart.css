@@ -1,0 +1,74 @@
+/* this CSS defines dark theme for Infragistics Sparkline */
+
+.ig-sparkline {
+    margin: 0px;
+    padding: 0px;
+
+    /* creating variables which will be re-used in custom CSS properties below */
+    --color_semitransparent: rgba(255, 255, 255, 0.06);
+    --color_transparent: rgba(255, 255, 255, 0);
+    --color_001: #FFFFFF;
+    --color_002: #1E1E1E;
+    --color_003: #333333;
+    --color_004: #AAAAAA;
+    --color_005: #444444;
+    --color_006: #888888;
+    --color_007: #212121;
+    --color_008: #272727;
+    --color_009: #1B1B1B;
+    --color_010: #4F4F4F;
+    --color_011: #58358B;
+    --color_012: #777777;
+    --color_014: #2D2D2D;
+    --color_015: #3C3C3E;
+    --color_016: #DDDDDD;
+    --color_017: #666666;
+    --color_018: #191919;
+    --color_019: #C62828;
+
+    --color_040: rgba(255, 255, 255, 0.90);
+    --color_041: rgba(255, 255, 255, 0.75);
+    --color_042: rgba(255, 255, 255, 0.60);
+    --color_043: rgba(255, 255, 255, 0.45);
+    --color_044: rgba(255, 255, 255, 0.30);
+    --color_045: rgba(255, 255, 255, 0.15);
+    --color_046: rgba(255, 255, 255, 0.0);
+
+    /* variables used for series colors: */
+    --color_020: rgb(138, 88, 214); /* #7446B9; */
+    --color_021: rgb(159, 179, 40); /* #9FB328; */
+    --color_022: rgb(249, 98, 50);  /* #F96232; */
+    --color_023: rgb(60, 189, 201); /* #2E9CA6; */
+    --color_024: rgb(220, 63, 118); /* #DC3F76; */
+    --color_025: rgb(255, 152, 0);  /* #FF9800; */
+    --color_026: rgb(78, 98, 207);  /* #3F51B5; */
+    --color_027: rgb(84, 194, 90);  /* #439C47; */
+    --color_028: rgb(121, 85, 72);  /* #795548; */
+    --color_029: rgb(154, 154, 154);/* #9A9A9A;  */
+
+    /* variables shared between multiple custom CSS properties */
+    --color_foreground: rgb(211, 211, 211);
+    --color_background:  var(--color_018); /* #191919; */
+
+    /* setting regular CSS properties supported by chart */
+    background: var(--color_background);
+    color: var(--color_foreground);
+
+    --line-thickness: 2;
+
+    --brush: var(--color_020);
+    --negative-brush: var(--color_019);
+
+    --normal-range-fill: var(--color_045);
+    --horizontal-axis-brush: var(--color_004);
+    --vertical-axis-brush:   var(--color_004);
+    --trend-line-brush:      var(--color_043);
+    --trend-line-thickness: 2;
+
+    --negative-marker-brush: var(--color_019);
+    --high-marker-brush:     var(--color_023);
+    --low-marker-brush:      var(--color_025);
+    --first-marker-brush:    var(--color_023);
+    --last-marker-brush:     var(--color_024);
+    --marker-brush:          var(--color_021);
+}

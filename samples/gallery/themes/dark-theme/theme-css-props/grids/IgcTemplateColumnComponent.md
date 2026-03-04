@@ -1,0 +1,24 @@
+# IgcTemplateColumnComponent
+
+
+- column-options-icon-color
+- deleted-text-color
+- edit-opacity
+- row-hover-background
+- row-hover-text-color
+- selected-background
+- suffix-icon-fill
+- suffix-icon-stroke
+- suffix-text-color
+- activation-border
+- background
+- bar-background
+- bar-corner-radius
+- bar-outline
+- bar-stroke-thickness
+- border
+- error-border
+- last-sticky-row-background
+- pinned-row-background
+- sticky-row-background
+- text-color

@@ -1,9 +1,13 @@
 console.log(">> webpack config ...");
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+import webpack from 'webpack';
+import path from 'node:path';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { fileURLToPath } from 'node:url';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
+
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
 const isLegacy = !!process.env.legacy && !(process.env.legacy == "false");
@@ -11,9 +15,8 @@ console.log(">> webpack nodeEnv=" + nodeEnv);
 console.log(">> webpack isProd=" + isProd);
 console.log(">> webpack isLegacy=" + isLegacy);
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
-const CopyPlugin = require('copy-webpack-plugin');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const plugins = [
   new CleanWebpackPlugin(),
@@ -61,7 +64,7 @@ const presets = [
   "@babel/preset-typescript"
 ];
 
-var config = {
+export default {
   stats: {
      errorDetails: true,
      children: true
@@ -136,6 +139,26 @@ var config = {
             'postcss-loader'
         ]
       },
+      {
+        test: /\.scss$/,
+        sideEffects: true,
+        use: [
+            'style-loader',
+            'css-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                implementation: 'sass',
+                sassOptions: {
+                  silenceDeprecations: ['color-functions', 'if-function'],
+                  loadPaths: [
+                    path.resolve(__dirname, 'node_modules'),
+                  ]
+                }
+              }
+            }
+        ]
+      },
       { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
       { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
       { test: /\.xml$/, use: ['xml-loader'] }
@@ -144,6 +167,9 @@ var config = {
   resolve: {
     mainFields: ['esm2015', 'module', 'main'],
     extensions: ['.ts', '.js', '.json'],
+    alias: {
+      'igniteui-theming': path.resolve(__dirname, 'node_modules/igniteui-theming')
+    },
     plugins: [new TsconfigPathsPlugin({
       configFile: './tsconfig.json',
       extensions: ['.ts', '.js'],
@@ -151,6 +177,12 @@ var config = {
     })]
   },
   plugins: plugins,
+  watchOptions: {
+    ignored: [
+      '**/node_modules',
+      path.resolve(__dirname, 'samples'),
+    ],
+  },
   devServer: {
     static: path.join(__dirname, 'browser/dist/'),
     compress: true,
@@ -251,5 +283,3 @@ var config = {
     }
   }
 };
-
-module.exports = config;

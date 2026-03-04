@@ -1,0 +1,20 @@
+# IgcRadialGaugeComponent 
+
+- `backing-brush`
+- `backing-outline`
+- `font-brush`
+- `highlight-label-brush`
+- `minor-tick-brush`
+- `minor-tick-end-extent`
+- `minor-tick-start-extent`
+- `minor-tick-stroke-thickness`
+- `needle-brush`
+- `needle-outline`
+- `needle-pivot-brush`
+- `needle-pivot-outline`
+- `range-brushes`
+- `range-outlines`
+- `scale-brush`
+- `subtitle-brush`
+- `tick-brush`
+- `title-brush`
