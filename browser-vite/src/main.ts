@@ -46,7 +46,7 @@ const errorHtml = (sampleName: string, error: unknown) => `
     <h2>Error Loading Sample</h2>
     <p>Could not load sample: ${sampleName}</p>
     <pre style="text-align: left; background: #f5f5f5; padding: 20px; margin-top: 20px; overflow: auto;">${String(
-      error
+      error,
     )}</pre>
   </div>
 `;
@@ -65,7 +65,7 @@ function normalizePath(path: string): string {
 }
 
 function groupSamples(
-  samples: SampleInfo[]
+  samples: SampleInfo[],
 ): Record<string, Record<string, SampleInfo[]>> {
   const grouped: Record<string, Record<string, SampleInfo[]>> = {};
 
@@ -96,33 +96,42 @@ class SamplesBrowser {
   private sampleModules = import.meta.glob("/src/samples/**/index.ts");
   private isEmbeddedMode = false;
   private uiInitialized = false;
+  private currentSampleStyles: HTMLElement[] = [];
+  private baselineStyleCount = 0;
 
   constructor() {
     this.appContainer = document.getElementById("app")!;
     this.router = new Navigo(import.meta.env.BASE_URL, { hash: false });
     this.determineInitialMode();
     this.loadMetadata();
+
+    // Mark and count baseline styles after initial render
+    // Use setTimeout to ensure styles are loaded
+    setTimeout(() => {
+      this.markBaselineStyles();
+    }, 0);
   }
 
   private determineInitialMode() {
     const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     const fullPath = window.location.pathname;
     const pathWithoutBase = fullPath.replace(baseUrl, "") || "/";
-    
+
     // Check if path starts with /samples/ (full browser mode)
-    const isFullBrowserMode = pathWithoutBase === "/" || pathWithoutBase.startsWith("/samples/");
+    const isFullBrowserMode =
+      pathWithoutBase === "/" || pathWithoutBase.startsWith("/samples/");
     this.isEmbeddedMode = !isFullBrowserMode;
-    
+
     // Inject appropriate HTML structure
     if (this.isEmbeddedMode) {
       this.appContainer.innerHTML = embeddedBrowserHtml;
     } else {
       this.appContainer.innerHTML = fullBrowserHtml;
     }
-    
+
     // Cache element references based on mode
     this.sampleContainer = document.getElementById("sample-container");
-    
+
     if (!this.isEmbeddedMode) {
       this.navSidebar = document.getElementById("nav-sidebar");
       this.navContent = document.getElementById("nav-content");
@@ -151,11 +160,11 @@ class SamplesBrowser {
     }
 
     this.setupRouter();
-    
+
     if (!this.isEmbeddedMode) {
       this.setupRoutePreservation();
     }
-    
+
     this.restoreOrResolveRoute();
   }
 
@@ -171,15 +180,15 @@ class SamplesBrowser {
   private restoreOrResolveRoute() {
     const savedRoute = sessionStorage.getItem("vite-current-route");
     const currentLocation = this.router.getCurrentLocation();
-    const currentPath = currentLocation.url || "";
     const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, ""); // Remove trailing slash
     const fullPath = window.location.pathname;
-    
+
     // Check if we're at the root (accounting for base URL)
-    const isRoot = fullPath === baseUrl + "/" || 
-                   fullPath === baseUrl || 
-                   fullPath === "/" || 
-                   fullPath.endsWith("/index.html");
+    const isRoot =
+      fullPath === baseUrl + "/" ||
+      fullPath === baseUrl ||
+      fullPath === "/" ||
+      fullPath.endsWith("/index.html");
 
     if (savedRoute && isRoot) {
       sessionStorage.removeItem("vite-current-route");
@@ -192,7 +201,7 @@ class SamplesBrowser {
 
   private buildNavigation() {
     if (!this.navContent) return;
-    
+
     const groupedSamples = groupSamples(this.samples);
 
     for (const [group, categories] of Object.entries(groupedSamples)) {
@@ -210,10 +219,10 @@ class SamplesBrowser {
   private createCategoryNav(
     group: string,
     category: string,
-    samples: SampleInfo[]
+    samples: SampleInfo[],
   ) {
     if (!this.navContent) return;
-    
+
     const categoryDiv = document.createElement("div");
     categoryDiv.className = "nav-category";
     categoryDiv.textContent = formatName(category);
@@ -254,7 +263,7 @@ class SamplesBrowser {
     this.router.on("/samples/:category/:subcategory/:sample", ({ data }) => {
       this.setEmbeddedMode(false);
       this.loadSampleByPath(
-        `${data.category}/${data.subcategory}/${data.sample}`
+        `${data.category}/${data.subcategory}/${data.sample}`,
       );
     });
 
@@ -262,7 +271,7 @@ class SamplesBrowser {
     this.router.on("/:category/:subcategory/:sample", ({ data }) => {
       this.setEmbeddedMode(true);
       this.loadSampleByPath(
-        `${data.category}/${data.subcategory}/${data.sample}`
+        `${data.category}/${data.subcategory}/${data.sample}`,
       );
     });
 
@@ -274,9 +283,12 @@ class SamplesBrowser {
 
   private setEmbeddedMode(enabled: boolean) {
     if (this.isEmbeddedMode === enabled) return; // Already in the correct mode
-    
+
+    // Clean up sample styles when switching modes
+    this.cleanupSampleStyles();
+
     this.isEmbeddedMode = enabled;
-    
+
     // Re-inject the appropriate HTML structure
     if (enabled) {
       this.appContainer.innerHTML = embeddedBrowserHtml;
@@ -296,7 +308,7 @@ class SamplesBrowser {
         });
       }
     }
-    
+
     // Update element references
     this.sampleContainer = document.getElementById("sample-container");
     this.sampleTitle = document.getElementById("sample-title");
@@ -319,24 +331,50 @@ class SamplesBrowser {
     if (this.sampleTitle) {
       this.sampleTitle.textContent = formatName(sample.name);
     }
-    
+
     this.updateActiveNavItem(normalizedPath);
-    
+
+    // Remove styles from previous sample
+    this.cleanupSampleStyles();
+
+    // Clean up the previous sample by replacing the container
+    // This removes all event listeners and DOM state
     if (this.sampleContainer) {
+      const parent = this.sampleContainer.parentNode;
+      if (parent) {
+        const newContainer = document.createElement("div");
+        newContainer.id = "sample-container";
+        parent.replaceChild(newContainer, this.sampleContainer);
+        this.sampleContainer = newContainer;
+      }
+
       this.sampleContainer.innerHTML = loadingHtml;
     }
 
     try {
       // Render HTML content from the sample
       if (this.sampleContainer) {
-        this.sampleContainer.innerHTML = sample.htmlContent || defaultSampleHtml;
+        this.sampleContainer.innerHTML =
+          sample.htmlContent || defaultSampleHtml;
       }
 
       // Load and execute the sample module
       const modulePath = `/src/samples/${normalizedPath}/index.ts`;
 
       if (this.sampleModules[modulePath]) {
-        await this.sampleModules[modulePath]();
+        // Import the module and call its initialize function
+        // Each navigation will call initialize() again, creating a fresh instance
+        const module = await this.sampleModules[modulePath]();
+        if (module && typeof module.initialize === "function") {
+          module.initialize();
+        } else {
+          console.warn(
+            `Sample module at ${modulePath} does not export an initialize function`,
+          );
+        }
+
+        // Track new styles added by this sample (anything beyond baseline)
+        this.trackNewStyles();
       } else {
         throw new Error(`Module not found: ${modulePath}`);
       }
@@ -348,16 +386,61 @@ class SamplesBrowser {
     }
   }
 
+  private markBaselineStyles() {
+    // Mark all current styles as baseline (app styles)
+    const allStyles = document.head.querySelectorAll(
+      'style, link[rel="stylesheet"]',
+    );
+    allStyles.forEach((styleEl) => {
+      (styleEl as HTMLElement).setAttribute("data-baseline-style", "true");
+    });
+    this.baselineStyleCount = allStyles.length;
+  }
+
+  private getDocumentStyles(): HTMLElement[] {
+    const styles: HTMLElement[] = [];
+    document.head
+      .querySelectorAll('style, link[rel="stylesheet"]')
+      .forEach((el) => {
+        styles.push(el as HTMLElement);
+      });
+    return styles;
+  }
+
+  private trackNewStyles() {
+    // Get all current styles
+    const allStyles = this.getDocumentStyles();
+    this.currentSampleStyles = [];
+
+    // Track only styles that don't have the baseline marker
+    allStyles.forEach((styleEl) => {
+      if (!styleEl.hasAttribute("data-baseline-style")) {
+        this.currentSampleStyles.push(styleEl);
+      }
+    });
+  }
+
+  private cleanupSampleStyles() {
+    // Remove all styles marked as sample-specific
+    this.currentSampleStyles.forEach((styleEl) => {
+      styleEl.remove();
+    });
+    this.currentSampleStyles = [];
+  }
+
   private updateActiveNavItem(normalizedPath: string) {
     document.querySelectorAll(".nav-sample").forEach((el) => {
       const elPath = normalizePath(
-        (el as HTMLElement).dataset.samplePath ?? ""
+        (el as HTMLElement).dataset.samplePath ?? "",
       );
       el.classList.toggle("active", elPath === normalizedPath);
     });
   }
 
   private showWelcome() {
+    // Clean up any sample styles when returning to welcome screen
+    this.cleanupSampleStyles();
+
     if (this.sampleTitle) {
       this.sampleTitle.textContent = "Select a sample from the sidebar";
     }
