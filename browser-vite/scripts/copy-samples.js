@@ -33,7 +33,7 @@ async function copyDirectory(src, dest) {
       } else {
         await fs.copyFile(srcPath, destPath);
       }
-    })
+    }),
   );
 }
 
@@ -98,10 +98,38 @@ async function findSamples(dir, basePath = "") {
 
       // Otherwise, recurse into subdirectory
       return findSamples(fullPath, relativePath);
-    })
+    }),
   );
 
   return nestedSamples.flat();
+}
+
+async function wrapSampleExport(filePath) {
+  try {
+    const content = await fs.readFile(filePath, "utf-8");
+
+    // Find the "new ClassName();" pattern at the end of the file
+    const newInstanceRegex = /^new\s+(\w+)\s*\(\s*\)\s*;?\s*$/m;
+    const match = content.match(newInstanceRegex);
+
+    if (!match) {
+      console.warn(`No "new ClassName()" found in ${filePath}`);
+      return;
+    }
+
+    const className = match[1];
+    const fullMatch = match[0];
+
+    // Replace with initialization function
+    const wrappedExport = `export function initialize() {
+    return new ${className}();
+}\n`;
+
+    const updatedContent = content.replace(newInstanceRegex, wrappedExport);
+    await fs.writeFile(filePath, updatedContent, "utf-8");
+  } catch (error) {
+    console.error(`Error wrapping sample export for ${filePath}:`, error);
+  }
 }
 
 async function processSample(sample) {
@@ -115,6 +143,12 @@ async function processSample(sample) {
 
   // Copy sample source files
   await copyDirectory(srcPath, targetPath);
+
+  // Wrap the initialization in exported function
+  const indexTsPath = path.join(targetPath, "index.ts");
+  if (existsSync(indexTsPath)) {
+    await wrapSampleExport(indexTsPath);
+  }
 
   // Build metadata
   try {

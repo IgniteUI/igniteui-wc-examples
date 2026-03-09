@@ -1,196 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ignite UI Web Components - Samples Browser (Vite)</title>
-  <link rel="shortcut icon" href="https://static.infragistics.com/xplatform/images/browsers/wc.png">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap">
-  <link rel="stylesheet" href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Kanit', sans-serif;
-      height: 100vh;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-    }
-
-    #app {
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    #nav-sidebar {
-      width: 280px;
-      background: #1e1e1e;
-      color: #fff;
-      overflow-y: auto;
-      flex-shrink: 0;
-      transition: margin-left 0.3s;
-    }
-
-    #nav-sidebar.hidden {
-      margin-left: -280px;
-    }
-
-    #nav-header {
-      padding: 20px;
-      background: #252526;
-      border-bottom: 1px solid #333;
-    }
-
-    #nav-header h1 {
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
-
-    #nav-header p {
-      font-size: 12px;
-      color: #888;
-    }
-
-    .nav-group {
-      padding: 15px 20px 5px;
-      font-size: 12px;
-      text-transform: uppercase;
-      color: #888;
-      font-weight: bold;
-    }
-
-    .nav-category {
-      padding: 10px 20px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      border-left: 3px solid transparent;
-      transition: all 0.2s;
-    }
-
-    .nav-category:hover {
-      background: #2a2a2a;
-      border-left-color: #0078d4;
-    }
-
-    .nav-category.expanded {
-      background: #2a2a2a;
-      border-left-color: #0078d4;
-    }
-
-    .nav-samples {
-      display: none;
-      background: #252526;
-    }
-
-    .nav-samples.visible {
-      display: block;
-    }
-
-    .nav-sample {
-      padding: 8px 20px 8px 40px;
-      cursor: pointer;
-      font-size: 13px;
-      color: #ccc;
-      transition: all 0.2s;
-    }
-
-    .nav-sample:hover {
-      background: #2a2a2a;
-      color: #fff;
-    }
-
-    .nav-sample.active {
-      background: #0078d4;
-      color: #fff;
-    }
-
-    #main-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    #toolbar {
-      height: 50px;
-      background: #f5f5f5;
-      border-bottom: 1px solid #ddd;
-      display: flex;
-      align-items: center;
-      padding: 0 20px;
-      gap: 10px;
-    }
-
-    #toggle-nav {
-      padding: 8px 16px;
-      background: #0078d4;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    #toggle-nav:hover {
-      background: #006cc1;
-    }
-
-    #sample-title {
-      font-size: 16px;
-      font-weight: 500;
-      color: #333;
-    }
-
-    #sample-container {
-      flex: 1;
-      overflow: auto;
-      background: #fff;
-      position: relative;
-    }
-
-    #welcome-message {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      color: #666;
-      text-align: center;
-      padding: 40px;
-    }
-
-    #welcome-message h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    #welcome-message p {
-      font-size: 16px;
-      max-width: 600px;
-      line-height: 1.6;
-    }
-
-    .loader {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      font-size: 18px;
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-  <div id="app"></div>
-  <script type="module" src="/src/main.ts"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ignite UI Web Components - Samples Browser (Vite)</title>
+    <link
+      rel="shortcut icon"
+      href="https://static.infragistics.com/xplatform/images/browsers/wc.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Kanit&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://static.infragistics.com/xplatform/css/samples/shared.v8.css"
+    />
+    <link rel="stylesheet" href="./base.css" />
+    <link
+      rel="stylesheet"
+      href="./node_modules/igniteui-webcomponents/themes/light/bootstrap.css"
+    />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
