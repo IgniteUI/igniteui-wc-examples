@@ -1,6 +1,10 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
+:root {
+    --ig-theme: bootstrap;
+}
+
 #grid {
     --ig-query-builder-header-foreground: #512da8;
     --ig-query-builder-color-expression-group-and: #eb0000;
@@ -9,4 +13,3 @@
     --ig-query-builder-subquery-border-color: var(--ig-warn-500);
     --ig-query-builder-subquery-border-radius: 4px;
 }
-

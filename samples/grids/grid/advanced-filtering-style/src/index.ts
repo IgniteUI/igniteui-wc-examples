@@ -1,4 +1,3 @@
-import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
