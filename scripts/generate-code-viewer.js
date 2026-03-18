@@ -109,9 +109,13 @@ function collectSampleFiles(folderPath, group, component, name) {
     const relPath  = `./samples/${group}/${component}/${name}/src/${file}`;
 
     if (!INCLUDE_EXTS.has('.' + ext)) continue;
-    if (!fs.statSync(filePath).isFile()) continue;
 
-    const content = fs.readFileSync(filePath, 'utf8');
+    let content;
+    try {
+      content = fs.readFileSync(filePath, 'utf8');
+    } catch {
+      continue; // file removed, unreadable, or is a directory
+    }
     const header  = getFileHeader(relPath, false, ext);
     const item    = {
       path:             relPath,
