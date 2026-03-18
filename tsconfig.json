@@ -1,18 +1,10 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
-    "declaration": true,
-    "target": "es5",
-    "module": "esNext",
-    "sourceMap": true,
-    "experimentalDecorators": true,
-    "outDir": "dist",
-    "lib": ["es2022", "dom", "DOM.Iterable"],
-    "noImplicitAny": false,
-    "removeComments": true,
     "baseUrl": ".",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    // Keep existing package paths so samples/ TypeScript compiles correctly
     "paths": {
         "igniteui-dockmanager": ["node_modules/igniteui-dockmanager", "node_modules/@infragistics/igniteui-dockmanager/dist"],
         "igniteui-webcomponents-core": ["node_modules/igniteui-webcomponents-core", "node_modules/@infragistics/igniteui-webcomponents-core"],
@@ -22,38 +14,18 @@
         "igniteui-webcomponents-excel": ["node_modules/igniteui-webcomponents-excel", "node_modules/@infragistics/igniteui-webcomponents-excel"],
         "igniteui-webcomponents-inputs": ["node_modules/igniteui-webcomponents-inputs", "node_modules/@infragistics/igniteui-webcomponents-inputs"],
         "igniteui-webcomponents-grids": ["node_modules/igniteui-webcomponents-grids", "node_modules/@infragistics/igniteui-webcomponents-grids"],
-        "igniteui-webcomponents-data-grids": ["node_modules/igniteui-webcomponents-data-grids", "node_modules/@infragistics/igniteui-webcomponents-data-grids"],
-        "igniteui-webcomponents-maps": ["node_modules/igniteui-webcomponents-maps", "node_modules/@infragistics/igniteui-webcomponents-maps"],
-        "igniteui-webcomponents-spreadsheet": ["node_modules/igniteui-webcomponents-spreadsheet", "node_modules/@infragistics/igniteui-webcomponents-spreadsheet"],
-        "igniteui-webcomponents-spreadsheet-chart-adapter": ["node_modules/igniteui-webcomponents-spreadsheet-chart-adapter", "node_modules/@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter"],
         "igniteui-webcomponents-grids/*": ["node_modules/igniteui-webcomponents-grids/*", "node_modules/@infragistics/igniteui-webcomponents-grids/*"],
         "igniteui-webcomponents-grids/grids": ["node_modules/igniteui-webcomponents-grids/grids", "node_modules/@infragistics/igniteui-webcomponents-grids/grids"],
         "igniteui-webcomponents-grids/grids/*": ["node_modules/igniteui-webcomponents-grids/grids/*", "node_modules/@infragistics/igniteui-webcomponents-grids/grids/*"],
         "igniteui-webcomponents-grids/grids/combined": ["node_modules/igniteui-webcomponents-grids/grids/combined", "node_modules/@infragistics/igniteui-webcomponents-grids/grids/combined"],
+        "igniteui-webcomponents-data-grids": ["node_modules/igniteui-webcomponents-data-grids", "node_modules/@infragistics/igniteui-webcomponents-data-grids"],
+        "igniteui-webcomponents-maps": ["node_modules/igniteui-webcomponents-maps", "node_modules/@infragistics/igniteui-webcomponents-maps"],
+        "igniteui-webcomponents-spreadsheet": ["node_modules/igniteui-webcomponents-spreadsheet", "node_modules/@infragistics/igniteui-webcomponents-spreadsheet"],
+        "igniteui-webcomponents-spreadsheet-chart-adapter": ["node_modules/igniteui-webcomponents-spreadsheet-chart-adapter", "node_modules/@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter"],
         "igniteui-webcomponents-layouts": ["node_modules/igniteui-webcomponents-layouts", "node_modules/@infragistics/igniteui-webcomponents-layouts"],
         "igniteui-webcomponents-dashboards": ["node_modules/igniteui-webcomponents-dashboards", "node_modules/@infragistics/igniteui-webcomponents-dashboards"]
     }
   },
-  "exclude": [
-    "node_modules/**",
-    "browser/dist",
-    "browser/tasks",
-    "browser/templates",
-    "samples"
-  ],
-  "linterOptions": {
-    "exclude": [
-      "browser/config/**/*.js",
-      "node_modules/**/*.ts",
-      "node_modules/**/*.js",
-      "**/odatajs-4.0.0.js",
-      "browser/templates",
-      "browser/tasks",
-      "browser/src/samples/**/*.*",
-      "browser/src/assets/**/*.*",
-      "browser/src/templates/**/*.*",
-      "browser/src/utilities/*.ts",
-      "samples"
-    ]
-  },
+  "include": ["src/**/*", ".astro/**/*"],
+  "exclude": ["node_modules", "dist", "browser", "astro"]
 }
