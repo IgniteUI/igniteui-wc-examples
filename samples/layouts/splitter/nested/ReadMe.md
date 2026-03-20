@@ -1,11 +1,12 @@
 <!-- NOTE: do not change this file because it's auto re-generated from template: -->
 <!-- https://github.com/IgniteUI/igniteui-wc-examples/tree/vnext/templates/browser/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Nested Splitters feature using [Splitter](https://infragistics.com/webcomponentssite/components/layouts/splitter.html) component.
+This folder contains implementation of Web Components application with example of Nested feature using [Splitter](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
+
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <a target="_blank" href="https://infragistics.com/webcomponentssite/components/layouts/splitter.html" rel="noopener noreferrer">
+        <a target="_blank" href="https://infragistics.com/webcomponentssite/components/general-getting-started.html" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem" alt="View Docs" src="https://dl.infragistics.com/x/img/browsers/button-docs.png"/>
         </a>
         <a target="_blank" href="./src/index.ts" rel="noopener noreferrer">
