@@ -23,6 +23,7 @@ interface Props {
 }
 
 const { activeSlug = '' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // Enumerate all samples at build time via import.meta.glob
 // Path relative to THIS file: astro/src/components/NavSidebar.astro
@@ -54,7 +55,7 @@ function makeId(group: string, component: string) {
 ---
 
 <!-- Logo → home link -->
-<a href="/" class="nav-logo">
+<a href={`${base}/`} class="nav-logo">
   <div class="nav-logo-inner">
     <Image
       src={logoSrc}
@@ -112,9 +113,9 @@ function makeId(group: string, component: string) {
             {comp.samples.map(sample => (
               <li>
                 <a
-                  href={`/${sample.slug}`}
+                  href={`${base}/${sample.slug}`}
                   class:list={['nav-link', { active: sample.slug === activeSlug }]}
-                  data-nav={`/${sample.slug}`}
+                  data-nav={`${base}/${sample.slug}`}
                 >
                   <span>{sample.displayName}</span>
                 </a>

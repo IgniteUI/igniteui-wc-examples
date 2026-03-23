@@ -75,6 +75,8 @@ jobs:
 
       - name: npm run build
         run: npm run build
+        env:
+          BASE_PATH: /webcomponents-demos
 
       # Package the contents of dist folder as a zip artifact
       - name: Create zip artifact
