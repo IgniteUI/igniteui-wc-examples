@@ -4,6 +4,8 @@
 #   - A workflow that handles event_type 'wc-samples-cd' (add one, or confirm the correct event name).
 
 name: Build and Deploy - WC Samples EN
+permissions:
+  contents: read
 
 on:
   push:
