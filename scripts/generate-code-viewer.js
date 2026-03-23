@@ -32,7 +32,7 @@
  * samples change.
  */
 
-import fs   from 'node:fs';
+import fsp  from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -40,7 +40,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 const REPO_ROOT  = path.resolve(__dirname, '..');
 
-// ── Configuration ──────────────────────────────────────────────────────────
+// Configuration
 
 const SAMPLES_ROOT  = path.join(REPO_ROOT, 'samples');
 const OUTPUT_ROOT   = path.join(REPO_ROOT, 'public', 'assets', 'code-viewer');
@@ -51,7 +51,11 @@ const INCLUDE_EXTS  = new Set(['.ts', '.css', '.html', '.json']);
 // Files to always skip
 const SKIP_FILES    = new Set(['typedecls.d.ts', 'package-lock.json']);
 
-// ── Helpers ────────────────────────────────────────────────────────────────
+// Helpers 
+
+async function fileExists(p) {
+  try { await fsp.access(p); return true; } catch { return false; }
+}
 
 /**
  * Determine the fileHeader label (shown as the tab title in the code viewer).
@@ -71,7 +75,7 @@ function getFileHeader(filePath, isMainTs, ext) {
  * Collect all files to include for one sample folder.
  * Returns { mainTs, cssFiles, htmlFiles, tsFiles, dataFiles }
  */
-function collectSampleFiles(folderPath, group, component, name) {
+async function collectSampleFiles(folderPath, group, component, name) {
   const srcDir = path.join(folderPath, 'src');
 
   const mainTsPath    = path.join(srcDir, 'index.ts');
@@ -82,10 +86,10 @@ function collectSampleFiles(folderPath, group, component, name) {
   const items = [];
 
   // 1. Main TypeScript file (always first)
-  if (fs.existsSync(mainTsPath)) {
+  if (await fileExists(mainTsPath)) {
     items.push({
       path:             mainTsRelPath,
-      content:          fs.readFileSync(mainTsPath, 'utf8'),
+      content:          await fsp.readFile(mainTsPath, 'utf8'),
       fileExtension:    'ts',
       fileHeader:       'ts',
       isMain:           true,
@@ -93,31 +97,39 @@ function collectSampleFiles(folderPath, group, component, name) {
     });
   }
 
-  if (!fs.existsSync(srcDir)) return items;
+  if (!await fileExists(srcDir)) return items;
 
-  const srcFiles = fs.readdirSync(srcDir)
+  const srcEntries = await fsp.readdir(srcDir);
+  const srcFiles   = srcEntries
     .filter(f => !SKIP_FILES.has(f))
     .sort();
 
   const dataFileItems = [];
 
-  for (const file of srcFiles) {
-    if (file === 'index.ts') continue; // already added above
+  const fileResults = await Promise.all(
+    srcFiles
+      .filter(file => file !== 'index.ts')
+      .map(async file => {
+        const ext      = path.extname(file).slice(1).toLowerCase();
+        const filePath = path.join(srcDir, file);
+        const relPath  = `./samples/${group}/${component}/${name}/src/${file}`;
 
-    const ext     = path.extname(file).slice(1).toLowerCase();
-    const filePath = path.join(srcDir, file);
-    const relPath  = `./samples/${group}/${component}/${name}/src/${file}`;
+        if (!INCLUDE_EXTS.has('.' + ext)) return null;
 
-    if (!INCLUDE_EXTS.has('.' + ext)) continue;
+        try {
+          const content = await fsp.readFile(filePath, 'utf8');
+          return { ext, relPath, content };
+        } catch {
+          return null; // file removed, unreadable, or is a directory
+        }
+      })
+  );
 
-    let content;
-    try {
-      content = fs.readFileSync(filePath, 'utf8');
-    } catch {
-      continue; // file removed, unreadable, or is a directory
-    }
-    const header  = getFileHeader(relPath, false, ext);
-    const item    = {
+  for (const result of fileResults) {
+    if (!result) continue;
+    const { ext, relPath, content } = result;
+    const header = getFileHeader(relPath, false, ext);
+    const item   = {
       path:             relPath,
       content,
       fileExtension:    ext,
@@ -134,10 +146,10 @@ function collectSampleFiles(folderPath, group, component, name) {
   }
 
   // 2. index.html
-  if (fs.existsSync(htmlPath)) {
+  if (await fileExists(htmlPath)) {
     items.push({
       path:             htmlRelPath,
-      content:          fs.readFileSync(htmlPath, 'utf8'),
+      content:          await fsp.readFile(htmlPath, 'utf8'),
       fileExtension:    'html',
       fileHeader:       'html',
       isMain:           true,
@@ -168,57 +180,64 @@ function collectSampleFiles(folderPath, group, component, name) {
   return items;
 }
 
-// ── Main ───────────────────────────────────────────────────────────────────
+// Main
 
-function run() {
+async function run() {
   // Clean output directory
-  if (fs.existsSync(OUTPUT_ROOT)) {
-    fs.rmSync(OUTPUT_ROOT, { recursive: true, force: true });
+  if (await fileExists(OUTPUT_ROOT)) {
+    await fsp.rm(OUTPUT_ROOT, { recursive: true, force: true });
   }
-  fs.mkdirSync(OUTPUT_ROOT, { recursive: true });
+  await fsp.mkdir(OUTPUT_ROOT, { recursive: true });
 
-  let count = 0;
+  let count  = 0;
   let errors = 0;
 
   // Walk samples/{group}/{component}/{name}/
-  const groups = fs.readdirSync(SAMPLES_ROOT)
-    .filter(e => fs.statSync(path.join(SAMPLES_ROOT, e)).isDirectory())
+  const groupEntries = await fsp.readdir(SAMPLES_ROOT, { withFileTypes: true });
+  const groups = groupEntries
+    .filter(e => e.isDirectory())
+    .map(e => e.name)
     .sort();
 
   for (const group of groups) {
-    const groupPath = path.join(SAMPLES_ROOT, group);
-    const components = fs.readdirSync(groupPath)
-      .filter(e => fs.statSync(path.join(groupPath, e)).isDirectory())
+    const groupPath  = path.join(SAMPLES_ROOT, group);
+    const compEntries = await fsp.readdir(groupPath, { withFileTypes: true });
+    const components  = compEntries
+      .filter(e => e.isDirectory())
+      .map(e => e.name)
       .sort();
 
     for (const component of components) {
       const componentPath = path.join(groupPath, component);
-      const names = fs.readdirSync(componentPath)
-        .filter(e => fs.statSync(path.join(componentPath, e)).isDirectory())
+      const nameEntries   = await fsp.readdir(componentPath, { withFileTypes: true });
+      const names         = nameEntries
+        .filter(e => e.isDirectory())
+        .map(e => e.name)
         .sort();
 
-      for (const name of names) {
+      // Process all samples within a component in parallel
+      await Promise.all(names.map(async name => {
         const folderPath = path.join(componentPath, name);
         const htmlPath   = path.join(folderPath, 'index.html');
         const pkgPath    = path.join(folderPath, 'package.json');
 
         // Skip non-sample dirs (e.g. node_modules)
-        if (!fs.existsSync(htmlPath) || !fs.existsSync(pkgPath)) continue;
+        if (!await fileExists(htmlPath) || !await fileExists(pkgPath)) return;
 
         try {
-          const sampleFiles = collectSampleFiles(folderPath, group, component, name);
+          const sampleFiles = await collectSampleFiles(folderPath, group, component, name);
 
           if (sampleFiles.length === 0) {
             console.warn(`  SKIP  ${group}/${component}/${name}  (no files)`);
-            continue;
+            return;
           }
 
-          const json        = { sampleFiles };
-          const outputDir   = path.join(OUTPUT_ROOT, group, component);
-          const outputFile  = path.join(outputDir, `${name}.json`);
+          const json       = { sampleFiles };
+          const outputDir  = path.join(OUTPUT_ROOT, group, component);
+          const outputFile = path.join(outputDir, `${name}.json`);
 
-          fs.mkdirSync(outputDir, { recursive: true });
-          fs.writeFileSync(outputFile, JSON.stringify(json, null, ' '));
+          await fsp.mkdir(outputDir, { recursive: true });
+          await fsp.writeFile(outputFile, JSON.stringify(json, null, ' '));
 
           count++;
           console.log(`  OK    ${group}/${component}/${name}  (${sampleFiles.length} files)`);
@@ -226,7 +245,7 @@ function run() {
           errors++;
           console.error(`  ERR   ${group}/${component}/${name}`, err.message);
         }
-      }
+      }));
     }
   }
 

@@ -24,16 +24,15 @@
  * `npm run update:ig`.
  */
 
-import fs   from 'node:fs';
+import fsp  from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { execSync } from 'node:child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 const REPO_ROOT  = path.resolve(__dirname, '..');
 
-// ── Package version targets ────────────────────────────────────────────────
+// Package version targets
 //
 // Change any version here and re-run `npm run update:ig` — every
 // package.json in samples/ (and the root) will be updated automatically.
@@ -69,7 +68,7 @@ const packageUpgrades = [
     { name: 'lit-html',           version: '^3.3.1'   },
 ];
 
-// ── Helpers ────────────────────────────────────────────────────────────────
+// Helpers
 
 function sortByKeys(obj) {
     if (!obj || typeof obj !== 'object') return obj;
@@ -77,105 +76,114 @@ function sortByKeys(obj) {
 }
 
 /** Recursively find all package.json files under dir, skipping node_modules */
-function findPackageJsonFiles(dir, results = []) {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-        if (entry.name === 'node_modules') continue;
+async function findPackageJsonFiles(dir, results = []) {
+    const entries = await fsp.readdir(dir, { withFileTypes: true });
+    await Promise.all(entries.map(async entry => {
+        if (entry.name === 'node_modules') return;
         const full = path.join(dir, entry.name);
         if (entry.isDirectory()) {
-            findPackageJsonFiles(full, results);
+            await findPackageJsonFiles(full, results);
         } else if (entry.name === 'package.json') {
             results.push(full);
         }
-    }
+    }));
     return results;
 }
 
-/** Recursively delete a directory (node_modules) */
-function rmrf(dir) {
-    if (!fs.existsSync(dir)) return;
-    fs.rmSync(dir, { recursive: true, force: true });
-}
+// Main
 
-// ── Step 1: clean sample node_modules ─────────────────────────────────────
+async function run() {
+    // Step 1: clean sample node_modules
+    console.log('Cleaning node_modules from samples/...');
+    const samplesRoot = path.join(REPO_ROOT, 'samples');
+    let cleanCount = 0;
 
-console.log('Cleaning node_modules from samples/...');
-const samplesRoot = path.join(REPO_ROOT, 'samples');
-let cleanCount = 0;
-
-function cleanNodeModules(dir) {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-        const full = path.join(dir, entry.name);
-        if (entry.isDirectory()) {
-            if (entry.name === 'node_modules') {
-                rmrf(full);
-                cleanCount++;
-                console.log(`  removed: ${path.relative(REPO_ROOT, full)}`);
-            } else {
-                cleanNodeModules(full);
+    async function cleanNodeModules(dir) {
+        const entries = await fsp.readdir(dir, { withFileTypes: true });
+        await Promise.all(entries.map(async entry => {
+            const full = path.join(dir, entry.name);
+            if (entry.isDirectory()) {
+                if (entry.name === 'node_modules') {
+                    await fsp.rm(full, { recursive: true, force: true });
+                    cleanCount++;
+                    console.log(`  removed: ${path.relative(REPO_ROOT, full)}`);
+                } else {
+                    await cleanNodeModules(full);
+                }
             }
-        }
+        }));
     }
-}
 
-if (fs.existsSync(samplesRoot)) {
-    cleanNodeModules(samplesRoot);
-}
-console.log(`Removed ${cleanCount} node_modules director${cleanCount === 1 ? 'y' : 'ies'}.\n`);
-
-// ── Step 2: build package name → upgrade mapping ───────────────────────────
-
-// Strip @infragistics/ prefix so we match both public npm and ProGet names
-const mappings = {};
-for (const item of packageUpgrades) {
-    const id = item.name.replace('@infragistics/', '');
-    mappings[id] = item;
-}
-
-// ── Step 3: update package.json files ─────────────────────────────────────
-
-const targets = [
-    path.join(REPO_ROOT, 'package.json'),
-    ...findPackageJsonFiles(samplesRoot),
-];
-
-console.log(`Processing ${targets.length} package.json file(s)...`);
-let updatedCount = 0;
-
-for (const filePath of targets) {
-    const original = fs.readFileSync(filePath, 'utf8');
-    let pkg;
     try {
-        pkg = JSON.parse(original);
+        await fsp.access(samplesRoot);
+        await cleanNodeModules(samplesRoot);
     } catch {
-        console.warn(`  SKIP (invalid JSON): ${path.relative(REPO_ROOT, filePath)}`);
-        continue;
+        // samplesRoot does not exist — nothing to clean
+    }
+    console.log(`Removed ${cleanCount} node_modules director${cleanCount === 1 ? 'y' : 'ies'}.\n`);
+
+    // Step 2: build package name → upgrade mapping
+    // Strip @infragistics/ prefix so we match both public npm and ProGet names
+    const mappings = {};
+    for (const item of packageUpgrades) {
+        const id = item.name.replace('@infragistics/', '');
+        mappings[id] = item;
     }
 
-    let changed = false;
+    // Step 3: update package.json files
+    const targets = [
+        path.join(REPO_ROOT, 'package.json'),
+        ...await findPackageJsonFiles(samplesRoot),
+    ];
 
-    for (const section of ['dependencies', 'devDependencies', 'peerDependencies']) {
-        if (!pkg[section]) continue;
-        for (const [pkgName, currentVersion] of Object.entries(pkg[section])) {
-            const id = pkgName.replace('@infragistics/', '');
-            const upgrade = mappings[id];
-            if (upgrade && currentVersion !== upgrade.version) {
-                pkg[section][pkgName] = upgrade.version;
+    console.log(`Processing ${targets.length} package.json file(s)...`);
+    let updatedCount = 0;
+
+    await Promise.all(targets.map(async filePath => {
+        let original;
+        try {
+            original = await fsp.readFile(filePath, 'utf8');
+        } catch {
+            console.warn(`  SKIP (unreadable): ${path.relative(REPO_ROOT, filePath)}`);
+            return;
+        }
+
+        let pkg;
+        try {
+            pkg = JSON.parse(original);
+        } catch {
+            console.warn(`  SKIP (invalid JSON): ${path.relative(REPO_ROOT, filePath)}`);
+            return;
+        }
+
+        let changed = false;
+
+        for (const section of ['dependencies', 'devDependencies', 'peerDependencies']) {
+            if (!pkg[section]) continue;
+            for (const [pkgName, currentVersion] of Object.entries(pkg[section])) {
+                const id = pkgName.replace('@infragistics/', '');
+                const upgrade = mappings[id];
+                if (upgrade && currentVersion !== upgrade.version) {
+                    pkg[section][pkgName] = upgrade.version;
+                    changed = true;
+                }
+            }
+            // Sort keys alphabetically
+            const sorted = sortByKeys(pkg[section]);
+            if (JSON.stringify(sorted) !== JSON.stringify(pkg[section])) {
+                pkg[section] = sorted;
                 changed = true;
             }
         }
-        // Sort keys alphabetically
-        const sorted = sortByKeys(pkg[section]);
-        if (JSON.stringify(sorted) !== JSON.stringify(pkg[section])) {
-            pkg[section] = sorted;
-            changed = true;
-        }
-    }
 
-    if (changed) {
-        fs.writeFileSync(filePath, JSON.stringify(pkg, null, 2) + '\n');
-        updatedCount++;
-        console.log(`  updated: ${path.relative(REPO_ROOT, filePath)}`);
-    }
+        if (changed) {
+            await fsp.writeFile(filePath, JSON.stringify(pkg, null, 2) + '\n');
+            updatedCount++;
+            console.log(`  updated: ${path.relative(REPO_ROOT, filePath)}`);
+        }
+    }));
+
+    console.log(`\nDone. Updated ${updatedCount} of ${targets.length} package.json file(s).`);
 }
 
-console.log(`\nDone. Updated ${updatedCount} of ${targets.length} package.json file(s).`);
+run();
