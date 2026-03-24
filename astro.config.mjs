@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { existsSync } from 'node:fs';
 
 /**
  * Vite plugin: strip the module-level `new Sample();` (or `new ClassName();`)
@@ -95,8 +96,79 @@ function inlineSampleCss() {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+/**
+ * Vite plugin: resolve unscoped igniteui-* package names to their @infragistics/
+ * scoped equivalents when the unscoped package is not installed.
+ *
+ * WHY a resolveId plugin instead of resolve.alias
+ * ────────────────────────────────────────────────
+ * Astro merges its own Vite config last and can replace resolve.alias arrays.
+ * A resolveId hook is part of the Rollup plugin pipeline and is always called
+ * for every import, regardless of how Astro configures the resolver.
+ */
+/** @returns {import('vite').Plugin} */
+function resolveIgniteUiScoped() {
+  // Build a map at startup: unscoped name → scoped name, only for packages
+  // that are absent from node_modules unscoped.
+  /** @type {Map<string, string>} */
+  const redirects = new Map();
+
+  const plain = [
+    'igniteui-dockmanager',
+    'igniteui-webcomponents-core',
+    'igniteui-webcomponents-charts',
+    'igniteui-webcomponents-gauges',
+    'igniteui-webcomponents-datasources',
+    'igniteui-webcomponents-excel',
+    'igniteui-webcomponents-inputs',
+    'igniteui-webcomponents-data-grids',
+    'igniteui-webcomponents-maps',
+    'igniteui-webcomponents-spreadsheet',
+    'igniteui-webcomponents-spreadsheet-chart-adapter',
+    'igniteui-webcomponents-layouts',
+    'igniteui-webcomponents-dashboards',
+    // grids is also in the subpath list below; include base name here too
+    'igniteui-webcomponents-grids',
+  ];
+
+  for (const pkg of plain) {
+    if (!existsSync(path.resolve(__dirname, 'node_modules', pkg))) {
+      redirects.set(pkg, `@infragistics/${pkg}`);
+    }
+  }
+
+  return {
+    name: 'resolve-igniteui-scoped',
+    async resolveId(id, importer, options) {
+      // Exact match (e.g. 'igniteui-dockmanager')
+      if (redirects.has(id)) {
+        return this.resolve(redirects.get(id), importer, { ...options, skipSelf: true });
+      }
+      // Subpath match (e.g. 'igniteui-webcomponents-grids/grids/combined')
+      for (const [unscoped, scoped] of redirects) {
+        if (id.startsWith(`${unscoped}/`)) {
+          const newId = `${scoped}${id.slice(unscoped.length)}`;
+          return this.resolve(newId, importer, { ...options, skipSelf: true });
+        }
+      }
+    },
+  };
+}
+
 // Set BASE_PATH env variable to deploy under a sub-path, e.g. "/webcomponents-demos"
 const base = process.env.BASE_PATH ?? '';
+
+/**
+ * Returns the installed package name for a given unscoped igniteui-* id.
+ * If the unscoped package exists in node_modules it is returned as-is;
+ * otherwise the @infragistics/ scoped name is returned.
+ * @param {string} pkg
+ */
+function ig(pkg) {
+  return existsSync(path.resolve(__dirname, 'node_modules', pkg))
+    ? pkg
+    : `@infragistics/${pkg}`;
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -111,7 +183,7 @@ export default defineConfig({
   trailingSlash: 'never',
 
   vite: {
-    plugins: [stripSampleInstantiation(), inlineSampleCss()],
+    plugins: [resolveIgniteUiScoped(), stripSampleInstantiation(), inlineSampleCss()],
     // samples/ and node_modules/ are already at the repo root (__dirname),
     // so no extra fs.allow entries are needed.
     server: {
@@ -130,20 +202,20 @@ export default defineConfig({
       noDiscovery: true,
       include: [
         'igniteui-webcomponents',
-        'igniteui-webcomponents-core',
-        'igniteui-webcomponents-charts',
-        'igniteui-webcomponents-grids',
-        'igniteui-webcomponents-gauges',
-        'igniteui-webcomponents-inputs',
-        'igniteui-webcomponents-layouts',
-        'igniteui-webcomponents-maps',
-        'igniteui-webcomponents-data-grids',
-        'igniteui-webcomponents-datasources',
-        'igniteui-webcomponents-excel',
-        'igniteui-webcomponents-spreadsheet',
-        'igniteui-webcomponents-spreadsheet-chart-adapter',
-        'igniteui-webcomponents-dashboards',
-        'igniteui-dockmanager',
+        ig('igniteui-webcomponents-core'),
+        ig('igniteui-webcomponents-charts'),
+        ig('igniteui-webcomponents-grids'),
+        ig('igniteui-webcomponents-gauges'),
+        ig('igniteui-webcomponents-inputs'),
+        ig('igniteui-webcomponents-layouts'),
+        ig('igniteui-webcomponents-maps'),
+        ig('igniteui-webcomponents-data-grids'),
+        ig('igniteui-webcomponents-datasources'),
+        ig('igniteui-webcomponents-excel'),
+        ig('igniteui-webcomponents-spreadsheet'),
+        ig('igniteui-webcomponents-spreadsheet-chart-adapter'),
+        ig('igniteui-webcomponents-dashboards'),
+        ig('igniteui-dockmanager'),
         'igniteui-grid-lite',
         // CJS-only packages that need pre-bundling for named-export interop
         'file-saver',
