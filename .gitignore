@@ -12,6 +12,11 @@
 /tmp/
 /tests/
 
+# Astro / Vite build output:
+/.astro
+/dist
+/public/assets/code-viewer
+
 # browser auto-generated files:
 /browser/node_modules
 /browser/src/samples
