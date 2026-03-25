@@ -97,6 +97,28 @@ function inlineSampleCss() {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
+ * Ignite UI packages that may be installed either as unscoped (e.g.
+ * `igniteui-dockmanager`) or as `@infragistics/`-scoped equivalents.
+ * Used by both the resolveId plugin and the optimizeDeps.include list.
+ */
+const IGNITEUI_PACKAGES = [
+  'igniteui-dockmanager',
+  'igniteui-webcomponents-core',
+  'igniteui-webcomponents-charts',
+  'igniteui-webcomponents-gauges',
+  'igniteui-webcomponents-datasources',
+  'igniteui-webcomponents-excel',
+  'igniteui-webcomponents-inputs',
+  'igniteui-webcomponents-data-grids',
+  'igniteui-webcomponents-maps',
+  'igniteui-webcomponents-spreadsheet',
+  'igniteui-webcomponents-spreadsheet-chart-adapter',
+  'igniteui-webcomponents-layouts',
+  'igniteui-webcomponents-dashboards',
+  'igniteui-webcomponents-grids',
+];
+
+/**
  * Vite plugin: resolve unscoped igniteui-* package names to their @infragistics/
  * scoped equivalents when the unscoped package is not installed.
  *
@@ -113,25 +135,7 @@ function resolveIgniteUiScoped() {
   /** @type {Map<string, string>} */
   const redirects = new Map();
 
-  const plain = [
-    'igniteui-dockmanager',
-    'igniteui-webcomponents-core',
-    'igniteui-webcomponents-charts',
-    'igniteui-webcomponents-gauges',
-    'igniteui-webcomponents-datasources',
-    'igniteui-webcomponents-excel',
-    'igniteui-webcomponents-inputs',
-    'igniteui-webcomponents-data-grids',
-    'igniteui-webcomponents-maps',
-    'igniteui-webcomponents-spreadsheet',
-    'igniteui-webcomponents-spreadsheet-chart-adapter',
-    'igniteui-webcomponents-layouts',
-    'igniteui-webcomponents-dashboards',
-    // grids is also in the subpath list below; include base name here too
-    'igniteui-webcomponents-grids',
-  ];
-
-  for (const pkg of plain) {
+  for (const pkg of IGNITEUI_PACKAGES) {
     if (!existsSync(path.resolve(__dirname, 'node_modules', pkg))) {
       redirects.set(pkg, `@infragistics/${pkg}`);
     }
@@ -202,20 +206,7 @@ export default defineConfig({
       noDiscovery: true,
       include: [
         'igniteui-webcomponents',
-        ig('igniteui-webcomponents-core'),
-        ig('igniteui-webcomponents-charts'),
-        ig('igniteui-webcomponents-grids'),
-        ig('igniteui-webcomponents-gauges'),
-        ig('igniteui-webcomponents-inputs'),
-        ig('igniteui-webcomponents-layouts'),
-        ig('igniteui-webcomponents-maps'),
-        ig('igniteui-webcomponents-data-grids'),
-        ig('igniteui-webcomponents-datasources'),
-        ig('igniteui-webcomponents-excel'),
-        ig('igniteui-webcomponents-spreadsheet'),
-        ig('igniteui-webcomponents-spreadsheet-chart-adapter'),
-        ig('igniteui-webcomponents-dashboards'),
-        ig('igniteui-dockmanager'),
+        ...IGNITEUI_PACKAGES.map(ig),
         'igniteui-grid-lite',
         // CJS-only packages that need pre-bundling for named-export interop
         'file-saver',
