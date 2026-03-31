@@ -26,6 +26,7 @@
             <igc-column
               header="Actions"
               width="120px"
+              editable="false"
               id="actionsColumn">
             </igc-column>
             <igc-column
@@ -165,15 +166,15 @@
           </div>
         </div>
 
-        <igc-dialog id="dialog" title="Transactions">
+        <igc-dialog id="dialog" title="Submit the following transactions?">
           <igc-grid
             id="transactionGrid"
             auto-generate="false"
             width="600px"
             height="300px">
-            <igc-column field="id" header="ID" data-type="string"></igc-column>
-            <igc-column field="type" header="Type" data-type="string" id="typeColumn"></igc-column>
-            <igc-column field="newValue" header="Value" data-type="string" id="valueColumn"></igc-column>
+            <igc-column field="id" header="ID" data-type="string" width="100px"></igc-column>
+            <igc-column field="type" header="Type" data-type="string" id="typeColumn" width="150px"></igc-column>
+            <igc-column field="newValue" header="Value" data-type="string" id="valueColumn" width="900px"></igc-column>
           </igc-grid>
           <div slot="footer" class="dialog-buttons">
             <igc-button id="dialogCommitBtn" variant="contained">Commit</igc-button>
