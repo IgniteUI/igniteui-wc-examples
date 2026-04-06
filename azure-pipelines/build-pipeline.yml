@@ -1,10 +1,4 @@
-trigger:
-  branches:
-    include:
-    - vnext
-    - master
-
-# This pipeline is meant to build specific branches for deployment. It's not meant to be a part of PR validation.
+trigger: none
 pr: none
 
 parameters:

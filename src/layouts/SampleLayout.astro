@@ -1,0 +1,148 @@
+---
+import NavSidebar from '../components/NavSidebar.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+interface Props {
+  slug?: string;
+  title?: string;
+}
+
+const { slug = '', title = 'Ignite UI | Web Components' } = Astro.props;
+
+// True only for the index page (no slug). Used to set the initial nav state.
+const isIndex = !slug;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-sample-slug={slug}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" />
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <!-- Infragistics shared sample stylesheet (shared across all WC samples) -->
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href={`${base}/styles/layout.css`} />
+  </head>
+
+  <body>
+    <div id="shell">
+      <nav id="nav-bar" class="hidden">
+        <NavSidebar activeSlug={slug} />
+      </nav>
+
+      <script is:inline define:vars={{ isIndex }}>
+        (function () {
+          var inIframe = window.self !== window.top;
+          var fromNav  = sessionStorage.getItem('igx-wc-nav') === '1';
+
+          if (!inIframe && (isIndex || fromNav)) {
+            var nav = document.getElementById('nav-bar');
+            if (nav) nav.classList.remove('hidden');
+          }
+
+          if (isIndex) {
+            sessionStorage.setItem('igx-wc-nav', '1');
+          }
+
+          if (!isIndex) {
+            sessionStorage.removeItem('igx-wc-nav');
+          }
+        })();
+      </script>
+
+      <!-- Sample content area.  The <slot /> receives the sample's HTML. -->
+      <main id="router-target">
+        <slot />
+      </main>
+    </div>
+
+    <script>
+      // When the user clicks a sidebar nav link, set the sessionStorage flag
+      // so the next page load knows to keep the sidebar visible.
+      document.getElementById('nav-bar')?.addEventListener('click', e => {
+        const link = (e.target as Element).closest('a[data-nav]');
+        if (link) sessionStorage.setItem('igx-wc-nav', '1');
+      });
+
+      // Expand / collapse component groups.
+      document.querySelectorAll<HTMLElement>('.nav-component').forEach(header => {
+        const listId = header.getAttribute('aria-controls');
+        if (!listId) return;
+        const list = document.getElementById(listId);
+        if (!list) return;
+
+        header.addEventListener('click', () => {
+          const isExpanded = list.dataset.state === 'expanded';
+          list.dataset.state = isExpanded ? 'collapsed' : 'expanded';
+          header.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+        });
+      });
+
+      // Expand the group that contains the active link and scroll it into view
+      const activeLink = document.querySelector<HTMLAnchorElement>('a.active');
+      if (activeLink) {
+        const list = activeLink.closest<HTMLElement>('.nav-list');
+        if (list) list.dataset.state = 'expanded';
+        // Wait one frame so the list transitions from display:none → display:block
+        // before scrollIntoView calculates its position inside #nav-bar.
+        requestAnimationFrame(() => {
+          activeLink.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+        });
+      }
+
+      // Search / filter
+      const searchInput = document.getElementById('nav-search-input') as HTMLInputElement | null;
+      searchInput?.addEventListener('input', () => {
+        const q = searchInput.value.trim().toLowerCase();
+
+        document.querySelectorAll<HTMLElement>('#nav-bar section').forEach(section => {
+          let sectionHasMatch = false;
+
+          section.querySelectorAll<HTMLElement>('.nav-component').forEach(btn => {
+            const listId = btn.getAttribute('aria-controls');
+            const list = listId ? document.getElementById(listId) : null;
+            if (!list) return;
+
+            let compHasMatch = false;
+            list.querySelectorAll<HTMLElement>('li').forEach(li => {
+              const match = !q || (li.textContent?.toLowerCase().includes(q) ?? false);
+              li.classList.toggle('nav-item-hidden', !match);
+              if (match) compHasMatch = true;
+            });
+
+            btn.classList.toggle('nav-item-hidden', !compHasMatch);
+            if (q && compHasMatch) {
+              list.dataset.state = 'expanded';
+              btn.setAttribute('aria-expanded', 'true');
+            }
+            if (compHasMatch) sectionHasMatch = true;
+          });
+
+          section.classList.toggle('nav-section-hidden', !sectionHasMatch);
+        });
+
+        // On clear: restore original collapsed state (remove inline overrides)
+        if (!q) {
+          document.querySelectorAll<HTMLElement>('#nav-bar .nav-item-hidden').forEach(el => el.classList.remove('nav-item-hidden'));
+          document.querySelectorAll<HTMLElement>('#nav-bar .nav-section-hidden').forEach(el => el.classList.remove('nav-section-hidden'));
+          // Re-collapse all lists that weren't previously expanded
+          document.querySelectorAll<HTMLElement>('.nav-list').forEach(list => {
+            if (list.dataset.state === 'expanded' && !list.contains(document.querySelector('a.active'))) {
+              list.dataset.state = 'collapsed';
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
+

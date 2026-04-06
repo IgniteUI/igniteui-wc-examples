@@ -1,0 +1,129 @@
+---
+/**
+ * NavSidebar.astro
+ *
+ * Static navigation sidebar rendered at build time.
+ *
+ * The three-level hierarchy is:
+ *   group (e.g. "grids")
+ *     └─ component (e.g. "grid")
+ *           └─ sample  (e.g. "overview")
+ *
+ * Expand / collapse logic lives in SampleLayout.astro's inline script.
+ */
+
+import { keyToSlug, slugToInfo, buildNavTree } from '../utils/samples';
+import type { SampleInfo } from '../utils/samples';
+import { Image } from 'astro:assets';
+import logoSrc from '../assets/wc.png';
+
+interface Props {
+  /** The currently active sample slug, e.g. "grids/grid/overview" */
+  activeSlug?: string;
+}
+
+const { activeSlug = '' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Enumerate all samples at build time via import.meta.glob
+// Path relative to THIS file: astro/src/components/NavSidebar.astro
+//   ../../../  →  repo root
+const pkgModules = import.meta.glob('../../samples/**/package.json', {
+  eager: true,
+}) as Record<string, unknown>;
+
+const samples: SampleInfo[] = Object.keys(pkgModules)
+  .sort()
+  .reduce<SampleInfo[]>((acc, key) => {
+    const slug = keyToSlug(key, '../../samples/', '/package.json');
+    if (!slug || slug.includes('node_modules') || slug.split('/').length !== 3) return acc;
+    const info = slugToInfo(slug);
+    if (info) acc.push(info);
+    return acc;
+  }, []);
+
+const groups = buildNavTree(samples);
+
+/**
+ * Build the id used to link a nav-component header to its list.
+ * Must be unique across all components.
+ * Pattern: nav-comp-{group}-{component}  →  nav-list-{group}-{component}
+ */
+function makeId(group: string, component: string) {
+  return `${group}-${component}`;
+}
+---
+
+<!-- Logo → home link -->
+<a href={`${base}/`} class="nav-logo">
+  <div class="nav-logo-inner">
+    <Image
+      src={logoSrc}
+      alt="Ignite UI for Web Components"
+      width={24}
+      height={24}
+      loading="eager"
+    />
+    <span>Ignite UI for Web Components</span>
+  </div>
+</a>
+
+<!-- Search -->
+<div class="nav-search">
+  <input
+    id="nav-search-input"
+    type="search"
+    placeholder="Search samples..."
+    aria-label="Search samples"
+    autocomplete="off"
+    spellcheck="false"
+  />
+</div>
+
+<!-- Groups -->
+{groups.map(group => (
+  <section>
+    <div class="nav-group">{group.displayName}</div>
+
+    {group.components.map(comp => {
+      const id            = makeId(group.id, comp.id);
+      const compNavId     = `nav-comp-${id}`;
+      const listNavId     = `nav-list-${id}`;
+      // Expand this component's list if it contains the active sample
+      const hasActive     = comp.samples.some(s => s.slug === activeSlug);
+
+      return (
+        <>
+          <button
+            class="nav-component"
+            id={compNavId}
+            aria-controls={listNavId}
+            aria-expanded={hasActive ? 'true' : 'false'}
+            type="button"
+          >
+            {comp.displayName} <span style="font-size:0.7rem; color:#aaa;">({comp.samples.length})</span>
+          </button>
+
+          <ul
+            class="nav-list"
+            id={listNavId}
+            data-state={hasActive ? 'expanded' : 'collapsed'}
+            role="list"
+          >
+            {comp.samples.map(sample => (
+              <li>
+                <a
+                  href={`${base}/${sample.slug}`}
+                  class:list={['nav-link', { active: sample.slug === activeSlug }]}
+                  data-nav={`${base}/${sample.slug}`}
+                >
+                  <span>{sample.displayName}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      );
+    })}
+  </section>
+))}

@@ -1,11 +1,10 @@
+import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-webcomponents-core';
 import { IgcGridComponent, IgcColumnComponent } from 'igniteui-webcomponents-grids/grids';
 import NwindData from './NwindData.json';
 import { IgcCellTemplateContext } from 'igniteui-webcomponents-grids/grids';
 import { html, nothing } from 'lit-html';
-
-import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
 import "./index.css";
 

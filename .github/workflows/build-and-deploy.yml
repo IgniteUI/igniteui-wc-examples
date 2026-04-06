@@ -1,0 +1,123 @@
+
+#
+# Prerequisites – igniteui-actions repo:
+#   - A workflow that handles event_type 'wc-samples-cd' (add one, or confirm the correct event name).
+
+name: Build and Deploy - WC Samples EN
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - vnext
+      - master
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to build and deploy (e.g. vnext)'
+        required: true
+
+env:
+  BRANCH_REF: ${{ github.event.inputs.branch && format('refs/heads/{0}', github.event.inputs.branch) || github.ref }}
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy - WC Samples EN
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ env.BRANCH_REF }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+
+      - name: Create .npmrc file
+        run: |
+          if [ -f ".npmrc" ]; then
+            rm .npmrc
+          fi
+          touch .npmrc
+
+      - name: Configure licensed @infragistics registry
+        run: |
+          echo "@infragistics:registry=https://packages.infragistics.com/npm/js-licensed/" >> .npmrc
+          echo "//packages.infragistics.com/npm/js-licensed/:username=${{ secrets.INFRAGISTICS_NPM_USER }}" >> .npmrc
+          echo "//packages.infragistics.com/npm/js-licensed/:_auth=${{ secrets.INFRAGISTICS_NPM_TOKEN }}" >> .npmrc
+
+      - name: npm install --legacy-peer-deps
+        run: npm install --legacy-peer-deps
+
+      # "Uninstall all IG trial packages & re-install their licensed versions"
+      - name: Replace trial IG packages with licensed versions
+        shell: pwsh
+        run: |
+          Get-Content -Path ./.npmrc
+          $packageJson = Get-Content -Raw ./package.json | ConvertFrom-Json
+          $npmUninstallPackages = "npm uninstall --save "
+          $npmInstallPackages = "npm install --legacy-peer-deps "
+          $packageJson.dependencies.PSObject.Properties | `
+              Where-Object {
+                  $_.Name.StartsWith("igniteui-webcomponents-") -or $_.Name.StartsWith("igniteui-dockmanager")
+              } | `
+              ForEach-Object {
+                  $npmUninstallPackages += $_.Name + " "
+                  $npmInstallPackages += "@infragistics/" + $_.Name + "@" + $_.Value + " "
+              }
+          Write-Host $npmUninstallPackages
+          Write-Host $npmInstallPackages
+          Invoke-Expression -Command "$npmUninstallPackages"
+          Invoke-Expression -Command "$npmInstallPackages"
+
+      - name: npm run build
+        run: npm run build
+        env:
+          BASE_PATH: /webcomponents-demos
+
+      # Package the contents of dist folder as a zip artifact
+      - name: Create zip artifact
+        run: |
+          cd dist
+          zip -r ${{ github.workspace }}/WebComponentsSamples.zip ./
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: WebComponentsSamplesBrowser
+          path: WebComponentsSamples.zip
+          retention-days: 1
+
+      - name: Get app token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.IGNITEUI_GITHUB_APP_ID }}
+          private-key: ${{ secrets.IGNITEUI_GITHUB_APP_PRIVATE_KEY }}
+          owner: IgniteUI
+          repositories: igniteui-actions
+
+      - name: Trigger Deploy Workflow in IgniteUI Actions
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            await github.rest.repos.createDispatchEvent({
+              owner: 'IgniteUI',
+              repo: 'igniteui-actions',
+              event_type: 'wc-samples-cd',
+              client_payload: {
+                calling_branch: "${{ env.BRANCH_REF }}",
+                repository: "${{ github.repository }}",
+                run_id: "${{ github.run_id }}",
+                artifact_name: "WebComponentsSamplesBrowser",
+                ref: "${{ github.ref }}",
+                sha: "${{ github.sha }}",
+                branch: "${{ github.ref_name }}",
+              }
+            });

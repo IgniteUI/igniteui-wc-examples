@@ -7,7 +7,7 @@
 
 [![Node.js CI](https://github.com/IgniteUI/igniteui-wc-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/IgniteUI/igniteui-wc-examples/actions/workflows/node.js.yml)
 
-This repository contains over 300 examples on how to use [Ignite UI for Web ](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html) components:
+This repository contains over 300 examples on how to use [Ignite UI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html):
 
 - Charts:
 [Area](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/charts/types/area-chart),
@@ -44,165 +44,115 @@ This repository contains over 300 examples on how to use [Ignite UI for Web ](ht
 
 ## Branches
 
-> **_NOTE:_** You should use [master](https://github.com/IgniteUI/igniteui-wc-examples/tree/master) branch of this repository if you want to run samples on your computer. Use the [vnext](https://github.com/IgniteUI/igniteui-wc-examples/tree/vnext) branch only when you want to contribute new samples to this repository.
+> **_NOTE:_** Use the [master](https://github.com/IgniteUI/igniteui-wc-examples/tree/master) branch to run samples locally. Use the [vnext](https://github.com/IgniteUI/igniteui-wc-examples/tree/vnext) branch only when contributing new samples.
 
 ## Preview
 
-You can preview and browse all samples in this repository by opening our [Web Components Browser](https://www.infragistics.com/webcomponents-demos/samples/index). Alternatively, you you can view these samples with detailed information in our [Web Component Documentation](https://infragistics.com/webcomponentssite/components/general-getting-started.html).
+You can preview and browse all samples by opening our [Web Components Browser](https://www.infragistics.com/webcomponents-demos/samples/index). Alternatively, view samples with detailed documentation in the [Web Components Documentation](https://infragistics.com/webcomponentssite/components/general-getting-started.html).
 
-In addition, you can run each sample project individually from the [./samples](./samples) folder or you can run from the [./browser](./browser) folder to browse all samples in one website (see instructions below). You can run each sample on Code Sandbox website by clicking on the **Edit Sandbox** button in a readme file of sample project, e.g.
+In addition, you can run each sample project individually from the [./samples](./samples) folder or you can run project containing all samples `npm run dev` to browse all samples in one website (see instructions below). You can run each sample on Code Sandbox website by clicking on the **Edit Sandbox** button in a readme file of sample project, e.g.
 
 [./samples/charts/category-chart/overview/README.md](./samples/charts/category-chart/overview/README.md)
 
 
 ## Setup
 
-To set up this project locally, clone this repository:
-```
+Clone the repository and install dependencies:
+
+```bash
 git clone https://github.com/IgniteUI/igniteui-wc-examples.git
+cd igniteui-wc-examples
 git checkout master
+npm install
 ```
 
-## Running Individual Sample
+## Running All Samples (Dev Server)
 
-Follow these instructions to run a single sample on your computer:
+Start the Astro development server:
 
-- in VS Code, open a folder with existing sample, e.g.
-
-[./samples/charts/category-chart/overview](./samples/charts/category-chart/overview)
-
-- type `npm install --legacy-peer-deps` command in terminal window
-
-- type `npm run start` command in terminal window
-
-- Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser.
-
-At this point, you should see a website hosted example of [Ignite UI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html)
-
-
-## Running All Samples
-
-Follow these instructions to run all samples locally in a browser application.
-
-- open VS Code
-
-- select **View** - **Terminal** menu item
-
-- type `npm install --legacy-peer-deps` command in terminal window
-
-This will install required packages and [Ignite UI for Web Components](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html) packages from npm website:
-
-- [igniteui-webcomponents-core](https://www.npmjs.com/package/igniteui-webcomponents-core)
-- [igniteui-webcomponents-core](https://www.npmjs.com/package/igniteui-webcomponents-dashboards)
-- [igniteui-webcomponents-charts](https://www.npmjs.com/package/igniteui-webcomponents-charts)
-- [igniteui-webcomponents-excel](https://www.npmjs.com/package/igniteui-webcomponents-excel)
-- [igniteui-webcomponents-gauges](https://www.npmjs.com/package/igniteui-webcomponents-gauges)
-- [igniteui-webcomponents-grids](https://www.npmjs.com/package/igniteui-webcomponents-grids)
-- [igniteui-webcomponents-maps](https://www.npmjs.com/package/igniteui-webcomponents-maps)
-- [igniteui-webcomponents-spreadsheet](https://www.npmjs.com/package/igniteui-webcomponents-spreadsheet)
-- [igniteui-webcomponents-datasources](https://www.npmjs.com/package/igniteui-webcomponents-datasources)
-
-Next, follow these steps:
-
-- type `npm run start` command in terminal window to start the browser application locally
-
-- Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser. You should see a website with navigation menu for browning all samples in this repository.
-
-![Samples Browser Preview](./browser/public/images/preview.PNG)
-
-## Adding New Sample
-
-- create a new branch from the `vnext` branch
-
-- open a folder with existing sample, e.g.
-```
-./samples/charts/category-chart/axis-options/
-```
-- copy the sample and rename the new folder, e.g.
-```
-./samples/charts/category-chart/axis-types/
-```
-- open the newly created folder in VS Code
-
-- rename the .ts file in src folder, using this naming convention:
-
-`ControlNameSampleName.ts`
-
-```
-./samples/charts/category-chart/axis-types/src/CategoryChartAxisTypes.ts
+```bash
+npm run dev
 ```
 
-- open the .ts file
+Open [http://localhost:4200](http://localhost:4200) in your browser. You will see a navigation sidebar listing all samples. The dev server compiles samples on demand — no full build required.
 
-- rename class to the name of .tsx file
+## Building for Production
 
-- type `npm install --legacy-peer-deps` command in terminal window
+```bash
+npm run build
+```
 
-- type `npm run start` command in terminal window
+This runs two steps automatically:
+1. **`prebuild`** — generates `public/assets/code-viewer/**/*.json` files used by the docs site to display sample source code tabs
+2. **`astro build`** — compiles all ~900+ samples into static HTML + JS in `dist/`
 
-- implement the new sample in the .tsx file
+To preview the production build locally:
 
-- close the new sample project in VS Code
+```bash
+npm run preview
+```
 
-- delete `node_modules` folder in the new sample project
+Opens [http://localhost:4200](http://localhost:4200) serving the `dist/` output exactly as it would be deployed.
 
-- follow instructions in the next section
+## Adding a New Sample
 
-## Verify New Sample
+1. Create a new branch from `vnext`
 
-- type `npm run start` command in terminal window
+2. Copy an existing sample folder as a starting point, e.g.:
+```
+./samples/charts/category-chart/axis-options/  →  ./samples/charts/category-chart/axis-types/
+```
 
-- open [http://localhost:4200](http://localhost:4200) in your browser
+3. The folder structure must be exactly **`samples/{group}/{component}/{name}/`** with:
+   - `index.html` — sample markup (only the content inside `<body>`, wrapped in `<div id="root">`)
+   - `src/index.ts` — sample TypeScript entry point, exporting a class (e.g. `export class Sample { ... }`)
+   - `package.json` — with `"main": "src/index.ts"` (used by Astro to discover the sample)
 
-- verify that the new sample is listed in the navigation menu
+4. Implement your sample in `src/index.ts`. Export the class but **do not** instantiate it at the module level — the browser app calls `new Sample()` automatically when the page loads.
 
-- verify that the new sample loads by clicking navigation link
+5. Start the dev server and verify:
+```bash
+npm run dev
+```
+   - The new sample appears in the navigation sidebar
+   - It loads without errors in the browser console
 
-- verify that there are no errors in DEV console
+6. Regenerate the code-viewer JSON files:
+```bash
+npm run generate:code-viewer
+```
 
-- take a screenshot of the new sample with navigation menu
+7. Commit, push, and open a pull request targeting `vnext`. Include a screenshot of the running sample.
 
-- commit your changes
+## Updating Ignite UI Package Versions
 
-- create a pull request and target the `vnext` branch
+Do **not** manually edit version strings in `package.json` files.
 
-- paste the screenshot in you pull request
+- Open [./scripts/update-ig.js](./scripts/update-ig.js)
+- Update the version in the `packageUpgrades` array
+- Run from the repo root:
+```bash
+npm run update:ig
+npm install
+```
+- Create and merge a pull request with the updated `package.json` files
 
-- submit your pull request
+## Scripts Reference
 
-
-## Updating Packages in Samples
-
-NOTE Do NOT find replace version of packages in package.json files. 
-
-- open this repo in VS Code
-- open [./browser/tasks/gulp-samples.js](./browser/tasks/gulp-samples.js) file
-- navigate to the `updateIG` function
-- update version of packages in `packageUpgrades` array
-- open terminal window
-- run `cd browser` command
-- run the `gulp updateIG` command
-- run `npm install --legacy-peer-deps` command
-- create AND merge a pull request with changes in all package.json files in this repository
-- create 2nd pull request with similar changes in `/editor-templates/WebComponents/main-template/package.json` of the [igniteui-xplat-examples](https://github.com/IgniteUI/igniteui-xplat-examples) repository.
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start Astro dev server on port 4200 |
+| `npm run build` | Generate code-viewer JSONs then build static site to `dist/` |
+| `npm run preview` | Serve the `dist/` production build on port 4200 |
+| `npm run generate:code-viewer` | Regenerate `public/assets/code-viewer/**/*.json` |
+| `npm run update:ig` | Update Ignite UI package versions across all sample `package.json` files |
+| `npm run check` | Run Astro TypeScript type-checking |
 
 ## Learn More
 
-To learn more about **Ignite UI for Web Components** components, check out the [Web Components documentation](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html).
-
-
-# Updating Version of IgniteUI Packages
-
-Perform these steps to update version of **Ignite UI for WebComponent** packages in all samples. NOTE that the order of these steps is very important.
-
-- open this repo in VS Code
-- open [gulp-samples.js](./browser/tasks/gulp-samples.js) file
-- navigate to the `updateIG` function
-- change version of **Ignite UI for WebComponent** packages in the `packageUpgrades` array
-- open terminal window
-- run `gulp updateIG` command
-- run `npm install --legacy-peer-deps` command
-- create pull request with your changes
-- open the [Igniteui-xplat-example](https://github.com/IgniteUI/igniteui-xplat-examples) repo in VS Code
-- update version of **Ignite UI for WebComponent** packages in [WC template](https://github.com/IgniteUI/igniteui-xplat-examples/blob/23.2.x/editor-templates/WebComponents/main-template/package.json)
-- create pull request with your changes in [Igniteui-xplat-example](https://github.com/IgniteUI/igniteui-xplat-examples) repo
+To learn more about **Ignite UI for Web Components**, check out the [Web Components documentation](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html).
+- run `npm install --legacy-peer-deps`
+- create a pull request with your changes
+- open the [igniteui-xplat-examples](https://github.com/IgniteUI/igniteui-xplat-examples) repo in VS Code
+- update the version of **Ignite UI for WebComponent** packages in the [WC template](https://github.com/IgniteUI/igniteui-xplat-examples/blob/23.2.x/editor-templates/WebComponents/main-template/package.json)
+- create a pull request with your changes in the [igniteui-xplat-examples](https://github.com/IgniteUI/igniteui-xplat-examples) repo

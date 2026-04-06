@@ -1,0 +1,107 @@
+---
+/**
+ * pages/[...slug].astro — one page per sample, generated at build time.
+ *
+ * URL pattern: /grids/grid/overview, /charts/category-chart/binding-live-data, …
+ * (matches what the docs site embeds)
+ *
+ * Why NOT /samples/{slug}:
+ *   The repo has a `samples/` directory where every sample has a package.json
+ *   with `"main": "src/index.ts"`. Vite's module resolver would see a request
+ *   for /samples/{slug} and resolve it as a Node package, serving raw TS.
+ *   Using the slug at root avoids this conflict entirely.
+ */
+
+import SampleLayout from '../layouts/SampleLayout.astro';
+import { keyToSlug, slugToInfo, extractSampleHtml } from '../utils/samples';
+
+// All sample index.html files (raw HTML for server-side rendering)
+// Path is relative to THIS file: src/pages/[...slug].astro
+//   ../../samples/  →  repo root / samples/
+const htmlModules = import.meta.glob('../../samples/**/index.html', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+
+const PKG_PREFIX  = '../../samples/';
+const HTML_SUFFIX = '/index.html';
+
+export function getStaticPaths() {
+  // import.meta.glob MUST use literal strings — re-declare here.
+  const pkgs = import.meta.glob('../../samples/**/package.json', {
+    eager: true,
+  }) as Record<string, unknown>;
+
+  return Object.keys(pkgs)
+    .sort()
+    .filter(k => {
+      const slug = keyToSlug(k, '../../samples/', '/package.json');
+      if (!slug || slug.includes('node_modules')) return false;
+      return slug.split('/').length === 3;
+    })
+    .map(k => {
+      const slug = keyToSlug(k, '../../samples/', '/package.json')!;
+      return { params: { slug } };
+    });
+}
+
+// Per-page code
+
+const { slug } = Astro.params as { slug: string };
+const info      = slugToInfo(slug)!;
+
+// Raw HTML was read from the filesystem by Vite at build time
+const rawHtml    = htmlModules[`${PKG_PREFIX}${slug}${HTML_SUFFIX}`] ?? '';
+const sampleHtml = extractSampleHtml(rawHtml);
+
+const pageTitle = `${info.displayName} | ${info.componentName} | Ignite UI Web Components`;
+---
+
+<SampleLayout slug={info.slug} title={pageTitle}>
+  <Fragment set:html={sampleHtml} />
+</SampleLayout>
+
+<!--
+  Client-side sample loader.
+  import.meta.glob registers all sample TS files as lazy Vite chunks at build time.
+  At runtime only the chunk matching the current slug is fetched and instantiated.
+  `new Sample()` is stripped at module level by the stripSampleInstantiation Vite
+  plugin, so we call it explicitly here against the page's own DOM.
+-->
+<script>
+  // Vite resolves this glob at build time → one lazy chunk per sample
+  const sampleModules = import.meta.glob('../../samples/**/src/index.ts');
+
+  function loadSample() {
+    const slug = document.documentElement.dataset.sampleSlug;
+    if (!slug) return;
+
+    const moduleKey = `../../samples/${slug}/src/index.ts`;
+
+    if (sampleModules[moduleKey]) {
+      sampleModules[moduleKey]().then((module) => {
+        const mod = module as Record<string, new () => unknown>;
+        // Falls back to the first exported constructor if not named "Sample".
+        const SampleClass = mod['Sample'] ?? Object.values(mod).find(v => typeof v === 'function') as new () => unknown;
+        if (SampleClass) {
+          new SampleClass();
+        } else {
+          console.warn(`[astro] no exported class found in module: ${moduleKey}`);
+        }
+      }).catch((err: unknown) => {
+        console.error(`[astro] failed to load sample module: ${moduleKey}`, err);
+      });
+    } else {
+      console.warn(`[astro] no sample module found for slug "${slug}". Key: ${moduleKey}`);
+      console.info('[astro] available keys:', Object.keys(sampleModules).slice(0, 5));
+    }
+  }
+
+  // Ensure the DOM is fully parsed before running the sample module.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadSample);
+  } else {
+    loadSample();
+  }
+</script>
