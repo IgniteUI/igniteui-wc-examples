@@ -94,6 +94,46 @@ function inlineSampleCss() {
   };
 }
 
+/**
+ * Vite plugin: rename the dock-manager's internal `igc-splitter` custom element
+ * to `igc-dm-splitter` throughout all `igniteui-dockmanager` modules.
+ *
+ * WHY this is needed
+ * ──────────────────
+ * Both `igniteui-dockmanager` and `igniteui-webcomponents` ship a class named
+ * `IgcSplitterComponent` that registers under the SAME custom-element tag name
+ * `igc-splitter`.  The browser's custom-element registry is global and
+ * first-registration wins (guarded by `!customElements.get(name)`).
+ *
+ * When Rollup code-splitting places both libraries' modules into the same
+ * executed chunk — or when dependency preloading causes both to run on the same
+ * page — whichever `registerComponent()` call fires first "wins", and the other
+ * sample silently gets the wrong component backing its `<igc-splitter>` elements.
+ *
+ * The fix renames every occurrence of the bare tag name `igc-splitter` (but NOT
+ * `igc-splitter-docking-indicator` or CSS custom-props like
+ * `--igc-splitter-thickness`) inside dock-manager source to `igc-dm-splitter`.
+ * The two registrations then target distinct names and can no longer conflict.
+ */
+/** @returns {import('vite').Plugin} */
+function deconflictDockManagerSplitter() {
+  // Matches any path segment that belongs to the igniteui-dockmanager package
+  // (unscoped or @infragistics/-scoped).
+  const isDockManager = /[\\/](?:@infragistics[\\/])?igniteui-dockmanager[\\/]/;
+
+  return {
+    name: 'deconflict-dockmanager-splitter',
+    enforce: /** @type {'pre'} */ ('pre'),
+    transform(code, id) {
+      if (!isDockManager.test(id.replace(/\\/g, '/'))) return;
+      if (!code.includes('igc-splitter')) return;
+      // Replace the exact tag name `igc-splitter` but leave any hyphenated
+      // continuations (e.g. `-docking-indicator`, `-thickness`) intact.
+      return { code: code.replace(/igc-splitter(?!-)/g, 'igc-dm-splitter'), map: null };
+    },
+  };
+}
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
@@ -187,7 +227,7 @@ export default defineConfig({
   trailingSlash: 'never',
 
   vite: {
-    plugins: [resolveIgniteUiScoped(), stripSampleInstantiation(), inlineSampleCss()],
+    plugins: [resolveIgniteUiScoped(), stripSampleInstantiation(), inlineSampleCss(), deconflictDockManagerSplitter()],
     // samples/ and node_modules/ are already at the repo root (__dirname),
     // so no extra fs.allow entries are needed.
     server: {
