@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hierarchical Grid Batch Editing with Remote Paging | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample ig-typography">
+        <div class="container fill">
+          <igc-hierarchical-grid
+            auto-generate="false"
+            id="grid"
+            name="grid"
+            primary-key="ID"
+            allow-filtering="true"
+            row-editable="true"
+            batch-editing="true"
+            paging-mode="Remote">
+            <igc-paginator
+              id="paginator">
+            </igc-paginator>
+            <igc-column
+              header="Actions"
+              width="120px"
+              id="actionsColumn">
+            </igc-column>
+            <igc-column
+              field="ID"
+              header="ID"
+              data-type="number"
+              sortable="true"
+              editable="false"
+              resizable="true">
+            </igc-column>
+            <igc-column
+              field="Artist"
+              header="Artist"
+              data-type="string"
+              sortable="true"
+              editable="true"
+              resizable="true">
+            </igc-column>
+            <igc-column
+              field="Debut"
+              header="Debut"
+              data-type="number"
+              sortable="true"
+              editable="true"
+              resizable="true">
+            </igc-column>
+            <igc-column
+              field="GrammyNominations"
+              header="Grammy Nominations"
+              data-type="number"
+              sortable="true"
+              editable="true"
+              resizable="true">
+            </igc-column>
+            <igc-column
+              field="GrammyAwards"
+              header="Grammy Awards"
+              data-type="number"
+              sortable="true"
+              editable="true"
+              resizable="true">
+            </igc-column>
+            <igc-row-island
+              child-data-key="Albums"
+              auto-generate="false"
+              primary-key="Album"
+              row-editable="true">
+              <igc-column
+                field="Album"
+                header="Album"
+                data-type="string"
+                sortable="true"
+                editable="true">
+              </igc-column>
+              <igc-column
+                field="LaunchDate"
+                header="Launch Date"
+                data-type="string"
+                sortable="true"
+                editable="true">
+              </igc-column>
+              <igc-column
+                field="BillboardReview"
+                header="Billboard Review"
+                data-type="string"
+                sortable="true"
+                editable="true">
+              </igc-column>
+              <igc-column
+                field="USBillboard200"
+                header="US Billboard 200"
+                data-type="string"
+                sortable="true"
+                editable="true">
+              </igc-column>
+              <igc-row-island
+                child-data-key="Songs"
+                auto-generate="false"
+                primary-key="Number"
+                row-editable="true">
+                <igc-column
+                  field="Number"
+                  header="No."
+                  data-type="string">
+                </igc-column>
+                <igc-column
+                  field="Title"
+                  header="Title"
+                  data-type="string"
+                  editable="true">
+                </igc-column>
+                <igc-column
+                  field="Released"
+                  header="Released"
+                  data-type="string"
+                  editable="true">
+                </igc-column>
+                <igc-column
+                  field="Genre"
+                  header="Genre"
+                  data-type="string"
+                  editable="true">
+                </igc-column>
+              </igc-row-island>
+            </igc-row-island>
+            <igc-row-island
+              child-data-key="Tours"
+              auto-generate="false"
+              primary-key="Tour"
+              row-editable="true">
+              <igc-column
+                field="Tour"
+                header="Tour"
+                data-type="string"
+                editable="true">
+              </igc-column>
+              <igc-column
+                field="StartedOn"
+                header="Started on"
+                data-type="string"
+                editable="true">
+              </igc-column>
+              <igc-column
+                field="Location"
+                header="Location"
+                data-type="string"
+                editable="true">
+              </igc-column>
+              <igc-column
+                field="Headliner"
+                header="Headliner"
+                data-type="string"
+                editable="true">
+              </igc-column>
+            </igc-row-island>
+          </igc-hierarchical-grid>
+        </div>
+        <div class="buttons-wrapper">
+          <igc-button id="addRowBtn" variant="contained">Add Row</igc-button>
+          <div class="buttons-right">
+            <igc-button id="undoBtn" variant="outlined" disabled>Undo</igc-button>
+            <igc-button id="redoBtn" variant="outlined" disabled>Redo</igc-button>
+            <igc-button id="discardBtn" variant="outlined" disabled>Discard</igc-button>
+            <igc-button id="commitBtn" variant="outlined" disabled>Commit</igc-button>
+          </div>
+        </div>
+
+        <igc-dialog id="dialog" title="Transactions">
+          <igc-grid
+            id="transactionGrid"
+            auto-generate="false"
+            width="600px"
+            height="300px">
+            <igc-column field="id" header="ID" data-type="string"></igc-column>
+            <igc-column field="type" header="Type" data-type="string" id="typeColumn"></igc-column>
+            <igc-column field="newValue" header="Value" data-type="string" id="valueColumn"></igc-column>
+          </igc-grid>
+          <div slot="footer" class="dialog-buttons">
+            <igc-button id="dialogCommitBtn" variant="contained">Commit</igc-button>
+            <igc-button id="dialogDiscardBtn" variant="outlined">Discard</igc-button>
+            <igc-button id="dialogCancelBtn" variant="flat">Cancel</igc-button>
+          </div>
+        </igc-dialog>
+      </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
