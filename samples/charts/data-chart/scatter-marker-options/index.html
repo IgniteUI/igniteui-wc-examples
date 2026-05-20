@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample">
+    <div class="options vertical">
+        <igc-property-editor-panel
+        name="PropertyEditor"
+        id="PropertyEditor"
+        description-type="DataChart"
+        is-horizontal="true"
+        is-wrapping-enabled="true">
+            <igc-property-editor-property-description
+            property-path="MarkerSizeHandler"
+            name="MarkerSizeEditor"
+            id="MarkerSizeEditor"
+            label="Marker Size"
+            should-override-default-editor="true"
+            value-type="EnumValue"
+            drop-down-names="3, 5, 7, 10, 12, 15, 20, 25, 30"
+            drop-down-values="3, 5, 7, 10, 12, 15, 20, 25, 30"
+            primitive-value="10">
+            </igc-property-editor-property-description>
+            <igc-property-editor-property-description
+            property-path="MarkerTypeHandler"
+            name="MarkerTypeEditor"
+            id="MarkerTypeEditor"
+            label="Marker Type"
+            should-override-default-editor="true"
+            value-type="EnumValue"
+            drop-down-values="Circle, Checkmark, Triangle, Pyramid, Square, Diamond, Pentagon, Hexagon, Tetragram, Pentagram, Hexagram, Hidden, Automatic, None"
+            drop-down-names="Circle, Checkmark, Triangle, Pyramid, Square, Diamond, Pentagon, Hexagon, Tetragram, Pentagram, Hexagram, Hidden, Automatic, None"
+            primitive-value="Circle">
+            </igc-property-editor-property-description>
+        </igc-property-editor-panel>
+    </div>
+
+    <div class="legend-title">
+        Population Statistics for Selected Continents
+    </div>
+
+    <div class="legend">
+        <igc-legend
+        name="legend"
+        id="legend"
+        orientation="Horizontal">
+        </igc-legend>
+    </div>
+
+    <div class="container fill">
+        <igc-data-chart
+        name="chart"
+        id="chart">
+            <igc-numeric-x-axis
+            name="xAxis"
+            id="xAxis"
+            title="Death Rate (per 1,000 people)"
+            minimum-value="5"
+            maximum-value="15">
+            </igc-numeric-x-axis>
+            <igc-numeric-y-axis
+            name="yAxis"
+            id="yAxis"
+            title="Birth Rate (per 1,000 people)"
+            minimum-value="0"
+            maximum-value="50"
+            interval="10">
+            </igc-numeric-y-axis>
+            <igc-scatter-series
+            name="scatterSeries1"
+            id="scatterSeries1"
+            title="Europe"
+            x-member-path="deathRate"
+            y-member-path="birthRate"
+            marker-type="Circle"
+            marker-size="10"
+            show-default-tooltip="true">
+            </igc-scatter-series>
+            <igc-scatter-series
+            name="scatterSeries2"
+            id="scatterSeries2"
+            title="Africa"
+            x-member-path="deathRate"
+            y-member-path="birthRate"
+            marker-type="Circle"
+            marker-size="10"
+            show-default-tooltip="true">
+            </igc-scatter-series>
+        </igc-data-chart>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
