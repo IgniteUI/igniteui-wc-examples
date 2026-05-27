@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Highlight Helper Text</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v5.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample center">
+      <div class="search-bar">
+        <igc-input label="Search">
+          <igc-icon-button id="prev-btn" variant="flat" name="navigate_before" collection="internal" slot="suffix"></igc-icon-button>
+          <igc-icon-button id="next-btn" variant="flat" name="navigate_next" collection="internal" slot="suffix"></igc-icon-button>
+          <p id="helper-text" slot="helper-text"></p>
+        </igc-input>
+      </div>
+      <igc-divider></igc-divider>
+      <igc-highlight>
+       <h1>Document Object Model</h1>
+        <igc-expansion-panel open>
+          <h2 slot="title">Overview</h2>
+          <section>
+            <p>
+              The Document Object Model (DOM) is a cross-platform and
+              language-independent interface that treats an HTML or XML document
+              as a tree structure wherein each node is an object representing a
+              part of the document. The DOM represents a document with a logical
+              tree. Each branch of the tree ends in a node, and each node
+              contains objects. DOM methods allow programmatic access to the
+              tree; with them one can change the structure, style or content of
+              a document. Nodes can have event handlers (also known as event
+              listeners) attached to them. Once an event is triggered, the event
+              handlers get executed.
+            </p>
+            <p>
+              The principal standardization of the DOM was handled by the World
+              Wide Web Consortium (W3C), which last developed a recommendation
+              in 2004. WHATWG took over the development of the standard,
+              publishing it as a living document. The W3C now publishes stable
+              snapshots of the WHATWG standard.
+            </p>
+            <p>In HTML DOM (Document Object Model), every element is a node:</p>
+            <ul>
+              <li>A document is a document node.</li>
+              <li>All HTML elements are element nodes.</li>
+              <li>All HTML attributes are attribute nodes.</li>
+              <li>Text inserted into HTML elements are text nodes.</li>
+              <li>Comments are comment nodes.</li>
+            </ul>
+          </section>
+        </igc-expansion-panel>
+      </igc-highlight>
+    </div>
+  </div>
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+</body>
+
+</html>
