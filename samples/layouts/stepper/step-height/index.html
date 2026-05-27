@@ -14,15 +14,12 @@
 <body>
   <div id="root">
     <div class="container sample">
-      <div class="header">
-        <div class="switch-wrapper">
-          <div>
-            <span>1fr</span>
-            <igc-switch>0fr</igc-switch>
-          </div>
-          <h5>--body-grid-rows: <span id="body-grid-rows-value">1fr</span></h5>
-        </div>
-      </div>
+      <header>
+          <label>1fr</label>
+          <igc-switch></igc-switch>
+          <label>0fr</label>
+          <output>--body-grid-rows: <span id="body-grid-rows-value">1fr</span></output>
+      </header>
       <igc-stepper content-top id="stepper">
         <igc-step>
           <span slot="title">Personal Info</span>
