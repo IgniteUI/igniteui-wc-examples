@@ -15,7 +15,6 @@ export class Sample {
         if (this._columnPipeArgs1 == null)
         {
             var columnPipeArgs1: IgcColumnPipeArgs = {} as IgcColumnPipeArgs;
-            columnPipeArgs1.currencyCode = "";
             columnPipeArgs1.digitsInfo = "1.4-4";
 
             this._columnPipeArgs1 = columnPipeArgs1;
