@@ -1,6 +1,7 @@
 import { defineComponents, IgcCircularProgressComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './CircularProgressStyling.css'
+import './index.css';
 
 defineComponents(IgcCircularProgressComponent);
 

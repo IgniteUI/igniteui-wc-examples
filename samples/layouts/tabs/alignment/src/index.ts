@@ -1,5 +1,6 @@
 import { defineComponents, IgcTabsComponent, IgcRadioGroupComponent, IgcRadioComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import './index.css';
 
 defineComponents(IgcTabsComponent, IgcRadioComponent, IgcRadioGroupComponent);
 
