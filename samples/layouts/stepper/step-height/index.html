@@ -1,0 +1,63 @@
+<html>
+
+<head>
+  <title>Stepper Content Height Example</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample">
+      <header>
+          <label>1fr</label>
+          <igc-switch></igc-switch>
+          <label>0fr</label>
+          <output>--body-grid-rows: <span id="body-grid-rows-value">1fr</span></output>
+      </header>
+      <igc-stepper content-top id="stepper">
+        <igc-step>
+          <span slot="title">Personal Info</span>
+          <h2>Personal Info</h2>
+          <ul>
+            <li>Please enter your personal information.</li>
+          </ul>
+        </igc-step>
+        <igc-step>
+          <span slot="title">Delivery address</span>
+          <h2>Delivery address</h2>
+          <ul>
+            <li>Enter your shipping address for delivery.</li>
+            <li>If you need to change your address, please contact our support team.</li>
+            <li>If you will not be at the address during the delivery time, please provide an alternative address.</li>
+          </ul>
+        </igc-step>
+        <igc-step>
+          <span slot="title">Billing address</span>
+          <h2>Billing address</h2>
+          <ul>
+            <li>Please enter your billing address.</li>
+          </ul>
+        </igc-step>
+        <igc-step invalid>
+          <span slot="title">Confirmation</span>
+          <h2>Confirmation</h2>
+          <ul>
+            <li>Please review your order details and confirm your purchase.</li>
+          </ul>
+        </igc-step>
+      </igc-stepper>
+    </div>
+  </div>
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+</body>
+
+</html>
