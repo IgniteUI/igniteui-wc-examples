@@ -159,23 +159,11 @@ async function collectSampleFiles(folderPath, group, component, name) {
     });
   }
 
-  // 3. Data files — combine multiple into one block, same as original Gulp code
-  if (dataFileItems.length === 1) {
-    items.push(dataFileItems[0]);
-  } else if (dataFileItems.length > 1) {
-    let combinedContent = '// NOTE this file contains multiple data sources:';
-    for (let i = 0; i < dataFileItems.length; i++) {
-      combinedContent += `\n\n// Data Source #${i + 1}\n`;
-      combinedContent += dataFileItems[i].content + '\n';
-    }
-    items.push({
-      path:             `src/DataSources.ts`,
-      content:          combinedContent,
-      fileExtension:    'ts',
-      fileHeader:       'DATA',
-      isMain:           false,
-      hasRelativeAssetsUrls: false,
-    });
+  // 3. Data files — add each individually so StackBlitz sdk.openProject() receives each file
+  // under its original name. Combining them into DataSources.ts would break import
+  // statements in index.ts that reference the original file names.
+  for (const df of dataFileItems) {
+    items.push(df);
   }
 
   // 4. Boilerplate files so StackBlitz sdk.openProject() has a complete runnable project.
