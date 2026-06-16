@@ -1,8 +1,8 @@
 import { defineComponents, IgcAvatarComponent, IgcChatComponent, IgcChatOptions } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import 'igniteui-webcomponents/themes/light/material.css';
 import './layout.css'
 import { html, nothing } from 'lit-html';
-import './ChatStyle.css';
+import './ChatStyling.css';
 
 defineComponents(IgcAvatarComponent, IgcChatComponent);
 

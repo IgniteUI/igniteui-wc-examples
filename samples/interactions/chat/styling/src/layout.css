@@ -1,0 +1,13 @@
+igc-chat {
+  border-radius: .5rem;
+}
+
+igc-chat::part(message-container) {
+  border-radius: .5rem;
+}
+
+igc-chat::part(suggestion) {
+  margin: .125rem;
+  border-radius: 1.25rem;
+  cursor: pointer;
+}
