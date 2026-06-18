@@ -80,8 +80,10 @@ async function collectSampleFiles(folderPath, group, component, name) {
 
   const mainTsPath    = path.join(srcDir, 'index.ts');
   const htmlPath      = path.join(folderPath, 'index.html');
-  const mainTsRelPath = `./samples/${group}/${component}/${name}/src/index.ts`;
-  const htmlRelPath   = `./samples/${group}/${component}/${name}/index.html`;
+  // Use project-relative paths so StackBlitz sdk.openProject() receives "src/index.ts"
+  // instead of "./samples/{group}/{component}/{name}/src/index.ts".
+  const mainTsRelPath = `src/index.ts`;
+  const htmlRelPath   = `index.html`;
 
   const items = [];
 
@@ -112,7 +114,7 @@ async function collectSampleFiles(folderPath, group, component, name) {
       .map(async file => {
         const ext      = path.extname(file).slice(1).toLowerCase();
         const filePath = path.join(srcDir, file);
-        const relPath  = `./samples/${group}/${component}/${name}/src/${file}`;
+        const relPath  = `src/${file}`;
 
         if (!INCLUDE_EXTS.has('.' + ext)) return null;
 
@@ -157,24 +159,31 @@ async function collectSampleFiles(folderPath, group, component, name) {
     });
   }
 
-  // 3. Data files — combine multiple into one block, same as original Gulp code
-  if (dataFileItems.length === 1) {
-    items.push(dataFileItems[0]);
-  } else if (dataFileItems.length > 1) {
-    const dataFolder  = `./samples/${group}/${component}/${name}/src`;
-    let combinedContent = '// NOTE this file contains multiple data sources:';
-    for (let i = 0; i < dataFileItems.length; i++) {
-      combinedContent += `\n\n// Data Source #${i + 1}\n`;
-      combinedContent += dataFileItems[i].content + '\n';
+  // 3. Data files — add each individually so StackBlitz sdk.openProject() receives each file
+  // under its original name. Combining them into DataSources.ts would break import
+  // statements in index.ts that reference the original file names.
+  for (const df of dataFileItems) {
+    items.push(df);
+  }
+
+  // 4. Boilerplate files so StackBlitz sdk.openProject() has a complete runnable project.
+  const boilerplate = [
+    { file: 'tsconfig.json',    ext: 'json', header: 'json' },
+    { file: 'webpack.config.js', ext: 'js',  header: 'js'   },
+    { file: 'package.json',     ext: 'json', header: 'json' },
+  ];
+  for (const b of boilerplate) {
+    const bPath = path.join(folderPath, b.file);
+    if (await fileExists(bPath)) {
+      items.push({
+        path:             b.file,
+        content:          await fsp.readFile(bPath, 'utf8'),
+        fileExtension:    b.ext,
+        fileHeader:       b.header,
+        isMain:           false,
+        hasRelativeAssetsUrls: false,
+      });
     }
-    items.push({
-      path:             `${dataFolder}/DataSources.ts`,
-      content:          combinedContent,
-      fileExtension:    'ts',
-      fileHeader:       'DATA',
-      isMain:           false,
-      hasRelativeAssetsUrls: false,
-    });
   }
 
   return items;
