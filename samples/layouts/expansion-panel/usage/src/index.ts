@@ -4,8 +4,8 @@ import './ExpansionPanelUsage.css';
 
 defineComponents(IgcExpansionPanelComponent, IgcIconComponent);
 export class ExpansionPanelUsage {
-	constructor() {
-	}
+  constructor() {
+  }
 }
 
 new ExpansionPanelUsage();

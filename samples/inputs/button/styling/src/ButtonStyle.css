@@ -1,5 +1,5 @@
 igc-button::part(base) {
-  background-color: var(--ig-primary-500);
-  color: var(--ig-primary-500-contrast);
+  background-color: var(--ig-warn-700);
+  color: var(--ig-warn-700-contrast);
   padding: 18px;
 }
