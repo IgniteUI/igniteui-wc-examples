@@ -14,6 +14,10 @@
 }
 
 igc-avatar {
+  @container style(--ig-theme: indigo) {
+    --ig-size: var(--ig-size-large);
+  }
+
   anchor-name: --avatar;
 }
 
