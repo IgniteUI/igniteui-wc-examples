@@ -3,9 +3,9 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './index.css';
 
 defineComponents(IgcBadgeComponent, IgcAvatarComponent);
-export class BadgeOutlined {
+export class BadgeOverview {
   constructor() {
   }
 }
 
-new BadgeOutlined();
+new BadgeOverview();
