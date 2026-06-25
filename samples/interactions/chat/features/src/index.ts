@@ -47,7 +47,10 @@ igc-avatar {
   --ig-avatar-size: 60px;
   --ig-avatar-color: var(--ig-success-500-contrast);
   --ig-avatar-background: var(--ig-success-500);
-  --ig-avatar-border-radius: 20px;
+}
+
+igc-avatar::part(base) {
+  border-radius: 20px;
 }
 \`\`\`
       `,
