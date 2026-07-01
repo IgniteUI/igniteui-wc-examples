@@ -41,12 +41,15 @@ export class ChatOverview {
       id: '4',
       text: 
       `
-Thank you for your patience. It seems that the issue is the name of the CSS part. Here is the fixed code:
+Thank you for your patience. The background should be applied using the \`--ig-avatar-background\` CSS variable on the \`igc-avatar\` host element. Here is the fixed code:
 \`\`\`css
+igc-avatar {
+  --ig-avatar-size: 60px;
+  --ig-avatar-color: var(--ig-success-500-contrast);
+  --ig-avatar-background: var(--ig-success-500);
+}
+
 igc-avatar::part(base) {
-  --size: 60px;
-  color: var(--ig-success-500-contrast);
-  background: var(--ig-success-500);
   border-radius: 20px;
 }
 \`\`\`
