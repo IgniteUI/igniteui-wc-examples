@@ -15,14 +15,19 @@
 <body>
   <div id="root">
     <div class="sample center">
-      <igc-badge outlined></igc-badge>
+      <section class="wrapper">
+        <header>
+          <igc-avatar initials="TO" shape="circle"></igc-avatar>
+          <igc-badge outlined variant="danger"></igc-badge>
+        </header>
+        <span>Terrance Orta</span>
+      </section>
     </div>
-  </div>
 
-  <!-- This script is needed only for parcel and it will be excluded for webpack -->
-  <% if (false) { %>
-    <script src="src/index.ts"></script>
-    <% } %>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %>
+      <script src="src/index.ts"></script>
+      <% } %>
 
 </body>
 

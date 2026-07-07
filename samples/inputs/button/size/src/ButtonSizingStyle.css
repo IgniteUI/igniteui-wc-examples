@@ -1,11 +1,15 @@
+.container {
+    justify-content: center;
+}
+
 .button-container {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     margin-top: 20px;
 }
 
 #radio-group {
     display: flex;
-    margin: 0 auto;
-    width: 15%;
+    justify-content: center;
 }

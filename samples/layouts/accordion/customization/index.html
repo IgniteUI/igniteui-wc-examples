@@ -13,7 +13,7 @@
       <div class="sample-wrapper">
         <igc-accordion id="accordion">
           <igc-expansion-panel>
-            <h1 slot="title" id="categories">Categories</h1>
+            <span slot="title" id="categories">Categories</span>
             <div class="categories-container">
               <igc-checkbox>Bike</igc-checkbox>
               <igc-checkbox>Motorcycle</igc-checkbox>
@@ -23,11 +23,11 @@
             </div>
           </igc-expansion-panel>
            <igc-expansion-panel>
-            <h1 slot="title">Cost: $<span id="lowerCost">200</span> to $<span id="upperCost">800</span></h1>
+            <span slot="title">Cost: $<span id="lowerCost">200</span> to $<span id="upperCost">800</span></span>
             <igc-range-slider min="0" max="1000" lower="200" upper="800"></igc-range-slider>
           </igc-expansion-panel>
           <igc-expansion-panel>
-            <h1 slot="title" id="rating">Rating</h1>
+            <span slot="title" id="rating">Rating</span>
             <igc-radio-group>
               <igc-radio name="rating">
                 <igc-rating class="size-small" label="1 star or more" max="5" value="1.5" readonly></igc-rating>
@@ -44,7 +44,7 @@
             </igc-radio-group>
           </igc-expansion-panel>
           <igc-expansion-panel>
-            <h1 slot="title" id="timeTitle">Time</h1>
+            <span slot="title" id="timeTitle">Time</span>
             <igc-date-time-input class="size-small" input-format="hh:mm tt" label="Arrive before">
               <igc-icon name="clock" collection="material" slot="prefix"></igc-icon>
               <igc-icon name="clear" collection="material" slot="suffix"></igc-icon>

@@ -1,12 +1,13 @@
 igc-expansion-panel{
-    width: 100%;
-    height: 300px;
+  max-width: 500px;
+  border: 1px solid rgba(171, 171, 171, 0.3);
+  margin-inline-end: auto;
 }
 
 span#fired-event {
-    background-color: rgba(0,0,0,0.5);
-    border-radius: 26px;
-    padding: 1rem 1.5rem;
-    color:white;
-    display: none;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 26px;
+  padding: 1rem 1.5rem;
+  color:white;
+  display: none;
 }

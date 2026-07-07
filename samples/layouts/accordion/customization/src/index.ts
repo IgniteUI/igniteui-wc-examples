@@ -49,7 +49,7 @@ export class AccordionOverview {
             }
         });
 
-        const categoriesTitle = document.querySelector("h1#categories") as HTMLElement;
+        const categoriesTitle = document.querySelector("span#categories") as HTMLElement;
         categoriesTitle.textContent = checkedItems || "Categories";
     }
 
@@ -63,7 +63,7 @@ export class AccordionOverview {
 
     private checkRating = (ev: CustomEvent) => {
         const rating = (ev.target as IgcRadioComponent).querySelector("igc-rating")!.label;
-        const ratingTitle = document.querySelector("h1#rating") as HTMLElement;
+        const ratingTitle = document.querySelector("span#rating") as HTMLElement;
         ratingTitle.textContent = "Rating: " + rating;
     };
 
@@ -72,13 +72,13 @@ export class AccordionOverview {
         if (!dateTimeInput.value) {
             return;
         }
-        const timeTitle = document.querySelector("h1#timeTitle") as HTMLElement;
+        const timeTitle = document.querySelector("span#timeTitle") as HTMLElement;
         timeTitle.textContent = "Time: " + dateTimeInput.label + " " + dateTimeInput.value.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     };
 
     private clearTime = () => {
         document.querySelector("igc-date-time-input")!.clear();
-        const timeTitle = document.querySelector("h1#timeTitle") as HTMLElement;
+        const timeTitle = document.querySelector("span#timeTitle") as HTMLElement;
         timeTitle.textContent = "Time";
     };
 
