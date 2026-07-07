@@ -88,8 +88,9 @@ const isIndex = !slug;
       });
 
       // Expand the group that contains the active link and scroll it into view
+      // Skip scrollIntoView when embedded as an iframe with same origin
       const activeLink = document.querySelector<HTMLAnchorElement>('a.active');
-      if (activeLink) {
+      if (activeLink && window.self === window.top) {
         const list = activeLink.closest<HTMLElement>('.nav-list');
         if (list) list.dataset.state = 'expanded';
         // Wait one frame so the list transitions from display:none → display:block
