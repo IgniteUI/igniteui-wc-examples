@@ -1,0 +1,12 @@
+import { defineComponents, IgcAvatarComponent, IgcBadgeComponent } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import './index.css';
+
+defineComponents(IgcAvatarComponent, IgcBadgeComponent);
+
+export class BadgeOverview {
+    constructor() {
+    }
+}
+
+new BadgeOverview();

@@ -1,0 +1,11 @@
+{
+  "name": "wc-badge-overview",
+  "version": "1.0.0",
+  "description": "This project provides example of Badge Overview using IgniteUI for Web Components",
+  "main": "src/index.ts",
+  "dependencies": {
+    "igniteui-webcomponents": "^7.2.0"
+  },
+  "license": "",
+  "homepage": "."
+}
