@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accordion Programmatic Expansion</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v6.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="button-group">
+        <igc-button id="showAll" variant="contained">Show All</igc-button>
+        <igc-button id="hideAll" variant="contained">Hide All</igc-button>
+      </div>
+      <div class="sample-wrapper">
+        <igc-accordion id="accordion">
+          <igc-expansion-panel>
+            <span slot="title">Billing</span>
+            <span>Review invoices, update payment methods, and manage billing contacts.</span>
+          </igc-expansion-panel>
+          <igc-expansion-panel>
+            <span slot="title">Security</span>
+            <span>Configure password rules, multi-factor authentication, and recovery options.</span>
+          </igc-expansion-panel>
+          <igc-expansion-panel>
+            <span slot="title">Notifications</span>
+            <span>Choose which product updates and account alerts are sent to your team.</span>
+          </igc-expansion-panel>
+        </igc-accordion>
+      </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>
