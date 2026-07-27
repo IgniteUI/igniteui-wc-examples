@@ -1,0 +1,8 @@
+{
+  "name": "badge-type",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "webpack serve --mode development --config ./webpack.config.js --open",
+    "build": "webpack --mode production --config ./webpack.config.js"
+  }
+}
