@@ -2,6 +2,10 @@
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
 igc-button-group {
-	display: inline-block;
-	max-width: 400px;
+    display: inline-block;
+    max-width: 400px;
+}
+
+igc-ripple {
+    --color: grey;
 }
