@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Avatar Tailwind Styling</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample flex flex-row flex-nowrap items-center justify-center gap-10">
+      <igc-card class="box-border h-[479px] w-[344px] [--ig-card-border-radius:30px]">
+        <igc-card-media class="h-[189px] overflow-hidden">
+          <img
+            class="h-full w-full object-cover"
+            src="https://dl.infragistics.com/x/img/avatars/image-bg4.png"
+            alt="Cafe interior"
+          />
+        </igc-card-media>
+        <igc-card-header>
+          <igc-avatar
+            class="[--ig-size:var(--ig-size-medium)]"
+            slot="thumbnail"
+            shape="circle"
+            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-09.png"
+            alt="A profile photo of Kate Thompson."
+          ></igc-avatar>
+          <span slot="title">Kate Thompson</span>
+        </igc-card-header>
+        <igc-card-content>
+          <p class="m-0">
+            3D Artist. Turning polygons into worlds and immersive digital
+            realities
+          </p>
+          <div class="mt-4 grid w-full grid-cols-[1fr_auto_1fr_auto_1fr] items-center">
+            <div class="flex min-w-0 flex-col items-center gap-1 px-3">
+              <span class="text-base font-bold leading-tight text-[var(--ig-gray-900)]">23.9K</span>
+              <span class="text-sm leading-tight text-[var(--ig-gray-600)]">Likes</span>
+            </div>
+            <igc-divider class="h-12" vertical></igc-divider>
+            <div class="flex min-w-0 flex-col items-center gap-1 px-3">
+              <span class="text-base font-bold leading-tight text-[var(--ig-gray-900)]">163</span>
+              <span class="text-sm leading-tight text-[var(--ig-gray-600)]">Posts</span>
+            </div>
+            <igc-divider class="h-12" vertical></igc-divider>
+            <div class="flex min-w-0 flex-col items-center gap-1 px-3">
+              <span class="text-base font-bold leading-tight text-[var(--ig-gray-900)]">23.9K</span>
+              <span class="text-sm leading-tight text-[var(--ig-gray-600)]">Views</span>
+            </div>
+          </div>
+        </igc-card-content>
+        <igc-card-actions>
+          <igc-button class="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-border-radius:16px] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-size:var(--ig-size-small)]">
+            <span class="inline-flex items-center gap-1">
+              FOLLOW
+              <igc-icon class="h-4 w-4" name="plus" collection="material"></igc-icon>
+            </span>
+          </igc-button>
+          <div slot="end" class="inline-flex items-center gap-1">
+            <igc-icon-button
+              variant="flat"
+              name="instagram"
+              collection="material"
+              aria-label="Open Instagram profile"
+            ></igc-icon-button>
+            <igc-icon-button
+              variant="flat"
+              name="bereal"
+              collection="material"
+              aria-label="Open BeReal profile"
+            ></igc-icon-button>
+            <igc-icon-button
+              variant="flat"
+              name="threads"
+              collection="material"
+              aria-label="Open Threads profile"
+            ></igc-icon-button>
+          </div>
+        </igc-card-actions>
+      </igc-card>
+
+      <igc-card class="box-border h-[290px] w-[344px] [--ig-card-border-radius:30px]">
+        <igc-card-header>
+          <span
+            slot="thumbnail"
+            class="avatar-ring inline-flex"
+          >
+            <igc-avatar
+              class="[--ig-size:var(--ig-size-medium)]"
+              shape="circle"
+              src="https://dl.infragistics.com/x/img/avatars/avatar-profile-09.png"
+              alt="A profile photo of Kate Thompson."
+            ></igc-avatar>
+          </span>
+          <span slot="title">Kate Thompson</span>
+        </igc-card-header>
+        <igc-card-content class="overflow-hidden">
+          <p class="m-0">
+            3D Artist. Turning polygons into worlds and immersive digital
+            realities
+          </p>
+          <div class="mt-4 grid w-full grid-cols-[1fr_auto_1fr_auto_1fr] items-center">
+            <div class="flex min-w-0 flex-col items-center gap-1 px-3">
+              <span class="text-base font-bold leading-tight text-[var(--ig-gray-900)]">23.9K</span>
+              <span class="text-sm leading-tight text-[var(--ig-gray-600)]">Likes</span>
+            </div>
+            <igc-divider class="h-12" vertical></igc-divider>
+            <div class="flex min-w-0 flex-col items-center gap-1 px-3">
+              <span class="text-base font-bold leading-tight text-[var(--ig-gray-900)]">163</span>
+              <span class="text-sm leading-tight text-[var(--ig-gray-600)]">Posts</span>
+            </div>
+            <igc-divider class="h-12" vertical></igc-divider>
+            <div class="flex min-w-0 flex-col items-center gap-1 px-3">
+              <span class="text-base font-bold leading-tight text-[var(--ig-gray-900)]">23.9K</span>
+              <span class="text-sm leading-tight text-[var(--ig-gray-600)]">Views</span>
+            </div>
+          </div>
+        </igc-card-content>
+        <igc-card-actions>
+          <igc-button class="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-border-radius:16px] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-size:var(--ig-size-small)]">
+            <span class="inline-flex items-center gap-1">
+              FOLLOW
+              <igc-icon class="h-4 w-4" name="plus" collection="material"></igc-icon>
+            </span>
+          </igc-button>
+          <div slot="end" class="inline-flex items-center gap-1">
+            <igc-icon-button
+              variant="flat"
+              name="instagram"
+              collection="material"
+              aria-label="Open Instagram profile"
+            ></igc-icon-button>
+            <igc-icon-button
+              variant="flat"
+              name="bereal"
+              collection="material"
+              aria-label="Open BeReal profile"
+            ></igc-icon-button>
+            <igc-icon-button
+              variant="flat"
+              name="threads"
+              collection="material"
+              aria-label="Open Threads profile"
+            ></igc-icon-button>
+          </div>
+        </igc-card-actions>
+      </igc-card>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
