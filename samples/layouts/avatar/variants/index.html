@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Avatar Variants</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="sample avatar-overview-sample">
+      <div class="avatar-variant">
+        <span class="avatar-with-badge">
+          <igc-avatar
+            class="size-small"
+            shape="circle"
+            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
+            alt="A profile photo of a man."
+          ></igc-avatar>
+          <igc-badge
+            class="avatar-status avatar-dot-badge size-small"
+            dot
+            outlined
+            variant="success"
+          ></igc-badge>
+        </span>
+        <span class="avatar-label">Image</span>
+      </div>
+
+      <div class="avatar-variant">
+        <span class="avatar-with-badge">
+          <igc-avatar class="size-small" shape="circle">
+            <igc-icon name="mail" collection="material"></igc-icon>
+          </igc-avatar>
+          <igc-badge
+            class="avatar-status avatar-count-badge size-small"
+            outlined
+            shape="rounded"
+            variant="info"
+          >
+            2
+          </igc-badge>
+        </span>
+        <span class="avatar-label">Icon</span>
+      </div>
+
+      <div class="avatar-variant">
+        <span class="avatar-with-badge">
+          <igc-avatar
+            class="size-small"
+            shape="circle"
+            initials="AZ"
+            alt="Avatar with AZ initials."
+          ></igc-avatar>
+          <igc-badge
+            class="avatar-status avatar-check-badge size-small"
+            outlined
+            shape="rounded"
+            variant="success"
+          >
+            <igc-icon name="check" collection="material"></igc-icon>
+          </igc-badge>
+        </span>
+        <span class="avatar-label">Initials</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>

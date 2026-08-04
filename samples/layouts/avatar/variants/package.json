@@ -1,7 +1,7 @@
 {
-  "name": "wc-avatar-initials",
+  "name": "wc-avatar-variants",
   "version": "1.0.0",
-  "description": "This project provides example of Avatar Initials using IgniteUI for Web Components",
+  "description": "This project provides Avatar variants examples using Ignite UI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
