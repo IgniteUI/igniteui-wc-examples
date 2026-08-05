@@ -1,4 +1,0 @@
-igc-badge::part(base) {
-  --background-color: var(--ig-error-A100);
-  --border-radius: 2px;
-}

@@ -14,20 +14,49 @@
 
 <body>
   <div id="root">
-    <div class="sample center">
-      <section class="wrapper">
-        <header>
-          <igc-avatar initials="TO" shape="circle"></igc-avatar>
-          <igc-badge outlined variant="danger"></igc-badge>
-        </header>
-        <span>Terrance Orta</span>
-      </section>
+    <div class="badge-outlined">
+      <div class="outlined-example">
+        <div class="icon-circle">
+          <igc-icon name="favorite_border" collection="material"></igc-icon>
+        </div>
+        <igc-badge variant="info" outlined class="badge-info-blue">23</igc-badge>
+      </div>
+      <div class="outlined-example">
+        <igc-avatar initials="AZ" shape="rounded"></igc-avatar>
+        <igc-badge variant="danger" outlined>
+          <igc-icon name="close" collection="material"></igc-icon>
+        </igc-badge>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-marker">
+            <span class="step-circle">1</span>
+          </div>
+          <span class="step-label">Orders</span>
+        </div>
+        <span class="step-connector"></span>
+        <div class="step">
+          <div class="step-marker">
+            <span class="step-circle">2</span>
+            <igc-badge dot variant="info" outlined class="payment-dot-blue"></igc-badge>
+          </div>
+          <span class="step-label">Payment</span>
+        </div>
+        <span class="step-connector pending"></span>
+        <div class="step">
+          <div class="step-marker">
+            <span class="step-circle pending">3</span>
+          </div>
+          <span class="step-label">Shipping</span>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %>
-      <script src="src/index.ts"></script>
-      <% } %>
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
 
 </body>
 

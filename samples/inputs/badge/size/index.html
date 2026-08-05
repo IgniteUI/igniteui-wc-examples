@@ -4,6 +4,7 @@
 <head>
   <title>Badge Size</title>
   <meta charset="UTF-8" />
+
   <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
@@ -12,18 +13,30 @@
 
 <body>
   <div id="root">
-    <div class="sample center">
-      <div class="badge-wrapper">
-        <span>Large</span>
-        <igc-badge class="size-large" variant="primary"></igc-badge>
+    <div class="badge-size">
+      <div class="badge-size-row badge-small">
+        <span class="row-label">Small</span>
+        <igc-badge dot variant="danger"></igc-badge>
+        <igc-badge variant="info" class="badge-info-blue">2</igc-badge>
+        <igc-badge variant="success">
+          <igc-icon name="check" collection="material"></igc-icon>
+        </igc-badge>
       </div>
-      <div class="badge-wrapper">
-        <span>Medium</span>
-        <igc-badge class="size-medium" variant="primary"></igc-badge>
+      <div class="badge-size-row badge-medium">
+        <span class="row-label">Medium</span>
+        <igc-badge dot variant="danger"></igc-badge>
+        <igc-badge variant="info" class="badge-info-blue">2</igc-badge>
+        <igc-badge variant="success">
+          <igc-icon name="check" collection="material"></igc-icon>
+        </igc-badge>
       </div>
-      <div class="badge-wrapper">
-        <span>Small</span>
-        <igc-badge class="size-small" variant="primary"></igc-badge>
+      <div class="badge-size-row badge-large">
+        <span class="row-label">Large</span>
+        <igc-badge dot variant="danger"></igc-badge>
+        <igc-badge variant="info" class="badge-info-blue">2</igc-badge>
+        <igc-badge variant="success">
+          <igc-icon name="check" collection="material"></igc-icon>
+        </igc-badge>
       </div>
     </div>
   </div>
