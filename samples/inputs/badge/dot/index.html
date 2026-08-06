@@ -14,8 +14,54 @@
 
 <body>
   <div id="root">
-    <div class="sample center">
-      <igc-badge dot></igc-badge>
+    <div class="badge-dot">
+      <div class="dot-example icon-example">
+        <div class="icon-circle">
+          <igc-icon name="notifications" collection="material"></igc-icon>
+        </div>
+        <igc-badge dot outlined variant="danger"></igc-badge>
+      </div>
+      <div class="dot-example notifications-card">
+        <div class="notification-row">
+          <span class="row-indicator">
+            <igc-badge dot variant="info"></igc-badge>
+          </span>
+          <span class="row-title">Contract renewal</span>
+          <span class="row-time unread">09:12</span>
+          <igc-icon class="row-chevron" name="chevron_right" collection="material"></igc-icon>
+        </div>
+        <div class="notification-row">
+          <span class="row-indicator"></span>
+          <span class="row-title">Weekly digest</span>
+          <span class="row-time">Yesterday</span>
+          <igc-icon class="row-chevron" name="chevron_right" collection="material"></igc-icon>
+        </div>
+      </div>
+      <div class="dot-example avatar-example">
+        <igc-avatar src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png" shape="circle" size="small"></igc-avatar>
+        <igc-badge dot outlined variant="danger"></igc-badge>
+      </div>
+      <div class="dot-example nav-card">
+        <div class="nav-item active">
+          <span class="nav-icon">
+            <igc-icon name="home" collection="material"></igc-icon>
+          </span>
+          <span class="nav-label">Home</span>
+        </div>
+        <div class="nav-item">
+          <span class="nav-icon">
+            <igc-icon name="facebookMessenger" collection="material"></igc-icon>
+            <igc-badge dot variant="info"></igc-badge>
+          </span>
+          <span class="nav-label">Chat</span>
+        </div>
+        <div class="nav-item">
+          <span class="nav-icon">
+            <igc-icon name="person" collection="material"></igc-icon>
+          </span>
+          <span class="nav-label">Profile</span>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -8,9 +8,9 @@ const checkIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><
 
 registerIconFromText('check', checkIcon, 'material');
 
-export class BadgeShape {
-    constructor() {
-    }
+export class BadgeSize {
+  constructor() {
+  }
 }
 
-new BadgeShape();
+new BadgeSize();

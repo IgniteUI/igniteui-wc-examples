@@ -14,8 +14,27 @@
 
 <body>
   <div id="root">
-    <div class="sample center">
-      <igc-badge shape="square"></igc-badge>
+    <div class="badge-shape">
+      <div class="badge-shape-row">
+        <span class="row-label">Rounded</span>
+        <igc-badge variant="success" shape="rounded">
+          <igc-icon name="check" collection="material"></igc-icon>
+        </igc-badge>
+        <igc-badge variant="success" shape="rounded">2</igc-badge>
+        <igc-badge variant="success" shape="rounded" class="badge-small">
+          <igc-icon name="check" collection="material"></igc-icon>
+        </igc-badge>
+      </div>
+      <div class="badge-shape-row">
+        <span class="row-label">Square</span>
+        <igc-badge variant="info" shape="square" class="badge-info-blue">
+          <igc-icon name="check" collection="material"></igc-icon>
+        </igc-badge>
+        <igc-badge variant="info" shape="square" class="badge-info-blue">2</igc-badge>
+        <igc-badge variant="info" shape="square" class="badge-small badge-info-blue">
+          <igc-icon name="check" collection="material"></igc-icon>
+        </igc-badge>
+      </div>
     </div>
   </div>
 
