@@ -10,6 +10,7 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
+    "add:sample": "node scripts/add-sample.js",
     "dev": "astro dev --port 4200",
     "prebuild": "node scripts/generate-code-viewer.js",
     "build": "cross-env NODE_OPTIONS=--max_old_space_size=8192 astro build",
