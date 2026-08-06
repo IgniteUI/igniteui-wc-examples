@@ -1,3 +1,8 @@
+import rootPkg from "../package.json" with { type: "json" };
+
+const COMPONENT_VERSION = rootPkg.dependencies["igniteui-webcomponents"];
+const TYPESCRIPT_VERSION = rootPkg.devDependencies["typescript"];
+
 const INDEX_HTML_CONTENT = `
 <!DOCTYPE html>
 <html lang="en">
@@ -84,10 +89,10 @@ const PACKAGE_JSON_CONTENT = `
         "preview": "vite preview"
     },
     "dependencies": {
-        "igniteui-webcomponents": "^7.2.0"
+        "igniteui-webcomponents": "${COMPONENT_VERSION}"
     },
     "devDependencies": {
-        "typescript": "~6.0.3",
+        "typescript": "${TYPESCRIPT_VERSION}",
         "vite": "^8.2.0"
     }
 }
