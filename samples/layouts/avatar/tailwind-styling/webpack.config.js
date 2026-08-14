@@ -7,24 +7,25 @@ const webpack = require('webpack');
 module.exports = env => {
     const nodeEnv = env?.NODE_ENV || process.env.NODE_ENV || 'development';
     const isProd = nodeEnv === 'production';
-    const isLegacy = !!env?.legacy && !(env.legacy == "false");
-    console.log(">> webpack nodeEnv=" + nodeEnv);
-    console.log(">> webpack isProd=" + isProd);
-    console.log(">> webpack isLegacy=" + isLegacy);
+    const isLegacy = !!env?.legacy && !(env.legacy == 'false');
+    console.log('>> webpack nodeEnv=' + nodeEnv);
+    console.log('>> webpack isProd=' + isProd);
+    console.log('>> webpack isLegacy=' + isLegacy);
     const presets = [
-        ["@babel/preset-env", {
-            "useBuiltIns": "usage",
-            "corejs": 3,
-            "targets": {
-                "browsers": isLegacy ? ["defaults"] : [
-                    "last 2 Chrome versions",
-                    "last 2 Safari versions",
-                    "last 2 iOS versions",
-                    "last 2 Firefox versions",
-                    "last 2 Edge versions"]
+        ['@babel/preset-env', {
+            useBuiltIns: 'usage',
+            corejs: 3,
+            targets: {
+                browsers: isLegacy ? ['defaults'] : [
+                    'last 2 Chrome versions',
+                    'last 2 Safari versions',
+                    'last 2 iOS versions',
+                    'last 2 Firefox versions',
+                    'last 2 Edge versions'
+                ]
             }
         }],
-        "@babel/preset-typescript"
+        '@babel/preset-typescript'
     ];
 
     return {
@@ -37,7 +38,7 @@ module.exports = env => {
         output: {
             filename: isProd ? '[fullhash].bundle.js' : '[fullhash].bundle.js',
             globalObject: 'this',
-            path: path.resolve(__dirname, 'dist'),
+            path: path.resolve(__dirname, 'dist')
         },
 
         resolve: {
@@ -55,33 +56,46 @@ module.exports = env => {
                 { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
                 { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
                 { test: /\.xml$/, use: ['xml-loader'] },
-                { test: /\.css$/, sideEffects: true, use: ['style-loader', 'css-loader'] },
+                {
+                    test: /\.css$/,
+                    sideEffects: true,
+                    use: [
+                        'style-loader',
+                        {
+                            loader: 'css-loader',
+                            options: { importLoaders: 1 }
+                        },
+                        'postcss-loader'
+                    ]
+                },
                 {
                     test: /worker\.(ts|js)$/,
                     use: [
                         { loader: 'worker-loader' },
                         {
-                            loader: 'babel-loader', options: {
-                                "compact": isProd ? true : false,
-                                "presets": presets,
-                                "plugins": [
-                                    "@babel/plugin-transform-class-static-block",
-                                    "@babel/plugin-transform-class-properties",
-                                    "@babel/plugin-transform-runtime"
+                            loader: 'babel-loader',
+                            options: {
+                                compact: isProd ? true : false,
+                                presets: presets,
+                                plugins: [
+                                    '@babel/plugin-transform-class-static-block',
+                                    '@babel/plugin-transform-class-properties',
+                                    '@babel/plugin-transform-runtime'
                                 ]
                             }
                         }
                     ]
                 },
                 {
-                    test: /\.(ts|js)$/, loader: 'babel-loader',
+                    test: /\.(ts|js)$/,
+                    loader: 'babel-loader',
                     options: {
-                        "compact": isProd ? true : false,
-                        "presets": presets,
-                        "plugins": [
-                            "@babel/plugin-transform-class-static-block",
-                            "@babel/plugin-transform-class-properties",
-                            "@babel/plugin-transform-runtime"
+                        compact: isProd ? true : false,
+                        presets: presets,
+                        plugins: [
+                            '@babel/plugin-transform-class-static-block',
+                            '@babel/plugin-transform-class-properties',
+                            '@babel/plugin-transform-runtime'
                         ]
                     },
                     exclude:
