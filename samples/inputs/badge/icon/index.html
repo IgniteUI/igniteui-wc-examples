@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Badge Icon</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="badge-icon">
+      <div class="badge-icon-item">
+        <div class="icon-wrapper">
+          <igc-badge variant="success"><igc-icon name="check" collection="material"></igc-icon></igc-badge>
+        </div>
+        <span>check</span>
+      </div>
+      <div class="badge-icon-item">
+        <div class="icon-wrapper">
+          <igc-badge variant="danger" class="badge-favorite"><igc-icon name="favorite_border" collection="material"></igc-icon></igc-badge>
+        </div>
+        <span>favorite</span>
+      </div>
+      <div class="badge-icon-item">
+        <div class="icon-wrapper">
+          <igc-badge variant="info" class="badge-notification"><igc-icon name="notifications" collection="material"></igc-icon></igc-badge>
+        </div>
+        <span>notification</span>
+      </div>
+      <div class="badge-icon-item">
+        <div class="icon-wrapper">
+          <igc-badge variant="warning" class="badge-star"><igc-icon name="star_border" collection="material"></igc-icon></igc-badge>
+        </div>
+        <span>star</span>
+      </div>
+      <div class="badge-icon-item">
+        <div class="icon-wrapper">
+          <igc-badge variant="info" class="badge-settings"><igc-icon name="settings" collection="material"></igc-icon></igc-badge>
+        </div>
+        <span>settings</span>
+      </div>
+      <div class="badge-icon-item">
+        <div class="icon-wrapper avatar-wrapper">
+          <igc-avatar initials="AZ" shape="circle" size="small"></igc-avatar>
+          <igc-badge variant="danger" outlined><igc-icon name="close" collection="material"></igc-icon></igc-badge>
+        </div>
+        <span>on avatar</span>
+      </div>
+    </div>
+  </div>
+
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+  <% } %>
+</body>
+
+</html>

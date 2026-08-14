@@ -5,9 +5,9 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = env => {
-    const nodeEnv = process.env.NODE_ENV || 'development';
+    const nodeEnv = env?.NODE_ENV || process.env.NODE_ENV || 'development';
     const isProd = nodeEnv === 'production';
-    const isLegacy = !!process.env.legacy && !(process.env.legacy == "false");
+    const isLegacy = !!env?.legacy && !(env.legacy == "false");
     console.log(">> webpack nodeEnv=" + nodeEnv);
     console.log(">> webpack isProd=" + isProd);
     console.log(">> webpack isLegacy=" + isLegacy);
@@ -65,7 +65,8 @@ module.exports = env => {
                                 "compact": isProd ? true : false,
                                 "presets": presets,
                                 "plugins": [
-                                    "@babel/plugin-proposal-class-properties",
+                                    "@babel/plugin-transform-class-static-block",
+                                    "@babel/plugin-transform-class-properties",
                                     "@babel/plugin-transform-runtime"
                                 ]
                             }
@@ -78,7 +79,8 @@ module.exports = env => {
                         "compact": isProd ? true : false,
                         "presets": presets,
                         "plugins": [
-                            "@babel/plugin-proposal-class-properties",
+                            "@babel/plugin-transform-class-static-block",
+                            "@babel/plugin-transform-class-properties",
                             "@babel/plugin-transform-runtime"
                         ]
                     },

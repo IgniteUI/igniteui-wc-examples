@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Avatar Overview</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="sample avatar-overview-sample">
+      <igc-avatar
+        class="size-large"
+        shape="circle"
+        src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
+        alt="A profile photo of a man."
+      ></igc-avatar>
+
+      <span class="avatar-with-badge">
+        <igc-avatar
+          class="size-large"
+          shape="circle"
+          src="https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png"
+          alt="A profile photo of a man."
+        ></igc-avatar>
+        <igc-badge
+          class="avatar-status size-large"
+          dot
+          outlined
+          variant="success"
+        ></igc-badge>
+      </span>
+
+      <span class="avatar-stack" aria-label="Project members">
+        <igc-avatar
+          class="size-large"
+          shape="circle"
+          src="https://dl.infragistics.com/x/img/avatars/avatar-profile-07.png"
+          alt="A profile photo of a man."
+        ></igc-avatar>
+        <igc-avatar
+          class="size-large"
+          shape="circle"
+          src="https://dl.infragistics.com/x/img/avatars/avatar-profile-03.png"
+          alt="A profile photo of a man."
+        ></igc-avatar>
+        <igc-avatar
+          class="size-large"
+          shape="circle"
+          src="https://dl.infragistics.com/x/img/avatars/avatar-profile-08.png"
+          alt="A profile photo of a man."
+        ></igc-avatar>
+        <igc-avatar
+          class="size-large"
+          shape="circle"
+          initials="+3"
+          alt="Three additional project members."
+        ></igc-avatar>
+      </span>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>

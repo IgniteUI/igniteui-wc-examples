@@ -1,2 +1,43 @@
-/* shared styles are loaded from: */
-/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+.sample {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-list {
+  width: 344px;
+  max-width: 100%;
+}
+
+.size-small {
+  --ig-size: var(--ig-size-small);
+}
+
+.size-medium {
+  --ig-size: var(--ig-size-medium);
+}
+
+.size-large {
+  --ig-size: var(--ig-size-large);
+}
+
+.avatar-with-badge {
+  position: relative;
+  display: inline-flex;
+}
+
+.avatar-status {
+  --ig-badge-icon-color: #ffffff;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+}
+
+.avatar-muted-badge {
+  --ig-badge-background-color: var(--ig-gray-300);
+  --ig-badge-icon-color: var(--ig-gray-700);
+}
+
+.avatar-muted {
+  --ig-avatar-background: #D2DBE8;
+}
