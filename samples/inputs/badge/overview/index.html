@@ -14,9 +14,25 @@
 
 <body>
   <div id="root">
-    <div class="sample center">
-      <igc-avatar initials="JD"></igc-avatar>
-      <igc-badge outlined></igc-badge>
+    <div class="badge-overview">
+      <div class="badge-example avatar-example">
+        <igc-avatar src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png" shape="circle" size="small"></igc-avatar>
+        <igc-badge outlined variant="success">
+          <igc-icon name="check" collection="material"></igc-icon>
+        </igc-badge>
+      </div>
+      <div class="badge-example icon-example">
+        <igc-icon name="mail" collection="material"></igc-icon>
+        <igc-badge outlined variant="danger">2</igc-badge>
+      </div>
+      <div class="badge-example event-example">
+        <igc-chip>Events</igc-chip>
+        <igc-badge outlined variant="info">new</igc-badge>
+      </div>
+      <div class="badge-example notification-example">
+        <igc-icon name="notifications" collection="material"></igc-icon>
+        <igc-badge dot outlined variant="danger"></igc-badge>
+      </div>
     </div>
   </div>
 

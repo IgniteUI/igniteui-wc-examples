@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Badge Tailwind Styling</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="badge-parent flex items-center justify-center !gap-12">
+      <div class="relative flex">
+        <igc-avatar initials="AZ" shape="rounded" size="small"></igc-avatar>
+        <igc-badge outlined class="badge-style badge-close"><igc-icon name="close" collection="material"></igc-icon></igc-badge>
+      </div>
+      <div class="relative flex">
+        <igc-avatar shape="rounded" size="small"><igc-icon name="person" collection="material"></igc-icon></igc-avatar>
+        <igc-badge outlined class="badge-style badge-volume"><igc-icon name="volume_off" collection="material"></igc-icon></igc-badge>
+      </div>
+      <div class="relative flex">
+        <igc-avatar initials="AZ" shape="circle" size="small"></igc-avatar>
+        <igc-badge outlined class="badge-style badge-remove"><igc-icon name="remove" collection="material"></igc-icon></igc-badge>
+      </div>
+      <div class="relative flex">
+        <igc-avatar shape="square" size="small"><igc-icon name="person" collection="material"></igc-icon></igc-avatar>
+        <igc-badge outlined class="badge-style badge-check"><igc-icon name="check" collection="material"></igc-icon></igc-badge>
+      </div>
+    </div>
+  </div>
+
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+  <% } %>
+</body>
+
+</html>
