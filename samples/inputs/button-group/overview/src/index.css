@@ -1,17 +1,2 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
-igc-button-group {
-    max-width: 400px;
-    --ig-button-group-item-text-color: #000000;
-    --ig-button-group-item-background: #2196f3;
-    --ig-button-group-item-border-color: transparent;
-    --ig-button-group-item-selected-background: #1976d2;
-    --ig-button-group-item-selected-border-color: transparent;
-    --ig-button-group-item-selected-text-color: #000000;
-    --ig-button-group-item-icon-color: #000000;
-    --ig-button-group-item-selected-icon-color: #000000;
-}
-
-igc-ripple {
-    --color: gray;
-}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Button Group Overview</title>
+    <title>Button Group Custom Toggle</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
@@ -14,21 +14,12 @@
   <body>
     <div id="root">
       <div class="container sample">
-        <igc-button-group selection="single-required">
-          <igc-toggle-button value="device">
-            Device
-            <igc-ripple></igc-ripple>
-          </igc-toggle-button>
-          <igc-toggle-button value="cloud" selected>
-            Cloud
-            <igc-ripple></igc-ripple>
-          </igc-toggle-button>
+        <igc-button-group selection="multiple">
+          <igc-toggle-button selected><igc-icon name="border_top" collection="material"></igc-icon></igc-toggle-button>
+          <igc-toggle-button><igc-icon name="border_right" collection="material"></igc-icon></igc-toggle-button>
+          <igc-toggle-button><igc-icon name="border_bottom" collection="material"></igc-icon></igc-toggle-button>
+          <igc-toggle-button><igc-icon name="border_left" collection="material"></igc-icon></igc-toggle-button>
         </igc-button-group>
-
-        <div class="album">
-          <span class="album-title"></span>
-          <div class="album-photos"></div>
-        </div>
       </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->

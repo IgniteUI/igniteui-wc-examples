@@ -5,7 +5,6 @@ import {
     IgcToggleButtonComponent
 } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/material.css';
-import './ButtonGroupSize.css';
 import './index.css';
 
 defineComponents(IgcButtonGroupComponent, IgcRippleComponent, IgcToggleButtonComponent);

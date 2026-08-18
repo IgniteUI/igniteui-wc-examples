@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Button Group Alignment</title>
+    <title>Button Group Styling</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
@@ -13,23 +13,19 @@
 
   <body>
     <div id="root">
-      <div class="container sample">
-        <igc-button-group alignment="vertical">
-          <igc-toggle-button value="sofia">
+      <div class="button-group-styling">
+        <igc-button-group>
+          <igc-toggle-button value="left" selected>
+            Left
             <igc-ripple></igc-ripple>
-            Sofia
           </igc-toggle-button>
-          <igc-toggle-button value="london">
+          <igc-toggle-button value="center">
+            Center
             <igc-ripple></igc-ripple>
-            London
           </igc-toggle-button>
-          <igc-toggle-button value="new york">
+          <igc-toggle-button value="right">
+            Right
             <igc-ripple></igc-ripple>
-            New York
-          </igc-toggle-button>
-          <igc-toggle-button value="tokyo" disabled>
-            <igc-ripple></igc-ripple>
-            Tokyo
           </igc-toggle-button>
         </igc-button-group>
       </div>
