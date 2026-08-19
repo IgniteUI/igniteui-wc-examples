@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Button Group Interaction States</title>
+    <title>Button Group States</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
@@ -13,36 +13,67 @@
 
   <body>
     <div id="root">
-      <div class="button-group-interaction-states">
-        <div class="button-group-interaction-states-row">
+      <div class="button-group-states">
+        <div class="button-group-states-row">
           <span class="row-label"></span>
-          <span class="column-label">Enabled</span>
-          <span class="column-label">Disabled</span>
+          <span class="column-label">Idle</span>
+          <span class="column-label">Hover</span>
+          <span class="column-label">Focused</span>
         </div>
 
-        <div class="button-group-interaction-states-row">
+        <div class="button-group-states-row">
           <span class="row-label">Selected / Off</span>
-          <igc-button-group selection="multiple">
-            <igc-toggle-button value="device">
-              Device
+          <igc-button-group>
+            <igc-toggle-button class="state-idle" value="button">
+              <igc-icon name="notifications" collection="material"></igc-icon>
+              Button
+              <igc-icon name="notifications" collection="material"></igc-icon>
               <igc-ripple></igc-ripple>
             </igc-toggle-button>
           </igc-button-group>
-          <igc-button-group selection="multiple" disabled>
-            <igc-toggle-button value="cloud">Cloud</igc-toggle-button>
+          <igc-button-group>
+            <igc-toggle-button class="state-hover" value="button">
+              <igc-icon name="notifications" collection="material"></igc-icon>
+              Button
+              <igc-icon name="notifications" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+          </igc-button-group>
+          <igc-button-group>
+            <igc-toggle-button class="state-focused" value="button">
+              <igc-icon name="notifications" collection="material"></igc-icon>
+              Button
+              <igc-icon name="notifications" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
           </igc-button-group>
         </div>
 
-        <div class="button-group-interaction-states-row">
+        <div class="button-group-states-row">
           <span class="row-label">Selected / On</span>
-          <igc-button-group selection="multiple">
-            <igc-toggle-button value="device" selected>
-              Device
+          <igc-button-group>
+            <igc-toggle-button class="state-idle" value="button" selected>
+              <igc-icon name="notifications" collection="material"></igc-icon>
+              Button
+              <igc-icon name="notifications" collection="material"></igc-icon>
               <igc-ripple></igc-ripple>
             </igc-toggle-button>
           </igc-button-group>
-          <igc-button-group selection="multiple" disabled>
-            <igc-toggle-button value="cloud" selected>Cloud</igc-toggle-button>
+          <igc-button-group>
+            <igc-toggle-button class="state-hover" value="button" selected>
+              <igc-icon name="notifications" collection="material"></igc-icon>
+              Button
+              <igc-icon name="notifications" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+          </igc-button-group>
+          <igc-button-group>
+            <igc-toggle-button class="state-focused" value="button" selected>
+              <igc-icon name="notifications" collection="material"></igc-icon>
+              Button
+              <igc-icon name="notifications" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
           </igc-button-group>
         </div>
       </div>
