@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Button Layout</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="container sample">
+        <div class="button-container">
+          <label class="variant-selector">
+            <span class="button-label">Button variant</span>
+            <select id="variant-select">
+              <option value="contained" selected>Contained</option>
+              <option value="outlined">Outlined</option>
+              <option value="flat">Flat</option>
+              <option value="fab">Fab</option>
+            </select>
+          </label>
+          <div class="button-group">
+            <span class="button-label" id="variant-label">Contained</span>
+            <div class="button-row">
+              <div class="button-item">
+                <span class="button-sublabel">Left</span>
+                <igc-button variant="contained" class="variant-button">
+                  <igc-icon slot="prefix" name="add" collection="material"></igc-icon>
+                  Add
+                </igc-button>
+              </div>
+              <div class="button-item">
+                <span class="button-sublabel">Right</span>
+                <igc-button variant="contained" class="variant-button">
+                  Add
+                  <igc-icon slot="suffix" name="add" collection="material"></igc-icon>
+                </igc-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+
+  </body>
+</html>

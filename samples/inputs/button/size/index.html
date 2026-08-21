@@ -13,18 +13,26 @@
 
   <body>
     <div id="root">
-      <div class="container sample center">
-        <igc-radio-group id="radio-group" alignment="horizontal">
-          <igc-radio name="size" value="small" label-position="after">Small</igc-radio>
-          <igc-radio name="size" value="medium" label-position="after" checked>Medium</igc-radio>
-          <igc-radio name="size" value="large" label-position="after">Large</igc-radio>
-        </igc-radio-group>
-
-        <div class="button-container">
-          <igc-button id="flat-btn" variant="flat">Flat</igc-button>
-          <igc-button id="contained-btn" variant="contained">Contained</igc-button>
-          <igc-button id="outlined-btn" variant="outlined">Outlined</igc-button>
-          <igc-button id="fab-btn" variant="fab">Like</igc-button>
+      <div class="container sample">
+        <div class="size-grid">
+          <div class="size-row">
+            <igc-button class="size-large" variant="contained"><igc-icon slot="prefix" name="notifications" collection="material"></igc-icon>contained<igc-icon slot="suffix" name="notifications" collection="material"></igc-icon></igc-button>
+            <igc-button class="size-large" variant="outlined"><igc-icon slot="prefix" name="notifications" collection="material"></igc-icon>outlined<igc-icon slot="suffix" name="notifications" collection="material"></igc-icon></igc-button>
+            <igc-button class="size-large" variant="flat"><igc-icon slot="prefix" name="notifications" collection="material"></igc-icon>flat<igc-icon slot="suffix" name="notifications" collection="material"></igc-icon></igc-button>
+            <igc-button class="size-large" variant="fab"><igc-icon slot="prefix" name="add" collection="material"></igc-icon>Floating Action<igc-icon slot="suffix" name="add" collection="material"></igc-icon></igc-button>
+          </div>
+          <div class="size-row">
+            <igc-button class="size-medium" variant="contained"><igc-icon slot="prefix" name="notifications" collection="material"></igc-icon>contained<igc-icon slot="suffix" name="notifications" collection="material"></igc-icon></igc-button>
+            <igc-button class="size-medium" variant="outlined"><igc-icon slot="prefix" name="notifications" collection="material"></igc-icon>outlined<igc-icon slot="suffix" name="notifications" collection="material"></igc-icon></igc-button>
+            <igc-button class="size-medium" variant="flat"><igc-icon slot="prefix" name="notifications" collection="material"></igc-icon>flat<igc-icon slot="suffix" name="notifications" collection="material"></igc-icon></igc-button>
+            <igc-button class="size-medium" variant="fab"><igc-icon slot="prefix" name="add" collection="material"></igc-icon>Floating Action<igc-icon slot="suffix" name="add" collection="material"></igc-icon></igc-button>
+          </div>
+          <div class="size-row">
+            <igc-button class="size-small" variant="contained"><igc-icon slot="prefix" name="notifications" collection="material"></igc-icon>contained<igc-icon slot="suffix" name="notifications" collection="material"></igc-icon></igc-button>
+            <igc-button class="size-small" variant="outlined"><igc-icon slot="prefix" name="notifications" collection="material"></igc-icon>outlined<igc-icon slot="suffix" name="notifications" collection="material"></igc-icon></igc-button>
+            <igc-button class="size-small" variant="flat"><igc-icon slot="prefix" name="notifications" collection="material"></igc-icon>flat<igc-icon slot="suffix" name="notifications" collection="material"></igc-icon></igc-button>
+            <igc-button class="size-small" variant="fab"><igc-icon slot="prefix" name="add" collection="material"></igc-icon>Floating Action<igc-icon slot="suffix" name="add" collection="material"></igc-icon></igc-button>
+          </div>
         </div>
       </div>
     </div>

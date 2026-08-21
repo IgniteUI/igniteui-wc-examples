@@ -1,0 +1,60 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* web component internals cannot be styled with Tailwind utilities,
+   because they live in the shadow DOM, so exposed CSS parts are used */
+
+.button-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100%;
+    gap: 1.5rem;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.button-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 7rem));
+    align-items: center;
+    justify-items: center;
+    gap: 1.5rem;
+    width: min(100%, 31rem);
+    max-width: 100%;
+}
+
+.confirm-button::part(base) {
+    background-color: var(--color-indigo-700);
+    color: var(--color-white);
+}
+
+.send-button::part(base) {
+    border-color: var(--color-pink-600);
+    color: var(--color-pink-600);
+}
+
+.send-button igc-icon {
+    color: var(--color-pink-600);
+}
+
+.cancel-button::part(base) {
+    color: var(--color-amber-700);
+}
+
+.add-button::part(base) {
+    background-color: var(--color-teal-500);
+    color: var(--color-black);
+    border-radius: 9999px;
+}
+
+.add-button igc-icon {
+    color: var(--color-white);
+}
