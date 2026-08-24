@@ -7,24 +7,8 @@ const addIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
 defineComponents(IgcButtonComponent, IgcIconComponent);
 
 export class ButtonLayout {
-    private select: HTMLSelectElement;
-    private label: HTMLElement;
-    private buttons: NodeListOf<IgcButtonComponent>;
-
     constructor() {
         registerIconFromText('add', addIcon, 'material');
-
-        this.select = document.getElementById('variant-select') as HTMLSelectElement;
-        this.label = document.getElementById('variant-label') as HTMLElement;
-        this.buttons = document.querySelectorAll<IgcButtonComponent>('.variant-button');
-
-        this.select.addEventListener('change', () => this.onVariantChange());
-    }
-
-    public onVariantChange() {
-        const variant = this.select.value as IgcButtonComponent['variant'];
-        this.label.textContent = variant.charAt(0).toUpperCase() + variant.slice(1);
-        this.buttons.forEach((button) => (button.variant = variant));
     }
 }
 
