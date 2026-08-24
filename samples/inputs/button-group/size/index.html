@@ -13,12 +13,60 @@
 
   <body>
     <div id="root">
-      <div class="container sample">
-        <igc-button-group selection="single-required">
-          <igc-toggle-button value="small">Small</igc-toggle-button>
-          <igc-toggle-button value="medium">Medium</igc-toggle-button>
-          <igc-toggle-button value="large" selected>Large</igc-toggle-button>
-        </igc-button-group>
+      <div class="button-group-size">
+        <div class="button-group-size-item">
+          <span>Small</span>
+          <igc-button-group style="--ig-size: var(--ig-size-small)">
+            <igc-toggle-button value="sofia">
+              Sofia
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="london">
+              London
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="new york">
+              New York
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+          </igc-button-group>
+        </div>
+
+        <div class="button-group-size-item">
+          <span>Medium</span>
+          <igc-button-group style="--ig-size: var(--ig-size-medium)">
+            <igc-toggle-button value="sofia">
+              Sofia
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="london">
+              London
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="new york">
+              New York
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+          </igc-button-group>
+        </div>
+
+        <div class="button-group-size-item">
+          <span>Large</span>
+          <igc-button-group style="--ig-size: var(--ig-size-large)">
+            <igc-toggle-button value="sofia">
+              Sofia
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="london">
+              London
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="new york">
+              New York
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+          </igc-button-group>
+        </div>
       </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
