@@ -1,0 +1,19 @@
+@tailwind utilities;
+
+.avatar-tailwind-sample {
+    gap: 2.5rem;
+}
+
+.avatar-ring {
+    position: relative;
+    isolation: isolate;
+}
+
+.avatar-ring::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    z-index: -1;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7dd3fc, #bff47a, #f5c2ff, #93c5fd);
+}
