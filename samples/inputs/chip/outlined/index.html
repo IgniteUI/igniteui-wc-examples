@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Chip Overview</title>
+  <title>Outlined Chip</title>
   <meta charset="UTF-8" />
 
   <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
@@ -14,9 +14,24 @@
 
 <body>
   <div id="root">
-    <div class="container sample center">
-      <igc-chip selectable removable>
-        Chip
+    <div class="container sample center" style="flex-direction: row; gap: 8px;">
+      <igc-chip variant="default" outlined selectable removable>
+        Default
+      </igc-chip>
+      <igc-chip variant="primary" outlined selectable removable>
+        Primary
+      </igc-chip>
+      <igc-chip variant="info" outlined selectable removable>
+        Info
+      </igc-chip>
+      <igc-chip variant="success" outlined selectable removable>
+        Success
+      </igc-chip>
+      <igc-chip variant="warning" outlined selectable removable>
+        Warning
+      </igc-chip>
+      <igc-chip variant="danger" outlined selectable removable>
+        Danger
       </igc-chip>
     </div>
   </div>
