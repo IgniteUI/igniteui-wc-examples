@@ -14,77 +14,77 @@
 
 <body>
   <div id="root">
-    <div class="sample">
+    <div class="container sample">
       <igc-list class="chat-list">
         <igc-list-header>Chats</igc-list-header>
-        <igc-list-item>
-          <span class="avatar-with-badge" slot="start">
+        <igc-list-item class="chat-list-item--split">
+          <div class="avatar-with-badge" slot="start">
             <igc-avatar
-              class="size-small"
+              class="profile-avatar"
               shape="circle"
               src="https://dl.infragistics.com/x/img/avatars/avatar-profile-07.png"
               alt="A profile photo of Nick Evans."
             ></igc-avatar>
-            <igc-badge class="avatar-status avatar-check-badge size-small" outlined shape="rounded" variant="success">
+            <igc-badge class="avatar-status avatar-check-badge" outlined shape="rounded" variant="success">
               <igc-icon name="check" collection="material"></igc-icon>
             </igc-badge>
-          </span>
+          </div>
           <h2 slot="title">Nick Evans</h2>
           <span slot="subtitle">Hi Samira, thanks for the ...</span>
-          <span slot="end">9:44 AM</span>
+          <div slot="end">9:44 AM</div>
         </igc-list-item>
 
-        <igc-list-item>
-          <span class="avatar-with-badge" slot="start">
+        <igc-list-item class="chat-list-item--split">
+          <div class="avatar-with-badge" slot="start">
             <igc-avatar
-              class="size-small avatar-muted"
+              class="profile-avatar avatar-muted"
               shape="circle"
               initials="JF"
               alt="Avatar with JF initials."
             ></igc-avatar>
-            <igc-badge class="avatar-status avatar-check-badge avatar-muted-badge size-small" outlined shape="rounded" variant="primary">
+            <igc-badge class="avatar-status avatar-check-badge avatar-muted-badge" outlined shape="rounded" variant="primary">
               <igc-icon name="x" collection="material"></igc-icon>
             </igc-badge>
-          </span>
+          </div>
           <h2 slot="title">James Ford</h2>
           <span slot="subtitle">I'll send the text and im ...</span>
-          <span slot="end">8:30 AM</span>
+          <div slot="end">8:30 AM</div>
         </igc-list-item>
 
-        <igc-list-item>
-          <span class="avatar-with-badge" slot="start">
+        <igc-list-item class="chat-list-item--split">
+          <div class="avatar-with-badge" slot="start">
             <igc-avatar
-              class="size-small"
+              class="profile-avatar"
               shape="circle"
               src="https://dl.infragistics.com/x/img/avatars/avatar-profile-08.png"
               alt="A profile photo of Kate Porter."
             ></igc-avatar>
-            <igc-badge class="avatar-status avatar-check-badge size-small" outlined shape="rounded" variant="danger">
+            <igc-badge class="avatar-status avatar-check-badge" outlined shape="rounded" variant="danger">
               <igc-icon name="horizontalRule" collection="material"></igc-icon>
             </igc-badge>
-          </span>
+          </div>
           <h2 slot="title">Kate Porter</h2>
           <span slot="subtitle">That's great!</span>
-          <span slot="end">Yesterday</span>
+          <div slot="end">Yesterday</div>
         </igc-list-item>
 
         <igc-list-header>Meetings</igc-list-header>
         <igc-list-item>
-          <igc-avatar class="size-small" shape="circle" slot="start" alt="Calendar icon.">
-            <igc-icon name="calendar" collection="material"></igc-icon>
+          <igc-avatar class="profile-avatar avatar-meeting" shape="circle" slot="start" alt="Calendar Icon.">
+            <igc-icon class="avatar-icon" name="calendar" collection="material"></igc-icon>
           </igc-avatar>
           <h2 slot="title">Weekly Meeting</h2>
           <span slot="subtitle">https://www.infra.com</span>
-          <span slot="end">Monday</span>
+          <div slot="end">Monday</div>
         </igc-list-item>
 
         <igc-list-item>
-          <igc-avatar class="size-small" shape="circle" slot="start" alt="Group icon.">
-            <igc-icon name="group" collection="material"></igc-icon>
+          <igc-avatar class="profile-avatar avatar-meeting" shape="circle" slot="start" alt="Group Icon.">
+            <igc-icon class="avatar-icon" name="people" collection="material"></igc-icon>
           </igc-avatar>
           <h2 slot="title">Design Discussion</h2>
           <span slot="subtitle">https://www.infra.com</span>
-          <span slot="end">11:30 AM</span>
+          <div slot="end">11:30 AM</div>
         </igc-list-item>
       </igc-list>
     </div>

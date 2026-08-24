@@ -14,11 +14,11 @@
 
 <body>
   <div id="root">
-    <div class="container sample avatar-tailwind-sample flex flex-row flex-nowrap items-center justify-center gap-10">
-      <igc-card class="box-border h-[479px] w-[344px] [--ig-card-border-radius:30px]">
-        <igc-card-media class="h-[189px] overflow-hidden">
+    <div class='sample font-["Aktiv_Grotesk",Arial,sans-serif]'>
+      <igc-card class="[--ig-card-border-radius:30px] [--ig-card-outline-color:transparent]">
+        <igc-card-media class="h-[189px]">
           <img
-            class="h-full w-full object-cover"
+            class="object-cover"
             src="https://dl.infragistics.com/x/img/avatars/image-bg4.png"
             alt="Cafe interior"
           />
@@ -33,36 +33,36 @@
           ></igc-avatar>
           <span slot="title">Kate Thompson</span>
         </igc-card-header>
+        <p class="card-sample-custom-subtitle">
+          3D Artist. Turning polygons into worlds and immersive digital
+          realities
+        </p>
         <igc-card-content>
-          <p class="m-0">
-            3D Artist. Turning polygons into worlds and immersive digital
-            realities
-          </p>
-          <div class="mt-4 grid w-full grid-cols-[1fr_auto_1fr_auto_1fr] items-center">
+          <div class="grid grid-cols-[1fr_auto_1fr_auto_1fr]">
             <div class="flex min-w-0 flex-col items-center gap-1 px-3">
-              <span class="text-base font-[700] leading-tight text-[var(--ig-gray-900)]">23.9K</span>
-              <span class="text-sm leading-tight text-[var(--ig-gray-600)]">Likes</span>
+              <span class="stats-title">23.9K</span>
+              <span class="stats-subtitle">Likes</span>
             </div>
-            <igc-divider class="h-[3rem]" vertical></igc-divider>
+            <igc-divider class="h-12" vertical></igc-divider>
             <div class="flex min-w-0 flex-col items-center gap-1 px-3">
-              <span class="text-base font-[700] leading-tight text-[var(--ig-gray-900)]">163</span>
-              <span class="text-sm leading-tight text-[var(--ig-gray-600)]">Posts</span>
+              <span class="stats-title">163</span>
+              <span class="stats-subtitle">Posts</span>
             </div>
-            <igc-divider class="h-[3rem]" vertical></igc-divider>
+            <igc-divider class="h-12" vertical></igc-divider>
             <div class="flex min-w-0 flex-col items-center gap-1 px-3">
-              <span class="text-base font-[700] leading-tight text-[var(--ig-gray-900)]">23.9K</span>
-              <span class="text-sm leading-tight text-[var(--ig-gray-600)]">Views</span>
+              <span class="stats-title">23.9K</span>
+              <span class="stats-subtitle">Views</span>
             </div>
           </div>
         </igc-card-content>
         <igc-card-actions>
           <igc-button class="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-border-radius:16px] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-size:var(--ig-size-small)]">
             <span class="inline-flex items-center gap-1">
-              FOLLOW
-              <igc-icon class="h-4 w-4" name="plus" collection="material"></igc-icon>
+              <span>FOLLOW</span>
+              <igc-icon name="plus" collection="material"></igc-icon>
             </span>
           </igc-button>
-          <div slot="end" class="inline-flex items-center gap-1">
+          <div slot="end" class="inline-flex gap-1">
             <igc-icon-button
               variant="flat"
               name="instagram"
@@ -85,9 +85,12 @@
         </igc-card-actions>
       </igc-card>
 
-      <igc-card class="box-border h-[290px] w-[344px] [--ig-card-border-radius:30px]">
+      <igc-card class="[--ig-card-border-radius:30px] [--ig-card-outline-color:transparent]">
         <igc-card-header>
-          <span slot="thumbnail" class="avatar-ring inline-flex">
+          <span
+            slot="thumbnail"
+            class="inline-flex rounded-full p-[5px] bg-[linear-gradient(40deg,#D2F586,#A0C9FF)]"
+          >
             <igc-avatar
               class="[--ig-size:var(--ig-size-medium)]"
               shape="circle"
@@ -97,33 +100,33 @@
           </span>
           <span slot="title">Kate Thompson</span>
         </igc-card-header>
-        <igc-card-content class="overflow-hidden">
-          <p class="m-0">
-            3D Artist. Turning polygons into worlds and immersive digital
-            realities
-          </p>
-          <div class="mt-4 grid w-full grid-cols-[1fr_auto_1fr_auto_1fr] items-center">
+        <p class="card-sample-custom-subtitle">
+          3D Artist. Turning polygons into worlds and immersive digital
+          realities
+        </p>
+        <igc-card-content>
+          <div class="grid grid-cols-[1fr_auto_1fr_auto_1fr]">
             <div class="flex min-w-0 flex-col items-center gap-1 px-3">
-              <span class="text-base font-[700] leading-tight text-[var(--ig-gray-900)]">23.9K</span>
-              <span class="text-sm leading-tight text-[var(--ig-gray-600)]">Likes</span>
+              <span class="stats-title">23.9K</span>
+              <span class="stats-subtitle">Likes</span>
             </div>
-            <igc-divider class="h-[3rem]" vertical></igc-divider>
+            <igc-divider class="h-12" vertical></igc-divider>
             <div class="flex min-w-0 flex-col items-center gap-1 px-3">
-              <span class="text-base font-[700] leading-tight text-[var(--ig-gray-900)]">163</span>
-              <span class="text-sm leading-tight text-[var(--ig-gray-600)]">Posts</span>
+              <span class="stats-title">163</span>
+              <span class="stats-subtitle">Posts</span>
             </div>
-            <igc-divider class="h-[3rem]" vertical></igc-divider>
+            <igc-divider class="h-12" vertical></igc-divider>
             <div class="flex min-w-0 flex-col items-center gap-1 px-3">
-              <span class="text-base font-[700] leading-tight text-[var(--ig-gray-900)]">23.9K</span>
-              <span class="text-sm leading-tight text-[var(--ig-gray-600)]">Views</span>
+              <span class="stats-title">23.9K</span>
+              <span class="stats-subtitle">Views</span>
             </div>
           </div>
         </igc-card-content>
         <igc-card-actions>
           <igc-button class="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-border-radius:16px] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-size:var(--ig-size-small)]">
             <span class="inline-flex items-center gap-1">
-              FOLLOW
-              <igc-icon class="h-4 w-4" name="plus" collection="material"></igc-icon>
+              <span>FOLLOW</span>
+              <igc-icon name="plus" collection="material"></igc-icon>
             </span>
           </igc-button>
           <div slot="end" class="inline-flex items-center gap-1">
