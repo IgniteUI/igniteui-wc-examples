@@ -8,6 +8,7 @@
   row-gap: 0.5rem;
   height: 100vh;
   padding: 2rem;
+  box-sizing: border-box;
 }
 
 :where(igc-avatar) {
@@ -27,6 +28,8 @@
 
 :where(igc-badge) {
   --ig-size: var(--ig-size-small);
+  --ig-badge-icon-color: #ffffff;
+  --ig-badge-text-color: #ffffff;
 
   position: absolute;
   inset-block-start: anchor(85.5%);
