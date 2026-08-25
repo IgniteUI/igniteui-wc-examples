@@ -14,27 +14,21 @@
   <body>
     <div id="root">
       <div class="container sample">
-        <igc-button-group>
-          <igc-toggle-button value="left">
-            <igc-icon name="format_align_left" collection="material"></igc-icon>
+        <igc-button-group selection="single-required">
+          <igc-toggle-button value="device">
+            Device
             <igc-ripple></igc-ripple>
           </igc-toggle-button>
-
-          <igc-toggle-button value="center">
-            <igc-icon name="format_align_center" collection="material"></igc-icon>
-            <igc-ripple></igc-ripple>
-          </igc-toggle-button>
-
-          <igc-toggle-button value="right">
-            <igc-icon name="format_align_right" collection="material"></igc-icon>
-            <igc-ripple></igc-ripple>
-          </igc-toggle-button>
-
-          <igc-toggle-button value="justify" selected>
-            <igc-icon name="format_align_justify" collection="material"></igc-icon>
+          <igc-toggle-button value="cloud" selected>
+            Cloud
             <igc-ripple></igc-ripple>
           </igc-toggle-button>
         </igc-button-group>
+
+        <div class="album">
+          <span class="album-title"></span>
+          <div class="album-photos"></div>
+        </div>
       </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->

@@ -13,31 +13,60 @@
 
   <body>
     <div id="root">
-      <div class="container sample">
-        <div class="radio-group-container">
-          <label>Selection Mode</label>
-          <igc-radio-group alignment="horizontal">
-            <igc-radio name="mode" value="single" checked>Single</igc-radio>
-            <igc-radio name="mode" value="single-required">Single-Required</igc-radio>
-            <igc-radio name="mode" value="multiple">Multiple</igc-radio>
-          </igc-radio-group>
+      <div class="container sample selection-samples">
+        <div class="selection-sample">
+          <span>Single</span>
+          <igc-button-group selection="single">
+            <igc-toggle-button value="bold">
+              <igc-icon name="bold" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="italic">
+              <igc-icon name="italic" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="underlined">
+              <igc-icon name="underlined" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+          </igc-button-group>
         </div>
-        <igc-button-group>
-          <igc-toggle-button value="bold">
-            <igc-icon name="bold" collection="material"></igc-icon>
-            <igc-ripple></igc-ripple>
-          </igc-toggle-button>
 
-          <igc-toggle-button value="italic">
-            <igc-icon name="italic" collection="material"></igc-icon>
-            <igc-ripple></igc-ripple>
-          </igc-toggle-button>
+        <div class="selection-sample">
+          <span>Single-Required</span>
+          <igc-button-group selection="single-required">
+            <igc-toggle-button value="bold" selected>
+              <igc-icon name="bold" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="italic">
+              <igc-icon name="italic" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="underlined">
+              <igc-icon name="underlined" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+          </igc-button-group>
+        </div>
 
-          <igc-toggle-button value="underlined">
-            <igc-icon name="underlined" collection="material"></igc-icon>
-            <igc-ripple></igc-ripple>
-          </igc-toggle-button>
-        </igc-button-group>
+        <div class="selection-sample">
+          <span>Multiple</span>
+          <igc-button-group selection="multiple">
+            <igc-toggle-button value="bold" selected>
+              <igc-icon name="bold" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="italic" selected>
+              <igc-icon name="italic" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="underlined">
+              <igc-icon name="underlined" collection="material"></igc-icon>
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+          </igc-button-group>
+        </div>
       </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
