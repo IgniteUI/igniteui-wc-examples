@@ -11,10 +11,12 @@
   "type": "module",
   "scripts": {
     "add:sample": "node scripts/add-sample.js",
+    "predev": "node scripts/copy-ig-themes.js",
     "dev": "astro dev --port 4200",
-    "prebuild": "node scripts/generate-code-viewer.js",
+    "prebuild": "node scripts/copy-ig-themes.js && node scripts/generate-code-viewer.js",
     "build": "cross-env NODE_OPTIONS=--max_old_space_size=8192 astro build",
     "preview": "astro preview --port 4200",
+    "build:preview": "npm run build && npm run preview",
     "generate:code-viewer": "node scripts/generate-code-viewer.js",
     "update:ig": "node scripts/update-ig.js",
     "check": "astro check"

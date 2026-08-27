@@ -129,3 +129,70 @@ export function buildNavTree(samples: SampleInfo[]): NavGroup[] {
 
   return [...groupMap.values()];
 }
+
+// ---------------------------------------------------------------------------
+// Sample stylesheet resolution
+// ---------------------------------------------------------------------------
+
+/**
+ * A stylesheet a sample entry module pulls in, resolved to how the page should
+ * put it in <head>.
+ *
+ * - `link`  → an Ignite UI theme, served from public/ig-themes/ (cached across
+ *             every sample page, and re-pointable by the docs theming widget).
+ * - `glob`  → a sample-local file, whose compiled text the page inlines.
+ */
+export type SampleStyle =
+  | { kind: 'link'; href: string; pkg: 'webcomponents' | 'grids'; variant: string; theme: string }
+  | { kind: 'glob'; key: string };
+
+/** `import 'x.css';` / `import "./y.scss";` — the same shape the build plugin strips. */
+export const CSS_IMPORT_RE = /^import\s+['"]([^'"]+\.(?:css|scss))['"];?\s*$/gm;
+
+/** Bare theme specifiers, e.g. `igniteui-webcomponents-grids/grids/themes/light/material.css` */
+const THEME_SPEC_RE =
+  /^igniteui-webcomponents(-grids\/grids)?\/themes\/(light|dark)\/(material|bootstrap|fluent|indigo)\.css$/;
+
+/**
+ * Read a sample entry module's source and return, in source order, every
+ * stylesheet it imports.
+ *
+ * Order matters: it is the cascade order, so the page must emit these into
+ * <head> exactly as they appear here.
+ *
+ * @param source  raw text of the sample's src/index.ts
+ * @param slug    e.g. "inputs/button-group/overview"
+ * @param base    site base path, '' or e.g. '/webcomponents-demos'
+ */
+export function resolveSampleStyles(source: string, slug: string, base: string): SampleStyle[] {
+  const styles: SampleStyle[] = [];
+  CSS_IMPORT_RE.lastIndex = 0;
+
+  for (const match of source.matchAll(CSS_IMPORT_RE)) {
+    const spec = match[1];
+
+    const theme = THEME_SPEC_RE.exec(spec);
+    if (theme) {
+      const pkg = theme[1] ? 'grids' : 'webcomponents';
+      styles.push({
+        kind: 'link',
+        href: `${base}/ig-themes/${pkg}/${theme[2]}/${theme[3]}.css`,
+        pkg,
+        variant: theme[2],
+        theme: theme[3],
+      });
+      continue;
+    }
+
+    // Relative to the sample's src/ directory. Every sample-local stylesheet
+    // sits next to index.ts, so `./name.css` is the only relative shape used.
+    if (spec.startsWith('./')) {
+      styles.push({ kind: 'glob', key: `../../samples/${slug}/src/${spec.slice(2)}` });
+      continue;
+    }
+
+    console.warn(`[samples] ${slug}: unrecognised stylesheet import "${spec}" — not inlined`);
+  }
+
+  return styles;
+}

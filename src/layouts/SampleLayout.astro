@@ -3,12 +3,18 @@ import NavSidebar from '../components/NavSidebar.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
+/** A stylesheet the sample needs, already resolved by the page. */
+type SampleStyle =
+  | { kind: 'link'; href: string; pkg: 'webcomponents' | 'grids'; variant: string; theme: string }
+  | { kind: 'inline'; css: string };
+
 interface Props {
   slug?: string;
   title?: string;
+  styles?: SampleStyle[];
 }
 
-const { slug = '', title = 'Ignite UI | Web Components' } = Astro.props;
+const { slug = '', title = 'Ignite UI | Web Components', styles = [] } = Astro.props;
 
 // True only for the index page (no slug). Used to set the initial nav state.
 const isIndex = !slug;
@@ -31,6 +37,31 @@ const isIndex = !slug;
     <!-- Infragistics shared sample stylesheet (shared across all WC samples) -->
     <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" />
     <link rel="stylesheet" href={`${base}/styles/layout.css`} />
+
+    <!--
+      The sample's own stylesheets, emitted in the exact order its entry module
+      imports them (that order is the cascade order).
+
+      These used to be injected at runtime by the sample's JS chunk, which meant
+      the page painted unstyled until megabytes of JS had downloaded — and let
+      the library's one-shot theme detection latch onto whatever sheet happened
+      to land first. Emitting them here makes the sample styled at first paint.
+
+      Theme sheets carry data-ig-theme so they can be re-pointed in place (see
+      the docs theming widget bridge); swapping one is only half a theme change,
+      though — the library also needs configureTheme() to re-adopt its shadow
+      styles, since getTheme() is memoised on first component connect.
+    -->
+    {styles.map(style => style.kind === 'link'
+      ? <link
+          rel="stylesheet"
+          href={style.href}
+          data-ig-theme={style.pkg}
+          data-ig-theme-variant={style.variant}
+          data-ig-theme-name={style.theme}
+        />
+      : <style set:html={style.css}></style>
+    )}
   </head>
 
   <body>

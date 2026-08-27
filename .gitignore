@@ -16,6 +16,7 @@
 /.astro
 /dist
 /public/assets/code-viewer
+/public/ig-themes
 
 # browser auto-generated files:
 /browser/node_modules

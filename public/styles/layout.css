@@ -126,3 +126,23 @@ main {
 #nav-bar::-webkit-scrollbar { width: 6px; }
 #nav-bar::-webkit-scrollbar-track { background: #2c2c2c; }
 #nav-bar::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
+
+/*
+ * Hide not-yet-upgraded custom elements until the sample module has run.
+ *
+ * A sample's stylesheets are now in <head>, so it is styled at first paint —
+ * but its custom elements are only defined by the lazily-loaded sample chunk.
+ * Until then <igc-button-group> and friends are unknown *inline* elements, so
+ * the browser lays their slotted text out as a run of raw inline words before
+ * snapping into place.
+ *
+ * The guard is bounded by TIME, not by element: [...slug].astro sets
+ * data-sample-ready on <html> once the sample module has finished (success or
+ * failure), and the whole rule switches off. It must not be left to
+ * :not(:defined) alone — that also matches hyphenated tags a library renders
+ * internally and never registers, and igc-grid does exactly that, so an
+ * element-bounded guard hides the grid's own content forever.
+ */
+html:not([data-sample-ready]) #router-target :not(:defined) {
+  visibility: hidden;
+}
