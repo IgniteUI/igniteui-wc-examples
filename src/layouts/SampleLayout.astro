@@ -99,6 +99,10 @@ const { slug = '', title = 'Ignite UI | Web Components', styles = [] } = Astro.p
 
     <script>
       import '../scripts/nav';
+      import { initSampleThemeListener } from '../utils/sample-theme';
+
+      // Lets the docs ThemingWidget re-theme this page while embedded.
+      initSampleThemeListener();
     </script>
   </body>
 </html>
