@@ -1,6 +1,11 @@
-import { defineComponents, IgcAccordionComponent, IgcButtonComponent, IgcExpansionPanelComponent } from "igniteui-webcomponents";
+import {
+    defineComponents,
+    IgcAccordionComponent,
+    IgcButtonComponent,
+    IgcExpansionPanelComponent,
+} from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import "./AccordionProgrammaticExpansion.css";
+import "./index.css";
 
 defineComponents(IgcAccordionComponent, IgcButtonComponent, IgcExpansionPanelComponent);
 
