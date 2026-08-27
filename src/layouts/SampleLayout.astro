@@ -97,6 +97,11 @@ const isIndex = !slug;
     </div>
 
     <script>
+      import { initSampleThemeListener } from '../utils/sample-theme';
+
+      // Lets the docs ThemingWidget re-theme this page while embedded.
+      initSampleThemeListener();
+
       // When the user clicks a sidebar nav link, set the sessionStorage flag
       // so the next page load knows to keep the sidebar visible.
       document.getElementById('nav-bar')?.addEventListener('click', e => {
