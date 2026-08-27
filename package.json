@@ -59,10 +59,10 @@
     "@tailwindcss/postcss": "^4.1.11",
     "astro": "^6.0.5",
     "cross-env": "^5.0.1",
-    "marked": "^17.0.3",
+    "marked": "^18.0.0",
     "marked-shiki": "^1.2.0",
     "sass": "^1.92.1",
-    "shiki": "^3.0.0",
+    "shiki": "^4.3.0",
     "typescript": "^5.9.2"
   }
 }

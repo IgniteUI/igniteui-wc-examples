@@ -27,9 +27,9 @@
     "igniteui-webcomponents": "^7.3.0",
     "lit": "^3.2.0",
     "lit-html": "^3.3.1",
-    "marked": "^12.0.0",
+    "marked": "^18.0.0",
     "marked-shiki": "^1.2.0",
-    "shiki": "^3.0.0",
+    "shiki": "^4.3.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
