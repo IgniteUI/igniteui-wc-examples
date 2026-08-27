@@ -6,13 +6,23 @@
 
 .sample-layout {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	flex-wrap: wrap;
-	gap: 3.75rem;
+	gap: 80px;
+	min-height: 5.5rem;
 }
 
 igc-button-group {
+	display: inline-block;
 	max-width: 400px;
-	min-width: 280px;
+}
+
+.sample-layout igc-toggle-button {
+	min-width: 100px;
+}
+
+.sample-layout igc-icon {
+	--ig-size: 20px;
+	--igc-icon-size: 20px;
 }
