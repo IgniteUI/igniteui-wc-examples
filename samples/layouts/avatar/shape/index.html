@@ -14,10 +14,30 @@
 
 <body>
   <div id="root">
-    <div class="container sample center">
-      <igc-avatar shape="rounded">
-        <igc-icon name="home" collection="material"></igc-icon>
+    <div class="avatar-shape-sample">
+      <igc-avatar
+        shape="circle"
+        src="https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png"
+        alt="A profile photo of a man."
+      ></igc-avatar>
+      <igc-badge dot outlined variant="success"></igc-badge>
+      <span>Circle</span>
+
+      <igc-avatar shape="square">
+        <igc-icon name="mail" collection="material"></igc-icon>
       </igc-avatar>
+      <igc-badge outlined shape="square" variant="info">2</igc-badge>
+      <span>Square</span>
+
+      <igc-avatar
+        shape="rounded"
+        src="https://dl.infragistics.com/x/img/avatars/avatar-profile-07.png"
+        alt="A profile photo of a man."
+      ></igc-avatar>
+      <igc-badge outlined shape="rounded" variant="success">
+        <igc-icon name="check" collection="material"></igc-icon>
+      </igc-badge>
+      <span>Rounded</span>
     </div>
   </div>
 

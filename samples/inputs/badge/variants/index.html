@@ -14,8 +14,52 @@
 
 <body>
   <div id="root">
-    <div class="sample center">
-      <igc-badge variant="success"></igc-badge>
+    <div class="badge-variants">
+      <div class="variant-item">
+        <div class="avatar-wrapper">
+          <igc-avatar shape="circle">
+            <igc-icon name="notifications" collection="material"></igc-icon>
+          </igc-avatar>
+          <igc-badge outlined variant="primary" class="badge-primary-blue">2</igc-badge>
+        </div>
+        <span>Primary</span>
+      </div>
+      <div class="variant-item">
+        <div class="avatar-wrapper">
+          <igc-avatar initials="AZ" shape="circle"></igc-avatar>
+          <igc-badge outlined variant="info" class="badge-info-blue">
+            <igc-icon name="check" collection="material"></igc-icon>
+          </igc-badge>
+        </div>
+        <span>Info</span>
+      </div>
+      <div class="variant-item">
+        <div class="avatar-wrapper">
+          <igc-avatar src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png" shape="circle"></igc-avatar>
+          <igc-badge outlined variant="success">
+            <igc-icon name="check" collection="material"></igc-icon>
+          </igc-badge>
+        </div>
+        <span>Success</span>
+      </div>
+      <div class="variant-item">
+        <div class="avatar-wrapper">
+          <igc-avatar shape="circle">
+            <igc-icon name="mail" collection="material"></igc-icon>
+          </igc-avatar>
+          <igc-badge outlined variant="warning" class="badge-warning-black">2</igc-badge>
+        </div>
+        <span>Warn</span>
+      </div>
+      <div class="variant-item">
+        <div class="avatar-wrapper">
+          <igc-avatar src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png" shape="circle"></igc-avatar>
+          <igc-badge outlined variant="danger">
+            <igc-icon name="close" collection="material"></igc-icon>
+          </igc-badge>
+        </div>
+        <span>Error</span>
+      </div>
     </div>
   </div>
 
