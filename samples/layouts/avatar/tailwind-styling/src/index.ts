@@ -12,7 +12,7 @@ import {
     IgcIconButtonComponent,
     registerIconFromText
 } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/light/material.css';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './index.css';
 import { berealIcon, instagramIcon, plusIcon, threadsIcon } from './icons';
 
