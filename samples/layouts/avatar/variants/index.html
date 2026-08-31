@@ -14,61 +14,30 @@
 
 <body>
   <div id="root">
-    <div class="sample avatar-overview-sample">
-      <div class="avatar-variant">
-        <span class="avatar-with-badge">
-          <igc-avatar
-            class="size-small"
-            shape="circle"
-            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
-            alt="A profile photo of a man."
-          ></igc-avatar>
-          <igc-badge
-            class="avatar-status avatar-dot-badge size-small"
-            dot
-            outlined
-            variant="success"
-          ></igc-badge>
-        </span>
-        <span class="avatar-label">Image</span>
-      </div>
+    <div class="avatar-variants-sample">
+      <igc-avatar
+        shape="circle"
+        src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
+        alt="A profile photo of a man."
+      ></igc-avatar>
+      <igc-badge dot outlined variant="success"></igc-badge>
+      <span>Image</span>
 
-      <div class="avatar-variant">
-        <span class="avatar-with-badge">
-          <igc-avatar class="size-small" shape="circle">
-            <igc-icon name="mail" collection="material"></igc-icon>
-          </igc-avatar>
-          <igc-badge
-            class="avatar-status avatar-count-badge size-small"
-            outlined
-            shape="rounded"
-            variant="info"
-          >
-            2
-          </igc-badge>
-        </span>
-        <span class="avatar-label">Icon</span>
-      </div>
+      <igc-avatar shape="circle">
+        <igc-icon name="mail" collection="material"></igc-icon>
+      </igc-avatar>
+      <igc-badge outlined shape="rounded" variant="info">2</igc-badge>
+      <span>Icon</span>
 
-      <div class="avatar-variant">
-        <span class="avatar-with-badge">
-          <igc-avatar
-            class="size-small"
-            shape="circle"
-            initials="AZ"
-            alt="Avatar with AZ initials."
-          ></igc-avatar>
-          <igc-badge
-            class="avatar-status avatar-check-badge size-small"
-            outlined
-            shape="rounded"
-            variant="success"
-          >
-            <igc-icon name="check" collection="material"></igc-icon>
-          </igc-badge>
-        </span>
-        <span class="avatar-label">Initials</span>
-      </div>
+      <igc-avatar
+        shape="circle"
+        initials="AZ"
+        alt="Avatar with AZ initials."
+      ></igc-avatar>
+      <igc-badge outlined shape="rounded" variant="success">
+        <igc-icon name="check" collection="material"></igc-icon>
+      </igc-badge>
+      <span>Initials</span>
     </div>
   </div>
 
