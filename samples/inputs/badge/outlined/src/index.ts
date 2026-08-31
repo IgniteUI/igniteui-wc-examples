@@ -1,5 +1,5 @@
 import { defineComponents, IgcAvatarComponent, IgcBadgeComponent, IgcIconComponent, registerIconFromText } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import 'igniteui-webcomponents/themes/light/material.css';
 import './index.css';
 
 defineComponents(IgcBadgeComponent, IgcAvatarComponent, IgcIconComponent);
