@@ -124,14 +124,21 @@ async function applyTheme(theme: ThemeName, mode: ThemeMode): Promise<void> {
   // Drop stale responses so rapid switching can't land out of order.
   if (request !== latestRequest) return;
 
-  try {
-    // Loaded on demand: for any sample using igc components this chunk is
-    // already in cache, and a sample without them needs no re-adoption anyway.
-    const { configureTheme } = await import('igniteui-webcomponents');
-    if (request !== latestRequest) return;
-    configureTheme(theme, resolved);
-  } catch (err) {
-    console.warn(`[sample-theme] Could not re-adopt shadow styles for "${theme}":`, err);
+  // Only a page that carries a theme link has shadow styles worth re-adopting:
+  // every sample here that imports no theme CSS draws from the charts / gauges /
+  // maps packages, which own no igniteui-webcomponents shadow theme. Guarding on
+  // that keeps a docs theme switch from pulling the igniteui-webcomponents chunk
+  // onto a page that would never otherwise load it.
+  if (links.length) {
+    try {
+      // Loaded on demand: for any sample using igc components this chunk is
+      // already in cache.
+      const { configureTheme } = await import('igniteui-webcomponents');
+      if (request !== latestRequest) return;
+      configureTheme(theme, resolved);
+    } catch (err) {
+      console.warn(`[sample-theme] Could not re-adopt shadow styles for "${theme}":`, err);
+    }
   }
 
   const root = document.documentElement;
