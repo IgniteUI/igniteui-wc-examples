@@ -1,21 +1,12 @@
 ---
 import SampleLayout from '../layouts/SampleLayout.astro';
-import { keyToSlug, slugToInfo, buildNavTree } from '../utils/samples';
+import { samplesFromGlobKeys, buildNavTree } from '../utils/samples';
 import { Image } from 'astro:assets';
 import logoSrc from '../assets/wc.png';
 
 const pkgModules = import.meta.glob('../../samples/**/package.json', { eager: true }) as Record<string, unknown>;
 
-const samples = Object.keys(pkgModules)
-  .sort()
-  .flatMap(k => {
-    const slug = keyToSlug(k, '../../samples/', '/package.json');
-    if (!slug || slug.includes('node_modules') || slug.split('/').length !== 3) return [];
-    const info = slugToInfo(slug);
-    return info ? [info] : [];
-  });
-
-const groups = buildNavTree(samples);
+const groups = buildNavTree(samplesFromGlobKeys(Object.keys(pkgModules)));
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const groupIcon: Record<string, string> = {
