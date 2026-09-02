@@ -1,8 +1,13 @@
-import { defineComponents, IgcAccordionComponent, IgcExpansionPanelComponent, IgcSwitchComponent } from "igniteui-webcomponents";
+import {
+    defineComponents,
+    IgcAccordionComponent,
+    IgcExpansionPanelComponent,
+    IgcSwitchComponent,
+} from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import "./AccordionOverview.css";
+import "./index.css";
 
-defineComponents(IgcAccordionComponent, IgcSwitchComponent);
+defineComponents(IgcAccordionComponent, IgcExpansionPanelComponent, IgcSwitchComponent);
 export class AccordionOverview {
     private accordion: IgcAccordionComponent;
     private switch: IgcSwitchComponent;
