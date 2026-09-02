@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Switch Checking</title>
+  <title>Switch Styling</title>
   <meta charset="UTF-8" />
 
   <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
@@ -14,8 +14,24 @@
 
 <body>
   <div id="root">
-    <div class="container sample center">
-      <igc-switch checked>Label</igc-switch>
+    <div class="container sample">
+      <div class="security">
+        <div class="security__header">
+          <igc-switch label-position="before" checked>
+            <span class="option">
+              <span class="option__label">Two-factor authentication</span>
+              <span class="option__hint">Extra sign-in verification</span>
+            </span>
+          </igc-switch>
+        </div>
+        <div class="security__body">
+          <igc-radio-group alignment="vertical">
+            <igc-radio name="method" value="app" checked>Authenticator app</igc-radio>
+            <igc-radio name="method" value="key">Security key</igc-radio>
+            <igc-radio name="method" value="codes">Backup codes</igc-radio>
+          </igc-radio-group>
+        </div>
+      </div>
     </div>
   </div>
 

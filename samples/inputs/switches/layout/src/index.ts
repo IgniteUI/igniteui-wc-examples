@@ -3,9 +3,9 @@ import 'igniteui-webcomponents/themes/light/material.css';
 import './index.css';
 
 defineComponents(IgcSwitchComponent);
-export class SwitchDisabled {
+export class SwitchLayout {
     constructor() {
     }
 }
 
-new SwitchDisabled();
+new SwitchLayout();

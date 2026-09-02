@@ -1,8 +1,8 @@
-import {defineComponents, IgcSwitchComponent } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import './SwitchStyle.css'
+import { defineComponents, IgcSwitchComponent, IgcRadioComponent, IgcRadioGroupComponent } from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/light/material.css';
+import './index.css';
 
-defineComponents(IgcSwitchComponent);
+defineComponents(IgcSwitchComponent, IgcRadioComponent, IgcRadioGroupComponent);
 export class SwitchStyling {
     constructor() {
     }
