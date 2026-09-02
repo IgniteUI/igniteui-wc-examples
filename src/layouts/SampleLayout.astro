@@ -60,13 +60,24 @@ const { slug = '', title = 'Ignite UI | Web Components', styles = [] } = Astro.p
 
     <!-- Decide sidebar visibility before first paint: html.with-nav reserves
          the 270px column so the async nav render causes no layout shift.
-         Flag name must match NAV_FLAG in src/scripts/nav.ts. -->
+
+         The index also arms the flag here, synchronously: its component cards
+         are clickable at first paint, so a click must not race a deferred
+         module. Flag name must match NAV_FLAG in src/scripts/nav.ts. -->
     <script is:inline>
       try {
         const fromNav = sessionStorage.getItem('igx-wc-nav') === '1';
         const isIndex = !document.documentElement.dataset.sampleSlug;
         if (window.self === window.top && (isIndex || fromNav)) {
           document.documentElement.classList.add('with-nav');
+        }
+
+        // Sample pages reached through the sidebar keep it; a direct deep
+        // link (or docs iframe) shows none.
+        if (isIndex) {
+          sessionStorage.setItem('igx-wc-nav', '1');
+        } else {
+          sessionStorage.removeItem('igx-wc-nav');
         }
       } catch {
         /* sandboxed iframe: no sessionStorage — sidebar stays collapsed */

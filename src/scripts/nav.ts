@@ -17,7 +17,6 @@ const NAV_FLAG = 'igx-wc-nav';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const activeSlug = document.documentElement.dataset.sampleSlug ?? '';
-const isIndex = !activeSlug;
 
 // Rendering
 
@@ -193,16 +192,9 @@ async function initNav() {
   const nav = document.getElementById('nav-bar');
   if (!nav) return;
 
-  // The index page arms the flag so sample pages reached through the sidebar
-  // keep it visible; a direct deep link (or docs iframe) shows no sidebar.
-  if (isIndex) {
-    sessionStorage.setItem(NAV_FLAG, '1');
-  } else {
-    sessionStorage.removeItem(NAV_FLAG);
-  }
-
-  // Visibility was already decided before first paint by the inline script
-  // in SampleLayout.astro (html.with-nav reserves the sidebar column).
+  // Visibility was decided (and the flag armed) before first paint by the
+  // inline script in SampleLayout.astro. with-nav also proves sessionStorage
+  // is accessible, so the click handler below may use it unguarded.
   if (!document.documentElement.classList.contains('with-nav')) return;
 
   let groups: NavGroup[];

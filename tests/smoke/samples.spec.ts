@@ -1,4 +1,4 @@
-import { test, expect, type Page } from '@playwright/test';
+import { test, expect, type ConsoleMessage, type Page } from '@playwright/test';
 
 /**
  * Smoke tests against the production build.
@@ -22,8 +22,15 @@ const SAMPLE_SLUGS = [
 ];
 
 // External resources (fonts, tiles, shared CSS) may be unreachable in CI —
-// their fetch failures are not app regressions.
-const IGNORED_CONSOLE = [/Failed to load resource/, /net::ERR_/];
+// their fetch failures are not app regressions. Same-origin ones are.
+const RESOURCE_FAILURE = [/Failed to load resource/, /net::ERR_/];
+
+function isExternalFailure(msg: ConsoleMessage, page: Page) {
+  if (!RESOURCE_FAILURE.some(re => re.test(msg.text()))) return false;
+
+  const url = msg.location().url;
+  return !!url && new URL(url).origin !== new URL(page.url()).origin;
+}
 
 function collectErrors(page: Page) {
   const errors: string[] = [];
@@ -40,8 +47,9 @@ function collectErrors(page: Page) {
       errors.push(`loader: ${text}`);
       return;
     }
-    if (msg.type() === 'error' && !IGNORED_CONSOLE.some(re => re.test(text))) {
-      errors.push(`console.error: ${text}`);
+    if (msg.type() === 'error' && !isExternalFailure(msg, page)) {
+      // Resource failures name the URL only in location, not in the text.
+      errors.push(`console.error: ${text} ${msg.location().url}`.trim());
     }
   });
 
@@ -97,6 +105,37 @@ test('nav sidebar renders on index and survives navigation', async ({ page }) =>
   // The sidebar stays visible on the sample page, with the link active.
   await expect(page.locator('html')).toHaveClass(/with-nav/);
   await expect(page.locator('#nav-bar a.active')).toHaveCount(1);
+});
+
+test('index arms the sidebar before its modules run', async ({ page }) => {
+  // Serve the index without its module scripts. The component cards are
+  // server-rendered and clickable at first paint, so a fast click must still
+  // reach the sample with the sidebar flag set: arming it may not depend on a
+  // deferred module (Astro inlines nav.ts only while it stays under 4KB).
+  await page.route(/\/$/, async route => {
+    const res = await route.fetch();
+    const html = (await res.text()).replace(/<script type="module">[\s\S]*?<\/script>/g, '');
+    await route.fulfill({ response: res, body: html });
+  });
+  await page.goto('/');
+
+  await page.locator('.comp-card').first().click();
+
+  await expect(page).not.toHaveURL(/\/$/);
+  await expect(page.locator('html')).toHaveClass(/with-nav/);
+});
+
+test('a missing app asset fails the page', async ({ page }) => {
+  // Resource failures are ignored only for external hosts (fonts, tiles). A
+  // 404 for one of our own assets must surface, or the suite passes with a
+  // broken build.
+  const errors = collectErrors(page);
+  await page.route('**/ig-themes/**', route => route.fulfill({ status: 404 }));
+
+  await page.goto('/grids/grid/overview');
+  await expect(page.locator('#router-target *').first()).toBeVisible();
+
+  expect(errors.some(e => /ig-themes/.test(e))).toBe(true);
 });
 
 test('sidebar column is reserved before nav.json arrives', async ({ page }) => {
