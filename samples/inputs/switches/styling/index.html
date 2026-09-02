@@ -15,23 +15,18 @@
 <body>
   <div id="root">
     <div class="container sample">
-      <div class="security">
-        <div class="security__header">
-          <igc-switch label-position="before" checked>
-            <span class="option">
-              <span class="option__label">Two-factor authentication</span>
-              <span class="option__hint">Extra sign-in verification</span>
-            </span>
-          </igc-switch>
+      <igc-expansion-panel id="security-panel" class="security" indicator-position="end" open>
+        <div slot="title" class="option">
+          <span class="option__label">Two-factor authentication</span>
+          <span class="option__hint">Extra sign-in verification</span>
         </div>
-        <div class="security__body">
-          <igc-radio-group alignment="vertical">
-            <igc-radio name="method" value="app" checked>Authenticator app</igc-radio>
-            <igc-radio name="method" value="key">Security key</igc-radio>
-            <igc-radio name="method" value="codes">Backup codes</igc-radio>
-          </igc-radio-group>
-        </div>
-      </div>
+        <igc-switch id="security-switch" slot="indicator" checked></igc-switch>
+        <igc-radio-group alignment="vertical">
+          <igc-radio name="method" value="app" checked>Authenticator app</igc-radio>
+          <igc-radio name="method" value="key">Security key</igc-radio>
+          <igc-radio name="method" value="codes">Backup codes</igc-radio>
+        </igc-radio-group>
+      </igc-expansion-panel>
     </div>
   </div>
 
