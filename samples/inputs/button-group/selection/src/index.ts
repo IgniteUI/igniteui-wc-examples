@@ -7,7 +7,6 @@ import {
     registerIconFromText
 } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/material.css';
-import './ButtonGroupSelection.css';
 import './index.css';
 
 defineComponents(IgcButtonGroupComponent, IgcRippleComponent, IgcToggleButtonComponent, IgcIconComponent);
