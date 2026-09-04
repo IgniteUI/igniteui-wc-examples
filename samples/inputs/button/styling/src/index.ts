@@ -1,7 +1,6 @@
 import { defineComponents, IgcButtonComponent, IgcIconButtonComponent, IgcIconComponent, registerIconFromText } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './index.css';
-import './ButtonStyle.css';
 
 const icons = [
     { name: 'send', text: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"/></svg>' },
