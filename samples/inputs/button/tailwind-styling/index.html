@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Button Tailwind Styling</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="button-grid flex flex-col items-center justify-center h-full gap-6 p-4">
+      <div class="button-row grid grid-cols-4 items-center justify-items-center gap-6">
+        <igc-button variant="contained" class="confirm-button">Confirm</igc-button>
+        <igc-button variant="outlined" class="send-button">
+          <igc-icon slot="prefix" name="send" collection="material"></igc-icon>
+          Send
+        </igc-button>
+        <igc-button variant="flat" class="cancel-button">Cancel</igc-button>
+        <igc-button variant="fab" class="add-button">
+          Add
+          <igc-icon slot="suffix" name="add" collection="material"></igc-icon>
+        </igc-button>
+      </div>
+    </div>
+
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+  <% } %>
+</body>
+
+</html>
