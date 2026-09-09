@@ -3,96 +3,66 @@
   <head>
     <title>Carousel Animations</title>
     <meta charset="UTF-8" />
-
-    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
     <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
   </head>
-
   <body>
     <div id="root">
       <div class="carousel-wrapper">
         <div class="action-wrapper">
           <div class="action">
-            <span>Animation type</span>
-            <igc-select id="select">
-              <igc-select-item value="slide" selected>Slide</igc-select-item>
-              <igc-select-item value="fade">Fade</igc-select-item>
-              <igc-select-item value="none">None</igc-select-item>
+            <span class="action-label">Animation</span>
+            <igc-select>
+              <igc-select-item value="slide" selected><span>Slide</span></igc-select-item>
+              <igc-select-item value="fade"><span>Fade</span></igc-select-item>
+              <igc-select-item value="none"><span>None</span></igc-select-item>
             </igc-select>
           </div>
           <div class="action">
-            <igc-switch label-position="before">Vertical alignment</igc-switch>
+            <igc-switch label-position="before"><span>Vertical</span></igc-switch>
           </div>
         </div>
-        <igc-carousel hide-indicators>
+        <igc-carousel hide-indicators animation-type="slide">
           <igc-carousel-slide>
-            <div class="slide-wrapper">
-              <igc-card>
-                <igc-card-header>
-                  <span slot="title">Ignite UI for Angular</span>
-                </igc-card-header>
-                <igc-card-content>
-                  <p>30+ Material-based Angular components to code speedy web apps faster.</p>
-                </igc-card-content> 
-                <igc-card-media>
-                  <img src="https://dl.infragistics.com/x/img/carousel/slide1-angular.png">
-                </igc-card-media>
-                <igc-card-actions>
-                  <igc-button slot="start" href="https://www.infragistics.com/products/ignite-ui-angular" target="_blank" rel="noopener">
-                    Visit Page
-                  </igc-button>
-                </igc-card-actions>
-              </igc-card>
-            </div>
+            <article class="slide-wrapper">
+              <div class="slide-content">
+                <span class="slide-label">01</span>
+                <h3>Slide transition</h3>
+                <p>Moves content horizontally or vertically to preserve directional context.</p>
+                <div class="slide-details"><span>Best for sequential browsing</span><strong>320ms</strong></div>
+              </div>
+              <div class="slide-preview" aria-hidden="true"><span></span><span></span><span></span></div>
+            </article>
           </igc-carousel-slide>
           <igc-carousel-slide>
-            <div class="slide-wrapper">
-              <igc-card>
-                <igc-card-header>
-                  <span slot="title">Ignite UI for Javascript</span>
-                </igc-card-header>
-                <igc-card-content>
-                  <p>A complete JavaScript UI library empowering you to build data-rich responsive web apps.</p>
-                </igc-card-content>
-                <igc-card-media>
-                  <img src="https://dl.infragistics.com/x/img/carousel/slide2-ignite.png">
-                </igc-card-media>
-                <igc-card-actions>
-                  <igc-button slot="start" href="https://www.infragistics.com/products/ignite-ui" target="_blank" rel="noopener">
-                    Visit Page
-                  </igc-button>
-                </igc-card-actions>
-              </igc-card>
-            </div>
+            <article class="slide-wrapper">
+              <div class="slide-content">
+                <span class="slide-label">02</span>
+                <h3>Fade transition</h3>
+                <p>Cross-fades between slides when the relationship between items is looser.</p>
+                <div class="slide-details"><span>Best for featured content</span><strong>240ms</strong></div>
+              </div>
+              <div class="slide-preview" aria-hidden="true"><span></span><span></span><span></span></div>
+            </article>
           </igc-carousel-slide>
           <igc-carousel-slide>
-            <div class="slide-wrapper">
-              <igc-card>
-                <igc-card-header>
-                  <span slot="title">Ultimate UI for ASP.NET</span>
-                </igc-card-header>
-                <igc-card-content>
-                  <p>Build full-featured business apps with the most versatile set of ASP.NET AJAX UI controls.</p>
-                </igc-card-content>
-                <igc-card-media>
-                  <img src="https://dl.infragistics.com/x/img/carousel/slide3-aspnet.png">
-                </igc-card-media>
-                <igc-card-actions>
-                  <igc-button slot="start" href="https://www.infragistics.com/products/aspnet" target="_blank" rel="noopener">
-                    Visit Page
-                  </igc-button>
-                </igc-card-actions>
-              </igc-card>
-            </div>
+            <article class="slide-wrapper">
+              <div class="slide-content">
+                <span class="slide-label">03</span>
+                <h3>No transition</h3>
+                <p>Updates the active slide immediately for reduced motion or dense workflows.</p>
+                <div class="slide-details"><span>Best for direct state changes</span><strong>0ms</strong></div>
+              </div>
+              <div class="slide-preview" aria-hidden="true"><span></span><span></span><span></span></div>
+            </article>
           </igc-carousel-slide>
         </igc-carousel>
       </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
     <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>
