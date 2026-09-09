@@ -8,7 +8,7 @@ const icons = [
 ];
 
 defineComponents(IgcButtonComponent, IgcIconButtonComponent, IgcIconComponent);
-export class ButtonStyling {
+export class ButtonTailwindStyling {
     constructor() { icons.forEach((icon) => registerIconFromText(icon.name, icon.text, 'material')); }
 }
-new ButtonStyling();
+new ButtonTailwindStyling();
