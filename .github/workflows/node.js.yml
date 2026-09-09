@@ -36,5 +36,11 @@ jobs:
 
     - name: npm install --legacy-peer-deps
       run: npm ci --legacy-peer-deps
+    - name: Type check
+      run: npm run check
     - name: Build
       run: npm run build
+    - name: Install Playwright browser
+      run: npx playwright install --with-deps chromium
+    - name: Smoke tests
+      run: npm run test:smoke

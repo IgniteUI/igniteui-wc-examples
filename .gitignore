@@ -10,12 +10,12 @@
 /samples/**/package-lock.json
 /samples/**/yarn.lock
 /tmp/
-/tests/
 
 # Astro / Vite build output:
 /.astro
 /dist
 /public/assets/code-viewer
+/public/ig-themes
 
 # browser auto-generated files:
 /browser/node_modules
@@ -57,3 +57,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 *.db
+
+test-results
