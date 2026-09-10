@@ -12,11 +12,10 @@
   </head>
 
   <body>
-    <div id="root">
-      <div class="container sample selection-samples">
-        <div class="selection-sample">
-          <span>Single</span>
-          <igc-button-group selection="single">
+    <div id="root" class="states-container">
+      <div class="selection-samples">
+        <span class="sample-label">Single</span>
+           <igc-button-group selection="single">
             <igc-toggle-button value="bold">
               <igc-icon name="bold" collection="material"></igc-icon>
               <igc-ripple></igc-ripple>
@@ -30,10 +29,7 @@
               <igc-ripple></igc-ripple>
             </igc-toggle-button>
           </igc-button-group>
-        </div>
-
-        <div class="selection-sample">
-          <span>Single-Required</span>
+        <span class="sample-label">Single-Required</span>
           <igc-button-group selection="single-required">
             <igc-toggle-button value="bold" selected>
               <igc-icon name="bold" collection="material"></igc-icon>
@@ -48,10 +44,7 @@
               <igc-ripple></igc-ripple>
             </igc-toggle-button>
           </igc-button-group>
-        </div>
-
-        <div class="selection-sample">
-          <span>Multiple</span>
+        <span class="sample-label">Multiple</span>
           <igc-button-group selection="multiple">
             <igc-toggle-button value="bold" selected>
               <igc-icon name="bold" collection="material"></igc-icon>
@@ -66,11 +59,7 @@
               <igc-ripple></igc-ripple>
             </igc-toggle-button>
           </igc-button-group>
-        </div>
       </div>
     </div>
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>
