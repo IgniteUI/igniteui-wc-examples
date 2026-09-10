@@ -18,6 +18,15 @@
   gap: 8px;
 }
 
+.badge-shape-row igc-badge::part(base),
+.badge-shape-row igc-badge igc-icon {
+  color: var(--ig-gray-50);
+}
+
+.badge-shape-row igc-badge igc-icon {
+  fill: var(--ig-gray-50);
+}
+
 .row-label {
   justify-self: end;
   color: var(--ig-gray-600);
