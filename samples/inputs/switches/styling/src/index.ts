@@ -1,5 +1,5 @@
 import { defineComponents, IgcSwitchComponent, IgcRadioComponent, IgcRadioGroupComponent, IgcExpansionPanelComponent } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/light/material.css';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './index.css';
 
 defineComponents(IgcSwitchComponent, IgcRadioComponent, IgcRadioGroupComponent, IgcExpansionPanelComponent);
