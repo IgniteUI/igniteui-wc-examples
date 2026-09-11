@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Switch Checking</title>
+  <title>Switch Layout</title>
   <meta charset="UTF-8" />
 
   <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
@@ -14,8 +14,21 @@
 
 <body>
   <div id="root">
-    <div class="container sample center">
-      <igc-switch checked>Label</igc-switch>
+    <div class="container sample">
+      <div class="variants">
+        <div class="variants__item">
+          <span class="variants__label">Label Before</span>
+          <igc-switch label-position="before" checked>
+            <span>Power</span>
+          </igc-switch>
+        </div>
+        <div class="variants__item">
+          <span class="variants__label">Label After</span>
+          <igc-switch label-position="after" checked>
+            <span>Power</span>
+          </igc-switch>
+        </div>
+      </div>
     </div>
   </div>
 

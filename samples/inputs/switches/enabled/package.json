@@ -1,7 +1,7 @@
 {
-  "name": "wc-switch-checked",
+  "name": "wc-switch-enabled",
   "version": "1.0.0",
-  "description": "This project provides example of Switch Checked using IgniteUI for Web Components",
+  "description": "This project provides example of Switch Enabled using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Switch Label</title>
+  <title>Switch Selected</title>
   <meta charset="UTF-8" />
 
   <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
@@ -14,11 +14,23 @@
 
 <body>
   <div id="root">
-    <div class="container sample center">
-      <igc-switch label-position="before">Label</igc-switch>
-      <div class="wrapper">
-        <span id="switch-label">Label</span>
-        <igc-switch aria-labelledby="switch-label" label-position="before"></igc-switch>
+    <div class="container sample">
+      <div class="states">
+        <span class="states__row">On</span>
+        <igc-switch label-position="before" checked>
+          <span>Power</span>
+        </igc-switch>
+        <igc-switch label-position="before" checked disabled>
+          <span>Power</span>
+        </igc-switch>
+
+        <span class="states__row">Off</span>
+        <igc-switch label-position="before">
+          <span>Power</span>
+        </igc-switch>
+        <igc-switch label-position="before" disabled>
+          <span>Power</span>
+        </igc-switch>
       </div>
     </div>
   </div>
