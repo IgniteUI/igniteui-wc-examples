@@ -41,10 +41,17 @@ export class Sample {
         orderDetailsRowIsland.paginatorTemplate = this.webHierarchicalGridPaginatorTemplate;
 
         this._bind = () => {
-            window.addEventListener("load", () => {
+            // Load the first page once the page has loaded. The load event may
+            // already be over when this runs (e.g. when the sample is loaded lazily).
+            const loadFirstPage = () => {
                 this.pager.perPage = this._perPage;
-                this.loadCustomersData(this.page,this.perPage);
-            });
+                this.loadCustomersData(this.page, this.perPage);
+            };
+            if (document.readyState === "complete") {
+                loadFirstPage();
+            } else {
+                window.addEventListener("load", loadFirstPage, { once: true });
+            }
 
             this.pager.addEventListener("perPageChange", ((args: CustomEvent<any>) => {
               this.perPage = args.detail;
