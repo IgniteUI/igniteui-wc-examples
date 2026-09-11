@@ -89,9 +89,11 @@ const pageTitle = `${info.displayName} | ${info.componentName} | Ignite UI Web C
 <!--
   Client-side sample loader.
   import.meta.glob registers all sample TS files as lazy Vite chunks at build time.
-  At runtime only the chunk matching the current slug is fetched and instantiated.
-  `new Sample()` is stripped at module level by the stripSampleInstantiation Vite
-  plugin, so we call it explicitly here against the page's own DOM.
+  At runtime only the chunk matching the current slug is fetched.
+  Samples normally instantiate themselves during module evaluation (see the
+  guardSampleInstantiation Vite plugin), so the grid's first-render events reach
+  their listeners. Only modules without a trailing `new Sample()` are
+  instantiated here, after the import resolves.
 -->
 <script>
   // Vite resolves this glob at build time → one lazy chunk per sample
@@ -115,9 +117,12 @@ const pageTitle = `${info.displayName} | ${info.componentName} | Ignite UI Web C
 
     if (sampleModules[moduleKey]) {
       sampleModules[moduleKey]().then((module) => {
-        const mod = module as Record<string, new () => unknown>;
+        const mod = module as Record<string, unknown>;
+        // Already instantiated while the module evaluated.
+        if (mod.__sampleSelfInstantiated) return;
+
         // Falls back to the first exported constructor if not named "Sample".
-        const SampleClass = mod['Sample'] ?? Object.values(mod).find(v => typeof v === 'function') as new () => unknown;
+        const SampleClass = (mod['Sample'] ?? Object.values(mod).find(v => typeof v === 'function')) as (new () => unknown) | undefined;
         if (SampleClass) {
           new SampleClass();
         } else {

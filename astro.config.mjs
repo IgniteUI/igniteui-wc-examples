@@ -5,32 +5,54 @@ import { fileURLToPath } from 'node:url';
 import { existsSync } from 'node:fs';
 
 /**
- * Vite plugin: strip the module-level `new Sample();` (or `new ClassName();`)
- * from every sample src/index.ts.
+ * Vite plugin: keep the module-level `new Sample();` (or `new ClassName();`) of
+ * every sample src/index.ts, but only let it run on that sample's own page.
  *
  * WHY this is needed
  * ──────────────────
- * The `[...slug].astro` loader calls `new module.Sample()` explicitly after
- * the dynamic import resolves, so the page controls when a sample
- * instantiates.  Keeping the module-level `new Sample()` as well would run
- * every sample twice.  Stripping it here (instead of editing 900+ samples)
- * keeps each sample runnable standalone while the browser instantiates it
- * exactly once.
+ * Instantiation has to happen during module evaluation, exactly as it does in
+ * the standalone sample. The grids import defines the custom elements, the
+ * elements already in the page upgrade and start rendering, and the grid
+ * raises one-shot events such as `rendered` on its first render. If the
+ * sample only runs after the dynamic import resolves, it attaches its
+ * listeners too late and those events are already gone: `expandAll()`, pinned
+ * rows and log panels set up in a `rendered` handler silently never happen.
+ *
+ * The guard is what keeps this safe. Rollup can hoist shared code into a
+ * sample chunk, so a *different* page may end up evaluating this module; the
+ * slug check stops it from instantiating a sample against a foreign DOM.
+ *
+ * The rewritten module exports `__sampleSelfInstantiated` so the
+ * `[...slug].astro` loader knows not to instantiate it a second time. Modules
+ * without a trailing `new X()` are left alone and the loader instantiates them.
  */
 /** @returns {import('vite').Plugin} */
-function stripSampleInstantiation() {
+function guardSampleInstantiation() {
   // Match the trailing `new ClassName();` that sample generators emit.
   // It is always the last non-empty statement in the file.
   const trailingNewRe = /\bnew\s+\w+\(\)\s*;?\s*$/;
 
   return {
-    name: 'strip-sample-instantiation',
+    name: 'guard-sample-instantiation',
     enforce: /** @type {'pre'} */ ('pre'),
     transform(code, id) {
       // Only touch samples/**/src/index.ts
-      if (!id.replace(/\\/g, '/').match(/\/samples\/.+\/src\/index\.ts$/)) return;
-      if (!trailingNewRe.test(code)) return;
-      return { code: code.replace(trailingNewRe, ''), map: null };
+      const match = id.replace(/\\/g, '/').match(/\/samples\/(.+)\/src\/index\.ts$/);
+      if (!match) return;
+
+      const trailing = code.match(trailingNewRe);
+      if (!trailing) return;
+
+      // Must match data-sample-slug, which [...slug].astro sets on <html>.
+      const slug = JSON.stringify(match[1]);
+      const call = trailing[0].trim().replace(/;?$/, ';');
+      const guarded = [
+        `if (document.documentElement.dataset.sampleSlug === ${slug}) { ${call} }`,
+        'export const __sampleSelfInstantiated = true;',
+        '',
+      ].join('\n');
+
+      return { code: code.replace(trailingNewRe, guarded), map: null };
     },
   };
 }
@@ -212,7 +234,7 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [resolveIgniteUiScoped(), stripSampleInstantiation(), inlineSampleCss()],
+    plugins: [resolveIgniteUiScoped(), guardSampleInstantiation(), inlineSampleCss()],
     // samples/ and node_modules/ are already at the repo root (__dirname),
     // so no extra fs.allow entries are needed.
     server: {
