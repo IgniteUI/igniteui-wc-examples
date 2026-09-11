@@ -19,14 +19,6 @@ export class Sample {
         }
         this._bind();
 
-        grid.addEventListener('rendered', () => {
-            console.log('Grid has been rendered');
-        });
-
-        grid.addEventListener('columnPinned', (event) => {
-            console.log('Column has been pinned', event);
-        });
-
     }
 
     private _hierarchicalCustomersData: any[] = HierarchicalCustomersData;
