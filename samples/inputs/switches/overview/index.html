@@ -14,8 +14,34 @@
 
 <body>
   <div id="root">
-    <div class="container sample center">
-      <igc-switch>Switch</igc-switch>
+    <div class="container sample">
+      <div class="notifications">
+        <h6 class="notifications__title">Notifications</h6>
+        <div class="notifications__row">
+          <igc-switch label-position="before" checked>
+            <span class="option">
+              <span class="option__label">Push notifications</span>
+              <span class="option__hint">Deliver alerts to this device</span>
+            </span>
+          </igc-switch>
+        </div>
+        <div class="notifications__row">
+          <igc-switch label-position="before">
+            <span class="option">
+              <span class="option__label">Weekly digest</span>
+              <span class="option__hint">Summary email every Monday</span>
+            </span>
+          </igc-switch>
+        </div>
+        <div class="notifications__row">
+          <igc-switch label-position="before" disabled>
+            <span class="option">
+              <span class="option__label">SMS alerts</span>
+              <span class="option__hint">Unavailable on your plan</span>
+            </span>
+          </igc-switch>
+        </div>
+      </div>
     </div>
   </div>
 
