@@ -10,16 +10,12 @@ import { existsSync } from 'node:fs';
  *
  * WHY this is needed
  * ──────────────────
- * Rollup's code-splitting can place shared IgniteUI library symbols inside the
- * *first* sample chunk that imports them (e.g. annotations-all).  Any other
- * sample that uses those same symbols imports from that chunk at runtime.
- * Without this plugin the module-level `new Sample()` inside the host chunk
- * would fire immediately — but the DOM for that sample isn't present on the
- * page — causing "Cannot set properties of null" errors.
- *
- * The `[...slug].astro` loader instead calls `new module.Sample()` explicitly
- * after the dynamic import resolves, so instantiation is always deferred until
- * the correct page is loaded.
+ * The `[...slug].astro` loader calls `new module.Sample()` explicitly after
+ * the dynamic import resolves, so the page controls when a sample
+ * instantiates.  Keeping the module-level `new Sample()` as well would run
+ * every sample twice.  Stripping it here (instead of editing 900+ samples)
+ * keeps each sample runnable standalone while the browser instantiates it
+ * exactly once.
  */
 /** @returns {import('vite').Plugin} */
 function stripSampleInstantiation() {
@@ -40,26 +36,44 @@ function stripSampleInstantiation() {
 }
 
 /**
- * Vite plugin: convert local CSS/SCSS imports in sample index.ts files to
- * `?inline` imports with dynamic `<style>` injection.
+ * Vite plugin: take the stylesheet imports out of every sample entry module.
  *
  * WHY this is needed
  * ──────────────────
- * Rollup picks certain sample chunks as "hosts" for shared IgniteUI code.
- * Any CSS imported by those host chunks ends up in a SHA-named CSS file that
- * Vite's `__vite__mapDeps` then preloads on EVERY page that transits through
- * that shared chunk — causing unrelated sample styles to appear on the wrong
- * pages and override each other.
+ * A sample's entry module is loaded lazily, by slug, from a dynamic import that
+ * only runs after DOMContentLoaded — and it drags in megabytes of library code.
+ * While that is in flight the page has already painted, so any CSS the module
+ * owns arrives far too late: the sample flashes unstyled first.
  *
- * By converting  import './index.css'  →  import __css from './index.css?inline'
- * we keep the CSS as a plain string inside the owning JS module.  Vite no
- * longer emits a separate CSS chunk for it, so nothing leaks into other pages.
- * The `<style>` is only injected when that specific sample's JS actually runs.
+ * It was also a correctness problem. Rollup hoists shared code into some
+ * chunk, and evaluating a chunk runs the whole module body — so a *different*
+ * sample's theme import could land in the document first and win the library's
+ * one-shot `getTheme()` check, rendering material samples with the bootstrap
+ * theme.
+ *
+ * So `[...slug].astro` now emits these stylesheets into <head> at build time
+ * (see resolveSampleStyles): themes as <link>s to public/ig-themes/, everything
+ * sample-local inlined. This plugin drops the imports it has taken over, so the
+ * two can't both own the same sheet — otherwise the module's copy would
+ * re-append itself last on every load and clobber a theme swap.
+ *
+ * Anything whose shape the page does NOT resolve is deliberately left alone and
+ * still injected at runtime, so an unrecognised import degrades to the old
+ * behaviour instead of silently losing its styles.
  */
 /** @returns {import('vite').Plugin} */
 function inlineSampleCss() {
   // Matches any CSS / SCSS side-effect import inside a sample file (relative or package).
-  const localCssRe = /^import\s+['"]([^'"]+\.(?:css|scss))['"];?\s*$/gm;
+  const cssImportRe = /^import\s+['"]([^'"]+\.(?:css|scss))['"];?\s*$/gm;
+
+  // The two shapes [...slug].astro knows how to put in <head>. Keep in sync
+  // with resolveSampleStyles() in src/utils/samples.ts.
+  const themeSpecRe =
+    /^igniteui-webcomponents(-grids\/grids)?\/themes\/(light|dark)\/(material|bootstrap|fluent|indigo)\.css$/;
+  const sampleLocalRe = /^\.\/[^/]+\.(?:css|scss)$/;
+
+  const handledInHead = spec => themeSpecRe.test(spec) || sampleLocalRe.test(spec);
+
   let isBuild = false;
 
   return {
@@ -69,22 +83,25 @@ function inlineSampleCss() {
       isBuild = config.command === 'build';
     },
     transform(code, id) {
-      // Production build only — in dev, Vite handles CSS imports natively
-      // (injects as <style> tags automatically) which works correctly per-module.
-      if (!isBuild) return;
       if (!id.replace(/\\/g, '/').match(/\/samples\/.+\/src\/index\.ts$/)) return;
-      localCssRe.lastIndex = 0;
-      if (!localCssRe.test(code)) return;
-      localCssRe.lastIndex = 0;
+      cssImportRe.lastIndex = 0;
+      if (!cssImportRe.test(code)) return;
+      cssImportRe.lastIndex = 0;
 
       let i = 0;
-      const newCode = code.replace(localCssRe, (_, cssPath) => {
+      const newCode = code.replace(cssImportRe, (line, spec) => {
+        // Already in <head> — drop it so nothing is styled twice.
+        if (handledInHead(spec)) return '';
+
+        // In dev Vite injects CSS imports natively, which is correct per-module.
+        if (!isBuild) return line;
+
+        // Production fallback for shapes the page could not resolve. ?inline
+        // keeps the CSS as a string inside this module, so Vite emits no shared
+        // CSS chunk that could leak onto unrelated pages.
         const v = `__sampleCss${i++}`;
-        // ?inline → Vite compiles SCSS→CSS and returns the result as a string.
-        // We inject it via a <style> element so it only appears in the DOM
-        // when this exact sample's JS module is imported — never on other pages.
         return [
-          `import ${v} from '${cssPath}?inline';`,
+          `import ${v} from '${spec}?inline';`,
           `{const __s=document.createElement('style');__s.textContent=${v};document.head.appendChild(__s);}`,
         ].join('\n');
       });
@@ -186,6 +203,14 @@ export default defineConfig({
   // Match IIS behaviour: routes are served without trailing slashes
   trailingSlash: 'never',
 
+  // Keep every stylesheet as an emitted file.  With the default 'auto',
+  // Astro inlines small CSS assets into page HTML and deletes the files,
+  // but the sample chunks' __vite__mapDeps still preload them at runtime
+  // → "Unable to preload CSS" on every sample page.
+  build: {
+    inlineStylesheets: 'never',
+  },
+
   vite: {
     plugins: [resolveIgniteUiScoped(), stripSampleInstantiation(), inlineSampleCss()],
     // samples/ and node_modules/ are already at the repo root (__dirname),
@@ -234,9 +259,41 @@ export default defineConfig({
           // Give every sample its own chunk so Rollup doesn't try to inline
           // all 700+ samples into a single bundle (causes OOM).
           manualChunks(id) {
+            // Vite's dynamic-import preload helper is shared by every lazy
+            // chunk.  Left unassigned, Rollup hosts it inside one vendor
+            // chunk and the others import it back — a chunk cycle
+            // (grid-lite → webcomponents → grid-lite build warning).
+            if (id.includes('vite/preload-helper')) {
+              return 'preload-helper';
+            }
+
             const match = id.match(/[\\/]samples[\\/](.+)[\\/]src[\\/]index\.ts$/);
             if (match) {
               return `samples/${match[1].replace(/[\\/]/g, '--')}`;
+            }
+
+            // Shared IgniteUI runtime → one vendor chunk per package.
+            // Without this, Rollup hosts shared library code inside the first
+            // sample chunk that imports it, so every other sample transits
+            // through that chunk (e.g. an 11MB annotations-all hosting the
+            // charts runtime) and pulls in its side effects.
+            const vendor = id
+              .replace(/\\/g, '/')
+              .match(/\/node_modules\/(?:@infragistics\/)?(igniteui-[^/]+)\//);
+            if (vendor) {
+              return `vendor/${vendor[1]}`;
+            }
+
+            // Every other node_modules package too.  A shared non-IgniteUI
+            // dep (lit, file-saver, …) left unassigned gets hosted inside the
+            // first *sample* chunk that imports it, so unrelated pages
+            // evaluate that sample's module body — its defineAllComponents()
+            // and theme CSS included (the bootstrap-instead-of-material bug).
+            const dep = id
+              .replace(/\\/g, '/')
+              .match(/\/node_modules\/((?:@[^/]+\/)?[^/]+)\//);
+            if (dep) {
+              return `vendor/${dep[1].replace('/', '--')}`;
             }
           },
           // Keep sample CSS files scoped to their own chunk names
