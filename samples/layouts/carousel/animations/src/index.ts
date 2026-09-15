@@ -12,11 +12,23 @@ defineComponents(IgcCarouselComponent, IgcSelectComponent, IgcSwitchComponent);
 const carousel = document.querySelector("igc-carousel") as IgcCarouselComponent;
 const select = document.querySelector("igc-select") as IgcSelectComponent;
 const verticalSwitch = document.querySelector("igc-switch") as IgcSwitchComponent;
+let orientationTimer: number | undefined;
 
 select.addEventListener("igcChange", (event: CustomEvent<{ value: "slide" | "fade" | "none" }>) => {
   carousel.animationType = event.detail.value;
 });
 
 verticalSwitch.addEventListener("igcChange", (event: CustomEvent<{ checked: boolean }>) => {
-  carousel.vertical = event.detail.checked;
+  const isVertical = event.detail.checked;
+
+  if (orientationTimer !== undefined) {
+    window.clearTimeout(orientationTimer);
+  }
+
+  carousel.classList.add("is-orientation-changing");
+
+  orientationTimer = window.setTimeout(() => {
+    carousel.vertical = isVertical;
+    window.requestAnimationFrame(() => carousel.classList.remove("is-orientation-changing"));
+  }, 120);
 });

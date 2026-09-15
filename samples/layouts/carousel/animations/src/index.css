@@ -46,6 +46,13 @@ igc-carousel::part(previous),
 igc-carousel::part(next) {
     width: 40px;
     height: 40px;
+    transition: opacity 120ms ease-in-out;
+}
+
+igc-carousel.is-orientation-changing::part(previous),
+igc-carousel.is-orientation-changing::part(next) {
+    opacity: 0;
+    pointer-events: none;
 }
 
 igc-carousel::part(previous) {
