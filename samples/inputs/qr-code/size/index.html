@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>QR Code Sizes</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+
+</head>
+
+<body>
+    <div id="root">
+        <div class="container sample">
+            <div>
+                <igc-qr-code value="https://www.infragistics.com" size="128"></igc-qr-code>
+                <span>size: <strong>128px</strong></span>
+            </div>
+            <div>
+                <igc-qr-code value="https://www.infragistics.com" size="192"></igc-qr-code>
+                <span>size: <strong>192px</strong></span>
+            </div>
+            <div>
+                <igc-qr-code value="https://www.infragistics.com" size="256"></igc-qr-code>
+                <span>size: <strong>256px</strong></span>
+            </div>
+        </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+
+</body>
+
+</html>
