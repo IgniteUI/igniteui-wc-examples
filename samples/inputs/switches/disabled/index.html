@@ -14,8 +14,21 @@
 
 <body>
   <div id="root">
-    <div class="container sample center">
-      <igc-switch disabled>Label</igc-switch>
+    <div class="container sample">
+      <div class="states">
+        <div class="states__variant">
+          <span class="states__label">Disabled Checked</span>
+          <igc-switch label-position="before" disabled checked>
+            <span>Power</span>
+          </igc-switch>
+        </div>
+        <div class="states__variant">
+          <span class="states__label">Disabled Unchecked</span>
+          <igc-switch label-position="before" disabled>
+            <span>Power</span>
+          </igc-switch>
+        </div>
+      </div>
     </div>
   </div>
 

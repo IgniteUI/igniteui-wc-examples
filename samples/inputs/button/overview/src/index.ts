@@ -1,11 +1,14 @@
-import { defineComponents, IgcButtonComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcAvatarComponent, IgcButtonComponent, IgcInputComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import './ButtonOverviewStyle.css';
+import './index.css';
 
-defineComponents(IgcButtonComponent);
+defineComponents(IgcAvatarComponent, IgcButtonComponent, IgcInputComponent);
+
 export class ButtonOverview {
     constructor() {
     }
 }
+
+new ButtonOverview();
 
 new ButtonOverview();
