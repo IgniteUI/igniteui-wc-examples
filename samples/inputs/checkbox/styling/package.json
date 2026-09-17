@@ -1,7 +1,7 @@
 {
-  "name": "wc-checkbox-disabled",
+  "name": "wc-checkbox-styling",
   "version": "1.0.0",
-  "description": "This project provides example of Checkbox Disabled using IgniteUI for Web Components",
+  "description": "This project provides example of Checkbox Styling using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
