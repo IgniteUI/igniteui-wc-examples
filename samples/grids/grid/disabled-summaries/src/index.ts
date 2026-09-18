@@ -14,9 +14,10 @@ class UnitsInStockSummary extends IgcSummaryOperand {
     }
     operate(data: any[] = [], allData: any[] = [], fieldName: string = "", summaryResult: any = null): IgcSummaryResult[] {
         const result: IgcSummaryResult[] = [];
-        const values = allData.map((item) => item[fieldName] ?? 0).filter((value) => value !== null);
+        const allDataArray = Array.from(allData);
+        const values = allDataArray.map((item) => item[fieldName] ?? 0).filter((value) => value !== null);
 
-        const discontinuedItems = allData.filter((item) => item["Discontinued"] === true);
+        const discontinuedItems = allDataArray.filter((item) => item["Discontinued"] === true);
         const discontinuedValues = discontinuedItems.map((item) => item[fieldName] ?? 0).filter((value) => !isNaN(value));
 
         result.push({ key: "count", label: "Count", summaryResult: values.length });
@@ -53,9 +54,10 @@ class DiscontinuedSummary extends IgcSummaryOperand {
     }
     operate(data: any[] = [], allData: any[] = [], fieldName: string = ""): IgcSummaryResult[] {
         const result: IgcSummaryResult[] = [];
-        result.push({ key: "count", label: "Count", summaryResult: allData.length });
-        result.push({ key: "true", label: "True", summaryResult: allData.filter((item) => item[fieldName] === true).length });
-        result.push({ key: "false", label: "False", summaryResult: allData.filter((item) => item[fieldName] === false).length });
+        const allDataArray = Array.from(allData);
+        result.push({ key: "count", label: "Count", summaryResult: allDataArray.length });
+        result.push({ key: "true", label: "True", summaryResult: allDataArray.filter((item) => item[fieldName] === true).length });
+        result.push({ key: "false", label: "False", summaryResult: allDataArray.filter((item) => item[fieldName] === false).length });
         return result;
     }
 }
