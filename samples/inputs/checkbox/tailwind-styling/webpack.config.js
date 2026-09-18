@@ -55,7 +55,18 @@ module.exports = env => {
                 { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] },
                 { test: /\.(csv|tsv)$/, use: ['csv-loader'] },
                 { test: /\.xml$/, use: ['xml-loader'] },
-                { test: /\.css$/, sideEffects: true, use: ['style-loader', 'css-loader'] },
+                {
+                    test: /\.css$/,
+                    sideEffects: true,
+                    use: [
+                        'style-loader',
+                        {
+                        loader: 'css-loader',
+                        options: { importLoaders: 1 }
+                        },
+                        'postcss-loader'
+                    ]
+                },
                 {
                     test: /worker\.(ts|js)$/,
                     use: [
@@ -65,8 +76,7 @@ module.exports = env => {
                                 "compact": isProd ? true : false,
                                 "presets": presets,
                                 "plugins": [
-                                    "@babel/plugin-transform-class-static-block",
-                                    "@babel/plugin-transform-class-properties",
+                                    "@babel/plugin-proposal-class-properties",
                                     "@babel/plugin-transform-runtime"
                                 ]
                             }
@@ -79,8 +89,7 @@ module.exports = env => {
                         "compact": isProd ? true : false,
                         "presets": presets,
                         "plugins": [
-                            "@babel/plugin-transform-class-static-block",
-                            "@babel/plugin-transform-class-properties",
+                            "@babel/plugin-proposal-class-properties",
                             "@babel/plugin-transform-runtime"
                         ]
                     },
