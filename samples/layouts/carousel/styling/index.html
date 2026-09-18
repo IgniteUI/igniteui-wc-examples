@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carousel Styling</title>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="container sample center">
+        <igc-carousel class="styled-carousel">
+          <span slot="previous-button" class="carousel-navigation-button"><igc-icon name="chevron-left"></igc-icon></span>
+          <span slot="next-button" class="carousel-navigation-button"><igc-icon name="chevron-right"></igc-icon></span>
+
+          <igc-carousel-slide>
+            <article class="slide-card">
+              <img class="slide-image" src="https://dl.infragistics.com/x/img/carousel/WonderfulCoast.png" alt="Wonderful coast" />
+              <div class="slide-content"><span class="slide-label">01</span><h3>Coastal retreat</h3><p>A quiet route along cliffs, beach towns, and open water.</p></div>
+            </article>
+          </igc-carousel-slide>
+          <igc-carousel-indicator><span class="carousel-indicator"></span><span slot="active" class="carousel-indicator carousel-indicator-active"></span></igc-carousel-indicator>
+
+          <igc-carousel-slide>
+            <article class="slide-card">
+              <img class="slide-image" src="https://dl.infragistics.com/x/img/carousel/CulturalDip.png" alt="Cultural district" />
+              <div class="slide-content"><span class="slide-label">02</span><h3>Cultural district</h3><p>Museums, galleries, and historic streets in one walkable plan.</p></div>
+            </article>
+          </igc-carousel-slide>
+          <igc-carousel-indicator><span class="carousel-indicator"></span><span slot="active" class="carousel-indicator carousel-indicator-active"></span></igc-carousel-indicator>
+
+          <igc-carousel-slide>
+            <article class="slide-card">
+              <img class="slide-image" src="https://dl.infragistics.com/x/img/carousel/GoldenBeaches.png" alt="Golden beaches" />
+              <div class="slide-content"><span class="slide-label">03</span><h3>Golden beaches</h3><p>A sunny itinerary built around swimming, dining, and sunsets.</p></div>
+            </article>
+          </igc-carousel-slide>
+          <igc-carousel-indicator><span class="carousel-indicator"></span><span slot="active" class="carousel-indicator carousel-indicator-active"></span></igc-carousel-indicator>
+        </igc-carousel>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>

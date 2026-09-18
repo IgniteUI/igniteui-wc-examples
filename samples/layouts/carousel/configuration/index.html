@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carousel Configuration</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="configuration-sample">
+        <div class="configuration-controls">
+          <igc-switch id="hide-navigation">Hide navigation</igc-switch>
+          <igc-switch id="hide-indicators">Hide indicators</igc-switch>
+          <igc-switch id="disable-loop">Disable loop</igc-switch>
+        </div>
+        <igc-carousel id="carousel">
+          <igc-carousel-slide>
+            <article class="slide-card">
+              <span>01</span>
+              <h3>Coastal route</h3>
+              <p>A compact visual slide for checking navigation and indicators.</p>
+            </article>
+          </igc-carousel-slide>
+          <igc-carousel-slide>
+            <article class="slide-card">
+              <span>02</span>
+              <h3>City guide</h3>
+              <p>A second slide makes loop behavior easy to verify.</p>
+            </article>
+          </igc-carousel-slide>
+          <igc-carousel-slide>
+            <article class="slide-card">
+              <span>03</span>
+              <h3>Resort access</h3>
+              <p>Use the controls to compare the Carousel configuration states.</p>
+            </article>
+          </igc-carousel-slide>
+        </igc-carousel>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
