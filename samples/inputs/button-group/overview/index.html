@@ -12,10 +12,10 @@
   </head>
 
   <body>
-    <div id="root">
-      <div class="container sample">
+    <div id="root" class="states-container">
+      <div class="sample-layout">
         <igc-button-group selection="single-required">
-          <igc-toggle-button value="device">
+           <igc-toggle-button value="device">
             Device
             <igc-ripple></igc-ripple>
           </igc-toggle-button>
@@ -26,13 +26,10 @@
         </igc-button-group>
 
         <div class="album">
-          <span class="album-title"></span>
+          <p class="album-title"></p>
           <div class="album-photos"></div>
         </div>
       </div>
     </div>
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>
