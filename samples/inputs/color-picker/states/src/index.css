@@ -4,7 +4,16 @@
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 2rem;
+    font-family: "Aktiv Grotesk", sans-serif;
+}
+
+span {
+    display: block;
+    text-align: center;
+    margin-block-end: 1rem;
+    color: var(--ig-gray-600);
 }
 
 igc-color-picker::part(picker) {
@@ -15,7 +24,7 @@ igc-color-picker::part(picker) {
     .container {
         flex-direction: column;
         justify-content: normal;
-        gap: 35%;
+        gap: 20%;
         align-items: center;
     }
 }

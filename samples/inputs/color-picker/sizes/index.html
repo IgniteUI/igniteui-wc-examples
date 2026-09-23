@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Color Picker Swatches</title>
+    <title>Color Picker Sizes</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
@@ -10,8 +10,18 @@
 <body>
     <div id="root">
         <div class="container sample">
-            <igc-color-picker id="one-line" label="Pick a color"></igc-color-picker>
-            <igc-color-picker id="multi-line" label="Pick a color"></igc-color-picker>
+            <div>
+            <span>Small</span>
+            <igc-color-picker class="smallPicker" label="Pick a color"></igc-color-picker>
+            </div>
+            <div>
+            <span>Medium</span>
+            <igc-color-picker class="mediumPicker" label="Pick a color"></igc-color-picker>
+            </div>
+            <div>
+            <span>Large</span>
+            <igc-color-picker class="largePicker" label="Pick a color"></igc-color-picker>
+            </div>
         </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->

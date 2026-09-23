@@ -6,10 +6,11 @@ defineComponents(IgcColorPickerComponent);
 
 export class ColorPickerSwatches {
     constructor() {
-        document.querySelector('igc-color-picker')!.swatches = ['#f44336', '#e91e63', '#9c27b0', '#3f51b5', '#2196f3', '#4caf50'];
+        document.querySelector('#one-line')!.swatches = ['#f44336', '#e91e63', '#9c27b0', '#3f51b5', '#2196f3', '#4caf50'];
+        document.querySelector('#multi-line')!.swatches = ['#f44336', '#e91e63', '#9c27b0', '#3f51b5', '#2196f3', '#4caf50', '#ffeb3b', '#ff9800', '#795548', '#607d8b', '#ffffff', '#000000', '#0000ff', '#00ff00', '#ff00ff', '#00ffff'];
     }
 }
 
-document.querySelector('igc-color-picker')?.toggle();
+document.querySelectorAll('igc-color-picker')?.forEach(picker => picker.toggle());
 
 new ColorPickerSwatches();
