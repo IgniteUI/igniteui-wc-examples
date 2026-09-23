@@ -4,9 +4,9 @@ import "./index.css";
 
 defineComponents(IgcQrCodeComponent);
 
-export class QrCodeShapes {
+export class QrCodeCornerShapes {
     constructor() {
     }
 }
 
-new QrCodeShapes();
+new QrCodeCornerShapes();

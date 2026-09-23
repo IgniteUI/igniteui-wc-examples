@@ -1,7 +1,7 @@
 {
-  "name": "wc-qr-code-shapes",
+  "name": "wc-qr-code-corner-shapes",
   "version": "1.0.0",
-  "description": "This project provides example of QR Code Shapes using IgniteUI for Web Components",
+  "description": "This project provides example of QR Code Corner Shapes using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",

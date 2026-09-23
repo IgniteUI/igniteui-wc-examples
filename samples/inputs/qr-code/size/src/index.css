@@ -8,6 +8,7 @@
     justify-content: center;
     flex-direction: row;
     overflow-y: auto;
+    font-family: "Aktiv Grotesk", sans-serif;
 }
 
 .container div {
