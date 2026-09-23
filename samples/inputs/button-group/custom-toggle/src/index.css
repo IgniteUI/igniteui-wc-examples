@@ -1,0 +1,9 @@
+igc-button-group {
+    max-width: 18.75rem;
+}
+
+.states-container {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}

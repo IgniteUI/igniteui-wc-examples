@@ -12,17 +12,54 @@
   </head>
 
   <body>
-    <div id="root">
-      <div class="container sample">
-        <igc-button-group selection="single-required">
-          <igc-toggle-button value="small">Small</igc-toggle-button>
-          <igc-toggle-button value="medium">Medium</igc-toggle-button>
-          <igc-toggle-button value="large" selected>Large</igc-toggle-button>
-        </igc-button-group>
+    <div id="root" class="states-container">
+      <div class="button-group-size">
+        <span class="sample-label">Small</span>
+           <igc-button-group>
+            <igc-toggle-button value="sofia">
+              Sofia
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="london">
+              London
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="new york">
+              New York
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+          </igc-button-group>
+        <span class="sample-label">Medium</span>
+          <igc-button-group>
+            <igc-toggle-button value="sofia">
+              Sofia
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="london">
+              London
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="new york">
+              New York
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+          </igc-button-group>
+        <span class="sample-label">Large</span>
+          <igc-button-group>
+            <igc-toggle-button value="sofia">
+              Sofia
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="london">
+              London
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+            <igc-toggle-button value="new york">
+              New York
+              <igc-ripple></igc-ripple>
+            </igc-toggle-button>
+          </igc-button-group>
       </div>
     </div>
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>

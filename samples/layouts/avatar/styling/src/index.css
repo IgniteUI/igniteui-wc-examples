@@ -1,2 +1,62 @@
-/* shared styles are loaded from: */
-/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+.sample {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.chat-list {
+  --ig-list-header-text-color: var(--ig-gray-900);
+  max-width: 20.5rem;
+}
+
+.chat-list * {
+  font-family: "Aktiv Grotesk", Arial, sans-serif;
+}
+
+.chat-list [slot="title"] {
+  font-weight: 600;
+}
+
+.chat-list [slot="end"] {
+  color: var(--ig-gray-600);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.chat-list-item--split {
+  --border-width: 0.0625rem;
+  --border-color: var(--ig-gray-300);
+}
+
+:where(igc-avatar) {
+  --ig-size: var(--ig-size-small);
+  --ig-avatar-background: var(--ig-gray-300);
+  --ig-avatar-color: var(--ig-gray-300-contrast);
+  --ig-avatar-icon-color: var(--ig-gray-300-contrast);
+}
+
+.avatar-icon {
+  --ig-size: var(--ig-size-small);
+}
+
+.avatar-with-badge {
+  position: relative;
+}
+
+:where(igc-badge) {
+  --ig-size: var(--ig-size-small);
+  --ig-badge-icon-color: #ffffff;
+  --ig-badge-text-color: #ffffff;
+}
+
+.avatar-status {
+  --ig-size: var(--ig-size-small);
+  position: absolute;
+  inset-inline-end: -0.25rem;
+  inset-block-end: -0.25rem;
+}
+
+.avatar-muted-badge {
+  --ig-badge-background-color: var(--ig-gray-500);
+}

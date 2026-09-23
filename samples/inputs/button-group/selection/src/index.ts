@@ -2,15 +2,14 @@ import {
     defineComponents,
     IgcButtonGroupComponent,
     IgcIconComponent,
-    IgcRadioComponent,
-    IgcRadioGroupComponent,
     IgcRippleComponent,
+    IgcToggleButtonComponent,
     registerIconFromText
 } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/light/material.css';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './index.css';
 
-defineComponents(IgcButtonGroupComponent, IgcRippleComponent, IgcIconComponent, IgcRadioGroupComponent);
+defineComponents(IgcButtonGroupComponent, IgcRippleComponent, IgcToggleButtonComponent, IgcIconComponent);
 
 const icons = [
     {
@@ -28,19 +27,9 @@ const icons = [
 ];
 
 export class ButtonGroupSelection {
-    private buttonGroup: IgcButtonGroupComponent;
-
     constructor() {
         icons.forEach((icon) => {
             registerIconFromText(icon.name, icon.iconText, 'material');
-        });
-
-        this.buttonGroup = document.querySelector('igc-button-group') as IgcButtonGroupComponent;
-
-        document.addEventListener("igcChange", (e) => {
-            const radio = e.target as IgcRadioComponent;
-
-            this.buttonGroup.selection = radio.value as 'single' | 'single-required' | 'multiple';
         });
     }
 }
