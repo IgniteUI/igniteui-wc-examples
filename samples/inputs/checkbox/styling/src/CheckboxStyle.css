@@ -1,7 +1,0 @@
-igc-checkbox::part(indicator) {
-  --tick-color: var(--ig-secondary-500-contrast);
-}
-
-igc-checkbox::part(control checked)::after {
-  --fill-color: var(--ig-secondary-500);
-}
