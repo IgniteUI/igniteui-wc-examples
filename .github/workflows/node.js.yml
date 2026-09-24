@@ -9,6 +9,11 @@ on:
   pull_request:
     branches: [ "vnext" ]
 
+# Cancel superseded runs on the same PR/branch.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
 
@@ -40,7 +45,26 @@ jobs:
       run: npm run check
     - name: Build
       run: npm run build
+
+    # Browser binaries are cached per Playwright version; OS deps (apt) are
+    # not cacheable and are installed on every run.
+    - name: Get Playwright version
+      id: playwright
+      run: echo "version=$(npx playwright --version | awk '{print $2}')" >> "$GITHUB_OUTPUT"
+    - name: Cache Playwright browser
+      id: playwright-cache
+      uses: actions/cache@v5
+      with:
+        path: ~/.cache/ms-playwright
+        key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
+
+    # Headless tests only need the headless shell, not full Chromium.
     - name: Install Playwright browser
-      run: npx playwright install --with-deps chromium
+      if: steps.playwright-cache.outputs.cache-hit != 'true'
+      run: npx playwright install --with-deps --only-shell chromium
+    - name: Install Playwright OS deps
+      if: steps.playwright-cache.outputs.cache-hit == 'true'
+      run: npx playwright install-deps chromium
+
     - name: Smoke tests
       run: npm run test:smoke
