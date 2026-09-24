@@ -58,10 +58,10 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.10",
     "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4.1.11",
-    "astro": "^6.0.5",
+    "astro": "^7.3.5",
     "cross-env": "^5.0.1",
     "marked": "^18.0.0",
     "marked-shiki": "^1.2.0",
