@@ -10,25 +10,33 @@
 
   <body>
     <div id="root">
-      <div class="button-group">
-        <igc-button id="showAll" variant="contained">Show All</igc-button>
-        <igc-button id="hideAll" variant="contained">Hide All</igc-button>
-      </div>
-      <div class="sample-wrapper">
-        <igc-accordion id="accordion">
-          <igc-expansion-panel>
-            <span slot="title">Billing</span>
-            <span>Review invoices, update payment methods, and manage billing contacts.</span>
-          </igc-expansion-panel>
-          <igc-expansion-panel>
-            <span slot="title">Security</span>
-            <span>Configure password rules, multi-factor authentication, and recovery options.</span>
-          </igc-expansion-panel>
-          <igc-expansion-panel>
-            <span slot="title">Notifications</span>
-            <span>Choose which product updates and account alerts are sent to your team.</span>
-          </igc-expansion-panel>
-        </igc-accordion>
+      <div class="accordion-sample">
+        <div class="accordion-content">
+          <div class="accordion-toolbar">
+            <igc-button id="showAll" class="action-button" variant="contained">Show All</igc-button>
+            <igc-button id="hideAll" class="action-button" variant="contained">Hide All</igc-button>
+          </div>
+
+          <igc-accordion id="accordion">
+            <igc-expansion-panel open>
+              <span slot="title">Billing</span>
+              <span slot="subtitle">Invoices and payment settings</span>
+              <p>Review invoices, update payment methods, and manage billing contacts.</p>
+            </igc-expansion-panel>
+
+            <igc-expansion-panel open>
+              <span slot="title">Security</span>
+              <span slot="subtitle">Password and access controls</span>
+              <p>Configure password rules, multi-factor authentication, and recovery options.</p>
+            </igc-expansion-panel>
+
+            <igc-expansion-panel open>
+              <span slot="title">Notifications</span>
+              <span slot="subtitle">Product updates and account alerts</span>
+              <p>Choose which product updates and account alerts are sent to your team.</p>
+            </igc-expansion-panel>
+          </igc-accordion>
+        </div>
       </div>
     </div>
 
