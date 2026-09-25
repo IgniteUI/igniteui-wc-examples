@@ -1,0 +1,22 @@
+import {
+    defineComponents,
+    IgcBreadcrumbComponent,
+    IgcBreadcrumbsComponent,
+    registerIconFromText
+} from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import './index.css';
+
+defineComponents(IgcBreadcrumbsComponent, IgcBreadcrumbComponent);
+
+const slashIcon =
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none"><path d="M12.8535 3C13.3976 3 13.7655 3.55489 13.5537 4.05604L7.85788 17.5331C7.73829 17.8161 7.46093 18 7.15374 18C6.60638 18 6.23639 17.4416 6.44976 16.9375L12.1535 3.46381C12.2725 3.18266 12.5482 3 12.8535 3Z" fill="currentColor"/></svg>';
+
+registerIconFromText('slash', slashIcon);
+
+export class BreadcrumbsCustomSeparator {
+    constructor() {
+    }
+}
+
+new BreadcrumbsCustomSeparator(); 
