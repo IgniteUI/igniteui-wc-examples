@@ -1,7 +1,5 @@
 igc-tree {
     width: 320px;
-    max-height: 360px;
-    overflow-y: auto;
 }
 
 .tree-item-icon {
@@ -26,6 +24,6 @@ igc-tree {
     vertical-align: middle;
 }
 
-lit-virtualizer igc-tree-item {
-    width: 100%;
+igc-virtual-scroll {
+    height: 240px;
 }

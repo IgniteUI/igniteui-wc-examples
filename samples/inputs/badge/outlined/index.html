@@ -19,7 +19,7 @@
         <div class="icon-circle">
           <igc-icon name="favorite_border" collection="material"></igc-icon>
         </div>
-        <igc-badge variant="info" outlined class="badge-info-blue">23</igc-badge>
+        <igc-badge variant="info" outlined>23</igc-badge>
       </div>
       <div class="outlined-example">
         <igc-avatar initials="AZ" shape="rounded"></igc-avatar>
@@ -27,28 +27,19 @@
           <igc-icon name="close" collection="material"></igc-icon>
         </igc-badge>
       </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-marker">
-            <span class="step-circle">1</span>
-          </div>
-          <span class="step-label">Orders</span>
-        </div>
-        <span class="step-connector"></span>
-        <div class="step">
-          <div class="step-marker">
-            <span class="step-circle">2</span>
-            <igc-badge dot variant="info" outlined class="payment-dot-blue"></igc-badge>
-          </div>
-          <span class="step-label">Payment</span>
-        </div>
-        <span class="step-connector pending"></span>
-        <div class="step">
-          <div class="step-marker">
-            <span class="step-circle pending">3</span>
-          </div>
-          <span class="step-label">Shipping</span>
-        </div>
+      <div class="stepper-wrapper">
+        <igc-stepper class="steps" orientation="horizontal">
+        <igc-step complete>
+          <span slot="title">Orders</span>
+        </igc-step>
+        <igc-step>
+          <span slot="title">Payment</span>
+        </igc-step>
+        <igc-step>
+          <span slot="title">Shipping</span>
+        </igc-step>
+        </igc-stepper>
+        <igc-badge class="flagged-badge" dot variant="info" outlined></igc-badge>
       </div>
     </div>
   </div>

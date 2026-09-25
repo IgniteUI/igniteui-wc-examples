@@ -28,13 +28,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           ref: ${{ env.BRANCH_REF }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '22.x'
 
@@ -51,8 +51,8 @@ jobs:
           echo "//packages.infragistics.com/npm/js-licensed/:username=${{ secrets.INFRAGISTICS_NPM_USER }}" >> .npmrc
           echo "//packages.infragistics.com/npm/js-licensed/:_auth=${{ secrets.INFRAGISTICS_NPM_TOKEN }}" >> .npmrc
 
-      - name: npm install --legacy-peer-deps
-        run: npm install --legacy-peer-deps
+      - name: npm install
+        run: npm install
 
       # "Uninstall all IG trial packages & re-install their licensed versions"
       - name: Replace trial IG packages with licensed versions
@@ -61,7 +61,7 @@ jobs:
           Get-Content -Path ./.npmrc
           $packageJson = Get-Content -Raw ./package.json | ConvertFrom-Json
           $npmUninstallPackages = "npm uninstall --save "
-          $npmInstallPackages = "npm install --legacy-peer-deps "
+          $npmInstallPackages = "npm install "
           $packageJson.dependencies.PSObject.Properties | `
               Where-Object {
                   $_.Name.StartsWith("igniteui-webcomponents-") -or $_.Name.StartsWith("igniteui-dockmanager")
@@ -87,7 +87,7 @@ jobs:
           zip -r ${{ github.workspace }}/WebComponentsSamples.zip ./
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: WebComponentsSamplesBrowser
           path: WebComponentsSamples.zip
@@ -95,7 +95,7 @@ jobs:
 
       - name: Get app token
         id: app-token
-        uses: actions/create-github-app-token@v2
+        uses: actions/create-github-app-token@v3
         with:
           app-id: ${{ secrets.IGNITEUI_GITHUB_APP_ID }}
           private-key: ${{ secrets.IGNITEUI_GITHUB_APP_PRIVATE_KEY }}
@@ -103,7 +103,7 @@ jobs:
           repositories: igniteui-actions
 
       - name: Trigger Deploy Workflow in IgniteUI Actions
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           github-token: ${{ steps.app-token.outputs.token }}
           script: |
