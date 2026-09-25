@@ -11,7 +11,7 @@
     "serve:dev": "node --max-old-space-size=8192 node_modules/webpack-dev-server/bin/webpack-dev-server.js --mode development --config ./webpack.config.js --hot --progress --open"
   },
   "dependencies": {
-    "igniteui-webcomponents": "^7.3.0",
+    "igniteui-webcomponents": "~7.3.0",
     "lit": "^3.2.0",
     "tslib": "^2.8.1"
   },

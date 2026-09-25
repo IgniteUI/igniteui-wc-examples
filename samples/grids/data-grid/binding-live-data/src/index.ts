@@ -1,42 +1,30 @@
-import '@webcomponents/custom-elements/custom-elements.min';
-import '@webcomponents/custom-elements/src/native-shim.js';
-import { LiveFinancialData } from './LiveFinancialData';
-import { ListSortDirection } from 'igniteui-webcomponents-core';
-import { DataGridCellLayoutPanel } from 'igniteui-webcomponents-data-grids';
-import { DataGridPresenterManager } from 'igniteui-webcomponents-data-grids';
-import { FilterFactory } from 'igniteui-webcomponents-core';
-import { ModuleManager } from 'igniteui-webcomponents-core';
-import { IgcCategoryXAxisComponent } from 'igniteui-webcomponents-charts';
-import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
-import { IgcCellStyleRequestedEventArgs } from 'igniteui-webcomponents-data-grids';
-import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-data-grids';
-import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
-import { IgcDataChartComponent } from 'igniteui-webcomponents-charts';
-import { IgcDataChartCategoryModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartInteractivityModule } from 'igniteui-webcomponents-charts';
-import { IgcDataChartAnnotationModule } from 'igniteui-webcomponents-charts';
-import { IgcDefinitionBaseComponent } from 'igniteui-webcomponents-data-grids';
-import { IgcColumnSeriesComponent } from 'igniteui-webcomponents-charts';
-import { IgcItemToolTipLayerComponent } from 'igniteui-webcomponents-charts';
-import { IgcNumericYAxisComponent } from 'igniteui-webcomponents-charts';
-import { IgcNumericColumnComponent } from 'igniteui-webcomponents-data-grids';
-import { IgcTextColumnComponent } from 'igniteui-webcomponents-data-grids';
-import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-data-grids';
-import { IgcTemplateCellInfo } from 'igniteui-webcomponents-data-grids';
-import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-data-grids';
-import { IgcTextHeaderComponent } from 'igniteui-webcomponents-data-grids';
-import '@material/mwc-button';
-import '@material/mwc-switch';
-import '@material/mwc-slider';
-import '@material/mwc-dialog';
+import { LiveFinancialData } from "./LiveFinancialData";
+import { ListSortDirection } from "igniteui-webcomponents-core";
+import { FilterFactory } from "igniteui-webcomponents-core";
+import { ModuleManager } from "igniteui-webcomponents-core";
+import { IgcCategoryXAxisComponent } from "igniteui-webcomponents-charts";
+import { IgcColumnGroupDescription } from "igniteui-webcomponents-data-grids";
+import { IgcCellStyleRequestedEventArgs } from "igniteui-webcomponents-data-grids";
+import { IgcDataBindingEventArgs } from "igniteui-webcomponents-data-grids";
+import { IgcDataGridModule } from "igniteui-webcomponents-data-grids";
+import { IgcDataGridComponent } from "igniteui-webcomponents-data-grids";
+import { IgcDataChartComponent } from "igniteui-webcomponents-charts";
+import { IgcDataChartCategoryModule } from "igniteui-webcomponents-charts";
+import { IgcDataChartInteractivityModule } from "igniteui-webcomponents-charts";
+import { IgcDataChartAnnotationModule } from "igniteui-webcomponents-charts";
+import { IgcDefinitionBaseComponent } from "igniteui-webcomponents-data-grids";
+import { IgcColumnSeriesComponent } from "igniteui-webcomponents-charts";
+import { IgcItemToolTipLayerComponent } from "igniteui-webcomponents-charts";
+import { IgcNumericYAxisComponent } from "igniteui-webcomponents-charts";
+import { IgcTemplateCellUpdatingEventArgs } from "igniteui-webcomponents-data-grids";
+import { IgcTemplateCellInfo } from "igniteui-webcomponents-data-grids";
+import { IgcTemplateColumnComponent } from "igniteui-webcomponents-data-grids";
+import "@material/mwc-button";
+import "@material/mwc-switch";
+import "@material/mwc-slider";
+import "@material/mwc-dialog";
 
-ModuleManager.register(
-    IgcDataChartCategoryModule,
-    IgcDataGridModule,
-    IgcDataChartInteractivityModule,
-    IgcDataChartAnnotationModule
-);
+ModuleManager.register(IgcDataChartCategoryModule, IgcDataGridModule, IgcDataChartInteractivityModule, IgcDataChartAnnotationModule);
 
 // TODO open chart on clicking a cell in the Chart column
 // <igc-template-column id='chartTemplateColumn' field='Chart' width='60'>
@@ -45,13 +33,12 @@ ModuleManager.register(
 // </igc-template-column>
 
 export class DataGridBindingLiveData {
-
     private grid: IgcDataGridComponent;
-    private goodColor = '#4EB862';
-    private badColor = '#FF134A';
+    private goodColor = "#4EB862";
+    private badColor = "#FF134A";
     private lastDataUpdate: Date = new Date();
-    private badBorder = '4px solid #FF134A';
-    private goodBorder = '4px solid #4EB862';
+    private badBorder = "4px solid #FF134A";
+    private goodBorder = "4px solid #4EB862";
     private ticking: boolean = false;
     private isAllUpdate = false;
 
@@ -76,11 +63,10 @@ export class DataGridBindingLiveData {
         heatChecked: true,
         chartOpen: false,
         priceByCountry: [] as FinancialItem[],
-        hiddenColumns: ['ID']
+        hiddenColumns: ["ID"]
     };
 
     constructor() {
-
         this.financialData = new LiveFinancialData();
 
         this.onPriceStyleKey = this.onPriceStyleKey.bind(this);
@@ -114,19 +100,19 @@ export class DataGridBindingLiveData {
         this.updatePriceByCountry = this.updatePriceByCountry.bind(this);
         this.updateSpanStates = this.updateSpanStates.bind(this);
 
-        this.grid = document.getElementById('grid') as IgcDataGridComponent;
+        this.grid = document.getElementById("grid") as IgcDataGridComponent;
         this.grid.dataSource = this.state.data;
 
-        let priceTemplate = document.getElementById('priceTemplateColumn') as IgcTemplateColumnComponent;
+        let priceTemplate = document.getElementById("priceTemplateColumn") as IgcTemplateColumnComponent;
         priceTemplate.cellStyleKeyRequested = this.onPriceStyleKey;
         priceTemplate.cellUpdating = this.onPriceCellUpdating;
         priceTemplate.dataBound = this.onPriceDataBound;
 
-        let changeTemplate = document.getElementById('changeTemplateColumn') as IgcTemplateColumnComponent;
+        let changeTemplate = document.getElementById("changeTemplateColumn") as IgcTemplateColumnComponent;
         changeTemplate.cellStyleKeyRequested = this.onPriceAmountStyleKey;
         changeTemplate.cellUpdating = this.onPriceAmountCellUpdating;
 
-        let percentTemplate = document.getElementById('percentTemplateColumn') as IgcTemplateColumnComponent;
+        let percentTemplate = document.getElementById("percentTemplateColumn") as IgcTemplateColumnComponent;
         percentTemplate.cellStyleKeyRequested = this.onPricePercentStyleKey;
         percentTemplate.cellUpdating = this.onPricePercentCellUpdating;
 
@@ -142,45 +128,45 @@ export class DataGridBindingLiveData {
         //     gridTemplate.cellUpdating = this.onGridCellUpdating;
         // }
 
-        this.liveButton = document.getElementById('liveButton');
+        this.liveButton = document.getElementById("liveButton");
         this.liveButton.onclick = () => {
             this.onLiveClicked();
         };
 
-        this.liveAllButton = document.getElementById('liveAllButton');
+        this.liveAllButton = document.getElementById("liveAllButton");
         this.liveAllButton.onclick = () => {
             this.onAllClicked();
         };
 
-        this.stopButton = document.getElementById('stopButton');
+        this.stopButton = document.getElementById("stopButton");
         this.stopButton.onclick = () => {
             this.onStopClicked();
         };
 
         let self = this;
-        (document.getElementById('fSlider') as any)!.addEventListener('MDCSlider:change', function (ev: any, val: any) {
+        (document.getElementById("fSlider") as any)!.addEventListener("MDCSlider:change", function (ev: any, val: any) {
             self.onFrequencyChange(ev, val);
         });
-        (document.getElementById('fSlider') as any)!.addEventListener('MDCSlider:input', function (ev: any, val: any) {
+        (document.getElementById("fSlider") as any)!.addEventListener("MDCSlider:input", function (ev: any, val: any) {
             self.onFrequencyChange(ev, val);
         });
 
-        (document.getElementById('vSlider') as any)!.addEventListener('MDCSlider:change', function (ev: any, val: any) {
+        (document.getElementById("vSlider") as any)!.addEventListener("MDCSlider:change", function (ev: any, val: any) {
             self.onVolumeChange(ev, val);
         });
-        (document.getElementById('vSlider') as any)!.addEventListener('MDCSlider:input', function (ev: any, val: any) {
-            self.onVolumeChange(ev, val)
+        (document.getElementById("vSlider") as any)!.addEventListener("MDCSlider:input", function (ev: any, val: any) {
+            self.onVolumeChange(ev, val);
         });
 
-        (document.getElementById('groupingSwitch') as any)!.addEventListener('change', function (ev: any, val: any) {
+        (document.getElementById("groupingSwitch") as any)!.addEventListener("change", function (ev: any, val: any) {
             self.onGroupingChanged(ev);
         });
-        (document.getElementById('heatSwitch') as any)!.addEventListener('change', function (ev: any, val: any) {
+        (document.getElementById("heatSwitch") as any)!.addEventListener("change", function (ev: any, val: any) {
             self.onHeatChanged(ev);
         });
 
-        this.frequencySpan = document.getElementById('frequencySpan');
-        this.volumeSpan = document.getElementById('volumeSpan');
+        this.frequencySpan = document.getElementById("frequencySpan");
+        this.volumeSpan = document.getElementById("volumeSpan");
 
         this.addGroups();
         this.updateSpanStates();
@@ -193,23 +179,22 @@ export class DataGridBindingLiveData {
 
     addGroups() {
         let g = new IgcColumnGroupDescription();
-        g.field = 'Category';
+        g.field = "Category";
         g.sortDirection = ListSortDirection.Descending;
         this.grid.groupDescriptions.add(g);
 
         g = new IgcColumnGroupDescription();
-        g.field = 'Contract';
+        g.field = "Contract";
         g.sortDirection = ListSortDirection.Descending;
         this.grid.groupDescriptions.add(g);
 
         g = new IgcColumnGroupDescription();
-        g.field = 'Region';
+        g.field = "Region";
         g.sortDirection = ListSortDirection.Descending;
         this.grid.groupDescriptions.add(g);
     }
 
     tick() {
-
         if (!this.ticking) {
             return;
         }
@@ -239,7 +224,7 @@ export class DataGridBindingLiveData {
 
         let now = new Date();
         let intervalElapsed = false;
-        if ((+now - + this.lastDataUpdate) > this.state.frequency) {
+        if (+now - +this.lastDataUpdate > this.state.frequency) {
             intervalElapsed = true;
         }
 
@@ -252,15 +237,13 @@ export class DataGridBindingLiveData {
 
         let sortingByPrice = false;
         for (let i = 0; i < this.grid.sortDescriptions.count; i++) {
-            if (this.grid.sortDescriptions.item(i).field === 'Price' ||
-                this.grid.sortDescriptions.item(i).field.indexOf('Change') >= 0) {
+            if (this.grid.sortDescriptions.item(i).field === "Price" || this.grid.sortDescriptions.item(i).field.indexOf("Change") >= 0) {
                 sortingByPrice = true;
             }
         }
 
         let changing = false;
         if (intervalElapsed) {
-
             this.lastDataUpdate = new Date();
             for (let i = 0; i < toChange; i++) {
                 let index = Math.round(Math.random() * this.state.data.length - 1);
@@ -276,7 +259,6 @@ export class DataGridBindingLiveData {
             let item = this.state.data[i];
             if (toChangeIndexes[i.toString()] !== undefined) {
                 if (sortingByPrice && !useClear) {
-
                     this.grid.notifyRemoveItem(i, item);
                     LiveFinancialData.randomizeDataValues(item);
                     this.grid.notifyInsertItem(i, item);
@@ -290,16 +272,15 @@ export class DataGridBindingLiveData {
                 } else {
                     item.PriceHeat = -1;
                 }
-            }
-            else {
+            } else {
                 if (item.PriceHeat > 0) {
-                    item.PriceHeat -= .06;
+                    item.PriceHeat -= 0.06;
                     if (item.PriceHeat < 0) {
                         item.PriceHeat = 0;
                     }
                 }
                 if (item.PriceHeat < 0) {
-                    item.PriceHeat += .06;
+                    item.PriceHeat += 0.06;
                     if (item.PriceHeat > 0) {
                         item.PriceHeat = 0;
                     }
@@ -347,13 +328,11 @@ export class DataGridBindingLiveData {
             if (!priceByCountry.has(currCountry)) {
                 priceByCountry.set(currCountry, 0);
                 if (shouldPopulate) {
-
                     countryNames.push(currCountry);
                 }
             }
             let currVal = priceByCountry.get(currCountry);
-            if (currVal === undefined)
-                currVal = 0;
+            if (currVal === undefined) currVal = 0;
 
             currVal += currItem.Price;
             currVal = Math.round(currVal * 100.0) / 100.0;
@@ -363,18 +342,18 @@ export class DataGridBindingLiveData {
         if (shouldPopulate) {
             countryNames = countryNames.sort();
             for (let i = 0; i < countryNames.length; i++) {
-                const price = priceByCountry.get(countryNames[i])
+                const price = priceByCountry.get(countryNames[i]);
                 if (price !== undefined) {
                     this.state.priceByCountry.push({
                         Country: countryNames[i],
                         Price: price
-                    })
+                    });
                 }
             }
         } else {
             for (let i = 0; i < this.state.priceByCountry.length; i++) {
                 const country = this.state.priceByCountry[i].Country;
-                const price = priceByCountry.get(country)
+                const price = priceByCountry.get(country);
                 if (price !== undefined) {
                     this.state.priceByCountry[i].Price = price;
                 }
@@ -390,9 +369,9 @@ export class DataGridBindingLiveData {
             row = this.state.data[args.rowNumber];
         }
         if (row.Change >= 0) {
-            args.styleKey = 'priceShiftUp';
+            args.styleKey = "priceShiftUp";
         } else {
-            args.styleKey = 'priceShiftDown';
+            args.styleKey = "priceShiftDown";
         }
     }
 
@@ -408,7 +387,7 @@ export class DataGridBindingLiveData {
 
                 let context: CanvasRenderingContext2D = args.context;
 
-                let iconText = 'trending_up';
+                let iconText = "trending_up";
                 let iconColor = this.goodColor;
 
                 let scale = window.devicePixelRatio;
@@ -418,32 +397,32 @@ export class DataGridBindingLiveData {
                 }
 
                 if (priceShiftUp) {
-                    iconText = 'trending_up';
+                    iconText = "trending_up";
                     iconColor = this.goodColor;
                 } else {
-                    iconText = 'trending_down';
+                    iconText = "trending_down";
                     iconColor = this.badColor;
                 }
 
                 // context.fillStyle = 'blue';
                 // context.fillRect(0,0,args.cellInfo.width,args.cellInfo.height);
-                let txt = '$' + (+templ.value).toFixed(2);
-                context.font = '13px Verdana';
+                let txt = "$" + (+templ.value).toFixed(2);
+                context.font = "13px Verdana";
                 let width = context.measureText(txt).width;
 
                 context.font = '13px "Material Icons"';
                 let iconWidth = context.measureText(iconText).width;
                 let totalWidth = width + iconWidth;
 
-                context.font = '13px Verdana';
+                context.font = "13px Verdana";
                 context.fillStyle = iconColor;
-                context.textBaseline = 'top';
-                context.fillText(txt, templ.width - (totalWidth + 5), (templ.height / 2.0) - 7);
+                context.textBaseline = "top";
+                context.fillText(txt, templ.width - (totalWidth + 5), templ.height / 2.0 - 7);
 
                 context.font = '13px "Material Icons"';
                 context.fillStyle = iconColor;
-                context.textBaseline = 'top';
-                context.fillText(iconText, templ.width - (iconWidth + 5), (templ.height / 2.0) - 7);
+                context.textBaseline = "top";
+                context.fillText(iconText, templ.width - (iconWidth + 5), templ.height / 2.0 - 7);
 
                 if (scale !== 1.0) {
                     context.restore();
@@ -460,11 +439,11 @@ export class DataGridBindingLiveData {
             sp = content.children[0] as HTMLSpanElement;
             // icon = content.children[1] as HTMLSpanElement;
         } else {
-            content.style.textAlign = 'right';
-            sp = document.createElement('span');
+            content.style.textAlign = "right";
+            sp = document.createElement("span");
             // icon = document.createElement('span');
-            sp.style.font = '13px Verdana';
-            sp.style.verticalAlign = 'center';
+            sp.style.font = "13px Verdana";
+            sp.style.verticalAlign = "center";
             content.appendChild(sp);
             // content.appendChild(icon);
             // icon.style.fontFamily = 'Material Icons';
@@ -473,10 +452,9 @@ export class DataGridBindingLiveData {
             // icon.style.verticalAlign = 'center';
         }
 
-        sp.textContent = '$' + (+templ.value).toFixed(2);
+        sp.textContent = "$" + (+templ.value).toFixed(2);
 
-        if ((sp as any).__isUp === undefined ||
-            (sp as any).__isUp !== priceShiftUp) {
+        if ((sp as any).__isUp === undefined || (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
             if (this.state.heatChecked) {
                 sp.style.color = "black";
@@ -494,9 +472,9 @@ export class DataGridBindingLiveData {
 
     onPricePercentStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
-            args.styleKey = 'pricePercentUp';
+            args.styleKey = "pricePercentUp";
         } else {
-            args.styleKey = 'pricePercentDown';
+            args.styleKey = "pricePercentDown";
         }
     }
 
@@ -527,20 +505,20 @@ export class DataGridBindingLiveData {
 
                 // context.fillStyle = 'blue';
                 // context.fillRect(0,0,args.cellInfo.width,args.cellInfo.height);
-                let txt = (+templ.value).toFixed(2) + '%';
-                context.font = '13px Verdana';
+                let txt = (+templ.value).toFixed(2) + "%";
+                context.font = "13px Verdana";
                 let width = context.measureText(txt).width;
 
                 let totalWidth = width + 4;
 
-                context.font = '13px Verdana';
+                context.font = "13px Verdana";
                 context.fillStyle = templ.textColor;
-                context.textBaseline = 'top';
-                context.fillText(txt, templ.width - (totalWidth + 10), (templ.height / 2.0) - 7);
+                context.textBaseline = "top";
+                context.fillText(txt, templ.width - (totalWidth + 10), templ.height / 2.0 - 7);
 
                 context.font = '13px "Material Icons"';
                 context.fillStyle = iconColor;
-                context.fillRect(templ.width - (5 + 4), (templ.height / 2.0) - 8, 4, 16);
+                context.fillRect(templ.width - (5 + 4), templ.height / 2.0 - 8, 4, 16);
 
                 if (scale !== 1.0) {
                     context.restore();
@@ -556,23 +534,22 @@ export class DataGridBindingLiveData {
         if (content.childElementCount > 0) {
             sp = content.children[0] as HTMLSpanElement;
         } else {
-            content.style.textAlign = 'right';
-            sp = document.createElement('span');
-            sp.style.font = '13px Verdana';
-            sp.style.verticalAlign = 'center';
+            content.style.textAlign = "right";
+            sp = document.createElement("span");
+            sp.style.font = "13px Verdana";
+            sp.style.verticalAlign = "center";
             content.appendChild(sp);
         }
 
-        sp.textContent = (+templ.value).toFixed(2) + '%';
-        if ((sp as any).__isUp === undefined ||
-            (sp as any).__isUp !== priceShiftUp) {
+        sp.textContent = (+templ.value).toFixed(2) + "%";
+        if ((sp as any).__isUp === undefined || (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
             if (priceShiftUp) {
-                sp.style.paddingRight = '5px';
+                sp.style.paddingRight = "5px";
                 sp.style.borderRight = this.goodBorder;
                 // sp.style.color = this.goodColor;
             } else {
-                sp.style.paddingRight = '5px';
+                sp.style.paddingRight = "5px";
                 sp.style.borderRight = this.badBorder;
                 // sp.style.color = this.badColor;
             }
@@ -581,9 +558,9 @@ export class DataGridBindingLiveData {
 
     onPriceAmountStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
-            args.styleKey = 'priceAmountUp';
+            args.styleKey = "priceAmountUp";
         } else {
-            args.styleKey = 'priceAmountDown';
+            args.styleKey = "priceAmountDown";
         }
     }
 
@@ -615,19 +592,19 @@ export class DataGridBindingLiveData {
                 // context.fillStyle = 'blue';
                 // context.fillRect(0,0,args.cellInfo.width,args.cellInfo.height);
                 let txt = (+templ.value).toFixed(2);
-                context.font = '13px Verdana';
+                context.font = "13px Verdana";
                 let width = context.measureText(txt).width;
 
                 let totalWidth = width + 4;
 
-                context.font = '13px Verdana';
+                context.font = "13px Verdana";
                 context.fillStyle = templ.textColor;
-                context.textBaseline = 'top';
-                context.fillText(txt, templ.width - (totalWidth + 10), (templ.height / 2.0) - 7);
+                context.textBaseline = "top";
+                context.fillText(txt, templ.width - (totalWidth + 10), templ.height / 2.0 - 7);
 
                 context.font = '13px "Material Icons"';
                 context.fillStyle = iconColor;
-                context.fillRect(templ.width - (5 + 4), (templ.height / 2.0) - 8, 4, 16);
+                context.fillRect(templ.width - (5 + 4), templ.height / 2.0 - 8, 4, 16);
 
                 if (scale !== 1.0) {
                     context.restore();
@@ -643,24 +620,23 @@ export class DataGridBindingLiveData {
         if (content.childElementCount > 0) {
             sp = content.children[0] as HTMLSpanElement;
         } else {
-            content.style.textAlign = 'right';
-            sp = document.createElement('span');
-            sp.style.font = '13px Verdana';
-            sp.style.verticalAlign = 'center';
+            content.style.textAlign = "right";
+            sp = document.createElement("span");
+            sp.style.font = "13px Verdana";
+            sp.style.verticalAlign = "center";
             content.appendChild(sp);
         }
 
         sp.textContent = (+templ.value).toFixed(2);
 
-        if ((sp as any).__isUp === undefined ||
-            (sp as any).__isUp !== priceShiftUp) {
+        if ((sp as any).__isUp === undefined || (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
             if (priceShiftUp) {
-                sp.style.paddingRight = '5px';
+                sp.style.paddingRight = "5px";
                 sp.style.borderRight = this.goodBorder;
                 // sp.style.color = this.goodColor;
             } else {
-                sp.style.paddingRight = '5px';
+                sp.style.paddingRight = "5px";
                 sp.style.borderRight = this.badBorder;
                 // sp.style.color = this.badColor;
             }
@@ -668,7 +644,7 @@ export class DataGridBindingLiveData {
     }
 
     onChartStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
-        args.styleKey = 'chart';
+        args.styleKey = "chart";
     }
 
     onChartCellUpdating(grid: IgcTemplateColumnComponent, args: IgcTemplateCellUpdatingEventArgs) {
@@ -683,22 +659,22 @@ export class DataGridBindingLiveData {
         if (content.childElementCount > 0) {
             icon = content.children[0] as HTMLSpanElement;
             icon.onclick = (e) => {
-                console.log('chart clicked!!')
+                console.log("chart clicked!!");
                 e.stopPropagation();
-            }
+            };
         } else {
-            icon = document.createElement('span');
+            icon = document.createElement("span");
             content.appendChild(icon);
-            icon.style.fontFamily = 'Material Icons';
-            icon.style.fontSize = '13px';
-            icon.style.fontFeatureSettings = 'liga';
-            icon.style.verticalAlign = 'center';
-            icon.textContent = 'insert_chart_outlined';
+            icon.style.fontFamily = "Material Icons";
+            icon.style.fontSize = "13px";
+            icon.style.fontFeatureSettings = "liga";
+            icon.style.verticalAlign = "center";
+            icon.textContent = "insert_chart_outlined";
         }
     }
 
     onGridStyleKey(grid: IgcDefinitionBaseComponent, args: IgcCellStyleRequestedEventArgs) {
-        args.styleKey = 'grid';
+        args.styleKey = "grid";
     }
 
     onGridCellUpdating(grid: IgcTemplateColumnComponent, args: IgcTemplateCellUpdatingEventArgs) {
@@ -713,17 +689,17 @@ export class DataGridBindingLiveData {
         if (content.childElementCount > 0) {
             icon = content.children[0] as HTMLSpanElement;
             icon.onclick = (e) => {
-                console.log('grid clicked!!')
+                console.log("grid clicked!!");
                 e.stopPropagation();
-            }
+            };
         } else {
-            icon = document.createElement('span');
+            icon = document.createElement("span");
             content.appendChild(icon);
-            icon.style.fontFamily = 'Material Icons';
-            icon.style.fontSize = '13px';
-            icon.style.fontFeatureSettings = 'liga';
-            icon.style.verticalAlign = 'center';
-            icon.textContent = 'table_chart';
+            icon.style.fontFamily = "Material Icons";
+            icon.style.fontSize = "13px";
+            icon.style.fontFeatureSettings = "liga";
+            icon.style.verticalAlign = "center";
+            icon.textContent = "table_chart";
         }
     }
 
@@ -747,12 +723,11 @@ export class DataGridBindingLiveData {
     }
 
     updateSpanStates() {
-        this.frequencySpan.innerText = 'Frequency: ' + this.state.frequency.toString() + 'ms';
-        this.volumeSpan.innerText = 'Volume: ' + this.state.volume.toString();
+        this.frequencySpan.innerText = "Frequency: " + this.state.frequency.toString() + "ms";
+        this.volumeSpan.innerText = "Volume: " + this.state.volume.toString();
     }
 
-    updateDialogState() {
-    }
+    updateDialogState() {}
 
     onLiveClicked() {
         this.isAllUpdate = false;
@@ -843,12 +818,11 @@ export class DataGridBindingLiveData {
                 let g = fromG + (toG - fromG) * p;
                 let b = fromB + (toB - fromB) * p;
 
-                let colorString = 'rgba(' + Math.round(r * 255.0) + ',' + Math.round(g * 255.0) + ',' + Math.round(b * 255.0) + ',' + a + ')';
+                let colorString = "rgba(" + Math.round(r * 255.0) + "," + Math.round(g * 255.0) + "," + Math.round(b * 255.0) + "," + a + ")";
 
                 args.cellInfo.background = colorString;
                 // args.cellInfo.textColor = "white";
-            }
-            else if (item.PriceHeat < 0 && this.state.heatChecked) {
+            } else if (item.PriceHeat < 0 && this.state.heatChecked) {
                 let p = +item.PriceHeat * -1.0;
                 let toA = 1.0;
                 let fromA = 1.0;
@@ -864,13 +838,12 @@ export class DataGridBindingLiveData {
                 let g = fromG + (toG - fromG) * p;
                 let b = fromB + (toB - fromB) * p;
 
-                let colorString = 'rgba(' + Math.round(r * 255.0) + ',' + Math.round(g * 255.0) + ',' + Math.round(b * 255.0) + ',' + a + ')';
+                let colorString = "rgba(" + Math.round(r * 255.0) + "," + Math.round(g * 255.0) + "," + Math.round(b * 255.0) + "," + a + ")";
 
                 args.cellInfo.background = colorString;
                 // args.cellInfo.textColor = "black";
-            }
-            else {
-                args.cellInfo.background = 'white';
+            } else {
+                args.cellInfo.background = "white";
                 // args.cellInfo.textColor = "black";
             }
         }
@@ -882,8 +855,7 @@ export class DataGridBindingLiveData {
     }
 
     createChart() {
-
-        this.chart = document.createElement('igc-data-chart') as any;
+        this.chart = document.createElement("igc-data-chart") as any;
         console.log(this.chart);
 
         if (this.chart) {
@@ -891,30 +863,30 @@ export class DataGridBindingLiveData {
             this.chart.animateSeriesWhenAxisRangeChanges = true;
             this.chart.isHorizontalZoomEnabled = true;
             this.chart.isVerticalZoomEnabled = true;
-            let xAxis = document.createElement('igc-category-x-axis') as IgcCategoryXAxisComponent;
-            xAxis.name = 'xAxis';
+            let xAxis = document.createElement("igc-category-x-axis") as IgcCategoryXAxisComponent;
+            xAxis.name = "xAxis";
             xAxis.dataSource = this.state.priceByCountry;
-            xAxis.label = 'Country';
+            xAxis.label = "Country";
             xAxis.labelAngle = 90;
             xAxis.interval = 1;
-            let yAxis = document.createElement('igc-numeric-y-axis') as IgcNumericYAxisComponent;
-            yAxis.name = 'yAxis;'
+            let yAxis = document.createElement("igc-numeric-y-axis") as IgcNumericYAxisComponent;
+            yAxis.name = "yAxis;";
 
-            let columnSeries = document.createElement('igc-column-series') as IgcColumnSeriesComponent;
-            columnSeries.name = 'series1';
+            let columnSeries = document.createElement("igc-column-series") as IgcColumnSeriesComponent;
+            columnSeries.name = "series1";
             columnSeries.transitionDuration = this.state.frequency;
-            columnSeries.xAxisName = 'xAxis';
-            columnSeries.yAxisName = 'yAxis';
+            columnSeries.xAxisName = "xAxis";
+            columnSeries.yAxisName = "yAxis";
             columnSeries.xAxis = xAxis;
             columnSeries.yAxis = yAxis;
             columnSeries.showDefaultTooltip = true;
             columnSeries.isHighlightingEnabled = true;
 
             columnSeries.dataSource = this.state.priceByCountry;
-            columnSeries.valueMemberPath = 'Price';
+            columnSeries.valueMemberPath = "Price";
 
-            let itemTooltip = document.createElement('igc-item-tool-tip-layer') as IgcItemToolTipLayerComponent;
-            itemTooltip.name = 'tooltips'
+            let itemTooltip = document.createElement("igc-item-tool-tip-layer") as IgcItemToolTipLayerComponent;
+            itemTooltip.name = "tooltips";
 
             this.chart.series.add(columnSeries);
             this.chart.axes.add(xAxis);
@@ -934,12 +906,15 @@ export class DataGridBindingLiveData {
             this.grid.filterExpressions.clear();
         } else {
             let ff = FilterFactory.instance;
-            let filter = ff.property('Category').toLower().contains(ff.literal(term).toLower())
-                .or(ff.property('Type').toLower().contains(ff.literal(term).toLower()))
-                .or(ff.property('Contract').toLower().contains(ff.literal(term).toLower()))
-                .or(ff.property('Settlement').toLower().contains(ff.literal(term).toLower()))
-                .or(ff.property('Region').toLower().contains(ff.literal(term).toLower()))
-                .or(ff.property('Country').toLower().contains(ff.literal(term).toLower()));
+            let filter = ff
+                .property("Category")
+                .toLower()
+                .contains(ff.literal(term).toLower())
+                .or(ff.property("Type").toLower().contains(ff.literal(term).toLower()))
+                .or(ff.property("Contract").toLower().contains(ff.literal(term).toLower()))
+                .or(ff.property("Settlement").toLower().contains(ff.literal(term).toLower()))
+                .or(ff.property("Region").toLower().contains(ff.literal(term).toLower()))
+                .or(ff.property("Country").toLower().contains(ff.literal(term).toLower()));
 
             this.grid.filterExpressions.clear();
             this.grid.filterExpressions.add(filter);
@@ -975,7 +950,7 @@ export class DataGridBindingLiveData {
     }
 }
 
- class FinancialItem {
+class FinancialItem {
     Country: string = "";
     Price: number | number = 0;
 }

@@ -1,5 +1,5 @@
 import { IgcGridLite } from 'igniteui-grid-lite';
-import { defineComponents, IgcCheckboxChangeEventArgs, IgcCheckboxComponent, IgcDropdownComponent, IgcRatingComponent, IgcSwitchComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcButtonComponent, IgcCheckboxChangeEventArgs, IgcCheckboxComponent, IgcDropdownComponent, IgcRatingComponent, IgcSwitchComponent } from 'igniteui-webcomponents';
 import { GridLiteDataService, ProductInfo } from './GridLiteDataService';
 import { html, render } from 'lit-html';
 
@@ -11,6 +11,7 @@ defineComponents(IgcRatingComponent);
 defineComponents(IgcDropdownComponent);
 defineComponents(IgcSwitchComponent);
 defineComponents(IgcCheckboxComponent);
+defineComponents(IgcButtonComponent);
 
 const formatter = new Intl.NumberFormat('en-EN', {
     style: 'currency',

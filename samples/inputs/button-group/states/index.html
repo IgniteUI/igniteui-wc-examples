@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Button Group Interaction States</title>
+    <title>Button Group States</title>
     <meta charset="UTF-8" />
 
     <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
@@ -12,43 +12,50 @@
   </head>
 
   <body>
-    <div id="root">
-      <div class="button-group-interaction-states">
-        <div class="button-group-interaction-states-row">
+    <div id="root" class="states-container">
+      <div class="states-matrix">
+        <header class="states-row">
           <span class="row-label"></span>
           <span class="column-label">Enabled</span>
           <span class="column-label">Disabled</span>
-        </div>
-
-        <div class="button-group-interaction-states-row">
+        </header>
+        <section class="states-row">
           <span class="row-label">Selected / Off</span>
-          <igc-button-group selection="multiple">
-            <igc-toggle-button value="device">
+          <div class="state-cell">
+            <span class="cell-label">Enabled</span>
+            <igc-button-group selection="multiple">
+              <igc-toggle-button value="device">
               Device
               <igc-ripple></igc-ripple>
-            </igc-toggle-button>
-          </igc-button-group>
-          <igc-button-group selection="multiple" disabled>
-            <igc-toggle-button value="cloud">Cloud</igc-toggle-button>
-          </igc-button-group>
-        </div>
-
-        <div class="button-group-interaction-states-row">
+              </igc-toggle-button>
+            </igc-button-group>
+          </div>
+          <div class="state-cell">
+            <span class="cell-label">Disabled</span>
+            <igc-button-group selection="multiple">
+              <igc-toggle-button value="cloud" disabled>Cloud</igc-toggle-button>
+            </igc-button-group>
+          </div>
+        </section>
+        <section class="states-row">
           <span class="row-label">Selected / On</span>
-          <igc-button-group selection="multiple">
-            <igc-toggle-button value="device" selected>
+          <div class="state-cell">
+            <span class="cell-label">Enabled</span>
+            <igc-button-group selection="multiple">
+              <igc-toggle-button value="device" selected>
               Device
               <igc-ripple></igc-ripple>
             </igc-toggle-button>
-          </igc-button-group>
-          <igc-button-group selection="multiple" disabled>
-            <igc-toggle-button value="cloud" selected>Cloud</igc-toggle-button>
-          </igc-button-group>
-        </div>
+            </igc-button-group>
+          </div>
+          <div class="state-cell">
+            <span class="cell-label">Disabled</span>
+            <igc-button-group selection="multiple">
+              <igc-toggle-button value="cloud" disabled selected>Cloud</igc-toggle-button>
+            </igc-button-group>
+          </div>
+        </section>
       </div>
     </div>
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>
