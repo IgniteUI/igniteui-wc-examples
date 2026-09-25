@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Badge Type</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="badge-type">
+      <div class="badge-type-item">
+        <div class="avatar-wrapper">
+          <igc-avatar src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png" shape="circle" size="small"></igc-avatar>
+          <igc-badge dot outlined variant="success" class="dot-badge"></igc-badge>
+        </div>
+        <span>Dot</span>
+      </div>
+      <div class="badge-type-item">
+        <div class="avatar-wrapper">
+          <igc-avatar src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png" shape="circle" size="small"></igc-avatar>
+          <igc-badge outlined variant="success">
+            <igc-icon name="check" collection="material"></igc-icon>
+          </igc-badge>
+        </div>
+        <span>Icon</span>
+      </div>
+      <div class="badge-type-item">
+        <div class="avatar-wrapper">
+          <igc-avatar src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png" shape="circle" size="small"></igc-avatar>
+          <igc-badge outlined variant="success">2</igc-badge>
+        </div>
+        <span>Text</span>
+      </div>
+    </div>
+  </div>
+
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+  <% } %>
+</body>
+
+</html>

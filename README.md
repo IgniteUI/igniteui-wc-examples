@@ -151,7 +151,7 @@ npm install
 ## Learn More
 
 To learn more about **Ignite UI for Web Components**, check out the [Web Components documentation](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html).
-- run `npm install --legacy-peer-deps`
+- run `npm install`
 - create a pull request with your changes
 - open the [igniteui-xplat-examples](https://github.com/IgniteUI/igniteui-xplat-examples) repo in VS Code
 - update the version of **Ignite UI for WebComponent** packages in the [WC template](https://github.com/IgniteUI/igniteui-xplat-examples/blob/23.2.x/editor-templates/WebComponents/main-template/package.json)

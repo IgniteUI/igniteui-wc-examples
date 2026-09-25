@@ -14,20 +14,40 @@
 
 <body>
   <div id="root">
-    <div class="sample center">
-      <section class="wrapper">
-        <header>
-          <igc-avatar initials="TO" shape="circle"></igc-avatar>
-          <igc-badge outlined variant="danger"></igc-badge>
-        </header>
-        <span>Terrance Orta</span>
-      </section>
+    <div class="badge-outlined">
+      <div class="outlined-example">
+        <div class="icon-circle">
+          <igc-icon name="favorite_border" collection="material"></igc-icon>
+        </div>
+        <igc-badge variant="info" outlined>23</igc-badge>
+      </div>
+      <div class="outlined-example">
+        <igc-avatar initials="AZ" shape="rounded"></igc-avatar>
+        <igc-badge variant="danger" outlined>
+          <igc-icon name="close" collection="material"></igc-icon>
+        </igc-badge>
+      </div>
+      <div class="stepper-wrapper">
+        <igc-stepper class="steps" orientation="horizontal">
+        <igc-step complete>
+          <span slot="title">Orders</span>
+        </igc-step>
+        <igc-step>
+          <span slot="title">Payment</span>
+        </igc-step>
+        <igc-step>
+          <span slot="title">Shipping</span>
+        </igc-step>
+        </igc-stepper>
+        <igc-badge class="flagged-badge" dot variant="info" outlined></igc-badge>
+      </div>
     </div>
+  </div>
 
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %>
-      <script src="src/index.ts"></script>
-      <% } %>
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
 
 </body>
 

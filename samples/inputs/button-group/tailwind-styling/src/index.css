@@ -1,0 +1,15 @@
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+.states-container {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+igc-button-group {
+    display: inline-block;
+    width: 100%;
+    max-width: 25rem;
+}

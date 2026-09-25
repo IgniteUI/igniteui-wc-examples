@@ -1,11 +1,10 @@
-import { defineComponents, IgcButtonGroupComponent, IgcRippleComponent } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/light/material.css';
-import './ButtonGroupStyle.css'
+import {
+    defineComponents,
+    IgcButtonGroupComponent,
+    IgcRippleComponent,
+    IgcToggleButtonComponent
+} from 'igniteui-webcomponents';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import './index.css';
 
-defineComponents(IgcButtonGroupComponent, IgcRippleComponent);
-export class ButtonGroupStyling {
-    constructor() {
-    }
-}
-
-new ButtonGroupStyling();
+defineComponents(IgcButtonGroupComponent, IgcRippleComponent, IgcToggleButtonComponent);
