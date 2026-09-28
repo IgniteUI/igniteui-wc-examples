@@ -3,6 +3,8 @@ import {
     IgcAccordionComponent,
     IgcCheckboxComponent,
     IgcDateTimeInputComponent,
+    IgcExpansionPanelComponent,
+    IgcIconComponent,
     IgcRadioComponent,
     IgcRadioGroupComponent,
     IgcRangeSliderComponent,
@@ -10,10 +12,10 @@ import {
     registerIconFromText
 } from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import "./AccordionCustomization.css";
+import "./index.css";
 
-defineComponents(IgcAccordionComponent, IgcCheckboxComponent, IgcRangeSliderComponent, IgcRadioGroupComponent, IgcRadioComponent, IgcRatingComponent, IgcDateTimeInputComponent);
-export class AccordionOverview {
+defineComponents(IgcAccordionComponent, IgcCheckboxComponent, IgcDateTimeInputComponent, IgcExpansionPanelComponent, IgcIconComponent, IgcRadioComponent, IgcRadioGroupComponent, IgcRangeSliderComponent, IgcRatingComponent);
+export class AccordionCustomization {
     private categories = [
         { checked: false, type: "Bike" },
         { checked: false, type: "Motorcycle" },
@@ -32,7 +34,7 @@ export class AccordionOverview {
     }
 
     private checkCategory = (ev: CustomEvent) => {
-        const type = (ev.target as IgcCheckboxComponent).textContent;
+        const type = (ev.target as IgcCheckboxComponent).dataset.type;
         const item = this.categories.find((c) => c.type === type);
 
         if (item) {
@@ -45,12 +47,12 @@ export class AccordionOverview {
         let checkedItems = "";
         this.categories.forEach((item) => {
             if (item.checked) {
-                checkedItems += checkedItems ? ", " + item.type : "Categories: " + item.type;
+                checkedItems += checkedItems ? ", " + item.type : "Transportation: " + item.type;
             }
         });
 
         const categoriesTitle = document.querySelector("span#categories") as HTMLElement;
-        categoriesTitle.textContent = checkedItems || "Categories";
+        categoriesTitle.textContent = checkedItems || "Transportation";
     }
 
     private changeSliderRange = (ev: CustomEvent) => {
@@ -59,12 +61,14 @@ export class AccordionOverview {
 
         lowerSpan!.textContent = ev.detail.lower;
         upperSpan!.textContent = ev.detail.upper;
+        document.querySelector("span#lowerCostSummary")!.textContent = `$${ev.detail.lower}`;
+        document.querySelector("span#upperCostSummary")!.textContent = `$${ev.detail.upper}`;
     };
 
     private checkRating = (ev: CustomEvent) => {
         const rating = (ev.target as IgcRadioComponent).querySelector("igc-rating")!.label;
         const ratingTitle = document.querySelector("span#rating") as HTMLElement;
-        ratingTitle.textContent = "Rating: " + rating;
+        ratingTitle.textContent = "Minimum Rating: " + rating;
     };
 
     private hanldeTimeInput = (ev: CustomEvent) => {
@@ -73,13 +77,13 @@ export class AccordionOverview {
             return;
         }
         const timeTitle = document.querySelector("span#timeTitle") as HTMLElement;
-        timeTitle.textContent = "Time: " + dateTimeInput.label + " " + dateTimeInput.value.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+        timeTitle.textContent = "Arrival Time: " + dateTimeInput.value.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     };
 
     private clearTime = () => {
         document.querySelector("igc-date-time-input")!.clear();
         const timeTitle = document.querySelector("span#timeTitle") as HTMLElement;
-        timeTitle.textContent = "Time";
+        timeTitle.textContent = "Arrival Time";
     };
 
     registerIcons() {
@@ -93,4 +97,4 @@ export class AccordionOverview {
     }
 }
 
-new AccordionOverview();
+new AccordionCustomization();

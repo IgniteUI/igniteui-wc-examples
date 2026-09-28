@@ -76,9 +76,7 @@ export class Sample {
         saveStateBtn.addEventListener('click', (ev: any) => this.saveGridState());
         restoreStateBtn.addEventListener('click', (ev: any) => this.restoreGridState());
         clearStorageBtn.addEventListener('click', (ev: any) => this.clearStorage());
-        grid.addEventListener("rendered", () => {
-            this.gridState.addEventListener('stateParsed', (ev:any) => this.stateParsedHandler(ev) );
-        });
+        this.gridState.addEventListener('stateParsed', (ev:any) => this.stateParsedHandler(ev) );
     }
 
     public saveGridState() {
