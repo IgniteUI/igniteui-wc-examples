@@ -1,13 +1,13 @@
-import { defineComponents, IgcTreeComponent, IgcTreeItemComponent, registerIconFromText } from "igniteui-webcomponents";
+import { defineComponents, IgcTreeComponent, IgcTreeItemComponent, IgcVirtualScrollComponent, registerIconFromText } from "igniteui-webcomponents";
+import type { VirtualScrollItemContext } from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { DataService } from "./DataService";
 import { DATA, RemoteItem, SelectableItemData } from "./TreeLoadOnDemandVirtualizedData";
 import "./TreeLoadOnDemandVirtualized.css";
 import { ICONS } from "./SvgIcons";
 import { html, nothing, render, TemplateResult } from "lit";
-import "@lit-labs/virtualizer";
 
-defineComponents(IgcTreeComponent);
+defineComponents(IgcTreeComponent, IgcVirtualScrollComponent);
 
 export class TreeLoadOnDemandVirtualized {
     public data = DATA;
@@ -113,11 +113,19 @@ export class TreeLoadOnDemandVirtualized {
 
             <igc-tree-item style="display: none"></igc-tree-item>
 
-            <lit-virtualizer
-                .items=${this.remoteNode?.expanded ? this.remoteData : []}
-                .renderItem=${(item: SelectableItemData) => this.renderTreeItem([item])}
-            ></lit-virtualizer>
+            ${this.renderRemoteChildren()}
         </igc-tree-item>`;
+    }
+
+    // Virtualized children of the remote node. Omitted while empty, so the fixed-height viewport does not show.
+    private renderRemoteChildren() {
+        const isShowing = this.remoteNode?.expanded && this.remoteData.length > 0;
+        return isShowing
+            ? html`<igc-virtual-scroll
+                  .data=${this.remoteData}
+                  .itemTemplate=${(ctx: VirtualScrollItemContext<SelectableItemData>) => this.renderTreeItem([ctx.value])}
+              ></igc-virtual-scroll>`
+            : nothing;
     }
 
     private render() {

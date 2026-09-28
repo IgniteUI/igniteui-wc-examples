@@ -31,7 +31,7 @@ Follow these instructions to run individual sample:
 ./samples/charts/category-chart/axis-options/
 ```
 
-- type `npm install --legacy-peer-deps` command in terminal window
+- type `npm install` command in terminal window
 
 - type `npm run start` command in terminal window
 

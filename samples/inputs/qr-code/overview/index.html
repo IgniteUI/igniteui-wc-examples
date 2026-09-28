@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>QR Code Overview</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+
+</head>
+
+<body>
+    <div id="root">
+        <div class="container sample">
+            <div class="qr-controls">
+                <igc-radio-group id="shapeGroup" alignment="horizontal">
+                    <igc-radio name="shape" value="square" checked>Square</igc-radio>
+                    <igc-radio name="shape" value="circle">Circle</igc-radio>
+                    <igc-radio name="shape" value="rounded">Rounded</igc-radio>
+                </igc-radio-group>
+                <igc-radio-group id="sizeGroup" alignment="horizontal">
+                    <igc-radio name="size" value="120" checked>Small</igc-radio>
+                    <igc-radio name="size" value="180">Medium</igc-radio>
+                    <igc-radio name="size" value="240">Large</igc-radio>
+                    <igc-radio name="size" value="300">Extra large</igc-radio>
+                </igc-radio-group>
+                <igc-switch label-position="before" checked>Logo</igc-switch>
+            </div>
+            <igc-qr-code value="https://www.infragistics.com/products/ignite-ui-web-components" size="120"
+                dot-style="square" square-style="square" logo-margin="3" error-level="H"
+                logo-src="https://static.infragistics.com/marketing/Website/products/ignite-ui/shared/ignite-ui-logo-light-background-horizontal.svg" logo-size="1">
+                </igc-qr-code>
+        </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+
+</body>
+
+</html>

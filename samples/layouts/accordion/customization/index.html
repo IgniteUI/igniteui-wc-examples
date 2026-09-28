@@ -10,47 +10,64 @@
 
   <body>
     <div id="root">
-      <div class="sample-wrapper">
-        <igc-accordion id="accordion">
-          <igc-expansion-panel>
-            <span slot="title" id="categories">Categories</span>
-            <div class="categories-container">
-              <igc-checkbox>Bike</igc-checkbox>
-              <igc-checkbox>Motorcycle</igc-checkbox>
-              <igc-checkbox>Car</igc-checkbox>
-              <igc-checkbox>Taxi</igc-checkbox>
-              <igc-checkbox>Public Transport</igc-checkbox>
-            </div>
-          </igc-expansion-panel>
-           <igc-expansion-panel>
-            <span slot="title">Cost: $<span id="lowerCost">200</span> to $<span id="upperCost">800</span></span>
-            <igc-range-slider min="0" max="1000" lower="200" upper="800"></igc-range-slider>
-          </igc-expansion-panel>
-          <igc-expansion-panel>
-            <span slot="title" id="rating">Rating</span>
-            <igc-radio-group>
-              <igc-radio name="rating">
-                <igc-rating class="size-small" label="1 star or more" max="5" value="1.5" readonly></igc-rating>
-              </igc-radio>
-              <igc-radio name="rating">
-                <igc-rating class="size-small" label="2 stars or more" max="5" value="2.5" readonly></igc-rating>
-              </igc-radio>
-              <igc-radio name="rating">
-                <igc-rating class="size-small" label="3 stars or more" max="5" value="3.5" readonly></igc-rating>
-              </igc-radio>
-              <igc-radio name="rating">
-                <igc-rating class="size-small" label="4 stars or more" max="5" value="4.5" readonly></igc-rating>
-              </igc-radio>   
-            </igc-radio-group>
-          </igc-expansion-panel>
-          <igc-expansion-panel>
-            <span slot="title" id="timeTitle">Time</span>
-            <igc-date-time-input class="size-small" input-format="hh:mm tt" label="Arrive before">
-              <igc-icon name="clock" collection="material" slot="prefix"></igc-icon>
-              <igc-icon name="clear" collection="material" slot="suffix"></igc-icon>
-            </igc-date-time-input>
-          </igc-expansion-panel>
-        </igc-accordion>
+      <div class="accordion-sample">
+        <div class="accordion-content">
+          <igc-accordion id="accordion">
+            <igc-expansion-panel open>
+              <span slot="title" id="categories">Transportation</span>
+              <span slot="subtitle">Choose how you want to travel</span>
+              <p class="panel-description">Select one or more transportation options for your trip.</p>
+              <div class="categories-container">
+                <igc-checkbox class="category-option" data-type="Bike">Bike</igc-checkbox>
+                <igc-checkbox class="category-option" data-type="Motorcycle">Motorcycle</igc-checkbox>
+                <igc-checkbox class="category-option" data-type="Car">Car</igc-checkbox>
+                <igc-checkbox class="category-option" data-type="Taxi">Taxi</igc-checkbox>
+                <igc-checkbox class="category-option" data-type="Public Transport">Public Transport</igc-checkbox>
+              </div>
+            </igc-expansion-panel>
+
+            <igc-expansion-panel>
+              <span slot="title">Budget: $<span id="lowerCost">200</span> - $<span id="upperCost">800</span></span>
+              <span slot="subtitle">Set the price range</span>
+              <p class="panel-description">Adjust the minimum and maximum cost for available options.</p>
+              <div class="range-summary">
+                <span id="lowerCostSummary">$200</span>
+                <span id="upperCostSummary">$800</span>
+              </div>
+              <igc-range-slider class="cost-slider" min="0" max="1000" lower="200" upper="800"></igc-range-slider>
+            </igc-expansion-panel>
+
+            <igc-expansion-panel>
+              <span slot="title" id="rating">Minimum Rating</span>
+              <span slot="subtitle">Filter by review score</span>
+              <p class="panel-description">Choose the lowest rating you want to include in the results.</p>
+              <igc-radio-group class="rating-options">
+                <igc-radio class="rating-option" name="rating">
+                  <igc-rating class="rating-control size-small" label="2 stars or more" max="5" value="2" readonly></igc-rating>
+                </igc-radio>
+                <igc-radio class="rating-option" name="rating">
+                  <igc-rating class="rating-control size-small" label="3 stars or more" max="5" value="3" readonly></igc-rating>
+                </igc-radio>
+                <igc-radio class="rating-option" name="rating">
+                  <igc-rating class="rating-control size-small" label="4 stars or more" max="5" value="4" readonly></igc-rating>
+                </igc-radio>
+                <igc-radio class="rating-option" name="rating">
+                  <igc-rating class="rating-control size-small" label="5 stars or more" max="5" value="5" readonly></igc-rating>
+                </igc-radio>
+              </igc-radio-group>
+            </igc-expansion-panel>
+
+            <igc-expansion-panel>
+              <span slot="title" id="timeTitle">Arrival Time</span>
+              <span slot="subtitle">Set the latest arrival time</span>
+              <p class="panel-description">Pick the latest acceptable arrival time for your trip.</p>
+              <igc-date-time-input class="time-input size-small" input-format="hh:mm tt" label="Arrive before">
+                <igc-icon name="clock" collection="material" slot="prefix"></igc-icon>
+                <igc-icon name="clear" collection="material" slot="suffix"></igc-icon>
+              </igc-date-time-input>
+            </igc-expansion-panel>
+          </igc-accordion>
+        </div>
       </div>
     </div>
 
