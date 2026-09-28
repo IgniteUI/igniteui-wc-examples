@@ -16,6 +16,11 @@ registerIconFromText('slash', slashIcon);
 
 export class BreadcrumbsTailwindStyling {
     constructor() {
+        document.querySelectorAll('igc-breadcrumb').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+            });
+        });
     }
 }
 

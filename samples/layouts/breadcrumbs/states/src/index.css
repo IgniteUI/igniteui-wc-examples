@@ -1,0 +1,84 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.state-hover {
+    igc-icon {
+        color: var(--hover-icon-color);
+    }
+
+    a {
+        color: var(--hover-text-color);
+    }
+}
+
+.state-focused {
+    igc-icon {
+        color: var(--focus-icon-color);
+    }
+
+    a {
+        color: var(--focus-text-color);
+        text-decoration: underline var(--focus-underline-color);
+    }
+}
+
+.state-pressed {
+    igc-icon {
+        color: var(--pressed-icon-color);
+    }
+
+    a {
+        color: var(--pressed-text-color);
+    }
+}
+
+.state-focused-hover {
+    igc-icon {
+        color: var(--focus-hover-icon-color);
+    }
+
+    a {
+        color: var(--focus-hover-text-color);
+        text-decoration: underline var(--focus-hover-underline-color);
+    }
+}
+
+.state-focused-pressed {
+    igc-icon {
+        color: var(--focus-pressed-icon-color);
+    }
+
+    a {
+        color: var(--focus-pressed-text-color);
+        text-decoration: underline var(--focus-pressed-underline-color);
+    }
+}
+
+.state-disabled {
+    igc-icon {
+        color: var(--disabled-icon-color);
+    }
+
+    a {
+        color: var(--disabled-text-color);
+    }
+}
+
+
+.sample {
+    display: flex;
+    justify-content: center;
+    font-family: "Aktiv Grotesk", sans-serif;
+}
+
+span {
+    color: var(--ig-gray-600);
+    width: 9.375rem;
+    margin-inline-end: 2rem;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

@@ -5,21 +5,20 @@ import {
     IgcIconComponent,
     registerIconFromText
 } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import 'igniteui-webcomponents/themes/light/material.css';
 import './index.css';
 
 defineComponents(IgcBreadcrumbsComponent, IgcBreadcrumbComponent, IgcIconComponent);
 
 const homeIcon =
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>';
-
-const musicNoteIcon =
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>';
+const notificationsIcon =
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>';
 
 registerIconFromText('home', homeIcon);
-registerIconFromText('music_note', musicNoteIcon);
+registerIconFromText('notifications', notificationsIcon);
 
-export class BreadcrumbsStyling {
+export class BreadcrumbSizes {
     constructor() {
         document.querySelectorAll('igc-breadcrumb').forEach(link => {
             link.addEventListener('click', e => {
@@ -29,4 +28,4 @@ export class BreadcrumbsStyling {
     }
 }
 
-new BreadcrumbsStyling();
+new BreadcrumbSizes();

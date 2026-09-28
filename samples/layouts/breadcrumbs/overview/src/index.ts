@@ -20,6 +20,11 @@ registerIconFromText('notifications', notificationsIcon);
 
 export class BreadcrumbsOverview {
     constructor() {
+        document.querySelectorAll('igc-breadcrumb').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+            });
+        });
     }
 }
 

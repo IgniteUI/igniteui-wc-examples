@@ -6,7 +6,7 @@ import {
     IgcBadgeComponent,
     registerIconFromText
 } from 'igniteui-webcomponents';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import 'igniteui-webcomponents/themes/light/material.css';
 import './index.css';
 
 defineComponents(IgcBreadcrumbsComponent, IgcBreadcrumbComponent, IgcIconComponent, IgcBadgeComponent);
@@ -18,6 +18,11 @@ registerIconFromText('home', homeIcon);
 
 export class BreadcrumbsStyling {
     constructor() {
+        document.querySelectorAll('igc-breadcrumb').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+            });
+        });
     }
 }
 
