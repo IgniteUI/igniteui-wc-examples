@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carousel Tailwind Styling</title>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="container sample center">
+        <igc-carousel class="styled-carousel mx-auto mt-4 h-[430px] w-full max-w-[960px] overflow-hidden rounded-lg border border-[var(--ig-gray-300)] bg-[var(--ig-surface-500)]">
+          <span slot="previous-button" class="carousel-navigation-button inline-grid h-5 w-5 place-items-center leading-none"><igc-icon name="chevron-left"></igc-icon></span>
+          <span slot="next-button" class="carousel-navigation-button inline-grid h-5 w-5 place-items-center leading-none"><igc-icon name="chevron-right"></igc-icon></span>
+
+          <igc-carousel-slide>
+            <article class="m-0 grid h-full w-full overflow-hidden bg-[var(--ig-gray-100)] md:grid-cols-[1.15fr_0.85fr]">
+              <img class="h-52 w-full object-cover md:h-full" src="https://dl.infragistics.com/x/img/carousel/AdobeStock_1937350575-s.png" alt="Scenic travel destination" />
+              <section class="grid content-center gap-5 bg-[var(--ig-surface-500)] py-10 pl-8 pr-24 text-[var(--ig-gray-900)]">
+                <div><span class="mb-2 block text-xs font-bold leading-none text-[var(--ig-primary-600)]">01 / ITINERARY</span><h3 class="m-0 text-2xl leading-tight">Scenic getaway</h3><p class="mb-0 mt-2 leading-snug text-[var(--ig-gray-700)]">A flexible travel plan built around memorable views and time to explore.</p></div>
+                <div class="grid grid-cols-3 divide-x divide-[var(--ig-gray-300)] border-y border-[var(--ig-gray-300)] py-3"><span class="px-2 text-center text-xs font-semibold text-[var(--ig-gray-700)] first:pl-0 last:pr-0">3 days</span><span class="px-2 text-center text-xs font-semibold text-[var(--ig-gray-700)] first:pl-0 last:pr-0">8 stops</span><span class="px-2 text-center text-xs font-semibold text-[var(--ig-gray-700)] first:pl-0 last:pr-0">Flexible dates</span></div>
+                <div class="flex flex-wrap gap-2"><span class="rounded-full border border-[var(--ig-gray-300)] px-3 py-1 text-xs text-[var(--ig-gray-700)]">Scenic route</span><span class="rounded-full border border-[var(--ig-gray-300)] px-3 py-1 text-xs text-[var(--ig-gray-700)]">Flexible pace</span></div>
+                <igc-button><span>View itinerary</span></igc-button>
+              </section>
+            </article>
+          </igc-carousel-slide>
+          <igc-carousel-indicator><span class="block h-[9px] w-[9px] rounded-full border-2 border-[var(--ig-gray-600)] bg-transparent"></span><span slot="active" class="block h-[9px] w-[9px] rounded-full border-2 border-[var(--ig-primary-500)] bg-[var(--ig-primary-500)]"></span></igc-carousel-indicator>
+
+          <igc-carousel-slide>
+            <article class="m-0 grid h-full w-full overflow-hidden bg-[var(--ig-gray-100)] md:grid-cols-[1.15fr_0.85fr]">
+              <img class="h-52 w-full object-cover md:h-full" src="https://dl.infragistics.com/x/img/carousel/AdobeStock_215535179-s.png" alt="Mountain trail ride" />
+              <section class="grid content-center gap-5 bg-[var(--ig-surface-500)] py-10 pl-8 pr-24 text-[var(--ig-gray-900)]">
+                <div><span class="mb-2 block text-xs font-bold leading-none text-[var(--ig-primary-600)]">02 / ITINERARY</span><h3 class="m-0 text-2xl leading-tight">Mountain trail ride</h3><p class="mb-0 mt-2 leading-snug text-[var(--ig-gray-700)]">A high-energy route through rugged terrain, with technical descents and open trail views.</p></div>
+                <div class="grid grid-cols-3 divide-x divide-[var(--ig-gray-300)] border-y border-[var(--ig-gray-300)] py-3"><span class="px-2 text-center text-xs font-semibold text-[var(--ig-gray-700)] first:pl-0 last:pr-0">1 day</span><span class="px-2 text-center text-xs font-semibold text-[var(--ig-gray-700)] first:pl-0 last:pr-0">12 km</span><span class="px-2 text-center text-xs font-semibold text-[var(--ig-gray-700)] first:pl-0 last:pr-0">Advanced</span></div>
+                <div class="flex flex-wrap gap-2"><span class="rounded-full border border-[var(--ig-gray-300)] px-3 py-1 text-xs text-[var(--ig-gray-700)]">Mountain bike</span><span class="rounded-full border border-[var(--ig-gray-300)] px-3 py-1 text-xs text-[var(--ig-gray-700)]">Trail ride</span></div>
+                <igc-button><span>View itinerary</span></igc-button>
+              </section>
+            </article>
+          </igc-carousel-slide>
+          <igc-carousel-indicator><span class="block h-[9px] w-[9px] rounded-full border-2 border-[var(--ig-gray-600)] bg-transparent"></span><span slot="active" class="block h-[9px] w-[9px] rounded-full border-2 border-[var(--ig-primary-500)] bg-[var(--ig-primary-500)]"></span></igc-carousel-indicator>
+
+          <igc-carousel-slide>
+            <article class="m-0 grid h-full w-full overflow-hidden bg-[var(--ig-gray-100)] md:grid-cols-[1.15fr_0.85fr]">
+              <img class="h-52 w-full object-cover md:h-full" src="https://dl.infragistics.com/x/img/carousel/AdobeStock_637533323-s.png" alt="Weekend escape" />
+              <section class="grid content-center gap-5 bg-[var(--ig-surface-500)] py-10 pl-8 pr-24 text-[var(--ig-gray-900)]">
+                <div><span class="mb-2 block text-xs font-bold leading-none text-[var(--ig-primary-600)]">03 / ITINERARY</span><h3 class="m-0 text-2xl leading-tight">Weekend escape</h3><p class="mb-0 mt-2 leading-snug text-[var(--ig-gray-700)]">A short break with unhurried moments, fresh perspectives, and room to recharge.</p></div>
+                <div class="grid grid-cols-3 divide-x divide-[var(--ig-gray-300)] border-y border-[var(--ig-gray-300)] py-3"><span class="px-2 text-center text-xs font-semibold text-[var(--ig-gray-700)] first:pl-0 last:pr-0">Weekend</span><span class="px-2 text-center text-xs font-semibold text-[var(--ig-gray-700)] first:pl-0 last:pr-0">5 highlights</span><span class="px-2 text-center text-xs font-semibold text-[var(--ig-gray-700)] first:pl-0 last:pr-0">Year round</span></div>
+                <div class="flex flex-wrap gap-2"><span class="rounded-full border border-[var(--ig-gray-300)] px-3 py-1 text-xs text-[var(--ig-gray-700)]">Unwind</span><span class="rounded-full border border-[var(--ig-gray-300)] px-3 py-1 text-xs text-[var(--ig-gray-700)]">Go at your pace</span></div>
+                <igc-button><span>View itinerary</span></igc-button>
+              </section>
+            </article>
+          </igc-carousel-slide>
+          <igc-carousel-indicator><span class="block h-[9px] w-[9px] rounded-full border-2 border-[var(--ig-gray-600)] bg-transparent"></span><span slot="active" class="block h-[9px] w-[9px] rounded-full border-2 border-[var(--ig-primary-500)] bg-[var(--ig-primary-500)]"></span></igc-carousel-indicator>
+        </igc-carousel>
+      </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
