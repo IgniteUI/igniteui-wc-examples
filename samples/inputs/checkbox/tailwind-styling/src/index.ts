@@ -70,28 +70,34 @@ export class CheckboxTailwindStyling {
 
     private renderSample() {
         const template = html`
-            <div class="filter-panel flex flex-col rounded-2xl border border-[var(--ig-primary-500)] bg-white p-2">
-                <igc-accordion>
+            <div
+                class="flex w-[218px] flex-col rounded-2xl border border-filter-primary bg-white p-[7px] [--ig-font-family:aktiv-grotesk,sans-serif]"
+            >
+                <igc-accordion class="flex flex-col divide-y divide-filter-divider pb-2">
                     ${this.sections.map(
                         (section) => html`
                             <igc-expansion-panel
-                                class="filter-section"
+                                class="my-0 [--ig-expansion-panel-body-background:transparent] [--ig-expansion-panel-header-background:transparent] [--ig-expansion-panel-header-icon-color:var(--color-filter-ink)]"
                                 indicator-position="end"
                                 .open=${section.open}
                                 @igcOpened=${() => this.toggleSection(section, true)}
                                 @igcClosed=${() => this.toggleSection(section, false)}
                             >
-                                <span class="panel-title" slot="title">${section.title}</span>
-                                <div class="section-options flex flex-col">
+                                <span class="pb-2 text-base font-bold leading-5 text-filter-title" slot="title">
+                                    ${section.title}
+                                </span>
+                                <div class="-mx-2 -my-4 flex flex-col">
                                     ${section.options.map(
                                         (option) => html`
                                             <igc-checkbox
-                                                class="filter-option"
+                                                class="filter-option [--ig-checkbox-border-radius:0.125rem] [--ig-checkbox-empty-color-hover:var(--color-filter-primary)] [--ig-checkbox-empty-color:var(--color-filter-empty)] [--ig-checkbox-fill-color-hover:var(--color-filter-primary)] [--ig-checkbox-fill-color:var(--color-filter-primary)] [--ig-checkbox-label-color-hover:var(--color-filter-ink)] [--ig-checkbox-label-color:var(--color-filter-ink)] [--ig-checkbox-tick-color-hover:#fff] [--ig-checkbox-tick-color:#fff]"
                                                 .checked=${option.checked}
                                                 @igcChange=${(e: CustomEvent<{ checked: boolean }>) =>
                                                     this.toggleOption(option, e.detail.checked)}
                                             >
-                                                <span>${option.label}</span>
+                                                <span class="text-sm font-medium leading-6 tracking-[0.1px]">
+                                                    ${option.label}
+                                                </span>
                                             </igc-checkbox>
                                         `
                                     )}
