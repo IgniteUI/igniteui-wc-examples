@@ -11,6 +11,8 @@
 
 .large {
     --ig-size: var(--ig-size-large);
+
+    margin-block-start: -0.25rem;
 }
 
 .sample {
@@ -20,9 +22,10 @@
 }
 
 span {
-    color: var(--ig-gray-600);
+    color: #7d8a96;
     width: 3.75rem;
     margin-inline-end: 2rem;
+    font-size: 0.875rem;
 }
 
 nav {

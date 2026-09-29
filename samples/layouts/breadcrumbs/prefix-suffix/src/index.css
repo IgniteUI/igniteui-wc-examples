@@ -4,6 +4,7 @@
 .sample {
     display: flex;
     justify-content: center;
+    align-items: center;
     font-family: "Aktiv Grotesk", sans-serif;
 }
 
