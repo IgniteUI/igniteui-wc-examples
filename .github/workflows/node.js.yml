@@ -9,6 +9,11 @@ on:
   pull_request:
     branches: [ "vnext" ]
 
+# Cancel superseded runs on the same PR/branch.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
 
@@ -19,11 +24,11 @@ jobs:
     #     working-directory: ./browser # The working directory path
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v7
     - name: Use Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v7
       with:
-        node-version: 22.x
+        node-version: 24.x
         cache: 'npm'
         # cache-dependency-path: browser/package-lock.json
     
@@ -34,13 +39,32 @@ jobs:
     #     echo "//packages.infragistics.com/npm/js-licensed/:_auth=${{ secrets.PROGET_TOKEN }}" >> ~/.npmrc
     #     echo "//packages.infragistics.com/npm/js-licensed/:always-auth=true" >> ~/.npmrc
 
-    - name: npm install --legacy-peer-deps
-      run: npm ci --legacy-peer-deps
+    - name: npm ci
+      run: npm ci
     - name: Type check
       run: npm run check
     - name: Build
       run: npm run build
+
+    # Browser binaries are cached per Playwright version; OS deps (apt) are
+    # not cacheable and are installed on every run.
+    - name: Get Playwright version
+      id: playwright
+      run: echo "version=$(npx playwright --version | awk '{print $2}')" >> "$GITHUB_OUTPUT"
+    - name: Cache Playwright browser
+      id: playwright-cache
+      uses: actions/cache@v6
+      with:
+        path: ~/.cache/ms-playwright
+        key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
+
+    # Headless tests only need the headless shell, not full Chromium.
     - name: Install Playwright browser
-      run: npx playwright install --with-deps chromium
+      if: steps.playwright-cache.outputs.cache-hit != 'true'
+      run: npx playwright install --with-deps --only-shell chromium
+    - name: Install Playwright OS deps
+      if: steps.playwright-cache.outputs.cache-hit == 'true'
+      run: npx playwright install-deps chromium
+
     - name: Smoke tests
       run: npm run test:smoke
