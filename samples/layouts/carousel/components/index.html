@@ -3,48 +3,83 @@
   <head>
     <title>Carousel With Components</title>
     <meta charset="UTF-8" />
-
-    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
     <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
   </head>
-
   <body>
     <div id="root">
       <div class="carousel-container">
         <igc-carousel>
-          <igc-carousel-slide>
-            <div>
-              <img src="https://dl.infragistics.com/x/img/carousel/SignUp.svg">
-              <form>
-                <igc-input type="text" placeholder="Username">
-                  <igc-icon slot="prefix" name="person"></igc-icon>
-                </igc-input>
-                <igc-input type="password" placeholder="Password">
-                  <igc-icon slot="prefix" name="password"></igc-icon>
-                </igc-input>
-                <igc-button type="reset">Sign In</igc-button>
-              </form>
-            </div>
-          </igc-carousel-slide>
-          <igc-carousel-slide>
-            <div>
-              <img src="https://dl.infragistics.com/x/img/carousel/Route.svg">
-              <form>
-                <igc-input type="text" placeholder="Search">
+          <igc-carousel-slide class="slide-frame slide-coast">
+            <article class="slide-shell">
+              <form class="feature-card">
+                <div class="feature-copy">
+                  <span class="slide-label">Featured route</span>
+                  <h3>Coastal weekend</h3>
+                  <p>Browse curated travel ideas and search directly from the active slide.</p>
+                </div>
+                <igc-input type="text" placeholder="City or landmark">
                   <igc-icon slot="prefix" name="search"></igc-icon>
                 </igc-input>
-                <igc-button type="reset">Search</igc-button>
+                <div class="chip-row" aria-label="Route highlights">
+                  <span>3 stops</span>
+                  <span>Sea view</span>
+                  <span>Weekend</span>
+                </div>
+                <igc-button type="reset"><span>Explore</span></igc-button>
               </form>
-            </div>
+              <div class="feature-visual route-visual" aria-hidden="true"><span></span><span></span><span></span></div>
+            </article>
+          </igc-carousel-slide>
+          <igc-carousel-slide class="slide-frame slide-city">
+            <article class="slide-shell">
+              <section class="feature-card event-card">
+                <div class="feature-copy">
+                  <span class="slide-label">City guide</span>
+                  <h3>Museum night pass</h3>
+                  <p>Reserve a late gallery visit and keep the event details visible in the active slide.</p>
+                </div>
+                <div class="event-summary" aria-label="Museum night pass details">
+                  <div class="event-date" aria-hidden="true"><span>FRI</span><strong>18</strong><span>OCT</span></div>
+                  <div class="event-details"><strong>6:30 PM - 10:00 PM</strong><span>North wing galleries</span></div>
+                </div>
+                <igc-checkbox>Send event reminder</igc-checkbox>
+                <igc-button><span>Notify Me</span></igc-button>
+              </section>
+              <div class="event-visual" aria-hidden="true">
+                <span class="ticket-stack">
+                  <span class="ticket ticket--back"></span>
+                  <span class="ticket ticket--front"><span></span><span></span><span></span></span>
+                </span>
+              </div>
+            </article>
+          </igc-carousel-slide>
+          <igc-carousel-slide class="slide-frame slide-resort">
+            <article class="slide-shell">
+              <form class="feature-card offer-card">
+                <div class="feature-copy">
+                  <span class="slide-label">Seasonal offer</span>
+                  <h3>Resort day access</h3>
+                  <p>Build a compact offer configuration that lets users review inclusions before applying a code.</p>
+                </div>
+                <div class="offer-summary" aria-label="Day pass summary">
+                  <div><span>Day pass</span><strong>$89</strong></div>
+                  <span>Pool access and spa credit included</span>
+                </div>
+                <div class="addon-row"><span>Lunch add-on</span><strong>+$18</strong></div>
+                <igc-input type="text" placeholder="Promo code"><igc-icon slot="prefix" name="password"></igc-icon></igc-input>
+                <igc-button type="reset"><span>Apply Code</span></igc-button>
+              </form>
+              <div class="amenity-visual" aria-hidden="true"><span></span><span></span><span></span></div>
+            </article>
           </igc-carousel-slide>
         </igc-carousel>
       </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
     <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>

@@ -1,28 +1,34 @@
-import { defineComponents, IgcButtonComponent, IgcCardComponent, IgcCarouselComponent, IgcSelectComponent, IgcSwitchComponent } from "igniteui-webcomponents";
+import {
+  defineComponents,
+  IgcCarouselComponent,
+  IgcSelectComponent,
+  IgcSwitchComponent,
+} from "igniteui-webcomponents";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
-defineComponents(IgcCarouselComponent, IgcSelectComponent, IgcCardComponent, IgcButtonComponent, IgcSwitchComponent);
+defineComponents(IgcCarouselComponent, IgcSelectComponent, IgcSwitchComponent);
 
-export class CarouselAnimations {
-    private carousel: IgcCarouselComponent;
-    private select: IgcSelectComponent;
-    private switch: IgcSwitchComponent;
+const carousel = document.querySelector("igc-carousel") as IgcCarouselComponent;
+const select = document.querySelector("igc-select") as IgcSelectComponent;
+const verticalSwitch = document.querySelector("igc-switch") as IgcSwitchComponent;
+let orientationTimer: number | undefined;
 
-    constructor() {
-        this.carousel = document.querySelector('igc-carousel') as IgcCarouselComponent;
-        this.select = document.querySelector('igc-select') as IgcSelectComponent;
-        this.switch = document.querySelector('igc-switch') as IgcSwitchComponent;
+select.addEventListener("igcChange", (event: CustomEvent<{ value: "slide" | "fade" | "none" }>) => {
+  carousel.animationType = event.detail.value;
+});
 
-        this.select.addEventListener("igcChange", (e) => {
-            const animation = e.detail.value as 'slide' | 'fade' | 'none';
-            this.carousel.animationType = animation;
-        });
+verticalSwitch.addEventListener("igcChange", (event: CustomEvent<{ checked: boolean }>) => {
+  const isVertical = event.detail.checked;
 
-        this.switch.addEventListener("igcChange", (e) => {
-            this.carousel.vertical = e.detail.checked;
-        });
-    }
-}
+  if (orientationTimer !== undefined) {
+    window.clearTimeout(orientationTimer);
+  }
 
-new CarouselAnimations();
+  carousel.classList.add("is-orientation-changing");
+
+  orientationTimer = window.setTimeout(() => {
+    carousel.vertical = isVertical;
+    window.requestAnimationFrame(() => carousel.classList.remove("is-orientation-changing"));
+  }, 120);
+});
