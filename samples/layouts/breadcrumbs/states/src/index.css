@@ -106,4 +106,8 @@ igc-breadcrumbs:nth-of-type(n+4) {
     nav {
         row-gap: 3rem;
     }
+
+    .sample {
+        max-height: unset;
+    }
 }
