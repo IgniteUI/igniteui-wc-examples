@@ -76,7 +76,8 @@ module.exports = env => {
                                 "compact": isProd ? true : false,
                                 "presets": presets,
                                 "plugins": [
-                                    "@babel/plugin-proposal-class-properties",
+                                    "@babel/plugin-transform-class-static-block",
+                                    "@babel/plugin-transform-class-properties",
                                     "@babel/plugin-transform-runtime"
                                 ]
                             }
@@ -89,7 +90,8 @@ module.exports = env => {
                         "compact": isProd ? true : false,
                         "presets": presets,
                         "plugins": [
-                            "@babel/plugin-proposal-class-properties",
+                            "@babel/plugin-transform-class-static-block",
+                            "@babel/plugin-transform-class-properties",
                             "@babel/plugin-transform-runtime"
                         ]
                     },
