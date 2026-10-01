@@ -1,8 +1,11 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { existsSync } from 'node:fs';
+
+// A sample's entry module, samples/<path>/src/index.ts (captures <path>).
+const SAMPLE_ENTRY_RE = /[\\/]samples[\\/](.+)[\\/]src[\\/]index\.ts$/;
 
 /**
  * Vite plugin: strip the module-level `new Sample();` (or `new ClassName();`)
@@ -28,7 +31,7 @@ function stripSampleInstantiation() {
     enforce: /** @type {'pre'} */ ('pre'),
     transform(code, id) {
       // Only touch samples/**/src/index.ts
-      if (!id.replace(/\\/g, '/').match(/\/samples\/.+\/src\/index\.ts$/)) return;
+      if (!SAMPLE_ENTRY_RE.test(id)) return;
       if (!trailingNewRe.test(code)) return;
       return { code: code.replace(trailingNewRe, ''), map: null };
     },
@@ -83,7 +86,7 @@ function inlineSampleCss() {
       isBuild = config.command === 'build';
     },
     transform(code, id) {
-      if (!id.replace(/\\/g, '/').match(/\/samples\/.+\/src\/index\.ts$/)) return;
+      if (!SAMPLE_ENTRY_RE.test(id)) return;
       cssImportRe.lastIndex = 0;
       if (!cssImportRe.test(code)) return;
       cssImportRe.lastIndex = 0;
@@ -176,6 +179,91 @@ function resolveIgniteUiScoped() {
   };
 }
 
+/**
+ * Vite plugin: the browser build's chunk layout — one chunk per sample and
+ * one per node_modules package.
+ *
+ * WHY a plugin instead of build.rolldownOptions
+ * ──────────────────────────────────────────────
+ * The vendor group must not capture its modules' dependencies, which Rolldown
+ * allows only when preserveEntrySignatures is 'allow-extension' or false.
+ * Astro hard-codes 'exports-only' into the client build options; the
+ * configEnvironment hook runs after that, so its override sticks. Astro's
+ * client entries are page scripts that export nothing, and the option doesn't
+ * apply to dynamically imported samples, so only the validation changes.
+ */
+/** @returns {import('vite').Plugin} */
+function sampleChunking() {
+  /** @type {import('vite').Rolldown.CodeSplittingGroup[]} */
+  const groups = [
+    {
+      // Vite's dynamic-import preload helper is shared by every lazy chunk.
+      // Left unassigned, the bundler hosts it inside one vendor chunk and the
+      // others import it back — a chunk cycle (grid-lite → webcomponents →
+      // grid-lite warning).
+      name: 'preload-helper',
+      test: /vite\/preload-helper/,
+      priority: 3,
+    },
+    {
+      // One chunk per node_modules package. It outranks the sample group (a
+      // module claimed by several groups goes to the higher priority), so
+      // library code never lands in a sample chunk, and it doesn't capture
+      // dependencies, so each chunk holds only its own package.
+      test: /[\\/]node_modules[\\/]/,
+      priority: 2,
+      includeDependenciesRecursively: false,
+      name(id) {
+        const file = id.replace(/\\/g, '/');
+
+        // Shared IgniteUI runtime → one vendor chunk per package.
+        // Without this, the bundler hosts shared library code inside the
+        // first sample chunk that imports it, so every other sample transits
+        // through that chunk (e.g. an 11MB annotations-all hosting the charts
+        // runtime) and pulls in its side effects.
+        const vendor = file.match(/\/node_modules\/(?:@infragistics\/)?(igniteui-[^/]+)\//);
+        if (vendor) {
+          return `vendor/${vendor[1]}`;
+        }
+
+        // Every other node_modules package too.  A shared non-IgniteUI
+        // dep (lit, file-saver, …) left unassigned gets hosted inside the
+        // first *sample* chunk that imports it, so unrelated pages
+        // evaluate that sample's module body — its defineAllComponents()
+        // and theme CSS included (the bootstrap-instead-of-material bug).
+        const dep = file.match(/\/node_modules\/((?:@[^/]+\/)?[^/]+)\//);
+        return dep ? `vendor/${dep[1].replace('/', '--')}` : null;
+      },
+    },
+    {
+      // One chunk per sample, so the bundler doesn't try to inline all 700+
+      // samples into a single bundle (causes OOM). Unlike the vendor group it
+      // captures dependencies (Rolldown's default), which is what pulls each
+      // sample's local files (data sources, helpers) into its chunk.
+      test: SAMPLE_ENTRY_RE,
+      priority: 1,
+      name(id) {
+        const match = id.match(SAMPLE_ENTRY_RE);
+        return match && `samples/${match[1].replace(/[\\/]/g, '--')}`;
+      },
+    },
+  ];
+
+  return {
+    name: 'sample-chunking',
+    apply: 'build',
+    configEnvironment(name, config) {
+      if (name !== 'client') return;
+      // Set the options rather than return them: Vite runs this hook on every
+      // config pass and merges a returned config by concatenating arrays, so
+      // each pass would add another copy of the groups.
+      const rolldownOptions = ((config.build ??= {}).rolldownOptions ??= {});
+      rolldownOptions.preserveEntrySignatures = 'allow-extension';
+      rolldownOptions.output = { ...rolldownOptions.output, codeSplitting: { groups } };
+    },
+  };
+}
+
 // Set BASE_PATH env variable to deploy under a sub-path, e.g. "/webcomponents-demos"
 const base = process.env.BASE_PATH ?? '';
 
@@ -212,7 +300,12 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [resolveIgniteUiScoped(), stripSampleInstantiation(), inlineSampleCss()],
+    plugins: [
+      resolveIgniteUiScoped(),
+      stripSampleInstantiation(),
+      inlineSampleCss(),
+      sampleChunking(),
+    ],
     // samples/ and node_modules/ are already at the repo root (__dirname),
     // so no extra fs.allow entries are needed.
     server: {
@@ -221,10 +314,20 @@ export default defineConfig({
       },
     },
 
+    // Workaround for a Vite 8 bug (https://github.com/vitejs/vite/issues/23096):
+    // in a server environment — Astro prerenders pages in one — the CSS
+    // `@import` resolver externalizes bare package specifiers, so the tailwind
+    // samples' `@import "tailwindcss";` resolves to <root>/tailwindcss and the
+    // build fails with ENOENT. Nothing imports tailwindcss from JS, so never
+    // externalizing it is harmless. Remove once the upstream fix ships.
+    resolve: {
+      noExternal: ['tailwindcss'],
+    },
+
     // Dep optimisation:
-    // noDiscovery stops esbuild from scanning any source files (including
-    // [..slug].astro whose client script globs sample TS files that have CSS
-    // side-effect imports — causing "Expected ';'" crashes).
+    // noDiscovery stops the dependency scanner from crawling any source files
+    // (including [..slug].astro whose client script globs sample TS files that
+    // have CSS side-effect imports — causing "Expected ';'" crashes).
     // We explicitly pre-bundle only the igniteui runtime packages so the first
     // sample click is fast without triggering the scanner.
     optimizeDeps: {
@@ -239,13 +342,24 @@ export default defineConfig({
     },
 
     // CSS / SCSS:
-    // `loadPaths` / `includePaths` make node_modules visible to Sass so
-    // samples that @use 'igniteui-theming/sass/...' resolve correctly.
+    // Resolve bare @use specifiers such as 'igniteui-theming/sass/...' from
+    // node_modules. `loadPaths` can't: Vite 8's own Sass importer runs first
+    // and throws on subpaths `exports` doesn't cover, and igniteui-theming's
+    // "./sass/**/*.*" key covers none (a pattern may hold only one `*`).
+    // Custom importers run before Vite's. Remove once that key is fixed.
     css: {
       devSourcemap: true,
       preprocessorOptions: {
         scss: {
-          loadPaths: [path.resolve(__dirname, 'node_modules')],
+          importers: [
+            {
+              findFileUrl(url) {
+                // Bare package specifiers only; relative and scheme URLs pass.
+                if (!/^[\w@]/.test(url) || url.includes(':')) return null;
+                return pathToFileURL(path.join(__dirname, 'node_modules', url));
+              },
+            },
+          ],
         },
       },
     },
@@ -254,58 +368,7 @@ export default defineConfig({
       chunkSizeWarningLimit: 16000,
       sourcemap: process.env.NODE_ENV !== 'production',
       cssCodeSplit: true,
-      rollupOptions: {
-        output: {
-          // Give every sample its own chunk so Rollup doesn't try to inline
-          // all 700+ samples into a single bundle (causes OOM).
-          manualChunks(id) {
-            // Vite's dynamic-import preload helper is shared by every lazy
-            // chunk.  Left unassigned, Rollup hosts it inside one vendor
-            // chunk and the others import it back — a chunk cycle
-            // (grid-lite → webcomponents → grid-lite build warning).
-            if (id.includes('vite/preload-helper')) {
-              return 'preload-helper';
-            }
-
-            const match = id.match(/[\\/]samples[\\/](.+)[\\/]src[\\/]index\.ts$/);
-            if (match) {
-              return `samples/${match[1].replace(/[\\/]/g, '--')}`;
-            }
-
-            // Shared IgniteUI runtime → one vendor chunk per package.
-            // Without this, Rollup hosts shared library code inside the first
-            // sample chunk that imports it, so every other sample transits
-            // through that chunk (e.g. an 11MB annotations-all hosting the
-            // charts runtime) and pulls in its side effects.
-            const vendor = id
-              .replace(/\\/g, '/')
-              .match(/\/node_modules\/(?:@infragistics\/)?(igniteui-[^/]+)\//);
-            if (vendor) {
-              return `vendor/${vendor[1]}`;
-            }
-
-            // Every other node_modules package too.  A shared non-IgniteUI
-            // dep (lit, file-saver, …) left unassigned gets hosted inside the
-            // first *sample* chunk that imports it, so unrelated pages
-            // evaluate that sample's module body — its defineAllComponents()
-            // and theme CSS included (the bootstrap-instead-of-material bug).
-            const dep = id
-              .replace(/\\/g, '/')
-              .match(/\/node_modules\/((?:@[^/]+\/)?[^/]+)\//);
-            if (dep) {
-              return `vendor/${dep[1].replace('/', '--')}`;
-            }
-          },
-          // Keep sample CSS files scoped to their own chunk names
-          assetFileNames(assetInfo) {
-            const name = assetInfo.name ?? '';
-            if (name.endsWith('.css') && assetInfo.source) {
-              return '_astro/[name].[hash][extname]';
-            }
-            return '_astro/[name].[hash][extname]';
-          },
-        },
-      },
+      // Chunk layout lives in the sampleChunking() plugin above.
     },
   },
 });

@@ -1,23 +1,20 @@
-import '@webcomponents/custom-elements/custom-elements.min';
-import '@webcomponents/custom-elements/src/native-shim.js';
 import { LiveFinancialData } from "./LiveFinancialData";
-import { IgcDataGridModule } from 'igniteui-webcomponents-data-grids';
-import { IgcDataGridComponent } from 'igniteui-webcomponents-data-grids';
-import { IgcTemplateColumnComponent } from 'igniteui-webcomponents-data-grids';
-import { IgcColumnGroupDescription } from 'igniteui-webcomponents-data-grids';
-import { IgcCellStyleRequestedEventArgs } from 'igniteui-webcomponents-data-grids';
-import { IgcTemplateCellUpdatingEventArgs } from 'igniteui-webcomponents-data-grids';
-import { IgcTemplateCellInfo } from 'igniteui-webcomponents-data-grids';
-import { IgcDataBindingEventArgs } from 'igniteui-webcomponents-data-grids';
-import { IgcDataGridColumnComponent } from 'igniteui-webcomponents-data-grids';
-import { IgcDefinitionBaseComponent } from 'igniteui-webcomponents-data-grids';
-import { ListSortDirection } from 'igniteui-webcomponents-core';
-import { ModuleManager } from 'igniteui-webcomponents-core';
+import { IgcDataGridModule } from "igniteui-webcomponents-data-grids";
+import { IgcDataGridComponent } from "igniteui-webcomponents-data-grids";
+import { IgcTemplateColumnComponent } from "igniteui-webcomponents-data-grids";
+import { IgcColumnGroupDescription } from "igniteui-webcomponents-data-grids";
+import { IgcCellStyleRequestedEventArgs } from "igniteui-webcomponents-data-grids";
+import { IgcTemplateCellUpdatingEventArgs } from "igniteui-webcomponents-data-grids";
+import { IgcTemplateCellInfo } from "igniteui-webcomponents-data-grids";
+import { IgcDataBindingEventArgs } from "igniteui-webcomponents-data-grids";
+import { IgcDataGridColumnComponent } from "igniteui-webcomponents-data-grids";
+import { IgcDefinitionBaseComponent } from "igniteui-webcomponents-data-grids";
+import { ListSortDirection } from "igniteui-webcomponents-core";
+import { ModuleManager } from "igniteui-webcomponents-core";
 
 ModuleManager.register(IgcDataGridModule);
 
 export class DataGridTypeMarketingTable {
-
     private grid: IgcDataGridComponent;
     private good_color = "#4EB862";
     private bad_color = "#FF134A";
@@ -30,11 +27,10 @@ export class DataGridTypeMarketingTable {
     private state = {
         data: LiveFinancialData.generateData(2000),
         frequency: 100,
-        volume: 2000,
+        volume: 2000
     };
 
     constructor() {
-
         this.onPriceStyleKey = this.onPriceStyleKey.bind(this);
         this.onPriceCellUpdating = this.onPriceCellUpdating.bind(this);
         this.onPriceDataBound = this.onPriceDataBound.bind(this);
@@ -82,7 +78,6 @@ export class DataGridTypeMarketingTable {
     }
 
     tick() {
-
         if (!this.ticking) {
             return;
         }
@@ -105,7 +100,7 @@ export class DataGridTypeMarketingTable {
 
         let now = new Date();
         let intervalElapsed = false;
-        if ((+now - + this.lastDataUpdate) > this.state.frequency) {
+        if (+now - +this.lastDataUpdate > this.state.frequency) {
             intervalElapsed = true;
         }
 
@@ -118,8 +113,7 @@ export class DataGridTypeMarketingTable {
 
         let sortingByPrice = false;
         for (let i = 0; i < this.grid.sortDescriptions.count; i++) {
-            if (this.grid.sortDescriptions.item(i).field === "Price" ||
-                this.grid.sortDescriptions.item(i).field.indexOf("Change") >= 0) {
+            if (this.grid.sortDescriptions.item(i).field === "Price" || this.grid.sortDescriptions.item(i).field.indexOf("Change") >= 0) {
                 sortingByPrice = true;
             }
         }
@@ -141,7 +135,6 @@ export class DataGridTypeMarketingTable {
             let item = this.state.data[i];
             if (toChangeIndexes[i.toString()] !== undefined) {
                 if (sortingByPrice && !useClear) {
-
                     this.grid.notifyRemoveItem(i, item);
                     LiveFinancialData.randomizeDataValues(item);
                     this.grid.notifyInsertItem(i, item);
@@ -154,16 +147,15 @@ export class DataGridTypeMarketingTable {
                 } else {
                     item.PriceHeat = -1;
                 }
-            }
-            else {
+            } else {
                 if (item.PriceHeat > 0) {
-                    item.PriceHeat -= .06;
+                    item.PriceHeat -= 0.06;
                     if (item.PriceHeat < 0) {
                         item.PriceHeat = 0;
                     }
                 }
                 if (item.PriceHeat < 0) {
-                    item.PriceHeat += .06;
+                    item.PriceHeat += 0.06;
                     if (item.PriceHeat > 0) {
                         item.PriceHeat = 0;
                     }
@@ -237,12 +229,12 @@ export class DataGridTypeMarketingTable {
                 context.font = "13px Verdana";
                 context.fillStyle = iconColor;
                 context.textBaseline = "top";
-                context.fillText(txt, templ.width - (totalWidth + 5), (templ.height / 2.0) - 7);
+                context.fillText(txt, templ.width - (totalWidth + 5), templ.height / 2.0 - 7);
 
                 context.font = "13px 'Material Icons'";
                 context.fillStyle = iconColor;
                 context.textBaseline = "top";
-                context.fillText(iconText, templ.width - (iconWidth + 5), (templ.height / 2.0) - 7);
+                context.fillText(iconText, templ.width - (iconWidth + 5), templ.height / 2.0 - 7);
 
                 if (scale !== 1.0) {
                     context.restore();
@@ -266,8 +258,7 @@ export class DataGridTypeMarketingTable {
 
         sp.textContent = "$" + (+templ.value).toFixed(2);
 
-        if ((sp as any).__isUp === undefined ||
-            (sp as any).__isUp !== priceShiftUp) {
+        if ((sp as any).__isUp === undefined || (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
             if (priceShiftUp) {
                 sp.style.color = this.good_color;
@@ -319,11 +310,11 @@ export class DataGridTypeMarketingTable {
                 context.font = "13px Verdana";
                 context.fillStyle = templ.textColor;
                 context.textBaseline = "top";
-                context.fillText(txt, templ.width - (totalWidth + 10), (templ.height / 2.0) - 7);
+                context.fillText(txt, templ.width - (totalWidth + 10), templ.height / 2.0 - 7);
 
                 context.font = "13px 'Material Icons'";
                 context.fillStyle = iconColor;
-                context.fillRect(templ.width - (5 + 4), (templ.height / 2.0) - 8, 4, 16);
+                context.fillRect(templ.width - (5 + 4), templ.height / 2.0 - 8, 4, 16);
 
                 if (scale !== 1.0) {
                     context.restore();
@@ -347,8 +338,7 @@ export class DataGridTypeMarketingTable {
         }
 
         sp.textContent = (+templ.value).toFixed(2) + "%";
-        if ((sp as any).__isUp === undefined ||
-            (sp as any).__isUp !== priceShiftUp) {
+        if ((sp as any).__isUp === undefined || (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
             if (priceShiftUp) {
                 sp.style.paddingRight = "5px";
@@ -402,11 +392,11 @@ export class DataGridTypeMarketingTable {
                 context.font = "13px Verdana";
                 context.fillStyle = templ.textColor;
                 context.textBaseline = "top";
-                context.fillText(txt, templ.width - (totalWidth + 10), (templ.height / 2.0) - 7);
+                context.fillText(txt, templ.width - (totalWidth + 10), templ.height / 2.0 - 7);
 
                 context.font = "13px 'Material Icons'";
                 context.fillStyle = iconColor;
-                context.fillRect(templ.width - (5 + 4), (templ.height / 2.0) - 8, 4, 16);
+                context.fillRect(templ.width - (5 + 4), templ.height / 2.0 - 8, 4, 16);
 
                 if (scale !== 1.0) {
                     context.restore();
@@ -431,8 +421,7 @@ export class DataGridTypeMarketingTable {
 
         sp.textContent = (+templ.value).toFixed(2);
 
-        if ((sp as any).__isUp === undefined ||
-            (sp as any).__isUp !== priceShiftUp) {
+        if ((sp as any).__isUp === undefined || (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
             if (priceShiftUp) {
                 sp.style.paddingRight = "5px";
@@ -466,8 +455,7 @@ export class DataGridTypeMarketingTable {
                 let colorString = "rgba(" + Math.round(r * 255.0) + "," + Math.round(g * 255.0) + "," + Math.round(b * 255.0) + "," + a + ")";
 
                 args.cellInfo.background = colorString;
-            }
-            else if (item.PriceHeat < 0) {
+            } else if (item.PriceHeat < 0) {
                 let p = +item.PriceHeat * -1.0;
                 let toA = 1.0;
                 let fromA = 1.0;
@@ -486,8 +474,7 @@ export class DataGridTypeMarketingTable {
                 let colorString = "rgba(" + Math.round(r * 255.0) + "," + Math.round(g * 255.0) + "," + Math.round(b * 255.0) + "," + a + ")";
 
                 args.cellInfo.background = colorString;
-            }
-            else {
+            } else {
                 let colorString = "white";
                 args.cellInfo.background = colorString;
             }

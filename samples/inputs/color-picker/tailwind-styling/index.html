@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Picker Tailwind Styling</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+<body>
+    <div id="root">
+        <div class="sample">
+            <div class="theme-editor">
+                <div class="theme-editor-header">
+                    <div>
+                        <h2>Theme Editor</h2>
+                        <p>Use the pickers to style the card.</p>
+                    </div>
+                    <igc-icon-button id="resetTheme" name="refresh" collection="material"
+                        variant="flat"></igc-icon-button>
+                </div>
+                <div class="swatches">
+                    <div class="swatch-item">
+                        <igc-color-picker
+                            class="!light-color-picker [--ig-color-picker-picker-background:#FFF0EB] [--ig-color-picker-picker-border-color:#F95924] [--ig-color-picker-picker-border-radius:0.5rem]"
+                            id="bgPicker" value="#1a314a" label="Background">
+                            <span slot="helper-text">Card surface color</span></igc-color-picker>
+                    </div>
+                    <div class="swatch-item">
+                        <igc-color-picker
+                            class="!light-color-picker [--ig-color-picker-picker-background:#FFF0EB] [--ig-color-picker-picker-border-color:#F95924] [--ig-color-picker-picker-border-radius:0.5rem]"
+                            id="textPicker" value="#e5ebf3" size="small" label="Text">
+                            <span slot="helper-text" class="swatch-hint">Body &amp; heading
+                                color</span></igc-color-picker>
+                    </div>
+                    <div class="swatch-item">
+                        <igc-color-picker
+                            class="!light-color-picker [--ig-color-picker-picker-background:#FFF0EB] [--ig-color-picker-picker-border-color:#F95924] [--ig-color-picker-picker-border-radius:0.5rem]"
+                            id="accentPicker" value="#f9592a" size="small" label="Accent">
+                            <span slot="helper-text" class="swatch-hint">Button &amp; tag
+                                color</span></igc-color-picker>
+                    </div>
+                    <div class="swatch-item">
+                        <igc-color-picker
+                            class="!light-color-picker [--ig-color-picker-picker-background:#FFF0EB] [--ig-color-picker-picker-border-color:#F95924] [--ig-color-picker-picker-border-radius:0.5rem]"
+                            id="borderPicker" value="#00142b" size="small" label="Border">
+                            <span slot="helper-text" class="swatch-hint">Card edge color</span></igc-color-picker>
+                    </div>
+                    <div class="swatch-item disabled">
+                        <igc-color-picker
+                            class="!light-color-picker [--ig-color-picker-picker-background:#FFF0EB] [--ig-color-picker-picker-border-color:#F95924] [--ig-color-picker-picker-border-radius:0.5rem]"
+                            disabled value="#7d91ab" size="small" label="Shadow (Pro)">
+                            <span slot="helper-text" class="swatch-hint">Upgrade to unlock</span></igc-color-picker>
+                    </div>
+                </div>
+                <igc-card>
+                    <igc-card-content>
+                        <igc-chip>Design</igc-chip>
+                        <h3 id="previewTitle">Color Picker in Practice</h3>
+                        <p id="previewText">Pick colors above to see them applied live across every element of this
+                            card.</p>
+                        <div class="preview-actions">
+                            <igc-button id="readMoreBtn" variant="contained">Read more</igc-button>
+                            <igc-button id="saveBtn" variant="outlined">Save</igc-button>
+                        </div>
+                    </igc-card-content>
+                </igc-card>
+            </div>
+        </div>
+    </div>
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+</body>
+</html>
