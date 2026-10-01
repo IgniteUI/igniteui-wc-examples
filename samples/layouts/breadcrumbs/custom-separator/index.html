@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Breadcrumbs Custom Separator</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class='sample'>
+      <nav aria-label="Breadcrumb">
+        <igc-breadcrumbs
+          separator="slash"
+        >
+          <igc-breadcrumb><a href="/home">Home</a></igc-breadcrumb>
+          <igc-breadcrumb><a href="/home/products">Products</a></igc-breadcrumb>
+          <igc-breadcrumb><a href="/home/products/laptops">Laptops</a></igc-breadcrumb>
+          <igc-breadcrumb current><a href="/home/products/laptops/gaming">Gaming Laptop</a></igc-breadcrumb>
+        </igc-breadcrumbs>
+      </nav>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
