@@ -12,10 +12,10 @@
   </head>
 
   <body>
-    <div id="root">
-      <div class="button-group-alignment">
-        <div class="button-group-alignment-item">
-          <span>Horizontal</span>
+    <div id="root" class="states-container">
+      <div class="sample-layout">
+        <div class="sample-inner-layout">
+           <span>Horizontal</span>
           <igc-button-group alignment="horizontal">
             <igc-toggle-button value="sofia">
               Sofia
@@ -31,8 +31,7 @@
             </igc-toggle-button>
           </igc-button-group>
         </div>
-
-        <div class="button-group-alignment-item">
+        <div class="sample-inner-layout">
           <span>Vertical</span>
           <igc-button-group alignment="vertical">
             <igc-toggle-button value="sofia">
@@ -51,8 +50,5 @@
         </div>
       </div>
     </div>
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>

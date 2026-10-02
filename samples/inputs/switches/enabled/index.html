@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Switch Enabled</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample">
+      <div class="states">
+        <span class="states__corner"></span>
+        <span class="states__column">Hover</span>
+        <span class="states__column">Focused</span>
+        <span class="states__column">Focused &amp; Hover</span>
+
+        <span class="states__row">Enabled / On</span>
+        <igc-switch label-position="before" checked>
+          <span>Power</span>
+        </igc-switch>
+        <igc-switch label-position="before" checked>
+          <span>Power</span>
+        </igc-switch>
+        <igc-switch label-position="before" checked>
+          <span>Power</span>
+        </igc-switch>
+
+        <span class="states__row">Enabled / Off</span>
+        <igc-switch label-position="before">
+          <span>Power</span>
+        </igc-switch>
+        <igc-switch label-position="before">
+          <span>Power</span>
+        </igc-switch>
+        <igc-switch label-position="before">
+          <span>Power</span>
+        </igc-switch>
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>

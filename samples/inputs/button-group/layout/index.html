@@ -12,10 +12,10 @@
   </head>
 
   <body>
-    <div id="root">
-      <div class="button-group-layout">
+    <div id="root" class="states-container">
+      <div class="sample-layout">
         <igc-button-group>
-          <igc-toggle-button value="left">
+           <igc-toggle-button value="left">
             Left
             <igc-ripple></igc-ripple>
           </igc-toggle-button>
@@ -45,8 +45,5 @@
         </igc-button-group>
       </div>
     </div>
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %><script src="src/index.ts"></script><% } %>
-
   </body>
 </html>

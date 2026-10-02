@@ -13,8 +13,12 @@
 
   <body>
     <div id="root">
-      <div class="container sample center">
-        <igc-button variant="flat">Flat</igc-button>
+      <div class="container sample">
+        <igc-button variant="flat">
+          <igc-icon slot="prefix" name="notifications" collection="material"></igc-icon>
+          Flat
+          <igc-icon slot="suffix" name="notifications" collection="material"></igc-icon>
+        </igc-button>
       </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->

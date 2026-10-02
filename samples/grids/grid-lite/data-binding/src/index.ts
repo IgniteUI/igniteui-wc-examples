@@ -1,5 +1,5 @@
 import { IgcGridLite } from 'igniteui-grid-lite';
-import { IgcButtonComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcButtonComponent } from 'igniteui-webcomponents';
 import { GridLiteDataService, User } from './GridLiteDataService';
 import { html, render } from 'lit-html';
 
@@ -7,6 +7,7 @@ import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
 IgcGridLite.register();
+defineComponents(IgcButtonComponent);
 
 export class Sample {
     private dataService: GridLiteDataService;

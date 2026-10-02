@@ -13,8 +13,21 @@
 
   <body>
     <div id="root">
-      <div class="container sample center">
-        <igc-button variant="contained">Contained</igc-button>
+      <div class="container sample">
+        <div class="button-grid">
+          <div class="button-row">
+            <igc-button variant="contained" class="confirm-button">Confirm</igc-button>
+            <igc-button variant="outlined" class="send-button">
+              <igc-icon slot="prefix" name="send" collection="material"></igc-icon>
+              Send
+            </igc-button>
+            <igc-button variant="flat" class="cancel-button">Cancel</igc-button>
+            <igc-button variant="fab" class="add-button">
+              Add
+              <igc-icon slot="suffix" name="add" collection="material"></igc-icon>
+            </igc-button>
+          </div>
+        </div>
       </div>
     </div>
     <!-- This script is needed only for parcel and it will be excluded for webpack -->
