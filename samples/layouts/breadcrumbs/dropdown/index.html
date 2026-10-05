@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Breadcrumbs Dropdown</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="sample">
+      <nav aria-label="Breadcrumb">
+        <igc-breadcrumbs>
+          <igc-breadcrumb>
+            <a href="/my-drive">My drive</a>
+          </igc-breadcrumb>
+          <igc-breadcrumb>
+            <igc-dropdown distance="10">
+              <igc-icon slot="target" name="three-dots"></igc-icon>
+              <igc-dropdown-item href="/my-drive/projects"><igc-icon name="folder" slot="prefix"></igc-icon>Projects</igc-dropdown-item>
+              <igc-dropdown-item href="/my-drive/website-redesign"><igc-icon name="folder" slot="prefix"></igc-icon>Website redesign</igc-dropdown-item>
+            </igc-dropdown>
+          </igc-breadcrumb>
+          <igc-breadcrumb>
+            <a href="/my-drive/assets">Assets</a>
+          </igc-breadcrumb>
+          <igc-breadcrumb current>
+            <a href="/my-drive/assets/icons">Icons</a>
+          </igc-breadcrumb>
+        </igc-breadcrumbs>
+      </nav>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
