@@ -1,7 +1,7 @@
 {
-  "name": "wc-chip-size",
+  "name": "wc-chip-area",
   "version": "1.0.0",
-  "description": "This project provides example of Chip Size using IgniteUI for Web Components",
+  "description": "This project provides example of Chip Area using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",

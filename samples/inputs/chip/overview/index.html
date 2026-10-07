@@ -14,10 +14,26 @@
 
 <body>
   <div id="root">
-    <div class="container sample center">
-      <igc-chip selectable removable>
-        Chip
-      </igc-chip>
+    <div class="sample">
+      <div class="profile-card">
+        <div>
+          <span class="section-header" id="name-header">Name</span>
+          <igc-input class="name-input" outlined value="Jordan Lee" aria-labelledby="name-header"></igc-input>
+        </div>
+        <div>
+          <span class="section-header" id="skills-header">Skills · 0 selected</span>
+          <div class="skills" role="group" aria-labelledby="skills-header">
+            <igc-chip class="skill" outlined selectable>Figma</igc-chip>
+            <igc-chip class="skill" outlined selectable>React</igc-chip>
+            <igc-chip class="skill" outlined selectable>CSS</igc-chip>
+            <igc-chip class="skill" outlined selectable>Prototyping</igc-chip>
+            <igc-chip class="skill" outlined selectable>Motion Design</igc-chip>
+          </div>
+        </div>
+        <div class="actions">
+          <igc-button>Save profile</igc-button>
+        </div>
+      </div>
     </div>
   </div>
 

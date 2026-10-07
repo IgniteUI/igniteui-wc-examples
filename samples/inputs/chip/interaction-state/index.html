@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Styled Chip</title>
+  <title>Chip Interaction State</title>
   <meta charset="UTF-8" />
 
   <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
@@ -14,21 +14,15 @@
 
 <body>
   <div id="root">
-    <div class="sample chip-styling">
-      <igc-chip class="tag-chip" removable>
-        Prototyping
-      </igc-chip>
-      <igc-chip class="filter-chip" selectable selected>
-        Motion Design
-      </igc-chip>
-      <igc-chip class="product-chip" outlined>
-        Sony Headphones
-        <igc-icon slot="suffix" name="star_half" collection="material"></igc-icon>
-      </igc-chip>
-      <igc-chip class="contact-chip" outlined>
-        <igc-icon slot="prefix" name="people" collection="material"></igc-icon>
-        Simon and Lisa
-      </igc-chip>
+    <div class="sample chip-states">
+      <div class="chip-states-item">
+        <span>Enabled</span>
+        <igc-chip removable>Chip</igc-chip>
+      </div>
+      <div class="chip-states-item">
+        <span>Disabled</span>
+        <igc-chip removable disabled>Chip</igc-chip>
+      </div>
     </div>
   </div>
 

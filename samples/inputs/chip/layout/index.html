@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Chip Sizes</title>
+  <title>Chip Layout</title>
   <meta charset="UTF-8" />
 
   <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
@@ -14,27 +14,29 @@
 
 <body>
   <div id="root">
-    <div class="sample chip-size">
-      <div class="chip-size-item">
-        <span>Small</span>
-        <igc-chip class="size-small" selectable selected removable>
+    <div class="sample chip-layout">
+      <div class="chip-layout-item">
+        <span>Text</span>
+        <igc-chip>Chip</igc-chip>
+      </div>
+      <div class="chip-layout-item">
+        <span>Prefix</span>
+        <igc-chip>
+          <igc-icon slot="prefix" name="arrow_upward" collection="material"></igc-icon>
+          Chip
+        </igc-chip>
+      </div>
+      <div class="chip-layout-item">
+        <span>Prefix+Suffix</span>
+        <igc-chip>
           <igc-icon slot="prefix" name="arrow_upward" collection="material"></igc-icon>
           Chip
           <igc-icon slot="suffix" name="account_circle" collection="material"></igc-icon>
         </igc-chip>
       </div>
-      <div class="chip-size-item">
-        <span>Medium</span>
-        <igc-chip class="size-medium" selectable selected removable>
-          <igc-icon slot="prefix" name="arrow_upward" collection="material"></igc-icon>
-          Chip
-          <igc-icon slot="suffix" name="account_circle" collection="material"></igc-icon>
-        </igc-chip>
-      </div>
-      <div class="chip-size-item">
-        <span>Large</span>
-        <igc-chip class="size-large" selectable selected removable>
-          <igc-icon slot="prefix" name="arrow_upward" collection="material"></igc-icon>
+      <div class="chip-layout-item">
+        <span>Suffix</span>
+        <igc-chip>
           Chip
           <igc-icon slot="suffix" name="account_circle" collection="material"></igc-icon>
         </igc-chip>
