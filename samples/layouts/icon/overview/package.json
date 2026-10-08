@@ -1,11 +1,7 @@
 {
-  "name": "wc-icon-styling",
-  "description": "This project provides example of Icon Styling using IgniteUI for Web Components",
-  "author": "Infragistics",
+  "name": "wc-icon-overview",
   "version": "1.0.0",
-  "license": "",
-  "private": true,
-  "homepage": ".",
+  "description": "This project provides example of Icon Overview using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
@@ -21,6 +17,7 @@
     "serve:prod:legacy": "webpack-dev-server --env.NODE_ENV=production --env.legacy=true --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --progress --open --content-base dist/",
     "start:legacy": "npm run serve:dev:legacy"
   },
+  "author": "Infragistics",
   "dependencies": {
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/template": "^1.4.2",
@@ -57,5 +54,7 @@
     "webpack-dev-server": "^5.2.2",
     "worker-loader": "^3.0.8",
     "xml-loader": "^1.2.1"
-  }
+  },
+  "license": "",
+  "homepage": "."
 }
