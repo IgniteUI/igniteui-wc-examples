@@ -14,9 +14,20 @@
 
 <body>
   <div id="root">
-    <div class="container sample center" style="flex-direction: row; gap: 8px;">
-      <igc-chip selectable removable>
-        Chip
+    <div class="sample chip-styling">
+      <igc-chip class="tag-chip" removable>
+        Prototyping
+      </igc-chip>
+      <igc-chip class="filter-chip" selectable selected>
+        Motion Design
+      </igc-chip>
+      <igc-chip class="product-chip" outlined>
+        Sony Headphones
+        <igc-icon slot="suffix" name="star_half" collection="material"></igc-icon>
+      </igc-chip>
+      <igc-chip class="contact-chip" outlined>
+        <igc-icon slot="prefix" name="people" collection="material"></igc-icon>
+        Simon and Lisa
       </igc-chip>
     </div>
   </div>

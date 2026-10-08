@@ -1,8 +1,0 @@
-igc-chip::part(base) {
-  background: var(--ig-primary-500);
-  color: var(--ig-primary-500-contrast);
-}
-
-igc-chip::part(suffix) {
-  color: var(--ig-gray-400);
-}

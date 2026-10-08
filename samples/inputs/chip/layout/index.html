@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chip Layout</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="sample chip-layout">
+      <div class="chip-layout-item">
+        <span>Text</span>
+        <igc-chip>Chip</igc-chip>
+      </div>
+      <div class="chip-layout-item">
+        <span>Prefix</span>
+        <igc-chip>
+          <igc-icon slot="prefix" name="arrow_upward" collection="material"></igc-icon>
+          Chip
+        </igc-chip>
+      </div>
+      <div class="chip-layout-item">
+        <span>Prefix+Suffix</span>
+        <igc-chip>
+          <igc-icon slot="prefix" name="arrow_upward" collection="material"></igc-icon>
+          Chip
+          <igc-icon slot="suffix" name="account_circle" collection="material"></igc-icon>
+        </igc-chip>
+      </div>
+      <div class="chip-layout-item">
+        <span>Suffix</span>
+        <igc-chip>
+          Chip
+          <igc-icon slot="suffix" name="account_circle" collection="material"></igc-icon>
+        </igc-chip>
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
