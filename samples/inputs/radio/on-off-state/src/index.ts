@@ -4,8 +4,8 @@ import './index.css';
 
 defineComponents(IgcRadioComponent, IgcRadioGroupComponent);
 
-export class RadioStyling {
+export class RadioOnOffState {
     constructor() {}
 }
 
-new RadioStyling();
+new RadioOnOffState();
