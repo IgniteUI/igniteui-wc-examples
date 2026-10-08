@@ -4,10 +4,10 @@
       "esModuleInterop": true,
       "noImplicitAny": true,
       "declarationDir": "dist/types",
-      "moduleResolution": "node",
+      "moduleResolution": "bundler",
       "declaration": true,
       "target": "es2015",
-      "module": "es2015",
+      "module": "esnext",
       "strict": true
   },
   "include": [
@@ -17,4 +17,4 @@
       "node_modules",
       "dist"
   ]
-}
+}
