@@ -1,7 +1,7 @@
 {
-  "name": "wc-card-horizontal",
+  "name": "wc-card-position",
   "version": "1.0.0",
-  "description": "This project provides example of Card Horizontal using IgniteUI for Web Components",
+  "description": "This project provides example of Card Position using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",

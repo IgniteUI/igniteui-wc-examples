@@ -1,7 +1,7 @@
 {
-  "name": "wc-card-integration",
+  "name": "wc-card-actions",
   "version": "1.0.0",
-  "description": "This project provides example of Card Integration using IgniteUI for Web Components",
+  "description": "This project provides example of Card Actions using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",

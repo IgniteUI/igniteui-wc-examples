@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Card Media</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample card-container">
+      <igc-card class="media-card">
+        <igc-card-media class="media-card__media">
+          <img
+            src="https://dl.infragistics.com/x/img/card/card-2.png"
+            alt="A meeting room with a long table and chairs" />
+        </igc-card-media>
+        <igc-card-header>
+          <span slot="title">Book your meeting room</span>
+          <span slot="subtitle">Max 15 seats / 10 m2</span>
+        </igc-card-header>
+        <igc-card-actions>
+          <div slot="start" class="media-card__icons">
+            <igc-icon name="videocam" collection="material"></igc-icon>
+            <igc-icon name="bluetooth" collection="material"></igc-icon>
+            <igc-icon name="volume-off" collection="material"></igc-icon>
+          </div>
+          <igc-button slot="end" variant="flat" class="media-card__action">Book now</igc-button>
+        </igc-card-actions>
+      </igc-card>
+
+      <igc-card class="media-card">
+        <igc-card-media class="media-card__media">
+          <img
+            src="https://dl.infragistics.com/x/img/card/card-map-1.png"
+            alt="A street map with the event space marked" />
+        </igc-card-media>
+        <igc-card-header>
+          <span slot="title">Main Event Space</span>
+          <span slot="subtitle">Floor 4, Suite 402</span>
+        </igc-card-header>
+        <igc-card-actions>
+          <div slot="start" class="media-card__icons">
+            <igc-icon name="directions-bus" collection="material"></igc-icon>
+            <igc-icon name="directions-car" collection="material"></igc-icon>
+            <igc-icon name="flight" collection="material"></igc-icon>
+          </div>
+          <igc-button slot="end" variant="flat" class="media-card__action">Get directions</igc-button>
+        </igc-card-actions>
+      </igc-card>
+
+      <igc-card class="media-card">
+        <igc-card-media class="media-card__media">
+          <img
+            src="https://dl.infragistics.com/x/img/card/card-map-2.png"
+            alt="A map of Europe showing the sales region" />
+        </igc-card-media>
+        <igc-card-header>
+          <span slot="title">View your coverage area</span>
+          <span slot="subtitle">Sales region</span>
+        </igc-card-header>
+        <igc-card-actions>
+          <div slot="start" class="media-card__icons">
+            <igc-icon name="place" collection="material"></igc-icon>
+            <igc-icon name="pin-right" collection="material"></igc-icon>
+          </div>
+          <igc-button slot="end" variant="flat" class="media-card__action">See details</igc-button>
+        </igc-card-actions>
+      </igc-card>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
