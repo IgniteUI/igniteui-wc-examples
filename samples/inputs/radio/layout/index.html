@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Radio Disabled</title>
+  <title>Radio Layout</title>
   <meta charset="UTF-8" />
 
   <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
@@ -14,14 +14,22 @@
 
 <body>
   <div id="root">
-    <div class="sample radio-disabled">
-      <div class="age-question">
-        <span id="age-title" class="age-title">What is your age?</span>
-        <igc-radio-group name="age" aria-labelledby="age-title">
-          <igc-radio value="18-27" checked>18-27</igc-radio>
-          <igc-radio value="28-39">28-39</igc-radio>
-          <igc-radio value="40-55" disabled>40-55</igc-radio>
+    <div class="sample radio-layout">
+      <div class="radio-layout-item">
+        <span>Label After</span>
+        <igc-radio-group name="color-after">
+          <igc-radio value="yellow" checked>Yellow</igc-radio>
+          <igc-radio value="orange">Orange</igc-radio>
+          <igc-radio value="purple">Purple</igc-radio>
         </igc-radio-group>
+      </div>
+      <div class="radio-layout-item">
+        <igc-radio-group name="color-before">
+          <igc-radio value="yellow" label-position="before" checked>Yellow</igc-radio>
+          <igc-radio value="orange" label-position="before">Orange</igc-radio>
+          <igc-radio value="purple" label-position="before">Purple</igc-radio>
+        </igc-radio-group>
+        <span>Label Before</span>
       </div>
     </div>
   </div>

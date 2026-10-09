@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Radio Interaction State</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="sample radio-states">
+      <!-- The radios only show their states, so they take no pointer or keyboard input. -->
+      <div class="radio-states-grid" inert>
+        <span></span>
+        <span class="column-caption">Hover</span>
+        <span class="column-caption">Focused</span>
+        <span class="column-caption">Focused &amp; Hover</span>
+        <div class="radio-states-group">
+          <span class="row-caption">Enabled / On</span>
+          <igc-radio class="hover" checked>Daily Updates</igc-radio>
+          <igc-radio class="focused" checked>Weekly Updates</igc-radio>
+          <igc-radio class="focused-hover" checked>Monthly Updates</igc-radio>
+          <span class="row-caption">Enabled / Off</span>
+          <igc-radio class="hover">Daily Updates</igc-radio>
+          <igc-radio class="focused">Weekly Updates</igc-radio>
+          <igc-radio class="focused-hover">Monthly Updates</igc-radio>
+        </div>
+        <div class="radio-states-group">
+          <span class="row-caption">Invalid / On</span>
+          <igc-radio class="hover" checked invalid>Daily Updates</igc-radio>
+          <igc-radio class="focused" checked invalid>Weekly Updates</igc-radio>
+          <igc-radio class="focused-hover" checked invalid>Monthly Updates</igc-radio>
+          <span class="row-caption">Invalid / Off</span>
+          <igc-radio class="hover" invalid>Daily Updates</igc-radio>
+          <igc-radio class="focused" invalid>Weekly Updates</igc-radio>
+          <igc-radio class="focused-hover" invalid>Monthly Updates</igc-radio>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
