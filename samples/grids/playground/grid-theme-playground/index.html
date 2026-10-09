@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700" />
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+</head>
+
+<body>
+    <div id="root">
+        <div class="container sample ig-typography">
+            <div class="playground">
+                <aside class="playground__rail">
+                    <igc-accordion>
+                        <igc-expansion-panel>
+                            <span slot="title">Grid Type</span>
+                            <p class="playground__hint">
+                                One set of grid tokens serves every grid. Switch here to see the same
+                                tokens applied to a different one.
+                            </p>
+                            <igc-button-group id="previewGroup" alignment="vertical" selection="single-required">
+                                <igc-toggle-button value="grid" selected>Flat</igc-toggle-button>
+                                <igc-toggle-button value="tree">Tree</igc-toggle-button>
+                                <igc-toggle-button value="hierarchical">Hierarchical</igc-toggle-button>
+                                <igc-toggle-button value="pivot">Pivot</igc-toggle-button>
+                            </igc-button-group>
+                        </igc-expansion-panel>
+                        <igc-expansion-panel open>
+                            <span slot="title">Primary tokens</span>
+                            <p class="playground__hint">
+                                Start here. Background and accent are enough to theme the whole
+                                grid &mdash; header, rows, icons and popups all derive from them.
+                                Foreground is picked for contrast automatically; set it only to
+                                override that.
+                            </p>
+                            <div class="playground__fields">
+                                <div class="playground__color-control">
+                                    <igc-color-picker id="backgroundPicker" mode="input" label="Background"></igc-color-picker>
+                                    <igc-icon-button id="backgroundReset" variant="flat" name="restart_alt" collection="material"
+                                        aria-label="Reset Background to auto" title="Reset to auto"></igc-icon-button>
+                                </div>
+                                <div class="playground__color-control">
+                                    <igc-color-picker id="accentColorPicker" mode="input" label="Accent"></igc-color-picker>
+                                    <igc-icon-button id="accentColorReset" variant="flat" name="restart_alt" collection="material"
+                                        aria-label="Reset Accent to auto" title="Reset to auto"></igc-icon-button>
+                                </div>
+                                <div class="playground__color-control">
+                                    <igc-color-picker id="foregroundPicker" mode="input" label="Foreground"></igc-color-picker>
+                                    <igc-icon-button id="foregroundReset" variant="flat" name="restart_alt" collection="material"
+                                        aria-label="Reset Foreground to auto" title="Reset to auto"></igc-icon-button>
+                                </div>
+                            </div>
+                        </igc-expansion-panel>
+                        <igc-expansion-panel>
+                            <span slot="title">Header</span>
+                            <p class="playground__hint">
+                                Optional. The header normally derives from the background.
+                                Declare one here and it detaches, becoming a root of its own &mdash;
+                                its text then takes contrast against the new header rather
+                                than following the grid foreground.
+                            </p>
+                            <div class="playground__fields">
+                                <div class="playground__color-control">
+                                    <igc-color-picker id="headerBackgroundPicker" mode="input" label="Header background"></igc-color-picker>
+                                    <igc-icon-button id="headerBackgroundReset" variant="flat" name="restart_alt" collection="material"
+                                        aria-label="Reset Header background to auto" title="Reset to auto"></igc-icon-button>
+                                </div>
+                                <div class="playground__color-control">
+                                    <igc-color-picker id="headerForegroundPicker" mode="input" label="Header foreground"></igc-color-picker>
+                                    <igc-icon-button id="headerForegroundReset" variant="flat" name="restart_alt" collection="material"
+                                        aria-label="Reset Header foreground to auto" title="Reset to auto"></igc-icon-button>
+                                </div>
+                            </div>
+                        </igc-expansion-panel>
+                        <igc-expansion-panel open>
+                            <span slot="title">Structure</span>
+                            <div class="playground__fields">
+                                <div class="playground__control">
+                                    <span class="playground__label">Density</span>
+                                    <igc-button-group id="sizeGroup" alignment="vertical" selection="single-required">
+                                        <igc-toggle-button value="small">Small</igc-toggle-button>
+                                        <igc-toggle-button value="medium" selected>Medium</igc-toggle-button>
+                                        <igc-toggle-button value="large">Large</igc-toggle-button>
+                                    </igc-button-group>
+                                </div>
+                                <div class="playground__control">
+                                    <span class="playground__label">Roundness</span>
+                                    <igc-button-group id="roundnessGroup" alignment="vertical"
+                                        selection="single-required">
+                                        <igc-toggle-button value="0">Square</igc-toggle-button>
+                                        <igc-toggle-button value="0.4" selected>Soft</igc-toggle-button>
+                                        <igc-toggle-button value="1">Round</igc-toggle-button>
+                                    </igc-button-group>
+                                </div>
+                                <igc-switch id="horizontalDividers" checked>Horizontal dividers</igc-switch>
+                                <igc-switch id="verticalDividers">Vertical dividers</igc-switch>
+                                <igc-switch id="zebra">Zebra rows</igc-switch>
+                                <p class="playground__hint">
+                                    Both dividers use the same derived colour, and switching one
+                                    off tints it to the surface rather than removing it, so the
+                                    row metrics never change.
+                                </p>
+                            </div>
+                        </igc-expansion-panel>
+                    </igc-accordion>
+                    <div class="playground__actions">
+                        <igc-button id="resetButton" variant="outlined">Reset</igc-button>
+                        <igc-button id="showCodeButton" variant="contained">Show code</igc-button>
+                    </div>
+                </aside>
+                <section class="playground__preview">
+                    <div class="playground__stage" id="stage"></div>
+                </section>
+            </div>
+            <igc-dialog id="codeDialog" close-on-outside-click>
+                <div slot="title" class="playground__dialog-title">Theme code</div>
+                <div class="playground__dialog-body">
+                    <div class="playground__code-header">
+                        <span>CSS variables</span>
+                        <igc-icon-button id="copyButton" class="playground__copy" name="content_copy"
+                            collection="material" variant="outlined" title="Copy code"></igc-icon-button>
+                    </div>
+                    <div class="playground__code" id="cssCode"></div>
+                </div>
+                <igc-button slot="footer" id="closeButton" variant="flat">Close</igc-button>
+            </igc-dialog>
+        </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+</body>
+
+</html>
