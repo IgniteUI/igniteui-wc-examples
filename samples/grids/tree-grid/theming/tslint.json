@@ -1,0 +1,54 @@
+{
+    "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+    "linterOptions": {
+      "exclude": [
+        "node_modules/**/*.ts",
+        "**/odatajs-4.0.0.js",
+        "src/images/*.*"
+      ]
+    },
+    "rules": {
+      "curly": [false, "ignore-same-line"],
+      "jsx-no-lambda": false,
+      "jsx-self-close": false,
+      "jsx-wrap-multiline": false,
+      "max-classes-per-file": [true, 10],
+      "member-ordering": false,
+      "no-console": false,
+      "no-string-literal": false,
+      "no-unused-vars": false,
+      "no-useless-constructor": false,
+      "no-trailing-whitespace": false,
+      "no-var": false,
+      "no-var-requires": false,
+      "no-var-keyword": false,
+      "ordered-imports": false,
+      "object-literal-sort-keys": false,
+      "object-literal-shorthand": false,
+      "only-arrow-functions": false,
+      "prefer-const": false,
+      "prefer-for-of": false,
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-useless-constructor": "off",
+      "@typescript-eslint/type-annotation-spacing": "off"
+    },
+    "jsRules": {
+      "curly": [false, "ignore-same-line"],
+      "jsx-no-lambda": false,
+      "jsx-self-close": false,
+      "jsx-wrap-multiline": false,
+      "max-classes-per-file": [true, 10],
+      "no-console": false,
+      "no-unused-vars": false,
+      "no-useless-constructor": false,
+      "no-var-requires": false,
+      "object-literal-sort-keys": false,
+      "object-literal-shorthand": false,
+      "only-arrow-functions": false,
+      "ordered-imports": false,
+      "prefer-const": false,
+      "prefer-for-of": false,
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-useless-constructor": "off"
+    }
+  }
