@@ -1,7 +1,7 @@
 {
-  "name": "wc-rating-styling",
+  "name": "wc-rating-size",
   "version": "1.0.0",
-  "description": "This project provides example of Rating Styling using IgniteUI for Web Components",
+  "description": "This project provides example of Rating Size using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
