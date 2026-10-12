@@ -21,14 +21,18 @@
           <igc-input class="name-input" outlined value="Jordan Lee" aria-labelledby="name-header"></igc-input>
         </div>
         <div>
-          <span class="section-header" id="skills-header">Skills · 0 selected</span>
-          <div class="skills" role="group" aria-labelledby="skills-header">
+          <span class="section-header" id="skills-header">Skills · 2 selected</span>
+          <div class="chip-group" id="skills" role="group" aria-labelledby="skills-header">
             <igc-chip class="skill" outlined selectable>Figma</igc-chip>
             <igc-chip class="skill" outlined selectable>React</igc-chip>
             <igc-chip class="skill" outlined selectable>CSS</igc-chip>
-            <igc-chip class="skill" outlined selectable>Prototyping</igc-chip>
-            <igc-chip class="skill" outlined selectable>Motion Design</igc-chip>
+            <igc-chip class="skill" outlined selectable selected>Prototyping</igc-chip>
+            <igc-chip class="skill" outlined selectable selected>Motion Design</igc-chip>
           </div>
+        </div>
+        <div>
+          <span class="section-header" id="selected-header">Selected</span>
+          <div class="chip-group" id="selected" role="group" aria-labelledby="selected-header"></div>
         </div>
         <div class="actions">
           <igc-button>Save profile</igc-button>
