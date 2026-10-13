@@ -14,7 +14,8 @@
 
 <body>
   <div id="root">
-    <div class="sample chip-states">
+    <!-- The chips only show their look, so inert keeps them out of the tab order and ignores pointer input. -->
+    <div class="sample chip-states" inert>
       <div class="chip-states-item">
         <span>Enabled</span>
         <igc-chip removable>Chip</igc-chip>
