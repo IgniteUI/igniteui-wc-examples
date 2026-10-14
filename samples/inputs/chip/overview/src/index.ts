@@ -1,30 +1,55 @@
-import { defineComponents, IgcChipComponent, IgcIconComponent, registerIconFromText } from 'igniteui-webcomponents';
+import { defineComponents, IgcButtonComponent, IgcChipComponent, IgcInputComponent } from 'igniteui-webcomponents';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import './index.css';
 
-defineComponents(IgcIconComponent, IgcChipComponent);
+defineComponents(IgcButtonComponent, IgcChipComponent, IgcInputComponent);
 
 export class ChipOverview {
-  constructor() {
-    const chips = document.querySelectorAll('igc-chip[removable]');
-    chips.forEach(chip => {
-      chip.addEventListener('igcRemove', (e) => this.onRemove(e));
-    });
+    private header = document.getElementById('skills-header') as HTMLElement;
+    private selectedGroup = document.getElementById('selected') as HTMLElement;
+    private skills = Array.from(document.querySelectorAll<IgcChipComponent>('#skills igc-chip'));
+    private removables = new Map<IgcChipComponent, IgcChipComponent>();
 
-    registerIconFromText(
-      'cancel',
-      '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg>'
-    );
+    constructor() {
+        this.skills.forEach((skill) => skill.addEventListener('igcSelect', () => this.update()));
+        this.update();
+    }
 
-    registerIconFromText(
-      'select',
-      '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>'
-    );
-  }
+    private update() {
+        const selected = this.skills.filter((skill) => skill.selected);
+        this.header.textContent = `Skills · ${selected.length} selected`;
+        // Both groups list the selected skills in the order of the skills list.
+        this.selectedGroup.replaceChildren(...selected.map((skill) => this.removableFor(skill)));
+    }
 
-  public onRemove(event: Event) {
-    const chip = event.target as HTMLElement;
-    chip?.remove();
-  }
+    private removableFor(skill: IgcChipComponent) {
+        let chip = this.removables.get(skill);
+        if (!chip) {
+            chip = document.createElement('igc-chip');
+            chip.className = 'skill';
+            chip.outlined = true;
+            chip.removable = true;
+            chip.textContent = skill.textContent;
+            chip.addEventListener('igcRemove', () => this.removeSkill(skill));
+            this.removables.set(skill, chip);
+        }
+        return chip;
+    }
+
+    private removeSkill(skill: IgcChipComponent) {
+        const index = Array.from(this.selectedGroup.children).indexOf(this.removableFor(skill));
+        skill.selected = false;
+        this.update();
+
+        // The removed chip is gone, so move focus to the next selected skill, or back to the skill itself when none is left.
+        const remaining = this.selectedGroup.children;
+        const next = (remaining[index] ?? remaining[index - 1]) as IgcChipComponent | undefined;
+        // The chip doesn't delegate focus yet, so focus its inner controls directly.
+        const target = next
+            ? next.shadowRoot?.querySelector<HTMLElement>('[part="remove"] igc-icon')
+            : skill.shadowRoot?.querySelector<HTMLElement>('[part="action"]');
+        target?.focus();
+    }
 }
 
 new ChipOverview();
