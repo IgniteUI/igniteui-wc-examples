@@ -1,23 +1,18 @@
 import {
     defineComponents,
     IgcButtonComponent,
-    IgcIconComponent,
-    IgcRatingComponent,
-    registerIconFromText
+    IgcRatingComponent
 } from 'igniteui-webcomponents';
 import { html, render } from 'lit-html';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './index.css';
 
-defineComponents(IgcButtonComponent, IgcIconComponent, IgcRatingComponent);
-
-const headphonesIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>';
+defineComponents(IgcButtonComponent, IgcRatingComponent);
 
 export class RatingTailwindStyling {
     private root = document.getElementById('sample') as HTMLElement;
 
     constructor() {
-        registerIconFromText('headphones', headphonesIcon, 'material');
         this.renderSample();
     }
 
@@ -25,9 +20,7 @@ export class RatingTailwindStyling {
         const template = html`
             <div class="w-[328px] rounded-xl border border-product-border bg-white p-2 font-[aktiv-grotesk,sans-serif] [--ig-font-family:aktiv-grotesk,sans-serif]">
                 <div class="flex items-center gap-4 px-4 py-2">
-                    <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-linear-to-b from-[#d2f7ff] to-[#8fb0cf]">
-                        <igc-icon class="text-[#5f83a7] [--ig-icon-size:1.75rem]" name="headphones" collection="material"></igc-icon>
-                    </div>
+                    <img class="size-10 shrink-0 rounded-lg object-cover" src="https://dl.infragistics.com/x/img/rating/rating-headphones.png" alt="Wireless headphones" />
                     <div class="flex-1">
                         <span class="block text-sm leading-5 font-medium text-product-ink">Wireless Headphones</span>
                         <span class="block max-w-36 text-xs leading-4 font-semibold text-product-muted">Great sound quality and battery life!</span>
