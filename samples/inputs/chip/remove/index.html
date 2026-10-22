@@ -14,9 +14,11 @@
 
 <body>
   <div id="root">
-    <!-- The chip only shows the removable look, so inert keeps it out of the tab order and ignores pointer input. -->
-    <div class="sample chip-remove" inert>
-      <igc-chip removable>Chip</igc-chip>
+    <div class="sample chip-remove">
+      <div class="chip-remove-slot">
+        <igc-chip id="chip" removable>Chip</igc-chip>
+        <igc-button id="restore" class="restore-button" variant="flat" hidden>Restore chip</igc-button>
+      </div>
     </div>
   </div>
 
