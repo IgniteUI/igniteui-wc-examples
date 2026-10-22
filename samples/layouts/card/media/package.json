@@ -1,7 +1,7 @@
 {
-  "name": "wc-card-semi-horizontal",
+  "name": "wc-card-media",
   "version": "1.0.0",
-  "description": "This project provides example of Card Semi Horizontal using IgniteUI for Web Components",
+  "description": "This project provides example of Card Media using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
