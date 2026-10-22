@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700" />
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+</head>
+
+<body>
+    <div id="root">
+        <div class="container sample ig-typography">
+            <div class="grid-theming-sample">
+                <div class="theme-picker">
+                    <span class="theme-picker__label">Pick a theme</span>
+                    <igc-button-group id="themeSwitcher" selection="single-required">
+                        <igc-toggle-button value="theme-studio" selected>
+                            <span class="theme-swatch theme-swatch--studio"></span>Studio
+                        </igc-toggle-button>
+                        <igc-toggle-button value="theme-ledger">
+                            <span class="theme-swatch theme-swatch--ledger"></span>Ledger
+                        </igc-toggle-button>
+                        <igc-toggle-button value="theme-editorial">
+                            <span class="theme-swatch theme-swatch--editorial"></span>Editorial
+                        </igc-toggle-button>
+                        <igc-toggle-button value="theme-midnight">
+                            <span class="theme-swatch theme-swatch--midnight"></span>Midnight
+                        </igc-toggle-button>
+                    </igc-button-group>
+                    <p class="theme-picker__hint">
+                        Custom themes, not built-in: each is a set of <code>--ig-grid-*</code> variables
+                        with its own background and accent.
+                    </p>
+                </div>
+                <igc-grid id="grid" class="themed-grid theme-studio" auto-generate="false" width="100%" height="560px"
+                    allow-filtering="true" filter-mode="excelStyleFilter" row-selection="multiple"
+                    column-selection="multiple">
+                    <igc-grid-toolbar>
+                        <igc-grid-toolbar-title>Invoices</igc-grid-toolbar-title>
+                        <igc-grid-toolbar-actions>
+                            <igc-grid-toolbar-pinning></igc-grid-toolbar-pinning>
+                            <igc-grid-toolbar-hiding></igc-grid-toolbar-hiding>
+                        </igc-grid-toolbar-actions>
+                    </igc-grid-toolbar>
+                    <igc-column field="ShipCountry" header="Country" width="160px" sortable="true" filterable="true"
+                        pinned="true">
+                    </igc-column>
+                    <igc-column field="ShipCity" header="City" width="160px" sortable="true" filterable="true">
+                    </igc-column>
+                    <igc-column field="ShipName" header="Ship Name" width="240px" sortable="true" filterable="true">
+                    </igc-column>
+                    <igc-column field="Salesperson" header="Salesperson" width="200px" sortable="true"
+                        filterable="true">
+                    </igc-column>
+                    <igc-column id="unitPrice" field="UnitPrice" header="Unit Price" width="140px" data-type="number"
+                        sortable="true" has-summary="true">
+                    </igc-column>
+                    <igc-column field="Quantity" header="Quantity" width="140px" data-type="number" sortable="true">
+                    </igc-column>
+                    <igc-paginator per-page="10">
+                    </igc-paginator>
+                </igc-grid>
+            </div>
+        </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+</body>
+
+</html>
