@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Card Position</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample card-container">
+      <div class="card-item">
+        <span class="card-item__label">Media before header</span>
+
+        <igc-card class="position-card">
+          <igc-card-media class="position-card__media">
+            <img
+              src="https://dl.infragistics.com/x/img/card/card-2.png"
+              alt="A meeting room with a long table and chairs" />
+          </igc-card-media>
+          <igc-card-header>
+            <span slot="title">Book your meeting room</span>
+            <span slot="subtitle">Max 15 seats / 10 m2</span>
+          </igc-card-header>
+          <igc-card-actions>
+            <div slot="start" class="position-card__icons">
+              <igc-icon name="videocam" collection="material"></igc-icon>
+              <igc-icon name="bluetooth" collection="material"></igc-icon>
+              <igc-icon name="volume-off" collection="material"></igc-icon>
+            </div>
+            <igc-button slot="end" variant="flat" class="position-card__action">Book now</igc-button>
+          </igc-card-actions>
+        </igc-card>
+      </div>
+
+      <div class="card-item">
+        <span class="card-item__label">Media after header</span>
+
+        <igc-card class="position-card">
+          <igc-card-header>
+            <span slot="title">Book your meeting room</span>
+            <span slot="subtitle">Max 15 seats / 10 m2</span>
+          </igc-card-header>
+          <igc-card-media class="position-card__media">
+            <img
+              src="https://dl.infragistics.com/x/img/card/card-2.png"
+              alt="A meeting room with a long table and chairs" />
+          </igc-card-media>
+          <igc-card-actions>
+            <div slot="start" class="position-card__icons">
+              <igc-icon name="videocam" collection="material"></igc-icon>
+              <igc-icon name="bluetooth" collection="material"></igc-icon>
+              <igc-icon name="volume-off" collection="material"></igc-icon>
+            </div>
+            <igc-button slot="end" variant="flat" class="position-card__action">Book now</igc-button>
+          </igc-card-actions>
+        </igc-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
