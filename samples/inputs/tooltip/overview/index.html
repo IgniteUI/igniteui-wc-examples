@@ -14,11 +14,23 @@
 
 <body>
   <div id="root">
-    <div class="container sample center">
-      <igc-avatar id="avatar" src="https://dl.infragistics.com/x/img/avatars/10.jpg"
-        shape="circle">
-      </igc-avatar>
-      <igc-tooltip anchor="avatar">Her name is Madelyn James</igc-tooltip>
+    <div class="sample">
+      <div class="settings">
+        <igc-radio-group alignment="horizontal">
+          <igc-radio name="placement" value="top">Top</igc-radio>
+          <igc-radio name="placement" value="right">Right</igc-radio>
+          <igc-radio name="placement" value="left">Left</igc-radio>
+          <igc-radio name="placement" value="bottom" checked>Bottom</igc-radio>
+        </igc-radio-group>
+        <igc-switch id="close-button" label-position="before" checked>Close Button</igc-switch>
+        <igc-switch id="arrow" label-position="before" checked>Arrow</igc-switch>
+      </div>
+      <div id="target" class="target"></div>
+      <igc-tooltip id="tooltip" anchor="target" placement="bottom" with-arrow sticky open>
+        This is a tooltip message
+        <br />
+        Multiline message here.
+      </igc-tooltip>
     </div>
   </div>
 
