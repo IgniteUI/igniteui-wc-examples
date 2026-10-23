@@ -83,6 +83,17 @@ const { slug = '', title = 'Ignite UI | Web Components', styles = [] } = Astro.p
         /* sandboxed iframe: no sessionStorage — sidebar stays collapsed */
       }
     </script>
+
+    <!-- A docs <Sample fitContent> sizes the iframe to the sample, so the page
+         must not scroll (see layout.css). Listens before the sample's lazy
+         chunk loads, so the host's message is never missed. -->
+    <script is:inline>
+      addEventListener('message', (e) => {
+        if (e.source === parent && e.data?.type === 'igd-sample-fit') {
+          document.documentElement.dataset.igdFit = '';
+        }
+      });
+    </script>
   </head>
 
   <body class="ig-scrollbar ig-typography">

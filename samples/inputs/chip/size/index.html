@@ -14,16 +14,31 @@
 
 <body>
   <div id="root">
-    <div class="container sample center" style="flex-direction: row; gap: 8px; align-items: baseline;">
-      <igc-chip class="small" selectable removable>
-        Chip
-      </igc-chip>
-      <igc-chip class="medium" selectable removable>
-        Chip
-      </igc-chip>
-      <igc-chip class="large" selectable removable>
-        Chip
-      </igc-chip>
+    <div class="sample chip-size">
+      <div class="chip-size-item">
+        <span>Small</span>
+        <igc-chip class="size-small" selectable selected removable>
+          <igc-icon slot="prefix" name="arrow_upward" collection="material"></igc-icon>
+          Chip
+          <igc-icon slot="suffix" name="account_circle" collection="material"></igc-icon>
+        </igc-chip>
+      </div>
+      <div class="chip-size-item">
+        <span>Medium</span>
+        <igc-chip class="size-medium" selectable selected removable>
+          <igc-icon slot="prefix" name="arrow_upward" collection="material"></igc-icon>
+          Chip
+          <igc-icon slot="suffix" name="account_circle" collection="material"></igc-icon>
+        </igc-chip>
+      </div>
+      <div class="chip-size-item">
+        <span>Large</span>
+        <igc-chip class="size-large" selectable selected removable>
+          <igc-icon slot="prefix" name="arrow_upward" collection="material"></igc-icon>
+          Chip
+          <igc-icon slot="suffix" name="account_circle" collection="material"></igc-icon>
+        </igc-chip>
+      </div>
     </div>
   </div>
 
