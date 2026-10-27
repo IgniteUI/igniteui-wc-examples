@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "noImplicitAny": true,
+    "declarationDir": "dist/types",
+    "moduleResolution": "node",
+    "declaration": true,
+    "target": "es2015",
+    "module": "es2015",
+    "strict": true,
+    "strictNullChecks": false,
+    "baseUrl": ".",
+    "paths": {
+      "igniteui-webcomponents-core": [ "node_modules/igniteui-webcomponents-core", "node_modules/@infragistics/igniteui-webcomponents-core" ],
+      "igniteui-webcomponents-charts": [ "node_modules/igniteui-webcomponents-charts", "node_modules/@infragistics/igniteui-webcomponents-charts" ],
+      "igniteui-webcomponents-gauges": [ "node_modules/igniteui-webcomponents-gauges", "node_modules/@infragistics/igniteui-webcomponents-gauges" ],
+      "igniteui-webcomponents-datasources": [ "node_modules/igniteui-webcomponents-datasources", "node_modules/@infragistics/igniteui-webcomponents-datasources" ],
+      "igniteui-webcomponents-excel": [ "node_modules/igniteui-webcomponents-excel", "node_modules/@infragistics/igniteui-webcomponents-excel" ],
+      "igniteui-webcomponents-inputs": [ "node_modules/igniteui-webcomponents-inputs", "node_modules/@infragistics/igniteui-webcomponents-inputs" ],
+      "igniteui-webcomponents-grids": [ "node_modules/igniteui-webcomponents-grids", "node_modules/@infragistics/igniteui-webcomponents-grids" ],
+      "igniteui-webcomponents-maps": [ "node_modules/igniteui-webcomponents-maps", "node_modules/@infragistics/igniteui-webcomponents-maps" ],
+      "igniteui-webcomponents-spreadsheet": [ "node_modules/igniteui-webcomponents-spreadsheet", "node_modules/@infragistics/igniteui-webcomponents-spreadsheet" ],
+      "igniteui-webcomponents-spreadsheet-chart-adapter": [ "node_modules/igniteui-webcomponents-spreadsheet-chart-adapter", "node_modules/@infragistics/igniteui-webcomponents-spreadsheet-chart-adapter" ],
+      "igniteui-webcomponents-grids/*": [ "node_modules/igniteui-webcomponents-grids/*", "node_modules/@infragistics/igniteui-webcomponents-grids/*" ],
+      "igniteui-webcomponents-grids/grids": [ "node_modules/igniteui-webcomponents-grids/grids", "node_modules/@infragistics/igniteui-webcomponents-grids/grids" ],
+      "igniteui-webcomponents-grids/grids/*": [ "node_modules/igniteui-webcomponents-grids/grids/*", "node_modules/@infragistics/igniteui-webcomponents-grids/grids/*" ],
+      "igniteui-webcomponents-grids/grids/combined": [ "node_modules/igniteui-webcomponents-grids/grids/combined", "node_modules/@infragistics/igniteui-webcomponents-grids/grids/combined" ],
+      "igniteui-webcomponents-layouts": [ "node_modules/igniteui-webcomponents-layouts", "node_modules/@infragistics/igniteui-webcomponents-layouts" ]
+    }
+  },
+  "include": [
+      "src/**/*"
+  ],
+  "exclude": [
+      "node_modules",
+      "dist"
+  ]
+}
