@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700" />
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+</head>
+
+<body>
+    <div id="root">
+        <div class="container sample ig-typography">
+            <div class="grid-theming-sample">
+                <div class="theme-picker">
+                    <span class="theme-picker__label">Pick a theme</span>
+                    <igc-button-group id="themeSwitcher" selection="single-required">
+                        <igc-toggle-button value="theme-studio" selected>
+                            <span class="theme-swatch theme-swatch--studio"></span>Studio
+                        </igc-toggle-button>
+                        <igc-toggle-button value="theme-ledger">
+                            <span class="theme-swatch theme-swatch--ledger"></span>Ledger
+                        </igc-toggle-button>
+                        <igc-toggle-button value="theme-editorial">
+                            <span class="theme-swatch theme-swatch--editorial"></span>Editorial
+                        </igc-toggle-button>
+                        <igc-toggle-button value="theme-midnight">
+                            <span class="theme-swatch theme-swatch--midnight"></span>Midnight
+                        </igc-toggle-button>
+                    </igc-button-group>
+                    <p class="theme-picker__hint">
+                        Custom themes, not built-in: each is a set of <code>--ig-grid-*</code> variables
+                        with its own background and accent.
+                    </p>
+                </div>
+                <igc-hierarchical-grid id="hierarchicalGrid" class="themed-grid theme-studio" auto-generate="false"
+                    allow-filtering="true" filter-mode="excelStyleFilter" row-selection="multiple" height="480px"
+                    width="100%">
+                    <igc-column field="Artist" resizable="true" sortable="true" filterable="true"></igc-column>
+                    <igc-column id="photoColumn" field="Photo" resizable="true" min-width="115px"></igc-column>
+                    <igc-column id="debutColumn" field="Debut" resizable="true" min-width="88px" max-width="230px"
+                        data-type="number" sortable="true" filterable="true"></igc-column>
+                    <igc-column field="GrammyNominations" header="Grammy Nominations" resizable="true" sortable="true"
+                        filterable="true"></igc-column>
+                    <igc-column field="GrammyAwards" header="Grammy Awards" resizable="true" sortable="true"
+                        filterable="true"></igc-column>
+                    <igc-row-island id="albumsIsland" child-data-key="Albums" auto-generate="false"
+                        allow-filtering="true" filter-mode="excelStyleFilter">
+                        <igc-column field="Album" resizable="true" sortable="true" filterable="true"></igc-column>
+                        <igc-column field="LaunchDate" header="Launch Date" resizable="true" data-type="date"
+                            sortable="true" filterable="true"></igc-column>
+                        <igc-column field="BillboardReview" header="Billboard Review" resizable="true" sortable="true"
+                            filterable="true"></igc-column>
+                        <igc-column field="USBillboard200" header="US Billboard 200" resizable="true" sortable="true"
+                            filterable="true"></igc-column>
+                        <igc-row-island id="songsIsland" child-data-key="Songs" auto-generate="false">
+                            <igc-column field="Number" header="No." resizable="true"></igc-column>
+                            <igc-column field="Title" resizable="true"></igc-column>
+                            <igc-column field="Released" data-type="date" resizable="true"></igc-column>
+                            <igc-column field="Genre" resizable="true"></igc-column>
+                        </igc-row-island>
+                    </igc-row-island>
+                    <igc-row-island id="toursIsland" child-data-key="Tours" auto-generate="false" allow-filtering="true"
+                        filter-mode="excelStyleFilter">
+                        <igc-column field="Tour" resizable="true" sortable="true" filterable="true"></igc-column>
+                        <igc-column field="StartedOn" header="Started on" resizable="true" sortable="true"
+                            filterable="true"></igc-column>
+                        <igc-column field="Location" resizable="true" sortable="true" filterable="true"></igc-column>
+                        <igc-column field="Headliner" resizable="true" sortable="true" filterable="true"></igc-column>
+                    </igc-row-island>
+                </igc-hierarchical-grid>
+            </div>
+        </div>
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %>
+        <script src="src/index.ts"></script>
+        <% } %>
+</body>
+
+</html>

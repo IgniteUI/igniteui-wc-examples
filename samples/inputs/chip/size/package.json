@@ -1,7 +1,7 @@
 {
-  "name": "wc-checkbox-checked",
+  "name": "wc-chip-size",
   "version": "1.0.0",
-  "description": "This project provides example of Checkbox Checked using IgniteUI for Web Components",
+  "description": "This project provides example of Chip Size using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
