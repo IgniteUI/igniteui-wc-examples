@@ -51,7 +51,7 @@ export class DialogTailwindStyling {
                         name="clear"
                         collection="material"
                         aria-label="Close"
-                        class="[&::part(base)]:size-6 [&::part(base)]:p-0 [&::part(base)]:rounded-full [&::part(base)]:border [&::part(base)]:border-invite-ink [&::part(base)]:text-invite-ink"
+                        class="[&::part(base)]:size-6 [&::part(base)]:p-0 [&::part(base)]:rounded-full [&::part(base)]:border [&::part(base)]:border-invite-ink [--ig-outlined-icon-button-foreground:var(--color-invite-ink)]"
                     ></igc-icon-button>
                     <span slot="message">
                         <span class="text-invite-link">john.smith@company.com</span> has been invited to your team.
