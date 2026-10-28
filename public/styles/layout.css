@@ -24,6 +24,9 @@ html.with-nav #nav-bar { width: 270px; }
 
 #router-target { flex: 1 1 auto; height: 100%; overflow: auto; position: relative; }
 
+/* Docs fitContent embed: a scrollbar would reflow the sample and loop its height. */
+html[data-igd-fit] #router-target { overflow: clip; }
+
 /*Nav links*/
 #nav-bar a {
   text-decoration: none; display: block;
