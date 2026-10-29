@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Card Actions</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="container sample card-container">
+      <div class="card-item">
+        <span class="card-item__label">Horizontal actions (default)</span>
+
+        <igc-card class="post-card">
+          <igc-card-header>
+            <igc-avatar
+              slot="thumbnail"
+              shape="circle"
+              src="https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png"></igc-avatar>
+            <span slot="title">Lena Fischer</span>
+            <span slot="subtitle">@lena &middot; 2h ago</span>
+          </igc-card-header>
+          <igc-card-content>
+            <p>
+              Just shipped our new design system &#128640; Six months of tokens,
+              components, and documentation &mdash; and it&rsquo;s finally live.
+              So proud of the team.
+            </p>
+          </igc-card-content>
+          <igc-card-actions orientation="horizontal">
+            <igc-icon-button
+              slot="end"
+              variant="flat"
+              name="favorite"
+              collection="material"
+              aria-label="Like"></igc-icon-button>
+            <igc-icon-button
+              slot="end"
+              variant="flat"
+              name="bookmark"
+              collection="material"
+              aria-label="Save"></igc-icon-button>
+            <igc-icon-button
+              slot="end"
+              variant="flat"
+              name="linkedin"
+              collection="material"
+              aria-label="Share on LinkedIn"></igc-icon-button>
+          </igc-card-actions>
+        </igc-card>
+      </div>
+
+      <div class="card-item">
+        <span class="card-item__label">Vertical actions</span>
+
+        <igc-card class="post-card post-card--vertical">
+          <div class="post-card__body">
+            <igc-card-header>
+              <igc-avatar
+                slot="thumbnail"
+                shape="circle"
+                src="https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png"></igc-avatar>
+              <span slot="title">Lena Fischer</span>
+              <span slot="subtitle">@lena &middot; 2h ago</span>
+            </igc-card-header>
+            <igc-card-content>
+              <p>
+                Just shipped our new design system &#128640; Six months of
+                tokens, components, and documentation &mdash; and it&rsquo;s
+                finally live. So proud of the team.
+              </p>
+            </igc-card-content>
+          </div>
+
+          <igc-card-actions orientation="vertical">
+            <igc-icon-button
+              variant="flat"
+              name="favorite"
+              collection="material"
+              aria-label="Like"></igc-icon-button>
+            <igc-icon-button
+              variant="flat"
+              name="bookmark"
+              collection="material"
+              aria-label="Save"></igc-icon-button>
+            <igc-icon-button
+              variant="flat"
+              name="linkedin"
+              collection="material"
+              aria-label="Share on LinkedIn"></igc-icon-button>
+          </igc-card-actions>
+        </igc-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
