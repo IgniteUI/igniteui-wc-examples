@@ -1,48 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Radio Group</title>
-    <meta charset="UTF-8" />
 
-    <link
-      rel="shortcut icon"
-      href="https://dl.infragistics.com/x/img/browsers/wc.png"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Kanit&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Titillium Web"
-    />
-    <link
-      rel="stylesheet"
-      href="https://dl.infragistics.com/x/css/samples/shared.v8.css"
-      type="text/css"
-    />
-  </head>
+<head>
+  <title>Radio Styling</title>
+  <meta charset="UTF-8" />
 
-  <body>
-    <div id="root">
-      <div class="container sample">
-        <div style="width: 400px; border: 1px solid gainsboro">
-          <igc-radio-group>
-            <igc-radio name="fruit">Apple</igc-radio>
-            <igc-radio name="fruit" checked>Banana</igc-radio>
-            <igc-radio name="fruit">Mango</igc-radio>
-            <igc-radio name="fruit">Orange</igc-radio>
-          </igc-radio-group>
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="sample radio-styling">
+      <div class="shipping-card">
+        <div class="shipping-header">
+          <span id="shipping-title" class="shipping-title">Shipping method</span>
         </div>
+        <igc-radio-group class="shipping-methods" name="shipping" aria-labelledby="shipping-title">
+          <igc-radio class="shipping-method" value="standard" checked>Standard <span class="shipping-detail">(2-4 business days)</span></igc-radio>
+          <igc-radio class="shipping-method" value="express">Express <span class="shipping-detail">(next day by 6 pm)</span></igc-radio>
+          <igc-radio class="shipping-method" value="pickup">Pickup point <span class="shipping-detail">(400 + locations)</span></igc-radio>
+          <igc-radio class="shipping-method" value="same-day" disabled>Same-day <span class="shipping-detail">(not available)</span></igc-radio>
+        </igc-radio-group>
       </div>
     </div>
-    <!-- This script is needed only for parcel and it will be excluded for webpack -->
-    <% if (false) { %>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
     <script src="src/index.ts"></script>
     <% } %>
-  </body>
+
+</body>
+
 </html>
