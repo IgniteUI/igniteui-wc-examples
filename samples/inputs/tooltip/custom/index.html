@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tooltip Custom</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="sample">
+      <igc-list id="income-taxes" class="trigger taxes-trigger">
+        <igc-list-item>
+          <span slot="title">Individual Income Taxes</span>
+          <span slot="end" class="amount">($2.4T)</span>
+        </igc-list-item>
+      </igc-list>
+      <igc-tooltip id="income-taxes-tooltip" anchor="income-taxes" placement="bottom-start" class="custom-tooltip chart-tooltip">
+        <span class="tooltip-title">Individual Income Taxes</span>
+        <div class="chart">
+          <igc-category-chart
+            id="chart"
+            width="100%"
+            height="100%"
+            chart-type="SplineArea"
+            included-properties="year, revenue"
+            brushes="#9de772"
+            outlines="#9de772"
+            area-fill-opacity="0.5"
+            thickness="2"
+            marker-types="None"
+            tool-tip-type="None"
+            is-horizontal-zoom-enabled="false"
+            is-vertical-zoom-enabled="false"
+            y-axis-minimum-value="0"
+            y-axis-maximum-value="60"
+            y-axis-interval="20"
+            y-axis-title="IFT"
+            y-axis-major-stroke="transparent"
+            x-axis-stroke="#9e9e9e"
+            x-axis-tick-stroke="#9e9e9e"
+            x-axis-tick-length="8"
+            x-axis-label-text-color="#616161"
+            x-axis-label-text-style="400 10px 'Titillium Web'"
+            y-axis-label-text-color="#616161"
+            y-axis-label-text-style="400 10px 'Titillium Web'"
+            y-axis-title-text-color="#212121"
+            y-axis-title-text-style="400 10px 'Titillium Web'">
+          </igc-category-chart>
+        </div>
+        <span class="tooltip-description">
+          In fiscal year (FY) 2024, the largest source of federal revenue was
+          Individual Income Taxes (49.3% of total revenue).
+        </span>
+      </igc-tooltip>
+      <igc-list id="employee" class="trigger employee-trigger">
+        <igc-list-item>
+          <div slot="start" class="avatar">
+            <igc-avatar src="https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png" shape="circle" alt="Eliza Morales"></igc-avatar>
+            <igc-badge variant="danger">
+              <igc-icon name="block" collection="material"></igc-icon>
+            </igc-badge>
+          </div>
+          <span slot="title">Eliza Morales</span>
+        </igc-list-item>
+      </igc-list>
+      <igc-tooltip anchor="employee" placement="bottom-start" class="custom-tooltip employee-tooltip">
+        <div class="avatar">
+          <igc-avatar src="https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png" shape="circle" alt="Eliza Morales"></igc-avatar>
+          <igc-badge variant="danger">
+            <igc-icon name="block" collection="material"></igc-icon>
+          </igc-badge>
+        </div>
+        <div class="employee-details">
+          <span class="tooltip-title">Eliza Morales</span>
+          <span>Software Engineer</span>
+          <span>In a meeting</span>
+          <span>Available at 2:00 pm</span>
+        </div>
+      </igc-tooltip>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+  <% } %>
+
+</body>
+</html>
