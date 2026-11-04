@@ -8,19 +8,14 @@ defineComponents(IgcTabsComponent);
 export class TabsStates {
     private root = document.getElementById('sample') as HTMLElement;
 
-    // the tabs are display-only, so keyboard navigation is blocked
-    private blockKeyboard = {
-        handleEvent: (e: Event) => e.stopPropagation(),
-        capture: true
-    };
-
     constructor() {
         this.renderSample();
     }
 
     private renderSample() {
+        // The tabs only show their look, so inert keeps them out of the tab order and ignores pointer input.
         const template = html`
-            <div class="states" @keydown=${this.blockKeyboard}>
+            <div class="states" inert>
                 <span></span>
                 <span class="state-label state-column">Active</span>
                 <span class="state-label state-column">Inactive</span>
