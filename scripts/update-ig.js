@@ -61,7 +61,7 @@ const packageUpgrades = [
   { name: "igniteui-i18n-resources", version: "^1.0.5" },
   { name: "igniteui-grid-lite", version: "~0.11.0" },
   { name: "igniteui-webcomponents-grids", version: "^7.3.0" },
-  { name: "igniteui-webcomponents", version: "~7.4.1" },
+  { name: "igniteui-webcomponents", version: "7.5.0-beta.0" },
   { name: "igniteui-dockmanager", version: "~2.2.0" },
   // Other packages kept in sync across sample package.json files
   { name: "webpack", version: "^5.101.3" },
