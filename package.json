@@ -36,7 +36,7 @@
     "igniteui-grid-lite": "~0.11.0",
     "igniteui-i18n-resources": "^1.0.5",
     "igniteui-theming": "^29.0.0",
-    "igniteui-webcomponents": "~7.4.1",
+    "igniteui-webcomponents": "7.5.0-beta.0",
     "igniteui-webcomponents-charts": "7.1.0",
     "igniteui-webcomponents-core": "7.1.0",
     "igniteui-webcomponents-dashboards": "7.1.0",
@@ -65,5 +65,10 @@
     "sass": "^1.92.1",
     "shiki": "^4.4.3",
     "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "igniteui-webcomponents": {
+      "igniteui-i18n-resources": "$igniteui-i18n-resources"
+    }
   }
 }
