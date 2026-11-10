@@ -17,6 +17,12 @@
     <div class="sample combo-features">
       <div class="combo-column">
         <igc-combo id="combo" outlined label="Location" placeholder-search="Search…" value-key="id" display-key="name"></igc-combo>
+
+        <div class="selection-panel">
+          <span class="selection-title" id="selection-title">Selection</span>
+          <ul class="selection-list" id="selection-list" aria-labelledby="selection-title" hidden></ul>
+          <span class="selection-empty" id="selection-empty">No items selected</span>
+        </div>
       </div>
 
       <div class="controls">
