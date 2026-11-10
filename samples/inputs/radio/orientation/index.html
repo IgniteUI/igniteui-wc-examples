@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Radio Orientation</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="sample radio-orientation">
+      <div class="radio-orientation-item billing-cycle">
+        <span id="billing-title" class="radio-orientation-title">Billing cycle</span>
+        <igc-radio-group name="billing" alignment="vertical" aria-labelledby="billing-title">
+          <igc-radio value="monthly" checked>Monthly</igc-radio>
+          <igc-radio value="annual">Annual</igc-radio>
+          <igc-radio value="two-year">Two-year</igc-radio>
+        </igc-radio-group>
+      </div>
+      <div class="radio-orientation-item chart-type">
+        <span id="chart-title" class="radio-orientation-title">Chart type</span>
+        <igc-radio-group name="chart" alignment="horizontal" aria-labelledby="chart-title">
+          <igc-radio value="line" checked>Line</igc-radio>
+          <igc-radio value="bar">Bar</igc-radio>
+          <igc-radio value="pie">Pie</igc-radio>
+        </igc-radio-group>
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
