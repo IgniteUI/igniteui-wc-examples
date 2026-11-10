@@ -1,23 +1,103 @@
-import { defineComponents, IgcTabsComponent, registerIconFromText } from 'igniteui-webcomponents';
+import {
+    defineComponents,
+    IgcAvatarComponent,
+    IgcChipComponent,
+    IgcListComponent,
+    IgcListItemComponent,
+    IgcTabsComponent
+} from 'igniteui-webcomponents';
+import { html, render } from 'lit-html';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import './TabsStyle.css'
+import './index.css';
 
-defineComponents(IgcTabsComponent);
+defineComponents(
+    IgcAvatarComponent,
+    IgcChipComponent,
+    IgcListComponent,
+    IgcListItemComponent,
+    IgcTabsComponent
+);
+
+interface ProfileDetail {
+    label: string;
+    value: string;
+}
+
+interface ProfileSection {
+    label: string;
+    disabled?: boolean;
+    details: ProfileDetail[];
+}
 
 export class TabsStyling {
+    private sections: ProfileSection[] = [
+        {
+            label: 'Overview',
+            details: [
+                { label: 'Email', value: 'emily.carter@gmail.com' },
+                { label: 'Team', value: 'Finance, 8 members' },
+                { label: 'Joined', value: 'March 2023' }
+            ]
+        },
+        {
+            label: 'Activity',
+            details: [
+                { label: 'Last login', value: 'Today, 09:24' },
+                { label: 'Reports', value: '12 this month' },
+                { label: 'Approvals', value: '3 pending' }
+            ]
+        },
+        {
+            label: 'Billing',
+            disabled: true,
+            details: []
+        }
+    ];
+
+    private root = document.getElementById('sample') as HTMLElement;
+
     constructor() {
-        registerIconFromText(
-            'home',
-            '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>'
-        );
-        registerIconFromText(
-            'search',
-            '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>'
-        );
-        registerIconFromText(
-            'favorite',
-            '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'
-        );
+        this.renderSample();
+    }
+
+    private renderSample() {
+        const template = html`
+            <div class="profile-card">
+                <igc-list class="profile-header">
+                    <igc-list-item>
+                        <igc-avatar
+                            slot="start"
+                            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-09.png"
+                            alt="Emily Carter"
+                            shape="circle"
+                        ></igc-avatar>
+                        <span slot="title" class="profile-name">Emily Carter</span>
+                        <span slot="subtitle" class="profile-role">Finance lead - Sofia</span>
+                        <igc-chip slot="end" class="profile-status">Active</igc-chip>
+                    </igc-list-item>
+                </igc-list>
+                <igc-tabs class="profile-tabs" alignment="justify">
+                    ${this.sections.map(
+                        (section) => html`
+                            <igc-tab label=${section.label} ?disabled=${section.disabled}>
+                                <igc-list class="profile-details">
+                                    ${section.details.map(
+                                        (detail) => html`
+                                            <igc-list-item>
+                                                <span slot="title" class="detail-label">${detail.label}</span>
+                                                <span slot="end" class="detail-value">${detail.value}</span>
+                                            </igc-list-item>
+                                        `
+                                    )}
+                                </igc-list>
+                            </igc-tab>
+                        `
+                    )}
+                </igc-tabs>
+            </div>
+        `;
+
+        render(template, this.root);
     }
 }
 
