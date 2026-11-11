@@ -87,7 +87,7 @@ export class ComboTemplates {
     };
 
     // the `id` values of the selected destinations
-    private selected: string[] = ['SOF', 'LON'];
+    private selected: string[] = [];
 
     private root = document.getElementById('sample') as HTMLElement;
 
@@ -125,7 +125,6 @@ export class ComboTemplates {
         }
 
         this.renderSample();
-        this.combo.value = this.selected;
     }
 
     private get combo() {
@@ -185,6 +184,7 @@ export class ComboTemplates {
                     group-sorting="none"
                     placeholder="Pick one or more cities"
                     placeholder-search="Search cities..."
+                    open
                     label=${templates.input ? 'Destinations' : nothing}
                     .data=${destinations}
                     .itemTemplate=${templates.item ? this.itemTemplate : this.defaultItemTemplate}
@@ -194,7 +194,7 @@ export class ComboTemplates {
                     ${templates.header
                         ? html`
                               <header slot="header" class="list-header">
-                                  <span>Destinations by region</span>
+                                  <span class="ig-typography__subtitle-2">Destinations by region</span>
                                   <igc-button variant="flat" @click=${this.selectAll}>Select all</igc-button>
                               </header>
                           `
@@ -202,7 +202,7 @@ export class ComboTemplates {
                     ${templates.footer
                         ? html`
                               <footer slot="footer" class="list-footer">
-                                  <span>${selected.length} selected</span>
+                                  <span class="ig-typography__body-2">${selected.length} selected</span>
                                   <igc-button variant="flat" @click=${this.clearSelection}>Clear</igc-button>
                               </footer>
                           `
@@ -230,11 +230,9 @@ export class ComboTemplates {
                         : nothing}
                 </igc-combo>
 
-                <div class="selection">
-                    <span class="selection-title">Selection</span>
-                    ${names.length
-                        ? names.map((name) => html`<span>${name}</span>`)
-                        : html`<span class="selection-empty">No items selected</span>`}
+                <div class="selection ig-typography__body-2">
+                    <span class="ig-typography__subtitle-2">Selection</span>
+                    <span>${names.length ? names.join(', ') : 'No items selected'}</span>
                 </div>
             </div>
 
