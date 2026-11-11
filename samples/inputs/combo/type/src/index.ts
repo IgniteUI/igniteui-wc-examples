@@ -13,12 +13,19 @@ interface Option {
     group: string;
 }
 
-export class ComboType {
-    private options: Option[] = [1, 2, 3, 4, 5].map((id) => ({ id, name: 'Item', group: 'Header' }));
+interface TypedCombo {
+    label: string;
+    outlined: boolean;
+    selected: number[];
+}
 
-    private types = [
-        { label: 'Border Type', outlined: true },
-        { label: 'Box Type', outlined: false }
+export class ComboType {
+    private options: Option[] = [1, 2, 3, 4, 5].map((id) => ({ id, name: `Item ${id}`, group: 'Header' }));
+
+    // each combo keeps the `id` values of its selected options
+    private types: TypedCombo[] = [
+        { label: 'Border Type', outlined: true, selected: [] },
+        { label: 'Box Type', outlined: false, selected: [] }
     ];
 
     // a click outside a combo moves the focus out of it, and then its dropdown stays open, so each combo opens and closes on its own
@@ -34,6 +41,34 @@ export class ComboType {
         registerIconFromText('language', languageIcon, 'material');
 
         this.renderSample();
+    }
+
+    // `igcChange` is emitted before the selection changes, so the value is read once the combo has
+    // updated; the search input of the combo emits its own `igcChange` that bubbles out of the combo,
+    // so only the events of the combo itself change the selection
+    private async onChange(type: TypedCombo, e: CustomEvent) {
+        const combo = e.currentTarget as IgcComboComponent<Option>;
+
+        if (e.composedPath()[0] !== combo) {
+            return;
+        }
+
+        await combo.updateComplete;
+        type.selected = combo.value as number[];
+        this.renderSample();
+    }
+
+    private selectionTemplate(selected: number[]) {
+        const names = selected.map((id) => this.options.find((option) => option.id === id)!.name);
+
+        return html`
+            <div class="selection">
+                <span class="selection-title">Selection</span>
+                ${names.length
+                    ? names.map((name) => html`<span>${name}</span>`)
+                    : html`<span class="selection-empty">No items selected</span>`}
+            </div>
+        `;
     }
 
     private renderSample() {
@@ -53,10 +88,12 @@ export class ComboType {
                                 group-key="group"
                                 open
                                 @igcClosing=${this.keepOpenOnOutsideClick}
+                                @igcChange=${(e: CustomEvent) => this.onChange(type, e)}
                                 .data=${this.options}
                             >
                                 <igc-icon slot="prefix" name="language" collection="material"></igc-icon>
                             </igc-combo>
+                            ${this.selectionTemplate(type.selected)}
                         </div>
                     `
                 )}

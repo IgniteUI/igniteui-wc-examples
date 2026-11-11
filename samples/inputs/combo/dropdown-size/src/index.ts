@@ -11,13 +11,20 @@ interface Option {
     group: string;
 }
 
-export class ComboDropdownSize {
-    private options: Option[] = [1, 2, 3].map((id) => ({ id, name: 'Item', group: 'Header' }));
+interface SizedDropdown {
+    label: string;
+    className: string;
+    selected: number[];
+}
 
-    private sizes = [
-        { label: 'Small', className: 'small' },
-        { label: 'Medium', className: 'medium' },
-        { label: 'Large', className: 'large' }
+export class ComboDropdownSize {
+    private options: Option[] = [1, 2, 3].map((id) => ({ id, name: `Item ${id}`, group: 'Header' }));
+
+    // each dropdown keeps the `id` values of its selected options
+    private sizes: SizedDropdown[] = [
+        { label: 'Small', className: 'small', selected: [] },
+        { label: 'Medium', className: 'medium', selected: [] },
+        { label: 'Large', className: 'large', selected: [] }
     ];
 
     // the input fields are hidden, so the dropdowns stay open and each one works on its own
@@ -26,6 +33,21 @@ export class ComboDropdownSize {
     private root = document.getElementById('sample') as HTMLElement;
 
     constructor() {
+        this.renderSample();
+    }
+
+    // `igcChange` is emitted before the selection changes, so the value is read once the combo has
+    // updated; the search input of the combo emits its own `igcChange` that bubbles out of the combo,
+    // so only the events of the combo itself change the selection
+    private async onChange(size: SizedDropdown, e: CustomEvent) {
+        const combo = e.currentTarget as IgcComboComponent<Option>;
+
+        if (e.composedPath()[0] !== combo) {
+            return;
+        }
+
+        await combo.updateComplete;
+        size.selected = combo.value as number[];
         this.renderSample();
     }
 
@@ -44,8 +66,17 @@ export class ComboDropdownSize {
                                 group-key="group"
                                 open
                                 @igcClosing=${this.keepOpen}
+                                @igcChange=${(e: CustomEvent) => this.onChange(size, e)}
                                 .data=${this.options}
                             ></igc-combo>
+                            <div class="selection">
+                                <span class="selection-title">Selection</span>
+                                ${size.selected.length
+                                    ? size.selected.map(
+                                          (id) => html`<span>${this.options.find((option) => option.id === id)!.name}</span>`
+                                      )
+                                    : html`<span class="selection-empty">No items selected</span>`}
+                            </div>
                         </div>
                     `
                 )}
