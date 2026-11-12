@@ -64,7 +64,7 @@ export class ComboStyling {
                     <span class="selection-title">Selection</span>
                     ${names.length
                         ? names.map((name) => html`<span>${name}</span>`)
-                        : html`<span class="selection-empty">No items selected</span>`}
+                        : html`<span>No items selected</span>`}
                 </div>
             </div>
         `;

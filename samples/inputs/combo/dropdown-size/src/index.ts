@@ -75,7 +75,7 @@ export class ComboDropdownSize {
                                     ? size.selected.map(
                                           (id) => html`<span>${this.options.find((option) => option.id === id)!.name}</span>`
                                       )
-                                    : html`<span class="selection-empty">No items selected</span>`}
+                                    : html`<span>No items selected</span>`}
                             </div>
                         </div>
                     `

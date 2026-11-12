@@ -45,7 +45,7 @@ export class ComboValidation {
     }
 
     private renderSample() {
-        // the combos are display-only, so inert blocks keyboard interaction
+        // the combos are display-only, so inert blocks pointer and keyboard interaction
         const template = html`
             <div class="states" inert>
                 <span class="type-label"></span>
@@ -60,10 +60,8 @@ export class ComboValidation {
                                     ?outlined=${type.outlined}
                                     ?invalid=${state.invalid}
                                     placeholder="Country"
-                                    placeholder-search="Search"
                                     value-key="id"
                                     display-key="name"
-                                    group-key="region"
                                     .data=${this.countries}
                                     .value=${['BY', 'BE']}
                                 >

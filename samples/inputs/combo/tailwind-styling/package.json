@@ -1,7 +1,7 @@
 {
   "name": "wc-combo-tailwind-styling",
   "version": "1.0.0",
-  "description": "This project provides example of Combo tailwind styling using IgniteUI for Web Components",
+  "description": "This project provides example of Combo Tailwind Styling using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",

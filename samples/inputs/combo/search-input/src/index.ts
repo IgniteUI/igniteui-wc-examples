@@ -12,8 +12,8 @@ interface SearchState {
 }
 
 export class ComboSearchInput {
-    // the search input states come from the pointer and the keyboard, so the `hover`,
-    // `disabled`, `filled` and `focused` classes show them on the display-only combos
+    // the display-only combos take no pointer or keyboard input, so the `hover`, `disabled`,
+    // `filled` and `focused` classes draw those states of the search input
     private states: SearchState[] = [
         { label: 'Idle' },
         { label: 'Idle & Hover', className: 'hover' },
@@ -33,7 +33,7 @@ export class ComboSearchInput {
     }
 
     private renderSample() {
-        // the search inputs are display-only, so inert blocks keyboard interaction
+        // the search inputs are display-only, so inert blocks pointer and keyboard interaction
         const template = html`
             <div class="states" inert>
                 ${this.states.map(

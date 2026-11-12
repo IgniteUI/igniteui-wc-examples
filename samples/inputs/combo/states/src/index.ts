@@ -46,7 +46,7 @@ export class ComboStates {
     }
 
     private renderSample() {
-        // the combos are display-only, so inert blocks keyboard interaction
+        // the combos are display-only, so inert blocks pointer and keyboard interaction
         const template = html`
             <div class="states" inert>
                 ${this.states.map(
