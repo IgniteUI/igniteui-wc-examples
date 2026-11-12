@@ -25,8 +25,8 @@ export class ComboSize {
     ];
 
     private types = [
-        { label: 'Border Type', outlined: true },
-        { label: 'Box Type', outlined: false }
+        { label: 'Border Type', outlined: true, className: 'border-type' },
+        { label: 'Box Type', outlined: false, className: 'box-type' }
     ];
 
     // the `id` values of the selected countries, kept for each combo
@@ -76,16 +76,16 @@ export class ComboSize {
     private renderSample() {
         const template = html`
             <div class="sizes">
-                <span></span>
+                <span class="type-label"></span>
                 ${this.sizes.map((size) => html`<span class="state-label state-column">${size.label}</span>`)}
                 ${this.types.map(
                     (type) => html`
-                        <span class="state-label type-label">${type.label}</span>
+                        <span class="state-label type-label ${type.className}">${type.label}</span>
                         ${this.sizes.map((size) => {
                             const key = `${type.label} ${size.label}`;
 
                             return html`
-                                <div class=${size.className}>
+                                <div class="${size.className} ${type.className}">
                                     <igc-combo
                                         ?outlined=${type.outlined}
                                         placeholder="Country"

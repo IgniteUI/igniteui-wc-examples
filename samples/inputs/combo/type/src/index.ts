@@ -16,16 +16,17 @@ interface Option {
 interface TypedCombo {
     label: string;
     outlined: boolean;
+    className: string;
     selected: number[];
 }
 
 export class ComboType {
-    private options: Option[] = [1, 2, 3, 4, 5].map((id) => ({ id, name: `Item ${id}`, group: 'Header' }));
+    private options: Option[] = [1, 2, 3, 4, 5].map((id) => ({ id, name: 'Item', group: 'Header' }));
 
     // each combo keeps the `id` values of its selected options
     private types: TypedCombo[] = [
-        { label: 'Border Type', outlined: true, selected: [] },
-        { label: 'Box Type', outlined: false, selected: [] }
+        { label: 'Border Type', outlined: true, className: 'border-type', selected: [] },
+        { label: 'Box Type', outlined: false, className: 'box-type', selected: [] }
     ];
 
     // a click outside a combo moves the focus out of it, and then its dropdown stays open, so each combo opens and closes on its own
@@ -76,7 +77,7 @@ export class ComboType {
             <div class="types">
                 ${this.types.map(
                     (type) => html`
-                        <div class="type">
+                        <div class="type ${type.className}">
                             <span class="type-label">${type.label}</span>
                             <igc-combo
                                 ?outlined=${type.outlined}

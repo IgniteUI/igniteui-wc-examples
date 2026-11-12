@@ -18,7 +18,7 @@ interface SizedDropdown {
 }
 
 export class ComboDropdownSize {
-    private options: Option[] = [1, 2, 3].map((id) => ({ id, name: `Item ${id}`, group: 'Header' }));
+    private options: Option[] = [1, 2, 3].map((id) => ({ id, name: 'Item', group: 'Header' }));
 
     // each dropdown keeps the `id` values of its selected options
     private sizes: SizedDropdown[] = [
