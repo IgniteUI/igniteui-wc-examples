@@ -35,6 +35,10 @@ html[data-igd-fit] body,
 html[data-igd-fit] #shell,
 html[data-igd-fit] #router-target { height: auto; }
 
+/* Docs fitContent embed: the host can round a fractional sample height down by
+   a fraction of a pixel, and that sliver would show an iframe scrollbar. */
+html[data-igd-fit] { overflow: hidden; }
+
 /*Nav links*/
 #nav-bar a {
   text-decoration: none; display: block;
