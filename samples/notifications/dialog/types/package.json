@@ -1,7 +1,7 @@
 {
-  "name": "wc-dialog-closing-variations",
+  "name": "wc-dialog-types",
   "version": "1.0.0",
-  "description": "This project provides example of Dialog Closing Variations using IgniteUI for Web Components",
+  "description": "This project provides an example of Dialog types using IgniteUI for Web Components",
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run build:prod",
