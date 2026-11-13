@@ -1,6 +1,7 @@
 import { defineComponents, IgcComboComponent, IgcIconComponent, registerIconFromText } from 'igniteui-webcomponents';
 import { html, render } from 'lit-html';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
+// the border and the box types differ only in the Material theme, so the sample uses that theme
+import 'igniteui-webcomponents/themes/light/material.css';
 import './index.css';
 
 defineComponents(IgcComboComponent, IgcIconComponent);
@@ -17,16 +18,12 @@ export class ComboSingleSelectType {
     private options: Option[] = [1, 2, 3, 4, 5].map((id) => ({ id, name: 'Item', group: 'Header' }));
 
     private types = [
-        { label: 'Border Type', outlined: true, className: 'border-type' },
-        { label: 'Box Type', outlined: false, className: 'box-type' }
+        { label: 'Border Type', outlined: true },
+        { label: 'Box Type', outlined: false }
     ];
 
-    // a click outside a combo moves the focus out of it, and then its dropdown stays open, so each combo opens and closes on its own
-    private keepOpenOnOutsideClick = (e: Event) => {
-        if (!(e.target as HTMLElement).matches(':focus-within')) {
-            e.preventDefault();
-        }
-    };
+    // the display-only dropdowns stay open when the user clicks outside them
+    private keepOpen = (e: Event) => e.preventDefault();
 
     private root = document.getElementById('sample') as HTMLElement;
 
@@ -37,11 +34,12 @@ export class ComboSingleSelectType {
     }
 
     private renderSample() {
+        // the combos are display-only, so inert blocks pointer and keyboard interaction
         const template = html`
-            <div class="types">
+            <div class="types" inert>
                 ${this.types.map(
                     (type) => html`
-                        <div class="type ${type.className}">
+                        <div class="type">
                             <span class="type-label">${type.label}</span>
                             <igc-combo
                                 single-select
@@ -52,7 +50,7 @@ export class ComboSingleSelectType {
                                 display-key="name"
                                 group-key="group"
                                 open
-                                @igcClosing=${this.keepOpenOnOutsideClick}
+                                @igcClosing=${this.keepOpen}
                                 .data=${this.options}
                             >
                                 <igc-icon slot="prefix" name="language" collection="material"></igc-icon>
