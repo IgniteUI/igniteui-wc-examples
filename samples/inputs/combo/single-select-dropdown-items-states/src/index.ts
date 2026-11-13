@@ -48,7 +48,7 @@ export class ComboSingleSelectDropdownItemsStates {
     }
 
     private renderSample() {
-        // the items are display-only, so inert blocks keyboard interaction
+        // the items are display-only, so inert blocks pointer and keyboard interaction
         const template = html`
             <div class="items" inert>
                 <span></span>

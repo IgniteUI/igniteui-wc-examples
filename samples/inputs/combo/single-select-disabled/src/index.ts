@@ -19,10 +19,10 @@ export class ComboSingleSelectDisabled {
     ];
 
     private rows = [
-        { label: 'Idle', outlined: true, value: [] as string[] },
-        { label: 'Filled', outlined: true, value: ['BY'] },
-        { label: 'Idle', outlined: false, value: [] as string[] },
-        { label: 'Filled', outlined: false, value: ['BY'] }
+        { label: 'Idle', outlined: true, className: 'border-type', value: [] as string[] },
+        { label: 'Filled', outlined: true, className: 'border-type', value: ['BY'] },
+        { label: 'Idle', outlined: false, className: 'box-type group-start', value: [] as string[] },
+        { label: 'Filled', outlined: false, className: 'box-type', value: ['BY'] }
     ];
 
     private root = document.getElementById('sample') as HTMLElement;
@@ -52,10 +52,10 @@ export class ComboSingleSelectDisabled {
                 <span class="state-label state-column">Enabled</span>
                 <span class="state-label state-column">Disabled</span>
                 ${this.rows.map(
-                    (row, index) => html`
-                        <span class="state-label ${index === 2 ? 'group-start' : ''}">${row.label}</span>
-                        <div class="${index === 2 ? 'group-start' : ''}">${combo(row.outlined, row.value, false)}</div>
-                        <div class="${index === 2 ? 'group-start' : ''}">${combo(row.outlined, row.value, true)}</div>
+                    (row) => html`
+                        <span class="state-label ${row.className}">${row.label}</span>
+                        <div class="${row.className}">${combo(row.outlined, row.value, false)}</div>
+                        <div class="${row.className}">${combo(row.outlined, row.value, true)}</div>
                     `
                 )}
             </div>

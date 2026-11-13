@@ -34,8 +34,8 @@ export class ComboSingleSelectValidation {
     ];
 
     private types = [
-        { label: 'Border Type', outlined: true },
-        { label: 'Box Type', outlined: false }
+        { label: 'Border Type', outlined: true, className: 'border-type' },
+        { label: 'Box Type', outlined: false, className: 'box-type' }
     ];
 
     private root = document.getElementById('sample') as HTMLElement;
@@ -45,25 +45,24 @@ export class ComboSingleSelectValidation {
     }
 
     private renderSample() {
-        // the combos are display-only, so inert blocks keyboard interaction
+        // the combos are display-only, so inert blocks pointer and keyboard interaction
         const template = html`
             <div class="states" inert>
-                <span></span>
+                <span class="type-label"></span>
                 ${this.states.map((state) => html`<span class="state-label state-column">${state.label}</span>`)}
                 ${this.types.map(
                     (type) => html`
-                        <span class="state-label type-label">${type.label}</span>
+                        <span class="state-label type-label ${type.className}">${type.label}</span>
                         ${this.states.map(
                             (state) => html`
                                 <igc-combo
-                                    class="state-combo ${state.className}"
+                                    class="state-combo ${state.className} ${type.className}"
                                     single-select
                                     ?outlined=${type.outlined}
                                     ?invalid=${state.invalid}
                                     placeholder="Country"
                                     value-key="id"
                                     display-key="name"
-                                    group-key="region"
                                     .data=${this.countries}
                                     .value=${['BY']}
                                 >

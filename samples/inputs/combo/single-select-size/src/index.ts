@@ -25,8 +25,8 @@ export class ComboSingleSelectSize {
     ];
 
     private types = [
-        { label: 'Border Type', outlined: true },
-        { label: 'Box Type', outlined: false }
+        { label: 'Border Type', outlined: true, className: 'border-type' },
+        { label: 'Box Type', outlined: false, className: 'box-type' }
     ];
 
     // a click outside a combo moves the focus out of it, and then its dropdown stays open, so each combo opens and closes on its own
@@ -45,15 +45,15 @@ export class ComboSingleSelectSize {
     private renderSample() {
         const template = html`
             <div class="sizes">
-                <span></span>
+                <span class="type-label"></span>
                 ${this.sizes.map((size) => html`<span class="state-label state-column">${size.label}</span>`)}
                 ${this.types.map(
                     (type) => html`
-                        <span class="state-label type-label">${type.label}</span>
+                        <span class="state-label type-label ${type.className}">${type.label}</span>
                         ${this.sizes.map(
                             (size) => html`
                                 <igc-combo
-                                    class=${size.className}
+                                    class="${size.className} ${type.className}"
                                     single-select
                                     ?outlined=${type.outlined}
                                     placeholder="Country"

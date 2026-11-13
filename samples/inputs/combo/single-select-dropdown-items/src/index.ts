@@ -32,7 +32,7 @@ export class ComboSingleSelectDropdownItems {
         { label: 'Item', className: 'item-only', data: [{ id: 1, name: 'Item' }] }
     ];
 
-    // the input fields are hidden, so the dropdowns stay open and each one works on its own
+    // the input fields are hidden, so the dropdowns stay open
     private keepOpen = (e: Event) => e.preventDefault();
 
     private root = document.getElementById('sample') as HTMLElement;
@@ -42,8 +42,9 @@ export class ComboSingleSelectDropdownItems {
     }
 
     private renderSample() {
+        // the items are display-only, so inert blocks pointer and keyboard interaction
         const template = html`
-            <div class="items">
+            <div class="items" inert>
                 <span></span>
                 ${this.sizes.map((size) => html`<span class="state-label state-column">${size.label}</span>`)}
                 ${this.rows.map(

@@ -17,8 +17,8 @@ export class ComboSingleSelectType {
     private options: Option[] = [1, 2, 3, 4, 5].map((id) => ({ id, name: 'Item', group: 'Header' }));
 
     private types = [
-        { label: 'Border Type', outlined: true },
-        { label: 'Box Type', outlined: false }
+        { label: 'Border Type', outlined: true, className: 'border-type' },
+        { label: 'Box Type', outlined: false, className: 'box-type' }
     ];
 
     // a click outside a combo moves the focus out of it, and then its dropdown stays open, so each combo opens and closes on its own
@@ -41,7 +41,7 @@ export class ComboSingleSelectType {
             <div class="types">
                 ${this.types.map(
                     (type) => html`
-                        <div class="type">
+                        <div class="type ${type.className}">
                             <span class="type-label">${type.label}</span>
                             <igc-combo
                                 single-select
