@@ -1,6 +1,7 @@
 import { defineComponents, IgcComboComponent, IgcIconComponent, registerIconFromText } from 'igniteui-webcomponents';
 import { html, render } from 'lit-html';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
+// the border and the box types differ only in the Material theme, so the sample uses that theme
+import 'igniteui-webcomponents/themes/light/material.css';
 import './index.css';
 
 defineComponents(IgcComboComponent, IgcIconComponent);
@@ -13,28 +14,16 @@ interface Option {
     group: string;
 }
 
-interface TypedCombo {
-    label: string;
-    outlined: boolean;
-    className: string;
-    selected: number[];
-}
-
 export class ComboType {
     private options: Option[] = [1, 2, 3, 4, 5].map((id) => ({ id, name: 'Item', group: 'Header' }));
 
-    // each combo keeps the `id` values of its selected options
-    private types: TypedCombo[] = [
-        { label: 'Border Type', outlined: true, className: 'border-type', selected: [] },
-        { label: 'Box Type', outlined: false, className: 'box-type', selected: [] }
+    private types = [
+        { label: 'Border Type', outlined: true },
+        { label: 'Box Type', outlined: false }
     ];
 
-    // a click outside a combo moves the focus out of it, and then its dropdown stays open, so each combo opens and closes on its own
-    private keepOpenOnOutsideClick = (e: Event) => {
-        if (!(e.target as HTMLElement).matches(':focus-within')) {
-            e.preventDefault();
-        }
-    };
+    // the display-only dropdowns stay open when the user clicks outside them
+    private keepOpen = (e: Event) => e.preventDefault();
 
     private root = document.getElementById('sample') as HTMLElement;
 
@@ -44,40 +33,13 @@ export class ComboType {
         this.renderSample();
     }
 
-    // `igcChange` is emitted before the selection changes, so the value is read once the combo has
-    // updated; the search input of the combo emits its own `igcChange` that bubbles out of the combo,
-    // so only the events of the combo itself change the selection
-    private async onChange(type: TypedCombo, e: CustomEvent) {
-        const combo = e.currentTarget as IgcComboComponent<Option>;
-
-        if (e.composedPath()[0] !== combo) {
-            return;
-        }
-
-        await combo.updateComplete;
-        type.selected = combo.value as number[];
-        this.renderSample();
-    }
-
-    private selectionTemplate(selected: number[]) {
-        const names = selected.map((id) => this.options.find((option) => option.id === id)!.name);
-
-        return html`
-            <div class="selection">
-                <span class="selection-title">Selection</span>
-                ${names.length
-                    ? names.map((name) => html`<span>${name}</span>`)
-                    : html`<span>No items selected</span>`}
-            </div>
-        `;
-    }
-
     private renderSample() {
+        // the combos are display-only, so inert blocks pointer and keyboard interaction
         const template = html`
-            <div class="types">
+            <div class="types" inert>
                 ${this.types.map(
                     (type) => html`
-                        <div class="type ${type.className}">
+                        <div class="type">
                             <span class="type-label">${type.label}</span>
                             <igc-combo
                                 ?outlined=${type.outlined}
@@ -88,13 +50,11 @@ export class ComboType {
                                 display-key="name"
                                 group-key="group"
                                 open
-                                @igcClosing=${this.keepOpenOnOutsideClick}
-                                @igcChange=${(e: CustomEvent) => this.onChange(type, e)}
+                                @igcClosing=${this.keepOpen}
                                 .data=${this.options}
                             >
                                 <igc-icon slot="prefix" name="language" collection="material"></igc-icon>
                             </igc-combo>
-                            ${this.selectionTemplate(type.selected)}
                         </div>
                     `
                 )}
