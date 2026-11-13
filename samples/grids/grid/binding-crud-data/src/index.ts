@@ -23,6 +23,7 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.nwindData;
+            grid.isLoading = false;
         }
         this._bind();
 
