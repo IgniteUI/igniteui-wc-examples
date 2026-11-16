@@ -12,8 +12,15 @@ interface Option {
 
 interface ItemState {
     label: string;
-    className?: string;
+    // the state that the display-only item shows: `:hover`, or the `active` or `disabled` attribute
+    shows?: string;
 }
+
+// the item element of the combo list: it updates itself and takes controllers, as the combo does
+type ComboItem = HTMLElement & {
+    updateComplete: Promise<boolean>;
+    addController(controller: { hostUpdated(): void }): void;
+};
 
 interface ItemRow {
     label: string;
@@ -24,13 +31,12 @@ interface ItemRow {
 export class ComboSingleSelectDropdownItemsStates {
     private options: Option[] = [{ id: 1, name: 'Item' }];
 
-    // hover, focus, and disabled come from the pointer, the keyboard, and the data, so the
-    // `hover`, `focus`, and `disabled` classes show them on the display-only items
+    // an item that has the keyboard focus is the active item of the list
     private states: ItemState[] = [
         { label: 'Idle' },
-        { label: 'Hover', className: 'hover' },
-        { label: 'Focus', className: 'focus' },
-        { label: 'Disabled', className: 'disabled' }
+        { label: 'Hover', shows: ':hover' },
+        { label: 'Focus', shows: '[active]' },
+        { label: 'Disabled', shows: '[disabled]' }
     ];
 
     private rows: ItemRow[] = [
@@ -45,6 +51,7 @@ export class ComboSingleSelectDropdownItemsStates {
 
     constructor() {
         this.renderSample();
+        this.showStates();
     }
 
     private renderSample() {
@@ -59,7 +66,7 @@ export class ComboSingleSelectDropdownItemsStates {
                         ${row.states.map(
                             (state) => html`
                                 <igc-combo
-                                    class="dropdown ${state.className ?? ''}"
+                                    class="dropdown"
                                     single-select
                                     value-key="id"
                                     display-key="name"
@@ -76,6 +83,73 @@ export class ComboSingleSelectDropdownItemsStates {
         `;
 
         render(template, this.root);
+    }
+
+    private stateSheets = new WeakSet<CSSStyleSheet>();
+
+    // the list renders its item after the combo itself, so the list is watched until the item is there
+    private itemOf(combo: IgcComboComponent) {
+        return new Promise<ComboItem>((resolve) => {
+            const item = combo.renderRoot.querySelector<ComboItem>('igc-combo-item');
+            if (item) {
+                resolve(item);
+                return;
+            }
+
+            const observer = new MutationObserver(() => {
+                const rendered = combo.renderRoot.querySelector<ComboItem>('igc-combo-item');
+                if (rendered) {
+                    observer.disconnect();
+                    resolve(rendered);
+                }
+            });
+            observer.observe(combo.renderRoot, { childList: true, subtree: true });
+        });
+    }
+
+    // The themes draw the hover of an item with `:hover` rules, and its focus and its disabled state with
+    // rules for the `active` and the `disabled` attribute, and a display-only item is in none of these
+    // states. This copies those rules of the item with the condition turned around, so the theme draws
+    // the state while the item is not in it. The sample adds no styles of its own.
+    private async showState(combo: IgcComboComponent, state: string) {
+        await combo.updateComplete;
+        const item = await this.itemOf(combo);
+        await item.updateComplete;
+
+        const show = () => {
+            const root = item.shadowRoot!;
+            if (root.adoptedStyleSheets.some((sheet) => this.stateSheets.has(sheet))) {
+                return;
+            }
+
+            const stateSheet = new CSSStyleSheet();
+            this.stateSheets.add(stateSheet);
+            for (const sheet of root.adoptedStyleSheets) {
+                for (const rule of Array.from(sheet.cssRules)) {
+                    if (rule instanceof CSSStyleRule && rule.selectorText.includes(state)
+                        && !rule.selectorText.includes(`:not(${state}`)) {
+                        stateSheet.insertRule(rule.cssText.split(state).join(`:not(${state})`), stateSheet.cssRules.length);
+                    }
+                }
+            }
+            root.adoptedStyleSheets = [...root.adoptedStyleSheets, stateSheet];
+        };
+
+        // a theme change gives the item the style sheets of the new theme and updates it, so the rules
+        // are copied again after each update that left the item without them
+        item.addController({ hostUpdated: show });
+        show();
+    }
+
+    private showStates() {
+        const states = this.rows.flatMap((row) => row.states);
+
+        this.root.querySelectorAll<IgcComboComponent>('igc-combo').forEach((combo, index) => {
+            const state = states[index].shows;
+            if (state) {
+                this.showState(combo, state);
+            }
+        });
     }
 }
 
