@@ -14,23 +14,30 @@
 
 <body>
   <div id="root">
-    <div class="sample combo-features">
-      <div class="combo-column">
-        <igc-combo id="combo" outlined label="Location" placeholder-search="Search…" value-key="id" display-key="name"></igc-combo>
+    <div class="sample features-sample">
+      <div class="combo-features">
+        <div class="combo-column">
+          <igc-combo id="combo" outlined label="Location" placeholder-search="Search…" value-key="id" display-key="name"></igc-combo>
 
-        <div class="selection-panel">
-          <span class="selection-title" id="selection-title">Selection</span>
-          <ul class="selection-list" id="selection-list" aria-labelledby="selection-title" hidden></ul>
-          <span class="selection-empty" id="selection-empty">No items selected</span>
+          <div class="selection-panel">
+            <span class="selection-title" id="selection-title">Selection</span>
+            <ul class="selection-list" id="selection-list" aria-labelledby="selection-title" hidden></ul>
+            <span class="selection-empty" id="selection-empty">No items selected</span>
+          </div>
+        </div>
+
+        <div class="controls">
+          <igc-switch id="disable-filtering">Disable Filtering</igc-switch>
+          <igc-switch id="case-sensitive-icon">Show Case-sensitive Icon</igc-switch>
+          <igc-switch id="grouping">Enable Grouping</igc-switch>
+          <igc-switch id="disabled">Disable Combo</igc-switch>
         </div>
       </div>
 
-      <div class="controls">
-        <igc-switch id="disable-filtering">Disable Filtering</igc-switch>
-        <igc-switch id="case-sensitive-icon">Show Case-sensitive Icon</igc-switch>
-        <igc-switch id="grouping">Enable Grouping</igc-switch>
-        <igc-switch id="disabled">Disable Combo</igc-switch>
-      </div>
+      <p class="sample-hint">
+        <igc-icon name="info_outline" collection="material"></igc-icon>
+        <span>Open the combo to see the features</span>
+      </p>
     </div>
   </div>
 
