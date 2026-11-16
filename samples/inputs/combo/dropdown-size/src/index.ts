@@ -11,23 +11,16 @@ interface Option {
     group: string;
 }
 
-interface SizedDropdown {
-    label: string;
-    className: string;
-    selected: number[];
-}
-
 export class ComboDropdownSize {
     private options: Option[] = [1, 2, 3].map((id) => ({ id, name: 'Item', group: 'Header' }));
 
-    // each dropdown keeps the `id` values of its selected options
-    private sizes: SizedDropdown[] = [
-        { label: 'Small', className: 'small', selected: [] },
-        { label: 'Medium', className: 'medium', selected: [] },
-        { label: 'Large', className: 'large', selected: [] }
+    private sizes = [
+        { label: 'Small', className: 'small' },
+        { label: 'Medium', className: 'medium' },
+        { label: 'Large', className: 'large' }
     ];
 
-    // the input fields are hidden, so the dropdowns stay open and each one works on its own
+    // the display-only dropdowns stay open when the user clicks outside them
     private keepOpen = (e: Event) => e.preventDefault();
 
     private root = document.getElementById('sample') as HTMLElement;
@@ -36,24 +29,10 @@ export class ComboDropdownSize {
         this.renderSample();
     }
 
-    // `igcChange` is emitted before the selection changes, so the value is read once the combo has
-    // updated; the search input of the combo emits its own `igcChange` that bubbles out of the combo,
-    // so only the events of the combo itself change the selection
-    private async onChange(size: SizedDropdown, e: CustomEvent) {
-        const combo = e.currentTarget as IgcComboComponent<Option>;
-
-        if (e.composedPath()[0] !== combo) {
-            return;
-        }
-
-        await combo.updateComplete;
-        size.selected = combo.value as number[];
-        this.renderSample();
-    }
-
     private renderSample() {
+        // the dropdowns are display-only, so inert blocks pointer and keyboard interaction
         const template = html`
-            <div class="sizes">
+            <div class="sizes" inert>
                 ${this.sizes.map(
                     (size) => html`
                         <div class="size">
@@ -66,17 +45,8 @@ export class ComboDropdownSize {
                                 group-key="group"
                                 open
                                 @igcClosing=${this.keepOpen}
-                                @igcChange=${(e: CustomEvent) => this.onChange(size, e)}
                                 .data=${this.options}
                             ></igc-combo>
-                            <div class="selection">
-                                <span class="selection-title">Selection</span>
-                                ${size.selected.length
-                                    ? size.selected.map(
-                                          (id) => html`<span>${this.options.find((option) => option.id === id)!.name}</span>`
-                                      )
-                                    : html`<span>No items selected</span>`}
-                            </div>
                         </div>
                     `
                 )}
