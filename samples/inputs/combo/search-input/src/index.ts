@@ -7,22 +7,21 @@ defineComponents(IgcComboComponent);
 
 interface SearchState {
     label: string;
-    className?: string;
     // the state that the display-only search input shows: `:hover` or `:focus-within`
     shows?: string;
+    disabled?: boolean;
+    // the search text of a filled search input
     text?: string;
 }
 
 export class ComboSearchInput {
-    // the search input has no disabled or filled state of its own to set, so the `disabled` and
-    // `filled` classes draw them
     private states: SearchState[] = [
         { label: 'Idle' },
         { label: 'Idle & Hover', shows: ':hover' },
-        { label: 'Disabled', className: 'disabled' },
-        { label: 'Filled', className: 'filled', text: 'Input text' },
-        { label: 'Filled & Hover', className: 'filled', shows: ':hover', text: 'Input text' },
-        { label: 'Focused', className: 'filled', shows: ':focus-within', text: 'Input text' }
+        { label: 'Disabled', disabled: true },
+        { label: 'Filled', text: 'Input text' },
+        { label: 'Filled & Hover', shows: ':hover', text: 'Input text' },
+        { label: 'Focused', shows: ':focus-within', text: 'Input text' }
     ];
 
     // the display-only dropdowns stay open when the user clicks outside them
@@ -44,8 +43,8 @@ export class ComboSearchInput {
                         <div class="state">
                             <span class="state-label">${state.label}</span>
                             <igc-combo
-                                class="search ${state.className ?? ''}"
-                                placeholder-search=${state.text ?? 'Search'}
+                                class="search"
+                                placeholder-search="Search"
                                 open
                                 @igcClosing=${this.keepOpen}
                                 .data=${[]}
@@ -92,22 +91,25 @@ export class ComboSearchInput {
     // display-only search input is never hovered or focused. This copies those rules of the search input, and of the combo list around it,
     // with the condition turned around, so the theme draws the state while the search input is not in it. The
     // sample adds no styles of its own.
-    private async showState(combo: IgcComboComponent, state: string) {
+    private async showState(combo: IgcComboComponent, state: SearchState) {
         await combo.updateComplete;
         const input = combo.renderRoot.querySelector<IgcInputComponent>('[part~="search-input"]')!;
         await input.updateComplete;
 
-        // of the rules of the combo, only those for its list take part
-        this.showStateRules(combo, state, (selector) => selector.includes('list-wrapper'));
-        this.showStateRules(input, state, () => true);
+        // the search input is an input inside the combo, so its text and its disabled state are set on it
+        input.value = state.text ?? '';
+        input.disabled = state.disabled ?? false;
+
+        if (state.shows) {
+            // of the rules of the combo, only those for its list take part
+            this.showStateRules(combo, state.shows, (selector) => selector.includes('list-wrapper'));
+            this.showStateRules(input, state.shows, () => true);
+        }
     }
 
     private showStates() {
         this.root.querySelectorAll<IgcComboComponent>('igc-combo').forEach((combo, index) => {
-            const state = this.states[index].shows;
-            if (state) {
-                this.showState(combo, state);
-            }
+            this.showState(combo, this.states[index]);
         });
     }
 }
