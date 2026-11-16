@@ -230,9 +230,15 @@ export class ComboTemplates {
                         : nothing}
                 </igc-combo>
 
-                <div class="selection ig-typography__body-2">
-                    <span class="ig-typography__subtitle-2">Selection</span>
-                    <span>${names.length ? names.join(', ') : 'No items selected'}</span>
+                <div class="selection-panel">
+                    <span class="selection-title" id="selection-title">Selection</span>
+                    ${names.length
+                        ? html`
+                              <ul class="selection-list" aria-labelledby="selection-title">
+                                  ${names.map((name) => html`<li>${name}</li>`)}
+                              </ul>
+                          `
+                        : html`<span class="selection-empty">No items selected</span>`}
                 </div>
             </div>
 
