@@ -58,11 +58,12 @@ const packageUpgrades = [
   { name: "igniteui-webcomponents-datasources", version: "7.1.0" },
   { name: "igniteui-webcomponents-dashboards", version: "7.1.0" },
   // IgniteUI packages — occasionally updated
-  { name: "igniteui-i18n-resources", version: "^1.0.5" },
-  { name: "igniteui-grid-lite", version: "~0.11.0" },
-  { name: "igniteui-webcomponents-grids", version: "^7.3.0" },
-  { name: "igniteui-webcomponents", version: "~7.4.1" },
-  { name: "igniteui-dockmanager", version: "~2.2.0" },
+  { name: "igniteui-i18n-resources", version: "^2.0.0" },
+  { name: "igniteui-theming", version: "^30.2.0" },
+  { name: "igniteui-grid-lite", version: "~0.12.0-beta.0" },
+  { name: "igniteui-webcomponents-grids", version: "^7.4.0-beta.2" },
+  { name: "igniteui-webcomponents", version: "7.5.0-beta.0" },
+  { name: "igniteui-dockmanager", version: "~2.3.0-beta.0" },
   // Other packages kept in sync across sample package.json files
   { name: "webpack", version: "^5.101.3" },
   { name: "webpack-cli", version: "^6.0.1" },
