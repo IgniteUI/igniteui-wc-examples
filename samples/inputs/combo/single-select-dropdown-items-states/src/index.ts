@@ -85,7 +85,8 @@ export class ComboSingleSelectDropdownItemsStates {
         render(template, this.root);
     }
 
-    private stateSheets = new WeakSet<CSSStyleSheet>();
+    // each state sheet, with the theme sheets that it was copied from
+    private stateSheets = new WeakMap<CSSStyleSheet, CSSStyleSheet[]>();
 
     // the list renders its item after the combo itself, so the list is watched until the item is there
     private itemOf(combo: IgcComboComponent) {
@@ -118,13 +119,17 @@ export class ComboSingleSelectDropdownItemsStates {
 
         const show = () => {
             const root = item.shadowRoot!;
-            if (root.adoptedStyleSheets.some((sheet) => this.stateSheets.has(sheet))) {
+            const themeSheets = root.adoptedStyleSheets.filter((sheet) => !this.stateSheets.has(sheet));
+            const copied = root.adoptedStyleSheets.find((sheet) => this.stateSheets.has(sheet));
+            const copiedFrom = copied && this.stateSheets.get(copied);
+            if (copiedFrom && copiedFrom.length === themeSheets.length
+                && copiedFrom.every((sheet, index) => sheet === themeSheets[index])) {
                 return;
             }
 
             const stateSheet = new CSSStyleSheet();
-            this.stateSheets.add(stateSheet);
-            for (const sheet of root.adoptedStyleSheets) {
+            this.stateSheets.set(stateSheet, themeSheets);
+            for (const sheet of themeSheets) {
                 for (const rule of Array.from(sheet.cssRules)) {
                     if (rule instanceof CSSStyleRule && rule.selectorText.includes(state)
                         && !rule.selectorText.includes(`:not(${state}`)) {
@@ -132,12 +137,23 @@ export class ComboSingleSelectDropdownItemsStates {
                     }
                 }
             }
-            root.adoptedStyleSheets = [...root.adoptedStyleSheets, stateSheet];
+            root.adoptedStyleSheets = [...themeSheets, stateSheet];
         };
 
-        // a theme change gives the item the style sheets of the new theme and updates it, so the rules
-        // are copied again after each update that left the item without them
-        item.addController({ hostUpdated: show });
+        // a theme change sets the style sheets of the new theme on the shadow root of the item, and may keep
+        // the sheet copied from the previous theme, so the rules are copied again each time the style sheets
+        // of the shadow root are set
+        const adopted = Object.getOwnPropertyDescriptor(ShadowRoot.prototype, 'adoptedStyleSheets')!;
+        Object.defineProperty(item.shadowRoot!, 'adoptedStyleSheets', {
+            configurable: true,
+            get() {
+                return adopted.get!.call(this);
+            },
+            set(sheets: CSSStyleSheet[]) {
+                adopted.set!.call(this, sheets);
+                queueMicrotask(show);
+            },
+        });
         show();
     }
 
