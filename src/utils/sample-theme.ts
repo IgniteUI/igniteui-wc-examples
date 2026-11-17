@@ -31,6 +31,8 @@
  * friends) keeps its load-time value until the page reloads.
  */
 
+import { applyThemeIcons } from './sample-icons';
+
 type ThemeName = 'material' | 'fluent' | 'bootstrap' | 'indigo';
 type ThemeMode = 'light' | 'dark' | 'system';
 type ResolvedMode = 'light' | 'dark';
@@ -133,9 +135,10 @@ async function applyTheme(theme: ThemeName, mode: ThemeMode): Promise<void> {
     try {
       // Loaded on demand: for any sample using igc components this chunk is
       // already in cache.
-      const { configureTheme } = await import('igniteui-webcomponents');
+      const { configureTheme, setIconRef } = await import('igniteui-webcomponents');
       if (request !== latestRequest) return;
       configureTheme(theme, resolved);
+      applyThemeIcons(theme, setIconRef);
     } catch (err) {
       console.warn(`[sample-theme] Could not re-adopt shadow styles for "${theme}":`, err);
     }
