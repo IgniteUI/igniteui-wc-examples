@@ -52,7 +52,7 @@ export class Sample {
         this.data = new MarketData();
 
         this._bind = () => {
-            grid.data = this.data;
+            grid.data = [...this.data];
             searchBox.addEventListener("keydown", (evt) => { this.onSearchKeydown(evt); });
             this.searchBox.addEventListener("igcInput", (evt) => {
                 this.searchIcon.name = evt.detail ? 'clear' : 'search';

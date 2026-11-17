@@ -31,7 +31,7 @@ export class Sample {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
 
         this._bind = () => {
-            grid.data = this.customersData;
+            grid.data = [...this.customersData];
             grid.groupingExpressions = this.groupingExpression1;
         }
         this._bind();

@@ -57,7 +57,7 @@ export class Sample {
 
         this._bind = () => {
             pivotGrid.pivotConfiguration = this.pivotConfigHierarchy;
-            pivotGrid.data = this.pivotDataFlat;
+            pivotGrid.data = [...this.pivotDataFlat];
             themeSwitcher.addEventListener('igcSelect', (e: CustomEvent<string>) => this.selectTheme(e.detail));
         }
         this._bind();

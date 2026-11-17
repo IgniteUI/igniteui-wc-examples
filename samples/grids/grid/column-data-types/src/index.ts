@@ -93,7 +93,7 @@ export class Sample {
         var column6 = this.column6 = document.getElementById('column6') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.invoicesDataExtendedDates;
+            grid.data = [...this.invoicesDataExtendedDates];
             column1.pipeArgs = this.columnPipeArgs1;
             column2.pipeArgs = this.columnPipeArgs2;
             column3.pipeArgs = this.columnPipeArgs3;

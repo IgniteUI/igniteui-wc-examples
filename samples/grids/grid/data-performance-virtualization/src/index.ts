@@ -27,7 +27,7 @@ export class Sample {
         var column3 = this.column3 = document.getElementById('column3') as IgcColumnComponent;
 
         this._bind = () => {
-            grid.data = this.financialDataAll;
+            grid.data = [...this.financialDataAll];
             column1.bodyTemplate = this.webGridCurrencyCellTemplate;
             column2.bodyTemplate = this.webGridCurrencyCellTemplate;
             column3.bodyTemplate = this.webGridCurrencyCellTemplate;
