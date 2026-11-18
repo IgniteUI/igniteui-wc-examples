@@ -1,0 +1,47 @@
+import { defineComponents, IgcComboComponent } from 'igniteui-webcomponents';
+import { html, render } from 'lit-html';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import './index.css';
+
+defineComponents(IgcComboComponent);
+
+interface Country {
+    id: string;
+    name: string;
+    region: string;
+}
+
+export class ComboSingleSelectTailwindStyling {
+    private countries: Country[] = [
+        { id: 'BY', name: 'Belarus', region: 'Europe' },
+        { id: 'BE', name: 'Belgium', region: 'Europe' },
+        { id: 'BG', name: 'Bulgaria', region: 'Europe' }
+    ];
+
+    private root = document.getElementById('sample') as HTMLElement;
+
+    constructor() {
+        this.renderSample();
+    }
+
+    private renderSample() {
+        const template = html`
+            <igc-combo
+                single-select
+                outlined
+                placeholder="Country"
+                value-key="id"
+                display-key="name"
+                group-key="region"
+                open
+                .data=${this.countries}
+                .value=${['BY']}
+                class="w-[279px] [--item-count:4] [--ig-font-family:aktiv-grotesk,sans-serif] [--ig-input-group-border-color:var(--color-combo-border)] [--ig-input-group-hover-border-color:var(--color-combo-border)] [--ig-input-group-focused-border-color:var(--color-combo-border)] [--ig-input-group-filled-text-color:var(--color-combo-ink)] [--ig-input-group-focused-bottom-line-color:var(--color-combo-accent)] [--ig-combo-toggle-button-background:var(--color-combo-toggle)] [--ig-combo-toggle-button-background-focus:var(--color-combo-toggle)] [--ig-combo-toggle-button-background-focus--border:var(--color-combo-toggle)] [--ig-combo-toggle-button-foreground:var(--color-combo-ink)] [--ig-combo-toggle-button-foreground-focus:var(--color-combo-ink)] [--ig-combo-toggle-button-foreground-filled:var(--color-combo-ink)] [--ig-drop-down-elevation:none] [--ig-drop-down-background-color:var(--color-combo-surface)] [--ig-drop-down-header-text-color:var(--color-combo-header)] [--ig-drop-down-item-text-color:var(--color-combo-ink)] [--ig-drop-down-hover-item-background:var(--color-combo-toggle)] [--ig-drop-down-focused-item-background:var(--color-combo-toggle)] [--ig-drop-down-selected-item-background:var(--color-combo-selected)] [--ig-drop-down-selected-item-text-color:#000] [--ig-drop-down-selected-hover-item-background:var(--color-combo-selected)] [--ig-drop-down-selected-hover-item-text-color:#000] [--ig-drop-down-selected-focus-item-background:var(--color-combo-selected)] [--ig-drop-down-selected-focus-item-text-color:#000] [&::part(input)]:text-sm [&::part(input)]:font-medium [&::part(list-wrapper)]:rounded-t-none [&::part(list-wrapper)]:border [&::part(list-wrapper)]:border-t-0 [&::part(list-wrapper)]:border-combo-border [&::part(list-wrapper)]:pb-4 [&::part(item)]:font-medium"
+            ></igc-combo>
+        `;
+
+        render(template, this.root);
+    }
+}
+
+new ComboSingleSelectTailwindStyling();
