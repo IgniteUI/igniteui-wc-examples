@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Radio Overview</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="sample radio-overview">
+      <form class="feedback-form" id="feedback-form">
+        <span id="feedback-title" class="feedback-title">Does our app meet your expectations?</span>
+        <igc-radio-group name="expectations" aria-labelledby="feedback-title">
+          <igc-radio value="exceeds" checked>Exceeds expectations</igc-radio>
+          <igc-radio value="meets">Meets expectations</igc-radio>
+          <igc-radio value="below">Below expectations</igc-radio>
+        </igc-radio-group>
+        <igc-button type="submit" class="feedback-send">Send</igc-button>
+      </form>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tabs Header Position</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="sample">
+      <igc-radio-group id="header-position" alignment="horizontal" aria-label="Header position">
+        <igc-radio name="header-position" value="top">Top</igc-radio>
+        <igc-radio name="header-position" value="start" checked>Start</igc-radio>
+        <igc-radio name="header-position" value="end">End</igc-radio>
+      </igc-radio-group>
+      <div class="tabs-container">
+        <igc-tabs header-position="start">
+          <igc-tab label="Profile">Update your name, photo, and contact details.</igc-tab>
+          <igc-tab label="Security">Change your password and sign-in options.</igc-tab>
+          <igc-tab label="Notifications">Choose which updates you receive by email.</igc-tab>
+        </igc-tabs>
+      </div>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
