@@ -25,16 +25,12 @@ export class ComboSize {
     ];
 
     private types = [
-        { label: 'Border Type', outlined: true },
-        { label: 'Box Type', outlined: false }
+        { label: 'Border Type', outlined: true, className: 'border-type' },
+        { label: 'Box Type', outlined: false, className: 'box-type' }
     ];
 
-    // a click outside a combo moves the focus out of it, and then its dropdown stays open, so each combo opens and closes on its own
-    private keepOpenOnOutsideClick = (e: Event) => {
-        if (!(e.target as HTMLElement).matches(':focus-within')) {
-            e.preventDefault();
-        }
-    };
+    // the display-only dropdowns stay open when the user clicks outside them
+    private keepOpen = (e: Event) => e.preventDefault();
 
     private root = document.getElementById('sample') as HTMLElement;
 
@@ -43,27 +39,29 @@ export class ComboSize {
     }
 
     private renderSample() {
+        // the combos are display-only, so inert blocks pointer and keyboard interaction
         const template = html`
-            <div class="sizes">
-                <span></span>
+            <div class="sizes" inert>
+                <span class="type-label"></span>
                 ${this.sizes.map((size) => html`<span class="state-label state-column">${size.label}</span>`)}
                 ${this.types.map(
                     (type) => html`
-                        <span class="state-label type-label">${type.label}</span>
+                        <span class="state-label type-label ${type.className}">${type.label}</span>
                         ${this.sizes.map(
                             (size) => html`
-                                <igc-combo
-                                    class=${size.className}
-                                    ?outlined=${type.outlined}
-                                    placeholder="Country"
-                                    placeholder-search="Search"
-                                    value-key="id"
-                                    display-key="name"
-                                    group-key="region"
-                                    open
-                                    @igcClosing=${this.keepOpenOnOutsideClick}
-                                    .data=${this.countries}
-                                ></igc-combo>
+                                <div class="${size.className} ${type.className}">
+                                    <igc-combo
+                                        ?outlined=${type.outlined}
+                                        placeholder="Country"
+                                        placeholder-search="Search"
+                                        value-key="id"
+                                        display-key="name"
+                                        group-key="region"
+                                        open
+                                        @igcClosing=${this.keepOpen}
+                                        .data=${this.countries}
+                                    ></igc-combo>
+                                </div>
                             `
                         )}
                     `
