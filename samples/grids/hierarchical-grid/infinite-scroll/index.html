@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hierarchical Grid Infinite Scroll</title>
+</head>
+<body>
+    <div id="root">
+        <igc-hierarchical-grid id="grid" aria-label="Customers and orders" primary-key="customerId"
+                               height="480px" auto-generate="false">
+            <igc-column field="companyName" header="Company"></igc-column>
+            <igc-column field="contactName" header="Contact"></igc-column>
+            <igc-column field="address.country" header="Country"></igc-column>
+            <igc-row-island id="orders" child-data-key="Orders" primary-key="orderId" auto-generate="false">
+                <igc-column field="orderId" header="Order ID" data-type="number"></igc-column>
+                <igc-column field="shipAddress.city" header="Ship City"></igc-column>
+            </igc-row-island>
+        </igc-hierarchical-grid>
+    </div>
+    <script type="module" src="src/index.ts"></script>
+</body>
+</html>
