@@ -1,0 +1,21 @@
+{
+    "name": "tree-grid-row-drag-to-grid",
+    "version": "1.0.0",
+    "description": "Use a custom drag handle to delete employees and their reports in a drop zone.",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "igniteui-webcomponents": "7.5.0",
+        "igniteui-webcomponents-grids": "^7.4.0",
+        "lit-html": "^3.3.1"
+    },
+    "devDependencies": {
+        "typescript": "^6.0.3",
+        "vite": "^8.2.0"
+    }
+}

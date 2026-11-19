@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tree Grid Custom Drag Handle</title>
+</head>
+<body>
+    <div id="root">
+        <div class="row-drag-demo">
+            <div id="dropArea" class="drop-area">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7" />
+                </svg>
+                <span>Drag a row here to delete it</span>
+            </div>
+            <igc-tree-grid row-draggable="true" id="grid" aria-label="Employees"
+                           auto-generate="false" primary-key="ID" child-data-key="Reports" height="100%">
+                <igc-column field="Employee" header="Employee"></igc-column>
+                <igc-column field="Role" header="Role"></igc-column>
+            </igc-tree-grid>
+        </div>
+    </div>
+    <script type="module" src="src/index.ts"></script>
+</body>
+</html>
