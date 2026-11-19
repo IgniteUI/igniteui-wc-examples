@@ -1,0 +1,20 @@
+{
+    "name": "grid-row-drag-to-grid",
+    "version": "1.0.0",
+    "description": "Move rows between grids using a custom row drag handle.",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "igniteui-webcomponents-grids": "^7.4.0",
+        "lit-html": "^3.3.1"
+    },
+    "devDependencies": {
+        "typescript": "^6.0.3",
+        "vite": "^8.2.0"
+    }
+}

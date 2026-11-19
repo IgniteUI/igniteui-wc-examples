@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grid Row Drag to Grid</title>
+</head>
+<body>
+    <div id="root">
+        <div class="row-drag-demo">
+            <igc-grid id="sourceGrid" aria-label="Source grid" auto-generate="false" primary-key="ID"
+                      row-draggable="true" height="100%">
+                <igc-column field="Company" header="Company"></igc-column>
+                <igc-column field="City" header="City"></igc-column>
+            </igc-grid>
+            <igc-grid id="targetGrid" aria-label="Target grid" auto-generate="false" primary-key="ID"
+                      empty-grid-message="Drop a row to add it to the grid" height="100%">
+                <igc-column field="Company" header="Company"></igc-column>
+                <igc-column field="City" header="City"></igc-column>
+            </igc-grid>
+        </div>
+    </div>
+    <script type="module" src="src/index.ts"></script>
+</body>
+</html>
