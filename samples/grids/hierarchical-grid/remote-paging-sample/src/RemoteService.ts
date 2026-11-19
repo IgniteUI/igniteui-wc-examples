@@ -6,13 +6,19 @@ export class RemotePagingService {
 
     public static getDataWithPaging(pageIndex?: number, pageSize?: number) {
         return fetch(RemotePagingService.buildUrl(RemotePagingService.CUSTOMERS_URL, pageIndex, pageSize))
-        .then((result) => result.json())
-        .catch((error) => console.error(error.message));
+        .then(RemotePagingService.readResponse);
     }
     
     public static getHierarchyDataById(parentEntityName: string, parentId: string, childEntityName: string) {
         return fetch(`${RemotePagingService.BASE_URL}${parentEntityName}/${parentId}/${childEntityName}`)
-        .then((result) => result.json());
+        .then(RemotePagingService.readResponse);
+    }
+
+    private static readResponse(response: Response) {
+        if (!response.ok) {
+            throw new Error(`Northwind request failed (${response.status}): ${response.url}`);
+        }
+        return response.json();
     }
 
     private static buildUrl(baseUrl: string, pageIndex?: number, pageSize?: number) {

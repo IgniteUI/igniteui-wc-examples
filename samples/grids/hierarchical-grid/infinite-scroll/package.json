@@ -1,0 +1,17 @@
+{
+    "name": "hierarchical-grid-infinite-scroll",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build"
+    },
+    "dependencies": {
+        "igniteui-webcomponents-grids": "^7.4.0"
+    },
+    "devDependencies": {
+        "typescript": "^6.0.3",
+        "vite": "^8.2.0"
+    }
+}

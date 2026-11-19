@@ -14,7 +14,8 @@ export class Sample {
     private _bind: () => void;
     private _perPage = 15;
     public pager: IgcPaginatorComponent;
-    private _totalRecordsCount: number;
+    private _totalRecordsCount = 0;
+    private requestId = 0;
     
     public get perPage(): number {
         return this.pager?.perPage || this._perPage;
@@ -41,20 +42,16 @@ export class Sample {
         orderDetailsRowIsland.paginatorTemplate = this.webHierarchicalGridPaginatorTemplate;
 
         this._bind = () => {
-            window.addEventListener("load", () => {
-                this.pager.perPage = this._perPage;
-                this.loadCustomersData(this.page,this.perPage);
+            this.pager.addEventListener("perPageChange", (args: CustomEvent<number>) => {
+              this.perPage = args.detail;
+              this.page = this.pager.page;
+              this.loadCustomersData(this.page, args.detail);
             });
 
-            this.pager.addEventListener("perPageChange", ((args: CustomEvent<any>) => {
-              this.perPage = args.detail;
-              this.loadCustomersData(this.page, this.perPage);
-            }) as EventListener);
-
-            this.pager.addEventListener("pageChange", ((args: CustomEvent<any>) => {
+            this.pager.addEventListener("pageChange", (args: CustomEvent<number>) => {
               this.page = args.detail;
               this.loadCustomersData(this.page, this.perPage);
-            }) as EventListener);
+            });
 
             ordersRowIsland.addEventListener("gridCreated", (event: any) => {
                 this.gridCreated(event, "Customers");
@@ -66,6 +63,7 @@ export class Sample {
         }
     
         this._bind();
+        this.loadCustomersData(this.page, this._perPage);
     }
 
     public gridCreated(event: CustomEvent<IgcGridCreatedEventArgs>, parentKey: string) {
@@ -103,24 +101,25 @@ export class Sample {
         }
     }
 
-    private loadCustomersData(pageIndex?: number, pageSize?: number): void {
+    private loadCustomersData(pageIndex: number, pageSize: number): void {
+        const requestId = ++this.requestId;
         this.hierarchicalGrid.isLoading = true;
         
         RemotePagingService.getDataWithPaging(pageIndex,pageSize)
         .then((response: CustomersWithPageResponseModel) => {
+          if (requestId !== this.requestId) return;
           this.totalRecordsCount = response.totalRecordsCount;
           this.pager.perPage = pageSize;
           this.pager.totalRecords = this.totalRecordsCount;
           this.page = response.pageNumber;
           this.data = response.items;
-          this.hierarchicalGrid.isLoading = false;
           this.updateUI(); // Update the UI after receiving data
         })
         .catch((error) => {
           console.error(error.message);
-          this.hierarchicalGrid.data = [];
-          this.hierarchicalGrid.isLoading = false;
-          this.updateUI();
+        })
+        .finally(() => {
+          if (requestId === this.requestId) this.hierarchicalGrid.isLoading = false;
         })
       }
 }
