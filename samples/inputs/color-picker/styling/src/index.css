@@ -2,14 +2,41 @@
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
 igc-color-picker {
+    --ig-color-picker-anchor-border-color: #a9b8cc;
+    --ig-color-picker-anchor-border-radius: 0.25rem;
     --ig-color-picker-picker-background: #e6f2ff;
     --ig-color-picker-picker-border-color: #a9b8cc;
     --ig-color-picker-picker-border-radius: 1rem;
     --ig-color-picker-picker-elevation: none;
+    --ig-input-group-border-color: transparent;
+    --ig-input-group-hover-border-color: rgb(255 255 255 / 15%);
+    --ig-input-group-focused-border-color: transparent;
+    --ig-input-group-border-border-radius: 0.5rem;
+    --ig-input-group-filled-text-color: #fff;
+    --ig-input-group-filled-text-hover-color: #fff;
+    --ig-input-group-focused-text-color: #fff;
+    --ig-input-group-placeholder-color: #fff;
+    --ig-input-group-hover-placeholder-color: #fff;
+    --ig-input-group-focus-placeholder-color: #fff;
+
+    width: 8.75rem;
 }
 
-igc-color-picker::part(anchor) {
-    border: 0.125rem solid #a9b8cc;
+/* reset the dropdown's input colors to the theme's */
+igc-color-picker::part(picker) {
+    --ig-input-group-border-color: initial;
+    --ig-input-group-hover-border-color: initial;
+    --ig-input-group-focused-border-color: initial;
+    --ig-input-group-border-border-radius: initial;
+    --ig-input-group-filled-text-color: initial;
+    --ig-input-group-filled-text-hover-color: initial;
+    --ig-input-group-focused-text-color: initial;
+    --ig-input-group-placeholder-color: initial;
+    --ig-input-group-hover-placeholder-color: initial;
+    --ig-input-group-focus-placeholder-color: initial;
+
+    /* opens below the toolbar rather than over it */
+    margin-top: 1.25rem;
 }
 
 igc-color-picker::part(picker-canvas) {
