@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample | Ignite UI | Web Components | infragistics</title>
+    <meta charset="UTF-8" />
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
+  </head>
+
+  <body>
+    <div id="root">
+
+<div class="container sample ig-typography">
+
+    <div class="options horizontal">
+        <label>Choose Theme:</label>
+        <select id="theme-select" class="theme-select">
+            <option value="light-bootstrap">Bootstrap (Light)</option>
+            <option value="light-material">Material (Light)</option>
+            <option value="light-fluent">Fluent (Light)</option>
+            <option value="light-indigo">Indigo (Light)</option>
+            <option value="dark-bootstrap">Bootstrap (Dark)</option>
+            <option value="dark-material">Material (Dark)</option>
+            <option value="dark-fluent">Fluent (Dark)</option>
+            <option value="dark-indigo">Indigo (Dark)</option>
+        </select>
+    </div>
+
+    <div class="container fill">
+        <igc-grid
+        auto-generate="false"
+        id="grid"
+        name="grid"
+        primary-key="ProductID"
+        allow-filtering="true">
+            <igc-column
+            field="ProductName"
+            header="Product Name"
+            data-type="string"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="UnitPrice"
+            header="Unit Price"
+            data-type="number"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="QuantityPerUnit"
+            header="Quantity Per Unit"
+            data-type="string"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="ReorderLevel"
+            header="Reorder Level"
+            data-type="number"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="Discontinued"
+            header="Discontinued"
+            data-type="boolean"
+            sortable="true">
+            </igc-column>
+            <igc-column
+            field="OrderDate"
+            header="Order Date"
+            data-type="date"
+            sortable="true">
+            </igc-column>
+        </igc-grid>
+    </div>
+</div>
+
+    </div>
+
+    <!-- This script is needed only for parcel and it will be excluded for webpack -->
+    <% if (false) { %><script src="src/index.ts"></script><% } %>
+  </body>
+</html>
