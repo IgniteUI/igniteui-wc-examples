@@ -1,2 +1,7 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+:is(#hierarchicalGrid1, #hierarchicalGrid2) [role="gridcell"] > img {
+    max-width: 100%;
+    object-fit: contain;
+}
