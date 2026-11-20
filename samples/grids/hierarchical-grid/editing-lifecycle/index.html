@@ -18,13 +18,19 @@
 
 <div class="container sample ig-typography">
 
-    <div class="container fill">
+    <div class="editing-controls" role="group" aria-label="Editing event cancellation">
+        <label><input type="checkbox" role="switch" name="rowEditEnter"> cancel rowEditEnter</label>
+        <label><input type="checkbox" role="switch" name="cellEditEnter"> cancel cellEditEnter</label>
+        <label><input type="checkbox" role="switch" name="cellEdit"> cancel cellEdit</label>
+        <label><input type="checkbox" role="switch" name="rowEdit"> cancel rowEdit</label>
+    </div>
+    <div class="editing-layout">
         <igc-hierarchical-grid
         auto-generate="false"
         primary-key="ID"
         id="hierarchicalGrid"
         name="hierarchicalGrid"
-        id="hierarchicalGrid"
+        height="100%"
         row-editable="true">
             <igc-column
             field="Artist"
@@ -80,6 +86,12 @@
                 </igc-column>
             </igc-row-island>
         </igc-hierarchical-grid>
+        <section class="event-panel" aria-labelledby="event-log-title">
+            <header><span id="event-log-title">Events execution sequence</span>
+                <button id="clear-log" type="button"><span aria-hidden="true">&times;</span> Clear log</button>
+            </header>
+            <div id="event-log" role="log" aria-labelledby="event-log-title" tabindex="0"></div>
+        </section>
     </div>
 </div>
 

@@ -1,7 +1,7 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
-import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
-import { IgcRowSelectionEventArgs, IgcGridComponent, IgcGridEditEventArgs, IgcGridEditDoneEventArgs } from 'igniteui-webcomponents-grids/grids';
+import { EmployeesFlatData } from './EmployeesFlatData';
+import { IgcGridEditEventArgs, IgcGridEditDoneEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
@@ -10,11 +10,13 @@ import "./index.css";
 export class Sample {
 
     private grid: IgcTreeGridComponent
+    private readonly eventLog: HTMLDivElement;
     private _bind: () => void;
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcTreeGridComponent;
-        this.webTreeGridRendered = this.webTreeGridRendered.bind(this);
+        this.eventLog = document.querySelector<HTMLDivElement>("#event-log")!;
+        document.querySelector("#clear-log")!.addEventListener("click", () => this.eventLog.replaceChildren());
         this.webGridRowEditEnter = this.webGridRowEditEnter.bind(this);
         this.webGridRowEdit = this.webGridRowEdit.bind(this);
         this.webGridRowEditDone = this.webGridRowEditDone.bind(this);
@@ -26,7 +28,6 @@ export class Sample {
 
         this._bind = () => {
             grid.data = this.employeesFlatData;
-            grid.addEventListener("rendered", this.webTreeGridRendered);
             grid.addEventListener("rowEditEnter", this.webGridRowEditEnter);
             grid.addEventListener("rowEdit", this.webGridRowEdit);
             grid.addEventListener("rowEditDone", this.webGridRowEditDone);
@@ -40,7 +41,7 @@ export class Sample {
 
     }
 
-    private _employeesFlatData: EmployeesFlatData = null;
+    private _employeesFlatData?: EmployeesFlatData;
     public get employeesFlatData(): EmployeesFlatData {
         if (this._employeesFlatData == null)
         {
@@ -50,74 +51,46 @@ export class Sample {
     }
 
 
-    public webTreeGridRendered(args:any): void {
-        const grid = document.getElementById("grid");
-        grid.parentElement.style.display = "flex";
-        const container = document.createElement("div");
-        container.id = "container";
-        container.style.height = "100vh";
-        container.style.width = "100%";
-        container.style.overflow = "auto";
-        grid.parentElement.appendChild(container);
-        const title = document.createElement("span");
-        title.textContent = "Events execution sequence";
-        container.appendChild(title);
+    private logEvent(text: string, event?: CustomEvent<IgcGridEditEventArgs>): void {
+        if (event && document.querySelector<HTMLInputElement>(`.editing-controls input[name="${event.type}"]`)?.checked) {
+            event.detail.cancel = true;
+            text += " (canceled)";
+        }
+        const message = document.createElement("p");
+        message.textContent = text;
+        this.eventLog.appendChild(message);
     }
 
     public webGridRowEditEnter(args: CustomEvent<IgcGridEditEventArgs>): void {
-        let container = document.getElementById("container");
-        const message = document.createElement("p");
-        message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.detail.rowID;
-        container.appendChild(message);
+        this.logEvent(`=> 'rowEditEnter' with 'RowID':${args.detail.rowID}`, args);
     }
 
     public webGridRowEdit(args: CustomEvent<IgcGridEditEventArgs>): void {
-        let container = document.getElementById("container");
-        const message = document.createElement("p");
-        message.textContent = `=> 'rowEdit'`;
-        container.appendChild(message);
+        this.logEvent(`=> 'rowEdit'`, args);
     }
 
     public webGridRowEditDone(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
-        let container = document.getElementById("container");
-        const message = document.createElement("p");
-        message.textContent = `=> 'rowEditDone'`;
-        container.appendChild(message);
+        this.logEvent(`=> 'rowEditDone'`);
     }
 
     public webGridRowEditExit(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
-        let container = document.getElementById("container");
-        const message = document.createElement("p");
-        message.textContent = `=> 'rowEditExit'  << End of cycle >>`;
-        container.appendChild(message);
+        this.logEvent(`=> 'rowEditExit'  << End of cycle >>`);
     }
 
     public webGridCellEditEnter(args: CustomEvent<IgcGridEditEventArgs>): void {
-        let container = document.getElementById("container");
-        const message = document.createElement("p");
-        message.textContent = `=> 'cellEditEnter' with 'value':` + args.detail.oldValue, args.detail.cancel;
-        container.appendChild(message);
+        this.logEvent(`=> 'cellEditEnter' with 'value':${args.detail.oldValue}`, args);
     }
 
     public webGridCellEdit(args: CustomEvent<IgcGridEditEventArgs>): void {
-        let container = document.getElementById("container");
-        const message = document.createElement("p");
-        message.textContent = `=> 'cellEdit' with 'newValue':` + args.detail.newValue, args.detail.cancel;
-        container.appendChild(message);
+        this.logEvent(`=> 'cellEdit' with 'newValue':${args.detail.newValue}`, args);
     }
 
     public webGridCellEditDone(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
-        let container = document.getElementById("container");
-        const message = document.createElement("p");
-        message.textContent = `=> 'cellEditDone'`;
-        container.appendChild(message);
+        this.logEvent(`=> 'cellEditDone'`);
     }
 
     public webGridCellEditExit(args: CustomEvent<IgcGridEditDoneEventArgs>): void {
-        let container = document.getElementById("container");
-        const message = document.createElement("p");
-        message.textContent = `=> 'cellEditExit'`;
-        container.appendChild(message);
+        this.logEvent(`=> 'cellEditExit'`);
     }
 
 }
