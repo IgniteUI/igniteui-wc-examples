@@ -1,3 +1,8 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
+igc-checkbox.row-selector {
+    padding: 2px;
+    pointer-events: none;
+}
+

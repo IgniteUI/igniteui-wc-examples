@@ -1,12 +1,16 @@
 import 'igniteui-webcomponents-grids/grids/combined';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-webcomponents-core';
-import { IgcTreeGridComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcTreeGridComponent, IgcRowSelectorTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { defineComponents, IgcCheckboxComponent } from 'igniteui-webcomponents';
+import { html } from 'lit-html';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
-import { IgcRowSelectionEventArgs, IgcGridComponent } from 'igniteui-webcomponents-grids/grids';
+import { IgcRowSelectionEventArgs } from 'igniteui-webcomponents-grids/grids';
 
 import "igniteui-webcomponents-grids/grids/themes/light/bootstrap.css";
 
 import "./index.css";
+
+defineComponents(IgcCheckboxComponent);
 
 export class Sample {
 
@@ -19,6 +23,7 @@ export class Sample {
 
         this._bind = () => {
             treeGrid.data = this.employeesFlatData;
+            treeGrid.rowSelectorTemplate = this.webTreeGridRowSelectorTemplate;
             treeGrid.addEventListener("rowSelectionChanging", this.webTreeGridRowSelectionConditional);
         }
         this._bind();
@@ -44,16 +49,27 @@ export class Sample {
         return this._componentRenderer;
     }
 
+    public webTreeGridRowSelectorTemplate = (ctx: IgcRowSelectorTemplateContext) => {
+        const employee = this.employeesFlatData.find(item => item.ID === ctx.implicit.key);
+        return html`<div class="igx-grid__cbx-padding">
+            <igc-checkbox
+                class="row-selector"
+                aria-label=${ctx.implicit.selected ? 'Deselect row' : 'Select row'}
+                tabindex="-1"
+                ?checked=${ctx.implicit.selected}
+                ?disabled=${employee?.OnPTO !== true}></igc-checkbox>
+        </div>`;
+    };
+
     public webTreeGridRowSelectionConditional(eventArgs: CustomEvent<IgcRowSelectionEventArgs>): void {
         const event = eventArgs.detail;
         if (!event.added.length && event.removed.length) {
             // ignore de-select
             return;
         }
-        var grid = this.treeGrid;
         const originalAddedLength = event.added.length;
 
-        // only allow selection for employees that are not pn PTO
+        // Only allow selection for employees on PTO.
         event.newSelection = event.newSelection.filter(x => x.OnPTO === true);
 
         // cleanup selection if all conditionally selectable rows are already selected
