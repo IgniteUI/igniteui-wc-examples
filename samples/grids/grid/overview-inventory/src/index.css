@@ -1,0 +1,100 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.inventory-grid {
+    --ig-size: var(--ig-size-medium);
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.product__photo {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.product__name {
+    color: var(--ig-gray-900);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*
+ * Storage chip and status dot colours: the drawing's shade on a light surface,
+ * a lighter shade of the same palette colour on a dark one, so they keep their
+ * contrast against the cell. The chip border and its icon share one colour.
+ */
+.storage {
+    --storage-color: light-dark(var(--ig-info-800), var(--ig-info-200));
+}
+
+.storage[variant='warning'] {
+    --storage-color: light-dark(var(--ig-warn-800), var(--ig-warn-300));
+}
+
+.storage[variant='success'] {
+    --storage-color: light-dark(var(--ig-success-800), var(--ig-success-100));
+}
+
+.storage::part(base) {
+    border-color: var(--storage-color);
+}
+
+.storage igc-icon {
+    color: var(--storage-color);
+}
+
+.stock-level {
+    width: 100%;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.status__dot {
+    --status-color: light-dark(var(--ig-success-900), var(--ig-success-100));
+}
+
+.status__dot[variant='warning'] {
+    --status-color: light-dark(var(--ig-warn-500), var(--ig-warn-300));
+}
+
+.status__dot[variant='danger'] {
+    --status-color: light-dark(var(--ig-error-700), var(--ig-error-100));
+}
+
+.status__dot::part(base) {
+    background: var(--status-color);
+    box-shadow: none;
+}
+
+.status__text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Centred, as the two buttons are wider than the cell's content box in some themes. */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+}
+
+/* One icon colour in every theme, so the buttons stay legible on hovered and selected rows. */
+.actions igc-icon-button::part(icon) {
+    color: var(--ig-gray-900);
+}
