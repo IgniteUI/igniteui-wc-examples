@@ -30,7 +30,7 @@ export class Sample {
         var contactInformation = this.contactInformation = document.getElementById('ContactInformation') as IgcColumnGroupComponent;
 
         this._bind = () => {
-            grid.data = this.customersData;
+            grid.data = [...this.customersData];
             gridToolbarExporter1.addEventListener("exportStarted", this.webGridExportEventMultiColumnHeaders);
         }
         this._bind();

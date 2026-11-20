@@ -29,7 +29,7 @@ export class Sample {
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcGridComponent;
         var buttonGroup = document.getElementById('btnGroup') as IgcButtonGroupComponent;
-        grid.data = this.nwindData;
+        grid.data = [...this.nwindData];
         grid.pinning = this.pinningConfig1;
         this.registerAwesomeIcons();
         buttonGroup.addEventListener("igcSelect", (e) => {

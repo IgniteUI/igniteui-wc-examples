@@ -35,7 +35,7 @@ export class Sample {
             propertyEditor.componentRenderer = this.renderer;
             propertyEditor.target = this.grid;
             sizeEditor.changed = this.webGridSetGridSize;
-            grid.data = this.invoicesData;
+            grid.data = [...this.invoicesData];
         }
         this._bind();
 

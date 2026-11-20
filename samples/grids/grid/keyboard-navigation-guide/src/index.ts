@@ -56,7 +56,7 @@ export class Sample {
                     fieldName: "City"
                 }
             ];
-            grid.data = this.invoicesData;
+            grid.data = [...this.invoicesData];
             grid.detailTemplate = this.masterDetailTemplate;
             grid.addEventListener("activeNodeChange", this.onActiveNodeChange);
             grid.addEventListener("gridKeydown", this.gridKeydown);

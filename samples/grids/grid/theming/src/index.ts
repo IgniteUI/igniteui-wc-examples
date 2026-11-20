@@ -28,7 +28,7 @@ export class Sample {
         var themeSwitcher = this.themeSwitcher = document.getElementById('themeSwitcher') as IgcButtonGroupComponent;
 
         this._bind = () => {
-            grid.data = this.invoicesData;
+            grid.data = [...this.invoicesData];
             unitPrice.formatter = this.formatCurrency;
             unitPrice.summaries = CompactSummary;
             themeSwitcher.addEventListener('igcSelect', (e: CustomEvent<string>) => this.selectTheme(e.detail));
