@@ -3,7 +3,10 @@ import {
     ColumnPinningPosition,
     IgcCellTemplateContext,
     IgcColumnComponent,
+    IgcColumnExportingEventArgs,
+    IgcExporterEventArgs,
     IgcGridComponent,
+    IgcGridToolbarExporterComponent,
     IgcRowType,
     SortingDirection
 } from 'igniteui-webcomponents-grids/grids';
@@ -61,6 +64,7 @@ export class Sample {
         const unitPrice = document.getElementById('unitPrice') as IgcColumnComponent;
         const retailPrice = document.getElementById('retailPrice') as IgcColumnComponent;
         const actions = document.getElementById('actions') as IgcColumnComponent;
+        const exporter = document.getElementById('exporter') as IgcGridToolbarExporterComponent;
 
         grid.data = organicFoods;
         grid.sortingExpressions = [{ fieldName: 'ProductName', dir: SortingDirection.Asc, ignoreCase: true }];
@@ -78,6 +82,8 @@ export class Sample {
         stockLevel.bodyTemplate = this.stockLevelTemplate;
         status.bodyTemplate = this.statusTemplate;
         actions.bodyTemplate = this.actionsTemplate;
+
+        exporter.addEventListener('exportStarted', this.excludeActions);
     }
 
     public productTemplate = ({ cell }: IgcCellTemplateContext) => html`
@@ -149,6 +155,18 @@ export class Sample {
         this.grid.navigateTo(row.index, column.visibleIndex, ({ target }: { target: { activate(): void } }) => {
             target.activate();
             this.grid.getCellByKey(row.key, column.field).editMode = true;
+        });
+    }
+
+    /** The Actions column holds only buttons, so it is left out of the exported file. */
+    private excludeActions({ detail }: CustomEvent<IgcExporterEventArgs>): void {
+        const exporter = detail.exporter as any;
+        const columns = exporter.columnExporting.subscribe((column: IgcColumnExportingEventArgs) => {
+            column.cancel = column.header === 'Actions';
+        });
+        const ended = exporter.exportEnded.subscribe(() => {
+            columns.unsubscribe();
+            ended.unsubscribe();
         });
     }
 }
