@@ -1,7 +1,8 @@
-// The product photos, embedded so that the sample also runs as a standalone project.
-import OrganicFoodsImages from './OrganicFoodsImages.json';
+// The product photos as data URIs, keyed by file name, so that the sample also runs as a standalone project.
+import photos from './OrganicFoodsImages.json';
 
 export type StorageType = 'Chilled' | 'Dry' | 'Ambient';
+
 export type StockStatus = 'In stock' | 'Low' | 'Out of stock';
 
 export interface OrganicFood {
@@ -12,7 +13,7 @@ export interface OrganicFood {
     Organic: boolean;
     Storage: StorageType;
     Quantity: number;
-    /** Percent of the target stock, 0-100. */
+    /** Percent of the target stock, 0 to 100. */
     StockLevel: number;
     Unit: string;
     Status: StockStatus;
@@ -23,7 +24,7 @@ export interface OrganicFood {
     Image: string;
 }
 
-export const OrganicFoodsData: OrganicFood[] = [
+export const organicFoods: OrganicFood[] = [
     {
         SKU: 'CC-1042',
         ProductName: 'Cacao cream with erythritol',
@@ -38,7 +39,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 2.95,
         RetailPrice: 4.75,
         ExpiryDate: new Date('2027-11-04T00:00:00'),
-        Image: OrganicFoodsImages['cacao-cream-with-erythritol.jpg']
+        Image: photos['cacao-cream-with-erythritol.jpg']
     },
     {
         SKU: 'CC-1017',
@@ -54,7 +55,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 5.8,
         RetailPrice: 9.28,
         ExpiryDate: new Date('2028-10-31T00:00:00'),
-        Image: OrganicFoodsImages['cocoa-powder-organic.jpg']
+        Image: photos['cocoa-powder-organic.jpg']
     },
     {
         SKU: 'CC-1063',
@@ -70,7 +71,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 1.9,
         RetailPrice: 3.11,
         ExpiryDate: new Date('2026-12-08T00:00:00'),
-        Image: OrganicFoodsImages['creamed-coconut-organic.jpg']
+        Image: photos['creamed-coconut-organic.jpg']
     },
     {
         SKU: 'CC-1005',
@@ -86,7 +87,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 5.4,
         RetailPrice: 8.55,
         ExpiryDate: new Date('2027-09-07T00:00:00'),
-        Image: OrganicFoodsImages['organic-coconut-oil.jpg']
+        Image: photos['organic-coconut-oil.jpg']
     },
     {
         SKU: 'CC-1038',
@@ -102,7 +103,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 2.7,
         RetailPrice: 4.35,
         ExpiryDate: new Date('2028-08-01T00:00:00'),
-        Image: OrganicFoodsImages['raw-cacao-butter.jpg']
+        Image: photos['raw-cacao-butter.jpg']
     },
     {
         SKU: 'CT-2104',
@@ -118,7 +119,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 8.6,
         RetailPrice: 13.25,
         ExpiryDate: new Date('2028-03-15T00:00:00'),
-        Image: OrganicFoodsImages['congo-coffee-beans-organic.jpg']
+        Image: photos['congo-coffee-beans-organic.jpg']
     },
     {
         SKU: 'CT-2087',
@@ -134,7 +135,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 8.9,
         RetailPrice: 13.75,
         ExpiryDate: new Date('2027-02-26T00:00:00'),
-        Image: OrganicFoodsImages['ethiopia-ground-coffee-organic.jpg']
+        Image: photos['ethiopia-ground-coffee-organic.jpg']
     },
     {
         SKU: 'CT-2231',
@@ -150,7 +151,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 3.2,
         RetailPrice: 5.39,
         ExpiryDate: new Date('2026-11-30T00:00:00'),
-        Image: OrganicFoodsImages['green-rooibos-tea-chocolate-dream.jpg']
+        Image: photos['green-rooibos-tea-chocolate-dream.jpg']
     },
     {
         SKU: 'CT-2019',
@@ -166,7 +167,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 2.6,
         RetailPrice: 4.25,
         ExpiryDate: new Date('2029-01-31T00:00:00'),
-        Image: OrganicFoodsImages['moroccan-mint-tea-organic.jpg']
+        Image: photos['moroccan-mint-tea-organic.jpg']
     },
     {
         SKU: 'CT-2156',
@@ -182,7 +183,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 1.7,
         RetailPrice: 2.85,
         ExpiryDate: new Date('2028-05-31T00:00:00'),
-        Image: OrganicFoodsImages['nettle-leaf-tea-organic.jpg']
+        Image: photos['nettle-leaf-tea-organic.jpg']
     },
     {
         SKU: 'CT-2072',
@@ -198,7 +199,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 11.2,
         RetailPrice: 17.35,
         ExpiryDate: new Date('2027-09-13T00:00:00'),
-        Image: OrganicFoodsImages['zen-matcha-green-tea-organic.jpg']
+        Image: photos['zen-matcha-green-tea-organic.jpg']
     },
     {
         SKU: 'GF-3008',
@@ -214,7 +215,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 0.75,
         RetailPrice: 1.25,
         ExpiryDate: new Date('2026-12-15T00:00:00'),
-        Image: OrganicFoodsImages['buckwheat-organic.jpg']
+        Image: photos['buckwheat-organic.jpg']
     },
     {
         SKU: 'GF-3041',
@@ -230,7 +231,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 1.75,
         RetailPrice: 2.85,
         ExpiryDate: new Date('2027-08-05T00:00:00'),
-        Image: OrganicFoodsImages['gluten-free-oat-flour-organic.jpg']
+        Image: photos['gluten-free-oat-flour-organic.jpg']
     },
     {
         SKU: 'GF-3026',
@@ -246,7 +247,7 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 2.05,
         RetailPrice: 3.35,
         ExpiryDate: new Date('2029-03-06T00:00:00'),
-        Image: OrganicFoodsImages['organic-gluten-free-spaghetti.jpg']
+        Image: photos['organic-gluten-free-spaghetti.jpg']
     },
     {
         SKU: 'GF-3015',
@@ -262,6 +263,6 @@ export const OrganicFoodsData: OrganicFood[] = [
         UnitPrice: 2.5,
         RetailPrice: 4.06,
         ExpiryDate: new Date('2027-05-24T00:00:00'),
-        Image: OrganicFoodsImages['rice-flour.jpg']
+        Image: photos['rice-flour.jpg']
     }
 ];

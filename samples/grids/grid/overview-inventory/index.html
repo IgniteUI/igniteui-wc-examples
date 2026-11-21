@@ -14,12 +14,11 @@
 
   <body>
     <div id="root">
-      <div class="container sample ig-typography">
+      <div class="container ig-typography">
         <div class="container fill">
           <igc-grid
             id="grid"
             class="inventory-grid"
-            auto-generate="false"
             primary-key="SKU"
             row-height="51"
             row-selection="multiple"
@@ -38,21 +37,20 @@
               </igc-grid-toolbar-actions>
             </igc-grid-toolbar>
 
-            <!-- Row editing makes every column editable unless it sets editable="false". -->
-            <igc-column id="product" field="ProductName" header="Product" data-type="string" width="304px" sortable="true" editable="false"></igc-column>
-            <igc-column field="SKU" header="SKU" data-type="string" width="88px" sortable="true" editable="false"></igc-column>
-            <igc-column field="Category" header="Category" data-type="string" width="160px" sortable="true" groupable="true" editable="false"></igc-column>
-            <igc-column field="Supplier" header="Supplier" data-type="string" width="156px" sortable="true" groupable="true" editable="true"></igc-column>
+            <igc-column id="product" field="ProductName" header="Product" width="304px" sortable="true" editable="false"></igc-column>
+            <igc-column field="SKU" header="SKU" width="88px" sortable="true" editable="false"></igc-column>
+            <igc-column field="Category" header="Category" width="160px" sortable="true" groupable="true" editable="false"></igc-column>
+            <igc-column field="Supplier" header="Supplier" width="156px" sortable="true" groupable="true" editable="true"></igc-column>
             <igc-column field="Organic" header="Organic" data-type="boolean" width="104px" sortable="true" groupable="true" editable="false"></igc-column>
-            <igc-column id="storage" field="Storage" header="Storage" data-type="string" width="128px" sortable="true" groupable="true" editable="false"></igc-column>
+            <igc-column id="storage" field="Storage" header="Storage" width="128px" sortable="true" groupable="true" editable="false"></igc-column>
             <igc-column field="Quantity" header="Quantity" data-type="number" width="108px" sortable="true" editable="false"></igc-column>
             <igc-column id="stockLevel" field="StockLevel" header="Stock Level" data-type="number" width="132px" sortable="true" editable="false"></igc-column>
-            <igc-column field="Unit" header="Unit" data-type="string" width="120px" sortable="true" editable="false"></igc-column>
-            <igc-column id="status" field="Status" header="Status" data-type="string" width="120px" sortable="true" groupable="true" editable="false"></igc-column>
+            <igc-column field="Unit" header="Unit" width="120px" sortable="true" editable="false"></igc-column>
+            <igc-column id="status" field="Status" header="Status" width="120px" sortable="true" groupable="true" editable="false"></igc-column>
             <igc-column id="unitPrice" field="UnitPrice" header="Unit Price" data-type="currency" width="116px" sortable="true" editable="true"></igc-column>
             <igc-column id="retailPrice" field="RetailPrice" header="Retail Price" data-type="currency" width="124px" sortable="true" editable="true"></igc-column>
             <igc-column field="ExpiryDate" header="Expiry Date" data-type="date" width="124px" sortable="true" editable="true"></igc-column>
-            <igc-column id="actions" header="Actions" width="84px" editable="false" filterable="false" disable-hiding="true" disable-pinning="true"></igc-column>
+            <igc-column id="actions" header="Actions" width="84px" filterable="false" editable="false" disable-hiding="true" disable-pinning="true"></igc-column>
 
             <igc-paginator per-page="15"></igc-paginator>
           </igc-grid>
