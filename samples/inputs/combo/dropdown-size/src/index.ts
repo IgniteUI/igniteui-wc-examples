@@ -20,7 +20,7 @@ export class ComboDropdownSize {
         { label: 'Large', className: 'large' }
     ];
 
-    // the input fields are hidden, so the dropdowns stay open and each one works on its own
+    // the display-only dropdowns stay open when the user clicks outside them
     private keepOpen = (e: Event) => e.preventDefault();
 
     private root = document.getElementById('sample') as HTMLElement;
@@ -30,8 +30,9 @@ export class ComboDropdownSize {
     }
 
     private renderSample() {
+        // the dropdowns are display-only, so inert blocks pointer and keyboard interaction
         const template = html`
-            <div class="sizes">
+            <div class="sizes" inert>
                 ${this.sizes.map(
                     (size) => html`
                         <div class="size">
