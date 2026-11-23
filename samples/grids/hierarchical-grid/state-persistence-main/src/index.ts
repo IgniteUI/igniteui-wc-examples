@@ -20,6 +20,7 @@ export class Sample {
     private grid: IgcHierarchicalGridComponent;
     private gridState: IgcGridStateComponent;
     private columnsLoaded: Promise<void>;
+    private resolveColumnsLoaded: () => void;
     public stateKey = 'grid-state';
 
     public options: IgcGridStateOptions = {
@@ -40,6 +41,7 @@ export class Sample {
 
     constructor() {
         var grid = this.grid = document.getElementById('grid') as IgcHierarchicalGridComponent;
+        this.columnsLoaded = new Promise((resolve) => this.resolveColumnsLoaded = resolve);
         const albumsRowIsland = document.getElementById('albumsRowIsland') as IgcRowIslandComponent;
         const songsRowIsland = document.getElementById('songsRowIsland') as IgcRowIslandComponent;
         const toursRowIsland = document.getElementById('toursRowIsland') as IgcRowIslandComponent;
@@ -78,6 +80,10 @@ export class Sample {
         toursRowIsland.rowSelection = 'multiple';
         toursRowIsland.cellSelection = 'multiple';
         grid.addEventListener("columnInit", (ev: any) => { this.onColumnInit(ev); });
+        // The columns may already be initialized by the time this runs.
+        if (grid.columns?.length) {
+            this.resolveColumnsLoaded();
+        }
         saveStateBtn.addEventListener('click', (ev: any) => { this.saveGridState(); });
         restoreStateBtn.addEventListener('click', (ev: any) => { this.restoreGridState(); });
         resetStateBtn.addEventListener('click', (ev: any) => { this.resetGridState(); });
@@ -90,10 +96,17 @@ export class Sample {
             cb.addEventListener("igcChange", (ev: CustomEvent) => { this.onChange(ev, cb.id); });
         });
 
-        window.addEventListener("load", async () => {
+        // Restore the saved state once the page has loaded. The load event may
+        // already be over when this runs (e.g. when the sample is loaded lazily).
+        const restoreOnLoad = async () => {
             await this.columnsLoaded;
             this.restoreGridState();
-        });
+        };
+        if (document.readyState === "complete") {
+            restoreOnLoad();
+        } else {
+            window.addEventListener("load", restoreOnLoad, { once: true });
+        }
         window.addEventListener("beforeunload", () => { this.saveGridState(); });
     }
 
@@ -150,7 +163,7 @@ export class Sample {
 
     private onColumnInit(event: any) {
         if(event.detail.index === this.grid.columns.length - 1) {
-           this.columnsLoaded = new Promise((resolve) => resolve());
+           this.resolveColumnsLoaded();
         }
     }
 
