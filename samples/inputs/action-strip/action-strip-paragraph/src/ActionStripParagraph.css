@@ -1,0 +1,48 @@
+igc-action-strip {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 0;
+    position: absolute;
+    top: 1rem;
+    z-index: 2;
+}
+
+.parent {
+    padding: 5rem 1rem 1rem 1rem;
+    margin: auto;
+    min-width: 700px;
+    max-width: 1000px;
+    height: 250px;
+    position: relative;
+}
+
+.parent::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(236, 236, 236, 0.404);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1; 
+}
+
+.parent:hover::before {
+    opacity: 1;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.font-italic {
+    font-style: italic;
+}
+
+.font-underlined {
+    text-decoration: underline;
+}
