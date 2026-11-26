@@ -7,7 +7,7 @@ export class OrdersTreeDataItem {
     public ParentID: number;
     public Name: string;
     public Category: string;
-    public OrderDate: string;
+    public OrderDate: string | null;
     public Units: number;
     public UnitPrice: number;
     public Price: number;

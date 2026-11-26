@@ -61,7 +61,7 @@ export class Sample {
                 Units: childRows.map(row => row.Units).reduce((prev, curr) => prev + curr, 0),
                 Price: childRows.map(row => row.UnitPrice).reduce((prev, curr) => prev + curr, 0),
                 UnitPrice: Math.random() * 1000,
-                OrderDate: '',
+                OrderDate: null,
                 Delivered: Math.floor(Math.random()) ? true : false,
                 
             });
