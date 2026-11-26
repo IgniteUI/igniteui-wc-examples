@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Combo Remote Binding</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" type="text/css" />
+</head>
+
+<body>
+  <div id="root">
+    <div class="sample remote-binding">
+      <div class="combo-column">
+        <igc-combo id="combo" outlined label="Products" placeholder="Pick products" placeholder-search="Search…" value-key="ProductID" display-key="ProductName">
+          <span id="selection-hint"></span>
+
+          <div slot="footer">
+            <div class="loading-chunk" id="loading-chunk" hidden>
+              <span id="loading-text"></span>
+              <igc-linear-progress indeterminate hide-label></igc-linear-progress>
+            </div>
+            <div class="combo-summary">
+              <span id="footer-text"></span>
+              <igc-badge variant="info" id="total-badge"></igc-badge>
+            </div>
+          </div>
+        </igc-combo>
+      </div>
+
+      <aside class="monitor" aria-label="Remote binding monitor">
+        <section>
+          <h2 class="monitor-title">Combo state</h2>
+          <dl class="state">
+            <div class="state-row">
+              <dt>data.length</dt>
+              <dd id="state-loaded"></dd>
+            </div>
+            <div class="state-row">
+              <dt>totalItemCount</dt>
+              <dd id="state-total"></dd>
+            </div>
+            <div class="state-row">
+              <dt>loading</dt>
+              <dd id="state-loading"></dd>
+            </div>
+            <div class="state-row">
+              <dt>searchText</dt>
+              <dd id="state-search"></dd>
+            </div>
+            <div class="state-row">
+              <dt>value (ProductID)</dt>
+              <dd id="state-value"></dd>
+            </div>
+          </dl>
+          <div class="selection-values" id="selection-values" hidden>
+            <span id="selection-list"></span>
+            <span class="selection-more" id="selection-more" hidden>
+              <button type="button" class="selection-more-link" id="selection-more-link"></button>
+              <span>· full list in tooltip</span>
+            </span>
+            <igc-tooltip anchor="selection-more-link" class="selection-tooltip" id="selection-tooltip"></igc-tooltip>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="monitor-title log-title">Requests to remote service</h2>
+          <ol class="log" id="log"></ol>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
+
+</body>
+
+</html>
