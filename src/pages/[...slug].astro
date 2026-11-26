@@ -6,10 +6,9 @@
  * (matches what the docs site embeds)
  *
  * Why NOT /samples/{slug}:
- *   The repo has a `samples/` directory where every sample has a package.json
- *   with `"main": "src/index.ts"`. Vite's module resolver would see a request
- *   for /samples/{slug} and resolve it as a Node package, serving raw TS.
- *   Using the slug at root avoids this conflict entirely.
+ *   The repo has a `samples/` directory holding each sample's source, which
+ *   the dev server can also serve. Using the slug at root keeps page URLs
+ *   apart from those source paths.
  */
 
 import SampleLayout from '../layouts/SampleLayout.astro';
@@ -46,11 +45,14 @@ const HTML_SUFFIX = '/index.html';
 
 export function getStaticPaths() {
   // import.meta.glob MUST use literal strings — re-declare here.
-  const pkgs = import.meta.glob('../../samples/**/package.json', {
+  // Only the keys are used. `?raw` keeps the sample modules from being evaluated.
+  const entries = import.meta.glob('../../samples/**/src/index.ts', {
+    query: '?raw',
+    import: 'default',
     eager: true,
-  }) as Record<string, unknown>;
+  }) as Record<string, string>;
 
-  return samplesFromGlobKeys(Object.keys(pkgs))
+  return samplesFromGlobKeys(Object.keys(entries))
     .map(info => ({ params: { slug: info.slug } }));
 }
 

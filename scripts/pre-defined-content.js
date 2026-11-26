@@ -1,8 +1,8 @@
-import rootPkg from "../package.json" with { type: "json" };
+// Placeholder files for a new sample. A sample holds only its own files;
+// tsconfig.json, webpack.config.js and package.json come from
+// scripts/sample-template/ when the code-viewer JSON is generated.
 
-const COMPONENT_VERSION = rootPkg.dependencies["igniteui-webcomponents"];
-const TYPESCRIPT_VERSION = rootPkg.devDependencies["typescript"];
-
+// webpack's HtmlWebpackPlugin injects the bundle, so there is no <script> tag.
 const INDEX_HTML_CONTENT = `
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +25,6 @@ const INDEX_HTML_CONTENT = `
             {{ sampleContent }}
         </div>
     </div>
-    <script type="module" src="src/index.ts"></script>
 </body>
 </html>
 `;
@@ -40,69 +39,8 @@ const CSS_INDEX_CONTENT = `
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 `;
 
-const TSCONFIG_CONTENT = `
-{
-  "compilerOptions": {
-    "target": "ES2023",
-    "module": "esnext",
-    "lib": ["DOM", "ES2023"],
-    "types": ["vite/client"],
-    "allowArbitraryExtensions": true,
-    "skipLibCheck": true,
-
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    "strict": true,
-  },
-  "include": ["src"]
-}
-`;
-
-const PRETTIER_CONFIG_CONTENT = `
-{
-  "printWidth": 250,
-  "tabWidth": 4,
-  "useTabs": false,
-  "semi": true,
-  "singleQuote": false,
-  "trailingComma": "none",
-  "bracketSpacing": true,
-  "jsxBracketSameLine": false,
-  "fluid": false
-}
-`;
-
-const PACKAGE_JSON_CONTENT = `
-{
-    "name": "{{ sampleName }}",
-    "version": "1.0.0",
-    "description": "{{ sampleDescription }}",
-    "main": "index.js",
-    "author": "Infragistics",
-    "scripts": {
-        "dev": "vite",
-        "build": "tsc && vite build",
-        "preview": "vite preview"
-    },
-    "dependencies": {
-        "igniteui-webcomponents": "${COMPONENT_VERSION}"
-    },
-    "devDependencies": {
-        "typescript": "${TYPESCRIPT_VERSION}",
-        "vite": "^8.2.0"
-    }
-}
-`;
-
 export default {
   INDEX_HTML_CONTENT,
   TYPESCRIPT_INDEX_CONTENT,
   CSS_INDEX_CONTENT,
-  TSCONFIG_CONTENT,
-  PRETTIER_CONFIG_CONTENT,
-  PACKAGE_JSON_CONTENT,
 };
