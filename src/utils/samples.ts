@@ -83,21 +83,24 @@ export function extractSampleHtml(rawHtml: string): string {
 // Slug / path utilities
 // ---------------------------------------------------------------------------
 
-/** Glob key → slug, e.g. "../../../../samples/grids/grid/overview/package.json" → "grids/grid/overview" */
+/** Glob key → slug, e.g. "../../samples/grids/grid/overview/src/index.ts" → "grids/grid/overview" */
 export function keyToSlug(key: string, prefix: string, suffix: string): string | null {
   if (!key.startsWith(prefix) || !key.endsWith(suffix)) return null;
   return key.slice(prefix.length, key.length - suffix.length);
 }
 
-/** Prefix/suffix of the package.json glob keys used to enumerate samples. */
+/**
+ * Prefix/suffix of the glob keys used to enumerate samples. A sample is a
+ * folder with an entry module: samples/{group}/{component}/{name}/src/index.ts.
+ */
 const GLOB_PREFIX = '../../samples/';
-const GLOB_SUFFIX = '/package.json';
+const GLOB_SUFFIX = '/src/index.ts';
 
 /** Depth of a valid sample slug: group/component/name */
 const SLUG_DEPTH = 3;
 
 /**
- * Turn the keys of the samples package.json glob (see GLOB_PREFIX/GLOB_SUFFIX)
+ * Turn the keys of the samples src/index.ts glob (see GLOB_PREFIX/GLOB_SUFFIX)
  * into a sorted SampleInfo list, dropping nested node_modules and anything
  * not exactly group/component/name deep.
  *

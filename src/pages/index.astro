@@ -4,9 +4,14 @@ import { samplesFromGlobKeys, buildNavTree } from '../utils/samples';
 import { Image } from 'astro:assets';
 import logoSrc from '../assets/wc.png';
 
-const pkgModules = import.meta.glob('../../samples/**/package.json', { eager: true }) as Record<string, unknown>;
+// Only the keys are used. `?raw` keeps the sample modules from being evaluated.
+const sampleEntries = import.meta.glob('../../samples/**/src/index.ts', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
 
-const groups = buildNavTree(samplesFromGlobKeys(Object.keys(pkgModules)));
+const groups = buildNavTree(samplesFromGlobKeys(Object.keys(sampleEntries)));
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const groupIcon: Record<string, string> = {

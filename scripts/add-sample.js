@@ -9,9 +9,6 @@ const PLACEHOLDER_FILES = new Map(
     "index.html": Content.INDEX_HTML_CONTENT,
     "src/index.ts": Content.TYPESCRIPT_INDEX_CONTENT,
     "src/index.css": Content.CSS_INDEX_CONTENT,
-    "tsconfig.json": Content.TSCONFIG_CONTENT,
-    ".prettierrc": Content.PRETTIER_CONFIG_CONTENT,
-    "package.json": Content.PACKAGE_JSON_CONTENT,
   }),
 );
 

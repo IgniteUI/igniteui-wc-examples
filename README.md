@@ -50,9 +50,7 @@ This repository contains over 300 examples on how to use [Ignite UI for Web Comp
 
 You can preview and browse all samples by opening our [Web Components Browser](https://www.infragistics.com/webcomponents-demos/samples/index). Alternatively, view samples with detailed documentation in the [Web Components Documentation](https://infragistics.com/webcomponentssite/components/general-getting-started.html).
 
-In addition, you can run each sample project individually from the [./samples](./samples) folder or you can run project containing all samples `npm run dev` to browse all samples in one website (see instructions below). You can run each sample on Code Sandbox website by clicking on the **Edit Sandbox** button in a readme file of sample project, e.g.
-
-[./samples/charts/category-chart/overview/README.md](./samples/charts/category-chart/overview/README.md)
+In addition, you can run `npm run dev` to browse all samples in one website (see instructions below), or open a sample in StackBlitz with the **Edit in StackBlitz** button under it in the documentation.
 
 
 ## Setup
@@ -83,7 +81,7 @@ npm run build
 ```
 
 This runs two steps automatically:
-1. **`prebuild`** — generates `public/assets/code-viewer/**/*.json` files used by the docs site to display sample source code tabs
+1. **`prebuild`** — generates `public/assets/code-viewer/**/*.json` files used by the docs site to display sample source code tabs and to open samples in StackBlitz
 2. **`astro build`** — compiles all ~900+ samples into static HTML + JS in `dist/`
 
 To preview the production build locally:
@@ -105,8 +103,10 @@ Opens [http://localhost:4200](http://localhost:4200) serving the `dist/` output 
 
 3. The folder structure must be exactly **`samples/{group}/{component}/{name}/`** with:
    - `index.html` — sample markup (only the content inside `<body>`, wrapped in `<div id="root">`)
-   - `src/index.ts` — sample TypeScript entry point, exporting a class (e.g. `export class Sample { ... }`)
-   - `package.json` — with `"main": "src/index.ts"` (used by Astro to discover the sample)
+   - `src/index.ts` — sample TypeScript entry point, exporting a class (e.g. `export class Sample { ... }`). Astro discovers samples by this file.
+   - optionally `src/index.css` and any data or helper files the sample imports
+
+   Do **not** add `package.json`, `tsconfig.json` or `webpack.config.js` to the sample folder. The code-viewer generator builds them from [./scripts/sample-template](./scripts/sample-template), and adds the packages the sample imports to `package.json`. A Tailwind sample also keeps its `postcss.config.mjs` (and `tailwind.config.cjs`, if it has one) in the sample folder.
 
 4. Implement your sample in `src/index.ts`. Export the class but **do not** instantiate it at the module level — the browser app calls `new Sample()` automatically when the page loads.
 
@@ -126,7 +126,7 @@ npm run generate:code-viewer
 
 ## Updating Ignite UI Package Versions
 
-Do **not** manually edit version strings in `package.json` files.
+Do **not** manually edit version strings in `package.json` files. Package versions live in the root `package.json` and in [./scripts/sample-template/package.json](./scripts/sample-template/package.json); the StackBlitz projects take their versions from these two files.
 
 - Open [./scripts/update-ig.js](./scripts/update-ig.js)
 - Update the version in the `packageUpgrades` array
@@ -145,14 +145,9 @@ npm install
 | `npm run build` | Generate code-viewer JSONs then build static site to `dist/` |
 | `npm run preview` | Serve the `dist/` production build on port 4200 |
 | `npm run generate:code-viewer` | Regenerate `public/assets/code-viewer/**/*.json` |
-| `npm run update:ig` | Update Ignite UI package versions across all sample `package.json` files |
+| `npm run update:ig` | Update Ignite UI package versions in the root and sample-template `package.json` files |
 | `npm run check` | Run Astro TypeScript type-checking |
 
 ## Learn More
 
 To learn more about **Ignite UI for Web Components**, check out the [Web Components documentation](https://www.infragistics.com/products/ignite-ui-web-components/web-components/components/general-getting-started.html).
-- run `npm install`
-- create a pull request with your changes
-- open the [igniteui-xplat-examples](https://github.com/IgniteUI/igniteui-xplat-examples) repo in VS Code
-- update the version of **Ignite UI for WebComponent** packages in the [WC template](https://github.com/IgniteUI/igniteui-xplat-examples/blob/23.2.x/editor-templates/WebComponents/main-template/package.json)
-- create a pull request with your changes in the [igniteui-xplat-examples](https://github.com/IgniteUI/igniteui-xplat-examples) repo

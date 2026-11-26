@@ -7,12 +7,15 @@
  */
 import { samplesFromGlobKeys, buildNavTree } from '../utils/samples';
 
-const pkgModules = import.meta.glob('../../samples/**/package.json', {
+// Only the keys are used. `?raw` keeps the sample modules from being evaluated.
+const sampleEntries = import.meta.glob('../../samples/**/src/index.ts', {
+  query: '?raw',
+  import: 'default',
   eager: true,
-}) as Record<string, unknown>;
+}) as Record<string, string>;
 
 export function GET() {
-  const groups = buildNavTree(samplesFromGlobKeys(Object.keys(pkgModules)));
+  const groups = buildNavTree(samplesFromGlobKeys(Object.keys(sampleEntries)));
 
   return new Response(JSON.stringify({ groups }), {
     headers: { 'Content-Type': 'application/json' },

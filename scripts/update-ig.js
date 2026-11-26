@@ -7,12 +7,12 @@
  *
  * What it does
  * ─────────────
- *  1. Removes all node_modules directories under samples/ (cleanup so
- *     npm install in each sample starts clean).
- *  2. Updates every package.json under samples/ AND the root package.json
- *     so that the IgniteUI (and related) packages use the versions defined
- *     in the `packageUpgrades` array below.
- *  3. Sorts each file's `dependencies` and `devDependencies` keys
+ *  1. Updates the root package.json and the sample template
+ *     (scripts/sample-template/package.json) so that the IgniteUI (and
+ *     related) packages use the versions defined in the `packageUpgrades`
+ *     array below. Samples have no package.json of their own: the
+ *     code-viewer generator builds one per sample from these two files.
+ *  2. Sorts each file's `dependencies` and `devDependencies` keys
  *     alphabetically, mirroring what the Gulp task did.
  *
  * Usage
@@ -34,8 +34,8 @@ const REPO_ROOT = path.resolve(__dirname, "..");
 
 // Package version targets
 //
-// Change any version here and re-run `npm run update:ig` — every
-// package.json in samples/ (and the root) will be updated automatically.
+// Change any version here and re-run `npm run update:ig` — the root
+// package.json and the sample template will be updated automatically.
 //
 // To target a ProGet (internal) feed instead of public npm, prefix the name:
 //   { version: "7.0.0", name: "@infragistics/igniteui-webcomponents-core" }
@@ -81,60 +81,10 @@ function sortByKeys(obj) {
   );
 }
 
-/** Recursively find all package.json files under dir, skipping node_modules */
-async function findPackageJsonFiles(dir, results = []) {
-  const entries = await fsp.readdir(dir, { withFileTypes: true });
-  await Promise.all(
-    entries.map(async (entry) => {
-      if (entry.name === "node_modules") return;
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        await findPackageJsonFiles(full, results);
-      } else if (entry.name === "package.json") {
-        results.push(full);
-      }
-    }),
-  );
-  return results;
-}
-
 // Main
 
 async function run() {
-  // Step 1: clean sample node_modules
-  console.log("Cleaning node_modules from samples/...");
-  const samplesRoot = path.join(REPO_ROOT, "samples");
-  let cleanCount = 0;
-
-  async function cleanNodeModules(dir) {
-    const entries = await fsp.readdir(dir, { withFileTypes: true });
-    await Promise.all(
-      entries.map(async (entry) => {
-        const full = path.join(dir, entry.name);
-        if (entry.isDirectory()) {
-          if (entry.name === "node_modules") {
-            await fsp.rm(full, { recursive: true, force: true });
-            cleanCount++;
-            console.log(`  removed: ${path.relative(REPO_ROOT, full)}`);
-          } else {
-            await cleanNodeModules(full);
-          }
-        }
-      }),
-    );
-  }
-
-  try {
-    await fsp.access(samplesRoot);
-    await cleanNodeModules(samplesRoot);
-  } catch {
-    // samplesRoot does not exist — nothing to clean
-  }
-  console.log(
-    `Removed ${cleanCount} node_modules director${cleanCount === 1 ? "y" : "ies"}.\n`,
-  );
-
-  // Step 2: build package name → upgrade mapping
+  // Step 1: build package name → upgrade mapping
   // Strip @infragistics/ prefix so we match both public npm and ProGet names
   const mappings = {};
   for (const item of packageUpgrades) {
@@ -142,10 +92,10 @@ async function run() {
     mappings[id] = item;
   }
 
-  // Step 3: update package.json files
+  // Step 2: update package.json files
   const targets = [
     path.join(REPO_ROOT, "package.json"),
-    ...(await findPackageJsonFiles(samplesRoot)),
+    path.join(REPO_ROOT, "scripts", "sample-template", "package.json"),
   ];
 
   console.log(`Processing ${targets.length} package.json file(s)...`);
