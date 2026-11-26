@@ -13,7 +13,7 @@ export class Sample {
   private _bind: () => void;
   private _perPage: number = 15;
   private pager: IgcPaginatorComponent;
-  private _totalRecordsCount: number;
+  private _totalRecordsCount: number = 0;
 
   public get perPage(): number {
       return this.pager.perPage || this._perPage;
@@ -34,10 +34,6 @@ export class Sample {
       this.pager = document.getElementById('paginator') as IgcPaginatorComponent;
       
       this._bind = () => {
-        window.addEventListener("load", () => {
-          this.loadData(this.page,this.perPage);
-        });
-
         this.pager.addEventListener("perPageChange", ((args: CustomEvent<any>) => {
           this.perPage = args.detail;
           this.loadData(this.page, this.perPage);
@@ -50,6 +46,7 @@ export class Sample {
       }
 
       this._bind();
+      this.loadData(this.page, this._perPage);
   }
 
   private updateUI(): void {
@@ -58,7 +55,7 @@ export class Sample {
     }
   }
 
-  private loadData(pageIndex?: number, pageSize?: number): void {
+  private loadData(pageIndex: number, pageSize: number): void {
     this.grid.isLoading = true;
     
     RemotePagingService.getDataWithPaging(pageIndex,pageSize)
