@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -13,15 +14,7 @@
 
 <body>
   <div id="root">
-    <div class="container sample center">
-      <igc-button onclick="dialog.show()" variant="contained">Show Dialog</igc-button>
-
-      <igc-dialog id="dialog" title="Confirmation">
-        <p>Are you sure you want to delete the Annual_Report_2016.pdf and Annual_Report_2017.pdf files?</p>
-        <igc-button slot="footer" onclick="dialog.hide()" variant="flat">Cancel</igc-button>
-        <igc-button slot="footer" onclick="dialog.hide()" variant="flat">OK</igc-button>
-      </igc-dialog>
-    </div>
+    <div class="sample" id="sample"></div>
   </div>
 
   <!-- This script is needed only for parcel and it will be excluded for webpack -->

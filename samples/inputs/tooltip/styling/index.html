@@ -14,11 +14,27 @@
 
 <body>
   <div id="root">
-    <div class="container sample center">
-      <igc-avatar id="avatar" src="https://dl.infragistics.com/x/img/avatars/10.jpg"
-        shape="circle">
-      </igc-avatar>
-      <igc-tooltip id="tool1" anchor="avatar" with-arrow>Her name is Madelyn James</igc-tooltip>
+    <div class="sample">
+      <igc-list id="status" class="trigger">
+        <igc-list-item>
+          <div slot="start" class="avatar">
+            <igc-avatar src="https://dl.infragistics.com/x/img/tooltip/tooltip-person.jpg" shape="circle" alt="Aron Watson"></igc-avatar>
+            <igc-badge variant="danger">
+              <igc-icon name="block" collection="material"></igc-icon>
+            </igc-badge>
+          </div>
+          <span slot="title">Aron Watson</span>
+        </igc-list-item>
+      </igc-list>
+      <igc-tooltip anchor="status" placement="bottom-end" with-arrow class="status-tooltip">
+        <igc-icon name="block" collection="material"></igc-icon>
+        <span>
+          My notifications are silenced to focus. Urgent matters only, please,
+          otherwise I'll reply when I'm free.
+        </span>
+      </igc-tooltip>
+      <igc-date-picker id="registration" class="registration" outlined placeholder="First Registration"></igc-date-picker>
+      <igc-tooltip anchor="registration" placement="bottom-end" class="hint-tooltip" message="The date when your car was first registered"></igc-tooltip>
     </div>
   </div>
 
