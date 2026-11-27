@@ -1,13 +1,30 @@
 .row-drag-demo {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+    grid-template-columns: min(25%, 8.5rem) minmax(0, 1fr);
+    gap: clamp(0.75rem, 2vw, 1.5rem);
     box-sizing: border-box;
     height: 100%;
     min-height: 300px;
     padding: 0.5rem;
 }
 
-.row-drag-demo igc-grid {
-    min-width: 0;
+.drop-area {
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 0.25rem;
+    align-self: center;
+    box-sizing: border-box;
+    min-height: 10rem;
+    padding: 0.5rem 0.25rem;
+    border: 1px dashed #131313;
+    background: #d3d3d3;
+    color: #131313;
+    text-align: center;
+}
+
+.drop-area.drag-over {
+    border-color: #b3261e;
+    background: #fce8e6;
+    color: #8c1d18;
 }

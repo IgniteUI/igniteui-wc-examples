@@ -1,40 +1,70 @@
 import 'igniteui-webcomponents-grids/grids/combined';
-import type { IgcGridComponent, IgcRowDragEndEventArgs } from 'igniteui-webcomponents-grids/grids';
+import type { IgcGridComponent, IgcGridEmptyTemplateContext } from 'igniteui-webcomponents-grids/grids';
+import { defineComponents, IgcIconComponent, registerIconFromText } from 'igniteui-webcomponents';
 import { html } from 'lit-html';
 
 import 'igniteui-webcomponents-grids/grids/themes/light/bootstrap.css';
 import './index.css';
 
+defineComponents(IgcIconComponent);
+registerIconFromText('drag_handle',
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"/></svg>',
+    'material');
+registerIconFromText('remove',
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 11h14v2H5z"/></svg>',
+    'material');
+
 export class Sample {
     constructor() {
-        const sourceGrid = document.getElementById('sourceGrid') as IgcGridComponent;
-        const targetGrid = document.getElementById('targetGrid') as IgcGridComponent;
+        const grid = document.getElementById('grid') as IgcGridComponent;
+        grid.dragIndicatorIconTemplate = this.dragIndicatorIconTemplate;
 
-        sourceGrid.data = [
+        grid.data = [
             { ID: 1, Company: 'Alfreds Futterkiste', City: 'Berlin' },
             { ID: 2, Company: 'Around the Horn', City: 'London' },
             { ID: 3, Company: 'Berglunds snabbkop', City: 'Lulea' },
             { ID: 4, Company: 'Bon app', City: 'Marseille' },
             { ID: 5, Company: 'Eastern Connection', City: 'London' },
         ];
-        targetGrid.data = [];
+        this.setupDeleteDropArea(grid, document.getElementById('dropArea')!);
+    }
 
-        sourceGrid.dragIndicatorIconTemplate = () => html`
-            <svg class="custom-drag-handle" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 9h14M5 15h14" fill="none" stroke="currentColor" stroke-width="2"/>
-            </svg>
-        `;
+    public dragIndicatorIconTemplate = (_ctx: IgcGridEmptyTemplateContext) => {
+        return html`<igc-icon name="drag_handle" collection="material" aria-hidden="true"></igc-icon>`;
+    };
 
-        sourceGrid.addEventListener('rowDragEnd', (event: CustomEvent<IgcRowDragEndEventArgs>) => {
-            const { dragDirective, dragData } = event.detail;
-            const ghost = dragDirective.ghostElement;
-            if (!ghost) return;
+    private setupDeleteDropArea(grid: IgcGridComponent, dropArea: HTMLElement): void {
+        const isOverDropArea = ({ clientX, clientY }: PointerEvent) => {
+            const { left, right, top, bottom } = dropArea.getBoundingClientRect();
+            return clientX >= left && clientX < right && clientY >= top && clientY < bottom;
+        };
+        let shouldDelete = false;
+        let dragListener: AbortController | undefined;
+        grid.addEventListener('rowDragStart', ({ detail }) => {
+            dragListener?.abort();
+            shouldDelete = false;
+            dragListener = new AbortController();
+            const { signal } = dragListener;
+            window.addEventListener('pointermove', event => {
+                const overDropArea = isOverDropArea(event);
+                dropArea.classList.toggle('drag-over', overDropArea);
+                const ghost: HTMLElement | null = detail.dragDirective.ghostElement;
+                ghost?.querySelector('igc-icon[collection="material"]')
+                    ?.setAttribute('name', overDropArea ? 'remove' : 'drag_handle');
+            }, { capture: true, signal });
+            window.addEventListener('pointerup', event => {
+                shouldDelete = isOverDropArea(event);
+            }, {
+                capture: true, once: true, signal,
+            });
+        });
 
-            const { x, y } = ghost.getBoundingClientRect();
-            const { left, right, top, bottom } = targetGrid.getBoundingClientRect();
-            if (x >= left && x <= right && y >= top && y <= bottom) {
-                targetGrid.addRow(dragData.data);
-                sourceGrid.deleteRow(dragData.key);
+        grid.addEventListener('rowDragEnd', ({ detail }) => {
+            dragListener?.abort();
+            dropArea.classList.remove('drag-over');
+            if (shouldDelete) {
+                shouldDelete = false;
+                grid.deleteRow(detail.dragData.key);
             }
         });
     }

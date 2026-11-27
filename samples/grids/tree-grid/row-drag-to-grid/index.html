@@ -1,27 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tree Grid Custom Drag Handle</title>
+  <title>Sample | Ignite UI | Web Components | infragistics</title>
+  <meta charset="UTF-8" />
+
+  <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/wc.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web" />
+  <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" />
+  <link rel="stylesheet" href="/src/index.css" type="text/css" />
+
 </head>
+
 <body>
-    <div id="root">
-        <div class="row-drag-demo">
-            <div id="dropArea" class="drop-area">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7" />
-                </svg>
-                <span>Drag a row here to delete it</span>
-            </div>
-            <igc-tree-grid row-draggable="true" id="grid" aria-label="Employees"
-                           auto-generate="false" primary-key="ID" child-data-key="Reports" height="100%">
-                <igc-column field="Employee" header="Employee"></igc-column>
-                <igc-column field="Role" header="Role"></igc-column>
-            </igc-tree-grid>
+  <div id="root">
+    <div class="container sample">
+      <div class="row-drag-demo">
+        <div id="dropArea" class="drop-area">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7" />
+          </svg>
+          <span>Drag a row here to delete it</span>
         </div>
+        <igc-tree-grid row-draggable="true" id="grid" aria-label="Employees"
+                       auto-generate="false" primary-key="ID" child-data-key="Reports" height="100%">
+          <igc-column field="Employee" header="Employee"></igc-column>
+          <igc-column field="Role" header="Role"></igc-column>
+        </igc-tree-grid>
+      </div>
     </div>
-    <script type="module" src="src/index.ts"></script>
+  </div>
+
+  <!-- This script is needed only for parcel and it will be excluded for webpack -->
+  <% if (false) { %>
+    <script src="src/index.ts"></script>
+    <% } %>
 </body>
+
 </html>
